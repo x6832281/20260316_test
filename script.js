@@ -1,17 +1,50 @@
+// 搜索引擎配置
+const SEARCH_ENGINES = {
+    google: { url: 'https://www.google.com/search', param: 'q' },
+    bing: { url: 'https://www.bing.com/search', param: 'q' },
+    yandex: { url: 'https://yandex.com/search/', param: 'text' },
+    yahoo: { url: 'https://search.yahoo.com/search', param: 'p' },
+    baidu: { url: 'https://www.baidu.com/s', param: 'wd' }
+};
+
+// 搜索功能
 function search(engine) {
-    const query = document.getElementById('search-input').value.trim();
-    if (query) {
-        const searchEngines = {
-            google: `https://www.google.com/search?q=${encodeURIComponent(query)}`,
-            bing: `https://www.bing.com/search?q=${encodeURIComponent(query)}`,
-            yandex: `https://yandex.com/search/?text=${encodeURIComponent(query)}`,
-            yahoo: `https://search.yahoo.com/search?p=${encodeURIComponent(query)}`,
-            baidu: `https://www.baidu.com/s?wd=${encodeURIComponent(query)}`
-        };
-        
-        const url = searchEngines[engine];
-        if (url) {
-            window.open(url, '_blank');
-        }
-    }
+    const input = document.getElementById('search-input');
+    if (!input) return;
+    
+    const query = input.value.trim();
+    if (!query) return;
+    
+    const config = SEARCH_ENGINES[engine];
+    if (!config) return;
+    
+    const url = `${config.url}?${config.param}=${encodeURIComponent(query)}`;
+    window.open(url, '_blank', 'noopener,noreferrer');
 }
+
+// 键盘事件处理
+document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('search-input');
+    if (!searchInput) return;
+    
+    // 回车键搜索（默认使用Google）
+    searchInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            search('google');
+        }
+    });
+    
+    // 搜索按钮事件委托
+    const searchButtons = document.querySelector('.search-buttons');
+    if (searchButtons) {
+        searchButtons.addEventListener('click', (e) => {
+            const button = e.target.closest('.search-btn');
+            if (!button) return;
+            
+            const engine = button.dataset.engine;
+            if (engine) {
+                search(engine);
+            }
+        });
+    }
+});
