@@ -33,6 +33,12 @@
                         <p class="section-subtitle"></p>
                     </div>
                     <div class="tool-grid">
+                        <a href="https://github.com/" target="_blank" class="tool-card-link" aria-label="GitHub - 全球最大的代码托管平台">
+                            <article class="tool-card">
+                                <h2>GitHub</h2>
+                                <p>全球最大的代码托管平台</p>
+                            </article>
+                        </a>
                         <a href="https://www.weidus.com/" target="_blank" class="tool-card-link" aria-label="维度导航 - 专注每日推荐优质免费资源网址的导航">
                             <article class="tool-card">
                                 <h2>维度导航</h2>
@@ -76,29 +82,35 @@
                 </section>
             </section>
 
-            <aside class="sidebar">
-                <section class="sidebar-section" aria-label="留言板">
-                    <h3 class="sidebar-title">留言板</h3>
-                    <div class="message-board">
-                        <form id="message-form" class="message-form">
-                            <div class="form-group">
-                                <label for="name" class="form-label">名字</label>
-                                <input type="text" id="name" class="form-input" placeholder="请输入您的名字" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="message" class="form-label">留言内容</label>
-                                <textarea id="message" class="form-textarea" placeholder="请输入您的留言" rows="4" required></textarea>
-                            </div>
-                            <button type="submit" class="form-submit">提交留言</button>
-                        </form>
-                        <div id="message-list" class="message-list">
-                            <!-- 留言将显示在这里 -->
-                        </div>
+            <aside class="message-display-sidebar">
+                <section class="sidebar-section" aria-label="留言展示">
+                    <h3 class="sidebar-title">留言展示</h3>
+                    <div id="message-list" class="message-list">
+                        <!-- 留言将显示在这里 -->
                     </div>
                 </section>
             </aside>
 
         </main>
+
+        <aside class="sidebar">
+            <section class="sidebar-section" aria-label="留言板">
+                <h3 class="sidebar-title">留言板</h3>
+                <div class="message-board">
+                    <form id="message-form" class="message-form">
+                        <div class="form-group">
+                            <label for="name" class="form-label">名字</label>
+                            <input type="text" id="name" class="form-input" placeholder="请输入您的名字" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" class="form-label">留言内容</label>
+                            <textarea id="message" class="form-textarea" placeholder="请输入您的留言" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="form-submit">提交留言</button>
+                    </form>
+                </div>
+            </section>
+        </aside>
 
         <footer class="footer">
             <p>&copy; 2026 AI Tools Magazine. All rights reserved.</p>

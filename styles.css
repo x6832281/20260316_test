@@ -260,6 +260,7 @@ body::before {
     align-items: start;
     gap: 30px;
     position: relative;
+    flex-direction: row;
 }
 
 .content {
@@ -386,11 +387,24 @@ body::before {
 }
 
 .sidebar {
-    width: 280px;
+    width: 240px;
     position: fixed;
     left: 20px;
     bottom: 20px;
-    max-height: 400px;
+    max-height: 350px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 249, 245, 0.95) 100%);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--box-shadow-soft);
+    border: 2px solid rgba(255, 182, 193, 0.15);
+    z-index: 100;
+}
+
+.message-display-sidebar {
+    width: 280px;
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    max-height: 500px;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 249, 245, 0.95) 100%);
     border-radius: var(--border-radius-md);
     box-shadow: var(--box-shadow-soft);
@@ -401,7 +415,7 @@ body::before {
 .sidebar-section {
     background: transparent;
     border-radius: var(--border-radius-md);
-    padding: 24px 20px;
+    padding: 18px 16px;
     margin-bottom: 0;
     box-shadow: none;
     border: none;
@@ -410,12 +424,12 @@ body::before {
 
 .sidebar-title {
     font-family: var(--font-display);
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 700;
     color: var(--color-text-primary);
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     position: relative;
-    padding-bottom: 12px;
+    padding-bottom: 10px;
 }
 
 .sidebar-title::after {
@@ -518,23 +532,23 @@ body::before {
 .message-board {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 16px;
 }
 
 .message-form {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
 }
 
 .form-group {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 4px;
 }
 
 .form-label {
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 600;
     color: var(--color-text-primary);
     font-family: var(--font-secondary);
@@ -562,17 +576,17 @@ body::before {
 
 .form-textarea {
     resize: vertical;
-    min-height: 80px;
+    min-height: 60px;
 }
 
 .form-submit {
-    padding: 10px 20px;
+    padding: 8px 16px;
     background: linear-gradient(135deg, var(--color-pink) 0%, var(--color-pink-light) 100%);
     border: none;
     border-radius: var(--border-radius-md);
     color: white;
     font-family: var(--font-secondary);
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -587,8 +601,8 @@ body::before {
 .message-list {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    max-height: 200px;
+    gap: 10px;
+    max-height: 160px;
     overflow-y: auto;
 }
 
@@ -596,7 +610,7 @@ body::before {
     background: rgba(255, 255, 255, 0.8);
     border: 2px solid rgba(255, 182, 193, 0.2);
     border-radius: var(--border-radius-sm);
-    padding: 12px;
+    padding: 10px;
     position: relative;
 }
 
@@ -612,23 +626,23 @@ body::before {
 }
 
 .message-author {
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 700;
     color: var(--color-text-primary);
-    margin-bottom: 6px;
+    margin-bottom: 4px;
     font-family: var(--font-secondary);
 }
 
 .message-content {
-    font-size: 12px;
+    font-size: 11px;
     color: var(--color-text-secondary);
-    line-height: 1.6;
+    line-height: 1.5;
 }
 
 .message-time {
-    font-size: 10px;
+    font-size: 9px;
     color: var(--color-text-secondary);
-    margin-top: 6px;
+    margin-top: 4px;
     text-align: right;
     opacity: 0.7;
 }
