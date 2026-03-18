@@ -4,7 +4,8 @@ const SEARCH_ENGINES = {
     bing: { url: 'https://www.bing.com/search', param: 'q' },
     yandex: { url: 'https://yandex.com/search/', param: 'text' },
     yahoo: { url: 'https://search.yahoo.com/search', param: 'p' },
-    baidu: { url: 'https://www.baidu.com/s', param: 'wd' }
+    baidu: { url: 'https://www.baidu.com/s', param: 'wd' },
+    doubao: { url: 'https://www.doubao.com/search', param: 'q' }
 };
 
 // 搜索功能
