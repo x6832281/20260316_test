@@ -397,6 +397,24 @@ body::before {
     box-shadow: var(--box-shadow-soft);
     border: 2px solid rgba(255, 182, 193, 0.15);
     z-index: 100;
+    transition: all 0.3s ease;
+}
+
+.sidebar .message-board {
+    display: none;
+}
+
+.sidebar:hover .message-board {
+    display: flex;
+}
+
+.sidebar:hover {
+    max-height: 350px;
+}
+
+.sidebar:not(:hover) {
+    max-height: 60px;
+    overflow: hidden;
 }
 
 .message-display-sidebar {

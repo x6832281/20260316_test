@@ -1,3 +1,62 @@
+// 初始化 Supabase（替换为你的 Project URL 和 anon key）
+const supabaseUrl = 'https://wutixqqiuksglbijggdu.supabase.co';
+const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind1dGl4cXFpdWtzZ2xiaWpnZ2R1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM4MzQ5NzAsImV4cCI6MjA4OTQxMDk3MH0.6y_uZrcSqcjOCz-8EaXZHmmnD28OAkcyNNBkX5JySBU';
+const supabase = createClient(supabaseUrl, supabaseAnonKey);
+
+// 留言板功能
+const messageForm = document.getElementById('message-form');
+const messageList = document.getElementById('message-list');
+
+if (messageForm && messageList) {
+    // 提交留言
+    messageForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const name = document.getElementById('name').value;
+        const message = document.getElementById('message').value;
+        
+        if (name && message) {
+            // 保存到 Supabase
+            const { error } = await supabase
+                .from('messages')
+                .insert({ name, message });
+            
+            if (error) {
+                console.error('提交失败:', error);
+            } else {
+                messageForm.reset();
+                loadMessages(); // 重新加载留言
+            }
+        }
+    });
+    
+    // 加载留言
+    async function loadMessages() {
+        const { data: messages, error } = await supabase
+            .from('messages')
+            .select('*')
+            .order('created_at', { ascending: false });
+        
+        if (error) {
+            console.error('加载失败:', error);
+        } else {
+            messageList.innerHTML = '';
+            messages.forEach(msg => {
+                const messageItem = document.createElement('div');
+                messageItem.className = 'message-item';
+                messageItem.innerHTML = `
+                    <div class="message-author">${msg.name}</div>
+                    <div class="message-content">${msg.message}</div>
+                    <div class="message-time">${new Date(msg.created_at).toLocaleString('zh-CN')}</div>
+                `;
+                messageList.appendChild(messageItem);
+            });
+        }
+    }
+    
+    // 初始加载
+    loadMessages();
+}
 // 搜索引擎配置
 const SEARCH_ENGINES = {
     google: { url: 'https://www.google.com/search', param: 'q' },
@@ -47,62 +106,5 @@ document.addEventListener('DOMContentLoaded', () => {
                 search(engine);
             }
         });
-    }
-    
-    // 留言板功能
-    const messageForm = document.getElementById('message-form');
-    const messageList = document.getElementById('message-list');
-    
-    if (messageForm && messageList) {
-        messageForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('name').value;
-            const message = document.getElementById('message').value;
-            
-            if (name && message) {
-                const now = new Date();
-                const time = now.toLocaleString('zh-CN', {
-                    year: 'numeric',
-                    month: '2-digit',
-                    day: '2-digit',
-                    hour: '2-digit',
-                    minute: '2-digit'
-                });
-                
-                const messageItem = document.createElement('div');
-                messageItem.className = 'message-item';
-                messageItem.innerHTML = `
-                    <div class="message-author">${name}</div>
-                    <div class="message-content">${message}</div>
-                    <div class="message-time">${time}</div>
-                `;
-                
-                messageList.prepend(messageItem);
-                messageForm.reset();
-                
-                // 保存留言到本地存储
-                const messages = JSON.parse(localStorage.getItem('messages') || '[]');
-                messages.unshift({ name, message, time });
-                localStorage.setItem('messages', JSON.stringify(messages));
-            }
-        });
-        
-        // 加载本地存储的留言
-        function loadMessages() {
-            const messages = JSON.parse(localStorage.getItem('messages') || '[]');
-            messages.forEach(msg => {
-                const messageItem = document.createElement('div');
-                messageItem.className = 'message-item';
-                messageItem.innerHTML = `
-                    <div class="message-author">${msg.name}</div>
-                    <div class="message-content">${msg.message}</div>
-                    <div class="message-time">${msg.time}</div>
-                `;
-                messageList.appendChild(messageItem);
-            });
-        }
-        
-        loadMessages();
     }
 });
