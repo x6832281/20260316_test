@@ -173,12 +173,36 @@ if (messageForm && messageList && messageDisplaySidebar) {
                 toggleMessageDisplay(true);
             }
         )
-        .subscribe();
+        .subscribe((status) => {
+            console.log('实时订阅状态:', status);
+        });
     
     // 页面关闭时取消订阅
     window.addEventListener('beforeunload', () => {
         subscription.unsubscribe();
     });
+    
+    // 备用方案：定期轮询检查新留言（每5秒）
+    let lastMessageCount = 0;
+    setInterval(async () => {
+        try {
+            const { data: messages, error } = await supabaseClient
+                .from('message')
+                .select('*', { count: 'exact', head: true });
+            
+            if (!error && messages) {
+                const currentCount = messages.length;
+                if (currentCount > lastMessageCount) {
+                    console.log('检测到新留言（轮询）');
+                    loadMessages();
+                    toggleMessageDisplay(true);
+                }
+                lastMessageCount = currentCount;
+            }
+        } catch (err) {
+            console.error('轮询检查失败:', err);
+        }
+    }, 5000);
 }
 // 搜索引擎配置
 const SEARCH_ENGINES = {
