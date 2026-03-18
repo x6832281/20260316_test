@@ -135,24 +135,21 @@ body::before {
 
 .blood {
     opacity: 0;
-    font-size: 16px;
+    width: 8px;
+    height: 8px;
+    background: radial-gradient(circle, #ff0000 0%, #cc0000 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 4px rgba(255, 0, 0, 0.6);
 }
 
-.blood-1 {
-    animation: bloodSplash1 5s linear infinite;
-}
-
-.blood-2 {
-    animation: bloodSplash2 5s linear infinite;
-}
-
-.blood-3 {
-    animation: bloodSplash3 5s linear infinite;
-}
-
-.blood-4 {
-    animation: bloodSplash4 5s linear infinite;
-}
+.blood-1 { animation: bloodSplash1 5s linear infinite; }
+.blood-2 { animation: bloodSplash2 5s linear infinite; }
+.blood-3 { animation: bloodSplash3 5s linear infinite; }
+.blood-4 { animation: bloodSplash4 5s linear infinite; }
+.blood-5 { animation: bloodSplash5 5s linear infinite; }
+.blood-6 { animation: bloodSplash6 5s linear infinite; }
+.blood-7 { animation: bloodSplash7 5s linear infinite; }
+.blood-8 { animation: bloodSplash8 5s linear infinite; }
 
 .flower {
     animation: flowerBloom 5s linear infinite;
@@ -303,20 +300,108 @@ body::before {
     }
 }
 
+@keyframes bloodSplash5 {
+    0%, 42% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0);
+    }
+    43% {
+        opacity: 1;
+        transform: translate(-100%, -30%) scale(0.5);
+    }
+    50% {
+        opacity: 1;
+        transform: translate(-140%, -10%) scale(1);
+    }
+    60% {
+        opacity: 0;
+        transform: translate(-160%, 10%) scale(0.8);
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes bloodSplash6 {
+    0%, 42% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0);
+    }
+    43% {
+        opacity: 1;
+        transform: translate(0%, -100%) scale(0.5);
+    }
+    50% {
+        opacity: 1;
+        transform: translate(30%, -140%) scale(1);
+    }
+    60% {
+        opacity: 0;
+        transform: translate(50%, -160%) scale(0.8);
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes bloodSplash7 {
+    0%, 42% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0);
+    }
+    43% {
+        opacity: 1;
+        transform: translate(-60%, 0%) scale(0.5);
+    }
+    50% {
+        opacity: 1;
+        transform: translate(-90%, 40%) scale(1);
+    }
+    60% {
+        opacity: 0;
+        transform: translate(-110%, 70%) scale(0.8);
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes bloodSplash8 {
+    0%, 42% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0);
+    }
+    43% {
+        opacity: 1;
+        transform: translate(40%, -60%) scale(0.5);
+    }
+    50% {
+        opacity: 1;
+        transform: translate(80%, -90%) scale(1);
+    }
+    60% {
+        opacity: 0;
+        transform: translate(110%, -110%) scale(0.8);
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
 @keyframes flowerBloom {
-    0%, 55% {
+    0%, 60% {
         opacity: 0;
         transform: translate(-50%, -50%) scale(0) rotate(0deg);
     }
-    60% {
+    65% {
         opacity: 1;
         transform: translate(-50%, -50%) scale(0.5) rotate(180deg);
     }
-    70% {
+    75% {
         opacity: 1;
         transform: translate(-50%, -50%) scale(1.2) rotate(360deg);
     }
-    85% {
+    90% {
         opacity: 1;
         transform: translate(-50%, -50%) scale(1) rotate(360deg);
     }
