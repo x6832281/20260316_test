@@ -9,12 +9,12 @@ const messageForm = document.getElementById('message-form');
 const messageList = document.getElementById('message-list');
 const messageDisplaySidebar = document.querySelector('.message-display-sidebar');
 
-// 默认折叠状态
-let isMessageDisplayExpanded = false;
+// 默认展开状态
+let isMessageDisplayExpanded = true;
 
 if (messageForm && messageList && messageDisplaySidebar) {
-    // 设置默认折叠状态
-    messageDisplaySidebar.classList.add('collapsed');
+    // 设置默认展开状态
+    messageDisplaySidebar.classList.add('expanded');
     
     // 点击标题切换展开/折叠
     const sidebarTitle = messageDisplaySidebar.querySelector('.sidebar-title');
