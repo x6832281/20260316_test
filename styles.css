@@ -112,12 +112,13 @@ body::before {
 .search-section {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 249, 245, 0.9) 100%);
     border-radius: var(--border-radius-lg);
-    padding: 40px 50px;
+    padding: 40px 20px;
     margin-bottom: 30px;
     position: relative;
     box-shadow: var(--box-shadow-soft);
     backdrop-filter: blur(10px);
     border: 2px solid rgba(255, 182, 193, 0.2);
+    max-width: 100%;
 }
 
 .search-section::before {
@@ -319,7 +320,7 @@ body::before {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    max-width: 910px;
+    max-width: 100%;
 }
 
 .tool-card-link {
@@ -381,8 +382,11 @@ body::before {
 }
 
 .tool-card p {
-    font-size: 13px;
+    font-size: 12px;
     color: var(--color-text-secondary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     line-height: 1.7;
     font-family: var(--font-body);
 }
