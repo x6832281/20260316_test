@@ -125,6 +125,28 @@ if (messageForm && messageList) {
     
     // 初始加载
     loadMessages();
+    
+    // 实时订阅 - 监听新留言
+    const subscription = supabaseClient
+        .channel('message-channel')
+        .on('postgres_changes', 
+            { 
+                event: 'INSERT', 
+                schema: 'public', 
+                table: 'message' 
+            }, 
+            (payload) => {
+                console.log('收到新留言:', payload.new);
+                // 立即加载最新留言
+                loadMessages();
+            }
+        )
+        .subscribe();
+    
+    // 页面关闭时取消订阅
+    window.addEventListener('beforeunload', () => {
+        subscription.unsubscribe();
+    });
 }
 // 搜索引擎配置
 const SEARCH_ENGINES = {
