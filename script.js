@@ -8,6 +8,8 @@ const supabaseClient = supabase.createClient(supabaseUrl, supabaseAnonKey);
 const messageForm = document.getElementById('message-form');
 const messageList = document.getElementById('message-list');
 const messageDisplaySidebar = document.querySelector('.message-display-sidebar');
+const toggleMessageBtn = document.getElementById('toggle-message-btn');
+const toggleIcon = toggleMessageBtn ? toggleMessageBtn.querySelector('.toggle-icon') : null;
 
 // 默认展开状态
 let isMessageDisplayExpanded = true;
@@ -16,13 +18,20 @@ if (messageForm && messageList && messageDisplaySidebar) {
     // 设置默认展开状态
     messageDisplaySidebar.classList.add('expanded');
     
-    // 点击标题切换展开/折叠
-    const sidebarTitle = messageDisplaySidebar.querySelector('.sidebar-title');
-    if (sidebarTitle) {
-        sidebarTitle.style.cursor = 'pointer';
-        sidebarTitle.addEventListener('click', () => {
+    // 点击按钮切换展开/折叠
+    if (toggleMessageBtn) {
+        toggleMessageBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // 防止触发标题的点击事件
             toggleMessageDisplay();
+            updateToggleIcon();
         });
+    }
+    
+    // 更新按钮图标
+    function updateToggleIcon() {
+        if (toggleIcon) {
+            toggleIcon.textContent = isMessageDisplayExpanded ? '−' : '+';
+        }
     }
     // 提交留言
     messageForm.addEventListener('submit', async function(e) {

@@ -450,6 +450,43 @@ body::before {
     display: flex;
 }
 
+/* 折叠/展开按钮 */
+.toggle-btn {
+    background: linear-gradient(135deg, var(--color-pink) 0%, var(--color-purple) 100%);
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(255, 182, 193, 0.3);
+}
+
+.toggle-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(255, 182, 193, 0.5);
+}
+
+.toggle-icon {
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+/* 折叠状态时按钮旋转 */
+.message-display-sidebar.collapsed .toggle-icon {
+    transform: rotate(0deg);
+}
+
+.message-display-sidebar.expanded .toggle-icon {
+    transform: rotate(0deg);
+}
+
 .sidebar-section {
     background: transparent;
     border-radius: var(--border-radius-md);
