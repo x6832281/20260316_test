@@ -320,7 +320,7 @@ body::before {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    max-width: 100%;
+    max-width: 80%;
 }
 
 .tool-card-link {
