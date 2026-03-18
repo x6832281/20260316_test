@@ -285,6 +285,7 @@ body::before {
     letter-spacing: 0.5px;
     position: relative;
     display: inline-block;
+    min-width: 30px;
 }
 
 .section-title::before {
@@ -295,6 +296,7 @@ body::before {
     transform: translateY(-50%);
     font-size: 24px;
     animation: float 3s ease-in-out infinite;
+    display: block;
 }
 
 @keyframes float {
