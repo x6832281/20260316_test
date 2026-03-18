@@ -183,21 +183,29 @@ if (messageForm && messageList && messageDisplaySidebar) {
     });
     
     // 备用方案：定期轮询检查新留言（每2秒）
-    let lastMessageCount = 0;
+    let lastMessageTime = null;
     setInterval(async () => {
         try {
-            const { data: messages, error } = await supabaseClient
+            // 查询最新的留言时间
+            const { data: latestMessage, error } = await supabaseClient
                 .from('message')
-                .select('*', { count: 'exact', head: true });
+                .select('created_at')
+                .order('created_at', { ascending: false })
+                .limit(1)
+                .single();
             
-            if (!error && messages) {
-                const currentCount = messages.length;
-                if (currentCount > lastMessageCount) {
-                    console.log('检测到新留言（轮询）');
+            if (!error && latestMessage) {
+                const currentMessageTime = new Date(latestMessage.created_at).getTime();
+                
+                // 首次加载或检测到新留言
+                if (!lastMessageTime || currentMessageTime > lastMessageTime) {
+                    if (lastMessageTime) {
+                        console.log('检测到新留言（轮询）');
+                    }
                     loadMessages();
                     toggleMessageDisplay(true);
+                    lastMessageTime = currentMessageTime;
                 }
-                lastMessageCount = currentCount;
             }
         } catch (err) {
             console.error('轮询检查失败:', err);
