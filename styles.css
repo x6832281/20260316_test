@@ -256,9 +256,7 @@ body::before {
 }
 
 .main-content {
-    display: grid;
-    grid-template-columns: 1fr 320px;
-    gap: 40px;
+    display: block;
     align-items: start;
 }
 
@@ -313,8 +311,8 @@ body::before {
 
 .tool-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 24px;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 28px;
 }
 
 .tool-card-link {
