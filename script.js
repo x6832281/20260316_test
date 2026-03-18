@@ -48,4 +48,61 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+    
+    // 留言板功能
+    const messageForm = document.getElementById('message-form');
+    const messageList = document.getElementById('message-list');
+    
+    if (messageForm && messageList) {
+        messageForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const message = document.getElementById('message').value;
+            
+            if (name && message) {
+                const now = new Date();
+                const time = now.toLocaleString('zh-CN', {
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+                
+                const messageItem = document.createElement('div');
+                messageItem.className = 'message-item';
+                messageItem.innerHTML = `
+                    <div class="message-author">${name}</div>
+                    <div class="message-content">${message}</div>
+                    <div class="message-time">${time}</div>
+                `;
+                
+                messageList.prepend(messageItem);
+                messageForm.reset();
+                
+                // 保存留言到本地存储
+                const messages = JSON.parse(localStorage.getItem('messages') || '[]');
+                messages.unshift({ name, message, time });
+                localStorage.setItem('messages', JSON.stringify(messages));
+            }
+        });
+        
+        // 加载本地存储的留言
+        function loadMessages() {
+            const messages = JSON.parse(localStorage.getItem('messages') || '[]');
+            messages.forEach(msg => {
+                const messageItem = document.createElement('div');
+                messageItem.className = 'message-item';
+                messageItem.innerHTML = `
+                    <div class="message-author">${msg.name}</div>
+                    <div class="message-content">${msg.message}</div>
+                    <div class="message-time">${msg.time}</div>
+                `;
+                messageList.appendChild(messageItem);
+            });
+        }
+        
+        loadMessages();
+    }
 });
