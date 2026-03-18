@@ -134,8 +134,24 @@ body::before {
 }
 
 .blood {
-    animation: bloodSplash 5s linear infinite;
     opacity: 0;
+    font-size: 16px;
+}
+
+.blood-1 {
+    animation: bloodSplash1 5s linear infinite;
+}
+
+.blood-2 {
+    animation: bloodSplash2 5s linear infinite;
+}
+
+.blood-3 {
+    animation: bloodSplash3 5s linear infinite;
+}
+
+.blood-4 {
+    animation: bloodSplash4 5s linear infinite;
 }
 
 .flower {
@@ -199,26 +215,88 @@ body::before {
     }
 }
 
-@keyframes bloodSplash {
+@keyframes bloodSplash1 {
     0%, 42% {
         opacity: 0;
         transform: translate(-50%, -50%) scale(0);
     }
     43% {
         opacity: 1;
-        transform: translate(-50%, -50%) scale(0.3);
-    }
-    45% {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1.5);
+        transform: translate(-80%, -80%) scale(0.5);
     }
     50% {
-        opacity: 0.8;
-        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 1;
+        transform: translate(-120%, -100%) scale(1);
     }
-    55% {
+    60% {
         opacity: 0;
-        transform: translate(-50%, -50%) scale(0.8);
+        transform: translate(-150%, -120%) scale(0.8);
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes bloodSplash2 {
+    0%, 42% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0);
+    }
+    43% {
+        opacity: 1;
+        transform: translate(-20%, -80%) scale(0.5);
+    }
+    50% {
+        opacity: 1;
+        transform: translate(20%, -100%) scale(1);
+    }
+    60% {
+        opacity: 0;
+        transform: translate(50%, -120%) scale(0.8);
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes bloodSplash3 {
+    0%, 42% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0);
+    }
+    43% {
+        opacity: 1;
+        transform: translate(-80%, -20%) scale(0.5);
+    }
+    50% {
+        opacity: 1;
+        transform: translate(-120%, 20%) scale(1);
+    }
+    60% {
+        opacity: 0;
+        transform: translate(-150%, 50%) scale(0.8);
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes bloodSplash4 {
+    0%, 42% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0);
+    }
+    43% {
+        opacity: 1;
+        transform: translate(-20%, -20%) scale(0.5);
+    }
+    50% {
+        opacity: 1;
+        transform: translate(20%, 20%) scale(1);
+    }
+    60% {
+        opacity: 0;
+        transform: translate(50%, 50%) scale(0.8);
     }
     100% {
         opacity: 0;
