@@ -213,21 +213,21 @@ body::before {
 }
 
 @keyframes bloodSplash1 {
-    0%, 42% {
+    0%, 41% {
         opacity: 0;
         transform: translate(-50%, -50%) scale(0);
     }
-    43% {
+    42% {
         opacity: 1;
-        transform: translate(-80%, -80%) scale(0.5);
+        transform: translate(-50%, -50%) scale(0.3);
     }
-    50% {
+    55% {
         opacity: 1;
-        transform: translate(-120%, -100%) scale(1);
+        transform: translate(-130%, -110%) scale(1);
     }
-    60% {
+    65% {
         opacity: 0;
-        transform: translate(-150%, -120%) scale(0.8);
+        transform: translate(-160%, -130%) scale(0.8);
     }
     100% {
         opacity: 0;
@@ -235,21 +235,21 @@ body::before {
 }
 
 @keyframes bloodSplash2 {
-    0%, 42% {
+    0%, 41% {
         opacity: 0;
         transform: translate(-50%, -50%) scale(0);
     }
-    43% {
+    42% {
         opacity: 1;
-        transform: translate(-20%, -80%) scale(0.5);
+        transform: translate(-50%, -50%) scale(0.3);
     }
-    50% {
+    55% {
         opacity: 1;
-        transform: translate(20%, -100%) scale(1);
+        transform: translate(30%, -110%) scale(1);
     }
-    60% {
+    65% {
         opacity: 0;
-        transform: translate(50%, -120%) scale(0.8);
+        transform: translate(60%, -130%) scale(0.8);
     }
     100% {
         opacity: 0;
@@ -257,21 +257,21 @@ body::before {
 }
 
 @keyframes bloodSplash3 {
-    0%, 42% {
+    0%, 41% {
         opacity: 0;
         transform: translate(-50%, -50%) scale(0);
     }
-    43% {
+    42% {
         opacity: 1;
-        transform: translate(-80%, -20%) scale(0.5);
+        transform: translate(-50%, -50%) scale(0.3);
     }
-    50% {
+    55% {
         opacity: 1;
-        transform: translate(-120%, 20%) scale(1);
+        transform: translate(-130%, 10%) scale(1);
     }
-    60% {
+    65% {
         opacity: 0;
-        transform: translate(-150%, 50%) scale(0.8);
+        transform: translate(-160%, 40%) scale(0.8);
     }
     100% {
         opacity: 0;
@@ -279,21 +279,21 @@ body::before {
 }
 
 @keyframes bloodSplash4 {
-    0%, 42% {
+    0%, 41% {
         opacity: 0;
         transform: translate(-50%, -50%) scale(0);
     }
-    43% {
+    42% {
         opacity: 1;
-        transform: translate(-20%, -20%) scale(0.5);
+        transform: translate(-50%, -50%) scale(0.3);
     }
-    50% {
+    55% {
         opacity: 1;
-        transform: translate(20%, 20%) scale(1);
+        transform: translate(30%, 10%) scale(1);
     }
-    60% {
+    65% {
         opacity: 0;
-        transform: translate(50%, 50%) scale(0.8);
+        transform: translate(60%, 40%) scale(0.8);
     }
     100% {
         opacity: 0;
@@ -301,21 +301,21 @@ body::before {
 }
 
 @keyframes bloodSplash5 {
-    0%, 42% {
+    0%, 41% {
         opacity: 0;
         transform: translate(-50%, -50%) scale(0);
     }
-    43% {
+    42% {
         opacity: 1;
-        transform: translate(-100%, -30%) scale(0.5);
+        transform: translate(-50%, -50%) scale(0.3);
     }
-    50% {
+    55% {
         opacity: 1;
-        transform: translate(-140%, -10%) scale(1);
+        transform: translate(-110%, -50%) scale(1);
     }
-    60% {
+    65% {
         opacity: 0;
-        transform: translate(-160%, 10%) scale(0.8);
+        transform: translate(-140%, -50%) scale(0.8);
     }
     100% {
         opacity: 0;
@@ -323,21 +323,21 @@ body::before {
 }
 
 @keyframes bloodSplash6 {
-    0%, 42% {
+    0%, 41% {
         opacity: 0;
         transform: translate(-50%, -50%) scale(0);
     }
-    43% {
+    42% {
         opacity: 1;
-        transform: translate(0%, -100%) scale(0.5);
+        transform: translate(-50%, -50%) scale(0.3);
     }
-    50% {
+    55% {
         opacity: 1;
-        transform: translate(30%, -140%) scale(1);
+        transform: translate(10%, -50%) scale(1);
     }
-    60% {
+    65% {
         opacity: 0;
-        transform: translate(50%, -160%) scale(0.8);
+        transform: translate(40%, -50%) scale(0.8);
     }
     100% {
         opacity: 0;
@@ -345,21 +345,21 @@ body::before {
 }
 
 @keyframes bloodSplash7 {
-    0%, 42% {
+    0%, 41% {
         opacity: 0;
         transform: translate(-50%, -50%) scale(0);
     }
-    43% {
+    42% {
         opacity: 1;
-        transform: translate(-60%, 0%) scale(0.5);
+        transform: translate(-50%, -50%) scale(0.3);
     }
-    50% {
+    55% {
         opacity: 1;
-        transform: translate(-90%, 40%) scale(1);
+        transform: translate(-90%, -90%) scale(1);
     }
-    60% {
+    65% {
         opacity: 0;
-        transform: translate(-110%, 70%) scale(0.8);
+        transform: translate(-120%, -120%) scale(0.8);
     }
     100% {
         opacity: 0;
@@ -367,21 +367,21 @@ body::before {
 }
 
 @keyframes bloodSplash8 {
-    0%, 42% {
+    0%, 41% {
         opacity: 0;
         transform: translate(-50%, -50%) scale(0);
     }
-    43% {
+    42% {
         opacity: 1;
-        transform: translate(40%, -60%) scale(0.5);
+        transform: translate(-50%, -50%) scale(0.3);
     }
-    50% {
+    55% {
         opacity: 1;
-        transform: translate(80%, -90%) scale(1);
+        transform: translate(-10%, -90%) scale(1);
     }
-    60% {
+    65% {
         opacity: 0;
-        transform: translate(110%, -110%) scale(0.8);
+        transform: translate(20%, -120%) scale(0.8);
     }
     100% {
         opacity: 0;
@@ -389,23 +389,23 @@ body::before {
 }
 
 @keyframes flowerBloom {
-    0%, 60% {
+    0%, 65% {
         opacity: 0;
         transform: translate(-50%, -50%) scale(0) rotate(0deg);
     }
-    65% {
+    70% {
         opacity: 1;
         transform: translate(-50%, -50%) scale(0.5) rotate(180deg);
     }
-    75% {
+    80% {
         opacity: 1;
         transform: translate(-50%, -50%) scale(1.2) rotate(360deg);
     }
-    90% {
+    92% {
         opacity: 1;
         transform: translate(-50%, -50%) scale(1) rotate(360deg);
     }
-    95% {
+    96% {
         opacity: 0.5;
         transform: translate(-50%, -50%) scale(0.8) rotate(360deg);
     }
