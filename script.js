@@ -7,8 +7,23 @@ const supabaseClient = supabase.createClient(supabaseUrl, supabaseAnonKey);
 // 留言板功能
 const messageForm = document.getElementById('message-form');
 const messageList = document.getElementById('message-list');
+const messageDisplaySidebar = document.querySelector('.message-display-sidebar');
 
-if (messageForm && messageList) {
+// 默认折叠状态
+let isMessageDisplayExpanded = false;
+
+if (messageForm && messageList && messageDisplaySidebar) {
+    // 设置默认折叠状态
+    messageDisplaySidebar.classList.add('collapsed');
+    
+    // 点击标题切换展开/折叠
+    const sidebarTitle = messageDisplaySidebar.querySelector('.sidebar-title');
+    if (sidebarTitle) {
+        sidebarTitle.style.cursor = 'pointer';
+        sidebarTitle.addEventListener('click', () => {
+            toggleMessageDisplay();
+        });
+    }
     // 提交留言
     messageForm.addEventListener('submit', async function(e) {
         e.preventDefault();
@@ -66,11 +81,26 @@ if (messageForm && messageList) {
         }
     }
     
-    // 显示留言
+    // 切换留言展示区域展开/折叠
+    function toggleMessageDisplay(forceExpand = false) {
+        if (forceExpand || !isMessageDisplayExpanded) {
+            messageDisplaySidebar.classList.remove('collapsed');
+            messageDisplaySidebar.classList.add('expanded');
+            isMessageDisplayExpanded = true;
+        } else {
+            messageDisplaySidebar.classList.remove('expanded');
+            messageDisplaySidebar.classList.add('collapsed');
+            isMessageDisplayExpanded = false;
+        }
+    }
+    
+    // 显示留言（只显示最近10条）
     function displayMessages(messages) {
         messageList.innerHTML = '';
         if (messages && messages.length > 0) {
-            messages.forEach(msg => {
+            // 只显示最近10条留言
+            const recentMessages = messages.slice(0, 10);
+            recentMessages.forEach(msg => {
                 const messageItem = document.createElement('div');
                 messageItem.className = 'message-item';
                 messageItem.innerHTML = `
@@ -139,6 +169,8 @@ if (messageForm && messageList) {
                 console.log('收到新留言:', payload.new);
                 // 立即加载最新留言
                 loadMessages();
+                // 自动展开留言展示区域
+                toggleMessageDisplay(true);
             }
         )
         .subscribe();

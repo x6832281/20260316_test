@@ -428,6 +428,26 @@ body::before {
     box-shadow: var(--box-shadow-soft);
     border: 2px solid rgba(255, 182, 193, 0.15);
     z-index: 100;
+    transition: all 0.3s ease;
+}
+
+/* 默认折叠状态 - 只显示标题 */
+.message-display-sidebar.collapsed {
+    max-height: 50px;
+    overflow: hidden;
+}
+
+.message-display-sidebar.collapsed .message-list {
+    display: none;
+}
+
+/* 展开状态 */
+.message-display-sidebar.expanded {
+    max-height: 500px;
+}
+
+.message-display-sidebar.expanded .message-list {
+    display: flex;
 }
 
 .sidebar-section {
