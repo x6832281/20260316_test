@@ -107,8 +107,8 @@ if (messageForm && messageList && messageDisplaySidebar) {
     function displayMessages(messages) {
         messageList.innerHTML = '';
         if (messages && messages.length > 0) {
-            // 只显示最近10条留言
-            const recentMessages = messages.slice(0, 10);
+            // 显示所有留言（或设置一个较大的数量）
+            const recentMessages = messages.slice(0, 50);
             recentMessages.forEach(msg => {
                 const messageItem = document.createElement('div');
                 messageItem.className = 'message-item';
