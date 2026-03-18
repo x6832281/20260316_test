@@ -1,8 +1,8 @@
 // 初始化 Supabase（替换为你的 Project URL 和 anon key）
 const supabaseUrl = 'https://wutixqqiuksglbijggdu.supabase.co';
 const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind1dGl4cXFpdWtzZ2xiaWpnZ2R1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM4MzQ5NzAsImV4cCI6MjA4OTQxMDk3MH0.6y_uZrcSqcjOCz-8EaXZHmmnD28OAkcyNNBkX5JySBU';
-// 使用全局createClient函数创建Supabase客户端
-const supabaseClient = window.createClient(supabaseUrl, supabaseAnonKey);
+// 使用全局supabase对象中的createClient函数
+const supabaseClient = supabase.createClient(supabaseUrl, supabaseAnonKey);
 
 // 留言板功能
 const messageForm = document.getElementById('message-form');
