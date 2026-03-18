@@ -25,7 +25,7 @@ if (messageForm && messageList) {
             
             // 保存到 Supabase
             const { error } = await supabaseClient
-                .from('messages')
+                .from('message')
                 .insert({ name, message });
             
             if (error) {
@@ -45,7 +45,7 @@ if (messageForm && messageList) {
     async function loadMessages() {
         try {
             const { data: messages, error } = await supabaseClient
-                    .from('messages')
+                    .from('message')
                     .select('*')
                     .order('created_at', { ascending: false });
             
