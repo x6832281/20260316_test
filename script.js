@@ -17,6 +17,12 @@ if (messageForm && messageList) {
         const message = document.getElementById('message').value;
         
         if (name && message) {
+            const newMessage = {
+                name: name,
+                message: message,
+                created_at: new Date().toISOString()
+            };
+            
             // 保存到 Supabase
             const { error } = await supabaseClient
                 .from('messages')
@@ -25,6 +31,9 @@ if (messageForm && messageList) {
             if (error) {
                 console.error('提交失败:', error);
                 console.error('错误详情:', error.message, error.details);
+                // 备份到本地存储
+                saveMessageToLocalStorage(newMessage);
+                loadMessages(); // 重新加载留言
             } else {
                 messageForm.reset();
                 loadMessages(); // 重新加载留言
@@ -34,16 +43,33 @@ if (messageForm && messageList) {
     
     // 加载留言
     async function loadMessages() {
-        const { data: messages, error } = await supabaseClient
-                .from('messages')
-                .select('*')
-                .order('created_at', { ascending: false });
-        
-        if (error) {
-            console.error('加载失败:', error);
-            console.error('错误详情:', error.message, error.details);
-        } else {
-            messageList.innerHTML = '';
+        try {
+            const { data: messages, error } = await supabaseClient
+                    .from('messages')
+                    .select('*')
+                    .order('created_at', { ascending: false });
+            
+            if (error) {
+                console.error('加载失败:', error);
+                console.error('错误详情:', error.message, error.details);
+                // 从本地存储加载
+                loadMessagesFromLocalStorage();
+            } else {
+                displayMessages(messages);
+                // 同步到本地存储
+                saveMessagesToLocalStorage(messages);
+            }
+        } catch (err) {
+            console.error('加载留言时发生错误:', err);
+            // 从本地存储加载
+            loadMessagesFromLocalStorage();
+        }
+    }
+    
+    // 显示留言
+    function displayMessages(messages) {
+        messageList.innerHTML = '';
+        if (messages && messages.length > 0) {
             messages.forEach(msg => {
                 const messageItem = document.createElement('div');
                 messageItem.className = 'message-item';
@@ -54,6 +80,46 @@ if (messageForm && messageList) {
                 `;
                 messageList.appendChild(messageItem);
             });
+        } else {
+            const emptyMessage = document.createElement('div');
+            emptyMessage.className = 'message-item';
+            emptyMessage.innerHTML = '<div class="message-content">暂无留言</div>';
+            messageList.appendChild(emptyMessage);
+        }
+    }
+    
+    // 保存留言到本地存储
+    function saveMessageToLocalStorage(message) {
+        try {
+            const messages = JSON.parse(localStorage.getItem('messages') || '[]');
+            messages.unshift(message);
+            // 只保留最近50条留言
+            if (messages.length > 50) {
+                messages.splice(50);
+            }
+            localStorage.setItem('messages', JSON.stringify(messages));
+        } catch (err) {
+            console.error('保存到本地存储失败:', err);
+        }
+    }
+    
+    // 保存多条留言到本地存储
+    function saveMessagesToLocalStorage(messages) {
+        try {
+            localStorage.setItem('messages', JSON.stringify(messages));
+        } catch (err) {
+            console.error('保存到本地存储失败:', err);
+        }
+    }
+    
+    // 从本地存储加载留言
+    function loadMessagesFromLocalStorage() {
+        try {
+            const messages = JSON.parse(localStorage.getItem('messages') || '[]');
+            displayMessages(messages);
+        } catch (err) {
+            console.error('从本地存储加载失败:', err);
+            displayMessages([]);
         }
     }
     
