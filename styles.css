@@ -289,7 +289,7 @@ body::before {
 }
 
 .section-title::before {
-    content: '🌸';
+    content: '';
     position: absolute;
     left: -30px;
     top: 50%;
