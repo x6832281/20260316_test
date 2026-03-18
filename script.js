@@ -2,7 +2,7 @@
 const supabaseUrl = 'https://wutixqqiuksglbijggdu.supabase.co';
 const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind1dGl4cXFpdWtzZ2xiaWpnZ2R1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM4MzQ5NzAsImV4cCI6MjA4OTQxMDk3MH0.6y_uZrcSqcjOCz-8EaXZHmmnD28OAkcyNNBkX5JySBU';
 // 使用全局createClient函数创建Supabase客户端
-const supabase = window.createClient(supabaseUrl, supabaseAnonKey);
+const supabaseClient = window.createClient(supabaseUrl, supabaseAnonKey);
 
 // 留言板功能
 const messageForm = document.getElementById('message-form');
@@ -18,7 +18,7 @@ if (messageForm && messageList) {
         
         if (name && message) {
             // 保存到 Supabase
-            const { error } = await supabase
+            const { error } = await supabaseClient
                 .from('messages')
                 .insert({ name, message });
             
@@ -33,10 +33,10 @@ if (messageForm && messageList) {
     
     // 加载留言
     async function loadMessages() {
-        const { data: messages, error } = await supabase
-            .from('messages')
-            .select('*')
-            .order('created_at', { ascending: false });
+        const { data: messages, error } = await supabaseClient
+                .from('messages')
+                .select('*')
+                .order('created_at', { ascending: false });
         
         if (error) {
             console.error('加载失败:', error);
