@@ -113,7 +113,7 @@ body::before {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 249, 245, 0.9) 100%);
     border-radius: var(--border-radius-lg);
     padding: 40px 50px;
-    margin-bottom: 60px;
+    margin-bottom: 30px;
     position: relative;
     box-shadow: var(--box-shadow-soft);
     backdrop-filter: blur(10px);
@@ -266,12 +266,12 @@ body::before {
 }
 
 .section {
-    margin-bottom: 60px;
+    margin-bottom: 30px;
     position: relative;
 }
 
 .section-header {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     position: relative;
     padding-left: 0;
 }
@@ -316,7 +316,7 @@ body::before {
 .tool-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 24px;
+    gap: 16px;
 }
 
 .tool-card-link {
