@@ -24,6 +24,7 @@ if (messageForm && messageList) {
             
             if (error) {
                 console.error('提交失败:', error);
+                console.error('错误详情:', error.message, error.details);
             } else {
                 messageForm.reset();
                 loadMessages(); // 重新加载留言
@@ -40,6 +41,7 @@ if (messageForm && messageList) {
         
         if (error) {
             console.error('加载失败:', error);
+            console.error('错误详情:', error.message, error.details);
         } else {
             messageList.innerHTML = '';
             messages.forEach(msg => {
