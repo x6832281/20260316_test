@@ -118,7 +118,7 @@ body::before {
     box-shadow: var(--box-shadow-soft);
     backdrop-filter: blur(10px);
     border: 2px solid rgba(255, 182, 193, 0.2);
-    max-width: 100%;
+    max-width: 90%;
 }
 
 .search-section::before {
