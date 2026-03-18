@@ -111,6 +111,16 @@ body::before {
     animation: coderType 4s ease-in-out infinite;
 }
 
+.header h1 .shrug {
+    position: absolute;
+    left: -60px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 36px;
+    opacity: 0;
+    animation: shrugShow 4s ease-in-out infinite;
+}
+
 .header h1::after {
     content: '🐞';
     position: absolute;
@@ -122,21 +132,32 @@ body::before {
 }
 
 @keyframes coderType {
-    0%, 100% { 
+    0%, 45% { 
+        opacity: 1;
         transform: translateY(-50%) translateX(0);
-        content: '👨‍💻';
-    }
-    25% { 
-        transform: translateY(-50%) translateX(5px);
-        content: '👨‍💻';
     }
     50% { 
-        transform: translateY(-50%) translateX(0);
-        content: '🤷‍♂️';
+        opacity: 0;
+        transform: translateY(-50%) translateX(5px);
     }
-    75% { 
+    95%, 100% { 
+        opacity: 1;
+        transform: translateY(-50%) translateX(0);
+    }
+}
+
+@keyframes shrugShow {
+    0%, 45% { 
+        opacity: 0;
         transform: translateY(-50%) translateX(-5px);
-        content: '🤷‍♂️';
+    }
+    50% { 
+        opacity: 1;
+        transform: translateY(-50%) translateX(0);
+    }
+    95%, 100% { 
+        opacity: 0;
+        transform: translateY(-50%) translateX(5px);
     }
 }
 
