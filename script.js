@@ -182,7 +182,7 @@ if (messageForm && messageList && messageDisplaySidebar) {
         subscription.unsubscribe();
     });
     
-    // 备用方案：定期轮询检查新留言（每5秒）
+    // 备用方案：定期轮询检查新留言（每2秒）
     let lastMessageCount = 0;
     setInterval(async () => {
         try {
@@ -202,7 +202,7 @@ if (messageForm && messageList && messageDisplaySidebar) {
         } catch (err) {
             console.error('轮询检查失败:', err);
         }
-    }, 5000);
+    }, 2000);
 }
 // 搜索引擎配置
 const SEARCH_ENGINES = {
