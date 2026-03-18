@@ -101,59 +101,147 @@ body::before {
     display: inline-block;
 }
 
-.emoji-left {
-    display: inline-block;
-    margin-right: 10px;
-    font-size: 36px;
-    animation: emojiSwitch 4s ease-in-out infinite;
+.bug-animation {
+    position: relative;
+    width: 200px;
+    height: 60px;
+    margin: 10px auto;
+    overflow: visible;
 }
 
-.emoji-right {
-    display: inline-block;
-    margin-left: 10px;
-    font-size: 28px;
-    animation: bugFly 3s ease-in-out infinite;
+.bug, .slipper, .blood, .flower {
+    position: absolute;
+    font-size: 32px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
-@keyframes emojiSwitch {
-    0%, 40% { 
-        opacity: 1;
-        transform: rotate(0deg);
-    }
-    45% { 
-        opacity: 0.5;
-        transform: rotate(10deg);
-    }
-    50%, 90% { 
-        opacity: 1;
-        transform: rotate(0deg);
-    }
-    95% { 
-        opacity: 0.5;
-        transform: rotate(-10deg);
-    }
-    100% { 
-        opacity: 1;
-        transform: rotate(0deg);
-    }
+.bug {
+    animation: bugCrawl 5s linear infinite;
 }
 
-@keyframes bugFly {
-    0%, 100% { 
+.slipper {
+    animation: slipperHit 5s linear infinite;
+    opacity: 0;
+}
+
+.blood {
+    animation: bloodSplash 5s linear infinite;
+    opacity: 0;
+}
+
+.flower {
+    animation: flowerBloom 5s linear infinite;
+    opacity: 0;
+}
+
+@keyframes bugCrawl {
+    0% {
+        left: -20px;
+        opacity: 1;
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    20% {
+        left: 30%;
+        transform: translate(-50%, -50%) rotate(5deg);
+    }
+    35% {
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    40% {
+        left: 50%;
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    42% {
+        left: 50%;
         opacity: 0;
-        transform: translateY(0) translateX(0) rotate(0deg);
+        transform: translate(-50%, -50%) scale(0.5);
     }
-    15% { 
-        opacity: 1;
-        transform: translateY(10px) translateX(-5px) rotate(-15deg);
-    }
-    30% { 
-        opacity: 1;
-        transform: translateY(-5px) translateX(5px) rotate(15deg);
-    }
-    45% { 
+    100% {
+        left: 50%;
         opacity: 0;
-        transform: translateY(-30px) translateX(20px) rotate(0deg);
+    }
+}
+
+@keyframes slipperHit {
+    0%, 35% {
+        left: 120%;
+        opacity: 0;
+        transform: translate(-50%, -50%) rotate(-45deg);
+    }
+    38% {
+        left: 80%;
+        opacity: 1;
+        transform: translate(-50%, -50%) rotate(-30deg);
+    }
+    42% {
+        left: 50%;
+        opacity: 1;
+        transform: translate(-50%, -50%) rotate(0deg) scale(1.2);
+    }
+    45% {
+        left: 50%;
+        opacity: 0;
+        transform: translate(-50%, -50%) rotate(0deg) scale(1);
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes bloodSplash {
+    0%, 42% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0);
+    }
+    43% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(0.3);
+    }
+    45% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.5);
+    }
+    50% {
+        opacity: 0.8;
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+    55% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes flowerBloom {
+    0%, 55% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0) rotate(0deg);
+    }
+    60% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(0.5) rotate(180deg);
+    }
+    70% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.2) rotate(360deg);
+    }
+    85% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1) rotate(360deg);
+    }
+    95% {
+        opacity: 0.5;
+        transform: translate(-50%, -50%) scale(0.8) rotate(360deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0) rotate(360deg);
     }
 }
 
