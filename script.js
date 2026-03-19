@@ -251,10 +251,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('search-input');
     if (!searchInput) return;
     
-    // 回车键搜索（默认使用Google）
+    // 回车键搜索（默认使用百度）
     searchInput.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') {
-            search('google');
+            search('baidu');
         }
     });
     
