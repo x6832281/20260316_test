@@ -228,7 +228,7 @@ const SEARCH_ENGINES = {
     yandex: { url: 'https://yandex.com/search/', param: 'text' },
     yahoo: { url: 'https://search.yahoo.com/search', param: 'p' },
     baidu: { url: 'https://www.baidu.com/s', param: 'wd' },
-    doubao: { url: 'https://www.doubao.com/search', param: 'q' }
+    doubao: { url: 'https://www.doubao.com/chat/', param: 'q' }
 };
 
 // 搜索功能
