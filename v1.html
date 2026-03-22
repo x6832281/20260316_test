@@ -3,53 +3,745 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>新的网页</title>
+    <title>资源</title>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
+        /* 完全参考 weidus.com 的简约专业风格 */
+        :root {
+            --primary-color: #1271ff;
+            --bg-color: #f5f7f9;
+            --sidebar-bg: #ffffff;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-sub: #666666;
+            --text-light: #999999;
+            --border-color: #eeeeee;
+            --sidebar-width: 200px;
+            --header-height: 60px;
+            --transition: all 0.2s ease;
+        }
+
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f5f5f5;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
             display: flex;
-            justify-content: center;
-            align-items: center;
             min-height: 100vh;
         }
-        .container {
-            text-align: center;
-            padding: 40px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+        /* 左侧固定侧边栏 */
+        .sidebar {
+            width: var(--sidebar-width);
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            background-color: var(--sidebar-bg);
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            z-index: 1000;
         }
-        h1 {
-            color: #333;
-            margin-bottom: 20px;
+
+        .sidebar-logo {
+            height: var(--header-height);
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--primary-color);
+            border-bottom: 1px solid var(--border-color);
         }
-        p {
-            color: #666;
-            font-size: 16px;
-            margin-bottom: 30px;
+
+        .sidebar-nav {
+            flex: 1;
+            padding: 15px 0;
+            overflow-y: auto;
         }
-        .back-link {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
+
+        .nav-item {
+            list-style: none;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            padding: 12px 20px;
             text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s;
+            color: var(--text-main);
+            font-size: 14px;
+            transition: var(--transition);
+            border-left: 3px solid transparent;
         }
-        .back-link:hover {
-            background-color: #0056b3;
+
+        .nav-link i {
+            margin-right: 10px;
+            font-style: normal;
+            font-size: 16px;
+        }
+
+        .nav-link:hover {
+            background-color: #f0f6ff;
+            color: var(--primary-color);
+        }
+
+        .nav-link.active {
+            background-color: #f0f6ff;
+            color: var(--primary-color);
+            border-left-color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .sidebar-footer {
+            padding: 15px 20px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .back-home {
+            text-decoration: none;
+            color: var(--text-sub);
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .back-home:hover {
+            color: var(--primary-color);
+        }
+
+        /* 主内容区 */
+        .main-content {
+            flex: 1;
+            margin-left: var(--sidebar-width);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 顶部头部 */
+        .header {
+            height: var(--header-height);
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            padding: 0 30px;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        .search-bar {
+            width: 400px;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            height: 36px;
+            background-color: #f2f2f2;
+            border: none;
+            border-radius: 18px;
+            padding: 0 15px 0 35px;
+            font-size: 13px;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .search-input:focus {
+            background-color: #fff;
+            box-shadow: 0 0 0 1px var(--primary-color);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+            font-size: 14px;
+        }
+
+        /* 页面主体 */
+        .container {
+            padding: 20px 30px 40px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            scroll-margin-top: 80px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-title::before {
+            content: "";
+            width: 4px;
+            height: 16px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .section-more {
+            font-size: 12px;
+            color: var(--text-light);
+            text-decoration: none;
+        }
+
+        .section-more:hover {
+            color: var(--primary-color);
+        }
+
+        /* 网格与卡片 */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 12px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 12px;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: var(--transition);
+            height: 68px;
+        }
+
+        .card:hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+            transform: translateY(-2px);
+        }
+
+        .card-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .card-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .card-title {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-desc {
+            font-size: 12px;
+            color: var(--text-sub);
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            line-height: 1.4;
+        }
+
+        /* 页脚 */
+        .footer {
+            margin-top: auto;
+            padding: 30px;
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-light);
+            background-color: #fff;
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* 移动端适配 */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 60px;
+            }
+            .sidebar-logo, .nav-link span, .sidebar-footer span {
+                display: none;
+            }
+            .nav-link {
+                justify-content: center;
+                padding: 15px 0;
+            }
+            .nav-link i {
+                margin-right: 0;
+            }
+            .main-content {
+                margin-left: 60px;
+            }
+            .header {
+                padding: 0 15px;
+            }
+            .search-bar {
+                width: 100%;
+            }
+            .container {
+                padding: 15px;
+            }
+            .grid {
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>新的网页</h1>
-        <p>这是一个新的空白网页，可以在这里添加任何内容。</p>
-        <a href="index.html" class="back-link">返回主页</a>
-    </div>
+    <!-- 左侧导航 -->
+    <aside class="sidebar">
+        <div class="sidebar-logo">资源导航</div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li class="nav-item">
+                    <a href="#cn-ai" class="nav-link active">
+                        <i>🇨🇳</i> <span>国内大模型</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#ai-tools" class="nav-link">
+                        <i>🤖</i> <span>AI 效率工具</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#art-assets" class="nav-link">
+                        <i>🖼️</i> <span>美术素材</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#audio-assets" class="nav-link">
+                        <i>🎵</i> <span>音效音乐</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#dev-tools" class="nav-link">
+                        <i>🔧</i> <span>开发引擎</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#community" class="nav-link">
+                        <i>🌟</i> <span>社区发布</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="index.html" class="back-home">
+                <span>🏠 返回主页</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- 主内容 -->
+    <main class="main-content">
+        <header class="header">
+            <div class="search-bar">
+                <span class="search-icon">🔍</span>
+                <input type="text" class="search-input" placeholder="搜索资源、工具、社区...">
+            </div>
+        </header>
+
+        <div class="container">
+            <!-- 国内大模型 -->
+            <section id="cn-ai" class="section">
+                <div class="section-header">
+                    <h2 class="section-title">国内主流大模型</h2>
+                    <a href="#" class="section-more">更多 ></a>
+                </div>
+                <div class="grid">
+                    <a href="https://www.deepseek.com/" target="_blank" class="card">
+                        <div class="card-icon">🧠</div>
+                        <div class="card-info">
+                            <div class="card-title">DeepSeek</div>
+                            <p class="card-desc">深度求索，国产开源之光。</p>
+                        </div>
+                    </a>
+                    <a href="https://www.doubao.com/" target="_blank" class="card">
+                        <div class="card-icon">🥢</div>
+                        <div class="card-info">
+                            <div class="card-title">豆包 (Doubao)</div>
+                            <p class="card-desc">字节跳动出品，响应极快，用户量最大。</p>
+                        </div>
+                    </a>
+                    <a href="https://yuanbao.tencent.com/" target="_blank" class="card">
+                        <div class="card-icon">🪙</div>
+                        <div class="card-info">
+                            <div class="card-title">腾讯元宝</div>
+                            <p class="card-desc">基于腾讯混元大模型的官方 AI 助手。</p>
+                        </div>
+                    </a>
+                    <a href="https://yiyan.baidu.com/" target="_blank" class="card">
+                        <div class="card-icon">💬</div>
+                        <div class="card-info">
+                            <div class="card-title">文心一言</div>
+                            <p class="card-desc">百度出品的产业级知识增强大模型。</p>
+                        </div>
+                    </a>
+                    <a href="https://kimi.moonshot.cn/" target="_blank" class="card">
+                        <div class="card-icon">🌙</div>
+                        <div class="card-info">
+                            <div class="card-title">Kimi 智能助手</div>
+                            <p class="card-desc">月之暗面出品，擅长超长文本分析。</p>
+                        </div>
+                    </a>
+                    <a href="https://chatglm.cn/" target="_blank" class="card">
+                        <div class="card-icon">✨</div>
+                        <div class="card-info">
+                            <div class="card-title">智谱清言</div>
+                            <p class="card-desc">清华系智谱 AI 出品的全能助手。</p>
+                        </div>
+                    </a>
+                    <a href="https://xinghuo.xfyun.cn/" target="_blank" class="card">
+                        <div class="card-icon">🔥</div>
+                        <div class="card-info">
+                            <div class="card-title">讯飞星火</div>
+                            <p class="card-desc">科大讯飞推出的认知智能大模型。</p>
+                        </div>
+                    </a>
+                    <a href="https://www.baichuan-ai.com/" target="_blank" class="card">
+                        <div class="card-icon">🌊</div>
+                        <div class="card-info">
+                            <div class="card-title">百川 (Baichuan)</div>
+                            <p class="card-desc">搜狗创始人王小川创立，医疗知识领先。</p>
+                        </div>
+                    </a>
+                    <a href="https://hailuoai.com/" target="_blank" class="card">
+                        <div class="card-icon">🐚</div>
+                        <div class="card-info">
+                            <div class="card-title">海螺 AI (MiniMax)</div>
+                            <p class="card-desc">国产 AI “六小虎”之一，擅长创意角色扮演。</p>
+                        </div>
+                    </a>
+                    <a href="https://www.tiangong.cn/" target="_blank" class="card">
+                        <div class="card-icon">🏗️</div>
+                        <div class="card-info">
+                            <div class="card-title">天工 (Skywork)</div>
+                            <p class="card-desc">昆仑万维出品，国内首个双千亿参数大模型。</p>
+                        </div>
+                    </a>
+                    <a href="https://www.stepfun.com/" target="_blank" class="card">
+                        <div class="card-icon">🚀</div>
+                        <div class="card-info">
+                            <div class="card-title">阶跃星辰</div>
+                            <p class="card-desc">多模态大模型，Step 系列智能助手。</p>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- AI 效率工具 -->
+            <section id="ai-tools" class="section">
+                <div class="section-header">
+                    <h2 class="section-title">AI 效率工具</h2>
+                    <a href="#" class="section-more">更多 ></a>
+                </div>
+                <div class="grid">
+                    <a href="https://www.futurepedia.io/" target="_blank" class="card">
+                        <div class="card-icon">🚀</div>
+                        <div class="card-info">
+                            <div class="card-title">Futurepedia</div>
+                            <p class="card-desc">全球最大的 AI 工具目录，每日更新。</p>
+                        </div>
+                    </a>
+                    <a href="https://theresanaiforthat.com/" target="_blank" class="card">
+                        <div class="card-icon">🕒</div>
+                        <div class="card-info">
+                            <div class="card-title">There's An AI For That</div>
+                            <p class="card-desc">按时间轴查看海量 AI 工具发展史。</p>
+                        </div>
+                    </a>
+                    <a href="https://www.toolify.ai/" target="_blank" class="card">
+                        <div class="card-icon">📊</div>
+                        <div class="card-info">
+                            <div class="card-title">Toolify.ai</div>
+                            <p class="card-desc">AI 趋势与流量排名实时洞察。</p>
+                        </div>
+                    </a>
+                    <a href="https://ai-bot.cn/" target="_blank" class="card">
+                        <div class="card-icon">🛠️</div>
+                        <div class="card-info">
+                            <div class="card-title">AI 工具集</div>
+                            <p class="card-desc">国内最全的 AI 应用收录平台。</p>
+                        </div>
+                    </a>
+                    <a href="https://huggingface.co/" target="_blank" class="card">
+                        <div class="card-icon">🤗</div>
+                        <div class="card-info">
+                            <div class="card-title">Hugging Face</div>
+                            <p class="card-desc">开源模型与数据集托管平台。</p>
+                        </div>
+                    </a>
+                    <a href="https://civitai.com/" target="_blank" class="card">
+                        <div class="card-icon">🎨</div>
+                        <div class="card-info">
+                            <div class="card-title">Civitai</div>
+                            <p class="card-desc">Stable Diffusion 模型分享社区。</p>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- 游戏美术素材 -->
+            <section id="art-assets" class="section">
+                <div class="section-header">
+                    <h2 class="section-title">美术素材资源</h2>
+                    <a href="#" class="section-more">更多 ></a>
+                </div>
+                <div class="grid">
+                    <a href="https://opengameart.org/" target="_blank" class="card">
+                        <div class="card-icon">🖼️</div>
+                        <div class="card-info">
+                            <div class="card-title">OpenGameArt</div>
+                            <p class="card-desc">完全免费开源的游戏美术素材库。</p>
+                        </div>
+                    </a>
+                    <a href="https://kenney.nl/assets" target="_blank" class="card">
+                        <div class="card-icon">📦</div>
+                        <div class="card-info">
+                            <div class="card-title">Kenney Assets</div>
+                            <p class="card-desc">极简高质量的免费游戏素材包。</p>
+                        </div>
+                    </a>
+                    <a href="https://polyhaven.com/" target="_blank" class="card">
+                        <div class="card-info">
+                            <div class="card-title">Poly Haven</div>
+                            <p class="card-desc">100% 免费的 3D 纹理、环境与模型。</p>
+                        </div>
+                        <div class="card-icon">🌍</div>
+                    </a>
+                    <a href="https://game-icons.net/" target="_blank" class="card">
+                        <div class="card-icon">🛡️</div>
+                        <div class="card-info">
+                            <div class="card-title">Game-icons.net</div>
+                            <p class="card-desc">海量 SVG 格式游戏图标素材。</p>
+                        </div>
+                    </a>
+                    <a href="https://www.mixamo.com/" target="_blank" class="card">
+                        <div class="card-icon">💃</div>
+                        <div class="card-info">
+                            <div class="card-title">Mixamo</div>
+                            <p class="card-desc">3D 动画骨骼自动绑定工具。</p>
+                        </div>
+                    </a>
+                    <a href="https://www.spriters-resource.com/" target="_blank" class="card">
+                        <div class="card-icon">👾</div>
+                        <div class="card-info">
+                            <div class="card-title">Spriters Resource</div>
+                            <p class="card-desc">海量 2D 像素图素材库。</p>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- 游戏音效音乐 -->
+            <section id="audio-assets" class="section">
+                <div class="section-header">
+                    <h2 class="section-title">音效音乐资源</h2>
+                    <a href="#" class="section-more">更多 ></a>
+                </div>
+                <div class="grid">
+                    <a href="https://freesound.org/" target="_blank" class="card">
+                        <div class="card-icon">🔊</div>
+                        <div class="card-info">
+                            <div class="card-title">FreeSound</div>
+                            <p class="card-desc">全球最大的免费音效素材分享库。</p>
+                        </div>
+                    </a>
+                    <a href="https://www.bfxr.net/" target="_blank" class="card">
+                        <div class="card-icon">🕹️</div>
+                        <div class="card-info">
+                            <div class="card-title">Bfxr</div>
+                            <p class="card-desc">经典的复古 8-bit 音效生成器。</p>
+                        </div>
+                    </a>
+                    <a href="https://www.beepbox.co/" target="_blank" class="card">
+                        <div class="card-icon">🎼</div>
+                        <div class="card-info">
+                            <div class="card-title">BeepBox</div>
+                            <p class="card-desc">在线快速制作简易 8-bit 旋律。</p>
+                        </div>
+                    </a>
+                    <a href="https://incompetech.com/music/" target="_blank" class="card">
+                        <div class="card-icon">🎷</div>
+                        <div class="card-info">
+                            <div class="card-title">Incompetech</div>
+                            <p class="card-desc">著名免版税音乐库 (Kevin MacLeod)。</p>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- 开发引擎工具 -->
+            <section id="dev-tools" class="section">
+                <div class="section-header">
+                    <h2 class="section-title">开发引擎与工具</h2>
+                    <a href="#" class="section-more">更多 ></a>
+                </div>
+                <div class="grid">
+                    <a href="https://unity.com/cn" target="_blank" class="card">
+                        <div class="card-icon">⚙️</div>
+                        <div class="card-info">
+                            <div class="card-title">Unity</div>
+                            <p class="card-desc">全球最流行的全能跨平台游戏引擎。</p>
+                        </div>
+                    </a>
+                    <a href="https://www.unrealengine.com/" target="_blank" class="card">
+                        <div class="card-icon">🔥</div>
+                        <div class="card-info">
+                            <div class="card-title">Unreal Engine</div>
+                            <p class="card-desc">追求极致视觉效果的高端引擎。</p>
+                        </div>
+                    </a>
+                    <a href="https://godotengine.org/" target="_blank" class="card">
+                        <div class="card-icon">🤖</div>
+                        <div class="card-info">
+                            <div class="card-title">Godot</div>
+                            <p class="card-desc">开源、轻量且强大的引擎首选。</p>
+                        </div>
+                    </a>
+                    <a href="https://www.mapeditor.org/" target="_blank" class="card">
+                        <div class="card-icon">🗺️</div>
+                        <div class="card-info">
+                            <div class="card-title">Tiled</div>
+                            <p class="card-desc">最流行的开源 2D 地图编辑器。</p>
+                        </div>
+                    </a>
+                    <a href="https://www.piskelapp.com/" target="_blank" class="card">
+                        <div class="card-icon">🖊️</div>
+                        <div class="card-info">
+                            <div class="card-title">Piskel</div>
+                            <p class="card-desc">在线像素画制作与动画导出工具。</p>
+                        </div>
+                    </a>
+                    <a href="https://ephtracy.github.io/" target="_blank" class="card">
+                        <div class="card-icon">🧊</div>
+                        <div class="card-info">
+                            <div class="card-title">MagicaVoxel</div>
+                            <p class="card-desc">轻量级体素模型编辑与渲染利器。</p>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- 社区与发布平台 -->
+            <section id="community" class="section">
+                <div class="section-header">
+                    <h2 class="section-title">社区与发布平台</h2>
+                    <a href="#" class="section-more">更多 ></a>
+                </div>
+                <div class="grid">
+                    <a href="https://cowlevel.net/inbox" target="_blank" class="card">
+                        <div class="card-icon">🐮</div>
+                        <div class="card-info">
+                            <div class="card-title">奶牛关 CowLevel</div>
+                            <p class="card-desc">硬核玩家社区，深度评价与文化。</p>
+                        </div>
+                    </a>
+                    <a href="https://indienova.com/" target="_blank" class="card">
+                        <div class="card-icon">💡</div>
+                        <div class="card-info">
+                            <div class="card-title">IndieNova</div>
+                            <p class="card-desc">国内独立游戏资讯与开发者社区。</p>
+                        </div>
+                    </a>
+                    <a href="https://itch.io/" target="_blank" class="card">
+                        <div class="card-icon">🕹️</div>
+                        <div class="card-info">
+                            <div class="card-title">Itch.io</div>
+                            <p class="card-desc">全球最大的独立游戏发行平台。</p>
+                        </div>
+                    </a>
+                    <a href="https://gamejolt.com/" target="_blank" class="card">
+                        <div class="card-icon">⚡</div>
+                        <div class="card-info">
+                            <div class="card-title">Game Jolt</div>
+                            <p class="card-desc">活跃的独立游戏社区与发布中心。</p>
+                        </div>
+                    </a>
+                    <a href="https://www.gcores.com/" target="_blank" class="card">
+                        <div class="card-icon">🎙️</div>
+                        <div class="card-info">
+                            <div class="card-title">机核 GCORES</div>
+                            <p class="card-desc">深度游戏文化文章与音频电台。</p>
+                        </div>
+                    </a>
+                    <a href="https://www.gamedev.net/" target="_blank" class="card">
+                        <div class="card-icon">👾</div>
+                        <div class="card-info">
+                            <div class="card-title">GameDev.net</div>
+                            <p class="card-desc">顶级游戏开发技术论坛与资源。</p>
+                        </div>
+                    </a>
+                </div>
+            </section>
+        </div>
+
+        <footer class="footer">
+            <p>© 2026 全能开发资源导航 - 专注于发现无限灵感</p>
+        </footer>
+    </main>
+
+    <script>
+        // 侧边栏激活状态联动
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('.section');
+
+        function changeActiveNav() {
+            let index = sections.length;
+            while(--index && window.scrollY + 100 < sections[index].offsetTop) {}
+            
+            navLinks.forEach((link) => link.classList.remove('active'));
+            navLinks[index].classList.add('active');
+        }
+
+        window.addEventListener('scroll', changeActiveNav);
+        
+        // 点击平滑滚动
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                window.scrollTo({
+                    top: targetSection.offsetTop - 70,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
