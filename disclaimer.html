@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>免责声明</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="title-row">
+                <h1><a href="index.html">卡卡东</a></h1>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <section class="content">
+                <section class="section">
+                    <div class="section-header">
+                        <h2 class="section-title">免责声明</h2>
+                    </div>
+                    <div class="disclaimer-content">
+                        <p>本网站提供的内容仅供参考，不构成任何形式的建议或推荐。</p>
+                        <p>1. 网站内容仅供个人学习和研究使用，不得用于商业用途。</p>
+                        <p>2. 本站引用的资源和链接均来自互联网，版权归原作者所有。</p>
+                        <p>3. 对于因使用本站内容而导致的任何直接或间接损失，本站不承担任何责任。</p>
+                        <p>4. 本站保留随时修改或更新免责声明的权利。</p>
+                        <p>5. 请在使用本站内容前仔细阅读本声明，使用即表示同意。</p>
+                    </div>
+                </section>
+            </section>
+
+            <aside class="message-display-sidebar">
+                <section class="sidebar-section" aria-label="留言展示">
+                    <h3 class="sidebar-title">
+                        留言展示
+                        <button id="toggle-message-btn" class="toggle-btn" aria-label="折叠/展开留言">
+                            <span class="toggle-icon">−</span>
+                        </button>
+                    </h3>
+                    <div id="message-list" class="message-list">
+                        <!-- 留言将显示在这里 -->
+                    </div>
+                </section>
+            </aside>
+        </main>
+
+        <aside class="sidebar">
+            <section class="sidebar-section" aria-label="留言板">
+                <h3 class="sidebar-title">留言板</h3>
+                <div class="message-board">
+                    <form id="message-form" class="message-form">
+                        <div class="form-group">
+                            <label for="name" class="form-label">名字</label>
+                            <input type="text" id="name" class="form-input" placeholder="请输入您的名字" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" class="form-label">留言内容</label>
+                            <textarea id="message" class="form-textarea" placeholder="请输入您的留言" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="form-submit">提交留言</button>
+                    </form>
+                </div>
+            </section>
+        </aside>
+
+        <footer class="footer">
+            <p>&copy; 2026 免责声明</p>
+        </footer>
+    </div>
+
+    <script>
+        const supabaseUrl = 'https://wutixqqiuksglbijggdu.supabase.co';
+        const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind1dGl4cXFpdWtzZ2xiaWpnZ2R1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM4MzQ5NzAsImV4cCI6MjA4OTQxMDk3MH0.6y_uZrcSqcjOCz-8EaXZHmmnD28OAkcyNNBkX5JySBU';
+        const supabaseClient = supabase.createClient(supabaseUrl, supabaseAnonKey);
+
+        const messageForm = document.getElementById('message-form');
+        const messageList = document.getElementById('message-list');
+        const messageDisplaySidebar = document.querySelector('.message-display-sidebar');
+        const toggleMessageBtn = document.getElementById('toggle-message-btn');
+        const toggleIcon = toggleMessageBtn ? toggleMessageBtn.querySelector('.toggle-icon') : null;
+
+        let isMessageDisplayExpanded = false;
+
+        if (messageForm && messageList && messageDisplaySidebar) {
+            messageDisplaySidebar.classList.add('collapsed');
+            
+            if (toggleMessageBtn) {
+                toggleMessageBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    toggleMessageDisplay();
+                    updateToggleIcon();
+                });
+            }
+            
+            function updateToggleIcon() {
+                if (toggleIcon) {
+                    toggleIcon.textContent = isMessageDisplayExpanded ? '−' : '+';
+                }
+            }
+            
+            messageForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                const name = document.getElementById('name').value;
+                const message = document.getElementById('message').value;
+                
+                if (name && message) {
+                    const newMessage = {
+                        name: name,
+                        message: message,
+                        created_at: new Date().toISOString()
+                    };
+                    
+                    const { error } = await supabaseClient
+                        .from('message')
+                        .insert({ name, message });
+                    
+                    if (error) {
+                        console.error('提交失败:', error);
+                        saveMessageToLocalStorage(newMessage);
+                        loadMessages();
+                    } else {
+                        messageForm.reset();
+                        loadMessages();
+                    }
+                }
+            });
+            
+            async function loadMessages() {
+                try {
+                    const { data: messages, error } = await supabaseClient
+                            .from('message')
+                            .select('*')
+                            .order('created_at', { ascending: false });
+                    
+                    if (error) {
+                        console.error('加载失败:', error);
+                        loadMessagesFromLocalStorage();
+                    } else {
+                        displayMessages(messages);
+                        saveMessagesToLocalStorage(messages);
+                    }
+                } catch (err) {
+                    console.error('加载留言时发生错误:', err);
+                    loadMessagesFromLocalStorage();
+                }
+            }
+            
+            function toggleMessageDisplay(forceExpand = false) {
+                if (forceExpand || !isMessageDisplayExpanded) {
+                    messageDisplaySidebar.classList.remove('collapsed');
+                    messageDisplaySidebar.classList.add('expanded');
+                    isMessageDisplayExpanded = true;
+                } else {
+                    messageDisplaySidebar.classList.remove('expanded');
+                    messageDisplaySidebar.classList.add('collapsed');
+                    isMessageDisplayExpanded = false;
+                }
+            }
+            
+            function displayMessages(messages) {
+                messageList.innerHTML = '';
+                if (messages && messages.length > 0) {
+                    const recentMessages = messages.slice(0, 50);
+                    recentMessages.forEach(msg => {
+                        const messageItem = document.createElement('div');
+                        messageItem.className = 'message-item';
+                        messageItem.innerHTML = `
+                            <div class="message-author">${msg.name}</div>
+                            <div class="message-content">${msg.message}</div>
+                            <div class="message-time">${new Date(msg.created_at).toLocaleString('zh-CN')}</div>
+                        `;
+                        messageList.appendChild(messageItem);
+                    });
+                } else {
+                    const emptyMessage = document.createElement('div');
+                    emptyMessage.className = 'message-item';
+                    emptyMessage.innerHTML = '<div class="message-content">暂无留言</div>';
+                    messageList.appendChild(emptyMessage);
+                }
+            }
+            
+            function saveMessageToLocalStorage(message) {
+                try {
+                    const messages = JSON.parse(localStorage.getItem('messages') || '[]');
+                    messages.unshift(message);
+                    if (messages.length > 50) {
+                        messages.splice(50);
+                    }
+                    localStorage.setItem('messages', JSON.stringify(messages));
+                } catch (err) {
+                    console.error('保存到本地存储失败:', err);
+                }
+            }
+            
+            function saveMessagesToLocalStorage(messages) {
+                try {
+                    localStorage.setItem('messages', JSON.stringify(messages));
+                } catch (err) {
+                    console.error('保存到本地存储失败:', err);
+                }
+            }
+            
+            function loadMessagesFromLocalStorage() {
+                try {
+                    const messages = JSON.parse(localStorage.getItem('messages') || '[]');
+                    displayMessages(messages);
+                } catch (err) {
+                    console.error('从本地存储加载失败:', err);
+                    displayMessages([]);
+                }
+            }
+            
+            loadMessages();
+            
+            const subscription = supabaseClient
+                .channel('message-channel')
+                .on('postgres_changes', 
+                    { 
+                        event: 'INSERT', 
+                        schema: 'public', 
+                        table: 'message' 
+                    }, 
+                    (payload) => {
+                        console.log('收到新留言:', payload.new);
+                        loadMessages();
+                        toggleMessageDisplay(true);
+                    }
+                )
+                .subscribe((status) => {
+                    console.log('实时订阅状态:', status);
+                });
+            
+            window.addEventListener('beforeunload', () => {
+                subscription.unsubscribe();
+            });
+            
+            let lastMessageTime = null;
+            setInterval(async () => {
+                try {
+                    const { data: latestMessage, error } = await supabaseClient
+                        .from('message')
+                        .select('created_at')
+                        .order('created_at', { ascending: false })
+                        .limit(1)
+                        .single();
+                    
+                    if (!error && latestMessage) {
+                        const currentMessageTime = new Date(latestMessage.created_at).getTime();
+                        
+                        if (!lastMessageTime || currentMessageTime > lastMessageTime) {
+                            if (lastMessageTime) {
+                                console.log('检测到新留言（轮询）');
+                            }
+                            loadMessages();
+                            toggleMessageDisplay(true);
+                            lastMessageTime = currentMessageTime;
+                        }
+                    }
+                } catch (err) {
+                    console.error('轮询检查失败:', err);
+                }
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
