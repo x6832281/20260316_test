@@ -12,11 +12,11 @@ const toggleMessageBtn = document.getElementById('toggle-message-btn');
 const toggleIcon = toggleMessageBtn ? toggleMessageBtn.querySelector('.toggle-icon') : null;
 
 // 默认展开状态
-let isMessageDisplayExpanded = true;
+let isMessageDisplayExpanded = false;
 
 if (messageForm && messageList && messageDisplaySidebar) {
-    // 设置默认展开状态
-    messageDisplaySidebar.classList.add('expanded');
+    // 设置默认折叠状态
+    messageDisplaySidebar.classList.add('collapsed');
     
     // 点击按钮切换展开/折叠
     if (toggleMessageBtn) {
