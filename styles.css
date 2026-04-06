@@ -1057,6 +1057,19 @@ body::before {
     border: 2px solid rgba(255, 182, 193, 0.2);
 }
 
+.disclaimer-content h3 {
+    font-size: 18px;
+    color: var(--primary-color);
+    margin-top: 24px;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid rgba(255, 182, 193, 0.3);
+}
+
+.disclaimer-content h3:first-child {
+    margin-top: 0;
+}
+
 .disclaimer-content p {
     font-size: 14px;
     color: var(--color-text-secondary);
