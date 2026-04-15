@@ -1,3 +1,16 @@
+// PWA Service Worker Registration
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/service-worker.js')
+      .then((registration) => {
+        console.log('Service Worker registered with scope:', registration.scope);
+      })
+      .catch((error) => {
+        console.error('Service Worker registration failed:', error);
+      });
+  });
+}
+
 // 搜索引擎配置
 const SEARCH_ENGINES = {
     google: { url: 'https://www.google.com/search', param: 'q' },
