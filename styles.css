@@ -641,7 +641,9 @@ body::before {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    max-width: 90%;
+    max-width: 100%;
+    margin: 0 auto;
+    justify-items: center;
 }
 
 .tool-card-link {
@@ -649,17 +651,21 @@ body::before {
     text-decoration: none;
     color: inherit;
     transition: all 0.3s ease;
+    width: 100%;
+    max-width: 280px;
 }
 
 .tool-card {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 249, 245, 0.95) 100%);
     border-radius: var(--border-radius-md);
-    padding: 16px 12px;
+    padding: 20px 16px;
     position: relative;
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: var(--box-shadow-soft);
     border: 2px solid transparent;
+    width: 100%;
+    text-align: center;
 }
 
 .tool-card::before {
@@ -1170,14 +1176,19 @@ body::before {
     
     .tool-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
     }
     
     .tool-card {
-        padding: 28px 24px;
+        padding: 24px 20px;
     }
     
     .tool-card h2 {
-        font-size: 20px;
+        font-size: 16px;
+    }
+    
+    .tool-card p {
+        font-size: 11px;
     }
     
     .sidebar-section {
@@ -1213,6 +1224,20 @@ body::before {
     
     .tool-grid {
         grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 0 16px;
+    }
+    
+    .tool-card {
+        padding: 20px 16px;
+    }
+    
+    .tool-card h2 {
+        font-size: 15px;
+    }
+    
+    .tool-card p {
+        font-size: 10px;
     }
 }
 
