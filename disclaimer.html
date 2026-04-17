@@ -3,8 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>免责声明</title>
+    <meta name="description" content="AI 萌新小窝网站免责声明">
+    <meta name="theme-color" content="#0f0f1a">
+    <title>免责声明 - AI 萌新小窝</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='40' fill='%231a1a2e'/%3E%3Ctext x='90' y='110' text-anchor='middle' font-size='80' font-family='serif' fill='%23f5e6d3'%3E卡%3C/text%3E%3C/svg%3E">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="AI 萌新小窝">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <!-- 百度统计 -->
     <script>
@@ -18,93 +28,91 @@
     </script>
 </head>
 <body>
-    <div class="container">
-        <header class="header">
-            <div class="title-row">
-                <h1><a href="index.html">卡卡东</a></h1>
-            </div>
+    <div class="noise-overlay"></div>
+    <div class="grain-overlay"></div>
+    
+    <div class="disclaimer-page">
+        <header class="disclaimer-header">
+            <a href="index.html" class="back-link">
+                <span class="back-arrow">←</span> 返回主页
+            </a>
+            <h1 class="disclaimer-title">免责声明</h1>
+            <p class="disclaimer-subtitle">最后更新：2026年4月6日</p>
         </header>
 
-        <main class="main-content">
-            <section class="content">
-                <section class="section">
-                    <div class="section-header">
-                        <h2 class="section-title">免责声明</h2>
-                    </div>
-                    <div class="disclaimer-content">
-                        <h3>一、总则</h3>
-                        <p>卡卡东（以下简称"本站"）致力于为用户提供各类资源导航服务。本站内容仅供参考学习与研究使用，请勿进行任何商业转载或传播。使用本站即表示您同意以下条款。</p>
-                        
-                        <h3>二、资源版权声明</h3>
-                        <p>1. 本网站所收集、整理的资源链接均来自互联网，版权归各资源原作者所有。</p>
-                        <p>2. 本站不对任何资源的真实性、合法性、准确性作出任何承诺或保证。</p>
-                        <p>3. 如您认为本站内容侵犯了您的知识产权，请联系本站删除。</p>
-                        <p>4. 本网站所有标注"免费"、"开源"等字样的资源，其版权归属以原资源平台的规定为准，使用前请仔细阅读原平台的授权协议。</p>
-                        
-                        <h3>三、AI工具使用声明</h3>
-                        <p>1. 本网站所推荐的AI中转站、AI工具等均来自第三方平台，其服务质量、价格政策、隐私条款均由各平台自行负责。</p>
-                        <p>2. 使用任何AI工具时，请勿输入您的个人敏感信息（如身份证号、银行卡号、密码等）。</p>
-                        <p>3. AI工具生成的内容可能存在偏差或错误，请谨慎参考，不建议直接用于重要决策。</p>
-                        <p>4. 各类AI API服务的计费方式、额度限制、可用地区等可能随时变动，请以各平台官方公告为准。</p>
-                        
-                        <h3>四、游戏开发资源声明</h3>
-                        <p>1. 本网站所推荐的游戏引擎（如Godot等）均为开源或免费软件，但使用其开发的游戏在发布时需遵守相应的开源协议。</p>
-                        <p>2. 游戏素材资源（包括但不限于美术、音效、模型等）的使用需遵循各素材作者规定的授权协议（常见协议包括CC0、CC BY、CC BY-SA等）。</p>
-                        <p>3. 独立游戏开发者在使用第三方资源时，请务必确认资源的授权类型，避免产生版权纠纷。</p>
-                        
-                        <h3>五、数据安全与隐私声明</h3>
-                        <p>1. 本网站可能使用第三方服务（如Supabase数据库）存储用户留言信息，用户提交留言即表示同意该等信息被存储。</p>
-                        <p>2. 本网站不对用户数据的泄露、丢失等情况承担任何责任。</p>
-                        <p>3. 请勿在留言板中输入您的个人敏感信息。</p>
-                        <p>4. 本网站可能使用Cookies或其他追踪技术，请悉知。</p>
-                        
-                        <h3>六、外部链接声明</h3>
-                        <p>1. 本网站包含指向外部网站的链接，这些外部网站的内容、安全性、隐私政策等均不受本站控制。</p>
-                        <p>2. 访问外部链接即表示您同意该网站的使用条款和隐私政策。</p>
-                        <p>3. 本网站不对任何外部链接的内容准确性、可用性或完整性作出任何保证。</p>
-                        
-                        <h3>七、服务变更与终止</h3>
-                        <p>1. 本网站保留随时修改、暂停或终止服务的权利，恕不另行通知。</p>
-                        <p>2. 本网站不对因服务变更、暂停或终止而导致的任何损失负责。</p>
-                        
-                        <h3>八、免责声明</h3>
-                        <p>1. 对于因使用本站内容而导致的任何直接或间接损失（包括但不限于数据丢失、利润损失、业务中断等），本站不承担任何责任。</p>
-                        <p>2. 本网站不对资源链接的可用性、稳定性作任何承诺，不保证所有链接始终有效。</p>
-                        <p>3. 用户因使用本站资源或服务而产生的任何纠纷、诉讼或索赔，应由用户与相关资源提供方自行解决。</p>
-                        <p>4. 本网站对用户因依赖本站信息而做出的任何决策或行动不承担任何责任。</p>
-                        
-                        <h3>九、免责声明更新</h3>
-                        <p>1. 本网站保留随时修改本免责声明的权利，修改后的声明自发布之日起生效。</p>
-                        <p>2. 请定期查阅本声明的最新版本，继续使用本站即表示您接受修改后的所有条款。</p>
-                        <p>3. 如您不同意本声明的任何内容，请立即停止使用本站。</p>
-                        
-                        <h3>十、联系我们</h3>
-                        <p>如您对本声明有任何疑问，或发现本站内容存在侵权等问题，请通过留言板与我们联系。</p>
-                        
-                        <p class="update-date"><strong>最后更新日期：</strong>2026年4月6日</p>
-                    </div>
-                </section>
+        <main class="disclaimer-content">
+            <section class="content-section">
+                <h2>一、总则</h2>
+                <p>AI 萌新小窝（以下简称"本站"）致力于为用户提供各类资源导航服务。本站内容仅供参考学习与研究使用，请勿进行任何商业转载或传播。使用本站即表示您同意以下条款。</p>
             </section>
 
-            <aside class="message-display-sidebar">
-                <section class="sidebar-section" aria-label="留言展示">
-                    <h3 class="sidebar-title">
-                        留言展示
-                        <button id="toggle-message-btn" class="toggle-btn" aria-label="折叠/展开留言">
-                            <span class="toggle-icon">−</span>
-                        </button>
-                    </h3>
-                    <div id="message-list" class="message-list">
-                        <!-- 留言将显示在这里 -->
-                    </div>
-                </section>
-            </aside>
-        </main>
+            <section class="content-section">
+                <h2>二、资源版权声明</h2>
+                <p>1. 本网站所收集、整理的资源链接均来自互联网，版权归各资源原作者所有。</p>
+                <p>2. 本站不对任何资源的真实性、合法性、准确性作出任何承诺或保证。</p>
+                <p>3. 如您认为本站内容侵犯了您的知识产权，请联系本站删除。</p>
+                <p>4. 本网站所有标注"免费"、"开源"等字样的资源，其版权归属以原资源平台的规定为准，使用前请仔细阅读原平台的授权协议。</p>
+            </section>
 
-        <aside class="sidebar">
-            <section class="sidebar-section" aria-label="留言板">
-                <h3 class="sidebar-title">留言板</h3>
-                <div class="message-board">
+            <section class="content-section">
+                <h2>三、AI工具使用声明</h2>
+                <p>1. 本网站所推荐的AI中转站、AI工具等均来自第三方平台，其服务质量、价格政策、隐私条款均由各平台自行负责。</p>
+                <p>2. 使用任何AI工具时，请勿输入您的个人敏感信息（如身份证号、银行卡号、密码等）。</p>
+                <p>3. AI工具生成的内容可能存在偏差或错误，请谨慎参考，不建议直接用于重要决策。</p>
+                <p>4. 各类AI API服务的计费方式、额度限制、可用地区等可能随时变动，请以各平台官方公告为准。</p>
+            </section>
+
+            <section class="content-section">
+                <h2>四、游戏开发资源声明</h2>
+                <p>1. 本网站所推荐的游戏引擎（如Godot等）均为开源或免费软件，但使用其开发的游戏在发布时需遵守相应的开源协议。</p>
+                <p>2. 游戏素材资源（包括但不限于美术、音效、模型等）的使用需遵循各素材作者规定的授权协议（常见协议包括CC0、CC BY、CC BY-SA等）。</p>
+                <p>3. 独立游戏开发者在使用第三方资源时，请务必确认资源的授权类型，避免产生版权纠纷。</p>
+            </section>
+
+            <section class="content-section">
+                <h2>五、数据安全与隐私声明</h2>
+                <p>1. 本网站可能使用第三方服务（如Supabase数据库）存储用户留言信息，用户提交留言即表示同意该等信息被存储。</p>
+                <p>2. 本网站不对用户数据的泄露、丢失等情况承担任何责任。</p>
+                <p>3. 请勿在留言板中输入您的个人敏感信息。</p>
+                <p>4. 本网站可能使用Cookies或其他追踪技术，请悉知。</p>
+            </section>
+
+            <section class="content-section">
+                <h2>六、外部链接声明</h2>
+                <p>1. 本网站包含指向外部网站的链接，这些外部网站的内容、安全性、隐私政策等均不受本站控制。</p>
+                <p>2. 访问外部链接即表示您同意该网站的使用条款和隐私政策。</p>
+                <p>3. 本网站不对任何外部链接的内容准确性、可用性或完整性作出任何保证。</p>
+            </section>
+
+            <section class="content-section">
+                <h2>七、服务变更与终止</h2>
+                <p>1. 本网站保留随时修改、暂停或终止服务的权利，恕不另行通知。</p>
+                <p>2. 本网站不对因服务变更、暂停或终止而导致的任何损失负责。</p>
+            </section>
+
+            <section class="content-section">
+                <h2>八、免责声明</h2>
+                <p>1. 对于因使用本站内容而导致的任何直接或间接损失（包括但不限于数据丢失、利润损失、业务中断等），本站不承担任何责任。</p>
+                <p>2. 本网站不对资源链接的可用性、稳定性作任何承诺，不保证所有链接始终有效。</p>
+                <p>3. 用户因使用本站资源或服务而产生的任何纠纷、诉讼或索赔，应由用户与相关资源提供方自行解决。</p>
+                <p>4. 本网站对用户因依赖本站信息而做出的任何决策或行动不承担任何责任。</p>
+            </section>
+
+            <section class="content-section">
+                <h2>九、免责声明更新</h2>
+                <p>1. 本网站保留随时修改本免责声明的权利，修改后的声明自发布之日起生效。</p>
+                <p>2. 请定期查阅本声明的最新版本，继续使用本站即表示您接受修改后的所有条款。</p>
+                <p>3. 如您不同意本声明的任何内容，请立即停止使用本站。</p>
+            </section>
+
+            <section class="content-section">
+                <h2>十、联系我们</h2>
+                <p>如您对本声明有任何疑问，或发现本站内容存在侵权等问题，请通过留言板与我们联系。</p>
+            </section>
+
+            <section class="message-section">
+                <h2>留言板</h2>
+                <div class="message-container">
                     <form id="message-form" class="message-form">
                         <div class="form-group">
                             <label for="name" class="form-label">名字</label>
@@ -116,12 +124,23 @@
                         </div>
                         <button type="submit" class="form-submit">提交留言</button>
                     </form>
+
+                    <div class="message-list-container">
+                        <h3 class="message-list-title">
+                            最新留言
+                            <button id="toggle-message-btn" class="toggle-btn" aria-label="折叠/展开留言">
+                                <span class="toggle-icon">−</span>
+                            </button>
+                        </h3>
+                        <div id="message-list" class="message-list">
+                        </div>
+                    </div>
                 </div>
             </section>
-        </aside>
+        </main>
 
-        <footer class="footer">
-            <p>&copy; 2026 免责声明</p>
+        <footer class="disclaimer-footer">
+            <p>&copy; 2026 AI 萌新小窝 - 免责声明</p>
         </footer>
     </div>
 
@@ -132,26 +151,23 @@
 
         const messageForm = document.getElementById('message-form');
         const messageList = document.getElementById('message-list');
-        const messageDisplaySidebar = document.querySelector('.message-display-sidebar');
         const toggleMessageBtn = document.getElementById('toggle-message-btn');
         const toggleIcon = toggleMessageBtn ? toggleMessageBtn.querySelector('.toggle-icon') : null;
 
-        let isMessageDisplayExpanded = false;
+        let isMessageListExpanded = true;
 
-        if (messageForm && messageList && messageDisplaySidebar) {
-            messageDisplaySidebar.classList.add('collapsed');
-            
+        if (messageForm && messageList) {
             if (toggleMessageBtn) {
                 toggleMessageBtn.addEventListener('click', (e) => {
                     e.stopPropagation();
-                    toggleMessageDisplay();
+                    toggleMessageList();
                     updateToggleIcon();
                 });
             }
             
             function updateToggleIcon() {
                 if (toggleIcon) {
-                    toggleIcon.textContent = isMessageDisplayExpanded ? '−' : '+';
+                    toggleIcon.textContent = isMessageListExpanded ? '−' : '+';
                 }
             }
             
@@ -203,15 +219,13 @@
                 }
             }
             
-            function toggleMessageDisplay(forceExpand = false) {
-                if (forceExpand || !isMessageDisplayExpanded) {
-                    messageDisplaySidebar.classList.remove('collapsed');
-                    messageDisplaySidebar.classList.add('expanded');
-                    isMessageDisplayExpanded = true;
+            function toggleMessageList() {
+                if (isMessageListExpanded) {
+                    messageList.classList.add('collapsed');
+                    isMessageListExpanded = false;
                 } else {
-                    messageDisplaySidebar.classList.remove('expanded');
-                    messageDisplaySidebar.classList.add('collapsed');
-                    isMessageDisplayExpanded = false;
+                    messageList.classList.remove('collapsed');
+                    isMessageListExpanded = true;
                 }
             }
             
@@ -281,7 +295,6 @@
                     (payload) => {
                         console.log('收到新留言:', payload.new);
                         loadMessages();
-                        toggleMessageDisplay(true);
                     }
                 )
                 .subscribe((status) => {
@@ -310,7 +323,6 @@
                                 console.log('检测到新留言（轮询）');
                             }
                             loadMessages();
-                            toggleMessageDisplay(true);
                             lastMessageTime = currentMessageTime;
                         }
                     }

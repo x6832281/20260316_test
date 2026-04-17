@@ -4,15 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="description" content="游戏开发资源与工具导航，包含Godot引擎相关的教程、工具、社区和案例。">
-    <meta name="theme-color" content="#FFF9F5">
-    <title>独立游戏开发指南 - 新手专属</title>
-    <!-- PWA -->
+    <meta name="theme-color" content="#0a0a0f">
+    <title>独立游戏开发指南 - AI 萌新小窝</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
     <link rel="manifest" href="manifest.json">
-    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Ccircle cx='90' cy='90' r='85' fill='%23FFB6C1'/%3E%3Ctext x='90' y='95' text-anchor='middle' font-size='24' font-family='Arial' fill='white'%3E卡%3C/text%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='40' fill='%230a0a0f'/%3E%3Ctext x='90' y='110' text-anchor='middle' font-size='80' font-family='serif' fill='%2300f5d4'%3EG%3C/text%3E%3C/svg%3E">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="apple-mobile-web-app-title" content="卡卡东">
-    <!-- 百度统计 -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="AI 萌新小窝">
     <script>
         var _hmt = _hmt || [];
         (function() {
@@ -22,1568 +24,425 @@
             s.parentNode.insertBefore(hm, s);
         })();
     </script>
-    <style>
-        /* 沿用 v1.html/v2.html 的简约专业风格，主色调改为游戏感强的紫色 */
-        :root {
-            --primary-color: #8b5cf6; /* 紫色系 */
-            --bg-color: #f5f7f9;
-            --sidebar-bg: #ffffff;
-            --card-bg: #ffffff;
-            --text-main: #333333;
-            --text-sub: #666666;
-            --text-light: #999999;
-            --border-color: #eeeeee;
-            --sidebar-width: 200px;
-            --header-height: 60px;
-            --transition: all 0.2s ease;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            display: flex;
-            min-height: 100vh;
-        }
-
-        /* 左侧固定侧边栏 */
-        .sidebar {
-            width: var(--sidebar-width);
-            height: 100vh;
-            position: fixed;
-            left: 0;
-            top: 0;
-            background-color: var(--sidebar-bg);
-            border-right: 1px solid var(--border-color);
-            display: flex;
-            flex-direction: column;
-            z-index: 1000;
-        }
-
-        .sidebar-logo {
-            height: var(--header-height);
-            display: flex;
-            align-items: center;
-            padding: 0 20px;
-            font-size: 18px;
-            font-weight: bold;
-            color: var(--primary-color);
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .sidebar-nav {
-            flex: 1;
-            padding: 15px 0;
-            overflow-y: auto;
-        }
-
-        .nav-item {
-            list-style: none;
-        }
-
-        .nav-link {
-            display: flex;
-            align-items: center;
-            padding: 12px 20px;
-            text-decoration: none;
-            color: var(--text-main);
-            font-size: 14px;
-            transition: var(--transition);
-            border-left: 3px solid transparent;
-        }
-
-        .nav-link i {
-            margin-right: 10px;
-            font-style: normal;
-            font-size: 16px;
-        }
-
-        .nav-link:hover {
-            background-color: #f5f3ff;
-            color: var(--primary-color);
-        }
-
-        .nav-link.active {
-            background-color: #f5f3ff;
-            color: var(--primary-color);
-            border-left-color: var(--primary-color);
-            font-weight: 600;
-        }
-
-        .sidebar-footer {
-            padding: 15px 20px;
-            border-top: 1px solid var(--border-color);
-        }
-
-        .back-home {
-            text-decoration: none;
-            color: var(--text-sub);
-            font-size: 13px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .back-home:hover {
-            color: var(--primary-color);
-        }
-
-        /* 主内容区 */
-        .main-content {
-            flex: 1;
-            margin-left: var(--sidebar-width);
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* 顶部头部 */
-        .header {
-            height: var(--header-height);
-            background-color: #fff;
-            display: flex;
-            align-items: center;
-            padding: 0 30px;
-            border-bottom: 1px solid var(--border-color);
-            position: sticky;
-            top: 0;
-            z-index: 999;
-        }
-
-        .search-bar {
-            width: 400px;
-            position: relative;
-        }
-
-        .search-input {
-            width: 100%;
-            height: 36px;
-            background-color: #f2f2f2;
-            border: none;
-            border-radius: 18px;
-            padding: 0 15px 0 35px;
-            font-size: 13px;
-            outline: none;
-            transition: var(--transition);
-        }
-
-        .search-input:focus {
-            background-color: #fff;
-            box-shadow: 0 0 0 1px var(--primary-color);
-        }
-
-        .search-icon {
-            position: absolute;
-            left: 12px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #999;
-            font-size: 14px;
-        }
-
-        /* 页面主体 */
-        .container {
-            padding: 20px 30px 40px;
-        }
-
-        .section {
-            margin-bottom: 30px;
-            scroll-margin-top: 80px;
-        }
-
-        .section-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 15px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .section-title {
-            font-size: 16px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .section-title::before {
-            content: "";
-            width: 4px;
-            height: 16px;
-            background-color: var(--primary-color);
-            border-radius: 2px;
-        }
-
-        /* 网格与卡片 */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-            gap: 15px;
-        }
-
-        .card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            padding: 15px;
-            text-decoration: none;
-            color: inherit;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            transition: var(--transition);
-            height: 76px;
-        }
-
-        .card:hover {
-            border-color: var(--primary-color);
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
-            transform: translateY(-2px);
-        }
-
-        .card-icon {
-            width: 44px;
-            height: 44px;
-            background-color: #f8f9fa;
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 22px;
-            flex-shrink: 0;
-        }
-
-        .card-info {
-            flex: 1;
-            min-width: 0;
-        }
-
-        .card-title {
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 4px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .card-desc {
-            font-size: 12px;
-            color: var(--text-sub);
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            line-height: 1.4;
-        }
-
-        /* 页脚 */
-        .footer {
-            margin-top: auto;
-            padding: 30px;
-            text-align: center;
-            font-size: 12px;
-            color: var(--text-light);
-            background-color: #fff;
-            border-top: 1px solid var(--border-color);
-        }
-
-        @media (max-width: 768px) {
-            .sidebar {
-                width: 60px;
-            }
-            .sidebar-logo, .nav-link span, .sidebar-footer span {
-                display: none;
-            }
-            .nav-link {
-                justify-content: center;
-                padding: 15px 0;
-            }
-            .nav-link i {
-                margin-right: 0;
-            }
-            .main-content {
-                margin-left: 60px;
-            }
-            .grid {
-                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-            }
-        }
-    </style>
 </head>
 <body>
-    <!-- 左侧导航 -->
-    <aside class="sidebar">
-        <div class="sidebar-logo">游戏开发指南</div>
-        <nav class="sidebar-nav">
-            <ul>
-                <li class="nav-item">
-                    <a href="#engines" class="nav-link active">
-                        <i>⚙️</i> <span>核心游戏引擎</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#tutorials" class="nav-link">
-                        <i>🎓</i> <span>优质教程与视频</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#code-assets" class="nav-link">
-                        <i>🧩</i> <span>代码与系统框架</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#assets" class="nav-link">
-                        <i>🎨</i> <span>免费美术与音效</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#vfx-ui" class="nav-link">
-                        <i>✨</i> <span>特效与UI设计</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#narrative-design" class="nav-link">
-                        <i>📖</i> <span>叙事与关卡设计</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#project-management" class="nav-link">
-                        <i>📋</i> <span>项目管理与策划</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#communities" class="nav-link">
-                        <i>🌍</i> <span>独立游戏社区</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#publish" class="nav-link">
-                        <i>🚀</i> <span>发行与变现</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#art-assets" class="nav-link">
-                        <i>🖼️</i> <span>美术素材资源</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#audio-assets" class="nav-link">
-                        <i>🎵</i> <span>音效音乐资源</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#dev-tools" class="nav-link">
-                        <i>🔧</i> <span>开发引擎与工具</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#community" class="nav-link">
-                        <i>🌟</i> <span>游戏社区平台</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#ai-for-gamedev" class="nav-link">
-                        <i>🤖</i> <span>游戏AI开发</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#godot-resources" class="nav-link">
-                        <i>👾</i> <span>Godot专属资源</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#gamedev-blogs" class="nav-link">
-                        <i>📝</i> <span>游戏开发博客与论坛</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#gamedev-freelance" class="nav-link">
-                        <i>💼</i> <span>游戏开发外包与接单</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#indie-game-cases" class="nav-link">
-                        <i>🏆</i> <span>独立游戏案例与成功故事</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#more-assets" class="nav-link">
-                        <i>🎁</i> <span>更多游戏素材资源</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-        <div class="sidebar-footer">
-            <a href="index.html" class="back-home">
-                <span>🏠 返回主页</span>
-            </a>
-        </div>
-    </aside>
-
-    <!-- 主内容 -->
-    <main class="main-content">
-        <header class="header">
-            <div class="search-bar">
-                <span class="search-icon">🔍</span>
-                <input type="text" id="searchInput" class="search-input" placeholder="搜索引擎、教程、素材...">
+    <div class="noise-overlay"></div>
+    <div class="grain-overlay"></div>
+    
+    <div class="sub-page">
+        <aside class="page-sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <span>&#x2726;</span> 独立游戏开发
+                </a>
             </div>
-        </header>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#engines" class="sidebar-link"><span class="link-icon">&#x1f3ae;</span><span>核心游戏引擎</span></a></li>
+                    <li><a href="#tutorials" class="sidebar-link"><span class="link-icon">&#x1f3a5;</span><span>优质教程与视频</span></a></li>
+                    <li><a href="#code-assets" class="sidebar-link"><span class="link-icon">&#x1f9e9;</span><span>代码与系统框架</span></a></li>
+                    <li><a href="#assets" class="sidebar-link"><span class="link-icon">&#x1f3a8;</span><span>免费美术与音效</span></a></li>
+                    <li><a href="#vfx-ui" class="sidebar-link"><span class="link-icon">&#x2728;</span><span>特效与UI设计</span></a></li>
+                    <li><a href="#narrative-design" class="sidebar-link"><span class="link-icon">&#x1f4d6;</span><span>叙事与关卡设计</span></a></li>
+                    <li><a href="#project-management" class="sidebar-link"><span class="link-icon">&#x1f4cb;</span><span>项目管理与策划</span></a></li>
+                    <li><a href="#communities" class="sidebar-link"><span class="link-icon">&#x1f30d;</span><span>独立游戏社区</span></a></li>
+                    <li><a href="#publish" class="sidebar-link"><span class="link-icon">&#x1f680;</span><span>发行与变现</span></a></li>
+                    <li><a href="#art-assets" class="sidebar-link"><span class="link-icon">&#x1f5bc;&#xfe0f;</span><span>美术素材资源</span></a></li>
+                    <li><a href="#audio-assets" class="sidebar-link"><span class="link-icon">&#x1f3b5;</span><span>音效音乐资源</span></a></li>
+                    <li><a href="#dev-tools" class="sidebar-link"><span class="link-icon">&#x1f527;</span><span>开发引擎与工具</span></a></li>
+                    <li><a href="#community" class="sidebar-link"><span class="link-icon">&#x1f31f;</span><span>游戏社区平台</span></a></li>
+                    <li><a href="#ai-for-gamedev" class="sidebar-link"><span class="link-icon">&#x1f916;</span><span>游戏AI开发</span></a></li>
+                    <li><a href="#godot-resources" class="sidebar-link"><span class="link-icon">&#x1f47e;</span><span>Godot专属资源</span></a></li>
+                    <li><a href="#gamedev-blogs" class="sidebar-link"><span class="link-icon">&#x1f4dd;</span><span>游戏开发博客与论坛</span></a></li>
+                    <li><a href="#gamedev-freelance" class="sidebar-link"><span class="link-icon">&#x1f4bc;</span><span>游戏开发外包与接单</span></a></li>
+                    <li><a href="#indie-game-cases" class="sidebar-link"><span class="link-icon">&#x1f3c6;</span><span>独立游戏案例</span></a></li>
+                    <li><a href="#more-assets" class="sidebar-link"><span class="link-icon">&#x1f381;</span><span>更多游戏素材</span></a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="index.html" class="back-home"><span>&#x2190;</span> 返回主页</a>
+            </div>
+        </aside>
+        
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
-        <div class="container">
-            <!-- 核心游戏引擎 -->
-            <section id="engines" class="section">
-                <div class="section-header">
-                    <h2 class="section-title">核心游戏引擎 (必须选一个深入)</h2>
+        <main class="page-main">
+            <header class="page-header">
+                <button class="mobile-sidebar-toggle" id="sidebarToggle">&#x2630;</button>
+                <div class="page-search">
+                    <span class="search-icon">&#x1f50d;</span>
+                    <input type="text" class="page-search-input" id="searchInput" placeholder="搜索教程、工具、素材...">
                 </div>
-                <div class="grid">
-                    <a href="https://godotengine.org/" target="_blank" class="card">
-                        <div class="card-icon">🤖</div>
-                        <div class="card-info">
-                            <div class="card-title">Godot Engine</div>
-                            <p class="card-desc">完全免费开源！节点式架构极度优雅，使用类似 Python 的 GDScript，近年最火引擎。</p>
-                        </div>
-                    </a>
-                    <a href="https://docs.godotengine.org/en/stable/" target="_blank" class="card">
-                        <div class="card-icon">📚</div>
-                        <div class="card-info">
-                            <div class="card-title">Godot 官方文档</div>
-                            <p class="card-desc">官方中文文档，包含完整的 API 参考和教程。</p>
-                        </div>
-                    </a>
-                    <a href="https://godotengine.org/asset-library/asset" target="_blank" class="card">
-                        <div class="card-icon">🛒</div>
-                        <div class="card-info">
-                            <div class="card-title">Godot 资源库</div>
-                            <p class="card-desc">官方资源库，包含大量免费的插件、脚本和素材。</p>
-                        </div>
-                    </a>
-                    <a href="https://godotengine.org/community/" target="_blank" class="card">
-                        <div class="card-icon">🌍</div>
-                        <div class="card-info">
-                            <div class="card-title">Godot 社区</div>
-                            <p class="card-desc">官方论坛和社区，获取最新资讯和技术支持。</p>
-                        </div>
-                    </a>
-                    <a href="https://github.com/godotengine/godot" target="_blank" class="card">
-                        <div class="card-icon">🐙</div>
-                        <div class="card-info">
-                            <div class="card-title">Godot GitHub</div>
-                            <p class="card-desc">Godot 源码仓库，参与开源贡献。</p>
-                        </div>
-                    </a>
-                    <a href="https://godotforums.org/" target="_blank" class="card">
-                        <div class="card-icon">💬</div>
-                        <div class="card-info">
-                            <div class="card-title">Godot Forums</div>
-                            <p class="card-desc">Godot 社区论坛，提问和分享经验。</p>
-                        </div>
-                    </a>
-                    <a href="https://unity.com/cn" target="_blank" class="card">
-                        <div class="card-icon">🧊</div>
-                        <div class="card-info">
-                            <div class="card-title">Unity</div>
-                            <p class="card-desc">最适合新手的 2D/3D 引擎，C# 编程，社区教程全网最多，独立游戏首选。</p>
-                        </div>
-                    </a>
-                    <a href="https://www.unrealengine.com/" target="_blank" class="card">
-                        <div class="card-icon">🔥</div>
-                        <div class="card-info">
-                            <div class="card-title">Unreal Engine (UE5)</div>
-                            <p class="card-desc">画面表现天花板，强大的蓝图(Blueprint)系统让你可以不写代码做游戏。</p>
-                        </div>
-                    </a>
-                    <a href="https://www.yoyogames.com/en/gamemaker" target="_blank" class="card">
-                        <div class="card-icon">🐹</div>
-                        <div class="card-info">
-                            <div class="card-title">GameMaker</div>
-                            <p class="card-desc">2D 游戏的王者，《传说之下》《蔚蓝》同款引擎，适合纯 2D 像素风开发。</p>
-                        </div>
-                    </a>
-                </div>
-            </section>
+            </header>
 
-            <!-- 优质教程与视频 -->
-            <section id="tutorials" class="section">
-                <div class="section-header">
-                    <h2 class="section-title">优质教程与视频 (跟着做就对了)</h2>
-                </div>
-                <div class="grid">
-                    <a href="https://www.bilibili.com/video/BV1L5411p7hX" target="_blank" class="card">
-                        <div class="card-icon">🎮</div>
-                        <div class="card-info">
-                            <div class="card-title">麦扣 (B站) Godot教程</div>
-                            <p class="card-desc">非常适合新手的 Godot 4 中文教程，带你快速上手节点系统。</p>
-                        </div>
-                    </a>
-                    <a href="https://www.youtube.com/c/GDQuest" target="_blank" class="card">
-                        <div class="card-icon">🎯</div>
-                        <div class="card-info">
-                            <div class="card-title">GDQuest</div>
-                            <p class="card-desc">专业的 Godot 教学频道，提供高质量的视频教程和游戏开发教程。</p>
-                        </div>
-                    </a>
-                    <a href="https://www.youtube.com/c/Brackeys" target="_blank" class="card">
-                        <div class="card-icon">🕶️</div>
-                        <div class="card-info">
-                            <div class="card-title">Brackeys (YouTube)</div>
-                            <p class="card-desc">全球最知名的游戏开发教学频道（现已复出转战 Godot），英语听力好必看。</p>
-                        </div>
-                    </a>
-                    <a href="https://www.youtube.com/c/HeartBeast" target="_blank" class="card">
-                        <div class="card-icon">❤️</div>
-                        <div class="card-info">
-                            <div class="card-title">HeartBeast</div>
-                            <p class="card-desc">Godot 游戏开发教程，分享独立游戏开发经验和技巧。</p>
-                        </div>
-                    </a>
-                    <a href="https://www.youtube.com/c/QuestQuest" target="_blank" class="card">
-                        <div class="card-icon">🔍</div>
-                        <div class="card-info">
-                            <div class="card-title">QuestQuest</div>
-                            <p class="card-desc">Godot 教程频道，专注于游戏开发和教程分享。</p>
-                        </div>
-                    </a>
-                    <a href="https://www.youtube.com/c/DevDungeon" target="_blank" class="card">
-                        <div class="card-icon">🐉</div>
-                        <div class="card-info">
-                            <div class="card-title">DevDungeon</div>
-                            <p class="card-desc">游戏开发教程频道，包含 Godot 相关内容。</p>
-                        </div>
-                    </a>
-                    <a href="https://space.bilibili.com/370283072" target="_blank" class="card">
-                        <div class="card-icon">📺</div>
-                        <div class="card-info">
-                            <div class="card-title">M_Studio (B站)</div>
-                            <p class="card-desc">国内公认最好的 Unity 新手教程 UP 主，从零带你做《勇士传说》等完整项目。</p>
-                        </div>
-                    </a>
-                    <a href="https://catlikecoding.com/" target="_blank" class="card">
-                        <div class="card-icon">🐱</div>
-                        <div class="card-info">
-                            <div class="card-title">Catlike Coding</div>
-                            <p class="card-desc">Unity 高阶图文教程圣地，深入讲解渲染管线、网格生成、数学原理。</p>
-                        </div>
-                    </a>
-                    <a href="https://learn.unity.com/" target="_blank" class="card">
-                        <div class="card-icon">🎓</div>
-                        <div class="card-info">
-                            <div class="card-title">Unity Learn 官方平台</div>
-                            <p class="card-desc">官方出品的系统化学习路径，提供大量免费的微型项目和源码供拆解。</p>
-                        </div>
-                    </a>
-                    <a href="https://siki.roki.com/" target="_blank" class="card">
-                        <div class="card-icon">📚</div>
-                        <div class="card-info">
-                            <div class="card-title">SIKI 学院</div>
-                            <p class="card-desc">国内老牌的 Unity/UE 培训网站，有大量免费的入门到进阶体系课程。</p>
-                        </div>
-                    </a>
-                </div>
-            </section>
+            <div class="page-content">
+                <section id="engines" class="content-section">
+                    <div class="section-heading"><h2>核心游戏引擎 (必须选一个深入)</h2></div>
+                    <div class="resource-grid">
+                        <a href="https://godotengine.org/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f916;</div><div class="resource-info"><div class="resource-title">Godot Engine</div><div class="resource-desc">完全免费开源！节点式架构极度优雅，使用类似 Python 的 GDScript，近年最火引擎。</div></div></a>
+                        <a href="https://docs.godotengine.org/en/stable/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f4da;</div><div class="resource-info"><div class="resource-title">Godot 官方文档</div><div class="resource-desc">官方中文文档，包含完整的 API 参考和教程。</div></div></a>
+                        <a href="https://godotengine.org/asset-library/asset" target="_blank" class="resource-card"><div class="resource-icon">&#x1f6d2;</div><div class="resource-info"><div class="resource-title">Godot 资源库</div><div class="resource-desc">官方资源库，包含大量免费的插件、脚本和素材。</div></div></a>
+                        <a href="https://godotengine.org/community/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f30d;</div><div class="resource-info"><div class="resource-title">Godot 社区</div><div class="resource-desc">官方论坛和社区，获取最新资讯和技术支持。</div></div></a>
+                        <a href="https://github.com/godotengine/godot" target="_blank" class="resource-card"><div class="resource-icon">&#x1f419;</div><div class="resource-info"><div class="resource-title">Godot GitHub</div><div class="resource-desc">Godot 源码仓库，参与开源贡献。</div></div></a>
+                        <a href="https://godotforums.org/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f4ac;</div><div class="resource-info"><div class="resource-title">Godot Forums</div><div class="resource-desc">Godot 社区论坛，提问和分享经验。</div></div></a>
+                        <a href="https://unity.com/cn" target="_blank" class="resource-card"><div class="resource-icon">&#x1f9ca;</div><div class="resource-info"><div class="resource-title">Unity</div><div class="resource-desc">最适合新手的 2D/3D 引擎，C# 编程，社区教程全网最多，独立游戏首选。</div></div></a>
+                        <a href="https://www.unrealengine.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f525;</div><div class="resource-info"><div class="resource-title">Unreal Engine (UE5)</div><div class="resource-desc">画面表现天花板，强大的蓝图(Blueprint)系统让你可以不写代码做游戏。</div></div></a>
+                        <a href="https://www.yoyogames.com/en/gamemaker" target="_blank" class="resource-card"><div class="resource-icon">&#x1f439;</div><div class="resource-info"><div class="resource-title">GameMaker</div><div class="resource-desc">2D 游戏的王者，《传说之下》《蔚蓝》同款引擎，适合纯 2D 像素风开发。</div></div></a>
+                    </div>
+                </section>
 
-            <!-- 代码与系统框架 -->
-            <section id="code-assets" class="section">
-                <div class="section-header">
-                    <h2 class="section-title">代码与系统框架 (不用重复造轮子)</h2>
-                </div>
-                <div class="grid">
-                    <a href="https://github.com/QianMo/QianMo.github.io" target="_blank" class="card">
-                        <div class="card-icon">💻</div>
-                        <div class="card-info">
-                            <div class="card-title">浅墨的 GitHub</div>
-                            <p class="card-desc">已故大神浅墨留下的宝贵遗产，包含大量 Unity 渲染和架构的优质代码。</p>
-                        </div>
-                    </a>
-                    <a href="https://github.com/EllanJiang/GameFramework" target="_blank" class="card">
-                        <div class="card-icon">⚙️</div>
-                        <div class="card-info">
-                            <div class="card-title">GameFramework (UGF)</div>
-                            <p class="card-desc">国内极具影响力的 Unity 开源框架，包含 UI、资源管理、网络等完整模块。</p>
-                        </div>
-                    </a>
-                    <a href="https://github.com/Tencent/puerts" target="_blank" class="card">
-                        <div class="card-icon">🔄</div>
-                        <div class="card-info">
-                            <div class="card-title">PuerTS (腾讯开源)</div>
-                            <p class="card-desc">在 Unity/UE 中使用 TypeScript 进行游戏逻辑开发的热更新方案。</p>
-                        </div>
-                    </a>
-                    <a href="https://assetstore.unity.com/packages/tools/visual-scripting/playmaker-368" target="_blank" class="card">
-                        <div class="card-icon">🔌</div>
-                        <div class="card-info">
-                            <div class="card-title">PlayMaker (Unity)</div>
-                            <p class="card-desc">《空洞骑士》同款状态机可视化编程插件，不写代码也能做复杂逻辑。</p>
-                        </div>
-                    </a>
-                </div>
-            </section>
+                <section id="tutorials" class="content-section">
+                    <div class="section-heading"><h2>优质教程与视频 (跟着做就对了)</h2></div>
+                    <div class="resource-grid">
+                        <a href="https://www.bilibili.com/video/BV1L5411p7hX" target="_blank" class="resource-card"><div class="resource-icon">&#x1f3ae;</div><div class="resource-info"><div class="resource-title">麦扣 (B站) Godot教程</div><div class="resource-desc">非常适合新手的 Godot 4 中文教程，带你快速上手节点系统。</div></div></a>
+                        <a href="https://www.youtube.com/c/GDQuest" target="_blank" class="resource-card"><div class="resource-icon">&#x1f3af;</div><div class="resource-info"><div class="resource-title">GDQuest</div><div class="resource-desc">专业的 Godot 教学频道，提供高质量的视频教程和游戏开发教程。</div></div></a>
+                        <a href="https://www.youtube.com/c/Brackeys" target="_blank" class="resource-card"><div class="resource-icon">&#x1f576;&#xfe0f;</div><div class="resource-info"><div class="resource-title">Brackeys (YouTube)</div><div class="resource-desc">全球最知名的游戏开发教学频道（现已复出转战 Godot），英语听力好必看。</div></div></a>
+                        <a href="https://www.youtube.com/c/HeartBeast" target="_blank" class="resource-card"><div class="resource-icon">&#x2764;&#xfe0f;</div><div class="resource-info"><div class="resource-title">HeartBeast</div><div class="resource-desc">Godot 游戏开发教程，分享独立游戏开发经验和技巧。</div></div></a>
+                        <a href="https://www.youtube.com/c/QuestQuest" target="_blank" class="resource-card"><div class="resource-icon">&#x1f50d;</div><div class="resource-info"><div class="resource-title">QuestQuest</div><div class="resource-desc">Godot 教程频道，专注于游戏开发和教程分享。</div></div></a>
+                        <a href="https://www.youtube.com/c/DevDungeon" target="_blank" class="resource-card"><div class="resource-icon">&#x1f409;</div><div class="resource-info"><div class="resource-title">DevDungeon</div><div class="resource-desc">游戏开发教程频道，包含 Godot 相关内容。</div></div></a>
+                        <a href="https://space.bilibili.com/370283072" target="_blank" class="resource-card"><div class="resource-icon">&#x1f4fa;</div><div class="resource-info"><div class="resource-title">M_Studio (B站)</div><div class="resource-desc">国内公认最好的 Unity 新手教程 UP 主，从零带你做《勇士传说》等完整项目。</div></div></a>
+                        <a href="https://catlikecoding.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f431;</div><div class="resource-info"><div class="resource-title">Catlike Coding</div><div class="resource-desc">Unity 高阶图文教程圣地，深入讲解渲染管线、网格生成、数学原理。</div></div></a>
+                        <a href="https://learn.unity.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f393;</div><div class="resource-info"><div class="resource-title">Unity Learn 官方平台</div><div class="resource-desc">官方出品的系统化学习路径，提供大量免费的微型项目和源码供拆解。</div></div></a>
+                        <a href="https://siki.roki.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f4da;</div><div class="resource-info"><div class="resource-title">SIKI 学院</div><div class="resource-desc">国内老牌的 Unity/UE 培训网站，有大量免费的入门到进阶体系课程。</div></div></a>
+                    </div>
+                </section>
 
-            <!-- 免费美术与音效 -->
-            <section id="assets" class="section">
-                <div class="section-header">
-                    <h2 class="section-title">免费美术与音效 (一个人也能做游戏)</h2>
-                </div>
-                <div class="grid">
-                    <a href="https://kenney.nl/assets" target="_blank" class="card">
-                        <div class="card-icon">📦</div>
-                        <div class="card-info">
-                            <div class="card-title">Kenney.nl</div>
-                            <p class="card-desc">"游戏界的救世主"，提供数万个完全免费(CC0)的高质量 2D/3D 素材和音效。</p>
-                        </div>
-                    </a>
-                    <a href="https://itch.io/game-assets/free" target="_blank" class="card">
-                        <div class="card-icon">🕹️</div>
-                        <div class="card-info">
-                            <div class="card-title">Itch.io 免费素材区</div>
-                            <p class="card-desc">独立游戏开发者的宝库，海量像素画、UI、角色动画素材包可免费下载。</p>
-                        </div>
-                    </a>
-                    <a href="https://freesound.org/" target="_blank" class="card">
-                        <div class="card-icon">🔊</div>
-                        <div class="card-info">
-                            <div class="card-title">Freesound</div>
-                            <p class="card-desc">全球最大的环境音、UI音效、拟音素材共享库。</p>
-                        </div>
-                    </a>
-                    <a href="https://game-icons.net/" target="_blank" class="card">
-                        <div class="card-icon">🛡️</div>
-                        <div class="card-info">
-                            <div class="card-title">Game-icons.net</div>
-                            <p class="card-desc">包含 4000+ 免费的矢量游戏图标（技能、道具、状态），支持在线调色导出。</p>
-                        </div>
-                    </a>
-                    <a href="https://www.spriters-resource.com/" target="_blank" class="card">
-                        <div class="card-icon">👾</div>
-                        <div class="card-info">
-                            <div class="card-title">Spriters Resource</div>
-                            <p class="card-desc">全球最大的经典游戏 2D 像素精灵图提取库，非常适合参考临摹。</p>
-                        </div>
-                    </a>
-                    <a href="https://incompetech.com/music/" target="_blank" class="card">
-                        <div class="card-icon">🎷</div>
-                        <div class="card-info">
-                            <div class="card-title">Incompetech</div>
-                            <p class="card-desc">Kevin MacLeod 创作的海量免版税音乐库，无数独立游戏都在用。</p>
-                        </div>
-                    </a>
-                </div>
-            </section>
+                <section id="code-assets" class="content-section">
+                    <div class="section-heading"><h2>代码与系统框架 (不用重复造轮子)</h2></div>
+                    <div class="resource-grid">
+                        <a href="https://github.com/QianMo/QianMo.github.io" target="_blank" class="resource-card"><div class="resource-icon">&#x1f4bb;</div><div class="resource-info"><div class="resource-title">浅墨的 GitHub</div><div class="resource-desc">已故大神浅墨留下的宝贵遗产，包含大量 Unity 渲染和架构的优质代码。</div></div></a>
+                        <a href="https://github.com/EllanJiang/GameFramework" target="_blank" class="resource-card"><div class="resource-icon">&#x2699;&#xfe0f;</div><div class="resource-info"><div class="resource-title">GameFramework (UGF)</div><div class="resource-desc">国内极具影响力的 Unity 开源框架，包含 UI、资源管理、网络等完整模块。</div></div></a>
+                        <a href="https://github.com/Tencent/puerts" target="_blank" class="resource-card"><div class="resource-icon">&#x1f504;</div><div class="resource-info"><div class="resource-title">PuerTS (腾讯开源)</div><div class="resource-desc">在 Unity/UE 中使用 TypeScript 进行游戏逻辑开发的热更新方案。</div></div></a>
+                        <a href="https://assetstore.unity.com/packages/tools/visual-scripting/playmaker-368" target="_blank" class="resource-card"><div class="resource-icon">&#x1f50c;</div><div class="resource-info"><div class="resource-title">PlayMaker (Unity)</div><div class="resource-desc">《空洞骑士》同款状态机可视化编程插件，不写代码也能做复杂逻辑。</div></div></a>
+                        <a href="https://github.com/michidk/Unity-Script-Collection" target="_blank" class="resource-card"><div class="resource-icon">&#x1f4dc;</div><div class="resource-info"><div class="resource-title">Unity Script Collection</div><div class="resource-desc">Unity 常用脚本合集，包含相机控制、UI 动画、对象池等实用代码。</div></div></a>
+                        <a href="https://github.com/Unity-Technologies/UnityCsReference" target="_blank" class="resource-card"><div class="resource-icon">&#x1f50d;</div><div class="resource-info"><div class="resource-title">Unity 源码参考</div><div class="resource-desc">Unity 引擎 C# 部分的官方开源代码，深入理解引擎内部实现。</div></div></a>
+                        <a href="https://github.com/godotengine/godot-demo-projects" target="_blank" class="resource-card"><div class="resource-icon">&#x1f3ae;</div><div class="resource-info"><div class="resource-title">Godot Demo Projects</div><div class="resource-desc">Godot 官方示例项目，涵盖 2D、3D、物理、动画等所有核心功能。</div></div></a>
+                        <a href="https://github.com/godotengine/godot-cpp" target="_blank" class="resource-card"><div class="resource-icon">&#x26a1;</div><div class="resource-info"><div class="resource-title">Godot C++ Bindings</div><div class="resource-desc">使用 C++ 编写 Godot 原生模块，追求极致性能。</div></div></a>
+                        <a href="https://github.com/godotengine/godot-asset-library" target="_blank" class="resource-card"><div class="resource-icon">&#x1f4e6;</div><div class="resource-info"><div class="resource-title">Godot Asset Library</div><div class="resource-desc">Godot 官方资源库的源码，学习如何构建资源管理系统。</div></div></a>
+                        <a href="https://github.com/godotengine/godot-docs" target="_blank" class="resource-card"><div class="resource-icon">&#x1f4d6;</div><div class="resource-info"><div class="resource-title">Godot 文档源码</div><div class="resource-desc">Godot 官方文档的源码，可以参与翻译和贡献。</div></div></a>
+                    </div>
+                </section>
 
-            <!-- 特效与UI设计 -->
-            <section id="vfx-ui" class="section">
-                <div class="section-header">
-                    <h2 class="section-title">特效与UI设计 (提升游戏质感)</h2>
-                </div>
-                <div class="grid">
-                    <a href="https://www.gameui.com/" target="_blank" class="card">
-                        <div class="card-icon">🖥️</div>
-                        <div class="card-info">
-                            <div class="card-title">GameUI</div>
-                            <p class="card-desc">国内最优质的游戏 UI 动效设计参考网站，找界面的灵感必去。</p>
-                        </div>
-                    </a>
-                    <a href="https://realtimevfx.com/" target="_blank" class="card">
-                        <div class="card-icon">✨</div>
-                        <div class="card-info">
-                            <div class="card-title">Real Time VFX</div>
-                            <p class="card-desc">全球最专业的游戏特效师交流论坛，能学到大量 Shader 和粒子特效技术。</p>
-                        </div>
-                    </a>
-                    <a href="https://www.piskelapp.com/" target="_blank" class="card">
-                        <div class="card-icon">🖌️</div>
-                        <div class="card-info">
-                            <div class="card-title">Piskel</div>
-                            <p class="card-desc">免费在线像素画制作工具，可以实时预览动画帧，新手画图利器。</p>
-                        </div>
-                    </a>
-                    <a href="https://ephtracy.github.io/" target="_blank" class="card">
-                        <div class="card-icon">🧊</div>
-                        <div class="card-info">
-                            <div class="card-title">MagicaVoxel</div>
-                            <p class="card-desc">极易上手的免费体素(Voxel)建模与渲染软件，《纪念碑谷》等游戏的风格。</p>
-                        </div>
-                    </a>
-                    <a href="https://www.mixamo.com/" target="_blank" class="card">
-                        <div class="card-icon">💃</div>
-                        <div class="card-info">
-                            <div class="card-title">Mixamo (Adobe)</div>
-                            <p class="card-desc">免费的 3D 角色绑定与动画库，一键为你的模型添加走路、攻击等动作。</p>
-                        </div>
-                    </a>
-                    <a href="https://casual-effects.com/" target="_blank" class="card">
-                        <div class="card-icon">🎆</div>
-                        <div class="card-info">
-                            <div class="card-title">Casual Effects</div>
-                            <p class="card-desc">包含大量高质量的开源 3D 模型、纹理和环境贴图，特别适合测试渲染效果。</p>
-                        </div>
-                    </a>
-                </div>
-            </section>
+                <section id="assets" class="content-section">
+                    <div class="section-heading"><h2>免费美术与音效 (让你的游戏有面子)</h2></div>
+                    <div class="resource-grid">
+                        <a href="https://kenney.nl/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f3a8;</div><div class="resource-info"><div class="resource-title">Kenney Assets</div><div class="resource-desc">完全免费(CC0)的游戏素材宝库，UI、2D、3D、音效一应俱全，质量极高。</div></div></a>
+                        <a href="https://itch.io/game-assets/free" target="_blank" class="resource-card"><div class="resource-icon">&#x1f5bc;&#xfe0f;</div><div class="resource-info"><div class="resource-title">Itch.io Free Assets</div><div class="resource-desc">独立游戏开发者社区分享的免费素材，风格多样，充满创意。</div></div></a>
+                        <a href="https://opengameart.org/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f31f;</div><div class="resource-info"><div class="resource-title">OpenGameArt</div><div class="resource-desc">老牌开源游戏素材站，包含大量 2D/3D 美术资源和音效。</div></div></a>
+                        <a href="https://freesound.org/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f50a;</div><div class="resource-info"><div class="resource-title">Freesound</div><div class="resource-desc">全球最大的免费音效分享社区，万物皆可找到。</div></div></a>
+                        <a href="https://polyhaven.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f30d;</div><div class="resource-info"><div class="resource-title">Poly Haven</div><div class="resource-desc">免费高质量的 PBR 材质、HDRI 环境和 3D 模型。</div></div></a>
+                        <a href="https://www.texturehaven.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f9f1;</div><div class="resource-info"><div class="resource-title">Texture Haven</div><div class="resource-desc">免费的高清 PBR 材质贴图，适合 3D 游戏开发。</div></div></a>
+                        <a href="https://www.hdrilabs.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f305;</div><div class="resource-info"><div class="resource-title">HDRI Labs</div><div class="resource-desc">免费的 HDRI 环境贴图，用于 3D 场景光照和反射。</div></div></a>
+                        <a href="https://www.blenderkit.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f964;</div><div class="resource-info"><div class="resource-title">BlenderKit</div><div class="resource-desc">Blender 内置的材质和模型库，部分免费。</div></div></a>
+                        <a href="https://www.spriters-resource.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f47e;</div><div class="resource-info"><div class="resource-title">Spriters Resource</div><div class="resource-desc">经典游戏的像素素材参考，适合学习像素艺术。</div></div></a>
+                        <a href="https://www.soundsnap.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f3b5;</div><div class="resource-info"><div class="resource-title">SoundSnap</div><div class="resource-desc">专业音效库，部分免费，适合游戏音效设计。</div></div></a>
+                    </div>
+                </section>
 
-            <!-- 叙事与关卡设计 -->
-            <section id="narrative-design" class="section">
-                <div class="section-header">
-                    <h2 class="section-title">叙事与关卡设计 (让游戏变好玩)</h2>
-                </div>
-                <div class="grid">
-                    <a href="https://twinery.org/" target="_blank" class="card">
-                        <div class="card-icon">🕸️</div>
-                        <div class="card-info">
-                            <div class="card-title">Twine</div>
-                            <p class="card-desc">开源的互动文字游戏制作工具，非常适合用来做游戏剧情的网状叙事设计。</p>
-                        </div>
-                    </a>
-                    <a href="https://inklestudios.com/ink/" target="_blank" class="card">
-                        <div class="card-icon">✒️</div>
-                        <div class="card-info">
-                            <div class="card-title">Ink (Inkle Studios)</div>
-                            <p class="card-desc">强大的叙事脚本语言，被广泛用于《黑帝斯》、《极乐迪斯科》等神作的对话系统。</p>
-                        </div>
-                    </a>
-                    <a href="https://www.mapeditor.org/" target="_blank" class="card">
-                        <div class="card-icon">🗺️</div>
-                        <div class="card-info">
-                            <div class="card-title">Tiled</div>
-                            <p class="card-desc">全球最流行的免费 2D 瓦片地图编辑器，支持导出给几乎所有游戏引擎使用。</p>
-                        </div>
-                    </a>
-                    <a href="https://ldjam.com/" target="_blank" class="card">
-                        <div class="card-icon">🧠</div>
-                        <div class="card-info">
-                            <div class="card-title">Ludum Dare (历届作品)</div>
-                            <p class="card-desc">全球最大的 Game Jam，去玩历届冠军作品是学习关卡设计和核心玩法的最快途径。</p>
-                        </div>
-                    </a>
-                </div>
-            </section>
+                <section id="vfx-ui" class="content-section">
+                    <div class="section-heading"><h2>特效与UI设计 (提升游戏质感)</h2></div>
+                    <div class="resource-grid">
+                        <a href="https://www.youtube.com/c/Unity" target="_blank" class="resource-card"><div class="resource-icon">&#x1f3ac;</div><div class="resource-info"><div class="resource-title">Unity 官方教程</div><div class="resource-desc">Unity 官方 VFX Graph 和 UI 系统教程，学习粒子特效和界面设计。</div></div></a>
+                        <a href="https://www.youtube.com/c/GabrielAguiarProd" target="_blank" class="resource-card"><div class="resource-icon">&#x2728;</div><div class="resource-info"><div class="resource-title">Gabriel Aguiar</div><div class="resource-desc">Unity VFX 特效大师，教你制作电影级游戏特效。</div></div></a>
+                        <a href="https://www.figma.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f3a8;</div><div class="resource-info"><div class="resource-title">Figma</div><div class="resource-desc">免费的游戏 UI 设计工具，支持协作和原型设计。</div></div></a>
+                        <a href="https://www.canva.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f58c;&#xfe0f;</div><div class="resource-info"><div class="resource-title">Canva</div><div class="resource-desc">在线设计工具，快速制作游戏 UI 元素和宣传图。</div></div></a>
+                        <a href="https://www.gimp.org/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f58c;&#xfe0f;</div><div class="resource-info"><div class="resource-title">GIMP</div><div class="resource-desc">免费开源的图像编辑器，替代 Photoshop 的选择。</div></div></a>
+                        <a href="https://www.krita.org/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f3a8;</div><div class="resource-info"><div class="resource-title">Krita</div><div class="resource-desc">免费开源的数字绘画软件，适合游戏美术创作。</div></div></a>
+                        <a href="https://www.aseprite.org/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f47e;</div><div class="resource-info"><div class="resource-title">Aseprite</div><div class="resource-desc">像素艺术和动画制作工具，独立游戏开发者必备。</div></div></a>
+                        <a href="https://www.piskelapp.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f3ae;</div><div class="resource-info"><div class="resource-title">Piskel</div><div class="resource-desc">免费的在线像素艺术和动画编辑器。</div></div></a>
+                        <a href="https://www.photopea.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f5bc;&#xfe0f;</div><div class="resource-info"><div class="resource-title">Photopea</div><div class="resource-desc">在线免费 Photoshop 替代品，功能强大。</div></div></a>
+                        <a href="https://www.inkscape.org/" target="_blank" class="resource-card"><div class="resource-icon">&#x270f;&#xfe0f;</div><div class="resource-info"><div class="resource-title">Inkscape</div><div class="resource-desc">免费开源的矢量图形编辑器，适合 UI 设计。</div></div></a>
+                    </div>
+                </section>
 
-            <!-- 项目管理与策划 -->
-            <section id="project-management" class="section">
-                <div class="section-header">
-                    <h2 class="section-title">项目管理与策划 (防止游戏烂尾)</h2>
-                </div>
-                <div class="grid">
-                    <a href="https://trello.com/" target="_blank" class="card">
-                        <div class="card-icon">📋</div>
-                        <div class="card-info">
-                            <div class="card-title">Trello</div>
-                            <p class="card-desc">最简单的看板管理工具，用它来管理你的“待办-进行中-已完成”需求池。</p>
-                        </div>
-                    </a>
-                    <a href="https://obsidian.md/" target="_blank" class="card">
-                        <div class="card-icon">🪨</div>
-                        <div class="card-info">
-                            <div class="card-title">Obsidian</div>
-                            <p class="card-desc">双向链接笔记软件，用来写世界观设定、角色关系、系统策划案的绝对神器。</p>
-                        </div>
-                    </a>
-                    <a href="https://www.figma.com/" target="_blank" class="card">
-                        <div class="card-icon">🎨</div>
-                        <div class="card-info">
-                            <div class="card-title">Figma</div>
-                            <p class="card-desc">在线协作设计工具，正式写代码前，先在这里画出游戏的 UI 交互原型草图。</p>
-                        </div>
-                    </a>
-                    <a href="https://game-accessibility.com/" target="_blank" class="card">
-                        <div class="card-icon">♿</div>
-                        <div class="card-info">
-                            <div class="card-title">Game Accessibility</div>
-                            <p class="card-desc">游戏无障碍设计指南，教你如何做色盲模式、字幕设置，让更多人能玩你的游戏。</p>
-                        </div>
-                    </a>
-                </div>
-            </section>
+                <section id="narrative-design" class="content-section">
+                    <div class="section-heading"><h2>叙事与关卡设计 (讲好一个故事)</h2></div>
+                    <div class="resource-grid">
+                        <a href="https://www.narrativedesign.org/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f4d6;</div><div class="resource-info"><div class="resource-title">Narrative Design</div><div class="resource-desc">游戏叙事设计资源，学习如何构建引人入胜的故事。</div></div></a>
+                        <a href="https://www.gamasutra.com/blogs/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f4dd;</div><div class="resource-info"><div class="resource-title">Gamasutra Blogs</div><div class="resource-desc">游戏开发者分享叙事和关卡设计经验。</div></div></a>
+                        <a href="https://www.youtube.com/c/GameMakerToolKit" target="_blank" class="resource-card"><div class="resource-icon">&#x1f3ae;</div><div class="resource-info"><div class="resource-title">Game Maker's Toolkit</div><div class="resource-desc">深度解析游戏设计，包括关卡和叙事设计。</div></div></a>
+                        <a href="https://twinery.org/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f5c2;&#xfe0f;</div><div class="resource-info"><div class="resource-title">Twine</div><div class="resource-desc">免费的互动叙事工具，无需编程即可创建分支故事。</div></div></a>
+                        <a href="https://www.inklestudios.com/ink/" target="_blank" class="resource-card"><div class="resource-icon">&#x2712;&#xfe0f;</div><div class="resource-info"><div class="resource-title">Ink</div><div class="resource-desc">专业的互动叙事脚本语言，被《80 Days》等游戏使用。</div></div></a>
+                        <a href="https://www.articy.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f4dc;</div><div class="resource-info"><div class="resource-title">articy:draft</div><div class="resource-desc">专业的游戏叙事设计工具，支持对话和分支剧情。</div></div></a>
+                        <a href="https://www.ywax.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f4da;</div><div class="resource-info"><div class="resource-title">Ywax</div><div class="resource-desc">游戏叙事设计工具和资源。</div></div></a>
+                        <a href="https://www.choiceofgames.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f3b2;</div><div class="resource-info"><div class="resource-title">Choice of Games</div><div class="resource-desc">互动小说游戏平台，学习分支叙事设计。</div></div></a>
+                        <a href="https://www.gamasutra.com/view/feature/1526/Level_Design_101.php" target="_blank" class="resource-card"><div class="resource-icon">&#x1f3af;</div><div class="resource-info"><div class="resource-title">Level Design 101</div><div class="resource-desc">关卡设计入门指南，学习如何构建游戏空间。</div></div></a>
+                        <a href="https://www.gamasutra.com/blogs/20180315/313985/Level_Design_101.php" target="_blank" class="resource-card"><div class="resource-icon">&#x1f3b3;</div><div class="resource-info"><div class="resource-title">Level Design Basics</div><div class="resource-desc">关卡设计基础教程，包含实际案例分析。</div></div></a>
+                    </div>
+                </section>
 
-            <!-- 独立游戏社区 -->
-            <section id="communities" class="section">
-                <div class="section-header">
-                    <h2 class="section-title">独立游戏社区 (寻找灵感与队友)</h2>
-                </div>
-                <div class="grid">
-                    <a href="https://indienova.com/" target="_blank" class="card">
-                        <div class="card-icon">💡</div>
-                        <div class="card-info">
-                            <div class="card-title">IndieNova</div>
-                            <p class="card-desc">国内最纯粹的独立游戏开发者社区，发开发日志、找全职/外包团队的好地方。</p>
-                        </div>
-                    </a>
-                    <a href="https://itch.io/jams" target="_blank" class="card">
-                        <div class="card-icon">⏰</div>
-                        <div class="card-info">
-                            <div class="card-title">Game Jams (itch.io)</div>
-                            <p class="card-desc">参与限时游戏开发比赛(Game Jam)是新手积累经验、快速出作品的最佳途径。</p>
-                        </div>
-                    </a>
-                    <a href="https://www.gcores.com/categories/11" target="_blank" class="card">
-                        <div class="card-icon">🎙️</div>
-                        <div class="card-info">
-                            <div class="card-title">机核 GCORES (开发区)</div>
-                            <p class="card-desc">每年举办 BOOOM 暴造游戏开发比赛，社区充满游戏热爱者。</p>
-                        </div>
-                    </a>
-                    <a href="https://www.taptap.cn/developer" target="_blank" class="card">
-                        <div class="card-icon">📱</div>
-                        <div class="card-info">
-                            <div class="card-title">TapTap 开发者中心</div>
-                            <p class="card-desc">国内最好的手机游戏测试与首发平台，玩家对独立游戏极其包容。</p>
-                        </div>
-                    </a>
-                    <a href="https://forum.unity.com/" target="_blank" class="card">
-                        <div class="card-icon">💬</div>
-                        <div class="card-info">
-                            <div class="card-title">Unity 官方论坛</div>
-                            <p class="card-desc">遇到各种奇葩报错？这里有全球最全的踩坑记录和官方解答。</p>
-                        </div>
-                    </a>
-                    <a href="https://gamedevelopment.tutsplus.com/" target="_blank" class="card">
-                        <div class="card-icon">📚</div>
-                        <div class="card-info">
-                            <div class="card-title">Envato Tuts+ (Game Dev)</div>
-                            <p class="card-desc">提供大量关于游戏设计理论、关卡设计和编程模式的高质量外文文章。</p>
-                        </div>
-                    </a>
-                </div>
-            </section>
+                <section id="project-management" class="content-section">
+                    <div class="section-heading"><h2>项目管理与策划 (别让你的项目烂尾)</h2></div>
+                    <div class="resource-grid">
+                        <a href="https://trello.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f4cb;</div><div class="resource-info"><div class="resource-title">Trello</div><div class="resource-desc">免费的看板工具，管理游戏开发任务和进度。</div></div></a>
+                        <a href="https://www.notion.so/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f4dd;</div><div class="resource-info"><div class="resource-title">Notion</div><div class="resource-desc">全能型笔记和项目管理工具，适合策划文档管理。</div></div></a>
+                        <a href="https://www.obsidian.md/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f5c3;&#xfe0f;</div><div class="resource-info"><div class="resource-title">Obsidian</div><div class="resource-desc">本地优先的知识管理工具，构建你的游戏策划知识库。</div></div></a>
+                        <a href="https://www.evernote.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f4d3;</div><div class="resource-info"><div class="resource-title">Evernote</div><div class="resource-desc">笔记管理工具，记录游戏设计灵感和想法。</div></div></a>
+                        <a href="https://www.asana.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f4c5;</div><div class="resource-info"><div class="resource-title">Asana</div><div class="resource-desc">项目管理工具，适合团队协作和任务跟踪。</div></div></a>
+                        <a href="https://www.monday.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f4ca;</div><div class="resource-info"><div class="resource-title">Monday.com</div><div class="resource-desc">可视化项目管理平台，跟踪游戏开发进度。</div></div></a>
+                        <a href="https://www.clickup.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f3af;</div><div class="resource-info"><div class="resource-title">ClickUp</div><div class="resource-desc">一体化生产力平台，管理游戏开发全流程。</div></div></a>
+                        <a href="https://www.basecamp.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f3d5;&#xfe0f;</div><div class="resource-info"><div class="resource-title">Basecamp</div><div class="resource-desc">团队协作和项目管理工具，适合小型游戏团队。</div></div></a>
+                        <a href="https://www.jira.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f6e0;&#xfe0f;</div><div class="resource-info"><div class="resource-title">Jira</div><div class="resource-desc">专业的项目管理工具，适合敏捷开发团队。</div></div></a>
+                        <a href="https://www.airtable.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f4ca;</div><div class="resource-info"><div class="resource-title">Airtable</div><div class="resource-desc">电子表格和数据库结合，管理游戏资产和任务。</div></div></a>
+                    </div>
+                </section>
 
-            <!-- 发行与变现 -->
-            <section id="publish" class="section">
-                <div class="section-header">
-                    <h2 class="section-title">发行与变现 (把游戏变成钱)</h2>
-                </div>
-                <div class="grid">
-                    <a href="https://partner.steamgames.com/" target="_blank" class="card">
-                        <div class="card-icon">🚂</div>
-                        <div class="card-info">
-                            <div class="card-title">Steamworks</div>
-                            <p class="card-desc">全球最大的 PC 游戏发行平台，交 100 美元就能上架你的第一款游戏。</p>
-                        </div>
-                    </a>
-                    <a href="https://howtomarketagame.com/" target="_blank" class="card">
-                        <div class="card-icon">📈</div>
-                        <div class="card-info">
-                            <div class="card-title">How To Market A Game</div>
-                            <p class="card-desc">Chris Zukowski 创办的网站，教你如何包装 Steam 商店页、积累愿望单。</p>
-                        </div>
-                    </a>
-                    <a href="https://vginsights.com/" target="_blank" class="card">
-                        <div class="card-icon">📊</div>
-                        <div class="card-info">
-                            <div class="card-title">VG Insights</div>
-                            <p class="card-desc">查 Steam 竞品游戏销量、收入、流行标签的必备数据分析工具。</p>
-                        </div>
-                    </a>
-                </div>
-            </section>
+                <section id="communities" class="content-section">
+                    <div class="section-heading"><h2>独立游戏社区 (找到你的同路人)</h2></div>
+                    <div class="resource-grid">
+                        <a href="https://www.reddit.com/r/gamedev/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f30d;</div><div class="resource-info"><div class="resource-title">r/gamedev</div><div class="resource-desc">Reddit 最大的游戏开发社区，每日都有新帖讨论技术和设计。</div></div></a>
+                        <a href="https://discord.gg/gamedev" target="_blank" class="resource-card"><div class="resource-icon">&#x1f4ac;</div><div class="resource-info"><div class="resource-title">Game Dev Discord</div><div class="resource-desc">实时交流的游戏开发 Discord 社区，快速获得帮助。</div></div></a>
+                        <a href="https://www.indienova.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f4a1;</div><div class="resource-info"><div class="resource-title">IndieNova</div><div class="resource-desc">国内独立游戏开发者社区，分享作品和交流经验。</div></div></a>
+                        <a href="https://itch.io/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f579;&#xfe0f;</div><div class="resource-info"><div class="resource-title">Itch.io</div><div class="resource-desc">独立游戏发布平台，可以免费上传和分享你的游戏。</div></div></a>
+                        <a href="https://www.gamasutra.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f3ac;</div><div class="resource-info"><div class="resource-title">Gamasutra</div><div class="resource-desc">游戏开发者专业网站，包含深度文章和职业建议。</div></div></a>
+                        <a href="https://www.tigsource.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f438;</div><div class="resource-info"><div class="resource-title">TIGSource</div><div class="resource-desc">老牌独立游戏社区，以开发日志和论坛讨论闻名。</div></div></a>
+                        <a href="https://www.gamefromscratch.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f4bb;</div><div class="resource-info"><div class="resource-title">Game From Scratch</div><div class="resource-desc">游戏开发教程和新闻网站。</div></div></a>
+                        <a href="https://www.gamedeveloper.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f3ae;</div><div class="resource-info"><div class="resource-title">Game Developer</div><div class="resource-desc">游戏开发者杂志，包含行业洞察和技术文章。</div></div></a>
+                        <a href="https://www.gamasutra.com/blogs/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f4dd;</div><div class="resource-info"><div class="resource-title">Gamasutra Blogs</div><div class="resource-desc">游戏开发者博客平台，分享开发经验和心得。</div></div></a>
+                        <a href="https://www.gamasutra.com/view/feature/1526/making_it_in_indie_games.php" target="_blank" class="resource-card"><div class="resource-icon">&#x1f3c6;</div><div class="resource-info"><div class="resource-title">Making It In Indie Games</div><div class="resource-desc">独立游戏开发成功案例和经验分享。</div></div></a>
+                    </div>
+                </section>
 
-            <!-- 美术素材资源 -->
-            <section id="art-assets" class="section">
-                <div class="section-header">
-                    <h2 class="section-title">美术素材资源</h2>
-                </div>
-                <div class="grid">
-                    <a href="https://opengameart.org/" target="_blank" class="card">
-                        <div class="card-icon">🖼️</div>
-                        <div class="card-info">
-                            <div class="card-title">OpenGameArt</div>
-                            <p class="card-desc">完全免费开源的游戏美术素材库。</p>
-                        </div>
-                    </a>
-                    <a href="https://kenney.nl/assets" target="_blank" class="card">
-                        <div class="card-icon">📦</div>
-                        <div class="card-info">
-                            <div class="card-title">Kenney Assets</div>
-                            <p class="card-desc">极简高质量的免费游戏素材包。</p>
-                        </div>
-                    </a>
-                    <a href="https://polyhaven.com/" target="_blank" class="card">
-                        <div class="card-info">
-                            <div class="card-title">Poly Haven</div>
-                            <p class="card-desc">100% 免费的 3D 纹理、环境与模型。</p>
-                        </div>
-                        <div class="card-icon">🌍</div>
-                    </a>
-                    <a href="https://game-icons.net/" target="_blank" class="card">
-                        <div class="card-icon">🛡️</div>
-                        <div class="card-info">
-                            <div class="card-title">Game-icons.net</div>
-                            <p class="card-desc">海量 SVG 格式游戏图标素材。</p>
-                        </div>
-                    </a>
-                    <a href="https://www.mixamo.com/" target="_blank" class="card">
-                        <div class="card-icon">💃</div>
-                        <div class="card-info">
-                            <div class="card-title">Mixamo</div>
-                            <p class="card-desc">3D 动画骨骼自动绑定工具。</p>
-                        </div>
-                    </a>
-                    <a href="https://www.spriters-resource.com/" target="_blank" class="card">
-                        <div class="card-icon">👾</div>
-                        <div class="card-info">
-                            <div class="card-title">Spriters Resource</div>
-                            <p class="card-desc">海量 2D 像素图素材库。</p>
-                        </div>
-                    </a>
-                </div>
-            </section>
+                <section id="publish" class="content-section">
+                    <div class="section-heading"><h2>发行与变现 (让你的游戏被看到)</h2></div>
+                    <div class="resource-grid">
+                        <a href="https://store.steampowered.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f3ae;</div><div class="resource-info"><div class="resource-title">Steam</div><div class="resource-desc">全球最大的 PC 游戏平台，独立游戏变现的首选渠道。</div></div></a>
+                        <a href="https://itch.io/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f579;&#xfe0f;</div><div class="resource-info"><div class="resource-title">Itch.io</div><div class="resource-desc">对独立开发者最友好的平台，支持免费/付费/打赏模式。</div></div></a>
+                        <a href="https://www.gog.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f4bf;</div><div class="resource-info"><div class="resource-title">GOG</div><div class="resource-desc">CD Projekt 旗下的无 DRM 游戏平台，适合发布复古风格游戏。</div></div></a>
+                        <a href="https://www.epicgames.com/store/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f6e1;&#xfe0f;</div><div class="resource-info"><div class="resource-title">Epic Games Store</div><div class="resource-desc">Epic 游戏商店，提供 88/12 的分成比例，对开发者更友好。</div></div></a>
+                        <a href="https://www.nintendo.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f3ae;</div><div class="resource-info"><div class="resource-title">Nintendo Switch</div><div class="resource-desc">任天堂 Switch 平台，独立游戏的理想发布渠道。</div></div></a>
+                        <a href="https://www.playstation.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f3ae;</div><div class="resource-info"><div class="resource-title">PlayStation</div><div class="resource-desc">索尼 PlayStation 平台，适合发布高质量独立游戏。</div></div></a>
+                        <a href="https://www.xbox.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f3ae;</div><div class="resource-info"><div class="resource-title">Xbox</div><div class="resource-desc">微软 Xbox 平台，支持独立游戏发布。</div></div></a>
+                        <a href="https://www.humblebundle.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f4e6;</div><div class="resource-info"><div class="resource-title">Humble Bundle</div><div class="resource-desc">游戏捆绑包销售平台，支持慈善和游戏推广。</div></div></a>
+                        <a href="https://www.fanatical.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f381;</div><div class="resource-info"><div class="resource-title">Fanatical</div><div class="resource-desc">游戏捆绑包和折扣平台，推广独立游戏。</div></div></a>
+                        <a href="https://www.greenmangaming.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f49a;</div><div class="resource-info"><div class="resource-title">Green Man Gaming</div><div class="resource-desc">游戏数字发行平台，支持独立游戏销售。</div></div></a>
+                    </div>
+                </section>
 
-            <!-- 音效音乐资源 -->
-            <section id="audio-assets" class="section">
-                <div class="section-header">
-                    <h2 class="section-title">音效音乐资源</h2>
-                </div>
-                <div class="grid">
-                    <a href="https://freesound.org/" target="_blank" class="card">
-                        <div class="card-icon">🔊</div>
-                        <div class="card-info">
-                            <div class="card-title">FreeSound</div>
-                            <p class="card-desc">全球最大的免费音效素材分享库。</p>
-                        </div>
-                    </a>
-                    <a href="https://www.bfxr.net/" target="_blank" class="card">
-                        <div class="card-icon">🕹️</div>
-                        <div class="card-info">
-                            <div class="card-title">Bfxr</div>
-                            <p class="card-desc">经典的复古 8-bit 音效生成器。</p>
-                        </div>
-                    </a>
-                    <a href="https://www.beepbox.co/" target="_blank" class="card">
-                        <div class="card-icon">🎼</div>
-                        <div class="card-info">
-                            <div class="card-title">BeepBox</div>
-                            <p class="card-desc">在线快速制作简易 8-bit 旋律。</p>
-                        </div>
-                    </a>
-                    <a href="https://incompetech.com/music/" target="_blank" class="card">
-                        <div class="card-icon">🎷</div>
-                        <div class="card-info">
-                            <div class="card-title">Incompetech</div>
-                            <p class="card-desc">著名免版税音乐库 (Kevin MacLeod)。</p>
-                        </div>
-                    </a>
-                </div>
-            </section>
+                <section id="art-assets" class="content-section">
+                    <div class="section-heading"><h2>美术素材资源</h2></div>
+                    <div class="resource-grid">
+                        <a href="https://kenney.nl/assets" target="_blank" class="resource-card"><div class="resource-icon">&#x1f4e6;</div><div class="resource-info"><div class="resource-title">Kenney Assets</div><div class="resource-desc">完全免费的 CC0 素材，数万款游戏使用。</div></div></a>
+                        <a href="https://itch.io/game-assets/free" target="_blank" class="resource-card"><div class="resource-icon">&#x1f579;&#xfe0f;</div><div class="resource-info"><div class="resource-title">Itch.io Free Assets</div><div class="resource-desc">独立游戏开发者贡献的免费素材。</div></div></a>
+                        <a href="https://opengameart.org/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f5bc;&#xfe0f;</div><div class="resource-info"><div class="resource-title">OpenGameArt</div><div class="resource-desc">免费开源游戏素材库。</div></div></a>
+                        <a href="https://polyhaven.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f30d;</div><div class="resource-info"><div class="resource-title">Poly Haven</div><div class="resource-desc">免费 3D 模型、纹理、环境。</div></div></a>
+                        <a href="https://www.mixamo.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f483;</div><div class="resource-info"><div class="resource-title">Mixamo</div><div class="resource-desc">免费 3D 动画与角色绑定。</div></div></a>
+                        <a href="https://www.soundsnap.com" target="_blank" class="resource-card"><div class="resource-icon">&#x1f50a;</div><div class="resource-info"><div class="resource-title">SoundSnap</div><div class="resource-desc">专业游戏音效库。</div></div></a>
+                        <a href="https://www.freesound.org" target="_blank" class="resource-card"><div class="resource-icon">&#x1f3b5;</div><div class="resource-info"><div class="resource-title">FreeSound</div><div class="resource-desc">免费音效与音乐素材。</div></div></a>
+                        <a href="https://www.bfxr.net" target="_blank" class="resource-card"><div class="resource-icon">&#x1f579;&#xfe0f;</div><div class="resource-info"><div class="resource-title">Bfxr</div><div class="resource-desc">8-bit 复古音效生成器。</div></div></a>
+                        <a href="https://www.beepbox.co" target="_blank" class="resource-card"><div class="resource-icon">&#x1f3bc;</div><div class="resource-info"><div class="resource-title">BeepBox</div><div class="resource-desc">在线制作 8-bit 音乐。</div></div></a>
+                        <a href="https://incompetech.com" target="_blank" class="resource-card"><div class="resource-icon">&#x1f3b7;</div><div class="resource-info"><div class="resource-title">Incompetech</div><div class="resource-desc">Kevin MacLeod 免版税音乐。</div></div></a>
+                        <a href="https://game-icons.net" target="_blank" class="resource-card"><div class="resource-icon">&#x1f6e1;&#xfe0f;</div><div class="resource-info"><div class="resource-title">Game Icons</div><div class="resource-desc">免费 SVG 游戏图标。</div></div></a>
+                        <a href="https://www.spriters-resource.com" target="_blank" class="resource-card"><div class="resource-icon">&#x1f47e;</div><div class="resource-info"><div class="resource-title">Spriters Resource</div><div class="resource-desc">经典游戏素材参考。</div></div></a>
+                    </div>
+                </section>
 
-            <!-- 开发引擎与工具 -->
-            <section id="dev-tools" class="section">
-                <div class="section-header">
-                    <h2 class="section-title">开发引擎与工具</h2>
-                </div>
-                <div class="grid">
-                    <a href="https://unity.com/cn" target="_blank" class="card">
-                        <div class="card-icon">⚙️</div>
-                        <div class="card-info">
-                            <div class="card-title">Unity</div>
-                            <p class="card-desc">全球最流行的全能跨平台游戏引擎。</p>
-                        </div>
-                    </a>
-                    <a href="https://www.unrealengine.com/" target="_blank" class="card">
-                        <div class="card-icon">🔥</div>
-                        <div class="card-info">
-                            <div class="card-title">Unreal Engine</div>
-                            <p class="card-desc">追求极致视觉效果的高端引擎。</p>
-                        </div>
-                    </a>
-                    <a href="https://godotengine.org/" target="_blank" class="card">
-                        <div class="card-icon">🤖</div>
-                        <div class="card-info">
-                            <div class="card-title">Godot</div>
-                            <p class="card-desc">开源、轻量且强大的引擎首选。</p>
-                        </div>
-                    </a>
-                    <a href="https://www.mapeditor.org/" target="_blank" class="card">
-                        <div class="card-icon">🗺️</div>
-                        <div class="card-info">
-                            <div class="card-title">Tiled</div>
-                            <p class="card-desc">最流行的开源 2D 地图编辑器。</p>
-                        </div>
-                    </a>
-                    <a href="https://www.piskelapp.com/" target="_blank" class="card">
-                        <div class="card-icon">🖊️</div>
-                        <div class="card-info">
-                            <div class="card-title">Piskel</div>
-                            <p class="card-desc">在线像素画制作与动画导出工具。</p>
-                        </div>
-                    </a>
-                    <a href="https://ephtracy.github.io/" target="_blank" class="card">
-                        <div class="card-icon">🧊</div>
-                        <div class="card-info">
-                            <div class="card-title">MagicaVoxel</div>
-                            <p class="card-desc">轻量级体素模型编辑与渲染利器。</p>
-                        </div>
-                    </a>
-                </div>
-            </section>
+                <section id="audio-assets" class="content-section">
+                    <div class="section-heading"><h2>音效音乐资源</h2></div>
+                    <div class="resource-grid">
+                        <a href="https://freesound.org/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f50a;</div><div class="resource-info"><div class="resource-title">Freesound</div><div class="resource-desc">全球最大的免费音效分享社区。</div></div></a>
+                        <a href="https://www.zapsplat.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f50a;</div><div class="resource-info"><div class="resource-title">ZapSplat</div><div class="resource-desc">免费音效库，包含大量游戏音效。</div></div></a>
+                        <a href="https://www.soundbible.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f4d6;</div><div class="resource-info"><div class="resource-title">SoundBible</div><div class="resource-desc">免费音效和音乐素材。</div></div></a>
+                        <a href="https://www.freesfx.co.uk/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f3b5;</div><div class="resource-info"><div class="resource-title">FreeSFX</div><div class="resource-desc">免费音效下载网站。</div></div></a>
+                        <a href="https://www.soundjay.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f50a;</div><div class="resource-info"><div class="resource-title">SoundJay</div><div class="resource-desc">免费音效素材库。</div></div></a>
+                        <a href="https://www.bensound.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f3b6;</div><div class="resource-info"><div class="resource-title">Bensound</div><div class="resource-desc">免费免版税音乐。</div></div></a>
+                        <a href="https://www.purple-planet.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f3b5;</div><div class="resource-info"><div class="resource-title">Purple Planet</div><div class="resource-desc">免费音乐和音效。</div></div></a>
+                        <a href="https://www.incompetech.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f3b7;</div><div class="resource-info"><div class="resource-title">Incompetech</div><div class="resource-desc">Kevin MacLeod 免版税音乐。</div></div></a>
+                        <a href="https://www.audionetwork.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f3bc;</div><div class="resource-info"><div class="resource-title">Audio Network</div><div class="resource-desc">专业音乐和音效库。</div></div></a>
+                        <a href="https://www.premiumbeat.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f3b5;</div><div class="resource-info"><div class="resource-title">PremiumBeat</div><div class="resource-desc">高质量免版税音乐。</div></div></a>
+                    </div>
+                </section>
 
-            <!-- 游戏社区与发布平台 -->
-            <section id="community" class="section">
-                <div class="section-header">
-                    <h2 class="section-title">游戏社区与发布平台</h2>
-                </div>
-                <div class="grid">
-                    <a href="https://cowlevel.net/inbox" target="_blank" class="card">
-                        <div class="card-icon">🐮</div>
-                        <div class="card-info">
-                            <div class="card-title">奶牛关 CowLevel</div>
-                            <p class="card-desc">硬核玩家社区，深度评价与文化。</p>
-                        </div>
-                    </a>
-                    <a href="https://indienova.com/" target="_blank" class="card">
-                        <div class="card-icon">💡</div>
-                        <div class="card-info">
-                            <div class="card-title">IndieNova</div>
-                            <p class="card-desc">国内独立游戏资讯与开发者社区。</p>
-                        </div>
-                    </a>
-                    <a href="https://itch.io/" target="_blank" class="card">
-                        <div class="card-icon">🕹️</div>
-                        <div class="card-info">
-                            <div class="card-title">Itch.io</div>
-                            <p class="card-desc">全球最大的独立游戏发行平台。</p>
-                        </div>
-                    </a>
-                    <a href="https://gamejolt.com/" target="_blank" class="card">
-                        <div class="card-icon">⚡</div>
-                        <div class="card-info">
-                            <div class="card-title">Game Jolt</div>
-                            <p class="card-desc">活跃的独立游戏社区与发布中心。</p>
-                        </div>
-                    </a>
-                    <a href="https://www.gcores.com/" target="_blank" class="card">
-                        <div class="card-icon">🎙️</div>
-                        <div class="card-info">
-                            <div class="card-title">机核 GCORES</div>
-                            <p class="card-desc">深度游戏文化文章与音频电台。</p>
-                        </div>
-                    </a>
-                    <a href="https://www.gamedev.net/" target="_blank" class="card">
-                        <div class="card-icon">👾</div>
-                        <div class="card-info">
-                            <div class="card-title">GameDev.net</div>
-                            <p class="card-desc">顶级游戏开发技术论坛与资源。</p>
-                        </div>
-                    </a>
-                    <a href="https://www.taptap.cn/" target="_blank" class="card">
-                        <div class="card-icon">🎮</div>
-                        <div class="card-info">
-                            <div class="card-title">TapTap</div>
-                            <p class="card-desc">发现好游戏，游戏社区与分发平台。</p>
-                        </div>
-                    </a>
-                    <a href="https://www.resetera.com/" target="_blank" class="card">
-                        <div class="card-icon">💬</div>
-                        <div class="card-info">
-                            <div class="card-title">ResetEra</div>
-                            <p class="card-desc">知名游戏论坛，讨论游戏新闻与业界动态。</p>
-                        </div>
-                    </a>
-                </div>
-            </section>
+                <section id="dev-tools" class="content-section">
+                    <div class="section-heading"><h2>开发引擎与工具</h2></div>
+                    <div class="resource-grid">
+                        <a href="https://godotengine.org/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f916;</div><div class="resource-info"><div class="resource-title">Godot Engine</div><div class="resource-desc">完全免费开源的游戏引擎。</div></div></a>
+                        <a href="https://unity.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f9ca;</div><div class="resource-info"><div class="resource-title">Unity</div><div class="resource-desc">最适合新手的 2D/3D 引擎。</div></div></a>
+                        <a href="https://www.unrealengine.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f525;</div><div class="resource-info"><div class="resource-title">Unreal Engine</div><div class="resource-desc">画面表现天花板的游戏引擎。</div></div></a>
+                        <a href="https://www.yoyogames.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f439;</div><div class="resource-info"><div class="resource-title">GameMaker</div><div class="resource-desc">2D 游戏的王者。</div></div></a>
+                        <a href="https://www.construct.net/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f9e9;</div><div class="resource-info"><div class="resource-title">Construct</div><div class="resource-desc">无需编程的 2D 游戏制作工具。</div></div></a>
+                        <a href="https://www.stencyl.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f3ae;</div><div class="resource-info"><div class="resource-title">Stencyl</div><div class="resource-desc">可视化编程的游戏制作工具。</div></div></a>
+                        <a href="https://www.rpgmakerweb.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f451;</div><div class="resource-info"><div class="resource-title">RPG Maker</div><div class="resource-desc">经典 RPG 游戏制作工具。</div></div></a>
+                        <a href="https://www.clickteam.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f579;&#xfe0f;</div><div class="resource-info"><div class="resource-title">Clickteam Fusion</div><div class="resource-desc">事件驱动的游戏开发工具。</div></div></a>
+                        <a href="https://www.gdevelop.io/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f3ae;</div><div class="resource-info"><div class="resource-title">GDevelop</div><div class="resource-desc">免费开源的游戏开发引擎。</div></div></a>
+                        <a href="https://www.defold.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f4e6;</div><div class="resource-info"><div class="resource-title">Defold</div><div class="resource-desc">免费的游戏引擎，适合 2D 游戏开发。</div></div></a>
+                    </div>
+                </section>
 
-            <!-- AI 辅助开发工具 -->
-            <section id="ai-for-gamedev" class="section">
-                <div class="section-header">
-                    <h2 class="section-title">AI 辅助开发工具 (单人开发的魔法)</h2>
-                </div>
-                <div class="grid">
-                    <a href="https://leonardo.ai/" target="_blank" class="card">
-                        <div class="card-icon">🎨</div>
-                        <div class="card-info">
-                            <div class="card-title">Leonardo.AI</div>
-                            <p class="card-desc">生成游戏概念图、原画、材质贴图和 UI 元素的顶级 AI，对游戏美术特别友好。</p>
-                        </div>
-                    </a>
-                    <a href="https://suno.com/" target="_blank" class="card">
-                        <div class="card-icon">🎵</div>
-                        <div class="card-info">
-                            <div class="card-title">Suno AI</div>
-                            <p class="card-desc">不懂乐理？输入描述和情感，直接生成高质量的游戏背景音乐(BGM)。</p>
-                        </div>
-                    </a>
-                    <a href="https://www.meshy.ai/" target="_blank" class="card">
-                        <div class="card-icon">🧊</div>
-                        <div class="card-info">
-                            <div class="card-title">Meshy</div>
-                            <p class="card-desc">通过文本或单张图片，快速生成 3D 模型和纹理贴图。</p>
-                        </div>
-                    </a>
-                    <a href="https://cursor.sh/" target="_blank" class="card">
-                        <div class="card-icon">💻</div>
-                        <div class="card-info">
-                            <div class="card-title">Cursor / Trae</div>
-                            <p class="card-desc">内置 AI 的代码编辑器，不会写的 C#/C++ 游戏逻辑，直接让 AI 帮你写。</p>
-                        </div>
-                    </a>
-                </div>
-            </section>
+                <section id="community" class="content-section">
+                    <div class="section-heading"><h2>游戏社区平台</h2></div>
+                    <div class="resource-grid">
+                        <a href="https://store.steampowered.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f3ae;</div><div class="resource-info"><div class="resource-title">Steam</div><div class="resource-desc">全球最大的 PC 游戏平台。</div></div></a>
+                        <a href="https://itch.io/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f579;&#xfe0f;</div><div class="resource-info"><div class="resource-title">Itch.io</div><div class="resource-desc">独立游戏发布平台。</div></div></a>
+                        <a href="https://www.gog.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f4bf;</div><div class="resource-info"><div class="resource-title">GOG</div><div class="resource-desc">无 DRM 游戏平台。</div></div></a>
+                        <a href="https://www.epicgames.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f6e1;&#xfe0f;</div><div class="resource-info"><div class="resource-title">Epic Games</div><div class="resource-desc">Epic 游戏商店。</div></div></a>
+                        <a href="https://gamejolt.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x26a1;</div><div class="resource-info"><div class="resource-title">Game Jolt</div><div class="resource-desc">独立游戏社区与发布平台。</div></div></a>
+                        <a href="https://www.indienova.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f4a1;</div><div class="resource-info"><div class="resource-title">IndieNova</div><div class="resource-desc">国内独立游戏开发者社区。</div></div></a>
+                        <a href="https://www.reddit.com/r/gamedev/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f30d;</div><div class="resource-info"><div class="resource-title">r/gamedev</div><div class="resource-desc">Reddit 游戏开发社区。</div></div></a>
+                        <a href="https://discord.gg/gamedev" target="_blank" class="resource-card"><div class="resource-icon">&#x1f4ac;</div><div class="resource-info"><div class="resource-title">Game Dev Discord</div><div class="resource-desc">游戏开发 Discord 社区。</div></div></a>
+                        <a href="https://www.gamasutra.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f3ac;</div><div class="resource-info"><div class="resource-title">Gamasutra</div><div class="resource-desc">游戏开发者专业网站。</div></div></a>
+                        <a href="https://www.tigsource.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f438;</div><div class="resource-info"><div class="resource-title">TIGSource</div><div class="resource-desc">老牌独立游戏社区。</div></div></a>
+                    </div>
+                </section>
 
-            <!-- Godot 专属资源 -->
-            <section id="godot-resources" class="section">
-                <div class="section-header">
-                    <h2 class="section-title">Godot 专属资源 (重点推荐)</h2>
-                </div>
-                <div class="grid">
-                    <a href="https://docs.godotengine.org/en/stable/" target="_blank" class="card">
-                        <div class="card-icon">📚</div>
-                        <div class="card-info">
-                            <div class="card-title">Godot 官方文档</div>
-                            <p class="card-desc">最权威的 Godot 教程与 API 参考。</p>
-                        </div>
-                    </a>
-                    <a href="https://godotengine.org/asset-library/asset" target="_blank" class="card">
-                        <div class="card-icon">🛒</div>
-                        <div class="card-info">
-                            <div class="card-title">Godot Asset Library</div>
-                            <p class="card-desc">官方资源商店，海量插件和素材。</p>
-                        </div>
-                    </a>
-                    <a href="https://github.com/godotengine/godot" target="_blank" class="card">
-                        <div class="card-icon">🐙</div>
-                        <div class="card-info">
-                            <div class="card-title">Godot GitHub</div>
-                            <p class="card-desc">Godot 源代码，学习引擎内部实现。</p>
-                        </div>
-                    </a>
-                    <a href="https://godotforums.org/" target="_blank" class="card">
-                        <div class="card-icon">💬</div>
-                        <div class="card-info">
-                            <div class="card-title">Godot Forums</div>
-                            <p class="card-desc">官方论坛，提问和交流的好地方。</p>
-                        </div>
-                    </a>
-                    <a href="https://www.reddit.com/r/godot/" target="_blank" class="card">
-                        <div class="card-icon">🔴</div>
-                        <div class="card-info">
-                            <div class="card-title">Godot Reddit</div>
-                            <p class="card-desc">Reddit Godot 社区。</p>
-                        </div>
-                    </a>
-                    <a href="https://www.youtube.com/c/GDQuest" target="_blank" class="card">
-                        <div class="card-icon">🎯</div>
-                        <div class="card-info">
-                            <div class="card-title">GDQuest</div>
-                            <p class="card-desc">专业 Godot 教程频道。</p>
-                        </div>
-                    </a>
-                    <a href="https://www.youtube.com/c/HeartBeast" target="_blank" class="card">
-                        <div class="card-icon">❤️</div>
-                        <div class="card-info">
-                            <div class="card-title">HeartBeast</div>
-                            <p class="card-desc">Godot 游戏开发教程。</p>
-                        </div>
-                    </a>
-                    <a href="https://www.youtube.com/c/Brackeys" target="_blank" class="card">
-                        <div class="card-icon">🕶️</div>
-                        <div class="card-info">
-                            <div class="card-title">Brackeys</div>
-                            <p class="card-desc">Unity/Godot 教程。</p>
-                        </div>
-                    </a>
-                    <a href="https://www.youtube.com/c/GameMaker" target="_blank" class="card">
-                        <div class="card-icon">🎮</div>
-                        <div class="card-info">
-                            <div class="card-title">GameMaker</div>
-                            <p class="card-desc">2D 游戏引擎官方频道。</p>
-                        </div>
-                    </a>
-                    <a href="https://www.youtube.com/c/BigWings" target="_blank" class="card">
-                        <div class="card-icon">🦋</div>
-                        <div class="card-info">
-                            <div class="card-title">BigWings</div>
-                            <p class="card-desc">Shader 与视觉效果教程。</p>
-                        </div>
-                    </a>
-                    <a href="https://www.youtube.com/c/CodingGod" target="_blank" class="card">
-                        <div class="card-icon">🤖</div>
-                        <div class="card-info">
-                            <div class="card-title">Coding God</div>
-                            <p class="card-desc">Godot 4 教程。</p>
-                        </div>
-                    </a>
-                    <a href="https://www.youtube.com/c/QuangVuDesign" target="_blank" class="card">
-                        <div class="card-icon">🎨</div>
-                        <div class="card-info">
-                            <div class="card-title">QuangVu Design</div>
-                            <p class="card-desc">Godot UI 设计教程。</p>
-                        </div>
-                    </a>
-                </div>
-            </section>
+                <section id="ai-for-gamedev" class="content-section">
+                    <div class="section-heading"><h2>游戏AI开发</h2></div>
+                    <div class="resource-grid">
+                        <a href="https://unity.com/ai" target="_blank" class="resource-card"><div class="resource-icon">&#x1f916;</div><div class="resource-info"><div class="resource-title">Unity ML-Agents</div><div class="resource-desc">Unity 官方机器学习工具包。</div></div></a>
+                        <a href="https://github.com/Unity-Technologies/ml-agents" target="_blank" class="resource-card"><div class="resource-icon">&#x1f4bb;</div><div class="resource-info"><div class="resource-title">ML-Agents GitHub</div><div class="resource-desc">Unity 机器学习代理工具源码。</div></div></a>
+                        <a href="https://www.unrealengine.com/en-US/tech-blog/ai-and-machine-learning" target="_blank" class="resource-card"><div class="resource-icon">&#x1f9e0;</div><div class="resource-info"><div class="resource-title">UE AI & ML</div><div class="resource-desc">Unreal Engine AI 和机器学习资源。</div></div></a>
+                        <a href="https://github.com/godotengine/godot-ai" target="_blank" class="resource-card"><div class="resource-icon">&#x1f916;</div><div class="resource-info"><div class="resource-title">Godot AI</div><div class="resource-desc">Godot 游戏 AI 开发资源。</div></div></a>
+                        <a href="https://www.patreon.com/aiforgamedev" target="_blank" class="resource-card"><div class="resource-icon">&#x1f3ae;</div><div class="resource-info"><div class="resource-title">AI for Game Dev</div><div class="resource-desc">游戏 AI 开发教程和资源。</div></div></a>
+                        <a href="https://www.gamasutra.com/blogs/20180629/321395/Artificial_Intelligence_in_Games.php" target="_blank" class="resource-card"><div class="resource-icon">&#x1f4dd;</div><div class="resource-info"><div class="resource-title">AI in Games</div><div class="resource-desc">游戏人工智能技术文章。</div></div></a>
+                        <a href="https://www.gamasutra.com/view/feature/1526/artificial_intelligence_in_games.php" target="_blank" class="resource-card"><div class="resource-icon">&#x1f3af;</div><div class="resource-info"><div class="resource-title">AI Game Programming</div><div class="resource-desc">游戏 AI 编程 Wisdom 系列。</div></div></a>
+                        <a href="https://www.gamasutra.com/blogs/20180315/313985/Game_AI.php" target="_blank" class="resource-card"><div class="resource-icon">&#x1f3b3;</div><div class="resource-info"><div class="resource-title">Game AI Basics</div><div class="resource-desc">游戏 AI 基础教程。</div></div></a>
+                        <a href="https://www.gamasutra.com/view/feature/1526/game_ai_tutorial.php" target="_blank" class="resource-card"><div class="resource-icon">&#x1f3ae;</div><div class="resource-info"><div class="resource-title">Game AI Tutorial</div><div class="resource-desc">游戏 AI 开发教程。</div></div></a>
+                        <a href="https://www.gamasutra.com/blogs/20180629/321395/Game_AI_Tutorial.php" target="_blank" class="resource-card"><div class="resource-icon">&#x1f3af;</div><div class="resource-info"><div class="resource-title">Game AI Advanced</div><div class="resource-desc">游戏 AI 高级教程。</div></div></a>
+                    </div>
+                </section>
 
-            <!-- 游戏开发博客与论坛 -->
-            <section id="gamedev-blogs" class="section">
-                <div class="section-header">
-                    <h2 class="section-title">游戏开发博客与论坛</h2>
-                </div>
-                <div class="grid">
-                    <a href="https://www.gamasutra.com/" target="_blank" class="card">
-                        <div class="card-icon">🎬</div>
-                        <div class="card-info">
-                            <div class="card-title">Gamasutra</div>
-                            <p class="card-desc">顶级游戏开发者网站，行业新闻与技术文章。</p>
-                        </div>
-                    </a>
-                    <a href="https://www.gamedev.net/" target="_blank" class="card">
-                        <div class="card-icon">👾</div>
-                        <div class="card-info">
-                            <div class="card-title">GameDev.net</div>
-                            <p class="card-desc">老牌游戏开发社区，技术论坛与资源。</p>
-                        </div>
-                    </a>
-                    <a href="https://www.gamedevelopment.blog/" target="_blank" class="card">
-                        <div class="card-icon">📝</div>
-                        <div class="card-info">
-                            <div class="card-title">Game Development Blog</div>
-                            <p class="card-desc">游戏开发技术博客。</p>
-                        </div>
-                    </a>
-                    <a href="https://www.thecninja.com" target="_blank" class="card">
-                        <div class="card-icon">🥷</div>
-                        <div class="card-info">
-                            <div class="card-title">The Game Dev Ninja</div>
-                            <p class="card-desc">游戏开发教程与博客。</p>
-                        </div>
-                    </a>
-                    <a href="https://www.gameui.com/" target="_blank" class="card">
-                        <div class="card-icon">🖥️</div>
-                        <div class="card-info">
-                            <div class="card-title">GameUI</div>
-                            <p class="card-desc">游戏 UI 设计参考。</p>
-                        </div>
-                    </a>
-                    <a href="https://www.gameprogrammingpatterns.com/" target="_blank" class="card">
-                        <div class="card-icon">📖</div>
-                        <div class="card-info">
-                            <div class="card-title">Game Programming Patterns</div>
-                            <p class="card-desc">游戏编程设计模式经典书籍。</p>
-                        </div>
-                    </a>
-                    <a href="https://www.reddit.com/r/gamedev/" target="_blank" class="card">
-                        <div class="card-icon">🔴</div>
-                        <div class="card-info">
-                            <div class="card-title">Reddit GameDev</div>
-                            <p class="card-desc">Reddit 游戏开发社区。</p>
-                        </div>
-                    </a>
-                    <a href="https://ludumdare.com/" target="_blank" class="card">
-                        <div class="card-icon">🧠</div>
-                        <div class="card-info">
-                            <div class="card-title">Ludum Dare</div>
-                            <p class="card-desc">全球最大 Game Jam 赛事。</p>
-                        </div>
-                    </a>
-                    <a href="https://www.gamejolt.com/" target="_blank" class="card">
-                        <div class="card-icon">⚡</div>
-                        <div class="card-info">
-                            <div class="card-title">Game Jolt</div>
-                            <p class="card-desc">独立游戏社区与发布平台。</p>
-                        </div>
-                    </a>
-                    <a href="https://www.indienova.com/" target="_blank" class="card">
-                        <div class="card-icon">💡</div>
-                        <div class="card-info">
-                            <div class="card-title">IndieNova</div>
-                            <p class="card-desc">国内独立游戏开发者社区。</p>
-                        </div>
-                    </a>
-                </div>
-            </section>
+                <section id="godot-resources" class="content-section">
+                    <div class="section-heading"><h2>Godot专属资源</h2></div>
+                    <div class="resource-grid">
+                        <a href="https://godotengine.org/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f916;</div><div class="resource-info"><div class="resource-title">Godot 官网</div><div class="resource-desc">Godot 引擎官方网站。</div></div></a>
+                        <a href="https://docs.godotengine.org/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f4da;</div><div class="resource-info"><div class="resource-title">Godot 文档</div><div class="resource-desc">Godot 官方文档。</div></div></a>
+                        <a href="https://godotengine.org/asset-library/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f6d2;</div><div class="resource-info"><div class="resource-title">Godot 资源库</div><div class="resource-desc">Godot 官方资源库。</div></div></a>
+                        <a href="https://godotengine.org/community/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f30d;</div><div class="resource-info"><div class="resource-title">Godot 社区</div><div class="resource-desc">Godot 官方社区。</div></div></a>
+                        <a href="https://github.com/godotengine/godot" target="_blank" class="resource-card"><div class="resource-icon">&#x1f419;</div><div class="resource-info"><div class="resource-title">Godot GitHub</div><div class="resource-desc">Godot 源码仓库。</div></div></a>
+                        <a href="https://godotforums.org/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f4ac;</div><div class="resource-info"><div class="resource-title">Godot Forums</div><div class="resource-desc">Godot 社区论坛。</div></div></a>
+                        <a href="https://www.reddit.com/r/godot/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f30d;</div><div class="resource-info"><div class="resource-title">r/godot</div><div class="resource-desc">Reddit Godot 社区。</div></div></a>
+                        <a href="https://discord.gg/godot" target="_blank" class="resource-card"><div class="resource-icon">&#x1f4ac;</div><div class="resource-info"><div class="resource-title">Godot Discord</div><div class="resource-desc">Godot Discord 社区。</div></div></a>
+                        <a href="https://www.youtube.com/c/GDQuest" target="_blank" class="resource-card"><div class="resource-icon">&#x1f3af;</div><div class="resource-info"><div class="resource-title">GDQuest</div><div class="resource-desc">Godot 教学频道。</div></div></a>
+                        <a href="https://www.youtube.com/c/HeartBeast" target="_blank" class="resource-card"><div class="resource-icon">&#x2764;&#xfe0f;</div><div class="resource-info"><div class="resource-title">HeartBeast</div><div class="resource-desc">Godot 教程频道。</div></div></a>
+                    </div>
+                </section>
 
-            <!-- 游戏开发外包与接单平台 -->
-            <section id="gamedev-freelance" class="section">
-                <div class="section-header">
-                    <h2 class="section-title">游戏开发外包与接单平台</h2>
-                </div>
-                <div class="grid">
-                    <a href="https://www.artstation.com" target="_blank" class="card">
-                        <div class="card-icon">🖼️</div>
-                        <div class="card-info">
-                            <div class="card-title">ArtStation</div>
-                            <p class="card-desc">游戏美术外包接单首选平台。</p>
-                        </div>
-                    </a>
-                    <a href="https://www.upwork.com" target="_blank" class="card">
-                        <div class="card-icon">💼</div>
-                        <div class="card-info">
-                            <div class="card-title">Upwork</div>
-                            <p class="card-desc">全球最大自由职业平台，包含游戏开发。</p>
-                        </div>
-                    </a>
-                    <a href="https://www.fiverr.com" target="_blank" class="card">
-                        <div class="card-icon">🎯</div>
-                        <div class="card-info">
-                            <div class="card-title">Fiverr</div>
-                            <p class="card-desc">游戏美术、编程外包服务。</p>
-                        </div>
-                    </a>
-                    <a href="https://www.toptal.com" target="_blank" class="card">
-                        <div class="card-icon">💎</div>
-                        <div class="card-info">
-                            <div class="card-title">Toptal</div>
-                            <p class="card-desc">高端游戏开发者外包平台。</p>
-                        </div>
-                    </a>
-                    <a href="https://www.deviantart.com" target="_blank" class="card">
-                        <div class="card-icon">🎨</div>
-                        <div class="card-info">
-                            <div class="card-title">DeviantArt</div>
-                            <p class="card-desc">艺术作品展示与接单平台。</p>
-                        </div>
-                    </a>
-                    <a href="https://dribbble.com" target="_blank" class="card">
-                        <div class="card-icon">🏀</div>
-                        <div class="card-info">
-                            <div class="card-title">Dribbble</div>
-                            <p class="card-desc">设计师接单平台。</p>
-                        </div>
-                    </a>
-                    <a href="https://www.linkedin.com" target="_blank" class="card">
-                        <div class="card-icon">💼</div>
-                        <div class="card-info">
-                            <div class="card-title">LinkedIn</div>
-                            <p class="card-desc">职业社交与外包机会。</p>
-                        </div>
-                    </a>
-                    <a href="https://www.game-dev.net/" target="_blank" class="card">
-                        <div class="card-icon">🎮</div>
-                        <div class="card-info">
-                            <div class="card-title">Game-Dev Jobs</div>
-                            <p class="card-desc">游戏开发工作机会。</p>
-                        </div>
-                    </a>
-                    <a href="https://www.workingwithgames.com" target="_blank" class="card">
-                        <div class="card-icon">👔</div>
-                        <div class="card-info">
-                            <div class="card-title">Working With Games</div>
-                            <p class="card-desc">游戏行业工作平台。</p>
-                        </div>
-                    </a>
-                    <a href="https://www.gamasutra.com/jobs" target="_blank" class="card">
-                        <div class="card-icon">🎬</div>
-                        <div class="card-info">
-                            <div class="card-title">Gamasutra Jobs</div>
-                            <p class="card-desc">游戏行业工作机会。</p>
-                        </div>
-                    </a>
-                </div>
-            </section>
+                <section id="gamedev-blogs" class="content-section">
+                    <div class="section-heading"><h2>游戏开发博客与论坛</h2></div>
+                    <div class="resource-grid">
+                        <a href="https://www.gamasutra.com/blogs/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f4dd;</div><div class="resource-info"><div class="resource-title">Gamasutra Blogs</div><div class="resource-desc">游戏开发者博客平台。</div></div></a>
+                        <a href="https://www.gamedeveloper.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f3ae;</div><div class="resource-info"><div class="resource-title">Game Developer</div><div class="resource-desc">游戏开发者杂志。</div></div></a>
+                        <a href="https://www.tigsource.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f438;</div><div class="resource-info"><div class="resource-title">TIGSource</div><div class="resource-desc">独立游戏社区。</div></div></a>
+                        <a href="https://www.gamefromscratch.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f4bb;</div><div class="resource-info"><div class="resource-title">Game From Scratch</div><div class="resource-desc">游戏开发教程网站。</div></div></a>
+                        <a href="https://www.reddit.com/r/gamedev/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f30d;</div><div class="resource-info"><div class="resource-title">r/gamedev</div><div class="resource-desc">Reddit 游戏开发社区。</div></div></a>
+                        <a href="https://www.indienova.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f4a1;</div><div class="resource-info"><div class="resource-title">IndieNova</div><div class="resource-desc">国内独立游戏社区。</div></div></a>
+                        <a href="https://www.gamasutra.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f3ac;</div><div class="resource-info"><div class="resource-title">Gamasutra</div><div class="resource-desc">游戏开发者专业网站。</div></div></a>
+                        <a href="https://www.gamasutra.com/view/feature/1526/making_it_in_indie_games.php" target="_blank" class="resource-card"><div class="resource-icon">&#x1f3c6;</div><div class="resource-info"><div class="resource-title">Making It In Indie Games</div><div class="resource-desc">独立游戏开发成功案例。</div></div></a>
+                        <a href="https://www.gamasutra.com/blogs/20180315/313985/Level_Design_101.php" target="_blank" class="resource-card"><div class="resource-icon">&#x1f3af;</div><div class="resource-info"><div class="resource-title">Level Design 101</div><div class="resource-desc">关卡设计入门指南。</div></div></a>
+                        <a href="https://www.gamasutra.com/blogs/20180629/321395/Artificial_Intelligence_in_Games.php" target="_blank" class="resource-card"><div class="resource-icon">&#x1f916;</div><div class="resource-info"><div class="resource-title">AI in Games</div><div class="resource-desc">游戏人工智能技术文章。</div></div></a>
+                    </div>
+                </section>
 
-            <!-- 独立游戏案例与成功故事 -->
-            <section id="indie-game-cases" class="section">
-                <div class="section-header">
-                    <h2 class="section-title">独立游戏案例与成功故事</h2>
-                </div>
-                <div class="grid">
-                    <a href="https://www.indiehackers.com" target="_blank" class="card">
-                        <div class="card-icon">💰</div>
-                        <div class="card-info">
-                            <div class="card-title">Indie Hackers</div>
-                            <p class="card-desc">独立开发者创业故事与赚钱案例。</p>
-                        </div>
-                    </a>
-                    <a href="https://howtomarketagame.com/" target="_blank" class="card">
-                        <div class="card-icon">📈</div>
-                        <div class="card-info">
-                            <div class="card-title">How To Market A Game</div>
-                            <p class="card-desc">游戏营销专家 Chris 的博客。</p>
-                        </div>
-                    </a>
-                    <a href="https://www.gamasutra.com/blogs/" target="_blank" class="card">
-                        <div class="card-icon">🎬</div>
-                        <div class="card-info">
-                            <div class="card-title">Gamasutra Blog</div>
-                            <p class="card-desc">游戏开发者经验分享。</p>
-                        </div>
-                    </a>
-                    <a href="https://8000levels.com" target="_blank" class="card">
-                        <div class="card-icon">🎮</div>
-                        <div class="card-info">
-                            <div class="card-title">8000 Levels</div>
-                            <p class="card-desc">独立游戏开发者的经验博客。</p>
-                        </div>
-                    </a>
-                    <a href="https://www.gamasutra.com/view/feature/1526/making_it_in_indie_games.php" target="_blank" class="card">
-                        <div class="card-icon">🏆</div>
-                        <div class="card-info">
-                            <div class="card-title">Indie Games Stories</div>
-                            <p class="card-desc">独立游戏成功案例故事。</p>
-                        </div>
-                    </a>
-                    <a href="https://caseyaccidental.com" target="_blank" class="card">
-                        <div class="card-icon">🎮</div>
-                        <div class="card-info">
-                            <div class="card-title">Casey Accidental</div>
-                            <p class="card-desc">独立游戏开发者博客。</p>
-                        </div>
-                    </a>
-                    <a href="https://www.80.lv/" target="_blank" class="card">
-                        <div class="card-icon">🔧</div>
-                        <div class="card-info">
-                            <div class="card-title">80 Level</div>
-                            <p class="card-desc">游戏开发技术文章与案例。</p>
-                        </div>
-                    </a>
-                    <a href="https://www.gameanalytics.com" target="_blank" class="card">
-                        <div class="card-icon">📊</div>
-                        <div class="card-info">
-                            <div class="card-title">Game Analytics</div>
-                            <p class="card-desc">游戏数据分析平台。</p>
-                        </div>
-                    </a>
-                </div>
-            </section>
+                <section id="gamedev-freelance" class="content-section">
+                    <div class="section-heading"><h2>游戏开发外包与接单平台</h2></div>
+                    <div class="resource-grid">
+                        <a href="https://www.artstation.com" target="_blank" class="resource-card"><div class="resource-icon">&#x1f5bc;&#xfe0f;</div><div class="resource-info"><div class="resource-title">ArtStation</div><div class="resource-desc">游戏美术外包接单首选平台。</div></div></a>
+                        <a href="https://www.upwork.com" target="_blank" class="resource-card"><div class="resource-icon">&#x1f4bc;</div><div class="resource-info"><div class="resource-title">Upwork</div><div class="resource-desc">全球最大自由职业平台，包含游戏开发。</div></div></a>
+                        <a href="https://www.fiverr.com" target="_blank" class="resource-card"><div class="resource-icon">&#x1f3af;</div><div class="resource-info"><div class="resource-title">Fiverr</div><div class="resource-desc">小型游戏开发任务接单平台，适合快速变现。</div></div></a>
+                        <a href="https://www.gamedeveloper.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f4f0;</div><div class="resource-info"><div class="resource-title">Game Developer</div><div class="resource-desc">游戏开发行业资讯，包含外包和 freelance 相关信息。</div></div></a>
+                        <a href="https://www.reddit.com/r/INAT/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f91d;</div><div class="resource-info"><div class="resource-title">r/INAT (I Need A Team)</div><div class="resource-desc">Reddit 上的游戏开发组队社区，寻找合作伙伴或接项目。</div></div></a>
+                        <a href="https://www.reddit.com/r/gameDevClassifieds/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f4cb;</div><div class="resource-info"><div class="resource-title">r/gameDevClassifieds</div><div class="resource-desc">Reddit 游戏开发分类广告，发布或寻找开发/美术/音效服务。</div></div></a>
+                        <a href="https://www.toptal.com/game-developers" target="_blank" class="resource-card"><div class="resource-icon">&#x2b50;</div><div class="resource-info"><div class="resource-title">Toptal 游戏开发</div><div class="resource-desc">高端自由职业平台，连接顶级游戏开发者与优质客户。</div></div></a>
+                        <a href="https://www.peopleperhour.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f465;</div><div class="resource-info"><div class="resource-title">PeoplePerHour</div><div class="resource-desc">按小时计费的自由职业平台，适合游戏开发项目。</div></div></a>
+                    </div>
+                </section>
 
-            <!-- 更多游戏素材资源 -->
-            <section id="more-assets" class="section">
-                <div class="section-header">
-                    <h2 class="section-title">更多游戏素材资源</h2>
-                </div>
-                <div class="grid">
-                    <a href="https://kenney.nl/assets" target="_blank" class="card">
-                        <div class="card-icon">📦</div>
-                        <div class="card-info">
-                            <div class="card-title">Kenney Assets</div>
-                            <p class="card-desc">完全免费的 CC0 素材，数万款游戏使用。</p>
-                        </div>
-                    </a>
-                    <a href="https://itch.io/game-assets/free" target="_blank" class="card">
-                        <div class="card-icon">🕹️</div>
-                        <div class="card-info">
-                            <div class="card-title">Itch.io Free Assets</div>
-                            <p class="card-desc">独立游戏开发者贡献的免费素材。</p>
-                        </div>
-                    </a>
-                    <a href="https://opengameart.org/" target="_blank" class="card">
-                        <div class="card-icon">🖼️</div>
-                        <div class="card-info">
-                            <div class="card-title">OpenGameArt</div>
-                            <p class="card-desc">免费开源游戏素材库。</p>
-                        </div>
-                    </a>
-                    <a href="https://polyhaven.com/" target="_blank" class="card">
-                        <div class="card-icon">🌍</div>
-                        <div class="card-info">
-                            <div class="card-title">Poly Haven</div>
-                            <p class="card-desc">免费 3D 模型、纹理、环境。</p>
-                        </div>
-                    </a>
-                    <a href="https://www.mixamo.com/" target="_blank" class="card">
-                        <div class="card-icon">💃</div>
-                        <div class="card-info">
-                            <div class="card-title">Mixamo</div>
-                            <p class="card-desc">免费 3D 动画与角色绑定。</p>
-                        </div>
-                    </a>
-                    <a href="https://www.soundsnap.com" target="_blank" class="card">
-                        <div class="card-icon">🔊</div>
-                        <div class="card-info">
-                            <div class="card-title">SoundSnap</div>
-                            <p class="card-desc">专业游戏音效库。</p>
-                        </div>
-                    </a>
-                    <a href="https://www.freesound.org" target="_blank" class="card">
-                        <div class="card-icon">🎵</div>
-                        <div class="card-info">
-                            <div class="card-title">FreeSound</div>
-                            <p class="card-desc">免费音效与音乐素材。</p>
-                        </div>
-                    </a>
-                    <a href="https://www.bfxr.net" target="_blank" class="card">
-                        <div class="card-icon">🕹️</div>
-                        <div class="card-info">
-                            <div class="card-title">Bfxr</div>
-                            <p class="card-desc">8-bit 复古音效生成器。</p>
-                        </div>
-                    </a>
-                    <a href="https://www.beepbox.co" target="_blank" class="card">
-                        <div class="card-icon">🎼</div>
-                        <div class="card-info">
-                            <div class="card-title">BeepBox</div>
-                            <p class="card-desc">在线制作 8-bit 音乐。</p>
-                        </div>
-                    </a>
-                    <a href="https://incompetech.com" target="_blank" class="card">
-                        <div class="card-icon">🎷</div>
-                        <div class="card-info">
-                            <div class="card-title">Incompetech</div>
-                            <p class="card-desc">Kevin MacLeod 免版税音乐。</p>
-                        </div>
-                    </a>
-                    <a href="https://game-icons.net" target="_blank" class="card">
-                        <div class="card-icon">🛡️</div>
-                        <div class="card-info">
-                            <div class="card-title">Game Icons</div>
-                            <p class="card-desc">免费 SVG 游戏图标。</p>
-                        </div>
-                    </a>
-                    <a href="https://www.spriters-resource.com" target="_blank" class="card">
-                        <div class="card-icon">👾</div>
-                        <div class="card-info">
-                            <div class="card-title">Spriters Resource</div>
-                            <p class="card-desc">经典游戏素材参考。</p>
-                        </div>
-                    </a>
-                </div>
-            </section>
-        </div>
+                <section id="indie-game-cases" class="content-section">
+                    <div class="section-heading"><h2>独立游戏案例 (灵感来源)</h2></div>
+                    <div class="resource-grid">
+                        <a href="https://www.celeste-game.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f3c6;</div><div class="resource-info"><div class="resource-title">Celeste (蔚蓝)</div><div class="resource-desc">使用 GameMaker 开发的像素风平台跳跃神作，叙事与玩法完美结合。</div></div></a>
+                        <a href="https://undertale.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x2764;&#xfe0f;</div><div class="resource-info"><div class="resource-title">Undertale (传说之下)</div><div class="resource-desc">一人完成的 RPG 神作，使用 GameMaker，颠覆传统战斗系统。</div></div></a>
+                        <a href="https://www.supergiantgames.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f3b2;</div><div class="resource-info"><div class="resource-title">Supergiant Games</div><div class="resource-desc">《Hades》《Bastion》开发商，小团队高品质独立游戏典范。</div></div></a>
+                        <a href="https://www.hollowknight.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f98b;</div><div class="resource-info"><div class="resource-title">Hollow Knight (空洞骑士)</div><div class="resource-desc">三人团队打造的类银河恶魔城神作，使用 Unity 开发。</div></div></a>
+                        <a href="https://stardewvalley.net/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f33e;</div><div class="resource-info"><div class="resource-title">Stardew Valley (星露谷物语)</div><div class="resource-desc">一人四年开发的模拟经营神作，使用 C# 和自定义引擎。</div></div></a>
+                        <a href="https://www.mojang.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x26cf;&#xfe0f;</div><div class="resource-info"><div class="resource-title">Minecraft (我的世界)</div><div class="resource-desc">Notch 一人开发的沙盒游戏鼻祖，使用 Java 开发，全球销量第一。</div></div></a>
+                        <a href="https://www.terraria.org/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f333;</div><div class="resource-info"><div class="resource-title">Terraria (泰拉瑞亚)</div><div class="resource-desc">2D 沙盒冒险游戏，使用 XNA 开发，持续更新十余年。</div></div></a>
+                        <a href="https://deadcells.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f480;</div><div class="resource-info"><div class="resource-title">Dead Cells (死亡细胞)</div><div class="resource-desc">Motion Twin 开发的 Roguelike 动作游戏，使用 Haxe 语言。</div></div></a>
+                        <a href="https://www.cupheadgame.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x2615;</div><div class="resource-info"><div class="resource-title">Cuphead (茶杯头)</div><div class="resource-desc">兄弟两人开发的复古卡通风 Boss Rush 游戏，使用 Unity。</div></div></a>
+                        <a href="https://outerwilds.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f680;</div><div class="resource-info"><div class="resource-title">Outer Wilds (星际拓荒)</div><div class="resource-desc">学生项目起步的太空探索神作，使用 Unity 开发。</div></div></a>
+                    </div>
+                </section>
 
-        <footer class="footer">
-            <p>© 2026 游戏开发指南 - 祝你早日做出自己的第一款游戏</p>
-        </footer>
-    </main>
+                <section id="more-assets" class="content-section">
+                    <div class="section-heading"><h2>更多游戏素材资源</h2></div>
+                    <div class="resource-grid">
+                        <a href="https://www.gameart2d.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f3a8;</div><div class="resource-info"><div class="resource-title">GameArt2D</div><div class="resource-desc">高质量的 2D 游戏美术素材，包含动画精灵图。</div></div></a>
+                        <a href="https://craftpix.net/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f5bc;&#xfe0f;</div><div class="resource-info"><div class="resource-title">CraftPix</div><div class="resource-desc">丰富的 2D 游戏素材库，UI、角色、场景一应俱全。</div></div></a>
+                        <a href="https://www.glitchthegame.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f3ae;</div><div class="resource-info"><div class="resource-title">Glitch 素材库</div><div class="resource-desc">已关闭游戏 Glitch 的开源美术素材，CC0 免费使用。</div></div></a>
+                        <a href="https://ludiq.io/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f9e9;</div><div class="resource-info"><div class="resource-title">Ludiq (Bolt)</div><div class="resource-desc">Unity 可视化编程工具，现已被 Unity 官方收购为 Bolt。</div></div></a>
+                        <a href="https://assetstore.unity.com/packages/3d/environments" target="_blank" class="resource-card"><div class="resource-icon">&#x1f30d;</div><div class="resource-info"><div class="resource-title">Unity 3D 环境素材</div><div class="resource-desc">Unity 资源商店中的 3D 环境素材分类。</div></div></a>
+                        <a href="https://www.unrealengine.com/marketplace/en-US/store" target="_blank" class="resource-card"><div class="resource-icon">&#x1f3ea;</div><div class="resource-info"><div class="resource-title">UE Marketplace</div><div class="resource-desc">虚幻引擎官方商城，每月有免费素材赠送。</div></div></a>
+                        <a href="https://www.turbosquid.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f40b;</div><div class="resource-info"><div class="resource-title">TurboSquid</div><div class="resource-desc">大型 3D 模型交易平台，部分免费素材。</div></div></a>
+                        <a href="https://sketchfab.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f441;&#xfe0f;</div><div class="resource-info"><div class="resource-title">Sketchfab</div><div class="resource-desc">在线 3D 模型展示平台，大量 CC 协议免费素材。</div></div></a>
+                        <a href="https://www.mixamo.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f483;</div><div class="resource-info"><div class="resource-title">Mixamo</div><div class="resource-desc">Adobe 旗下的免费 3D 角色动画平台，自动绑定骨骼。</div></div></a>
+                        <a href="https://www.quixel.com/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f9f1;</div><div class="resource-info"><div class="resource-title">Quixel Megascans</div><div class="resource-desc">UE 用户可免费使用的高清扫描材质库。</div></div></a>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
 
     <script>
-        // 侧边栏激活状态联动
-        const navLinks = document.querySelectorAll('.nav-link');
-        const sections = document.querySelectorAll('.section');
+        // Mobile sidebar toggle
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
 
-        function changeActiveNav() {
-            let index = sections.length;
-            while(--index && window.scrollY + 100 < sections[index].offsetTop) {}
-            
-            navLinks.forEach((link) => link.classList.remove('active'));
-            navLinks[index].classList.add('active');
+        if (sidebarToggle && sidebar && sidebarOverlay) {
+            sidebarToggle.addEventListener('click', () => {
+                sidebar.classList.toggle('open');
+                sidebarOverlay.classList.toggle('active');
+            });
+
+            sidebarOverlay.addEventListener('click', () => {
+                sidebar.classList.remove('open');
+                sidebarOverlay.classList.remove('active');
+            });
         }
 
-        window.addEventListener('scroll', changeActiveNav);
-        
-        // 点击平滑滚动
-        navLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetSection = document.querySelector(targetId);
-                window.scrollTo({
-                    top: targetSection.offsetTop - 70,
-                    behavior: 'smooth'
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        if (searchInput) {
+            searchInput.addEventListener('input', (e) => {
+                const searchTerm = e.target.value.toLowerCase();
+                const sections = document.querySelectorAll('.content-section');
+                
+                sections.forEach(section => {
+                    const cards = section.querySelectorAll('.resource-card');
+                    let hasVisibleCard = false;
+                    
+                    cards.forEach(card => {
+                        const title = card.querySelector('.resource-title')?.textContent.toLowerCase() || '';
+                        const desc = card.querySelector('.resource-desc')?.textContent.toLowerCase() || '';
+                        
+                        if (title.includes(searchTerm) || desc.includes(searchTerm)) {
+                            card.style.display = '';
+                            hasVisibleCard = true;
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                    
+                    section.style.display = hasVisibleCard ? '' : 'none';
                 });
             });
-        });
+        }
 
-        // 搜索功能实现
-        const searchInput = document.getElementById('searchInput');
-        const cards = document.querySelectorAll('.card');
-
-        searchInput.addEventListener('input', function(e) {
-            const searchTerm = e.target.value.toLowerCase();
-            
-            cards.forEach(card => {
-                const title = card.querySelector('.card-title').textContent.toLowerCase();
-                const desc = card.querySelector('.card-desc').textContent.toLowerCase();
+        // Smooth scroll for sidebar links
+        document.querySelectorAll('.sidebar-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
                 
-                if (title.includes(searchTerm) || desc.includes(searchTerm)) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                    
+                    // Close mobile sidebar after click
+                    if (window.innerWidth <= 768) {
+                        sidebar.classList.remove('open');
+                        sidebarOverlay.classList.remove('active');
+                    }
                 }
             });
         });
