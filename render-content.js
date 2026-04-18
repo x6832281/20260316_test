@@ -54,22 +54,22 @@ const ARTICLES_DATA = [
 
 // 热搜 TOP 10 数据
 const TRENDING_DATA = [
-    { rank: '01', title: 'AI Agent 自进化引擎爆火', event: 'EvoMap 发布 evolver，3 天涨星 3600+' },
-    { rank: '02', title: 'Claude Code 变游戏工作室', event: '49 个 AI Agent 协作开发游戏，11K stars' },
-    { rank: '03', title: '大疆 Pocket 4 上手视频刷屏', event: '影视飓风首发评测，B 站 226 万播放' },
-    { rank: '04', title: '中文大模型教程登顶 GitHub', event: '《动手学大模型》31K stars' },
-    { rank: '05', title: 'AI 能看屏幕听对话了', event: 'omi 发布新一代 AI 助手，9.5K stars' },
-    { rank: '06', title: '开源语音合成工作室火了', event: 'voicebox 19K stars' },
-    { rank: '07', title: 'Google 发布 AI 文件检测工具', event: 'magika 15K stars' },
-    { rank: '08', title: '世界最小喷气载人飞机挑战成功', event: 'B 站 UP 主魔界造物保持 25 年纪录' },
-    { rank: '09', title: 'Chrome DevTools 给 AI 用了', event: '35K stars，coding agent 开发效率提升' },
-    { rank: '10', title: '大众电动车 1200 公里深度体验', event: 'ID.ERA 9X 实测' }
+    { rank: '01', title: 'AI Agent 自进化引擎爆火', event: 'EvoMap 发布 evolver，3 天涨星 3600+', articleId: 'article-001' },
+    { rank: '02', title: 'Claude Code 变游戏工作室', event: '49 个 AI Agent 协作开发游戏，11K stars', articleId: 'article-002' },
+    { rank: '03', title: '大疆 Pocket 4 上手视频刷屏', event: '影视飓风首发评测，B 站 226 万播放', articleId: 'article-003' },
+    { rank: '04', title: '中文大模型教程登顶 GitHub', event: '《动手学大模型》31K stars', articleId: 'article-003' },
+    { rank: '05', title: 'AI 能看屏幕听对话了', event: 'omi 发布新一代 AI 助手，9.5K stars', articleId: 'article-004' },
+    { rank: '06', title: '开源语音合成工作室火了', event: 'voicebox 19K stars', articleId: 'article-005' },
+    { rank: '07', title: 'Google 发布 AI 文件检测工具', event: 'magika 15K stars', articleId: 'article-005' },
+    { rank: '08', title: '世界最小喷气载人飞机挑战成功', event: 'B 站 UP 主魔界造物保持 25 年纪录', articleId: 'article-001' },
+    { rank: '09', title: 'Chrome DevTools 给 AI 用了', event: '35K stars，coding agent 开发效率提升', articleId: 'article-002' },
+    { rank: '10', title: '大众电动车 1200 公里深度体验', event: 'ID.ERA 9X 实测', articleId: 'article-005' }
 ];
 
 // 渲染文章卡片
 function renderArticleCard(article) {
     return `
-        <article class="article-card" data-article-id="${article.id}">
+        <a href="article.html?id=${article.id}" class="article-card" data-article-id="${article.id}">
             <div class="card-accent ${article.accentClass}"></div>
             <div class="card-content">
                 <span class="card-tag ${article.tagClass}">${article.tag}</span>
@@ -80,7 +80,7 @@ function renderArticleCard(article) {
                     <span class="card-link">阅读更多 →</span>
                 </div>
             </div>
-        </article>
+        </a>
     `;
 }
 
@@ -89,6 +89,7 @@ function renderTrendingList(trendingItems) {
     return trendingItems.map((item, index) => {
         let rankClass = '';
         let hotBadge = '';
+        const articleUrl = `article.html?id=${item.articleId}`;
         
         if (index < 3) {
             rankClass = index === 0 ? 'rank-gold' : index === 1 ? 'rank-silver' : 'rank-bronze';
@@ -98,7 +99,7 @@ function renderTrendingList(trendingItems) {
         return `
             <li class="trending-item ${index < 3 ? 'item-hot' : ''}">
                 <span class="item-rank ${rankClass}">${item.rank}</span>
-                <span class="item-text" title="${item.event}">${item.title}</span>
+                <a href="${articleUrl}" class="item-text" title="${item.event}">${item.title}</a>
                 ${hotBadge}
             </li>
         `;

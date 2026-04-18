@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="AI 萌新小窝 - 热门文章详情">
+    <meta name="theme-color" content="#0a0a0f">
+    <title>文章详情 - AI 萌新小窝</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=20260418">
+    <link rel="manifest" href="manifest.json?v=20260418">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='40' fill='%230a0a0f'/%3E%3Ctext x='90' y='110' text-anchor='middle' font-size='80' font-family='serif' fill='%2300f5d4'%3EAI%3C/text%3E%3C/svg%3E">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="AI 萌新小窝">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?7da04a23e1fb1934e90419a677b100e2";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body>
+    <div class="noise-overlay"></div>
+    <div class="grain-overlay"></div>
+    
+    <div class="article-page">
+        <header class="article-header">
+            <a href="index.html" class="back-btn">
+                <span class="back-icon">←</span>
+                <span>返回首页</span>
+            </a>
+            <div class="article-meta-top">
+                <span class="article-tag" id="articleTag"></span>
+                <span class="article-date" id="articleDate"></span>
+            </div>
+        </header>
+
+        <main class="article-main">
+            <article class="article-content" id="articleContent">
+                <div class="article-loading">
+                    <div class="loading-spinner"></div>
+                    <p>正在加载文章...</p>
+                </div>
+            </article>
+        </main>
+
+        <footer class="article-footer">
+            <div class="footer-nav">
+                <a href="index.html" class="footer-link">
+                    <span class="footer-icon">🏠</span>
+                    <span>返回首页</span>
+                </a>
+                <a href="#" class="footer-link" id="nextArticle">
+                    <span class="footer-icon">→</span>
+                    <span>下一篇</span>
+                </a>
+            </div>
+            <p class="footer-copy">&copy; 2026 AI 萌新小窝. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="article-page.js?v=20260418"></script>
+</body>
+</html>

@@ -8,9 +8,11 @@ const ASSETS_TO_CACHE = [
   '/game.html',
   '/resource.html',
   '/disclaimer.html',
+  '/article.html',
   '/styles.css',
   '/script.js',
   '/render-content.js',
+  '/article-page.js',
   '/manifest.json'
 ];
 
