@@ -91,4 +91,25 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+    
+    // 内容标签页切换
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+    
+    tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const tabId = button.dataset.tab;
+            
+            // 移除所有 active 类
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            tabContents.forEach(content => content.classList.remove('active'));
+            
+            // 添加 active 类到当前标签
+            button.classList.add('active');
+            const targetContent = document.getElementById(`${tabId}-tab`);
+            if (targetContent) {
+                targetContent.classList.add('active');
+            }
+        });
+    });
 });

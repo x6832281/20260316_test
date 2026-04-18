@@ -44,6 +44,9 @@
                     <li><a href="ai.html" class="nav-item"><span class="nav-icon">&#x1f916;</span>AI学习</a></li>
                     <li><a href="game.html" class="nav-item"><span class="nav-icon">&#x1f3ae;</span>游戏开发</a></li>
                 </ul>
+                <div class="breadcrumb">
+                    <span class="breadcrumb-item current">首页</span>
+                </div>
                 <button class="mobile-menu-btn" aria-label="菜单">
                     <span></span><span></span><span></span>
                 </button>
@@ -91,31 +94,45 @@
 
         <main class="main-content">
             <section class="content-area">
-                <div class="section-header">
-                    <span class="section-label">最新文章</span>
-                    <h2 class="section-title">精选技术文章与资源分享</h2>
-                    <div class="section-line"></div>
+                <div class="content-tabs">
+                    <button class="tab-btn active" data-tab="articles">
+                        <span class="tab-icon">&#x1f4da;</span>
+                        <span>精选文章</span>
+                    </button>
+                    <button class="tab-btn" data-tab="trending">
+                        <span class="tab-icon">&#x1f525;</span>
+                        <span>热搜排行</span>
+                    </button>
                 </div>
-                <div class="articles-grid" id="articles-container"></div>
-            </section>
-
-            <aside class="sidebar-area">
-                <div class="trending-card">
-                    <div class="trending-header">
-                        <span class="trending-icon">&#x1f525;</span>
-                        <h3 class="trending-title">热搜榜</h3>
+                <div class="tab-content active" id="articles-tab">
+                    <div class="section-header">
+                        <span class="section-label">最新文章</span>
+                        <h2 class="section-title">精选技术文章与资源分享</h2>
+                        <div class="section-line"></div>
                     </div>
-                    <ul class="trending-list" id="trending-container"></ul>
+                    <div class="articles-grid" id="articles-container"></div>
                 </div>
-            </aside>
+                <div class="tab-content" id="trending-tab">
+                    <div class="section-header">
+                        <span class="section-label">热门话题</span>
+                        <h2 class="section-title">今日热搜 TOP 10</h2>
+                        <div class="section-line"></div>
+                    </div>
+                    <ul class="trending-list trending-list-full" id="trending-container"></ul>
+                </div>
+            </section>
         </main>
 
         <footer class="site-footer">
             <div class="footer-content">
                 <div class="footer-brand">AI 萌新小窝</div>
                 <p class="footer-text">发现全球免费开源资源</p>
-                <div class="footer-links">
-                    <a href="disclaimer.html" target="_blank">免责声明</a>
+                <div class="footer-nav">
+                    <a href="index.html" class="footer-link">首页</a>
+                    <a href="resource.html" class="footer-link">资源导航</a>
+                    <a href="ai.html" class="footer-link">AI学习</a>
+                    <a href="game.html" class="footer-link">游戏开发</a>
+                    <a href="disclaimer.html" class="footer-link" target="_blank">免责声明</a>
                 </div>
                 <p class="footer-copy">&copy; 2026 AI 萌新小窝. All rights reserved.</p>
             </div>

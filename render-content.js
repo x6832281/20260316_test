@@ -72,12 +72,15 @@ function renderArticleCard(article) {
         <a href="article.html?id=${article.id}" class="article-card" data-article-id="${article.id}">
             <div class="card-accent ${article.accentClass}"></div>
             <div class="card-content">
-                <span class="card-tag ${article.tagClass}">${article.tag}</span>
+                <div class="card-meta">
+                    <span class="card-tag ${article.tagClass}">${article.tag}</span>
+                    <span class="card-readtime">${article.readTime || '5 分钟'}</span>
+                </div>
                 <h3 class="card-title">${article.title}</h3>
                 <p class="card-desc">${article.desc}</p>
                 <div class="card-footer">
                     <time class="card-date">${article.date}</time>
-                    <span class="card-link">阅读更多 →</span>
+                    <span class="card-link">阅读 →</span>
                 </div>
             </div>
         </a>
