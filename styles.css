@@ -986,6 +986,24 @@ body {
         min-width: 80px;
     }
     
+    .content-tabs {
+        flex-wrap: wrap;
+        gap: 6px;
+        padding-bottom: 12px;
+    }
+    
+    .tab-btn {
+        flex: 1;
+        min-width: 120px;
+        padding: 8px 12px;
+        font-size: 13px;
+        justify-content: center;
+    }
+    
+    .tab-icon {
+        font-size: 14px;
+    }
+    
     .articles-grid {
         grid-template-columns: 1fr;
     }
@@ -1011,6 +1029,16 @@ body {
     
     .trending-card {
         padding: 16px;
+    }
+    
+    .tab-btn {
+        min-width: 100px;
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+    
+    .tab-icon {
+        font-size: 12px;
     }
 }
 
