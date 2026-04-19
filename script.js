@@ -13,51 +13,44 @@ if ('serviceWorker' in navigator) {
 
 // 搜索引擎配置
 const SEARCH_ENGINES = {
-    google: { url: 'https://www.google.com/search', param: 'q' },
-    bing: { url: 'https://www.bing.com/search', param: 'q' },
-    yandex: { url: 'https://yandex.com/search/', param: 'text' },
-    yahoo: { url: 'https://search.yahoo.com/search', param: 'p' },
-    baidu: { url: 'https://www.baidu.com/s', param: 'wd' },
-    doubao: { url: 'https://www.doubao.com/chat/', param: 'q', isAI: true },
-    qianwen: { url: 'https://tongyi.aliyun.com/qianwen/', param: 'q', isAI: true }
+    google: { url: 'https://www.google.com/search', param: 'q', home: 'https://www.google.com' },
+    bing: { url: 'https://www.bing.com/search', param: 'q', home: 'https://www.bing.com' },
+    yandex: { url: 'https://yandex.com/search/', param: 'text', home: 'https://yandex.com' },
+    yahoo: { url: 'https://search.yahoo.com/search', param: 'p', home: 'https://www.yahoo.com' },
+    baidu: { url: 'https://www.baidu.com/s', param: 'wd', home: 'https://www.baidu.com' },
+    doubao: { url: 'https://www.doubao.com/chat/', param: 'q', home: 'https://www.doubao.com' },
+    qianwen: { url: 'https://tongyi.aliyun.com/qianwen/', param: 'q', home: 'https://tongyi.aliyun.com' }
 };
 
 // 搜索功能
 function search(engine) {
     const input = document.getElementById('search-input');
-    if (!input) return;
-    
-    const query = input.value.trim();
-    if (!query) return;
-    
+    const query = input ? input.value.trim() : '';
     const config = SEARCH_ENGINES[engine];
     if (!config) return;
     
-    if (config.isAI) {
-        // AI工具：复制搜索内容到剪贴板，然后打开网页
-        navigator.clipboard.writeText(query).then(() => {
-            window.open(config.url, '_blank', 'noopener,noreferrer');
-        }).catch(() => {
-            // 如果剪贴板API失败，直接打开网页
-            window.open(config.url, '_blank', 'noopener,noreferrer');
-        });
-    } else {
+    if (query) {
+        // 有搜索内容时：进行搜索
         const url = `${config.url}?${config.param}=${encodeURIComponent(query)}`;
         window.open(url, '_blank', 'noopener,noreferrer');
+    } else {
+        // 没有搜索内容时：打开搜索引擎首页
+        window.open(config.home, '_blank', 'noopener,noreferrer');
     }
 }
 
 // 键盘事件处理
 document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('search-input');
-    if (!searchInput) return;
     
-    // 回车键搜索（默认使用百度）
-    searchInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
-            search('baidu');
-        }
-    });
+    // 回车键搜索（默认使用百度，有内容则搜索，无内容则打开首页）
+    if (searchInput) {
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                search('baidu');
+            }
+        });
+    }
     
     // 搜索按钮事件委托
     const searchEngines = document.querySelector('.search-engines');
