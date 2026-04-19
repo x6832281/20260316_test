@@ -1390,12 +1390,361 @@ body {
     font-size: 18px;
 }
 
-/* ============================================
-   子页面响应式
-   ============================================ */
+/* ============================================   子页面响应式   ============================================ */
 @media (max-width: 1024px) {
     .resource-grid {
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .resource-grid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    }
+}
+
+/* ============================================   免责声明页面 - 留言板样式   ============================================ */
+.disclaimer-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-primary);
+    position: relative;
+}
+
+.disclaimer-header {
+    padding: 32px 24px;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+    background: var(--bg-secondary);
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 14px;
+    margin-bottom: 16px;
+    transition: color var(--transition-fast);
+}
+
+.back-link:hover {
+    color: var(--accent-primary);
+}
+
+.disclaimer-title {
+    font-family: var(--font-display);
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.disclaimer-subtitle {
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+.disclaimer-content {
+    flex: 1;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 32px 24px;
+    width: 100%;
+}
+
+.content-section {
+    margin-bottom: 32px;
+    padding: 24px;
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.content-section h2 {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--accent-primary);
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.content-section p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+.content-section p:last-child {
+    margin-bottom: 0;
+}
+
+/* 留言板样式 */
+.message-section {
+    margin-top: 40px;
+    padding: 24px;
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.message-section h2 {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--accent-primary);
+    margin-bottom: 24px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.message-container {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+/* 留言表单 */
+.message-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.form-input,
+.form-textarea {
+    padding: 12px 16px;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-size: 14px;
+    font-family: inherit;
+    transition: all var(--transition-fast);
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 3px rgba(0, 245, 212, 0.1);
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form-submit {
+    align-self: flex-start;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, var(--accent-primary), #00d6b7);
+    border: none;
+    border-radius: 8px;
+    color: var(--bg-primary);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    box-shadow: 0 4px 12px rgba(0, 245, 212, 0.3);
+}
+
+.form-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 245, 212, 0.4);
+}
+
+.form-submit:active {
+    transform: translateY(0);
+}
+
+/* 留言列表 */
+.message-list-container {
+    border-top: 1px solid var(--border-color);
+    padding-top: 24px;
+}
+
+.message-list-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+}
+
+.toggle-btn {
+    background: none;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: var(--text-secondary);
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+}
+
+.toggle-btn:hover {
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+}
+
+.message-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-height: 400px;
+    overflow-y: auto;
+    transition: max-height var(--transition-smooth);
+}
+
+.message-list.collapsed {
+    max-height: 200px;
+}
+
+.message-item {
+    padding: 16px;
+    background: var(--bg-tertiary);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    transition: all var(--transition-fast);
+}
+
+.message-item:hover {
+    border-color: var(--accent-primary);
+    box-shadow: 0 4px 12px rgba(0, 245, 212, 0.1);
+}
+
+.message-author {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.message-content {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: 8px;
+    word-wrap: break-word;
+}
+
+.message-time {
+    font-size: 12px;
+    color: var(--text-muted);
+    text-align: right;
+}
+
+.disclaimer-footer {
+    margin-top: auto;
+    padding: 24px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border-color);
+    background: var(--bg-secondary);
+}
+
+/* 留言板响应式设计 */
+@media (max-width: 768px) {
+    .disclaimer-header {
+        padding: 24px 16px;
+    }
+    
+    .disclaimer-title {
+        font-size: 24px;
+    }
+    
+    .disclaimer-content {
+        padding: 24px 16px;
+    }
+    
+    .content-section {
+        padding: 16px;
+        margin-bottom: 24px;
+    }
+    
+    .message-section {
+        padding: 16px;
+        margin-top: 32px;
+    }
+    
+    .form-submit {
+        align-self: stretch;
+    }
+    
+    .message-list {
+        max-height: 300px;
+    }
+    
+    .message-list.collapsed {
+        max-height: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    .disclaimer-header {
+        padding: 16px 12px;
+    }
+    
+    .disclaimer-title {
+        font-size: 20px;
+    }
+    
+    .disclaimer-content {
+        padding: 16px 12px;
+    }
+    
+    .content-section {
+        padding: 12px;
+        margin-bottom: 16px;
+    }
+    
+    .content-section h2 {
+        font-size: 18px;
+    }
+    
+    .content-section p {
+        font-size: 13px;
+    }
+    
+    .message-section {
+        padding: 12px;
+        margin-top: 24px;
+    }
+    
+    .form-input,
+    .form-textarea {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+    
+    .form-textarea {
+        min-height: 100px;
     }
 }
 
