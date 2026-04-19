@@ -13,13 +13,12 @@ if ('serviceWorker' in navigator) {
 
 // 搜索引擎配置
 const SEARCH_ENGINES = {
-    google: { url: 'https://www.google.com/search', param: 'q', home: 'https://www.google.com' },
-    bing: { url: 'https://www.bing.com/search', param: 'q', home: 'https://www.bing.com' },
-    yandex: { url: 'https://yandex.com/search/', param: 'text', home: 'https://yandex.com' },
-    yahoo: { url: 'https://search.yahoo.com/search', param: 'p', home: 'https://www.yahoo.com' },
-    baidu: { url: 'https://www.baidu.com/s', param: 'wd', home: 'https://www.baidu.com' },
+    bilibili: { url: 'https://search.bilibili.com/all', param: 'keyword', home: 'https://www.bilibili.com' },
+    github: { url: 'https://github.com/search', param: 'q', home: 'https://github.com' },
     doubao: { url: 'https://www.doubao.com/chat/', param: 'q', home: 'https://www.doubao.com' },
-    qianwen: { url: 'https://tongyi.aliyun.com/qianwen/', param: 'q', home: 'https://tongyi.aliyun.com' }
+    qianwen: { url: 'https://tongyi.aliyun.com/qianwen/', param: 'q', home: 'https://tongyi.aliyun.com' },
+    yandex: { url: 'https://yandex.com/search/', param: 'text', home: 'https://yandex.com' },
+    baidu: { url: 'https://www.baidu.com/s', param: 'wd', home: 'https://www.baidu.com' }
 };
 
 // 搜索功能
@@ -43,11 +42,11 @@ function search(engine) {
 document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('search-input');
     
-    // 回车键搜索（默认使用百度，有内容则搜索，无内容则打开首页）
+    // 回车键搜索（默认使用哔哩哔哩，有内容则搜索，无内容则打开首页）
     if (searchInput) {
         searchInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
-                search('baidu');
+                search('bilibili');
             }
         });
     }
