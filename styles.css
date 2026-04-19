@@ -877,6 +877,21 @@ body {
     text-overflow: initial;
 }
 
+/* 空标签页样式 */
+.empty-tab {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-muted);
+    font-size: 16px;
+    border: 2px dashed var(--border-color);
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.empty-tab p {
+    margin: 0;
+}
+
 /* ============================================
    响应式设计
    ============================================ */
