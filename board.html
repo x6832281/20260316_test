@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="AI 萌新小窝 - 留言版，与萌新们交流互动">
+    <meta name="theme-color" content="#0a0a0f">
+    <title>留言版 - AI 萌新小窝</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=20260420">
+    <link rel="manifest" href="manifest.json?v=20260420">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='40' fill='%230a0a0f'/%3E%3Ctext x='90' y='110' text-anchor='middle' font-size='80' font-family='serif' fill='%2300f5d4'%3EAI%3C/text%3E%3C/svg%3E">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="AI 萌新小窝">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?7da04a23e1fb1934e90419a677b100e2";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body>
+    <div class="noise-overlay"></div>
+    <div class="grain-overlay"></div>
+    
+    <div class="page-wrapper">
+        <nav class="page-nav">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-char">AI</span>
+                <span class="logo-text">萌新小窝</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="resource.html" class="nav-item"><span class="nav-icon">&#x1f310;</span>资源导航</a></li>
+                <li><a href="ai.html" class="nav-item"><span class="nav-icon">&#x1f916;</span>AI学习</a></li>
+                <li><a href="game.html" class="nav-item"><span class="nav-icon">&#x1f3ae;</span>游戏开发</a></li>
+                <li><a href="debate.html" class="nav-item"><span class="nav-icon">&#x1f4ac;</span>名人对线</a></li>
+                <li><a href="board.html" class="nav-item active"><span class="nav-icon">&#x1f4ae;</span>留言版</a></li>
+            </ul>
+            <div class="breadcrumb">
+                <a href="index.html" class="breadcrumb-item">首页</a>
+                <span class="breadcrumb-sep">/</span>
+                <span class="breadcrumb-item current">留言版</span>
+            </div>
+            <button class="mobile-menu-btn" aria-label="菜单">
+                <span></span><span></span><span></span>
+            </button>
+        </nav>
+
+        <main class="page-main">
+            <header class="page-header">
+                <div class="header-content">
+                    <span class="header-label">互动交流</span>
+                    <h1 class="header-title">留言版</h1>
+                    <p class="header-desc">有任何问题或建议？欢迎留言交流</p>
+                </div>
+                <div class="header-decor">
+                    <div class="decor-line"></div>
+                    <div class="decor-dot"></div>
+                </div>
+            </header>
+
+            <section class="board-section">
+                <div class="board-container">
+                    <div class="board-form-wrapper">
+                        <h2 class="board-form-title">发表留言</h2>
+                        <form id="message-form" class="board-form">
+                            <div class="form-group">
+                                <label for="name" class="form-label">昵称</label>
+                                <input type="text" id="name" class="form-input" placeholder="请输入您的昵称" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message" class="form-label">留言内容</label>
+                                <textarea id="message" class="form-textarea" placeholder="请输入您的留言..." rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="form-submit">
+                                <span class="submit-icon">&#x2709;</span>
+                                提交留言
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="board-list-wrapper">
+                        <div class="board-list-header">
+                            <h2 class="board-list-title">
+                                <span class="title-icon">&#x1f4e5;</span>
+                                最新留言
+                            </h2>
+                            <button id="toggle-btn" class="toggle-btn">
+                                <span class="toggle-icon">&#x2212;</span>
+                            </button>
+                        </div>
+                        <div id="message-list" class="board-list">
+                            <div class="loading-state">
+                                <div class="loading-spinner"></div>
+                                <p>正在加载留言...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <div class="footer-content">
+                <div class="footer-brand">AI 萌新小窝</div>
+                <div class="footer-nav">
+                    <a href="index.html" class="footer-link">首页</a>
+                    <a href="resource.html" class="footer-link">资源导航</a>
+                    <a href="ai.html" class="footer-link">AI学习</a>
+                    <a href="game.html" class="footer-link">游戏开发</a>
+                    <a href="debate.html" class="footer-link">名人对线</a>
+                    <a href="board.html" class="footer-link">留言版</a>
+                    <a href="disclaimer.html" class="footer-link" target="_blank">免责声明</a>
+                </div>
+                <p class="footer-copy">&copy; 2026 AI 萌新小窝. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const supabaseUrl = 'https://wutixqqiuksglbijggdu.supabase.co';
+        const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind1dGl4cXFpdWtzZ2xiaWpnZ2R1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM4MzQ5NzAsImV4cCI6MjA4OTQxMDk3MH0.6y_uZrcSqcjOCz-8EaXZHmmnD28OAkcyNNBkX5JySBU';
+        const supabaseClient = supabase.createClient(supabaseUrl, supabaseAnonKey);
+
+        const messageForm = document.getElementById('message-form');
+        const messageList = document.getElementById('message-list');
+        const toggleBtn = document.getElementById('toggle-btn');
+        const toggleIcon = toggleBtn ? toggleBtn.querySelector('.toggle-icon') : null;
+        let isExpanded = true;
+
+        if (toggleBtn) {
+            toggleBtn.addEventListener('click', () => {
+                isExpanded = !isExpanded;
+                messageList.classList.toggle('collapsed', !isExpanded);
+                if (toggleIcon) {
+                    toggleIcon.textContent = isExpanded ? '\u2212' : '\u002b';
+                }
+            });
+        }
+
+        if (messageForm) {
+            messageForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const name = document.getElementById('name').value.trim();
+                const message = document.getElementById('message').value.trim();
+                
+                if (!name || !message) return;
+
+                const submitBtn = messageForm.querySelector('.form-submit');
+                const originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<span class="loading-dots">...</span>提交中';
+                submitBtn.disabled = true;
+
+                try {
+                    const { error } = await supabaseClient
+                        .from('message')
+                        .insert({ name, message });
+                    
+                    if (error) throw error;
+                    
+                    messageForm.reset();
+                    loadMessages();
+                } catch (err) {
+                    console.error('提交失败:', err);
+                    saveToLocal({ name, message, created_at: new Date().toISOString() });
+                    loadMessages();
+                } finally {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                }
+            });
+        }
+
+        async function loadMessages() {
+            try {
+                const { data: messages, error } = await supabaseClient
+                    .from('message')
+                    .select('*')
+                    .order('created_at', { ascending: false })
+                    .limit(50);
+
+                if (error) throw error;
+                displayMessages(messages);
+                saveToLocalStorage(messages);
+            } catch (err) {
+                console.error('加载失败:', err);
+                loadFromLocalStorage();
+            }
+        }
+
+        function displayMessages(messages) {
+            if (!messageList) return;
+            messageList.innerHTML = '';
+
+            if (!messages || messages.length === 0) {
+                messageList.innerHTML = '<div class="empty-board"><p>暂无留言，来发表第一条吧！</p></div>';
+                return;
+            }
+
+            messages.forEach(msg => {
+                const item = document.createElement('div');
+                item.className = 'board-item';
+                item.innerHTML = `
+                    <div class="board-item-header">
+                        <span class="board-author">${escapeHtml(msg.name)}</span>
+                        <span class="board-time">${formatTime(msg.created_at)}</span>
+                    </div>
+                    <div class="board-content">${escapeHtml(msg.message)}</div>
+                `;
+                messageList.appendChild(item);
+            });
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        function formatTime(isoString) {
+            const date = new Date(isoString);
+            const now = new Date();
+            const diff = now - date;
+            
+            if (diff < 60000) return '刚刚';
+            if (diff < 3600000) return Math.floor(diff / 60000) + '分钟前';
+            if (diff < 86400000) return Math.floor(diff / 3600000) + '小时前';
+            if (diff < 604800000) return Math.floor(diff / 86400000) + '天前';
+            
+            return date.toLocaleDateString('zh-CN', { month: 'short', day: 'numeric' });
+        }
+
+        function saveToLocal(msg) {
+            try {
+                const messages = JSON.parse(localStorage.getItem('board_messages') || '[]');
+                messages.unshift(msg);
+                if (messages.length > 50) messages.splice(50);
+                localStorage.setItem('board_messages', JSON.stringify(messages));
+            } catch (e) {}
+        }
+
+        function saveToLocalStorage(messages) {
+            try {
+                localStorage.setItem('board_messages', JSON.stringify(messages));
+            } catch (e) {}
+        }
+
+        function loadFromLocalStorage() {
+            try {
+                const messages = JSON.parse(localStorage.getItem('board_messages') || '[]');
+                displayMessages(messages);
+            } catch (e) {
+                displayMessages([]);
+            }
+        }
+
+        loadMessages();
+
+        setInterval(loadMessages, 5000);
+
+        const subscription = supabaseClient
+            .channel('board-channel')
+            .on('postgres_changes', 
+                { event: 'INSERT', schema: 'public', table: 'message' },
+                (payload) => {
+                    loadMessages();
+                }
+            )
+            .subscribe();
+    </script>
+    <script src="script.js?v=20260420"></script>
+</body>
+</html>
