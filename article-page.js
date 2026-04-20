@@ -24,6 +24,126 @@ const ARTICLES_MAP = {
         file: 'weekly/weekly-package/articles/article-005-ai-tool-cost-comparison.md',
         tag: '成本分析',
         tagClass: 'tag-game'
+    },
+    'newbie-001': {
+        file: 'data/萌新学习/001-AI名人演讲精选.md',
+        tag: '名人演讲',
+        tagClass: 'tag-ai'
+    },
+    'newbie-002': {
+        file: 'data/萌新学习/002-零基础AI入门教程.md',
+        tag: '热门教程',
+        tagClass: 'tag-ai'
+    },
+    'newbie-003': {
+        file: 'data/萌新学习/003-B站热门AI学习视频.md',
+        tag: 'B站热门学习视频',
+        tagClass: 'tag-game'
+    },
+    'newbie-004': {
+        file: 'data/萌新学习/004-AI基本术语通俗解释.md',
+        tag: '基本术语解释',
+        tagClass: 'tag-resource'
+    },
+    'newbie-005': {
+        file: 'data/萌新学习/005-AI工具使用入门指南.md',
+        tag: '工具使用',
+        tagClass: 'tag-ai'
+    },
+    'newbie-006': {
+        file: 'data/萌新学习/006-AI效率提升文档处理数据整理.md',
+        tag: 'AI效率提升',
+        tagClass: 'tag-game'
+    },
+    'money-001': {
+        file: 'data/搞钱排行/001-AI自媒体月入过万.md',
+        tag: '自媒体',
+        tagClass: 'tag-ai'
+    },
+    'money-002': {
+        file: 'data/搞钱排行/002-AI自由职业接单.md',
+        tag: '自由职业',
+        tagClass: 'tag-game'
+    },
+    'money-003': {
+        file: 'data/搞钱排行/003-AI知识付费.md',
+        tag: '知识付费',
+        tagClass: 'tag-resource'
+    },
+    'money-004': {
+        file: 'data/搞钱排行/004-AI电商带货.md',
+        tag: '电商',
+        tagClass: 'tag-ai'
+    },
+    'money-005': {
+        file: 'data/搞钱排行/005-AI短视频带货.md',
+        tag: '短视频',
+        tagClass: 'tag-game'
+    },
+    'money-006': {
+        file: 'data/搞钱排行/006-AI工具开发.md',
+        tag: '技术开发',
+        tagClass: 'tag-resource'
+    },
+    'creative-001': {
+        file: 'data/AI创意/001-AI绘画数字艺术.md',
+        tag: 'AI绘画',
+        tagClass: 'tag-ai'
+    },
+    'creative-002': {
+        file: 'data/AI创意/002-AI音乐创作.md',
+        tag: 'AI音乐',
+        tagClass: 'tag-game'
+    },
+    'creative-003': {
+        file: 'data/AI创意/003-AI短视频制作.md',
+        tag: 'AI视频',
+        tagClass: 'tag-resource'
+    },
+    'creative-004': {
+        file: 'data/AI创意/004-AI辅助写作.md',
+        tag: 'AI写作',
+        tagClass: 'tag-ai'
+    },
+    'creative-005': {
+        file: 'data/AI创意/005-AI设计UI界面.md',
+        tag: 'AI设计',
+        tagClass: 'tag-game'
+    },
+    'creative-006': {
+        file: 'data/AI创意/006-AI游戏开发.md',
+        tag: 'AI游戏',
+        tagClass: 'tag-resource'
+    },
+    'case-001': {
+        file: 'data/实战案例/001-AI客服降本增效.md',
+        tag: '企业应用',
+        tagClass: 'tag-ai'
+    },
+    'case-002': {
+        file: 'data/实战案例/002-AI教育提分.md',
+        tag: '教育领域',
+        tagClass: 'tag-game'
+    },
+    'case-003': {
+        file: 'data/实战案例/003-AI自媒体涨粉.md',
+        tag: '内容创作',
+        tagClass: 'tag-resource'
+    },
+    'case-004': {
+        file: 'data/实战案例/004-AI医疗诊断.md',
+        tag: '医疗健康',
+        tagClass: 'tag-ai'
+    },
+    'case-005': {
+        file: 'data/实战案例/005-AI跨境电商.md',
+        tag: '电商零售',
+        tagClass: 'tag-game'
+    },
+    'case-006': {
+        file: 'data/实战案例/006-AI个人效率.md',
+        tag: '个人效率',
+        tagClass: 'tag-resource'
     }
 };
 
