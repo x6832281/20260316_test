@@ -144,6 +144,36 @@ const ARTICLES_MAP = {
         file: 'data/实战案例/006-AI个人效率.md',
         tag: '个人效率',
         tagClass: 'tag-resource'
+    },
+    'literature-001': {
+        file: 'data/AI写作/001-用AI写第一篇小说.md',
+        tag: '小说创作',
+        tagClass: 'tag-ai'
+    },
+    'literature-002': {
+        file: 'data/AI写作/002-AI辅助文案创作.md',
+        tag: '文案创作',
+        tagClass: 'tag-game'
+    },
+    'literature-003': {
+        file: 'data/AI写作/003-用AI写搞笑段子.md',
+        tag: '幽默段子',
+        tagClass: 'tag-resource'
+    },
+    'literature-004': {
+        file: 'data/AI写作/004-AI诗词创作指南.md',
+        tag: '诗词创作',
+        tagClass: 'tag-ai'
+    },
+    'literature-005': {
+        file: 'data/AI写作/005-AI辅助写杂文随笔.md',
+        tag: '杂文随笔',
+        tagClass: 'tag-game'
+    },
+    'literature-006': {
+        file: 'data/AI写作/006-AI辅助剧本创作入门.md',
+        tag: '剧本创作',
+        tagClass: 'tag-resource'
     }
 };
 

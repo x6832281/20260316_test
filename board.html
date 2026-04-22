@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="description" content="AI 萌新小窝 - 留言版，与萌新们交流互动">
+    <meta name="description" content="AI 萌新小窝 - 创作者交流区，与萌新们交流互动、分享作品">
     <meta name="theme-color" content="#0a0a0f">
-    <title>留言版 - AI 萌新小窝</title>
+    <title>创作者交流 - AI 萌新小窝</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -25,101 +25,748 @@
             s.parentNode.insertBefore(hm, s);
         })();
     </script>
+    <style>
+        /* ============================================
+           留言板专属样式 - Digital Zen Garden
+           ============================================ */
+        
+        :root {
+            --board-bg: #0a0a0f;
+            --board-surface: #12121a;
+            --board-surface-elevated: #1a1a25;
+            --board-border: rgba(255, 255, 255, 0.06);
+            --board-accent: #00f5d4;
+            --board-accent-soft: rgba(0, 245, 212, 0.1);
+            --board-accent-glow: rgba(0, 245, 212, 0.15);
+            --board-warm: #f4a261;
+            --board-warm-soft: rgba(244, 162, 97, 0.1);
+            --board-text: #e8e8ed;
+            --board-text-secondary: #8a8a9a;
+            --board-text-muted: #5a5a6a;
+        }
+
+        .board-page {
+            min-height: 100vh;
+            background: var(--board-bg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 背景装饰 */
+        .board-bg-grid {
+            position: fixed;
+            inset: 0;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .board-bg-gradient {
+            position: fixed;
+            top: -50%;
+            right: -30%;
+            width: 80vw;
+            height: 80vw;
+            background: radial-gradient(circle, rgba(0, 245, 212, 0.03) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .board-bg-gradient-2 {
+            position: fixed;
+            bottom: -40%;
+            left: -20%;
+            width: 60vw;
+            height: 60vw;
+            background: radial-gradient(circle, rgba(244, 162, 97, 0.02) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* 导航 */
+        .board-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 20px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(10, 10, 15, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--board-border);
+        }
+
+        .board-nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--board-text);
+        }
+
+        .board-nav-logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--board-accent-soft);
+            border: 1px solid rgba(0, 245, 212, 0.2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--board-accent);
+            font-family: 'Noto Serif SC', serif;
+        }
+
+        .board-nav-logo-text {
+            font-size: 16px;
+            font-weight: 600;
+            font-family: 'Noto Serif SC', serif;
+            letter-spacing: 0.5px;
+        }
+
+        .board-nav-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .board-nav-link {
+            color: var(--board-text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+            position: relative;
+        }
+
+        .board-nav-link:hover,
+        .board-nav-link.active {
+            color: var(--board-accent);
+        }
+
+        .board-nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--board-accent);
+            border-radius: 1px;
+        }
+
+        .board-mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .board-mobile-menu-btn span {
+            display: block;
+            width: 20px;
+            height: 2px;
+            background: var(--board-text);
+            margin: 4px 0;
+            transition: 0.3s;
+        }
+
+        /* 主内容 */
+        .board-main {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 40px 100px;
+        }
+
+        /* 头部 */
+        .board-header {
+            margin-bottom: 60px;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .board-header-label {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--board-accent);
+            background: var(--board-accent-soft);
+            padding: 6px 14px;
+            border-radius: 20px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .board-header-title {
+            font-size: clamp(36px, 5vw, 56px);
+            font-weight: 900;
+            font-family: 'Noto Serif SC', serif;
+            color: var(--board-text);
+            margin: 0 0 16px 0;
+            line-height: 1.2;
+        }
+
+        .board-header-title span {
+            color: var(--board-accent);
+        }
+
+        .board-header-desc {
+            font-size: 18px;
+            color: var(--board-text-secondary);
+            margin: 0;
+            line-height: 1.6;
+            max-width: 500px;
+        }
+
+        .board-header-line {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--board-accent), transparent);
+            margin-top: 24px;
+            border-radius: 2px;
+        }
+
+        /* 表单区域 */
+        .board-form-section {
+            margin-bottom: 60px;
+            animation: fadeInUp 0.6s ease-out 0.1s both;
+        }
+
+        .board-form-card {
+            background: var(--board-surface);
+            border: 1px solid var(--board-border);
+            border-radius: 16px;
+            padding: 32px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .board-form-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--board-accent), transparent);
+            opacity: 0.5;
+        }
+
+        .board-form-heading {
+            font-size: 20px;
+            font-weight: 700;
+            font-family: 'Noto Serif SC', serif;
+            color: var(--board-text);
+            margin: 0 0 24px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .board-form-heading-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--board-accent-soft);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .board-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .board-form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .board-form-label {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--board-text-secondary);
+        }
+
+        .board-form-input,
+        .board-form-textarea,
+        .board-form-select {
+            width: 100%;
+            padding: 14px 16px;
+            background: var(--board-surface-elevated);
+            border: 1px solid var(--board-border);
+            border-radius: 10px;
+            color: var(--board-text);
+            font-size: 15px;
+            font-family: 'Noto Sans SC', sans-serif;
+            transition: all 0.2s;
+            outline: none;
+        }
+
+        .board-form-input:focus,
+        .board-form-textarea:focus,
+        .board-form-select:focus {
+            border-color: var(--board-accent);
+            box-shadow: 0 0 0 3px var(--board-accent-soft);
+        }
+
+        .board-form-input::placeholder,
+        .board-form-textarea::placeholder {
+            color: var(--board-text-muted);
+        }
+
+        .board-form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .board-form-select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%238a8a9a' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+        }
+
+        .board-form-select option {
+            background: var(--board-surface);
+            color: var(--board-text);
+        }
+
+        .board-form-submit {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 28px;
+            background: var(--board-accent);
+            color: #0a0a0f;
+            border: none;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 600;
+            font-family: 'Noto Sans SC', sans-serif;
+            cursor: pointer;
+            transition: all 0.2s;
+            align-self: flex-start;
+        }
+
+        .board-form-submit:hover {
+            background: #00e0c0;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 245, 212, 0.25);
+        }
+
+        .board-form-submit:active {
+            transform: translateY(0);
+        }
+
+        .board-form-submit:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .board-form-submit-icon {
+            font-size: 18px;
+        }
+
+        /* 留言列表 */
+        .board-list-section {
+            animation: fadeInUp 0.6s ease-out 0.2s both;
+        }
+
+        .board-list-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+        }
+
+        .board-list-heading {
+            font-size: 20px;
+            font-weight: 700;
+            font-family: 'Noto Serif SC', serif;
+            color: var(--board-text);
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .board-list-heading-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--board-warm-soft);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .board-list-count {
+            font-size: 14px;
+            color: var(--board-text-muted);
+            font-weight: 500;
+        }
+
+        .board-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .board-item {
+            background: var(--board-surface);
+            border: 1px solid var(--board-border);
+            border-radius: 12px;
+            padding: 24px;
+            transition: all 0.2s;
+            animation: fadeInUp 0.4s ease-out both;
+        }
+
+        .board-item:hover {
+            border-color: rgba(255, 255, 255, 0.1);
+            background: var(--board-surface-elevated);
+        }
+
+        .board-item-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        .board-item-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .board-item-avatar {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--board-accent-soft), var(--board-warm-soft));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--board-accent);
+            font-family: 'Noto Serif SC', serif;
+        }
+
+        .board-item-name {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--board-text);
+        }
+
+        .board-item-time {
+            font-size: 13px;
+            color: var(--board-text-muted);
+        }
+
+        .board-item-content {
+            font-size: 15px;
+            color: var(--board-text-secondary);
+            line-height: 1.7;
+            margin: 0;
+            padding-left: 48px;
+        }
+
+        /* 留言类型标签 */
+        .board-item-type {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-left: 12px;
+        }
+
+        .board-item-type-question {
+            background: rgba(0, 245, 212, 0.1);
+            color: #00f5d4;
+        }
+
+        .board-item-type-work {
+            background: rgba(244, 162, 97, 0.1);
+            color: #f4a261;
+        }
+
+        .board-item-type-experience {
+            background: rgba(114, 141, 226, 0.1);
+            color: #728de2;
+        }
+
+        .board-item-type-feedback {
+            background: rgba(239, 129, 129, 0.1);
+            color: #ef8181;
+        }
+
+        /* 空状态 */
+        .board-empty {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--board-text-muted);
+        }
+
+        .board-empty-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+            opacity: 0.5;
+        }
+
+        .board-empty-text {
+            font-size: 16px;
+            margin: 0;
+        }
+
+        /* 加载状态 */
+        .board-loading {
+            text-align: center;
+            padding: 40px;
+            color: var(--board-text-muted);
+        }
+
+        .board-loading-spinner {
+            width: 32px;
+            height: 32px;
+            border: 3px solid var(--board-border);
+            border-top-color: var(--board-accent);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto 16px;
+        }
+
+        /* 动画 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* 页脚 */
+        .board-footer {
+            position: relative;
+            z-index: 1;
+            padding: 40px;
+            border-top: 1px solid var(--board-border);
+            background: rgba(10, 10, 15, 0.8);
+            backdrop-filter: blur(20px);
+        }
+
+        .board-footer-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .board-footer-brand {
+            font-size: 18px;
+            font-weight: 700;
+            font-family: 'Noto Serif SC', serif;
+            color: var(--board-text);
+            margin-bottom: 16px;
+        }
+
+        .board-footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .board-footer-link {
+            color: var(--board-text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .board-footer-link:hover {
+            color: var(--board-accent);
+        }
+
+        .board-footer-copy {
+            font-size: 13px;
+            color: var(--board-text-muted);
+            margin: 0;
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .board-nav {
+                padding: 16px 20px;
+            }
+
+            .board-nav-links {
+                display: none;
+            }
+
+            .board-mobile-menu-btn {
+                display: block;
+            }
+
+            .board-main {
+                padding: 40px 20px 80px;
+            }
+
+            .board-header {
+                margin-bottom: 40px;
+            }
+
+            .board-form-card {
+                padding: 24px;
+            }
+
+            .board-form-submit {
+                width: 100%;
+            }
+
+            .board-item-content {
+                padding-left: 0;
+                margin-top: 12px;
+            }
+
+            .board-footer {
+                padding: 30px 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="noise-overlay"></div>
-    <div class="grain-overlay"></div>
-    
-    <div class="page-wrapper">
-        <nav class="page-nav">
-            <a href="index.html" class="nav-logo">
-                <span class="logo-char">AI</span>
-                <span class="logo-text">萌新小窝</span>
+    <div class="board-page">
+        <!-- 背景装饰 -->
+        <div class="board-bg-grid"></div>
+        <div class="board-bg-gradient"></div>
+        <div class="board-bg-gradient-2"></div>
+
+        <!-- 导航 -->
+        <nav class="board-nav">
+            <a href="index.html" class="board-nav-logo">
+                <div class="board-nav-logo-icon">AI</div>
+                <span class="board-nav-logo-text">萌新小窝</span>
             </a>
-            <ul class="nav-menu">
-                <li><a href="resource.html" class="nav-item"><span class="nav-icon">&#x1f310;</span>资源导航</a></li>
-                <li><a href="ai.html" class="nav-item"><span class="nav-icon">&#x1f916;</span>AI学习</a></li>
-                <li><a href="game.html" class="nav-item"><span class="nav-icon">&#x1f3ae;</span>游戏开发</a></li>
-                <li><a href="debate.html" class="nav-item"><span class="nav-icon">&#x1f4ac;</span>名人对线</a></li>
-                <li><a href="board.html" class="nav-item active"><span class="nav-icon">&#x1f4ae;</span>留言版</a></li>
+            <ul class="board-nav-links">
+                <li><a href="index.html" class="board-nav-link">首页</a></li>
+                <li><a href="resource.html" class="board-nav-link">资源导航</a></li>
+                <li><a href="ai.html" class="board-nav-link">AI学习</a></li>
+                <li><a href="game.html" class="board-nav-link">游戏开发</a></li>
+                <li><a href="debate.html" class="board-nav-link">经典对话</a></li>
+                <li><a href="board.html" class="board-nav-link active">创作者交流</a></li>
             </ul>
-            <div class="breadcrumb">
-                <a href="index.html" class="breadcrumb-item">首页</a>
-                <span class="breadcrumb-sep">/</span>
-                <span class="breadcrumb-item current">留言版</span>
-            </div>
-            <button class="mobile-menu-btn" aria-label="菜单">
-                <span></span><span></span><span></span>
+            <button class="board-mobile-menu-btn" aria-label="菜单">
+                <span></span>
+                <span></span>
+                <span></span>
             </button>
         </nav>
 
-        <main class="page-main">
-            <header class="page-header">
-                <div class="header-content">
-                    <span class="header-label">互动交流</span>
-                    <h1 class="header-title">留言版</h1>
-                    <p class="header-desc">有任何问题或建议？欢迎留言交流</p>
-                </div>
-                <div class="header-decor">
-                    <div class="decor-line"></div>
-                    <div class="decor-dot"></div>
-                </div>
+        <!-- 主内容 -->
+        <main class="board-main">
+            <!-- 头部 -->
+            <header class="board-header">
+                <span class="board-header-label">创作者交流</span>
+                <h1 class="board-header-title">交流<span>区</span></h1>
+                <p class="board-header-desc">有问题咨询、作品分享或交流建议？欢迎和萌新们一起交流成长。</p>
+                <div class="board-header-line"></div>
             </header>
 
-            <section class="board-section">
-                <div class="board-container">
-                    <div class="board-form-wrapper">
-                        <h2 class="board-form-title">发表留言</h2>
-                        <form id="message-form" class="board-form">
-                            <div class="form-group">
-                                <label for="name" class="form-label">昵称</label>
-                                <input type="text" id="name" class="form-input" placeholder="请输入您的昵称" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="message" class="form-label">留言内容</label>
-                                <textarea id="message" class="form-textarea" placeholder="请输入您的留言..." rows="5" required></textarea>
-                            </div>
-                            <button type="submit" class="form-submit">
-                                <span class="submit-icon">&#x2709;</span>
-                                提交留言
-                            </button>
-                        </form>
-                    </div>
+            <!-- 表单 -->
+            <section class="board-form-section">
+                <div class="board-form-card">
+                    <h2 class="board-form-heading">
+                        <span class="board-form-heading-icon">✍️</span>
+                        发表内容
+                    </h2>
+                    <form id="message-form" class="board-form">
+                        <div class="board-form-group">
+                            <label for="name" class="board-form-label">昵称</label>
+                            <input type="text" id="name" class="board-form-input" placeholder="请输入你的昵称" required>
+                        </div>
+                        <div class="board-form-group">
+                            <label for="type" class="board-form-label">留言类型</label>
+                            <select id="type" class="board-form-input" required>
+                                <option value="question">问题咨询</option>
+                                <option value="work">作品分享</option>
+                                <option value="experience">经验交流</option>
+                                <option value="feedback">建议反馈</option>
+                            </select>
+                        </div>
+                        <div class="board-form-group">
+                            <label for="message" class="board-form-label">内容</label>
+                            <textarea id="message" class="board-form-textarea" placeholder="写下你的想法..." rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="board-form-submit">
+                            <span class="board-form-submit-icon">✉️</span>
+                            提交
+                        </button>
+                    </form>
+                </div>
+            </section>
 
-                    <div class="board-list-wrapper">
-                        <div class="board-list-header">
-                            <h2 class="board-list-title">
-                                <span class="title-icon">&#x1f4e5;</span>
-                                最新留言
-                            </h2>
-                            <button id="toggle-btn" class="toggle-btn">
-                                <span class="toggle-icon">&#x2212;</span>
-                            </button>
-                        </div>
-                        <div id="message-list" class="board-list">
-                            <div class="loading-state">
-                                <div class="loading-spinner"></div>
-                                <p>正在加载留言...</p>
-                            </div>
-                        </div>
+            <!-- 留言列表 -->
+            <section class="board-list-section">
+                <div class="board-list-header">
+                    <h2 class="board-list-heading">
+                        <span class="board-list-heading-icon">💬</span>
+                        最新交流
+                    </h2>
+                    <span class="board-list-count" id="message-count"></span>
+                </div>
+                <div id="message-list" class="board-list">
+                    <div class="board-loading">
+                        <div class="board-loading-spinner"></div>
+                        <p>正在加载留言...</p>
                     </div>
                 </div>
             </section>
         </main>
 
-        <footer class="site-footer">
-            <div class="footer-content">
-                <div class="footer-brand">AI 萌新小窝</div>
-                <div class="footer-nav">
-                    <a href="index.html" class="footer-link">首页</a>
-                    <a href="resource.html" class="footer-link">资源导航</a>
-                    <a href="ai.html" class="footer-link">AI学习</a>
-                    <a href="game.html" class="footer-link">游戏开发</a>
-                    <a href="debate.html" class="footer-link">名人对线</a>
-                    <a href="board.html" class="footer-link">留言版</a>
-                    <a href="disclaimer.html" class="footer-link" target="_blank">免责声明</a>
+        <!-- 页脚 -->
+        <footer class="board-footer">
+            <div class="board-footer-content">
+                <div class="board-footer-brand">AI 萌新小窝</div>
+                <div class="board-footer-links">
+                    <a href="index.html" class="board-footer-link">首页</a>
+                    <a href="resource.html" class="board-footer-link">资源导航</a>
+                    <a href="ai.html" class="board-footer-link">AI学习</a>
+                    <a href="game.html" class="board-footer-link">游戏开发</a>
+                    <a href="debate.html" class="board-footer-link">经典对话</a>
+                    <a href="disclaimer.html" class="board-footer-link" target="_blank">免责声明</a>
                 </div>
-                <p class="footer-copy">&copy; 2026 AI 萌新小窝. All rights reserved.</p>
+                <p class="board-footer-copy">&copy; 2026 AI 萌新小窝. All rights reserved.</p>
             </div>
         </footer>
     </div>
@@ -131,29 +778,18 @@
 
         const messageForm = document.getElementById('message-form');
         const messageList = document.getElementById('message-list');
-        const toggleBtn = document.getElementById('toggle-btn');
-        const toggleIcon = toggleBtn ? toggleBtn.querySelector('.toggle-icon') : null;
-        let isExpanded = true;
-
-        if (toggleBtn) {
-            toggleBtn.addEventListener('click', () => {
-                isExpanded = !isExpanded;
-                messageList.classList.toggle('collapsed', !isExpanded);
-                if (toggleIcon) {
-                    toggleIcon.textContent = isExpanded ? '\u2212' : '\u002b';
-                }
-            });
-        }
+        const messageCount = document.getElementById('message-count');
 
         if (messageForm) {
             messageForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 const name = document.getElementById('name').value.trim();
+                const type = document.getElementById('type').value;
                 const message = document.getElementById('message').value.trim();
                 
                 if (!name || !message) return;
 
-                const submitBtn = messageForm.querySelector('.form-submit');
+                const submitBtn = messageForm.querySelector('.board-form-submit');
                 const originalText = submitBtn.innerHTML;
                 submitBtn.innerHTML = '<span class="loading-dots">...</span>提交中';
                 submitBtn.disabled = true;
@@ -161,7 +797,7 @@
                 try {
                     const { error } = await supabaseClient
                         .from('message')
-                        .insert({ name, message });
+                        .insert({ name, message, type });
                     
                     if (error) throw error;
                     
@@ -169,7 +805,7 @@
                     loadMessages();
                 } catch (err) {
                     console.error('提交失败:', err);
-                    saveToLocal({ name, message, created_at: new Date().toISOString() });
+                    saveToLocal({ name, message, type, created_at: new Date().toISOString() });
                     loadMessages();
                 } finally {
                     submitBtn.innerHTML = originalText;
@@ -199,20 +835,45 @@
             if (!messageList) return;
             messageList.innerHTML = '';
 
+            if (messageCount) {
+                messageCount.textContent = messages ? `${messages.length} 条留言` : '';
+            }
+
             if (!messages || messages.length === 0) {
-                messageList.innerHTML = '<div class="empty-board"><p>暂无留言，来发表第一条吧！</p></div>';
+                messageList.innerHTML = `
+                    <div class="board-empty">
+                        <div class="board-empty-icon">💭</div>
+                        <p class="board-empty-text">暂无交流内容，来发表第一条吧！</p>
+                    </div>
+                `;
                 return;
             }
 
-            messages.forEach(msg => {
+            messages.forEach((msg, index) => {
                 const item = document.createElement('div');
                 item.className = 'board-item';
+                item.style.animationDelay = `${index * 0.05}s`;
+                
+                const initial = msg.name.charAt(0).toUpperCase();
+                const type = msg.type || 'question';
+                const typeLabels = {
+                    question: '问题咨询',
+                    work: '作品分享',
+                    experience: '经验交流',
+                    feedback: '建议反馈'
+                };
+                const typeLabel = typeLabels[type] || '问题咨询';
+                
                 item.innerHTML = `
                     <div class="board-item-header">
-                        <span class="board-author">${escapeHtml(msg.name)}</span>
-                        <span class="board-time">${formatTime(msg.created_at)}</span>
+                        <div class="board-item-author">
+                            <div class="board-item-avatar">${initial}</div>
+                            <span class="board-item-name">${escapeHtml(msg.name)}</span>
+                            <span class="board-item-type board-item-type-${type}">${typeLabel}</span>
+                        </div>
+                        <span class="board-item-time">${formatTime(msg.created_at)}</span>
                     </div>
-                    <div class="board-content">${escapeHtml(msg.message)}</div>
+                    <p class="board-item-content">${escapeHtml(msg.message)}</p>
                 `;
                 messageList.appendChild(item);
             });

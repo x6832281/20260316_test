@@ -317,6 +317,58 @@ const CASE_DATA = [
     }
 ];
 
+// AI写作数据（文学创作）
+const LITERATURE_DATA = [
+    {
+        id: 'literature-001',
+        title: '用AI写第一篇小说：零基础入门指南',
+        category: '小说创作',
+        icon: '📖',
+        date: '2026-04-22',
+        desc: '掌握AI辅助写小说的核心步骤，零基础也能创作出精彩故事'
+    },
+    {
+        id: 'literature-002',
+        title: 'AI辅助文案创作：朋友圈、小红书爆款文案速成',
+        category: '文案创作',
+        icon: '✍️',
+        date: '2026-04-22',
+        desc: '学会用AI写吸引人的社交媒体文案，让你的内容脱颖而出'
+    },
+    {
+        id: 'literature-003',
+        title: '用AI写搞笑段子的秘诀：成为朋友圈段子手',
+        category: '幽默段子',
+        icon: '😂',
+        date: '2026-04-22',
+        desc: '掌握AI辅助写搞笑段子的技巧，让你轻松创作让人捧腹大笑的内容'
+    },
+    {
+        id: 'literature-004',
+        title: 'AI诗词创作指南：用AI写诗作词的文艺之旅',
+        category: '诗词创作',
+        icon: '🌸',
+        date: '2026-04-22',
+        desc: '学会用AI创作现代诗和古体诗，让你的文字充满诗意和文艺气息'
+    },
+    {
+        id: 'literature-005',
+        title: 'AI辅助写杂文随笔：让你的文字有深度有思想',
+        category: '杂文随笔',
+        icon: '📝',
+        date: '2026-04-22',
+        desc: '掌握AI辅助写杂文随笔的技巧，让你的文字表达更有深度和思想性'
+    },
+    {
+        id: 'literature-006',
+        title: 'AI辅助剧本创作入门：从想法到短视频剧本',
+        category: '剧本创作',
+        icon: '🎬',
+        date: '2026-04-22',
+        desc: '学会用AI辅助写短视频剧本、微电影剧本，让你的创意变成可视化内容'
+    }
+];
+
 // 渲染搞钱排行卡片
 function renderMoneyCard(item) {
     return `
@@ -389,6 +441,67 @@ function renderNewbieCard(item) {
     `;
 }
 
+// 渲染文学创作卡片
+function renderLiteratureCard(item) {
+    return `
+        <a href="article.html?id=${item.id}" class="literature-card" data-literature-id="${item.id}">
+            <div class="literature-icon">${item.icon}</div>
+            <div class="literature-content">
+                <div class="literature-meta">
+                    <span class="literature-category">${item.category}</span>
+                    <time class="literature-date">${item.date}</time>
+                </div>
+                <h3 class="literature-title">${item.title}</h3>
+                <p class="literature-desc">${item.desc}</p>
+                <span class="literature-link">查看 →</span>
+            </div>
+        </a>
+    `;
+}
+
+// 渲染文学创作分类筛选
+function renderLiteratureWithFilter() {
+    const container = document.getElementById('literature-container');
+    if (!container) return;
+    
+    // 创建分类筛选按钮
+    const filterHtml = `
+        <div class="literature-filter">
+            <button class="literature-filter-btn active" data-category="all">全部</button>
+            <button class="literature-filter-btn" data-category="小说创作">小说</button>
+            <button class="literature-filter-btn" data-category="文案创作">文案</button>
+            <button class="literature-filter-btn" data-category="幽默段子">段子</button>
+        </div>
+    `;
+    
+    // 渲染卡片
+    const cardsHtml = LITERATURE_DATA.map(item => renderLiteratureCard(item)).join('');
+    
+    container.innerHTML = filterHtml + `<div class="literature-grid">${cardsHtml}</div>`;
+    
+    // 绑定筛选按钮事件
+    const filterBtns = container.querySelectorAll('.literature-filter-btn');
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // 更新按钮状态
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            
+            // 筛选卡片
+            const category = btn.dataset.category;
+            const cards = container.querySelectorAll('.literature-card');
+            cards.forEach(card => {
+                const cardCategory = card.querySelector('.literature-category').textContent;
+                if (category === 'all' || cardCategory === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+}
+
 // 初始化渲染
 function renderHomepage() {
     // 渲染文章
@@ -431,6 +544,9 @@ function renderHomepage() {
         const newbieHTML = NEWBIE_DATA.map(item => renderNewbieCard(item)).join('');
         newbieGrid.innerHTML = newbieHTML;
     }
+    
+    // 渲染AI创作（文学创作）
+    renderLiteratureWithFilter();
 }
 
 // 页面加载完成后执行

@@ -43,7 +43,7 @@
                     <li><a href="resource.html" class="nav-item"><span class="nav-icon">&#x1f310;</span>资源导航</a></li>
                     <li><a href="ai.html" class="nav-item"><span class="nav-icon">&#x1f916;</span>AI学习</a></li>
                     <li><a href="game.html" class="nav-item"><span class="nav-icon">&#x1f3ae;</span>游戏开发</a></li>
-                    <li><a href="debate.html" class="nav-item"><span class="nav-icon">&#x1f4ac;</span>名人对线</a></li>
+                    <li><a href="debate.html" class="nav-item"><span class="nav-icon">&#x1f4ac;</span>经典对话</a></li>
                     <li><a href="board.html" class="nav-item"><span class="nav-icon">&#x1f4ae;</span>留言版</a></li>
                 </ul>
                 <div class="breadcrumb">
@@ -57,12 +57,12 @@
 
         <section class="hero">
             <div class="hero-content">
-                <div class="hero-badge">&#x2726; curated resources</div>
+                <div class="hero-badge">&#x2726; life is short</div>
                 <h1 class="hero-title">
                     <span class="title-line">AI 执笔</span>
                     <span class="title-line title-accent">生活成诗</span>
                 </h1>
-                <p class="hero-subtitle">把生活交给 AI，把故事留给自己</p>
+                <p class="hero-subtitle">把喧嚣交给AI，把故事留给自己</p>
             </div>
             <div class="hero-decoration">
                 <div class="deco-circle deco-1"></div>
@@ -97,13 +97,13 @@
         <main class="main-content">
             <section class="content-area">
                 <div class="content-tabs">
-                    <button class="tab-btn active" data-tab="articles">
-                        <span class="tab-icon">&#x1f4da;</span>
-                        <span>精选文章</span>
-                    </button>
-                    <button class="tab-btn" data-tab="trending">
+                    <button class="tab-btn active" data-tab="trending">
                         <span class="tab-icon">&#x1f525;</span>
                         <span>热搜排行</span>
+                    </button>
+                    <button class="tab-btn" data-tab="articles">
+                        <span class="tab-icon">&#x1f4da;</span>
+                        <span>精选文章</span>
                     </button>
                     <button class="tab-btn" data-tab="money">
                         <span class="tab-icon">&#x1f4b0;</span>
@@ -122,21 +122,21 @@
                         <span>实战案例</span>
                     </button>
                 </div>
-                <div class="tab-content active" id="articles-tab">
+                <div class="tab-content active" id="trending-tab">
+                    <div class="section-header">
+                        <span class="section-label">热门话题</span>
+                        <h2 class="section-title">本周热搜 TOP 10</h2>
+                        <div class="section-line"></div>
+                    </div>
+                    <ul class="trending-list trending-list-full" id="trending-container"></ul>
+                </div>
+                <div class="tab-content" id="articles-tab">
                     <div class="section-header">
                         <span class="section-label">最新文章</span>
                         <h2 class="section-title">精选技术文章与资源分享</h2>
                         <div class="section-line"></div>
                     </div>
                     <div class="articles-grid" id="articles-container"></div>
-                </div>
-                <div class="tab-content" id="trending-tab">
-                    <div class="section-header">
-                        <span class="section-label">热门话题</span>
-                        <h2 class="section-title">今日热搜 TOP 10</h2>
-                        <div class="section-line"></div>
-                    </div>
-                    <ul class="trending-list trending-list-full" id="trending-container"></ul>
                 </div>
                 <div class="tab-content" id="money-tab">
                     <div class="section-header">
@@ -148,11 +148,11 @@
                 </div>
                 <div class="tab-content" id="ai-creative-tab">
                     <div class="section-header">
-                        <span class="section-label">创意工坊</span>
+                        <span class="section-label">文学创作</span>
                         <h2 class="section-title">AI创作</h2>
                         <div class="section-line"></div>
                     </div>
-                    <div class="creative-grid" id="creative-container"></div>
+                    <div id="literature-container"></div>
                 </div>
                 <div class="tab-content" id="newbie-tab">
                     <div class="section-header">
@@ -181,7 +181,7 @@
                     <a href="resource.html" class="footer-link">资源导航</a>
                     <a href="ai.html" class="footer-link">AI学习</a>
                     <a href="game.html" class="footer-link">游戏开发</a>
-                    <a href="debate.html" class="footer-link">名人对线</a>
+                    <a href="debate.html" class="footer-link">经典对话</a>
                     <a href="board.html" class="footer-link">留言版</a>
                     <a href="disclaimer.html" class="footer-link" target="_blank">免责声明</a>
                 </div>

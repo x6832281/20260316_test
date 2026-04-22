@@ -1212,6 +1212,133 @@ body {
     border-radius: 12px;
 }
 
+/* ============================================
+   文学创作（AI写作）样式
+   ============================================ */
+
+.literature-filter {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.literature-filter-btn {
+    padding: 8px 20px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-weight: 500;
+    font-family: var(--font-body);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.literature-filter-btn:hover {
+    border-color: var(--accent-warm);
+    color: var(--accent-warm);
+}
+
+.literature-filter-btn.active {
+    background: var(--accent-warm);
+    border-color: var(--accent-warm);
+    color: var(--bg-primary);
+}
+
+.literature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+}
+
+.literature-card {
+    display: flex;
+    gap: 16px;
+    padding: 20px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    color: inherit;
+    transition: all var(--transition-fast);
+}
+
+.literature-card:hover {
+    border-color: var(--accent-warm);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(244, 162, 97, 0.1);
+}
+
+.literature-icon {
+    font-size: 32px;
+    flex-shrink: 0;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(244, 162, 97, 0.08);
+    border-radius: 12px;
+}
+
+.literature-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.literature-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.literature-category {
+    font-size: 12px;
+    color: var(--accent-warm);
+    background: rgba(244, 162, 97, 0.1);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+.literature-date {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.literature-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+    color: var(--text-primary);
+    line-height: 1.4;
+}
+
+.literature-desc {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin: 0 0 12px 0;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.literature-link {
+    font-size: 14px;
+    color: var(--accent-warm);
+    font-weight: 500;
+    transition: all var(--transition-fast);
+}
+
+.literature-card:hover .literature-link {
+    transform: translateX(4px);
+}
+
 .case-content {
     flex: 1;
     min-width: 0;
