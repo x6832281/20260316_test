@@ -383,6 +383,110 @@ body {
     animation: decoFloat 15s ease-in-out infinite;
 }
 
+/* 弹幕容器 */
+.danmaku-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 800px;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* 弹幕元素 */
+.danmaku-item {
+    position: absolute;
+    right: -300px;
+    white-space: nowrap;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-primary);
+    opacity: 0.8;
+    animation: danmakuMove linear forwards;
+}
+
+/* 弹幕动画 */
+@keyframes danmakuMove {
+    0% {
+        transform: translateX(0);
+        opacity: 0.8;
+    }
+    50% {
+        opacity: 0.4;
+    }
+    100% {
+        transform: translateX(-1100px);
+        opacity: 0;
+    }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .danmaku-container {
+        width: 500px;
+    }
+    
+    .danmaku-item {
+        font-size: 12px;
+    }
+    
+    @keyframes danmakuMove {
+        0% {
+            transform: translateX(0);
+            opacity: 0.8;
+        }
+        50% {
+            opacity: 0.4;
+        }
+        100% {
+            transform: translateX(-750px);
+            opacity: 0;
+        }
+    }
+}
+
+/* 弹幕开关按钮 */
+.danmaku-toggle {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--accent-primary);
+    font-size: 14px;
+    cursor: pointer;
+    z-index: 10;
+    pointer-events: auto;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.danmaku-toggle:hover {
+    transform: scale(1.05);
+}
+
+.danmaku-toggle.active {
+    color: var(--text-primary);
+}
+
+.danmaku-toggle::before {
+    content: '弹';
+    font-size: 12px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+}
+
+.danmaku-container.hidden .danmaku-item {
+    display: none;
+}
+
 /* ============================================
    搜索区域
    ============================================ */
