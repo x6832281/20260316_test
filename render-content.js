@@ -749,6 +749,14 @@ async function getFeaturedProjects() {
     ];
 }
 
+// 格式化star数，使用k结尾
+function formatStars(stars) {
+    if (stars >= 1000) {
+        return (stars / 1000).toFixed(1) + 'k';
+    }
+    return stars;
+}
+
 // 渲染精选项目卡片
 function renderProjectCard(project) {
     // 确保摘要为中文
@@ -758,17 +766,19 @@ function renderProjectCard(project) {
         summary = "这是一个热门项目，受到了众多开发者的关注和贡献。";
     }
     
+    const formattedStars = formatStars(project.stars);
+    
     return `
         <a href="article.html?id=${project.id}" class="article-card" data-article-id="${project.id}">
             <div class="card-accent accent-ai"></div>
             <div class="card-content">
                 <div class="card-meta">
-                    <span class="card-readtime">⭐ ${project.stars}</span>
+                    <span class="card-readtime">⭐ ${formattedStars}</span>
                 </div>
                 <h3 class="card-title">${project.name}</h3>
                 <p class="card-desc">${summary}</p>
                 <div class="card-footer">
-                    <span class="card-recommendation">${project.stars} Stars</span>
+                    <span class="card-recommendation">${formattedStars} Stars</span>
                     <span class="card-link">查看 →</span>
                 </div>
             </div>
