@@ -240,6 +240,37 @@ const ARTICLES_MAP = {
         file: 'data/AI写作/006-AI辅助剧本创作入门.md',
         tag: '剧本创作',
         tagClass: 'tag-resource'
+    },
+    // 搞钱创业项目映射
+    'money-project-1': {
+        file: 'data/搞钱创业/AI内容生成工具.md',
+        tag: 'SaaS',
+        tagClass: 'tag-ai'
+    },
+    'money-project-2': {
+        file: 'data/搞钱创业/电商数据分析平台.md',
+        tag: 'SaaS',
+        tagClass: 'tag-ai'
+    },
+    'money-project-3': {
+        file: 'data/搞钱创业/在线教育平台.md',
+        tag: '教育',
+        tagClass: 'tag-game'
+    },
+    'money-project-4': {
+        file: 'data/搞钱创业/远程协作工具.md',
+        tag: 'SaaS',
+        tagClass: 'tag-ai'
+    },
+    'money-project-5': {
+        file: 'data/搞钱创业/健康饮食配送.md',
+        tag: '电商',
+        tagClass: 'tag-resource'
+    },
+    'money-project-6': {
+        file: 'data/搞钱创业/智能健身设备.md',
+        tag: '健康',
+        tagClass: 'tag-game'
     }
 };
 
@@ -717,6 +748,56 @@ async function loadArticle() {
                     }
                 } else {
                     throw new Error('精选项目目录访问失败');
+                }
+            } else {
+                content = await fileResponse.text();
+            }
+        } else if (articleId.startsWith('money-')) {
+            // 处理搞钱创业项目 - 从ID中提取文件名
+            const fileName = articleId.replace('money-', '') + '.md';
+            
+            // 尝试加载搞钱创业项目文件
+            let fileResponse = await fetch(`data/搞钱创业/${fileName}`);
+            
+            if (!fileResponse.ok) {
+                // 如果找不到文件，尝试获取目录中的所有文件
+                const dirResponse = await fetch('data/搞钱创业/');
+                if (dirResponse.ok) {
+                    const html = await dirResponse.text();
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, 'text/html');
+                    
+                    // 提取所有.md文件链接
+                    const links = doc.querySelectorAll('a[href$=".md"]');
+                    const mdFiles = [];
+                    
+                    links.forEach(link => {
+                        const href = link.getAttribute('href');
+                        if (href) {
+                            const name = href.split('/').pop();
+                            if (name.endsWith('.md')) {
+                                mdFiles.push(name);
+                            }
+                        }
+                    });
+                    
+                    // 按文件名排序
+                    mdFiles.sort();
+                    
+                    // 尝试加载第一个文件
+                    if (mdFiles.length > 0) {
+                        const firstFile = mdFiles[0];
+                        fileResponse = await fetch(`data/搞钱创业/${firstFile}`);
+                        if (fileResponse.ok) {
+                            content = await fileResponse.text();
+                        } else {
+                            throw new Error('搞钱创业项目文件加载失败');
+                        }
+                    } else {
+                        throw new Error('没有找到搞钱创业项目文件');
+                    }
+                } else {
+                    throw new Error('搞钱创业项目目录访问失败');
                 }
             } else {
                 content = await fileResponse.text();

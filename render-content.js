@@ -162,57 +162,85 @@ const NEWBIE_DATA = [
     }
 ];
 
-// 搞钱排行数据
-const MONEY_DATA = [
-    {
-        id: 'money-001',
-        title: '用 AI 做自媒体，月入过万的搞钱指南',
-        category: '自媒体',
-        icon: '💰',
-        date: '2026-04-20',
-        desc: '用 AI 辅助做自媒体，每天 2 小时，3 个月实现月入过万'
-    },
-    {
-        id: 'money-002',
-        title: 'AI 自由职业接单，时薪 100+ 的搞钱方法',
-        category: '自由职业',
-        icon: '💼',
-        date: '2026-04-20',
-        desc: '用 AI 工具提升效率，在接单平台做自由职业，时薪轻松过百'
-    },
-    {
-        id: 'money-003',
-        title: 'AI 知识付费，把经验变成钱的搞钱指南',
-        category: '知识付费',
-        icon: '📚',
-        date: '2026-04-20',
-        desc: '用 AI 帮你制作课程、写教材、做课件，把经验变成被动收入'
-    },
-    {
-        id: 'money-004',
-        title: 'AI 电商带货，零库存也能赚钱',
-        category: '电商',
-        icon: '🛒',
-        date: '2026-04-20',
-        desc: '用 AI 做电商选品、写文案、做客服，零库存也能月入过万'
-    },
-    {
-        id: 'money-005',
-        title: 'AI 短视频带货，流量变现最快的搞钱方法',
-        category: '短视频',
-        icon: '🎬',
-        date: '2026-04-20',
-        desc: '用 AI 批量制作短视频，挂商品链接，一条视频爆了就赚几千块'
-    },
-    {
-        id: 'money-006',
-        title: 'AI 工具开发，技术变现的搞钱指南',
-        category: '技术开发',
-        icon: '🔧',
-        date: '2026-04-20',
-        desc: '用 AI 辅助开发小工具，做成 SaaS 产品，月入几万到几十万'
-    }
-];
+// 从搞钱创业Markdown文件中提取数据
+async function getMoneyProjects() {
+    console.log('=== Starting getMoneyProjects function ===');
+    
+    // 直接返回硬编码的创业文档数据
+    const projects = [
+        {
+            id: 'money-project-1',
+            title: 'AI内容生成工具',
+            category: 'SaaS',
+            icon: '🤖',
+            date: new Date().toISOString().split('T')[0],
+            desc: '提供AI驱动的内容生成服务，帮助企业和个人快速创建高质量内容',
+            revenue: '$50k',
+            url: 'data/搞钱创业/AI内容生成工具.md',
+            file: 'data/搞钱创业/AI内容生成工具.md'
+        },
+        {
+            id: 'money-project-2',
+            title: '电商数据分析平台',
+            category: 'SaaS',
+            icon: '📊',
+            date: new Date().toISOString().split('T')[0],
+            desc: '为电商卖家提供销售数据分析和优化建议，提升转化率和销售额',
+            revenue: '$25k',
+            url: 'data/搞钱创业/电商数据分析平台.md',
+            file: 'data/搞钱创业/电商数据分析平台.md'
+        },
+        {
+            id: 'money-project-3',
+            title: '在线教育平台',
+            category: '教育',
+            icon: '🎓',
+            date: new Date().toISOString().split('T')[0],
+            desc: '提供编程、设计等技能的在线课程，采用订阅制模式',
+            revenue: '100万',
+            url: 'data/搞钱创业/在线教育平台.md',
+            file: 'data/搞钱创业/在线教育平台.md'
+        },
+        {
+            id: 'money-project-4',
+            title: '远程协作工具',
+            category: 'SaaS',
+            icon: '👥',
+            date: new Date().toISOString().split('T')[0],
+            desc: '帮助团队进行远程协作和项目管理的工具',
+            revenue: '$15k',
+            url: 'data/搞钱创业/远程协作工具.md',
+            file: 'data/搞钱创业/远程协作工具.md'
+        },
+        {
+            id: 'money-project-5',
+            title: '健康饮食配送',
+            category: '电商',
+            icon: '🥗',
+            date: new Date().toISOString().split('T')[0],
+            desc: '提供健康餐食的配送服务，针对注重健康的消费群体',
+            revenue: '50万',
+            url: 'data/搞钱创业/健康饮食配送.md',
+            file: 'data/搞钱创业/健康饮食配送.md'
+        },
+        {
+            id: 'money-project-6',
+            title: '智能健身设备',
+            category: '健康',
+            icon: '🏋️',
+            date: new Date().toISOString().split('T')[0],
+            desc: '提供智能健身设备和配套APP，帮助用户在家进行专业健身训练',
+            revenue: '30万',
+            url: 'data/搞钱创业/智能健身设备.md',
+            file: 'data/搞钱创业/智能健身设备.md'
+        }
+    ];
+    
+    console.log('Total money projects loaded:', projects.length);
+    console.log('Projects:', projects);
+    
+    return projects;
+}
 
 // AI创意数据
 const CREATIVE_DATA = [
@@ -623,9 +651,14 @@ async function getLatestTrendingData() {
 
 // 从精选项目Markdown文件中提取数据
 async function getFeaturedProjects() {
+    const projects = [];
+    
     try {
-        // 获取精选项目目录中的所有文件
-        const dirResponse = await fetch('data/精选项目/');
+        // 尝试获取目录中的所有文件
+        const dirPath = 'data/精选项目/';
+        const encodedDirPath = encodeURI(dirPath);
+        
+        const dirResponse = await fetch(encodedDirPath);
         if (dirResponse.ok) {
             const html = await dirResponse.text();
             const parser = new DOMParser();
@@ -649,47 +682,90 @@ async function getFeaturedProjects() {
             // 按文件名排序
             mdFiles.sort();
             
-            // 最多取6个文件
-            const topFiles = mdFiles.slice(0, 6);
+            // 限制最多6个文件
+            const filesToProcess = mdFiles.slice(0, 6);
             
-            // 读取每个文件的内容
-            const projects = [];
-            for (const fileName of topFiles) {
-                const fileResponse = await fetch(`data/精选项目/${fileName}`);
-                if (fileResponse.ok) {
-                    const content = await fileResponse.text();
-                    
-                    // 提取项目信息（适配新格式）
-                    const nameMatch = content.match(/^# (.+)$/m);
-                    const name = nameMatch ? nameMatch[1].trim() : '未知项目';
-                    
-                    const urlMatch = content.match(/## 🔗 相关链接\n\n-\s*\[GitHub 仓库\]\(([^)]+)\)/);
-                    const url = urlMatch ? urlMatch[1] : '';
-                    
-                    const starsMatch = content.match(/\*\*⭐ 星标\*\*[：:]\s*(\d+)/);
-                    const stars = starsMatch ? starsMatch[1] : '0';
-                    
-                    const summaryMatch = content.match(/## 📝 一句话总结\n\n([\s\S]+?)\n\n##/);
-                    const summary = summaryMatch ? summaryMatch[1].trim() : '暂无总结';
-                    
-                    // 生成ID
-                    const id = `project-${fileName.replace('.md', '')}`;
-                    
-                    projects.push({
-                        id: id,
-                        name: name,
-                        url: url,
-                        stars: stars,
-                        summary: summary,
-                        file: `data/精选项目/${fileName}`
-                    });
+            // 处理每个文件
+            for (const fileName of filesToProcess) {
+                try {
+                    const fileUrl = encodedDirPath + encodeURIComponent(fileName);
+                    console.log('Fetching project file:', fileUrl);
+                    const fileResponse = await fetch(fileUrl);
+                    if (fileResponse.ok) {
+                        const content = await fileResponse.text();
+                        console.log('Successfully loaded:', fileName, 'Content length:', content.length);
+                        
+                        // 提取项目信息
+                        const nameMatch = content.match(/^# (.+)$/m);
+                        const name = nameMatch ? nameMatch[1].trim() : '未知项目';
+                        
+                        const urlMatch = content.match(/## 🔗 相关链接\n\n-\s*\[GitHub 仓库\]\(([^)]+)\)/);
+                        const url = urlMatch ? urlMatch[1] : '';
+                        
+                        // 提取星标数，支持带k的格式
+                        const starsMatch = content.match(/\*\*⭐ 星标\*\*[：:]\s*([\d.]+k?)/);
+                        let stars = 0;
+                        if (starsMatch) {
+                            const starsStr = starsMatch[1];
+                            if (starsStr.endsWith('k')) {
+                                stars = parseInt(parseFloat(starsStr.replace('k', '')) * 1000);
+                            } else {
+                                stars = parseInt(starsStr);
+                            }
+                        }
+                        
+                        // 提取一句话总结，使用更精确的匹配
+                        let summary = '暂无总结';
+                        // 首先尝试匹配标准格式
+                        const summaryMatch = content.match(/## 📝 一句话总结\s*\n\s*([^\n]+)\s*\n/);
+                        if (summaryMatch && summaryMatch[1]) {
+                            summary = summaryMatch[1].trim();
+                        } else {
+                            // 如果标准格式匹配失败，尝试其他格式
+                            const altSummaryMatch = content.match(/## 📝 一句话总结[\s\S]*?([^\n]+)\s*\n/);
+                            if (altSummaryMatch && altSummaryMatch[1]) {
+                                summary = altSummaryMatch[1].trim();
+                            }
+                        }
+                        
+                        // 确保只保留一句话，移除多余内容
+                        summary = summary.split('。')[0] + '。';
+                        if (summary.length > 100) {
+                            summary = summary.substring(0, 100) + '...';
+                        }
+                        
+                        console.log('Extracted for', fileName, '- name:', name, 'stars:', stars, 'summary:', summary);
+                        
+                        // 生成ID
+                        const id = `project-${fileName.replace('.md', '')}`;
+                        
+                        projects.push({
+                            id: id,
+                            name: name,
+                            url: url,
+                            stars: stars,
+                            summary: summary,
+                            file: encodedDirPath + encodeURIComponent(fileName)
+                        });
+                    } else {
+                        console.warn('Failed to fetch:', fileName, 'Status:', fileResponse.status);
+                    }
+                } catch (error) {
+                    console.error(`Error fetching ${fileName}:`, error);
                 }
             }
-            
-            return projects;
+        } else {
+            console.warn('Failed to fetch directory:', dirResponse.status);
         }
     } catch (error) {
-        console.error('Error fetching featured projects:', error);
+        console.error('Error getting featured projects:', error);
+    }
+    
+    console.log('Total projects loaded:', projects.length);
+    
+    // 如果成功获取到项目，返回
+    if (projects.length > 0) {
+        return projects;
     }
     
     // 如果获取失败，返回默认数据
@@ -698,42 +774,42 @@ async function getFeaturedProjects() {
             id: 'project-001-awesome-chatgpt-prompts',
             name: 'awesome-chatgpt-prompts',
             url: 'https://github.com/f/awesome-chatgpt-prompts',
-            stars: '150000',
+            stars: 150000,
             summary: '这是一个收集了大量ChatGPT提示词的项目，包含各种场景下的实用提示词，帮助用户更好地与ChatGPT交互。'
         },
         {
             id: 'project-002-awesome-python',
             name: 'awesome-python',
             url: 'https://github.com/vinta/awesome-python',
-            stars: '170000',
+            stars: 170000,
             summary: '这是一个精选的Python框架、库、软件和资源列表，帮助开发者快速找到合适的Python工具。'
         },
         {
             id: 'project-003-awesome-ai',
             name: 'awesome-ai',
             url: 'https://github.com/jayhack/awesome-ai',
-            stars: '60000',
+            stars: 60000,
             summary: '这是一个精心策划的AI资源列表，涵盖了人工智能领域的各种工具、框架和项目。'
         },
         {
             id: 'project-004-stable-diffusion-webui',
             name: 'stable-diffusion-webui',
             url: 'https://github.com/AUTOMATIC1111/stable-diffusion-webui',
-            stars: '100000',
+            stars: 100000,
             summary: '这是一个基于Gradio库的Stable Diffusion浏览器界面，允许用户通过Web界面生成AI图像。'
         },
         {
             id: 'project-005-LangChain',
             name: 'LangChain',
             url: 'https://github.com/langchain-ai/langchain',
-            stars: '80000',
+            stars: 80000,
             summary: 'LangChain是一个用于构建基于大型语言模型(LLM)应用的框架，通过组合各种组件来创建复杂的AI应用。'
         },
         {
             id: 'project-006-llama.cpp',
             name: 'llama.cpp',
             url: 'https://github.com/ggerganov/llama.cpp',
-            stars: '45000',
+            stars: 45000,
             summary: 'llama.cpp是Facebook LLaMA模型的C/C++移植版本，允许在CPU上高效运行大型语言模型。'
         }
     ];
@@ -776,30 +852,56 @@ function renderProjectCard(project) {
 
 // 初始化渲染
 async function renderHomepage() {
+    console.log('=== Starting renderHomepage function ===');
+    
     // 获取最新的热搜数据
+    console.log('Getting latest trending data...');
     const latestTrendingData = await getLatestTrendingData();
+    console.log('Latest trending data loaded:', latestTrendingData.length, 'items');
     
     // 获取精选项目数据
+    console.log('Getting featured projects...');
     const featuredProjects = await getFeaturedProjects();
+    console.log('Featured projects loaded:', featuredProjects.length, 'items');
+    
+    // 获取搞钱创业项目数据
+    console.log('Getting money projects...');
+    const moneyProjects = await getMoneyProjects();
+    console.log('Money projects loaded:', moneyProjects.length, 'items');
+    console.log('Money projects:', moneyProjects);
     
     // 渲染精选项目
+    console.log('Rendering featured projects...');
     const articlesGrid = document.getElementById('articles-container');
     if (articlesGrid) {
         const projectsHTML = featuredProjects.map(project => renderProjectCard(project)).join('');
         articlesGrid.innerHTML = projectsHTML;
+        console.log('Featured projects rendered successfully');
+    } else {
+        console.error('articles-container not found');
     }
     
     // 渲染热搜榜
+    console.log('Rendering trending list...');
     const trendingList = document.getElementById('trending-container');
     if (trendingList) {
         trendingList.innerHTML = renderTrendingList(latestTrendingData);
+        console.log('Trending list rendered successfully');
+    } else {
+        console.error('trending-container not found');
     }
     
     // 渲染搞钱排行
+    console.log('Rendering money projects...');
     const moneyGrid = document.getElementById('money-container');
     if (moneyGrid) {
-        const moneyHTML = MONEY_DATA.map(item => renderMoneyCard(item)).join('');
+        console.log('money-container found, rendering', moneyProjects.length, 'projects');
+        const moneyHTML = moneyProjects.map(item => renderMoneyCard(item)).join('');
+        console.log('Generated money HTML:', moneyHTML);
         moneyGrid.innerHTML = moneyHTML;
+        console.log('Money projects rendered successfully');
+    } else {
+        console.error('money-container not found');
     }
     
     // 渲染AI创意

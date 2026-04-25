@@ -231,16 +231,16 @@ def generate_project_article(project):
         'links': [(project['full_name'], project['url'])]
     })
     
+    # 格式化数字
+    formatted_stars = format_number(project['stars'])
+    formatted_forks = format_number(project['forks'])
+    
     # 生成更详细的描述
-    base_description = template['details'] or '这是一个开源项目，目前信息有限。'
-    detailed_description = f"{base_description}\n\n" \
-                        f"该项目目前拥有 {project['stars']} 个 Star 和 {project['forks']} 个 Fork，" \
-                        f"主要使用 {project['language']} 语言开发。\n\n" \
-                        f"项目最近一次更新是在 {project['updated_at'][:10]}，" \
-                        f"显示出活跃的开发状态。"
+    base_description = template['details'] or project['description'] or '这是一个开源项目，目前信息有限。'
+    detailed_description = f"{base_description}\n\n"
     
     content = f"# {project['name']}\n\n"
-    content += f"**⭐ 星标**：{project['stars']} | **📅 更新日期**：{project['updated_at'][:10]}\n\n"
+    content += f"**⭐ 星标**：{formatted_stars} | **📅 更新日期**：{project['updated_at'][:10]}\n\n"
     content += "---\n\n"
     
     content += "## 📝 一句话总结\n\n"
@@ -267,6 +267,12 @@ def generate_project_article(project):
     content += "[返回首页](/)\n"
     
     return content
+
+def format_number(num):
+    """格式化数字，当数字大于1000时使用k作为单位"""
+    if num >= 1000:
+        return f"{(num / 1000):.1f}k"
+    return str(num)
 
 def get_mock_data():
     """获取模拟数据"""
