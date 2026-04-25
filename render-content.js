@@ -92,7 +92,8 @@ function renderTrendingList(trendingItems) {
     return trendingItems.map((item, index) => {
         let rankClass = '';
         let hotBadge = '';
-        const articleUrl = `article.html?id=${item.articleId}`;
+        // 使用特殊的id格式来标识热搜项
+        const articleUrl = `article.html?id=trending-${index + 1}`;
         
         if (index < 3) {
             rankClass = index === 0 ? 'rank-gold' : index === 1 ? 'rank-silver' : 'rank-bronze';

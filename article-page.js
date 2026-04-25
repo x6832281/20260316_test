@@ -1,5 +1,46 @@
 // 文章详情页处理脚本
 const ARTICLES_MAP = {
+    // 热搜项映射
+    'trending-1': {
+        tag: '热搜',
+        tagClass: 'tag-ai'
+    },
+    'trending-2': {
+        tag: '热搜',
+        tagClass: 'tag-ai'
+    },
+    'trending-3': {
+        tag: '热搜',
+        tagClass: 'tag-ai'
+    },
+    'trending-4': {
+        tag: '热搜',
+        tagClass: 'tag-ai'
+    },
+    'trending-5': {
+        tag: '热搜',
+        tagClass: 'tag-ai'
+    },
+    'trending-6': {
+        tag: '热搜',
+        tagClass: 'tag-ai'
+    },
+    'trending-7': {
+        tag: '热搜',
+        tagClass: 'tag-ai'
+    },
+    'trending-8': {
+        tag: '热搜',
+        tagClass: 'tag-ai'
+    },
+    'trending-9': {
+        tag: '热搜',
+        tagClass: 'tag-ai'
+    },
+    'trending-10': {
+        tag: '热搜',
+        tagClass: 'tag-ai'
+    },
     'article-001': {
         file: 'weekly/weekly-package/articles/article-001-evolver-review.md',
         tag: 'AI Agent',
@@ -283,6 +324,127 @@ function updateNextArticle(currentId) {
     }
 }
 
+// 从热搜排行文档中提取指定项的内容
+async function getTrendingItemContent(index) {
+    try {
+        // 直接尝试读取今天的文件
+        const today = new Date();
+        const dateStr = today.toISOString().split('T')[0];
+        const latestFileName = `hot-search-${dateStr}.md`;
+        
+        let fileResponse = await fetch(`data/热搜排行/${latestFileName}`);
+        
+        // 如果今天的文件不存在，尝试获取目录中的最新文件
+        if (!fileResponse.ok) {
+            const dirResponse = await fetch('data/热搜排行/');
+            if (dirResponse.ok) {
+                const html = await dirResponse.text();
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+                
+                // 提取所有.md文件链接
+                const links = doc.querySelectorAll('a[href$=".md"]');
+                const mdFiles = [];
+                
+                links.forEach(link => {
+                    const href = link.getAttribute('href');
+                    if (href) {
+                        const fileName = href.split('/').pop();
+                        if (fileName.endsWith('.md')) {
+                            mdFiles.push(fileName);
+                        }
+                    }
+                });
+                
+                // 按文件名排序，找出最新的文件
+                mdFiles.sort((a, b) => {
+                    const dateA = a.match(/\d{4}-\d{2}-\d{2}/);
+                    const dateB = b.match(/\d{4}-\d{2}-\d{2}/);
+                    
+                    if (dateA && dateB) {
+                        return new Date(dateB[0]) - new Date(dateA[0]);
+                    }
+                    return 0;
+                });
+                
+                if (mdFiles.length > 0) {
+                    const latestFile = mdFiles[0];
+                    fileResponse = await fetch(`data/热搜排行/${latestFile}`);
+                } else {
+                    throw new Error('没有找到热搜排行文件');
+                }
+            } else {
+                throw new Error('无法访问热搜排行目录');
+            }
+        }
+        
+        if (fileResponse.ok) {
+            const content = await fileResponse.text();
+            const lines = content.split('\n');
+            let inTrendingSection = false;
+            let currentItemIndex = 0;
+            let itemContent = [];
+            let captureContent = false;
+            
+            for (let i = 0; i < lines.length; i++) {
+                const line = lines[i];
+                
+                if (line.trim() === '## 🔥 今日热搜 TOP 10') {
+                    inTrendingSection = true;
+                    continue;
+                }
+                
+                if (inTrendingSection && line.trim().startsWith('### ')) {
+                    const itemMatch = line.match(/### (\d+)️⃣/);
+                    if (itemMatch) {
+                        currentItemIndex = parseInt(itemMatch[1]);
+                        
+                        if (currentItemIndex === index) {
+                            captureContent = true;
+                            itemContent.push(line);
+                        } else if (captureContent) {
+                            // 已经捕获到目标项的内容，遇到下一个项时停止
+                            break;
+                        }
+                    }
+                } else if (captureContent) {
+                    // 捕获目标项的内容
+                    itemContent.push(line);
+                    
+                    // 如果遇到分隔线且不是第一项，停止捕获
+                    if (line.trim() === '---' && currentItemIndex > 1) {
+                        break;
+                    }
+                }
+            }
+            
+            if (itemContent.length > 0) {
+                // 提取文档的标题和元信息
+                const titleMatch = content.match(/^# (.+)$/m);
+                const dateMatch = content.match(/\*\*发布时间\*\*[：:]\s*(\d{4}-\d{2}-\d{2})/);
+                
+                let result = '';
+                if (titleMatch) {
+                    result += `# ${titleMatch[1]}\n\n`;
+                }
+                if (dateMatch) {
+                    result += `**发布时间**：${dateMatch[1]}\n\n`;
+                }
+                result += itemContent.join('\n');
+                
+                return result;
+            } else {
+                throw new Error('未找到指定的热搜项');
+            }
+        } else {
+            throw new Error('无法加载热搜排行文件');
+        }
+    } catch (error) {
+        console.error('获取热搜项内容失败:', error);
+        throw error;
+    }
+}
+
 async function loadArticle() {
     const articleId = getArticleIdFromUrl();
     const articleInfo = ARTICLES_MAP[articleId];
@@ -299,11 +461,22 @@ async function loadArticle() {
     }
 
     try {
-        const response = await fetch(articleInfo.file);
-        if (!response.ok) {
-            throw new Error('文章加载失败');
+        let content;
+        
+        // 处理热搜项
+        if (articleId.startsWith('trending-')) {
+            const index = parseInt(articleId.split('-')[1]);
+            content = await getTrendingItemContent(index);
+        } else if (articleInfo.file) {
+            // 处理普通文章
+            const response = await fetch(articleInfo.file);
+            if (!response.ok) {
+                throw new Error('文章加载失败');
+            }
+            content = await response.text();
+        } else {
+            throw new Error('文章信息不完整');
         }
-        const content = await response.text();
 
         const titleMatch = content.match(/^# (.+)$/m);
         if (titleMatch) {
