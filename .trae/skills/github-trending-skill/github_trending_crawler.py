@@ -285,6 +285,16 @@ def get_mock_data():
             'updated_at': (datetime.now() - timedelta(days=10)).isoformat()
         },
         {
+            'name': 'awesome-python',
+            'full_name': 'vinta/awesome-python',
+            'url': 'https://github.com/vinta/awesome-python',
+            'description': 'A curated list of awesome Python frameworks, libraries, software and resources',
+            'stars': 170000,
+            'forks': 25000,
+            'language': 'Python',
+            'updated_at': (datetime.now() - timedelta(days=8)).isoformat()
+        },
+        {
             'name': 'stable-diffusion-webui',
             'full_name': 'AUTOMATIC1111/stable-diffusion-webui',
             'url': 'https://github.com/AUTOMATIC1111/stable-diffusion-webui',
@@ -305,13 +315,13 @@ def get_mock_data():
             'updated_at': (datetime.now() - timedelta(days=3)).isoformat()
         },
         {
-            'name': 'tiktoken',
-            'full_name': 'openai/tiktoken',
-            'url': 'https://github.com/openai/tiktoken',
-            'description': 'OpenAI\'s tiktoken tokenizer',
-            'stars': 50000,
-            'forks': 5000,
-            'language': 'Python',
+            'name': 'awesome-ai',
+            'full_name': 'jayhack/awesome-ai',
+            'url': 'https://github.com/jayhack/awesome-ai',
+            'description': 'A curated list of AI resources',
+            'stars': 60000,
+            'forks': 8000,
+            'language': 'Markdown',
             'updated_at': (datetime.now() - timedelta(days=15)).isoformat()
         },
         {
@@ -323,16 +333,6 @@ def get_mock_data():
             'forks': 8000,
             'language': 'C++',
             'updated_at': (datetime.now() - timedelta(days=7)).isoformat()
-        },
-        {
-            'name': 'whisper.cpp',
-            'full_name': 'ggerganov/whisper.cpp',
-            'url': 'https://github.com/ggerganov/whisper.cpp',
-            'description': 'Port of OpenAI\'s Whisper model in C/C++',
-            'stars': 40000,
-            'forks': 6000,
-            'language': 'C++',
-            'updated_at': (datetime.now() - timedelta(days=12)).isoformat()
         }
     ]
 
