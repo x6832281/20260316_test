@@ -6,28 +6,28 @@ const ARTICLES_MAP = {
         tagClass: 'tag-ai'
     },
     // 精选项目映射
-    'project-001': {
-        tag: 'GitHub 项目',
+    'project-001-awesome-chatgpt-prompts': {
+        tag: '精选项目',
         tagClass: 'tag-ai'
     },
-    'project-002': {
-        tag: 'GitHub 项目',
+    'project-002-awesome-python': {
+        tag: '精选项目',
         tagClass: 'tag-ai'
     },
-    'project-003': {
-        tag: 'GitHub 项目',
+    'project-003-awesome-ai': {
+        tag: '精选项目',
         tagClass: 'tag-ai'
     },
-    'project-004': {
-        tag: 'GitHub 项目',
+    'project-004-stable-diffusion-webui': {
+        tag: '精选项目',
         tagClass: 'tag-ai'
     },
-    'project-005': {
-        tag: 'GitHub 项目',
+    'project-005-LangChain': {
+        tag: '精选项目',
         tagClass: 'tag-ai'
     },
-    'project-006': {
-        tag: 'GitHub 项目',
+    'project-006-llama.cpp': {
+        tag: '精选项目',
         tagClass: 'tag-ai'
     },
     'trending-2': {
@@ -672,9 +672,8 @@ async function loadArticle() {
                 window.location.hash = hash;
             }
         } else if (articleId.startsWith('project-')) {
-            // 处理精选项目
-            const projectId = articleId.split('-')[1];
-            const fileName = `${projectId}-${articleId.split('-')[2] || 'project'}.md`;
+            // 处理精选项目 - 从ID中提取文件名
+            const fileName = articleId.replace('project-', '') + '.md';
             
             // 尝试加载精选项目文件
             let fileResponse = await fetch(`data/精选项目/${fileName}`);
@@ -694,9 +693,9 @@ async function loadArticle() {
                     links.forEach(link => {
                         const href = link.getAttribute('href');
                         if (href) {
-                            const fileName = href.split('/').pop();
-                            if (fileName.endsWith('.md')) {
-                                mdFiles.push(fileName);
+                            const name = href.split('/').pop();
+                            if (name.endsWith('.md')) {
+                                mdFiles.push(name);
                             }
                         }
                     });
@@ -738,7 +737,7 @@ async function loadArticle() {
             articleInfo.title = titleMatch[1];
         }
 
-        const dateMatch = content.match(/\*\*发布时间\*\*[：:]\s*(\d{4}-\d{2}-\d{2})/);
+        const dateMatch = content.match(/\*\*发布时间\*\*[：:]\s*(\d{4}-\d{2}-\d{2})/) || content.match(/\*\*📅 更新日期\*\*[：:]\s*(\d{4}-\d{2}-\d{2})/);
         if (dateMatch) {
             articleInfo.date = dateMatch[1];
         }

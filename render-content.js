@@ -659,21 +659,18 @@ async function getFeaturedProjects() {
                 if (fileResponse.ok) {
                     const content = await fileResponse.text();
                     
-                    // 提取项目信息
-                    const nameMatch = content.match(/^# 📁 (.+)$/m);
-                    const name = nameMatch ? nameMatch[1] : '未知项目';
+                    // 提取项目信息（适配新格式）
+                    const nameMatch = content.match(/^# (.+)$/m);
+                    const name = nameMatch ? nameMatch[1].trim() : '未知项目';
                     
-                    const urlMatch = content.match(/\*\*项目地址\*\*[：:]\s*\[([^\]]+)\]\(([^\)]+)\)/);
-                    const url = urlMatch ? urlMatch[2] : '';
+                    const urlMatch = content.match(/## 🔗 相关链接\n\n-\s*\[GitHub 仓库\]\(([^)]+)\)/);
+                    const url = urlMatch ? urlMatch[1] : '';
                     
-                    const starsMatch = content.match(/\*\*Star 数\*\*[：:]\s*(\d+)/);
+                    const starsMatch = content.match(/\*\*⭐ 星标\*\*[：:]\s*(\d+)/);
                     const stars = starsMatch ? starsMatch[1] : '0';
                     
-                    const summaryMatch = content.match(/## 📝 项目总结\n\n([\s\S]+?)\n\n##/);
+                    const summaryMatch = content.match(/## 📝 一句话总结\n\n([\s\S]+?)\n\n##/);
                     const summary = summaryMatch ? summaryMatch[1].trim() : '暂无总结';
-                    
-                    const recommendationMatch = content.match(/## 🌟 推荐指数\n\n(.+)/m);
-                    const recommendation = recommendationMatch ? recommendationMatch[1].trim() : '⭐⭐⭐';
                     
                     // 生成ID
                     const id = `project-${fileName.replace('.md', '')}`;
@@ -684,7 +681,6 @@ async function getFeaturedProjects() {
                         url: url,
                         stars: stars,
                         summary: summary,
-                        recommendation: recommendation,
                         file: `data/精选项目/${fileName}`
                     });
                 }
@@ -699,52 +695,46 @@ async function getFeaturedProjects() {
     // 如果获取失败，返回默认数据
     return [
         {
-            id: 'project-001',
+            id: 'project-001-awesome-chatgpt-prompts',
             name: 'awesome-chatgpt-prompts',
             url: 'https://github.com/f/awesome-chatgpt-prompts',
             stars: '150000',
-            summary: '这是一个收集了大量ChatGPT提示词的项目，包含各种场景下的实用提示词，帮助用户更好地与ChatGPT交互。',
-            recommendation: '⭐⭐⭐⭐⭐'
+            summary: '这是一个收集了大量ChatGPT提示词的项目，包含各种场景下的实用提示词，帮助用户更好地与ChatGPT交互。'
         },
         {
-            id: 'project-002',
+            id: 'project-002-awesome-python',
+            name: 'awesome-python',
+            url: 'https://github.com/vinta/awesome-python',
+            stars: '170000',
+            summary: '这是一个精选的Python框架、库、软件和资源列表，帮助开发者快速找到合适的Python工具。'
+        },
+        {
+            id: 'project-003-awesome-ai',
+            name: 'awesome-ai',
+            url: 'https://github.com/jayhack/awesome-ai',
+            stars: '60000',
+            summary: '这是一个精心策划的AI资源列表，涵盖了人工智能领域的各种工具、框架和项目。'
+        },
+        {
+            id: 'project-004-stable-diffusion-webui',
             name: 'stable-diffusion-webui',
             url: 'https://github.com/AUTOMATIC1111/stable-diffusion-webui',
             stars: '100000',
-            summary: '这是一个基于Gradio库的Stable Diffusion浏览器界面，允许用户通过Web界面生成AI图像。',
-            recommendation: '⭐⭐⭐⭐⭐'
+            summary: '这是一个基于Gradio库的Stable Diffusion浏览器界面，允许用户通过Web界面生成AI图像。'
         },
         {
-            id: 'project-003',
+            id: 'project-005-LangChain',
             name: 'LangChain',
             url: 'https://github.com/langchain-ai/langchain',
             stars: '80000',
-            summary: 'LangChain是一个用于构建基于大型语言模型(LLM)应用的框架，通过组合各种组件来创建复杂的AI应用。',
-            recommendation: '⭐⭐⭐⭐⭐'
+            summary: 'LangChain是一个用于构建基于大型语言模型(LLM)应用的框架，通过组合各种组件来创建复杂的AI应用。'
         },
         {
-            id: 'project-004',
-            name: 'tiktoken',
-            url: 'https://github.com/openai/tiktoken',
-            stars: '50000',
-            summary: 'tiktoken是OpenAI开发的令牌化工具，用于将文本转换为令牌，这对于使用OpenAI API时的令牌计数非常重要。',
-            recommendation: '⭐⭐⭐⭐'
-        },
-        {
-            id: 'project-005',
+            id: 'project-006-llama.cpp',
             name: 'llama.cpp',
             url: 'https://github.com/ggerganov/llama.cpp',
             stars: '45000',
-            summary: 'llama.cpp是Facebook LLaMA模型的C/C++移植版本，允许在CPU上高效运行大型语言模型。',
-            recommendation: '⭐⭐⭐⭐⭐'
-        },
-        {
-            id: 'project-006',
-            name: 'whisper.cpp',
-            url: 'https://github.com/ggerganov/whisper.cpp',
-            stars: '40000',
-            summary: 'whisper.cpp是OpenAI Whisper语音识别模型的C/C++移植版本，允许在CPU上高效运行语音识别。',
-            recommendation: '⭐⭐⭐⭐'
+            summary: 'llama.cpp是Facebook LLaMA模型的C/C++移植版本，允许在CPU上高效运行大型语言模型。'
         }
     ];
 }
@@ -759,14 +749,13 @@ function formatStars(stars) {
 
 // 渲染精选项目卡片
 function renderProjectCard(project) {
-    // 确保摘要为中文
     let summary = project.summary;
     if (!/[\u4e00-\u9fa5]/.test(summary)) {
-        // 如果摘要不是中文，使用默认中文摘要
         summary = "这是一个热门项目，受到了众多开发者的关注和贡献。";
     }
     
     const formattedStars = formatStars(project.stars);
+    const projectName = project.name.replace(/⭐/g, '').trim();
     
     return `
         <a href="article.html?id=${project.id}" class="article-card" data-article-id="${project.id}">
@@ -775,10 +764,9 @@ function renderProjectCard(project) {
                 <div class="card-meta">
                     <span class="card-readtime">⭐ ${formattedStars}</span>
                 </div>
-                <h3 class="card-title">${project.name}</h3>
+                <h3 class="card-title">${projectName}</h3>
                 <p class="card-desc">${summary}</p>
                 <div class="card-footer">
-                    <span class="card-recommendation">${formattedStars}</span>
                     <span class="card-link">查看 →</span>
                 </div>
             </div>

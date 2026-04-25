@@ -2,10 +2,16 @@
 # -*- coding: utf-8 -*-
 """
 GitHub热门项目抓取工具
-用于抓取GitHub上最近最火的项目并生成中文总结文章
+用于抓取GitHub上最近1个月最火的项目并生成中文总结文章
 """
 
 import os
+import sys
+import io
+# 设置UTF-8编码输出，解决Windows控制台emoji显示问题
+if sys.stdout.encoding != 'utf-8':
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
+
 import time
 import requests
 from bs4 import BeautifulSoup
@@ -37,79 +43,87 @@ CATEGORIES = [
     'php'
 ]
 
-# 项目总结模板
+# 项目模板
 PROJECT_TEMPLATES = {
     'awesome-chatgpt-prompts': {
-        'name': 'awesome-chatgpt-prompts',
-        'description': 'A collection of prompt examples to be used with the ChatGPT model',
         'summary': '这是一个收集了大量ChatGPT提示词的项目，包含各种场景下的实用提示词，帮助用户更好地与ChatGPT交互。',
         'details': '该项目包含了数百个精心设计的提示词，涵盖了写作、编程、教育、创意等多个领域。每个提示词都经过精心设计，能够引导ChatGPT生成高质量的内容。项目还提供了分类标签，方便用户快速找到适合自己需求的提示词。',
+        'evaluation': '优点：内容丰富，分类清晰，实用性强。缺点：更新频率不高。适合人群：ChatGPT用户、AI开发者、内容创作者。',
         'tech_stack': ['Markdown', 'GitHub'],
-        'recommendation': '⭐⭐⭐⭐⭐',
         'links': [
             ('GitHub 仓库', 'https://github.com/f/awesome-chatgpt-prompts'),
             ('项目官网', 'https://prompts.chat/')
         ]
     },
-    'stable-diffusion-webui': {
-        'name': 'stable-diffusion-webui',
-        'description': 'A browser interface based on Gradio library for Stable Diffusion',
-        'summary': '这是一个基于Gradio库的Stable Diffusion浏览器界面，允许用户通过Web界面生成AI图像。',
-        'details': '该项目提供了一个用户友好的Web界面，使得用户可以轻松使用Stable Diffusion模型生成高质量的AI图像。它支持多种功能，包括文本到图像生成、图像到图像转换、模型切换等。项目还支持扩展插件系统，允许用户添加更多功能。',
-        'tech_stack': ['Python', 'Gradio', 'PyTorch', 'Stable Diffusion'],
-        'recommendation': '⭐⭐⭐⭐⭐',
+    'awesome-python': {
+        'summary': '这是一个精选的Python框架、库、软件和资源列表，帮助开发者快速找到合适的Python工具。',
+        'details': '该项目包含了数百个经过筛选的Python项目，涵盖了Web开发、数据科学、机器学习、网络编程等多个领域。每个项目都经过仔细评估，确保质量和实用性。项目按照类别和用途进行分类，方便开发者快速找到适合自己需求的工具。',
+        'evaluation': '优点：资源全面，分类详细，持续更新。缺点：信息量较大，初学者可能难以消化。适合人群：Python开发者、技术爱好者、学习者。',
+        'tech_stack': ['Python', 'GitHub'],
         'links': [
-            ('GitHub 仓库', 'https://github.com/AUTOMATIC1111/stable-diffusion-webui'),
-            ('项目文档', 'https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki')
+            ('GitHub 仓库', 'https://github.com/vinta/awesome-python'),
+            ('项目官网', 'https://python.org/')
+        ]
+    },
+    'awesome-ai': {
+        'summary': '这是一个精心策划的AI资源列表，涵盖了人工智能领域的各种工具、框架和项目。',
+        'details': '该项目包含了数百个AI相关的资源，涵盖了机器学习、深度学习、自然语言处理、计算机视觉等多个领域。每个资源都经过仔细筛选，确保质量和实用性。项目按照类别和用途进行分类，方便开发者快速找到适合自己需求的工具。',
+        'evaluation': '优点：资源全面，分类详细，持续更新。缺点：信息量较大，初学者可能难以消化。适合人群：AI开发者、数据科学家、研究者。',
+        'tech_stack': ['Python', 'TensorFlow', 'PyTorch'],
+        'links': [
+            ('GitHub 仓库', 'https://github.com/jayhack/awesome-ai'),
+            ('项目文档', 'https://github.com/jayhack/awesome-ai#readme')
         ]
     },
     'LangChain': {
-        'name': 'LangChain',
-        'description': 'Building applications with LLMs through composability',
         'summary': 'LangChain是一个用于构建基于大型语言模型(LLM)应用的框架，通过组合各种组件来创建复杂的AI应用。',
         'details': 'LangChain提供了一套工具和接口，使得开发者可以更轻松地构建基于LLM的应用。它支持多种LLM后端，包括OpenAI、Hugging Face等。项目还提供了各种组件，如文档加载器、向量存储、链式处理等，使得开发者可以快速构建复杂的AI应用。',
+        'evaluation': '优点：功能强大，社区活跃，文档丰富。缺点：学习曲线较陡峭。适合人群：AI应用开发者、LLM开发者、后端工程师。',
         'tech_stack': ['Python', 'JavaScript', 'LLM', 'NLP'],
-        'recommendation': '⭐⭐⭐⭐⭐',
         'links': [
             ('GitHub 仓库', 'https://github.com/langchain-ai/langchain'),
             ('项目官网', 'https://www.langchain.com/'),
             ('文档地址', 'https://python.langchain.com/docs/get_started/introduction')
         ]
     },
-    'tiktoken': {
-        'name': 'tiktoken',
-        'description': 'OpenAI\'s tiktoken tokenizer',
-        'summary': 'tiktoken是OpenAI开发的令牌化工具，用于将文本转换为令牌，这对于使用OpenAI API时的令牌计数非常重要。',
-        'details': 'tiktoken是OpenAI官方开发的令牌化库，支持GPT-2、GPT-3、GPT-4等模型的令牌化。它提供了高效的令牌计数功能，帮助开发者准确计算API调用的令牌使用量，从而更好地控制成本。项目还提供了Python和JavaScript两种实现。',
-        'tech_stack': ['Python', 'JavaScript', 'NLP'],
-        'recommendation': '⭐⭐⭐⭐',
+    'stable-diffusion-webui': {
+        'summary': '这是一个基于Gradio库的Stable Diffusion浏览器界面，允许用户通过Web界面生成AI图像。',
+        'details': '该项目提供了一个用户友好的Web界面，使得用户可以轻松使用Stable Diffusion模型生成高质量的AI图像。它支持多种功能，包括文本到图像生成、图像到图像转换、模型切换等。项目还支持扩展插件系统，允许用户添加更多功能。',
+        'evaluation': '优点：界面友好，功能丰富，社区活跃。缺点：需要较强的硬件支持。适合人群：AI图像生成爱好者、设计师、创意工作者。',
+        'tech_stack': ['Python', 'Gradio', 'PyTorch', 'Stable Diffusion'],
         'links': [
-            ('GitHub 仓库', 'https://github.com/openai/tiktoken'),
-            ('文档地址', 'https://github.com/openai/tiktoken#readme')
+            ('GitHub 仓库', 'https://github.com/AUTOMATIC1111/stable-diffusion-webui'),
+            ('项目文档', 'https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki')
         ]
     },
     'llama.cpp': {
-        'name': 'llama.cpp',
-        'description': 'Port of Facebook\'s LLaMA model in C/C++',
         'summary': 'llama.cpp是Facebook LLaMA模型的C/C++移植版本，允许在CPU上高效运行大型语言模型。',
         'details': 'llama.cpp通过优化实现，使得LLaMA模型可以在普通CPU上运行，无需昂贵的GPU。它支持多种量化技术，进一步减少模型大小和内存使用。项目还提供了多种接口，包括命令行工具和API，方便开发者集成到自己的应用中。',
+        'evaluation': '优点：性能优秀，资源占用低，支持多种量化技术。缺点：配置相对复杂。适合人群：LLM开发者、性能优化爱好者、嵌入式开发者。',
         'tech_stack': ['C/C++', 'LLM', 'Machine Learning'],
-        'recommendation': '⭐⭐⭐⭐⭐',
         'links': [
             ('GitHub 仓库', 'https://github.com/ggerganov/llama.cpp'),
             ('项目文档', 'https://github.com/ggerganov/llama.cpp#readme')
         ]
     },
     'whisper.cpp': {
-        'name': 'whisper.cpp',
-        'description': 'Port of OpenAI\'s Whisper model in C/C++',
         'summary': 'whisper.cpp是OpenAI Whisper语音识别模型的C/C++移植版本，允许在CPU上高效运行语音识别。',
         'details': 'whisper.cpp通过优化实现，使得Whisper模型可以在普通CPU上运行，无需GPU。它支持多种语言的语音识别，包括中文、英文等。项目还提供了命令行工具和API，方便开发者集成到自己的应用中。',
+        'evaluation': '优点：性能优秀，支持多语言，资源占用低。缺点：准确率不如GPU版本。适合人群：语音识别开发者、AI应用开发者。',
         'tech_stack': ['C/C++', 'Speech Recognition', 'Machine Learning'],
-        'recommendation': '⭐⭐⭐⭐',
         'links': [
             ('GitHub 仓库', 'https://github.com/ggerganov/whisper.cpp'),
             ('项目文档', 'https://github.com/ggerganov/whisper.cpp#readme')
+        ]
+    },
+    'tiktoken': {
+        'summary': 'tiktoken是OpenAI开发的令牌化工具，用于将文本转换为令牌，这对于使用OpenAI API时的令牌计数非常重要。',
+        'details': 'tiktoken是OpenAI官方开发的令牌化库，支持GPT-2、GPT-3、GPT-4等模型的令牌化。它提供了高效的令牌计数功能，帮助开发者准确计算API调用的令牌使用量，从而更好地控制成本。项目还提供了Python和JavaScript两种实现。',
+        'evaluation': '优点：官方支持，准确度高，性能优秀。缺点：仅适用于OpenAI模型。适合人群：OpenAI API开发者、AI应用开发者。',
+        'tech_stack': ['Python', 'JavaScript', 'NLP'],
+        'links': [
+            ('GitHub 仓库', 'https://github.com/openai/tiktoken'),
+            ('文档地址', 'https://github.com/openai/tiktoken#readme')
         ]
     }
 }
@@ -187,7 +201,7 @@ def parse_github_trending(html):
     
     return items
 
-def filter_recent_projects(projects, days=60):
+def filter_recent_projects(projects, days=30):
     """筛选最近指定天数内更新的项目"""
     recent_projects = []
     cutoff_date = datetime.now() - timedelta(days=days)
@@ -206,59 +220,42 @@ def filter_recent_projects(projects, days=60):
 def generate_project_article(project):
     """生成项目的Markdown文章"""
     today = datetime.now()
-    date_str = today.strftime('%Y-%m-%d')
     time_str = today.strftime('%Y-%m-%d %H:%M:%S')
-    
-    # 生成星标信息
-    stars = project['stars']
-    # 确保至少有1个星标
-    if stars == 0:
-        star_level = 1
-    else:
-        star_level = min(5, max(1, stars // 10000))
-    star_emojis = '⭐' * star_level
     
     # 获取项目模板数据
     template = PROJECT_TEMPLATES.get(project['name'], {
         'summary': project['description'] or '暂无总结',
         'details': project['description'] or '暂无详细介绍',
+        'evaluation': '优点：开源项目，社区活跃。缺点：信息有限。适合人群：开发者、技术爱好者。',
         'tech_stack': [project['language']],
-        'recommendation': star_emojis,
         'links': [(project['full_name'], project['url'])]
     })
     
     # 生成更详细的描述
     base_description = template['details'] or '这是一个开源项目，目前信息有限。'
     detailed_description = f"{base_description}\n\n" \
-                        f"该项目目前拥有 {stars} 个 Star 和 {project['forks']} 个 Fork，" \
+                        f"该项目目前拥有 {project['stars']} 个 Star 和 {project['forks']} 个 Fork，" \
                         f"主要使用 {project['language']} 语言开发。\n\n" \
                         f"项目最近一次更新是在 {project['updated_at'][:10]}，" \
-                        f"显示出活跃的开发状态。\n\n" \
-                        f"作为一个开源项目，它在 GitHub 上受到了开发者的关注，" \
-                        f"吸引了开发者的参与和贡献。" 
+                        f"显示出活跃的开发状态。"
     
-    content = f"# 📁 {project['name']} {star_emojis}\n\n"
-    content += f"**项目地址**：[{project['full_name']}]({project['url']})\n"
-    content += f"**Star 数**：{stars}\n"
-    content += f"**Fork 数**：{project['forks']}\n"
-    content += f"**主要语言**：{project['language']}\n"
-    content += f"**最近更新**：{project['updated_at'][:10]}\n"
-    content += f"**抓取时间**：{time_str}\n\n"
+    content = f"# {project['name']}\n\n"
+    content += f"**⭐ 星标**：{project['stars']} | **📅 更新日期**：{project['updated_at'][:10]}\n\n"
     content += "---\n\n"
     
-    content += "## 📝 项目总结\n\n"
+    content += "## 📝 一句话总结\n\n"
     content += f"{template['summary']}\n\n"
     
     content += "## 📋 详细介绍\n\n"
     content += f"{detailed_description}\n\n"
     
-    content += "## 🎯 技术栈\n\n"
+    content += "## 🎯 个人评价\n\n"
+    content += f"{template['evaluation']}\n\n"
+    
+    content += "## 🔧 技术栈\n\n"
     for tech in template['tech_stack']:
         content += f"- {tech}\n"
     content += "\n"
-    
-    content += "## 🌟 推荐指数\n\n"
-    content += f"{template['recommendation']}\n\n"
     
     content += "## 🔗 相关链接\n\n"
     for link_text, link_url in template['links']:
@@ -267,7 +264,7 @@ def generate_project_article(project):
     
     content += "---\n\n"
     content += "**© 2026 AI Tools Magazine | AI 萌新小窝 出品**\n\n"
-    content += "[返回首页](/)=\n"
+    content += "[返回首页](/)\n"
     
     return content
 
@@ -295,6 +292,16 @@ def get_mock_data():
             'updated_at': (datetime.now() - timedelta(days=8)).isoformat()
         },
         {
+            'name': 'awesome-ai',
+            'full_name': 'jayhack/awesome-ai',
+            'url': 'https://github.com/jayhack/awesome-ai',
+            'description': 'A curated list of AI resources',
+            'stars': 60000,
+            'forks': 8000,
+            'language': 'Markdown',
+            'updated_at': (datetime.now() - timedelta(days=15)).isoformat()
+        },
+        {
             'name': 'stable-diffusion-webui',
             'full_name': 'AUTOMATIC1111/stable-diffusion-webui',
             'url': 'https://github.com/AUTOMATIC1111/stable-diffusion-webui',
@@ -313,16 +320,6 @@ def get_mock_data():
             'forks': 10000,
             'language': 'Python',
             'updated_at': (datetime.now() - timedelta(days=3)).isoformat()
-        },
-        {
-            'name': 'awesome-ai',
-            'full_name': 'jayhack/awesome-ai',
-            'url': 'https://github.com/jayhack/awesome-ai',
-            'description': 'A curated list of AI resources',
-            'stars': 60000,
-            'forks': 8000,
-            'language': 'Markdown',
-            'updated_at': (datetime.now() - timedelta(days=15)).isoformat()
         },
         {
             'name': 'llama.cpp',
@@ -360,8 +357,8 @@ def main():
             seen_names.add(project['full_name'])
             unique_projects.append(project)
     
-    # 筛选最近60天的项目
-    recent_projects = filter_recent_projects(unique_projects, days=60)
+    # 筛选最近30天的项目
+    recent_projects = filter_recent_projects(unique_projects, days=30)
     
     # 过滤掉star数为0的项目
     if recent_projects:
@@ -383,6 +380,7 @@ def main():
         # 如果过滤后没有项目，使用模拟数据
         print("过滤后没有star>0的项目，使用模拟数据...")
         sorted_projects = get_mock_data()
+    
     # 确保至少有2个awesome项目
     awesome_count = sum(1 for p in sorted_projects if p['name'].startswith('awesome-'))
     if awesome_count < 2:
@@ -418,6 +416,13 @@ def main():
                     break
         # 重新排序并限制数量
         sorted_projects = sorted(sorted_projects, key=lambda x: x['stars'], reverse=True)[:6]
+    
+    # 清理旧文件
+    if os.path.exists(SAVE_DIR):
+        for file in os.listdir(SAVE_DIR):
+            if file.endswith('.md'):
+                os.remove(os.path.join(SAVE_DIR, file))
+        print(f"已清理 {len(os.listdir(SAVE_DIR))} 个旧文件")
     
     # 生成文章
     for i, project in enumerate(sorted_projects, 1):
