@@ -556,44 +556,60 @@ function extractTrendingFromMarkdown(markdownContent) {
 // 获取最新的热搜排行文档
 async function getLatestTrendingData() {
     try {
-        // 发送请求获取热搜排行目录
-        const response = await fetch('data/热搜排行/');
-        if (!response.ok) throw new Error('Failed to fetch directory');
+        // 直接尝试读取最新的文件（基于当前日期）
+        const today = new Date();
+        const dateStr = today.toISOString().split('T')[0];
+        const latestFileName = `hot-search-${dateStr}.md`;
         
-        const html = await response.text();
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(html, 'text/html');
+        // 尝试读取今天的文件
+        const fileResponse = await fetch(`data/热搜排行/${latestFileName}`);
+        if (fileResponse.ok) {
+            const content = await fileResponse.text();
+            return extractTrendingFromMarkdown(content);
+        }
         
-        // 提取所有.md文件链接
-        const links = doc.querySelectorAll('a[href$=".md"]');
-        const mdFiles = [];
-        
-        links.forEach(link => {
-            const href = link.getAttribute('href');
-            if (href) {
-                mdFiles.push(href);
-            }
-        });
-        
-        // 按文件名排序，找出最新的文件
-        mdFiles.sort((a, b) => {
-            // 提取日期部分
-            const dateA = a.match(/\d{4}-\d{2}-\d{2}/);
-            const dateB = b.match(/\d{4}-\d{2}-\d{2}/);
+        // 如果今天的文件不存在，尝试获取目录中的所有文件
+        const dirResponse = await fetch('data/热搜排行/');
+        if (dirResponse.ok) {
+            const html = await dirResponse.text();
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
             
-            if (dateA && dateB) {
-                return new Date(dateB[0]) - new Date(dateA[0]);
-            }
-            return 0;
-        });
-        
-        // 获取最新的.md文件
-        if (mdFiles.length > 0) {
-            const latestFile = mdFiles[0];
-            const fileResponse = await fetch(`data/热搜排行/${latestFile}`);
-            if (fileResponse.ok) {
-                const content = await fileResponse.text();
-                return extractTrendingFromMarkdown(content);
+            // 提取所有.md文件链接
+            const links = doc.querySelectorAll('a[href$=".md"]');
+            const mdFiles = [];
+            
+            links.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href) {
+                    // 提取文件名
+                    const fileName = href.split('/').pop();
+                    if (fileName.endsWith('.md')) {
+                        mdFiles.push(fileName);
+                    }
+                }
+            });
+            
+            // 按文件名排序，找出最新的文件
+            mdFiles.sort((a, b) => {
+                // 提取日期部分
+                const dateA = a.match(/\d{4}-\d{2}-\d{2}/);
+                const dateB = b.match(/\d{4}-\d{2}-\d{2}/);
+                
+                if (dateA && dateB) {
+                    return new Date(dateB[0]) - new Date(dateA[0]);
+                }
+                return 0;
+            });
+            
+            // 获取最新的.md文件
+            if (mdFiles.length > 0) {
+                const latestFile = mdFiles[0];
+                const fileResponse = await fetch(`data/热搜排行/${latestFile}`);
+                if (fileResponse.ok) {
+                    const content = await fileResponse.text();
+                    return extractTrendingFromMarkdown(content);
+                }
             }
         }
     } catch (error) {
