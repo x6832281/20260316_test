@@ -502,8 +502,113 @@ function renderLiteratureWithFilter() {
     });
 }
 
+// 从热搜排行文档中提取数据
+function extractTrendingFromMarkdown(markdownContent) {
+    const trendingItems = [];
+    const lines = markdownContent.split('\n');
+    let inTrendingSection = false;
+    let rank = 1;
+    
+    for (let i = 0; i < lines.length; i++) {
+        const line = lines[i].trim();
+        
+        if (line === '## 🔥 今日热搜 TOP 10') {
+            inTrendingSection = true;
+            continue;
+        }
+        
+        if (inTrendingSection && line.startsWith('### ')) {
+            // 提取标题
+            const titleMatch = line.match(/### \d+️⃣ (.+?) 🔥+/);
+            if (titleMatch) {
+                const title = titleMatch[1];
+                
+                // 提取事件描述（一句话总结）
+                let event = '';
+                for (let j = i + 1; j < lines.length; j++) {
+                    const nextLine = lines[j].trim();
+                    if (nextLine.startsWith('**一句话总结**：')) {
+                        event = nextLine.replace('**一句话总结**：', '').trim();
+                        break;
+                    }
+                }
+                
+                trendingItems.push({
+                    rank: rank.toString().padStart(2, '0'),
+                    title: title,
+                    event: event,
+                    articleId: 'article-001' // 默认为第一篇文章
+                });
+                
+                rank++;
+                if (rank > 10) break;
+            }
+        }
+        
+        if (inTrendingSection && line === '---' && trendingItems.length >= 10) {
+            break;
+        }
+    }
+    
+    return trendingItems;
+}
+
+// 获取最新的热搜排行文档
+async function getLatestTrendingData() {
+    try {
+        // 发送请求获取热搜排行目录
+        const response = await fetch('data/热搜排行/');
+        if (!response.ok) throw new Error('Failed to fetch directory');
+        
+        const html = await response.text();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+        
+        // 提取所有.md文件链接
+        const links = doc.querySelectorAll('a[href$=".md"]');
+        const mdFiles = [];
+        
+        links.forEach(link => {
+            const href = link.getAttribute('href');
+            if (href) {
+                mdFiles.push(href);
+            }
+        });
+        
+        // 按文件名排序，找出最新的文件
+        mdFiles.sort((a, b) => {
+            // 提取日期部分
+            const dateA = a.match(/\d{4}-\d{2}-\d{2}/);
+            const dateB = b.match(/\d{4}-\d{2}-\d{2}/);
+            
+            if (dateA && dateB) {
+                return new Date(dateB[0]) - new Date(dateA[0]);
+            }
+            return 0;
+        });
+        
+        // 获取最新的.md文件
+        if (mdFiles.length > 0) {
+            const latestFile = mdFiles[0];
+            const fileResponse = await fetch(`data/热搜排行/${latestFile}`);
+            if (fileResponse.ok) {
+                const content = await fileResponse.text();
+                return extractTrendingFromMarkdown(content);
+            }
+        }
+    } catch (error) {
+        console.error('Error fetching latest trending data:', error);
+    }
+    
+    // 如果获取失败，返回默认数据
+    return TRENDING_DATA;
+}
+
 // 初始化渲染
-function renderHomepage() {
+async function renderHomepage() {
+    // 获取最新的热搜数据
+    const latestTrendingData = await getLatestTrendingData();
+    
     // 渲染文章
     const articlesGrid = document.getElementById('articles-container');
     if (articlesGrid) {
@@ -514,7 +619,7 @@ function renderHomepage() {
     // 渲染热搜榜
     const trendingList = document.getElementById('trending-container');
     if (trendingList) {
-        trendingList.innerHTML = renderTrendingList(TRENDING_DATA);
+        trendingList.innerHTML = renderTrendingList(latestTrendingData);
     }
     
     // 渲染搞钱排行
