@@ -5,6 +5,31 @@ const ARTICLES_MAP = {
         tag: '热搜',
         tagClass: 'tag-ai'
     },
+    // 精选项目映射
+    'project-001': {
+        tag: 'GitHub 项目',
+        tagClass: 'tag-ai'
+    },
+    'project-002': {
+        tag: 'GitHub 项目',
+        tagClass: 'tag-ai'
+    },
+    'project-003': {
+        tag: 'GitHub 项目',
+        tagClass: 'tag-ai'
+    },
+    'project-004': {
+        tag: 'GitHub 项目',
+        tagClass: 'tag-ai'
+    },
+    'project-005': {
+        tag: 'GitHub 项目',
+        tagClass: 'tag-ai'
+    },
+    'project-006': {
+        tag: 'GitHub 项目',
+        tagClass: 'tag-ai'
+    },
     'trending-2': {
         tag: '热搜',
         tagClass: 'tag-ai'
@@ -645,6 +670,57 @@ async function loadArticle() {
                 const index = parseInt(articleId.split('-')[1]);
                 hash = `#trending-${index}`;
                 window.location.hash = hash;
+            }
+        } else if (articleId.startsWith('project-')) {
+            // 处理精选项目
+            const projectId = articleId.split('-')[1];
+            const fileName = `${projectId}-${articleId.split('-')[2] || 'project'}.md`;
+            
+            // 尝试加载精选项目文件
+            let fileResponse = await fetch(`data/精选项目/${fileName}`);
+            
+            if (!fileResponse.ok) {
+                // 如果找不到文件，尝试获取目录中的所有文件
+                const dirResponse = await fetch('data/精选项目/');
+                if (dirResponse.ok) {
+                    const html = await dirResponse.text();
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, 'text/html');
+                    
+                    // 提取所有.md文件链接
+                    const links = doc.querySelectorAll('a[href$=".md"]');
+                    const mdFiles = [];
+                    
+                    links.forEach(link => {
+                        const href = link.getAttribute('href');
+                        if (href) {
+                            const fileName = href.split('/').pop();
+                            if (fileName.endsWith('.md')) {
+                                mdFiles.push(fileName);
+                            }
+                        }
+                    });
+                    
+                    // 按文件名排序
+                    mdFiles.sort();
+                    
+                    // 尝试加载第一个文件
+                    if (mdFiles.length > 0) {
+                        const firstFile = mdFiles[0];
+                        fileResponse = await fetch(`data/精选项目/${firstFile}`);
+                        if (fileResponse.ok) {
+                            content = await fileResponse.text();
+                        } else {
+                            throw new Error('精选项目文件加载失败');
+                        }
+                    } else {
+                        throw new Error('没有找到精选项目文件');
+                    }
+                } else {
+                    throw new Error('精选项目目录访问失败');
+                }
+            } else {
+                content = await fileResponse.text();
             }
         } else if (articleInfo.file) {
             // 处理普通文章

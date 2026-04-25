@@ -621,16 +621,168 @@ async function getLatestTrendingData() {
     return TRENDING_DATA;
 }
 
+// 从精选项目Markdown文件中提取数据
+async function getFeaturedProjects() {
+    try {
+        // 获取精选项目目录中的所有文件
+        const dirResponse = await fetch('data/精选项目/');
+        if (dirResponse.ok) {
+            const html = await dirResponse.text();
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            
+            // 提取所有.md文件链接
+            const links = doc.querySelectorAll('a[href$=".md"]');
+            const mdFiles = [];
+            
+            links.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href) {
+                    // 提取文件名
+                    const fileName = href.split('/').pop();
+                    if (fileName.endsWith('.md')) {
+                        mdFiles.push(fileName);
+                    }
+                }
+            });
+            
+            // 按文件名排序
+            mdFiles.sort();
+            
+            // 最多取6个文件
+            const topFiles = mdFiles.slice(0, 6);
+            
+            // 读取每个文件的内容
+            const projects = [];
+            for (const fileName of topFiles) {
+                const fileResponse = await fetch(`data/精选项目/${fileName}`);
+                if (fileResponse.ok) {
+                    const content = await fileResponse.text();
+                    
+                    // 提取项目信息
+                    const nameMatch = content.match(/^# 📁 (.+)$/m);
+                    const name = nameMatch ? nameMatch[1] : '未知项目';
+                    
+                    const urlMatch = content.match(/\*\*项目地址\*\*[：:]\s*\[([^\]]+)\]\(([^\)]+)\)/);
+                    const url = urlMatch ? urlMatch[2] : '';
+                    
+                    const starsMatch = content.match(/\*\*Star 数\*\*[：:]\s*(\d+)/);
+                    const stars = starsMatch ? starsMatch[1] : '0';
+                    
+                    const summaryMatch = content.match(/## 📝 项目总结\n\n([\s\S]+?)\n\n##/);
+                    const summary = summaryMatch ? summaryMatch[1].trim() : '暂无总结';
+                    
+                    const recommendationMatch = content.match(/## 🌟 推荐指数\n\n(.+)/m);
+                    const recommendation = recommendationMatch ? recommendationMatch[1].trim() : '⭐⭐⭐';
+                    
+                    // 生成ID
+                    const id = `project-${fileName.replace('.md', '')}`;
+                    
+                    projects.push({
+                        id: id,
+                        name: name,
+                        url: url,
+                        stars: stars,
+                        summary: summary,
+                        recommendation: recommendation,
+                        file: `data/精选项目/${fileName}`
+                    });
+                }
+            }
+            
+            return projects;
+        }
+    } catch (error) {
+        console.error('Error fetching featured projects:', error);
+    }
+    
+    // 如果获取失败，返回默认数据
+    return [
+        {
+            id: 'project-001',
+            name: 'awesome-chatgpt-prompts',
+            url: 'https://github.com/f/awesome-chatgpt-prompts',
+            stars: '150000',
+            summary: '这是一个收集了大量ChatGPT提示词的项目，包含各种场景下的实用提示词，帮助用户更好地与ChatGPT交互。',
+            recommendation: '⭐⭐⭐⭐⭐'
+        },
+        {
+            id: 'project-002',
+            name: 'stable-diffusion-webui',
+            url: 'https://github.com/AUTOMATIC1111/stable-diffusion-webui',
+            stars: '100000',
+            summary: '这是一个基于Gradio库的Stable Diffusion浏览器界面，允许用户通过Web界面生成AI图像。',
+            recommendation: '⭐⭐⭐⭐⭐'
+        },
+        {
+            id: 'project-003',
+            name: 'LangChain',
+            url: 'https://github.com/langchain-ai/langchain',
+            stars: '80000',
+            summary: 'LangChain是一个用于构建基于大型语言模型(LLM)应用的框架，通过组合各种组件来创建复杂的AI应用。',
+            recommendation: '⭐⭐⭐⭐⭐'
+        },
+        {
+            id: 'project-004',
+            name: 'tiktoken',
+            url: 'https://github.com/openai/tiktoken',
+            stars: '50000',
+            summary: 'tiktoken是OpenAI开发的令牌化工具，用于将文本转换为令牌，这对于使用OpenAI API时的令牌计数非常重要。',
+            recommendation: '⭐⭐⭐⭐'
+        },
+        {
+            id: 'project-005',
+            name: 'llama.cpp',
+            url: 'https://github.com/ggerganov/llama.cpp',
+            stars: '45000',
+            summary: 'llama.cpp是Facebook LLaMA模型的C/C++移植版本，允许在CPU上高效运行大型语言模型。',
+            recommendation: '⭐⭐⭐⭐⭐'
+        },
+        {
+            id: 'project-006',
+            name: 'whisper.cpp',
+            url: 'https://github.com/ggerganov/whisper.cpp',
+            stars: '40000',
+            summary: 'whisper.cpp是OpenAI Whisper语音识别模型的C/C++移植版本，允许在CPU上高效运行语音识别。',
+            recommendation: '⭐⭐⭐⭐'
+        }
+    ];
+}
+
+// 渲染精选项目卡片
+function renderProjectCard(project) {
+    return `
+        <a href="article.html?id=${project.id}" class="article-card" data-article-id="${project.id}">
+            <div class="card-accent accent-ai"></div>
+            <div class="card-content">
+                <div class="card-meta">
+                    <span class="card-tag tag-ai">GitHub 项目</span>
+                    <span class="card-readtime">⭐ ${project.stars}</span>
+                </div>
+                <h3 class="card-title">${project.name}</h3>
+                <p class="card-desc">${project.summary}</p>
+                <div class="card-footer">
+                    <span class="card-recommendation">${project.recommendation}</span>
+                    <span class="card-link">查看 →</span>
+                </div>
+            </div>
+        </a>
+    `;
+}
+
 // 初始化渲染
 async function renderHomepage() {
     // 获取最新的热搜数据
     const latestTrendingData = await getLatestTrendingData();
     
-    // 渲染文章
+    // 获取精选项目数据
+    const featuredProjects = await getFeaturedProjects();
+    
+    // 渲染精选项目
     const articlesGrid = document.getElementById('articles-container');
     if (articlesGrid) {
-        const articlesHTML = ARTICLES_DATA.map(article => renderArticleCard(article)).join('');
-        articlesGrid.innerHTML = articlesHTML;
+        const projectsHTML = featuredProjects.map(project => renderProjectCard(project)).join('');
+        articlesGrid.innerHTML = projectsHTML;
     }
     
     // 渲染热搜榜
