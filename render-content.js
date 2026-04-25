@@ -751,18 +751,25 @@ async function getFeaturedProjects() {
 
 // 渲染精选项目卡片
 function renderProjectCard(project) {
+    // 确保摘要为中文
+    let summary = project.summary;
+    if (!/[\u4e00-\u9fa5]/.test(summary)) {
+        // 如果摘要不是中文，使用默认中文摘要
+        summary = "这是一个热门的开源项目，受到了众多开发者的关注和贡献。";
+    }
+    
     return `
         <a href="article.html?id=${project.id}" class="article-card" data-article-id="${project.id}">
             <div class="card-accent accent-ai"></div>
             <div class="card-content">
                 <div class="card-meta">
-                    <span class="card-tag tag-ai">GitHub 项目</span>
+                    <span class="card-tag tag-ai">开源项目</span>
                     <span class="card-readtime">⭐ ${project.stars}</span>
                 </div>
                 <h3 class="card-title">${project.name}</h3>
-                <p class="card-desc">${project.summary}</p>
+                <p class="card-desc">${summary}</p>
                 <div class="card-footer">
-                    <span class="card-recommendation">${project.recommendation}</span>
+                    <span class="card-recommendation">${project.stars} Stars</span>
                     <span class="card-link">查看 →</span>
                 </div>
             </div>

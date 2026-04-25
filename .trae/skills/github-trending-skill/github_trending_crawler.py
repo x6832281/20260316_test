@@ -209,18 +209,37 @@ def generate_project_article(project):
     date_str = today.strftime('%Y-%m-%d')
     time_str = today.strftime('%Y-%m-%d %H:%M:%S')
     
+    # 生成星标信息
+    stars = project['stars']
+    # 确保至少有1个星标
+    if stars == 0:
+        star_level = 1
+    else:
+        star_level = min(5, max(1, stars // 10000))
+    star_emojis = '⭐' * star_level
+    
     # 获取项目模板数据
     template = PROJECT_TEMPLATES.get(project['name'], {
         'summary': project['description'] or '暂无总结',
         'details': project['description'] or '暂无详细介绍',
         'tech_stack': [project['language']],
-        'recommendation': '⭐⭐⭐⭐',
+        'recommendation': star_emojis,
         'links': [(project['full_name'], project['url'])]
     })
     
-    content = f"# 📁 {project['name']}\n\n"
+    # 生成更详细的描述
+    base_description = template['details'] or '这是一个开源项目，目前信息有限。'
+    detailed_description = f"{base_description}\n\n" \
+                        f"该项目目前拥有 {stars} 个 Star 和 {project['forks']} 个 Fork，" \
+                        f"主要使用 {project['language']} 语言开发。\n\n" \
+                        f"项目最近一次更新是在 {project['updated_at'][:10]}，" \
+                        f"显示出活跃的开发状态。\n\n" \
+                        f"作为一个开源项目，它在 GitHub 上受到了开发者的关注，" \
+                        f"吸引了开发者的参与和贡献。" 
+    
+    content = f"# 📁 {project['name']} {star_emojis}\n\n"
     content += f"**项目地址**：[{project['full_name']}]({project['url']})\n"
-    content += f"**Star 数**：{project['stars']}\n"
+    content += f"**Star 数**：{stars}\n"
     content += f"**Fork 数**：{project['forks']}\n"
     content += f"**主要语言**：{project['language']}\n"
     content += f"**最近更新**：{project['updated_at'][:10]}\n"
@@ -231,7 +250,7 @@ def generate_project_article(project):
     content += f"{template['summary']}\n\n"
     
     content += "## 📋 详细介绍\n\n"
-    content += f"{template['details']}\n\n"
+    content += f"{detailed_description}\n\n"
     
     content += "## 🎯 技术栈\n\n"
     for tech in template['tech_stack']:
