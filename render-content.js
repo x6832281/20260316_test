@@ -778,7 +778,7 @@ function renderProjectCard(project) {
                 <h3 class="card-title">${project.name}</h3>
                 <p class="card-desc">${summary}</p>
                 <div class="card-footer">
-                    <span class="card-recommendation">${formattedStars} Stars</span>
+                    <span class="card-recommendation">${formattedStars}</span>
                     <span class="card-link">查看 →</span>
                 </div>
             </div>
