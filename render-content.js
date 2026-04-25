@@ -755,7 +755,7 @@ function renderProjectCard(project) {
     let summary = project.summary;
     if (!/[\u4e00-\u9fa5]/.test(summary)) {
         // 如果摘要不是中文，使用默认中文摘要
-        summary = "这是一个热门的开源项目，受到了众多开发者的关注和贡献。";
+        summary = "这是一个热门项目，受到了众多开发者的关注和贡献。";
     }
     
     return `
@@ -763,7 +763,6 @@ function renderProjectCard(project) {
             <div class="card-accent accent-ai"></div>
             <div class="card-content">
                 <div class="card-meta">
-                    <span class="card-tag tag-ai">开源项目</span>
                     <span class="card-readtime">⭐ ${project.stars}</span>
                 </div>
                 <h3 class="card-title">${project.name}</h3>

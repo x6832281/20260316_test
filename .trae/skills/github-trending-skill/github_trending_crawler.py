@@ -363,9 +363,15 @@ def main():
     # 筛选最近60天的项目
     recent_projects = filter_recent_projects(unique_projects, days=60)
     
-    # 按Star数排序，取前6个
+    # 过滤掉star数为0的项目
     if recent_projects:
-        sorted_projects = sorted(recent_projects, key=lambda x: x['stars'], reverse=True)[:6]
+        filtered_projects = [p for p in recent_projects if p['stars'] > 0]
+        if filtered_projects:
+            sorted_projects = sorted(filtered_projects, key=lambda x: x['stars'], reverse=True)[:6]
+        else:
+            # 如果过滤后没有项目，使用模拟数据
+            print("未抓取到有star的项目，使用模拟数据...")
+            sorted_projects = get_mock_data()
     else:
         # 如果没有抓取到数据，使用模拟数据
         print("未抓取到真实数据，使用模拟数据...")
