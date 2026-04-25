@@ -230,6 +230,12 @@ function parseMarkdown(md) {
 
     html = html.replace(/^## (.+)$/gm, '<h2 class="article-section-title">$1</h2>');
 
+    // 为热搜项添加锚点
+    html = html.replace(/^### (\d+)️⃣ (.+)$/gm, (match, index, title) => {
+        return `<h3 class="article-subsection-title" id="trending-${index}">${match}</h3>`;
+    });
+
+    // 处理其他三级标题
     html = html.replace(/^### (.+)$/gm, '<h3 class="article-subsection-title">$1</h3>');
 
     html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
@@ -591,11 +597,55 @@ async function loadArticle() {
 
     try {
         let content;
+        let hash = window.location.hash;
         
-        // 处理热搜项
+        // 处理热搜项 - 加载整个热搜排行文档
         if (articleId.startsWith('trending-')) {
-            const index = parseInt(articleId.split('-')[1]);
-            content = await getTrendingItemContent(index);
+            // 加载最新的热搜排行文档
+            const today = new Date();
+            const dateStr = today.toISOString().split('T')[0];
+            const latestFileName = `hot-search-${dateStr}.md`;
+            
+            let fileResponse = await fetch(`data/热搜排行/${latestFileName}`);
+            
+            // 如果今天的文件不存在，尝试其他文件
+            if (!fileResponse.ok) {
+                const files = ['hot-search-2026-04-25.md', 'week-01-2026-04-17.md'];
+                let found = false;
+                
+                for (const fileName of files) {
+                    fileResponse = await fetch(`data/热搜排行/${fileName}`);
+                    if (fileResponse.ok) {
+                        found = true;
+                        break;
+                    }
+                }
+                
+                if (!found) {
+                    // 如果还是找不到文件，使用模拟数据
+                    content = generateMockTrendingContent(1).replace(/### 1️⃣/, '### 1️⃣') + 
+                             generateMockTrendingContent(2).replace(/### 2️⃣/, '### 2️⃣') +
+                             generateMockTrendingContent(3).replace(/### 3️⃣/, '### 3️⃣') +
+                             generateMockTrendingContent(4).replace(/### 4️⃣/, '### 4️⃣') +
+                             generateMockTrendingContent(5).replace(/### 5️⃣/, '### 5️⃣') +
+                             generateMockTrendingContent(6).replace(/### 6️⃣/, '### 6️⃣') +
+                             generateMockTrendingContent(7).replace(/### 7️⃣/, '### 7️⃣') +
+                             generateMockTrendingContent(8).replace(/### 8️⃣/, '### 8️⃣') +
+                             generateMockTrendingContent(9).replace(/### 9️⃣/, '### 9️⃣') +
+                             generateMockTrendingContent(10).replace(/### 10️⃣/, '### 10️⃣');
+                } else {
+                    content = await fileResponse.text();
+                }
+            } else {
+                content = await fileResponse.text();
+            }
+            
+            // 如果有锚点，添加到URL
+            if (!hash) {
+                const index = parseInt(articleId.split('-')[1]);
+                hash = `#trending-${index}`;
+                window.location.hash = hash;
+            }
         } else if (articleInfo.file) {
             // 处理普通文章
             const response = await fetch(articleInfo.file);
@@ -619,6 +669,16 @@ async function loadArticle() {
 
         renderArticle(articleInfo, content);
         updateNextArticle(articleId);
+        
+        // 滚动到锚点位置
+        if (hash) {
+            setTimeout(() => {
+                const element = document.querySelector(hash);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 100);
+        }
     } catch (error) {
         console.error('加载文章失败:', error);
         document.getElementById('articleContent').innerHTML = `
