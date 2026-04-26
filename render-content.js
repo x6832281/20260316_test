@@ -631,7 +631,7 @@ async function getBookExcerpts() {
                         const titleMatch = content.match(/^# (.+)$/m);
                         const title = titleMatch ? titleMatch[1].trim() : file.name.replace('.md', '');
 
-                        const summaryMatch = content.match(/## 📌 一句话总结\s*\n\s*\n\*\*(.+?)\*\*/);
+                        const summaryMatch = content.match(/## 📌 一句话总结\s*\n\s*\n*\*\*(.+?)\*\*/);
                         const desc = summaryMatch ? summaryMatch[1].trim() : '';
 
                         const dateMatch = content.match(/\*\*发布时间\*\*[：:]\s*(.+)$/m);
