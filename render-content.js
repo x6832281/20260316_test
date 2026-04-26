@@ -162,84 +162,189 @@ const NEWBIE_DATA = [
     }
 ];
 
-// 从搞钱创业Markdown文件中提取数据
+// 从搞钱项目Markdown文件中提取数据
 async function getMoneyProjects() {
     console.log('=== Starting getMoneyProjects function ===');
     
-    // 直接返回硬编码的创业文档数据
-    const projects = [
+    const projects = [];
+    
+    try {
+        const dirPath = 'data/搞钱项目/';
+        const encodedDirPath = encodeURI(dirPath);
+        
+        const dirResponse = await fetch(encodedDirPath);
+        if (dirResponse.ok) {
+            const html = await dirResponse.text();
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            
+            const links = doc.querySelectorAll('a[href$=".md"]');
+            const mdFiles = [];
+            
+            links.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href) {
+                    const fileName = href.split('/').pop();
+                    if (fileName.endsWith('.md')) {
+                        mdFiles.push({href: href, name: decodeURIComponent(fileName)});
+                    }
+                }
+            });
+            
+            mdFiles.sort((a, b) => a.name.localeCompare(b.name));
+            const filesToProcess = mdFiles.slice(0, 6);
+            
+            for (const file of filesToProcess) {
+                try {
+                    const fileUrl = encodedDirPath + file.href;
+                    console.log('Fetching money project file:', fileUrl);
+                    const fileResponse = await fetch(fileUrl);
+                    if (fileResponse.ok) {
+                        const content = await fileResponse.text();
+                        
+                        const titleMatch = content.match(/^# (.+)$/m);
+                        const title = titleMatch ? titleMatch[1].trim() : file.name.replace('.md', '');
+                        
+                        const sourceMatch = content.match(/^> 数据来源[：:]\s*(.+)$/m);
+                        const source = sourceMatch ? sourceMatch[1].trim() : '未知来源';
+                        
+                        const summaryMatch = content.match(/## 📋 一句话总结\s*\n\s*\n\s*(.+?)(?:\n|$)/);
+                        const summary = summaryMatch ? summaryMatch[1].trim() : '';
+                        
+                        const revenueMatch = content.match(/## 💰 真实收入\s*\n\s*\n\s*(.+?)(?:\n|$)/);
+                        const revenue = revenueMatch ? revenueMatch[1].trim() : '未公开';
+                        
+                        const contentMatch = content.match(/## 📝 详细内容\s*\n\s*\n([\s\S]*?)(?=\n---\n)/);
+                        const detail = contentMatch ? contentMatch[1].trim() : '';
+                        
+                        const urlMatch = content.match(/## 🔗 原文链接\s*\n\s*\n\[(.+?)\]\((.+?)\)/);
+                        const articleUrl = urlMatch ? urlMatch[2] : '';
+                        
+                        const verifiedMatch = content.match(/✅ 已验证可访问/);
+                        const urlVerified = !!verifiedMatch;
+                        
+                        const categoryMap = {
+                            'TrustMRR': '海外创业',
+                            '36氪': '创投资讯',
+                            '创业邦': '创业项目',
+                            '虎嗅': '商业洞察',
+                            '人人都是产品经理': '产品经验',
+                            '钛媒体': '科技商业',
+                            '掘金': '技术创业',
+                            'i黑马': '创业报道',
+                            '鲸准': '投融资',
+                            '投融界': '项目融资',
+                        };
+                        const category = categoryMap[source] || '创业项目';
+                        
+                        const id = `money-${file.name.replace('.md', '').replace(/[^a-zA-Z0-9\u4e00-\u9fa5]/g, '-').substring(0, 30)}`;
+                        
+                        const desc = summary || (detail ? detail.substring(0, 80) + '...' : title);
+                        
+                        projects.push({
+                            id: id,
+                            title: title,
+                            category: category,
+                            icon: '💰',
+                            date: new Date().toISOString().split('T')[0],
+                            desc: desc,
+                            revenue: revenue !== '未公开' ? revenue : null,
+                            url: articleUrl,
+                            urlVerified: urlVerified,
+                            file: fileUrl
+                        });
+                        
+                        console.log('Loaded money project:', title, '- source:', source, '- revenue:', revenue);
+                    }
+                } catch (error) {
+                    console.error(`Error fetching ${file.name}:`, error);
+                }
+            }
+        } else {
+            console.warn('Failed to fetch 搞钱项目 directory:', dirResponse.status);
+        }
+    } catch (error) {
+        console.error('Error getting money projects:', error);
+    }
+    
+    console.log('Total money projects loaded:', projects.length);
+    
+    if (projects.length > 0) {
+        return projects;
+    }
+    
+    return getFallbackMoneyProjects();
+}
+
+function getFallbackMoneyProjects() {
+    return [
         {
             id: 'money-project-1',
-            title: 'AI内容生成工具',
+            title: 'Stan',
             category: 'SaaS',
-            icon: '🤖',
+            icon: '💼',
             date: new Date().toISOString().split('T')[0],
-            desc: '提供AI驱动的内容生成服务，帮助企业和个人快速创建高质量内容',
-            revenue: '$50k',
-            url: 'data/搞钱创业/AI内容生成工具.md',
-            file: 'data/搞钱创业/AI内容生成工具.md'
+            desc: '帮助创作者和自由职业者建立个人品牌、销售数字产品和服务的平台，月入$3.57M',
+            revenue: '$3.57M',
+            url: 'https://trustmrr.com',
+            urlVerified: true
         },
         {
             id: 'money-project-2',
-            title: '电商数据分析平台',
-            category: 'SaaS',
-            icon: '📊',
+            title: 'TrimRx',
+            category: '健康医疗',
+            icon: '🏥',
             date: new Date().toISOString().split('T')[0],
-            desc: '为电商卖家提供销售数据分析和优化建议，提升转化率和销售额',
-            revenue: '$25k',
-            url: 'data/搞钱创业/电商数据分析平台.md',
-            file: 'data/搞钱创业/电商数据分析平台.md'
+            desc: '在线远程医疗公司，专注GLP-1药物个性化减肥方案，月入$314k，增长19%',
+            revenue: '$314k',
+            url: 'https://trustmrr.com',
+            urlVerified: true
         },
         {
             id: 'money-project-3',
-            title: '在线教育平台',
-            category: '教育',
-            icon: '🎓',
+            title: 'Rezi',
+            category: 'AI/SaaS',
+            icon: '📄',
             date: new Date().toISOString().split('T')[0],
-            desc: '提供编程、设计等技能的在线课程，采用订阅制模式',
-            revenue: '100万',
-            url: 'data/搞钱创业/在线教育平台.md',
-            file: 'data/搞钱创业/在线教育平台.md'
+            desc: '全球最佳AI简历生成器，年新增100万用户，企业版服务300+组织，月入$287k',
+            revenue: '$287k',
+            url: 'https://trustmrr.com',
+            urlVerified: true
         },
         {
             id: 'money-project-4',
-            title: '远程协作工具',
+            title: 'Kibu',
             category: 'SaaS',
-            icon: '👥',
+            icon: '📋',
             date: new Date().toISOString().split('T')[0],
-            desc: '帮助团队进行远程协作和项目管理的工具',
-            revenue: '$15k',
-            url: 'data/搞钱创业/远程协作工具.md',
-            file: 'data/搞钱创业/远程协作工具.md'
+            desc: '专为智力障碍服务机构打造的内容合规与电子病历SaaS平台，覆盖48州，月入$234k',
+            revenue: '$234k',
+            url: 'https://trustmrr.com',
+            urlVerified: true
         },
         {
             id: 'money-project-5',
-            title: '健康饮食配送',
-            category: '电商',
-            icon: '🥗',
+            title: 'Cometly',
+            category: '营销工具',
+            icon: '📊',
             date: new Date().toISOString().split('T')[0],
-            desc: '提供健康餐食的配送服务，针对注重健康的消费群体',
-            revenue: '50万',
-            url: 'data/搞钱创业/健康饮食配送.md',
-            file: 'data/搞钱创业/健康饮食配送.md'
+            desc: 'SaaS公司营销归因分析工具，用AI对话分析广告数据，月入$215k',
+            revenue: '$215k',
+            url: 'https://trustmrr.com',
+            urlVerified: true
         },
         {
             id: 'money-project-6',
-            title: '智能健身设备',
-            category: '健康',
-            icon: '🏋️',
+            title: 'Postiz',
+            category: '营销工具',
+            icon: '📱',
             date: new Date().toISOString().split('T')[0],
-            desc: '提供智能健身设备和配套APP，帮助用户在家进行专业健身训练',
-            revenue: '30万',
-            url: 'data/搞钱创业/智能健身设备.md',
-            file: 'data/搞钱创业/智能健身设备.md'
+            desc: '开源AI社媒管理排期工具，支持自动发布和数据分析，月入$97k，增长15%',
+            revenue: '$97k',
+            url: 'https://trustmrr.com',
+            urlVerified: true
         }
     ];
-    
-    console.log('Total money projects loaded:', projects.length);
-    console.log('Projects:', projects);
-    
-    return projects;
 }
 
 // AI创意数据
@@ -400,17 +505,24 @@ const LITERATURE_DATA = [
 
 // 渲染搞钱排行卡片
 function renderMoneyCard(item) {
+    const revenueBadge = item.revenue 
+        ? `<span class="money-revenue">💰 ${item.revenue}</span>` 
+        : '';
+    const verifiedIcon = item.urlVerified ? '✅' : '';
+    const linkTarget = `article.html?id=${item.id}`;
+    
     return `
-        <a href="article.html?id=${item.id}" class="money-card" data-money-id="${item.id}">
-            <div class="money-icon">${item.icon}</div>
+        <a href="${linkTarget}" class="money-card" data-money-id="${item.id}">
+            <div class="money-icon">${item.icon || '💰'}</div>
             <div class="money-content">
                 <div class="money-meta">
                     <span class="money-category">${item.category}</span>
+                    ${revenueBadge}
                     <time class="money-date">${item.date}</time>
                 </div>
                 <h3 class="money-title">${item.title}</h3>
                 <p class="money-desc">${item.desc}</p>
-                <span class="money-link">查看 →</span>
+                <span class="money-link">查看详情 → ${verifiedIcon}</span>
             </div>
         </a>
     `;
@@ -611,19 +723,16 @@ async function getLatestTrendingData() {
             links.forEach(link => {
                 const href = link.getAttribute('href');
                 if (href) {
-                    // 提取文件名
-                    const fileName = href.split('/').pop();
+                    const fileName = decodeURIComponent(href.split('/').pop());
                     if (fileName.endsWith('.md')) {
-                        mdFiles.push(fileName);
+                        mdFiles.push({href: href, name: fileName});
                     }
                 }
             });
             
-            // 按文件名排序，找出最新的文件
             mdFiles.sort((a, b) => {
-                // 提取日期部分
-                const dateA = a.match(/\d{4}-\d{2}-\d{2}/);
-                const dateB = b.match(/\d{4}-\d{2}-\d{2}/);
+                const dateA = a.name.match(/\d{4}-\d{2}-\d{2}/);
+                const dateB = b.name.match(/\d{4}-\d{2}-\d{2}/);
                 
                 if (dateA && dateB) {
                     return new Date(dateB[0]) - new Date(dateA[0]);
@@ -631,10 +740,9 @@ async function getLatestTrendingData() {
                 return 0;
             });
             
-            // 获取最新的.md文件
             if (mdFiles.length > 0) {
                 const latestFile = mdFiles[0];
-                const fileResponse = await fetch(`data/热搜排行/${latestFile}`);
+                const fileResponse = await fetch(`data/热搜排行/${latestFile.href}`);
                 if (fileResponse.ok) {
                     const content = await fileResponse.text();
                     return extractTrendingFromMarkdown(content);
@@ -671,29 +779,24 @@ async function getFeaturedProjects() {
             links.forEach(link => {
                 const href = link.getAttribute('href');
                 if (href) {
-                    // 提取文件名
                     const fileName = href.split('/').pop();
                     if (fileName.endsWith('.md')) {
-                        mdFiles.push(fileName);
+                        mdFiles.push({href: href, name: decodeURIComponent(fileName)});
                     }
                 }
             });
             
-            // 按文件名排序
-            mdFiles.sort();
-            
-            // 限制最多6个文件
+            mdFiles.sort((a, b) => a.name.localeCompare(b.name));
             const filesToProcess = mdFiles.slice(0, 6);
             
-            // 处理每个文件
-            for (const fileName of filesToProcess) {
+            for (const file of filesToProcess) {
                 try {
-                    const fileUrl = encodedDirPath + encodeURIComponent(fileName);
+                    const fileUrl = encodedDirPath + file.href;
                     console.log('Fetching project file:', fileUrl);
                     const fileResponse = await fetch(fileUrl);
                     if (fileResponse.ok) {
                         const content = await fileResponse.text();
-                        console.log('Successfully loaded:', fileName, 'Content length:', content.length);
+                        console.log('Successfully loaded:', file.name, 'Content length:', content.length);
                         
                         // 提取项目信息
                         const nameMatch = content.match(/^# (.+)$/m);
@@ -734,10 +837,9 @@ async function getFeaturedProjects() {
                             summary = summary.substring(0, 100) + '...';
                         }
                         
-                        console.log('Extracted for', fileName, '- name:', name, 'stars:', stars, 'summary:', summary);
+                        console.log('Extracted for', file.name, '- name:', name, 'stars:', stars, 'summary:', summary);
                         
-                        // 生成ID
-                        const id = `project-${fileName.replace('.md', '')}`;
+                        const id = `project-${file.name.replace('.md', '')}`;
                         
                         projects.push({
                             id: id,
@@ -745,13 +847,13 @@ async function getFeaturedProjects() {
                             url: url,
                             stars: stars,
                             summary: summary,
-                            file: encodedDirPath + encodeURIComponent(fileName)
+                            file: fileUrl
                         });
                     } else {
-                        console.warn('Failed to fetch:', fileName, 'Status:', fileResponse.status);
+                        console.warn('Failed to fetch:', file.name, 'Status:', fileResponse.status);
                     }
                 } catch (error) {
-                    console.error(`Error fetching ${fileName}:`, error);
+                    console.error(`Error fetching ${file.name}:`, error);
                 }
             }
         } else {

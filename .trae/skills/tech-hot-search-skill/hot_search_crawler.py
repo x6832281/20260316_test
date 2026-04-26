@@ -22,19 +22,15 @@ if not os.path.exists(SAVE_DIR):
 
 # 科技网站列表
 WEBSITES = [
-    {'name': '36氪', 'url': 'https://www.36kr.com/hot', 'selector': '.hot-list-item'},
-    {'name': '虎嗅网', 'url': 'https://www.huxiu.com/', 'selector': '.hot-article-item'},
+    {'name': '新浪科技', 'url': 'https://tech.sina.com.cn/', 'selector': '.news-item'},
+    {'name': '腾讯科技', 'url': 'https://tech.qq.com/', 'selector': '.list-item'},
+    {'name': '网易科技', 'url': 'https://tech.163.com/', 'selector': '.news-item'},
+    {'name': '凤凰科技', 'url': 'https://tech.ifeng.com/', 'selector': '.news-list-item'},
     {'name': 'IT之家', 'url': 'https://www.ithome.com/', 'selector': '.hot-news-item'},
-    {'name': '机器之心', 'url': 'https://www.jiqizhixin.com/', 'selector': '.hot-article'},
-    {'name': '雷锋网', 'url': 'https://www.leiphone.com/', 'selector': '.hot-news'},
-    {'name': '快科技', 'url': 'https://www.kuaidi.com/', 'selector': '.hot-list'},
-    {'name': '极客公园', 'url': 'https://www.geekpark.net/', 'selector': '.hot-article-item'},
-    {'name': 'TechCrunch', 'url': 'https://techcrunch.com/', 'selector': '.post-block'},
-    {'name': 'The Verge', 'url': 'https://www.theverge.com/', 'selector': '.c-entry-box--compact'},
-    {'name': 'MIT Technology Review', 'url': 'https://www.technologyreview.com/', 'selector': '.post-item'},
-    {'name': 'Wired', 'url': 'https://www.wired.com/', 'selector': '.card-component'},
-    {'name': 'CSDN', 'url': 'https://www.csdn.net/', 'selector': '.hot-article-item'},
-    {'name': 'X-TECHCON 科技区角', 'url': 'https://x-techcon.com/', 'selector': '.hot-topic'}
+    {'name': '中关村在线', 'url': 'https://www.zol.com.cn/', 'selector': '.news-item'},
+    {'name': '太平洋科技', 'url': 'https://www.pconline.com.cn/', 'selector': '.news-item'},
+    {'name': '天极网', 'url': 'https://www.yesky.com/', 'selector': '.news-item'},
+    {'name': '泡泡网', 'url': 'https://www.pcpop.com/', 'selector': '.news-item'}
 ]
 
 # 分类关键词
@@ -165,10 +161,14 @@ def fetch_page(url):
     """获取网页内容"""
     try:
         headers = {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+            'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8'
         }
         response = requests.get(url, headers=headers, timeout=10)
         response.raise_for_status()
+        # 处理编码
+        if response.encoding == 'ISO-8859-1':
+            response.encoding = response.apparent_encoding
         return response.text
     except Exception as e:
         print(f"获取 {url} 失败: {e}")
@@ -178,101 +178,224 @@ def parse_36kr(html):
     """解析36氪热搜"""
     items = []
     soup = BeautifulSoup(html, 'html.parser')
-    hot_items = soup.select('.hot-list-item')
-    for i, item in enumerate(hot_items[:10]):
-        try:
-            title_elem = item.select_one('.hot-list-item-title a')
-            if title_elem:
-                title = title_elem.text.strip()
-                link = 'https://www.36kr.com' + title_elem.get('href', '')
-                items.append({
-                    'title': title,
-                    'link': link,
-                    'source': '36氪',
-                    'heat': 10 - i,
-                    'summary': title
-                })
-        except Exception as e:
-            print(f"解析36氪失败: {e}")
+    # 尝试不同的选择器
+    selectors = ['.hot-list-item', '.kr-home-hot-item', '.hot-news-item']
+    for selector in selectors:
+        hot_items = soup.select(selector)
+        if hot_items:
+            for i, item in enumerate(hot_items[:10]):
+                try:
+                    title_elem = item.select_one('a')
+                    if title_elem:
+                        title = title_elem.text.strip()
+                        link = title_elem.get('href', '')
+                        if not link.startswith('http'):
+                            link = 'https://www.36kr.com' + link
+                        items.append({
+                            'title': title,
+                            'link': link,
+                            'source': '36氪',
+                            'heat': 10 - i,
+                            'summary': title
+                        })
+                except Exception as e:
+                    print(f"解析36氪失败: {e}")
+            if items:
+                break
     return items
 
 def parse_huxiu(html):
     """解析虎嗅网热搜"""
     items = []
     soup = BeautifulSoup(html, 'html.parser')
-    hot_items = soup.select('.hot-article-item')
-    for i, item in enumerate(hot_items[:10]):
-        try:
-            title_elem = item.select_one('a')
-            if title_elem:
-                title = title_elem.text.strip()
-                link = title_elem.get('href', '')
-                if not link.startswith('http'):
-                    link = 'https://www.huxiu.com' + link
-                items.append({
-                    'title': title,
-                    'link': link,
-                    'source': '虎嗅网',
-                    'heat': 10 - i,
-                    'summary': title
-                })
-        except Exception as e:
-            print(f"解析虎嗅网失败: {e}")
+    # 尝试不同的选择器
+    selectors = ['.hot-article-item', '.hot-list-item', '.article-item']
+    for selector in selectors:
+        hot_items = soup.select(selector)
+        if hot_items:
+            for i, item in enumerate(hot_items[:10]):
+                try:
+                    title_elem = item.select_one('a')
+                    if title_elem:
+                        title = title_elem.text.strip()
+                        link = title_elem.get('href', '')
+                        if not link.startswith('http'):
+                            link = 'https://www.huxiu.com' + link
+                        items.append({
+                            'title': title,
+                            'link': link,
+                            'source': '虎嗅网',
+                            'heat': 10 - i,
+                            'summary': title
+                        })
+                except Exception as e:
+                    print(f"解析虎嗅网失败: {e}")
+            if items:
+                break
     return items
 
 def parse_ithome(html):
     """解析IT之家热搜"""
     items = []
     soup = BeautifulSoup(html, 'html.parser')
-    hot_items = soup.select('.hot-news-item')
-    for i, item in enumerate(hot_items[:10]):
-        try:
-            title_elem = item.select_one('a')
-            if title_elem:
-                title = title_elem.text.strip()
-                link = title_elem.get('href', '')
-                if not link.startswith('http'):
-                    link = 'https://www.ithome.com' + link
-                items.append({
-                    'title': title,
-                    'link': link,
-                    'source': 'IT之家',
-                    'heat': 10 - i,
-                    'summary': title
-                })
-        except Exception as e:
-            print(f"解析IT之家失败: {e}")
+    # 尝试不同的选择器
+    selectors = ['.hot-news-item', '.hot-list-item', '.news-item']
+    for selector in selectors:
+        hot_items = soup.select(selector)
+        if hot_items:
+            for i, item in enumerate(hot_items[:10]):
+                try:
+                    title_elem = item.select_one('a')
+                    if title_elem:
+                        title = title_elem.text.strip()
+                        link = title_elem.get('href', '')
+                        if not link.startswith('http'):
+                            link = 'https://www.ithome.com' + link
+                        items.append({
+                            'title': title,
+                            'link': link,
+                            'source': 'IT之家',
+                            'heat': 10 - i,
+                            'summary': title
+                        })
+                except Exception as e:
+                    print(f"解析IT之家失败: {e}")
+            if items:
+                break
     return items
 
 def parse_generic(html, source):
     """通用解析函数"""
     items = []
+    # 过滤词列表
+    filter_words = ['首页', '新浪首页', '汽车', '新闻', '教育', '体育', '娱乐', '财经', '科技',
+                   'Skip to main content', 'Register now', 'Login', 'Sign up', 'Amazon',
+                   'Home', 'About', 'Contact', 'Privacy', 'Terms', 'Services', 'Products',
+                   'Tablet Reviews', 'Cloud Computing', 'The Verge logo', 'logo',
+                   'Headphone Reviews', 'TechCrunch Desktop Logo', 'See all reviews',
+                   'TechCrunch Mobile Logo', 'See all tech', 'See all science', 'Reviews',
+                   'Desktop Logo', 'Mobile Logo', 'See all']
+    
     try:
         soup = BeautifulSoup(html, 'html.parser')
         selectors = ['.hot-article', '.hot-news', '.hot-list', '.post-block',
                     '.c-entry-box--compact', '.post-item', '.card-component',
-                    '.hot-article-item', '.hot-topic']
+                    '.hot-article-item', '.hot-topic', '.news-item', '.list-item',
+                    '.news-list-item', '.article-item', '.content-item', '.topic-item',
+                    '.headline-item', '.feature-item', '.trending-item', '.popular-item',
+                    '.hot-content', '.trending-content', '.popular-content', '.news-list']
 
         for selector in selectors:
             hot_items = soup.select(selector)
             if hot_items:
-                for i, item in enumerate(hot_items[:10]):
+                for i, item in enumerate(hot_items[:15]):
                     try:
                         title_elem = item.select_one('a')
                         if title_elem:
                             title = title_elem.text.strip()
                             link = title_elem.get('href', '')
+                            
+                            # 过滤条件
+                            if not title or len(title) < 8 or len(title) > 100:
+                                continue
+                            if any(word in title for word in filter_words):
+                                continue
+                            if link == '#' or 'javascript:' in link:
+                                continue
+                            # 过滤CSDN用户名
+                            if source == 'CSDN' and ('blog.csdn.net/' in link or len(title) < 12):
+                                continue
+                            # 过滤无效链接
+                            if link == '/' or link == './':
+                                continue
+                            # 过滤英文单词类标题
+                            if len(title.split()) == 1 and title.isalpha():
+                                continue
+                            
+                            # 确保链接完整
+                            if not link.startswith('http'):
+                                if source == '新浪科技':
+                                    link = 'https://tech.sina.com.cn' + link
+                                elif source == '腾讯科技':
+                                    link = 'https://tech.qq.com' + link
+                                elif source == '网易科技':
+                                    link = 'https://tech.163.com' + link
+                                elif source == '凤凰科技':
+                                    link = 'https://tech.ifeng.com' + link
+                                elif source == '中关村在线':
+                                    link = 'https://www.zol.com.cn' + link
+                                elif source == '太平洋科技':
+                                    link = 'https://www.pconline.com.cn' + link
+                                elif source == '天极网':
+                                    link = 'https://www.yesky.com' + link
+                                elif source == '泡泡网':
+                                    link = 'https://www.pcpop.com' + link
+                            
                             items.append({
                                 'title': title,
                                 'link': link,
                                 'source': source,
-                                'heat': 10 - i,
+                                'heat': 15 - i,
                                 'summary': title
                             })
                     except Exception:
                         pass
                 if items:
                     break
+        
+        # 如果没有找到热点，尝试直接查找所有链接
+        if not items:
+            all_links = soup.select('a')
+            for i, link_elem in enumerate(all_links[:30]):
+                try:
+                    title = link_elem.text.strip()
+                    link = link_elem.get('href', '')
+                    
+                    # 过滤条件
+                    if not title or len(title) < 10 or len(title) > 100:
+                        continue
+                    if any(word in title for word in filter_words):
+                        continue
+                    if link == '#' or 'javascript:' in link:
+                        continue
+                    # 过滤CSDN用户名
+                    if source == 'CSDN' and ('blog.csdn.net/' in link or len(title) < 12):
+                        continue
+                    # 过滤无效链接
+                    if link == '/' or link == './':
+                        continue
+                    # 过滤英文单词类标题
+                    if len(title.split()) == 1 and title.isalpha():
+                        continue
+                    
+                    # 确保链接完整
+                    if not link.startswith('http'):
+                        if source == '新浪科技':
+                            link = 'https://tech.sina.com.cn' + link
+                        elif source == '腾讯科技':
+                            link = 'https://tech.qq.com' + link
+                        elif source == '网易科技':
+                            link = 'https://tech.163.com' + link
+                        elif source == '凤凰科技':
+                            link = 'https://tech.ifeng.com' + link
+                        elif source == '中关村在线':
+                            link = 'https://www.zol.com.cn' + link
+                        elif source == '太平洋科技':
+                            link = 'https://www.pconline.com.cn' + link
+                        elif source == '天极网':
+                            link = 'https://www.yesky.com' + link
+                        elif source == '泡泡网':
+                            link = 'https://www.pcpop.com' + link
+                    
+                    items.append({
+                        'title': title,
+                        'link': link,
+                        'source': source,
+                        'heat': 10 - (i % 10),
+                        'summary': title
+                    })
+                except Exception:
+                    pass
     except Exception as e:
         print(f"解析{source}失败: {e}")
     return items
@@ -307,7 +430,7 @@ def generate_markdown(hot_items):
 
     content = f"# 📰 科技热搜榜 · {date_str}\n\n"
     content += f"**发布时间**：{time_str}\n"
-    content += f"**数据来源**：36氪、虎嗅网、IT之家、机器之心、雷锋网、快科技、极客公园、TechCrunch、The Verge、MIT Technology Review、Wired、CSDN、X-TECHCON 科技区角\n"
+    content += f"**数据来源**：新浪科技、腾讯科技、网易科技、凤凰科技、IT之家、中关村在线、太平洋科技、天极网、泡泡网\n"
     content += f"**抓取时间**：{timestamp_str}\n\n"
     content += "---\n\n"
     content += "## 🔥 今日热搜 TOP 10\n\n"

@@ -243,34 +243,34 @@ const ARTICLES_MAP = {
     },
     // 搞钱创业项目映射
     'money-project-1': {
-        file: 'data/搞钱创业/AI内容生成工具.md',
+        file: 'data/搞钱创业/Stan.md',
         tag: 'SaaS',
         tagClass: 'tag-ai'
     },
     'money-project-2': {
-        file: 'data/搞钱创业/电商数据分析平台.md',
-        tag: 'SaaS',
-        tagClass: 'tag-ai'
-    },
-    'money-project-3': {
-        file: 'data/搞钱创业/在线教育平台.md',
-        tag: '教育',
+        file: 'data/搞钱创业/TrimRx.md',
+        tag: '健康医疗',
         tagClass: 'tag-game'
     },
+    'money-project-3': {
+        file: 'data/搞钱创业/Rezi.md',
+        tag: 'AI/SaaS',
+        tagClass: 'tag-ai'
+    },
     'money-project-4': {
-        file: 'data/搞钱创业/远程协作工具.md',
+        file: 'data/搞钱创业/Kibu.md',
         tag: 'SaaS',
         tagClass: 'tag-ai'
     },
     'money-project-5': {
-        file: 'data/搞钱创业/健康饮食配送.md',
-        tag: '电商',
+        file: 'data/搞钱创业/Cometly.md',
+        tag: '营销工具',
         tagClass: 'tag-resource'
     },
     'money-project-6': {
-        file: 'data/搞钱创业/智能健身设备.md',
-        tag: '健康',
-        tagClass: 'tag-game'
+        file: 'data/搞钱创业/Postiz.md',
+        tag: '营销工具',
+        tagClass: 'tag-resource'
     }
 };
 
@@ -757,11 +757,11 @@ async function loadArticle() {
             const fileName = articleId.replace('money-', '') + '.md';
             
             // 尝试加载搞钱创业项目文件
-            let fileResponse = await fetch(`data/搞钱创业/${fileName}`);
+            let fileResponse = await fetch(`data/搞钱项目/${fileName}`);
             
             if (!fileResponse.ok) {
                 // 如果找不到文件，尝试获取目录中的所有文件
-                const dirResponse = await fetch('data/搞钱创业/');
+                const dirResponse = await fetch('data/搞钱项目/');
                 if (dirResponse.ok) {
                     const html = await dirResponse.text();
                     const parser = new DOMParser();
@@ -787,7 +787,7 @@ async function loadArticle() {
                     // 尝试加载第一个文件
                     if (mdFiles.length > 0) {
                         const firstFile = mdFiles[0];
-                        fileResponse = await fetch(`data/搞钱创业/${firstFile}`);
+                        fileResponse = await fetch(`data/搞钱项目/${firstFile}`);
                         if (fileResponse.ok) {
                             content = await fileResponse.text();
                         } else {

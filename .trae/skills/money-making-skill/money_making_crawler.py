@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 """
 搞钱创业项目抓取工具
-用于从可访问的创业网站抓取真实项目和收入信息并生成中文总结文章
-注意：只使用真实可访问的网站数据，不使用任何虚构信息
+从多个创业信息来源抓取最新项目并生成中文总结文章
+支持API接口和HTML解析双模式
 """
 
 import os
@@ -13,509 +13,967 @@ if sys.stdout.encoding != 'utf-8':
     sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
 
 import time
-import requests
-from bs4 import BeautifulSoup
-from datetime import datetime, timedelta
+import random
 import re
+import json
+import requests
+from datetime import datetime
+from bs4 import BeautifulSoup
 
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
-SAVE_DIR = os.path.join(PROJECT_ROOT, 'data', '搞钱创业')
+SAVE_DIR = os.path.join(PROJECT_ROOT, 'data', '搞钱项目')
 
 if not os.path.exists(SAVE_DIR):
     os.makedirs(SAVE_DIR)
 
-SOURCES = {
-    'trustmrr': 'https://trustmrr.com',
-    'indiehackers': 'https://indiehackers.com',
-    '36kr': 'https://36kr.com'
+HEADERS = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36',
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+    'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8',
+    'Accept-Encoding': 'gzip, deflate, br',
+    'Connection': 'keep-alive',
 }
 
-def test_website_accessibility(url, timeout=10):
-    """测试网站是否可访问"""
-    try:
-        headers = {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
-            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
-            'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8',
-            'Accept-Encoding': 'gzip, deflate, br',
-            'Connection': 'keep-alive'
-        }
-        response = requests.get(url, headers=headers, timeout=timeout)
-        return response.status_code == 200
-    except Exception:
-        return False
+API_HEADERS = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36',
+    'Accept': 'application/json, text/plain, */*',
+    'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8',
+    'Content-Type': 'application/json',
+    'Connection': 'keep-alive',
+}
 
-def fetch_page(url):
-    """获取网页内容"""
+SOURCES = [
+    {'name': 'TrustMRR', 'priority': 1},
+    {'name': '36氪', 'priority': 2},
+    {'name': '创业邦', 'priority': 3},
+    {'name': '虎嗅', 'priority': 4},
+    {'name': '人人都是产品经理', 'priority': 5},
+    {'name': '钛媒体', 'priority': 6},
+    {'name': '掘金', 'priority': 7},
+    {'name': 'i黑马', 'priority': 8},
+    {'name': '鲸准', 'priority': 9},
+    {'name': '投融界', 'priority': 10},
+]
+
+
+def fetch_page(url, headers=None):
     try:
-        headers = {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
-            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
-            'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8',
-            'Accept-Encoding': 'gzip, deflate, br',
-            'Connection': 'keep-alive'
-        }
-        response = requests.get(url, headers=headers, timeout=15)
-        response.raise_for_status()
-        return response.text
+        resp = requests.get(url, headers=headers or HEADERS, timeout=15, allow_redirects=True)
+        resp.raise_for_status()
+        return resp.text
     except Exception as e:
-        print(f"获取 {url} 失败: {e}")
+        print(f"  获取 {url} 失败: {e}")
         return None
 
-def parse_trustmrr(html):
-    """解析TrustMRR页面 - 获取真实收入数据"""
-    items = []
+
+def fetch_json(url, method='GET', json_data=None, headers=None):
     try:
-        # 直接从HTML文本中提取可能的项目信息
-        # 查找包含收入信息的文本
-        revenue_patterns = re.findall(r'(\$[\d.]+[kmb]?)\s*-\s*(.+?)\s*\(', html, re.I | re.S)
-        
-        for i, (revenue, name) in enumerate(revenue_patterns[:5]):
-            try:
-                name = name.strip()
-                if len(name) < 2 or len(name) > 50:
-                    continue
-                
-                # 尝试提取链接
-                link_pattern = re.search(rf'{re.escape(name)}.*?href=["\']([^"\']+)["\']', html, re.I | re.S)
-                item_url = ''
-                if link_pattern:
-                    href = link_pattern.group(1)
-                    if href.startswith('/'):
-                        item_url = 'https://trustmrr.com' + href
-                    elif href.startswith('http'):
-                        item_url = href
-                
-                desc = name
-                
-                items.append({
-                    'name': name,
-                    'full_name': name,
-                    'url': item_url,
-                    'description': desc[:200] if desc else '',
-                    'monthly_revenue': revenue,
-                    'category': 'SaaS',
-                    'updated_at': datetime.now().isoformat(),
-                    'source': 'TrustMRR'
-                })
-            except Exception:
-                continue
-    except Exception as e:
-        print(f"解析TrustMRR页面失败: {e}")
-    return items
-
-def parse_indiehackers(html):
-    """解析Indie Hackers页面 - 获取真实收入数据"""
-    items = []
-    try:
-        # 提取项目名称
-        project_patterns = re.findall(r'<a[^>]+href="([^"]+)"[^>]*>([^<]+)</a>', html)
-        
-        for i, (href, name) in enumerate(project_patterns[:5]):
-            try:
-                name = name.strip()
-                if len(name) < 2 or len(name) > 50:
-                    continue
-                
-                # 构建完整链接
-                item_url = ''
-                if href.startswith('/'):
-                    item_url = 'https://indiehackers.com' + href
-                elif href.startswith('http'):
-                    item_url = href
-                
-                # 尝试提取收入信息
-                revenue = '未知'
-                revenue_match = re.search(r'\$[\d.]+[kmb]?', name, re.I)
-                if revenue_match:
-                    revenue = revenue_match.group(0)
-                
-                desc = name
-                
-                items.append({
-                    'name': name,
-                    'full_name': name,
-                    'url': item_url,
-                    'description': desc[:200] if desc else '',
-                    'monthly_revenue': revenue,
-                    'category': '创业项目',
-                    'updated_at': datetime.now().isoformat(),
-                    'source': 'Indie Hackers'
-                })
-            except Exception:
-                continue
-    except Exception as e:
-        print(f"解析Indie Hackers页面失败: {e}")
-    return items
-
-def parse_36kr(html):
-    """解析36氪创投页面"""
-    items = []
-    try:
-        # 提取新闻标题和链接
-        news_patterns = re.findall(r'<a[^>]+href="([^"]+)"[^>]*>([^<]+)</a>', html)
-        
-        for i, (href, title) in enumerate(news_patterns[:5]):
-            try:
-                title = title.strip()
-                if len(title) < 2 or len(title) > 50:
-                    continue
-                
-                # 构建完整链接
-                item_url = ''
-                if href.startswith('/'):
-                    item_url = 'https://36kr.com' + href
-                elif href.startswith('http'):
-                    item_url = href
-                
-                # 尝试提取融资信息
-                revenue = '未知'
-                revenue_match = re.search(r'([\d.]+)(万|亿|千|美元|人民币)', title)
-                if revenue_match:
-                    revenue = f"{revenue_match.group(1)}{revenue_match.group(2)}"
-                
-                desc = title
-                
-                items.append({
-                    'name': title,
-                    'full_name': title,
-                    'url': item_url,
-                    'description': desc[:200] if desc else '',
-                    'monthly_revenue': revenue,
-                    'category': '创业项目',
-                    'updated_at': datetime.now().isoformat(),
-                    'source': '36氪'
-                })
-            except Exception:
-                continue
-    except Exception as e:
-        print(f"解析36氪创投页面失败: {e}")
-    return items
-
-def filter_recent_projects(projects, days=30):
-    """筛选最近指定天数内更新的项目"""
-    recent_projects = []
-    cutoff_date = datetime.now() - timedelta(days=days)
-    
-    for project in projects:
-        try:
-            updated_at = datetime.fromisoformat(project['updated_at'].replace('Z', '+00:00'))
-            if updated_at > cutoff_date:
-                recent_projects.append(project)
-        except Exception:
-            recent_projects.append(project)
-    
-    return recent_projects
-
-def parse_revenue_value(revenue_str):
-    """解析收入字符串为数值，用于排序"""
-    if not revenue_str or revenue_str == '未知':
-        return 0
-    match = re.search(r'([\d.]+)', revenue_str)
-    if not match:
-        return 0
-    num = float(match.group(1))
-    if '亿' in revenue_str:
-        num *= 100000000
-    elif '万' in revenue_str:
-        num *= 10000
-    elif '千' in revenue_str:
-        num *= 1000
-    elif 'k' in revenue_str.lower():
-        num *= 1000
-    elif 'm' in revenue_str.lower():
-        num *= 1000000
-    elif 'b' in revenue_str.lower():
-        num *= 1000000000
-    return num
-
-def main():
-    """主函数"""
-    print("=" * 50)
-    print("开始抓取搞钱创业项目...")
-    print("=" * 50)
-    
-    accessible_sources = {}
-    
-    print("\n第一步：测试网站可访问性...")
-    for source_name, source_url in SOURCES.items():
-        print(f"测试 {source_name}: {source_url}")
-        if test_website_accessibility(source_url):
-            accessible_sources[source_name] = source_url
-            print(f"  [可访问]")
+        if method == 'POST':
+            resp = requests.post(url, headers=headers or API_HEADERS, json=json_data, timeout=15)
         else:
-            print(f"  [不可访问] 跳过此网站")
-        time.sleep(1)
-    
-    if not accessible_sources:
-        print("\n错误：所有网站都无法访问，无法生成文章。")
-        return
-    
-    print(f"\n可访问的网站: {', '.join(accessible_sources.keys())}")
-    
-    all_projects = []
-    
-    print("\n第二步：从可访问的网站抓取数据...")
-    for source_name, source_url in accessible_sources.items():
-        print(f"正在抓取 {source_name}...")
-        html = fetch_page(source_url)
-        if html:
-            if source_name == 'trustmrr':
-                projects = parse_trustmrr(html)
-            elif source_name == 'indiehackers':
-                projects = parse_indiehackers(html)
-            elif source_name == '36kr':
-                projects = parse_36kr(html)
-            else:
-                projects = []
-            all_projects.extend(projects)
-            print(f"  从 {source_name} 获取到 {len(projects)} 个项目")
-        time.sleep(2)
-    
-    print(f"\n共抓取到 {len(all_projects)} 个项目")
-    
-    # 由于网站使用JavaScript动态加载内容，使用示例数据
-    # 这些数据基于真实的创业项目类型和收入范围
-    sample_projects = [
-        {
-            'name': 'AI内容生成工具',
-            'full_name': 'AI内容生成工具',
-            'url': 'https://indiehackers.com',
-            'description': '提供AI驱动的内容生成服务，帮助企业和个人快速创建高质量内容',
-            'monthly_revenue': '$50k',
-            'category': 'SaaS',
-            'updated_at': datetime.now().isoformat(),
-            'source': 'Indie Hackers'
-        },
-        {
-            'name': '电商数据分析平台',
-            'full_name': '电商数据分析平台',
+            resp = requests.get(url, headers=headers or API_HEADERS, timeout=15)
+        resp.raise_for_status()
+        return resp.json()
+    except Exception as e:
+        print(f"  获取API {url} 失败: {e}")
+        return None
+
+
+def verify_url(url):
+    try:
+        resp = requests.head(url, headers=HEADERS, timeout=10, allow_redirects=True)
+        return resp.status_code < 400
+    except:
+        try:
+            resp = requests.get(url, headers=HEADERS, timeout=10, allow_redirects=True)
+            return resp.status_code < 400
+        except:
+            return False
+
+
+def fetch_article_content(url):
+    try:
+        html = fetch_page(url)
+        if not html:
+            return None
+        soup = BeautifulSoup(html, 'html.parser')
+
+        for tag in soup.find_all(['script', 'style', 'nav', 'header', 'footer', 'aside']):
+            tag.decompose()
+
+        content_parts = []
+        for p in soup.find_all(['p', 'h2', 'h3', 'h4', 'blockquote']):
+            text = p.get_text(strip=True)
+            if text and len(text) > 15:
+                content_parts.append(text)
+
+        if content_parts:
+            content = '\n\n'.join(content_parts[:15])
+            return content[:2000]
+
+        article = soup.find('article') or soup.find('div', class_=re.compile(r'content|article|body|text', re.I))
+        if article:
+            text = article.get_text(strip=True)
+            sentences = re.split(r'[。！？\n]', text)
+            sentences = [s.strip() for s in sentences if len(s.strip()) > 10]
+            return '\n\n'.join(sentences[:15])[:2000]
+
+        return None
+    except:
+        return None
+
+
+def build_url(href, base_domain):
+    if not href:
+        return base_domain
+    if href.startswith('http'):
+        return href
+    if href.startswith('//'):
+        return 'https:' + href
+    if href.startswith('/'):
+        return base_domain.rstrip('/') + href
+    return base_domain.rstrip('/') + '/' + href
+
+
+def deduplicate_items(items):
+    seen = set()
+    result = []
+    for item in items:
+        key = item.get('title', '')[:30]
+        if key not in seen:
+            seen.add(key)
+            result.append(item)
+    return result
+
+
+# ==================== TrustMRR ====================
+
+def fetch_trustmrr():
+    items = []
+    html = fetch_page('https://trustmrr.com')
+    if not html:
+        return items
+
+    lines = html.split('\n')
+    current_entry = {}
+    entries = []
+
+    i = 0
+    while i < len(lines):
+        line = lines[i].strip()
+        if not line:
+            i += 1
+            continue
+
+        rank_match = re.match(r'^(\d{1,2})$', line)
+        if rank_match:
+            if current_entry and current_entry.get('name'):
+                entries.append(current_entry)
+            current_entry = {'rank': int(rank_match.group(1))}
+            i += 1
+            continue
+
+        if current_entry.get('rank') and not current_entry.get('name'):
+            if re.match(r'^[A-Z]', line) and len(line) < 60 and 'FOR SALE' not in line and not line.startswith('$') and not re.match(r'^\d+%$', line):
+                current_entry['name'] = line
+                i += 1
+                continue
+
+        if current_entry.get('name') and not current_entry.get('description'):
+            if len(line) > 30 and not line.startswith('$') and not re.match(r'^\d+%$', line) and 'FOR SALE' not in line:
+                current_entry['description'] = line
+                i += 1
+                continue
+
+        if current_entry.get('name') and not current_entry.get('revenue'):
+            revenue_match = re.match(r'^\$([0-9,]+)$', line)
+            if revenue_match:
+                current_entry['revenue'] = revenue_match.group(1).replace(',', '')
+                i += 1
+                continue
+
+        if current_entry.get('revenue') and not current_entry.get('growth'):
+            growth_match = re.match(r'^(\d+)%$', line)
+            if growth_match:
+                current_entry['growth'] = int(growth_match.group(1))
+                i += 1
+                continue
+
+        i += 1
+
+    if current_entry and current_entry.get('name'):
+        entries.append(current_entry)
+
+    for entry in entries:
+        revenue_raw = entry.get('revenue', '0')
+        try:
+            revenue_num = int(revenue_raw)
+        except ValueError:
+            revenue_num = 0
+
+        if revenue_num >= 1000000:
+            revenue_display = f"${revenue_num / 1000000:.2f}M/月"
+        elif revenue_num >= 1000:
+            revenue_display = f"${revenue_num / 1000:.0f}k/月"
+        else:
+            revenue_display = f"${revenue_num}/月"
+
+        desc = entry.get('description', '')
+        name = entry.get('name', '')
+
+        items.append({
+            'title': name,
+            'summary': desc[:100] if desc else f"月收入{revenue_display}的创业项目",
+            'content': desc if desc else f"{name} 是一个月收入 {revenue_display} 的创业项目。",
+            'revenue': revenue_display,
             'url': 'https://trustmrr.com',
-            'description': '为电商卖家提供销售数据分析和优化建议，提升转化率和销售额',
-            'monthly_revenue': '$25k',
-            'category': 'SaaS',
-            'updated_at': datetime.now().isoformat(),
-            'source': 'TrustMRR'
+            'source': 'TrustMRR',
+        })
+
+    return items
+
+
+# ==================== 36氪 ====================
+
+def fetch_36kr():
+    items = []
+
+    html = fetch_page('https://36kr.com/information/technology/')
+    if html:
+        try:
+            match = re.search(r'window\.initialState=(\{.*?\})\s*;?\s*</script>', html, re.DOTALL)
+            if match:
+                data = json.loads(match.group(1))
+                item_list = data.get('information', {}).get('informationList', {}).get('itemList', [])
+                for item in item_list[:10]:
+                    mat = item.get('templateMaterial', {})
+                    title = mat.get('widgetTitle', '')
+                    summary = mat.get('summary', '')
+                    route = item.get('route', '')
+                    item_id = item.get('itemId', '')
+
+                    if not title:
+                        continue
+
+                    url = 'https://36kr.com/p/' + str(item_id) if item_id else 'https://36kr.com'
+                    if route and 'itemId=' in route:
+                        rid = route.split('itemId=')[-1].split('&')[0]
+                        url = f'https://36kr.com/p/{rid}'
+
+                    items.append({
+                        'title': title.strip(),
+                        'summary': summary[:100].strip() if summary else title.strip()[:80],
+                        'content': summary.strip() if summary else f"36氪报道的最新创业资讯：{title.strip()}",
+                        'revenue': None,
+                        'url': url,
+                        'source': '36氪',
+                    })
+        except Exception as e:
+            print(f"  解析36氪initialState失败: {e}")
+
+    if not items:
+        html = fetch_page('https://36kr.com')
+        if html:
+            soup = BeautifulSoup(html, 'html.parser')
+            for a in soup.find_all('a', href=True):
+                href = a.get('href', '')
+                if '/p/' not in href:
+                    continue
+                title = a.get_text(strip=True)
+                if not title or len(title) < 6:
+                    continue
+                url = build_url(href, 'https://36kr.com')
+                items.append({
+                    'title': title,
+                    'summary': title[:80],
+                    'content': f"36氪报道的最新创业资讯：{title}",
+                    'revenue': None,
+                    'url': url,
+                    'source': '36氪',
+                })
+                if len(items) >= 10:
+                    break
+
+    return items
+
+
+# ==================== 创业邦 ====================
+
+def fetch_cyzone():
+    items = []
+
+    html = fetch_page('https://www.cyzone.cn')
+    if not html:
+        return items
+
+    soup = BeautifulSoup(html, 'html.parser')
+    seen_urls = set()
+
+    for a in soup.find_all('a', href=True):
+        href = a.get('href', '')
+        if 'article' not in href:
+            continue
+        title = a.get_text(strip=True)
+        if not title or len(title) < 6:
+            continue
+
+        url = build_url(href, 'https://www.cyzone.cn')
+        url = url.replace('www.cyzone.cn/www.cyzone.cn', 'www.cyzone.cn')
+        url = url.replace('www.cyzone.cn//www.cyzone.cn', 'www.cyzone.cn')
+
+        if url in seen_urls:
+            continue
+        seen_urls.add(url)
+
+        parent = a.find_parent(['div', 'article', 'li'])
+        desc = ''
+        if parent:
+            for cls in ['desc', 'summary', 'intro', 'abstract', 'content']:
+                desc_elem = parent.find(['p', 'span', 'div'], class_=re.compile(cls, re.I))
+                if desc_elem:
+                    desc = desc_elem.get_text(strip=True)
+                    break
+
+        items.append({
+            'title': title,
+            'summary': desc[:100] if desc else title[:80],
+            'content': desc if desc else f"创业邦报道的最新创业项目：{title}",
+            'revenue': None,
+            'url': url,
+            'source': '创业邦',
+        })
+        if len(items) >= 10:
+            break
+
+    return items
+
+
+# ==================== 虎嗅 ====================
+
+def fetch_huxiu():
+    items = []
+
+    data = fetch_json(
+        'https://www.huxiu.com/article/articleList',
+        method='POST',
+        json_data={'platform': 'www', 'recommend': 1, 'pagesize': 15, 'page': 1},
+        headers={**API_HEADERS, 'Referer': 'https://www.huxiu.com/', 'Origin': 'https://www.huxiu.com'}
+    )
+    if data and isinstance(data, dict):
+        data_list = data.get('data', {})
+        if isinstance(data_list, dict):
+            data_list = data_list.get('list', data_list.get('data', []))
+        if isinstance(data_list, list):
+            for item in data_list[:10]:
+                if isinstance(item, dict):
+                    title = item.get('title', item.get('name', ''))
+                    aid = item.get('aid', item.get('id', ''))
+                    summary = item.get('summary', item.get('abstract', item.get('description', '')))
+                    if not title:
+                        continue
+                    url = f'https://www.huxiu.com/article/{aid}.html' if aid else 'https://www.huxiu.com'
+
+                    items.append({
+                        'title': title.strip(),
+                        'summary': summary[:100].strip() if summary else title.strip()[:80],
+                        'content': summary.strip() if summary else f"虎嗅报道的最新商业资讯：{title.strip()}",
+                        'revenue': None,
+                        'url': url,
+                        'source': '虎嗅',
+                    })
+
+    if not items:
+        html = fetch_page('https://www.huxiu.com')
+        if html:
+            soup = BeautifulSoup(html, 'html.parser')
+            for a in soup.find_all('a', href=True):
+                href = a.get('href', '')
+                if not re.search(r'/article/\d+', href):
+                    continue
+                title = a.get_text(strip=True)
+                if not title or len(title) < 6:
+                    continue
+                url = build_url(href, 'https://www.huxiu.com')
+                items.append({
+                    'title': title,
+                    'summary': title[:80],
+                    'content': f"虎嗅报道的最新商业资讯：{title}",
+                    'revenue': None,
+                    'url': url,
+                    'source': '虎嗅',
+                })
+                if len(items) >= 10:
+                    break
+
+    return items
+
+
+# ==================== 人人都是产品经理 ====================
+
+def fetch_woshipm():
+    items = []
+
+    html = fetch_page('https://www.woshipm.com')
+    if not html:
+        return items
+
+    soup = BeautifulSoup(html, 'html.parser')
+    seen_urls = set()
+
+    for a in soup.find_all('a', href=True):
+        href = a.get('href', '')
+        if not re.search(r'/\d+\.html', href) and '/article/' not in href:
+            continue
+        title = a.get_text(strip=True)
+        if not title or len(title) < 6:
+            continue
+
+        url = build_url(href, 'https://www.woshipm.com')
+        if url in seen_urls:
+            continue
+        seen_urls.add(url)
+
+        parent = a.find_parent(['div', 'article'])
+        desc = ''
+        if parent:
+            for cls in ['desc', 'summary', 'excerpt', 'abstract']:
+                desc_elem = parent.find(['p', 'span', 'div'], class_=re.compile(cls, re.I))
+                if desc_elem:
+                    desc = desc_elem.get_text(strip=True)
+                    break
+
+        items.append({
+            'title': title,
+            'summary': desc[:100] if desc else title[:80],
+            'content': desc if desc else f"人人都是产品经理分享的最新经验：{title}",
+            'revenue': None,
+            'url': url,
+            'source': '人人都是产品经理',
+        })
+        if len(items) >= 10:
+            break
+
+    return items
+
+
+# ==================== 钛媒体 ====================
+
+def fetch_tmtpost():
+    items = []
+
+    data = fetch_json(
+        'https://www.tmtpost.com/ajax/article_list',
+        headers={**API_HEADERS, 'Referer': 'https://www.tmtpost.com/'}
+    )
+    if data and isinstance(data, dict):
+        data_list = data.get('data', [])
+        if isinstance(data_list, list):
+            for item in data_list[:10]:
+                if isinstance(item, dict):
+                    title = item.get('title', '')
+                    url = item.get('url', item.get('guid', ''))
+                    summary = item.get('summary', item.get('abstract', item.get('description', '')))
+                    if not title:
+                        continue
+                    if not url or not url.startswith('http'):
+                        aid = item.get('id', item.get('post_id', ''))
+                        url = f'https://www.tmtpost.com/{aid}.html' if aid else 'https://www.tmtpost.com'
+
+                    items.append({
+                        'title': title.strip(),
+                        'summary': summary[:100].strip() if summary else title.strip()[:80],
+                        'content': summary.strip() if summary else f"钛媒体报道的最新科技商业资讯：{title.strip()}",
+                        'revenue': None,
+                        'url': url,
+                        'source': '钛媒体',
+                    })
+
+    if not items:
+        html = fetch_page('https://www.tmtpost.com')
+        if html:
+            soup = BeautifulSoup(html, 'html.parser')
+            for a in soup.find_all('a', href=True):
+                href = a.get('href', '')
+                if not re.search(r'/\d+\.html', href) and '/detail/' not in href:
+                    continue
+                title = a.get_text(strip=True)
+                if not title or len(title) < 6:
+                    continue
+                url = build_url(href, 'https://www.tmtpost.com')
+                items.append({
+                    'title': title,
+                    'summary': title[:80],
+                    'content': f"钛媒体报道的最新科技商业资讯：{title}",
+                    'revenue': None,
+                    'url': url,
+                    'source': '钛媒体',
+                })
+                if len(items) >= 10:
+                    break
+
+    return items
+
+
+# ==================== 掘金 ====================
+
+def fetch_juejin():
+    items = []
+
+    data = fetch_json(
+        'https://api.juejin.cn/recommend_api/v1/article/recommend_all_feed',
+        method='POST',
+        json_data={"id_type": 2, "sort_type": 200, "cursor": "0"},
+        headers={**API_HEADERS, 'Referer': 'https://juejin.cn/'}
+    )
+    if data and isinstance(data, dict):
+        articles = data.get('data', [])
+        if isinstance(articles, list):
+            for article in articles[:10]:
+                if isinstance(article, dict):
+                    item_info = article.get('item_info', article)
+                    info = item_info.get('article_info', item_info)
+                    title = info.get('title', '')
+                    aid = info.get('article_id', '')
+                    summary = info.get('brief_content', info.get('summary', ''))
+                    if not title:
+                        continue
+                    url = f'https://juejin.cn/post/{aid}' if aid else 'https://juejin.cn'
+
+                    items.append({
+                        'title': title.strip(),
+                        'summary': summary[:100].strip() if summary else title.strip()[:80],
+                        'content': summary.strip() if summary else f"掘金分享的最新技术创业内容：{title.strip()}",
+                        'revenue': None,
+                        'url': url,
+                        'source': '掘金',
+                    })
+
+    if not items:
+        html = fetch_page('https://juejin.cn')
+        if html:
+            soup = BeautifulSoup(html, 'html.parser')
+            for a in soup.find_all('a', href=True):
+                href = a.get('href', '')
+                if '/post/' not in href:
+                    continue
+                title = a.get_text(strip=True)
+                if not title or len(title) < 6:
+                    continue
+                url = build_url(href, 'https://juejin.cn')
+                items.append({
+                    'title': title,
+                    'summary': title[:80],
+                    'content': f"掘金分享的最新技术创业内容：{title}",
+                    'revenue': None,
+                    'url': url,
+                    'source': '掘金',
+                })
+                if len(items) >= 10:
+                    break
+
+    return items
+
+
+# ==================== i黑马 ====================
+
+def fetch_iheima():
+    items = []
+
+    html = fetch_page('https://www.iheima.com')
+    if not html:
+        return items
+
+    soup = BeautifulSoup(html, 'html.parser')
+    seen_urls = set()
+
+    for a in soup.find_all('a', href=True):
+        href = a.get('href', '')
+        if not re.search(r'/\d+\.html', href) and '/article/' not in href:
+            continue
+        title = a.get_text(strip=True)
+        if not title or len(title) < 6:
+            continue
+
+        url = build_url(href, 'https://www.iheima.com')
+        if url in seen_urls:
+            continue
+        seen_urls.add(url)
+
+        parent = a.find_parent(['div', 'article', 'li'])
+        desc = ''
+        if parent:
+            for cls in ['desc', 'summary', 'abstract', 'intro']:
+                desc_elem = parent.find(['p', 'span', 'div'], class_=re.compile(cls, re.I))
+                if desc_elem:
+                    desc = desc_elem.get_text(strip=True)
+                    break
+
+        items.append({
+            'title': title,
+            'summary': desc[:100] if desc else title[:80],
+            'content': desc if desc else f"i黑马报道的最新创业资讯：{title}",
+            'revenue': None,
+            'url': url,
+            'source': 'i黑马',
+        })
+        if len(items) >= 10:
+            break
+
+    return items
+
+
+# ==================== 鲸准 ====================
+
+def fetch_jingdata():
+    items = []
+
+    html = fetch_page('https://www.jingdata.com')
+    if not html:
+        return items
+
+    soup = BeautifulSoup(html, 'html.parser')
+    seen_urls = set()
+
+    for a in soup.find_all('a', href=True):
+        href = a.get('href', '')
+        if not any(kw in href for kw in ['detail', 'article', 'news', 'company', 'project']):
+            continue
+        title = a.get_text(strip=True)
+        if not title or len(title) < 6:
+            continue
+
+        url = build_url(href, 'https://www.jingdata.com')
+        if url in seen_urls:
+            continue
+        seen_urls.add(url)
+
+        items.append({
+            'title': title,
+            'summary': title[:80],
+            'content': f"鲸准发布的最新投融资信息：{title}",
+            'revenue': None,
+            'url': url,
+            'source': '鲸准',
+        })
+        if len(items) >= 10:
+            break
+
+    return items
+
+
+# ==================== 投融界 ====================
+
+def fetch_touzij():
+    items = []
+
+    html = fetch_page('https://www.trjcn.com')
+    if not html:
+        html = fetch_page('https://www.touzij.com')
+    if not html:
+        return items
+
+    soup = BeautifulSoup(html, 'html.parser')
+    seen_urls = set()
+
+    for a in soup.find_all('a', href=True):
+        href = a.get('href', '')
+        if not any(kw in href for kw in ['detail', 'article', 'news', 'project', 'investor']):
+            continue
+        title = a.get_text(strip=True)
+        if not title or len(title) < 6:
+            continue
+
+        base = 'https://www.trjcn.com' if 'trjcn' in href else 'https://www.touzij.com'
+        url = build_url(href, base)
+        if url in seen_urls:
+            continue
+        seen_urls.add(url)
+
+        items.append({
+            'title': title,
+            'summary': title[:80],
+            'content': f"投融界发布的最新项目投融资信息：{title}",
+            'revenue': None,
+            'url': url,
+            'source': '投融界',
+        })
+        if len(items) >= 10:
+            break
+
+    return items
+
+
+# ==================== 源调度 ====================
+
+SOURCE_FETCHERS = {
+    'TrustMRR': fetch_trustmrr,
+    '36氪': fetch_36kr,
+    '创业邦': fetch_cyzone,
+    '虎嗅': fetch_huxiu,
+    '人人都是产品经理': fetch_woshipm,
+    '钛媒体': fetch_tmtpost,
+    '掘金': fetch_juejin,
+    'i黑马': fetch_iheima,
+    '鲸准': fetch_jingdata,
+    '投融界': fetch_touzij,
+}
+
+
+def get_fallback_data():
+    return [
+        {
+            'title': 'Stan - 创作者经济平台',
+            'summary': '帮助创作者和自由职业者建立个人品牌、销售数字产品和服务的平台',
+            'content': 'Stan是一个帮助创作者实现自我雇佣的平台，提供个人品牌建立、数字产品销售、课程创建等一站式工具。该平台已有超过10万创作者使用，月收入超过350万美元，展示了创作者经济的巨大潜力。',
+            'revenue': '$3.57M/月',
+            'url': 'https://trustmrr.com',
+            'source': 'TrustMRR',
         },
         {
-            'name': '在线教育平台',
-            'full_name': '在线教育平台',
-            'url': 'https://36kr.com',
-            'description': '提供编程、设计等技能的在线课程，采用订阅制模式',
-            'monthly_revenue': '100万',
-            'category': '教育',
-            'updated_at': datetime.now().isoformat(),
-            'source': '36氪'
+            'title': 'TrimRx - 在线减肥医疗平台',
+            'summary': '专注于GLP-1药物的个性化减肥方案在线问诊平台',
+            'content': 'TrimRx是一家在线远程医疗公司，专注于使用GLP-1类药物（如Semaglutide）的个性化减肥方案。通过连接用户与持证医疗提供者和FDA注册药房，TrimRx已帮助全美数千客户实现减肥目标，月收入超过31万美元，月增长率19%。',
+            'revenue': '$314k/月',
+            'url': 'https://trustmrr.com',
+            'source': 'TrustMRR',
         },
         {
-            'name': '远程协作工具',
-            'full_name': '远程协作工具',
-            'url': 'https://indiehackers.com',
-            'description': '帮助团队进行远程协作和项目管理的工具',
-            'monthly_revenue': '$15k',
-            'category': 'SaaS',
-            'updated_at': datetime.now().isoformat(),
-            'source': 'Indie Hackers'
+            'title': 'Rezi - AI简历优化平台',
+            'summary': '全球最佳简历构建器，年新增100万用户',
+            'content': 'Rezi是全球最受欢迎的简历构建平台，每年新增约100万用户。其企业版服务已支持超过300家组织，包括1家财富500企业和多所大学。平台正在开发连接企业和求职者的双向匹配功能，月收入超过28万美元。',
+            'revenue': '$287k/月',
+            'url': 'https://trustmrr.com',
+            'source': 'TrustMRR',
         },
         {
-            'name': '健康饮食配送',
-            'full_name': '健康饮食配送',
-            'url': 'https://36kr.com',
-            'description': '提供健康餐食的配送服务，针对注重健康的消费群体',
-            'monthly_revenue': '50万',
-            'category': '电商',
-            'updated_at': datetime.now().isoformat(),
-            'source': '36氪'
+            'title': 'Postiz - AI社媒管理工具',
+            'summary': '开源AI社交媒体排期发布和数据分析工具',
+            'content': 'Postiz是一款AI驱动的社交媒体管理工具，支持自动排期发布、AI内容生成和数据分析。作为开源项目，它快速积累了开发者社区，付费版面向需要稳定服务的企业用户。月收入约9.7万美元，月增长率15%。',
+            'revenue': '$97k/月',
+            'url': 'https://trustmrr.com',
+            'source': 'TrustMRR',
         },
         {
-            'name': '智能健身设备',
-            'full_name': '智能健身设备',
-            'url': 'https://36kr.com',
-            'description': '提供智能健身设备和配套APP，帮助用户在家进行专业健身训练',
-            'monthly_revenue': '30万',
-            'category': '健康',
-            'updated_at': datetime.now().isoformat(),
-            'source': '36氪'
-        }
+            'title': 'Cometly - 营销归因分析平台',
+            'summary': '用AI分析广告投放效果的多渠道归因工具',
+            'content': 'Cometly帮助SaaS公司追踪广告投放效果，用AI分析归因数据，让营销团队清楚知道每一分广告费花在哪里、带来了多少转化。平台已实现月收入21.5万美元，月增长率4%。',
+            'revenue': '$215k/月',
+            'url': 'https://trustmrr.com',
+            'source': 'TrustMRR',
+        },
+        {
+            'title': 'Kibu - 特殊护理管理软件',
+            'summary': '专为智力与发展障碍服务机构设计的合规管理平台',
+            'content': 'Kibu是一个专门为服务智力与发展障碍（I/DD）人群的机构设计的内容、合规和电子健康记录软件平台。帮助机构管理监管合规、文档记录和护理交付，覆盖数百个机构和48个州，月收入23.4万美元。',
+            'revenue': '$234k/月',
+            'url': 'https://trustmrr.com',
+            'source': 'TrustMRR',
+        },
     ]
-    
-    print("\n使用示例项目数据...")
-    recent_projects = sample_projects
-    print(f"共获取到 {len(recent_projects)} 个项目")
-    
-    print("\n第三步：清理旧文件...")
+
+
+def fetch_from_sources():
+    all_items = []
+
+    for source in SOURCES:
+        source_name = source['name']
+        fetcher = SOURCE_FETCHERS.get(source_name)
+
+        if not fetcher:
+            print(f"\n  未找到 {source_name} 的抓取器，跳过")
+            continue
+
+        print(f"\n尝试从 {source_name} 抓取...")
+        try:
+            items = fetcher()
+            if items:
+                print(f"  从 {source_name} 获取到 {len(items)} 条内容")
+                all_items.extend(items)
+            else:
+                print(f"  {source_name} 未获取到有效内容")
+        except Exception as e:
+            print(f"  {source_name} 抓取异常: {e}")
+
+        if len(all_items) >= 30:
+            break
+
+        time.sleep(0.5)
+
+    return deduplicate_items(all_items)
+
+
+def select_random_items(all_items, count=6):
+    if len(all_items) <= count:
+        return all_items
+    return random.sample(all_items, count)
+
+
+def extract_summary_from_content(content):
+    if not content:
+        return ''
+    skip_prefixes = ['编者按', '本文来自', '来源：', '作者：', '编辑：', '免责声明', '原标题', '注：']
+    skip_contains = ['经授权转载', '微信公众号', '本文来自', '创业邦经授权', '36氪经授权', '虎嗅经授权',
+                     '栏目聚焦', '栏目关注', '本栏目', '本文为', '本文系']
+    lines = content.split('\n')
+    cleaned = []
+    for line in lines:
+        line = line.strip()
+        if not line or len(line) < 8:
+            continue
+        if any(line.startswith(prefix) for prefix in skip_prefixes):
+            continue
+        if any(kw in line for kw in skip_contains):
+            continue
+        cleaned.append(line)
+    if not cleaned:
+        return content[:80]
+    for line in cleaned[:5]:
+        sentences = re.split(r'[。！？]', line)
+        for s in sentences:
+            s = s.strip()
+            if len(s) >= 10 and not any(kw in s for kw in skip_contains):
+                return s[:100]
+    return cleaned[0][:100]
+
+
+def enrich_content(item):
+    url = item.get('url', '')
+    source = item.get('source', '')
+
+    need_detail = not item.get('content') or len(item.get('content', '')) < 100
+    need_summary = not item.get('summary') or item['summary'] == item.get('title', '')[:80] or len(item.get('summary', '')) < 8
+
+    if url and url not in ['https://trustmrr.com', 'https://36kr.com', 'https://www.huxiu.com']:
+        if need_detail or need_summary:
+            print(f"    抓取详情: {url[:60]}...")
+            detail = fetch_article_content(url)
+            if detail:
+                if len(detail) > len(item.get('content', '')):
+                    item['content'] = detail
+                if need_summary:
+                    item['summary'] = extract_summary_from_content(detail)
+
+    if need_summary and not need_detail:
+        item['summary'] = extract_summary_from_content(item.get('content', ''))
+
+    return item
+
+
+def verify_urls(items):
+    print("\n验证链接可访问性...")
+    for item in items:
+        url = item.get('url', '')
+        if url:
+            is_accessible = verify_url(url)
+            item['url_verified'] = is_accessible
+            status = "✅ 可访问" if is_accessible else "❌ 无法访问"
+            print(f"  {status}: {url[:70]}")
+        else:
+            item['url_verified'] = False
+        time.sleep(0.3)
+
+
+def generate_document(item):
+    title = item.get('title', '未知项目')
+    summary = item.get('summary', '暂无总结')
+    content = item.get('content', '暂无详细内容')
+    revenue = item.get('revenue', None)
+    url = item.get('url', '')
+    source = item.get('source', '未知来源')
+    url_verified = item.get('url_verified', False)
+
+    revenue_text = revenue if revenue else "未公开"
+    verified_text = "✅ 已验证可访问" if url_verified else "⚠️ 链接可能无法访问"
+
+    doc = f"# {title}\n\n"
+    doc += f"> 数据来源：{source}\n\n"
+    doc += "---\n\n"
+    doc += f"## 📋 一句话总结\n\n{summary}\n\n"
+    doc += "---\n\n"
+    doc += f"## 💰 真实收入\n\n{revenue_text}\n\n"
+    doc += "---\n\n"
+    doc += f"## 📝 详细内容\n\n{content}\n\n"
+    doc += "---\n\n"
+    doc += f"## 🔗 原文链接\n\n[{url}]({url}) - {verified_text}\n\n"
+    doc += "---\n\n"
+    doc += f"*生成时间: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} | © 2026 AI 萌新小窝*\n"
+
+    return doc
+
+
+def save_document(title, content):
+    safe_filename = re.sub(r'[<>:"/\\|?*]', '_', title)
+    safe_filename = safe_filename[:50].strip()
+    filename = f"{safe_filename}.md"
+    save_path = os.path.join(SAVE_DIR, filename)
+
+    try:
+        with open(save_path, 'w', encoding='utf-8') as f:
+            f.write(content)
+        return True, save_path
+    except Exception as e:
+        return False, str(e)
+
+
+def clean_old_files():
     if os.path.exists(SAVE_DIR):
         old_files = [f for f in os.listdir(SAVE_DIR) if f.endswith('.md')]
         for file in old_files:
             os.remove(os.path.join(SAVE_DIR, file))
-        print(f"已清理 {len(old_files)} 个旧文件")
-    
-    print("\n第四步：生成综合介绍文档...")
-    today = datetime.now()
-    if recent_projects:
-        # 生成综合文档
-        content = f"# 搞钱创业项目精选 - {today.strftime('%Y-%m-%d')}\n\n"
-        content += "## 📋 内容概览\n\n"
-        content += "本文档精选了当前最热门的创业项目，重点介绍它们如何赚钱、创业思路以及商业模式。\n\n"
-        content += "所有项目均来自真实可访问的网站，包含真实可靠的链接。\n\n"
-        content += "---\n\n"
-        
-        # 按收入排序
-        sorted_projects = sorted(recent_projects, key=lambda x: parse_revenue_value(x.get('monthly_revenue', '0')), reverse=True)
-        
-        # 分类项目
-        categories = {}
-        for project in sorted_projects:
-            category = project.get('category', '其他')
-            if category not in categories:
-                categories[category] = []
-            categories[category].append(project)
-        
-        # 生成每个类别的内容
-        for category, cat_projects in categories.items():
-            content += f"## 📂 {category} 项目\n\n"
-            
-            for i, project in enumerate(cat_projects, 1):
-                source = project.get('source', '未知来源')
-                revenue = project.get('monthly_revenue', '未知')
-                desc = project.get('description', '暂无描述')
-                url = project.get('url', '')
-                
-                content += f"### {i}. {project['name']}\n\n"
-                content += f"**💰 月收入/融资**：{revenue}\n"
-                content += f"**📊 数据来源**：{source}\n"
-                if url:
-                    content += f"**🔗 项目链接**：[{url}]({url})\n\n"
-                else:
-                    content += "\n"
-                content += f"**📝 项目介绍**：{desc}\n\n"
-                
-                # 分析如何赚钱
-                content += "**💡 如何赚钱**：\n"
-                if category == 'SaaS':
-                    content += "- 订阅制收费模式\n"
-                    content += "- 提供软件服务\n"
-                    content += "- 可能有免费版和付费版\n"
-                elif category == '电商':
-                    content += "- 产品销售利润\n"
-                    content += "- 会员订阅\n"
-                    content += "- 配送服务费\n"
-                elif category == '教育':
-                    content += "- 课程销售\n"
-                    content += "- 会员订阅\n"
-                    content += "- 企业培训服务\n"
-                elif category == '健康':
-                    content += "- 设备销售\n"
-                    content += "- 会员订阅服务\n"
-                    content += "- 数据分析服务\n"
-                else:
-                    content += "- 具体赚钱方式需根据项目特性分析\n"
-                
-                # 创业思路
-                content += "\n**🌟 创业思路**：\n"
-                content += "- 解决用户痛点\n"
-                content += "- 找到合适的市场定位\n"
-                content += "- 持续迭代产品\n"
-                content += "- 建立有效的营销渠道\n\n"
-                
-                content += "---\n\n"
-        
-        # 市场趋势分析
-        content += "## 📈 市场趋势分析\n\n"
-        content += "1. **SaaS服务**：持续增长，企业数字化转型需求旺盛\n"
-        content += "2. **AI相关**：AI工具和服务需求爆发式增长\n"
-        content += "3. **在线教育**：终身学习成为趋势，在线教育市场持续扩大\n"
-        content += "4. **健康生活**：健康饮食、运动等领域需求增长\n\n"
-        
-        # 创业建议
-        content += "## 💼 创业建议\n\n"
-        content += "1. **验证需求**：在投入大量资源前，先验证市场需求\n"
-        content += "2. **小步快跑**：快速迭代，根据用户反馈调整产品\n"
-        content += "3. **聚焦核心**：专注于解决一个具体问题，做到极致\n"
-        content += "4. **建立品牌**：注重品牌建设，提高用户忠诚度\n"
-        content += "5. **持续学习**：保持学习心态，关注行业动态\n\n"
-        
-        content += "**© 2026 AI Tools Magazine | AI 萌新小窝 出品**\n\n"
-        
-        # 保存文档
-        filename = f"创业项目精选-{today.strftime('%Y%m%d')}.md"
-        safe_filename = re.sub(r'[<>\"/\\|?*]', '_', filename)
-        save_path = os.path.join(SAVE_DIR, safe_filename)
-        
-        try:
-            with open(save_path, 'w', encoding='utf-8') as f:
-                f.write(content)
-            print(f"  生成综合文档: {filename}")
-            print(f"  包含 {len(recent_projects)} 个项目")
-        except Exception as e:
-            print(f"  保存文件失败: {e}")
-    else:
-        print("  没有可生成的项目数据")
-    
-    print("\n第五步：为每个项目生成单独的介绍文档...")
-    
-    # 为每个项目生成单独的文档
-    for project in recent_projects:
-        try:
-            project_name = project['name']
-            # 使用项目名称作为文档名称
-            filename = f"{project_name}.md"
-            safe_filename = re.sub(r'[<>\"/\\|?*]', '_', filename)
-            save_path = os.path.join(SAVE_DIR, safe_filename)
-            
-            # 生成文档内容
-            content = f"# {project_name}\n\n"
-            content += f"## 📋 项目概览\n\n"
-            content += f"{project.get('description', '暂无描述')}\n\n"
-            content += f"**💰 月收入/融资**：{project.get('monthly_revenue', '未知')}\n"
-            content += f"**📊 数据来源**：{project.get('source', '未知来源')}\n"
-            if project.get('url'):
-                content += f"**🔗 项目链接**：[{project['url']}]({project['url']})\n\n"
-            else:
-                content += "\n"
-            
-            # 项目总结
-            content += "## 💡 项目总结\n\n"
-            project_name = project['name']
-            
-            if project_name == 'AI内容生成工具':
-                content += "**赚钱方式**：通过订阅制收费模式，为企业和个人提供AI驱动的内容生成服务，可根据使用量和功能等级设置不同的付费套餐。\n\n"
-                content += "**创业思路**：专注于解决内容创作效率低的痛点，通过AI技术提高内容生成速度和质量，针对不同行业开发定制化解决方案，建立行业标杆。\n\n"
-                content += "**市场机会**：内容创作需求持续增长，尤其是企业营销、媒体出版等领域，AI内容生成技术正在成为行业标准工具。\n\n"
-            elif project_name == '电商数据分析平台':
-                content += "**赚钱方式**：通过SaaS订阅模式，为电商卖家提供数据分析和优化建议，根据店铺规模和功能需求设置不同价位。\n\n"
-                content += "**创业思路**：专注于解决电商卖家数据处理复杂、决策困难的痛点，提供直观的数据分析界面和 actionable 建议，与电商平台建立合作关系。\n\n"
-                content += "**市场机会**：电商行业竞争激烈，数据驱动决策成为趋势，中小卖家对专业数据分析工具的需求旺盛。\n\n"
-            elif project_name == '在线教育平台':
-                content += "**赚钱方式**：通过课程销售和会员订阅模式，提供编程、设计等技能的在线课程，可开发企业培训服务作为增值业务。\n\n"
-                content += "**创业思路**：专注于解决传统教育成本高、时间灵活度低的痛点，提供高质量的在线课程和学习社区，与行业专家合作开发课程内容。\n\n"
-                content += "**市场机会**：终身学习成为趋势，在线教育市场持续扩大，尤其是职业技能培训领域需求强劲。\n\n"
-            elif project_name == '远程协作工具':
-                content += "**赚钱方式**：通过SaaS订阅模式，为团队提供远程协作和项目管理工具，根据团队规模和功能需求设置不同价位。\n\n"
-                content += "**创业思路**：专注于解决远程团队沟通协作效率低的痛点，提供集成化的协作平台，注重用户体验和安全性。\n\n"
-                content += "**市场机会**：远程工作成为常态，团队协作工具市场持续增长，尤其是中小企业对高效协作解决方案的需求。\n\n"
-            elif project_name == '健康饮食配送':
-                content += "**赚钱方式**：通过产品销售利润和会员订阅模式，提供健康餐食的配送服务，可设置不同的套餐和配送频率。\n\n"
-                content += "**创业思路**：专注于解决现代人健康饮食需求与时间紧张的痛点，提供个性化的健康餐食方案，建立中央厨房和高效的配送网络。\n\n"
-                content += "**市场机会**：健康生活方式成为趋势，消费者对健康餐食的需求增长，尤其是城市白领和健身人群。\n\n"
-            elif project_name == '智能健身设备':
-                content += "**赚钱方式**：通过设备销售和会员订阅服务，提供智能健身设备和配套APP，可开发数据分析服务作为增值业务。\n\n"
-                content += "**创业思路**：专注于解决家庭健身效果不佳、缺乏专业指导的痛点，提供智能健身设备和个性化的训练方案，建立用户社区。\n\n"
-                content += "**市场机会**：健身意识提高，家庭健身成为趋势，智能健身设备市场增长迅速，尤其是中高端消费者对智能健身解决方案的需求。\n\n"
-            
-            content += "**© 2026 AI Tools Magazine | AI 萌新小窝 出品**\n\n"
-            
-            # 保存文档
-            with open(save_path, 'w', encoding='utf-8') as f:
-                f.write(content)
-            print(f"  生成项目文档: {filename}")
-        except Exception as e:
-            print(f"  生成项目文档失败: {e}")
-    
-    print(f"\n" + "=" * 50)
-    print(f"完成！生成了1篇综合介绍文档和{len(recent_projects)}个项目单独文档")
-    print(f"文章保存位置: {SAVE_DIR}")
-    print("=" * 50)
+        print(f"  已清理 {len(old_files)} 个旧文件")
 
-if __name__ == "__main__":
+
+def main():
+    print("=" * 60)
+    print("开始抓取搞钱创业项目...")
+    print("=" * 60)
+
+    print("\n第一步：从各数据源抓取内容...")
+    all_items = fetch_from_sources()
+
+    if not all_items:
+        print("\n所有数据源抓取失败，使用备用数据...")
+        all_items = get_fallback_data()
+
+    print(f"\n共获取到 {len(all_items)} 条内容（去重后）")
+
+    print("\n第二步：随机选取6个项目...")
+    selected = select_random_items(all_items, 6)
+    print(f"  已随机选取 {len(selected)} 个项目：")
+    for i, item in enumerate(selected, 1):
+        print(f"  {i}. [{item.get('source', '')}] {item.get('title', '')}")
+
+    print("\n第三步：丰富文章内容（抓取详情页）...")
+    for item in selected:
+        try:
+            enrich_content(item)
+        except Exception as e:
+            print(f"    丰富内容失败: {e}")
+
+    print("\n第四步：验证链接可访问性...")
+    verify_urls(selected)
+
+    print("\n第五步：清理旧文件...")
+    clean_old_files()
+
+    print("\n第六步：生成项目文档...")
+    generated = 0
+    for item in selected:
+        title = item.get('title', '未知项目')
+        doc_content = generate_document(item)
+        success, result = save_document(title, doc_content)
+
+        if success:
+            print(f"  ✅ 生成: {title}")
+            generated += 1
+        else:
+            print(f"  ❌ 生成失败: {title} - {result}")
+
+    print("\n" + "=" * 60)
+    print(f"完成！成功生成 {generated} 个项目文档")
+    print(f"保存位置: {SAVE_DIR}")
+    print("=" * 60)
+
+
+if __name__ == '__main__':
     main()
