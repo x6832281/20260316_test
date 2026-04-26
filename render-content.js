@@ -110,62 +110,200 @@ function renderTrendingList(trendingItems) {
     }).join('');
 }
 
-// 萌新学习数据
-const NEWBIE_DATA = [
-    {
-        id: 'newbie-001',
-        title: 'AI 名人演讲精选',
-        category: '名人演讲',
-        icon: '🎤',
-        date: '2026-04-20',
-        desc: 'Sam Altman、李开复等 AI 领域知名人物的核心观点与推荐演讲'
-    },
-    {
-        id: 'newbie-002',
-        title: '零基础 AI 入门教程推荐',
-        category: '热门教程',
-        icon: '📚',
-        date: '2026-04-20',
-        desc: '吴恩达《AI For Everyone》等最适合新手的入门教程'
-    },
-    {
-        id: 'newbie-003',
-        title: 'B站热门 AI 学习视频',
-        category: 'B站热门学习视频',
-        icon: '📺',
-        date: '2026-04-20',
-        desc: '播放量最高的 AI 入门视频，10分钟带你了解人工智能'
-    },
-    {
-        id: 'newbie-004',
-        title: 'AI 基本术语通俗解释',
-        category: '基本术语解释',
-        icon: '📖',
-        date: '2026-04-20',
-        desc: '人工智能、机器学习、深度学习、大模型等术语的通俗解释'
-    },
-    {
-        id: 'newbie-005',
-        title: 'AI 工具使用入门指南',
-        category: '工具使用',
-        icon: '🛠️',
-        date: '2026-04-20',
-        desc: 'ChatGPT、通义千问、豆包等免费 AI 工具的使用方法'
-    },
-    {
-        id: 'newbie-006',
-        title: 'AI 效率提升：文档处理与数据整理',
-        category: 'AI效率提升',
-        icon: '⚡',
-        date: '2026-04-20',
-        desc: '用 AI 写邮件、做表格、整理数据，效率提升 80%'
+async function getNewbieLearningData() {
+    const items = [];
+
+    try {
+        const dirPath = 'data/萌新学习/';
+        const encodedDirPath = encodeURI(dirPath);
+
+        const dirResponse = await fetch(encodedDirPath);
+        if (dirResponse.ok) {
+            const html = await dirResponse.text();
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+
+            const links = doc.querySelectorAll('a[href$=".md"]');
+            const mdFiles = [];
+
+            links.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href) {
+                    const fileName = href.split('/').pop();
+                    if (fileName.endsWith('.md')) {
+                        mdFiles.push({href: href, name: decodeURIComponent(fileName)});
+                    }
+                }
+            });
+
+            mdFiles.sort((a, b) => a.name.localeCompare(b.name));
+
+            const categoryMap = {
+                '001': { category: '名人演讲', icon: '🎤' },
+                '002': { category: '热门教程', icon: '📚' },
+                '003': { category: 'B站视频', icon: '📺' },
+                '004': { category: '术语解释', icon: '📖' },
+                '005': { category: '工具使用', icon: '🛠️' },
+                '006': { category: '效率提升', icon: '⚡' },
+                '007': { category: 'AI写作', icon: '✍️' },
+                '008': { category: 'AI小说', icon: '📖' },
+                '009': { category: 'AI诗歌', icon: '🌸' },
+                '010': { category: 'AI文案', icon: '📢' },
+                '011': { category: '创作工具', icon: '🔧' },
+                '012': { category: 'Prompt技巧', icon: '🎯' },
+            };
+
+            for (const file of mdFiles) {
+                try {
+                    const fileUrl = encodedDirPath + file.href;
+                    const fileResponse = await fetch(fileUrl);
+                    if (fileResponse.ok) {
+                        const content = await fileResponse.text();
+
+                        const titleMatch = content.match(/^# (.+)$/m);
+                        const title = titleMatch ? titleMatch[1].trim() : file.name.replace('.md', '');
+
+                        const summaryMatch = content.match(/## 📌 一句话总结\s*\n\s*\n\*\*(.+?)\*\*/);
+                        const desc = summaryMatch ? summaryMatch[1].trim() : '';
+
+                        const dateMatch = content.match(/\*\*发布时间\*\*[：:]\s*(.+)$/m);
+                        const date = dateMatch ? dateMatch[1].trim() : new Date().toISOString().split('T')[0];
+
+                        const filePrefix = file.name.match(/^(\d{3})/);
+                        const prefix = filePrefix ? filePrefix[1] : '001';
+                        const catInfo = categoryMap[prefix] || { category: '萌新学习', icon: '📘' };
+
+                        const id = `newbie-${file.name.replace('.md', '').replace(/[^a-zA-Z0-9\u4e00-\u9fa5]/g, '-').substring(0, 30)}`;
+
+                        items.push({
+                            id: id,
+                            title: title,
+                            category: catInfo.category,
+                            icon: catInfo.icon,
+                            date: date,
+                            desc: desc,
+                            file: fileUrl
+                        });
+                    }
+                } catch (error) {
+                    console.error(`Error fetching ${file.name}:`, error);
+                }
+            }
+        }
+    } catch (error) {
+        console.error('Error getting newbie learning data:', error);
     }
-];
+
+    if (items.length > 0) {
+        return items;
+    }
+
+    return getFallbackNewbieData();
+}
+
+function getFallbackNewbieData() {
+    return [
+        {
+            id: 'newbie-001',
+            title: 'AI 名人演讲精选',
+            category: '名人演讲',
+            icon: '🎤',
+            date: '2026-04-20',
+            desc: 'Sam Altman、李开复等 AI 领域知名人物的核心观点与推荐演讲'
+        },
+        {
+            id: 'newbie-002',
+            title: '零基础 AI 入门教程推荐',
+            category: '热门教程',
+            icon: '📚',
+            date: '2026-04-20',
+            desc: '吴恩达《AI For Everyone》等最适合新手的入门教程'
+        },
+        {
+            id: 'newbie-003',
+            title: 'B站热门 AI 学习视频',
+            category: 'B站视频',
+            icon: '📺',
+            date: '2026-04-20',
+            desc: '播放量最高的 AI 入门视频，10分钟带你了解人工智能'
+        },
+        {
+            id: 'newbie-004',
+            title: 'AI 基本术语通俗解释',
+            category: '术语解释',
+            icon: '📖',
+            date: '2026-04-20',
+            desc: '人工智能、机器学习、深度学习、大模型等术语的通俗解释'
+        },
+        {
+            id: 'newbie-005',
+            title: 'AI 工具使用入门指南',
+            category: '工具使用',
+            icon: '🛠️',
+            date: '2026-04-20',
+            desc: 'ChatGPT、通义千问、豆包等免费 AI 工具的使用方法'
+        },
+        {
+            id: 'newbie-006',
+            title: 'AI 效率提升：文档处理与数据整理',
+            category: '效率提升',
+            icon: '⚡',
+            date: '2026-04-20',
+            desc: '用 AI 写邮件、做表格、整理数据，效率提升 80%'
+        },
+        {
+            id: 'newbie-007',
+            title: 'AI 写作入门：从零开始用 AI 写文章',
+            category: 'AI写作',
+            icon: '✍️',
+            date: '2026-04-26',
+            desc: '用 AI 写文章不是偷懒，而是让 AI 帮你打开思路，你负责把关质量'
+        },
+        {
+            id: 'newbie-008',
+            title: 'AI 小说创作：如何用 AI 辅助写小说',
+            category: 'AI小说',
+            icon: '📖',
+            date: '2026-04-26',
+            desc: 'AI 是你的写作搭档，不是你的替写机器——用它来构思、扩展、润色，你来把控故事灵魂'
+        },
+        {
+            id: 'newbie-009',
+            title: 'AI 诗歌创作：用 AI 激发诗意灵感',
+            category: 'AI诗歌',
+            icon: '🌸',
+            date: '2026-04-26',
+            desc: 'AI 不是诗人，但它是最好的诗意触发器——给它一个意象，它还你一片星空'
+        },
+        {
+            id: 'newbie-010',
+            title: 'AI 文案写作：爆款文案的 AI 生成技巧',
+            category: 'AI文案',
+            icon: '📢',
+            date: '2026-04-26',
+            desc: '爆款文案不是靠灵感，而是靠公式——AI 帮你套公式，你负责注入灵魂'
+        },
+        {
+            id: 'newbie-011',
+            title: 'AI 文学创作网站与工具推荐',
+            category: '创作工具',
+            icon: '🔧',
+            date: '2026-04-26',
+            desc: '这些 AI 写作工具和网站，从灵感激发到成稿发布，覆盖创作全流程'
+        },
+        {
+            id: 'newbie-012',
+            title: 'AI 写作常用 Prompt 技巧大全',
+            category: 'Prompt技巧',
+            icon: '🎯',
+            date: '2026-04-26',
+            desc: '提示词就是你和 AI 的"对话说明书"——写得越清楚，AI 的回答越好'
+        }
+    ];
+}
 
 // 从搞钱项目Markdown文件中提取数据
 async function getMoneyProjects() {
-    console.log('=== Starting getMoneyProjects function ===');
-    
     const projects = [];
     
     try {
@@ -197,7 +335,6 @@ async function getMoneyProjects() {
             for (const file of filesToProcess) {
                 try {
                     const fileUrl = encodedDirPath + file.href;
-                    console.log('Fetching money project file:', fileUrl);
                     const fileResponse = await fetch(fileUrl);
                     if (fileResponse.ok) {
                         const content = await fileResponse.text();
@@ -208,10 +345,10 @@ async function getMoneyProjects() {
                         const sourceMatch = content.match(/^> 数据来源[：:]\s*(.+)$/m);
                         const source = sourceMatch ? sourceMatch[1].trim() : '未知来源';
                         
-                        const summaryMatch = content.match(/## 📋 一句话总结\s*\n\s*\n\s*(.+?)(?:\n|$)/);
+                        const summaryMatch = content.match(/## 📋 一句话总结\s*\n\s*\n(.*?)\n/);
                         const summary = summaryMatch ? summaryMatch[1].trim() : '';
                         
-                        const revenueMatch = content.match(/## 💰 真实收入\s*\n\s*\n\s*(.+?)(?:\n|$)/);
+                        const revenueMatch = content.match(/## 💰 真实收入\s*\n\s*\n(.*?)\n/);
                         const revenue = revenueMatch ? revenueMatch[1].trim() : '未公开';
                         
                         const contentMatch = content.match(/## 📝 详细内容\s*\n\s*\n([\s\S]*?)(?=\n---\n)/);
@@ -253,21 +390,15 @@ async function getMoneyProjects() {
                             urlVerified: urlVerified,
                             file: fileUrl
                         });
-                        
-                        console.log('Loaded money project:', title, '- source:', source, '- revenue:', revenue);
                     }
                 } catch (error) {
                     console.error(`Error fetching ${file.name}:`, error);
                 }
             }
-        } else {
-            console.warn('Failed to fetch 搞钱项目 directory:', dirResponse.status);
         }
     } catch (error) {
         console.error('Error getting money projects:', error);
     }
-    
-    console.log('Total money projects loaded:', projects.length);
     
     if (projects.length > 0) {
         return projects;
@@ -452,56 +583,144 @@ const CASE_DATA = [
 ];
 
 // AI写作数据（文学创作）
-const LITERATURE_DATA = [
-    {
-        id: 'literature-001',
-        title: '用AI写第一篇小说：零基础入门指南',
-        category: '小说创作',
-        icon: '📖',
-        date: '2026-04-22',
-        desc: '掌握AI辅助写小说的核心步骤，零基础也能创作出精彩故事'
-    },
-    {
-        id: 'literature-002',
-        title: 'AI辅助文案创作：朋友圈、小红书爆款文案速成',
-        category: '文案创作',
-        icon: '✍️',
-        date: '2026-04-22',
-        desc: '学会用AI写吸引人的社交媒体文案，让你的内容脱颖而出'
-    },
-    {
-        id: 'literature-003',
-        title: '用AI写搞笑段子的秘诀：成为朋友圈段子手',
-        category: '幽默段子',
-        icon: '😂',
-        date: '2026-04-22',
-        desc: '掌握AI辅助写搞笑段子的技巧，让你轻松创作让人捧腹大笑的内容'
-    },
-    {
-        id: 'literature-004',
-        title: 'AI诗词创作指南：用AI写诗作词的文艺之旅',
-        category: '诗词创作',
-        icon: '🌸',
-        date: '2026-04-22',
-        desc: '学会用AI创作现代诗和古体诗，让你的文字充满诗意和文艺气息'
-    },
-    {
-        id: 'literature-005',
-        title: 'AI辅助写杂文随笔：让你的文字有深度有思想',
-        category: '杂文随笔',
-        icon: '📝',
-        date: '2026-04-22',
-        desc: '掌握AI辅助写杂文随笔的技巧，让你的文字表达更有深度和思想性'
-    },
-    {
-        id: 'literature-006',
-        title: 'AI辅助剧本创作入门：从想法到短视频剧本',
-        category: '剧本创作',
-        icon: '🎬',
-        date: '2026-04-22',
-        desc: '学会用AI辅助写短视频剧本、微电影剧本，让你的创意变成可视化内容'
+async function getBookExcerpts() {
+    const excerpts = [];
+
+    try {
+        const dirPath = 'data/书摘文案/';
+        const encodedDirPath = encodeURI(dirPath);
+
+        const dirResponse = await fetch(encodedDirPath);
+        if (dirResponse.ok) {
+            const html = await dirResponse.text();
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+
+            const links = doc.querySelectorAll('a[href$=".md"]');
+            const mdFiles = [];
+
+            links.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href) {
+                    const fileName = href.split('/').pop();
+                    if (fileName.endsWith('.md')) {
+                        mdFiles.push({href: href, name: decodeURIComponent(fileName)});
+                    }
+                }
+            });
+
+            mdFiles.sort((a, b) => a.name.localeCompare(b.name));
+            const filesToProcess = mdFiles.slice(0, 6);
+
+            const categoryMap = {
+                '001': { category: '经典书摘', icon: '📖' },
+                '002': { category: '名人名言', icon: '🏛️' },
+                '003': { category: '经典书评', icon: '✍️' },
+                '004': { category: '微信读书', icon: '📱' },
+                '005': { category: '网络热梗', icon: '🔥' },
+                '006': { category: '高赞文案', icon: '🌟' }
+            };
+
+            for (const file of filesToProcess) {
+                try {
+                    const fileUrl = encodedDirPath + file.href;
+                    const fileResponse = await fetch(fileUrl);
+                    if (fileResponse.ok) {
+                        const content = await fileResponse.text();
+
+                        const titleMatch = content.match(/^# (.+)$/m);
+                        const title = titleMatch ? titleMatch[1].trim() : file.name.replace('.md', '');
+
+                        const summaryMatch = content.match(/## 📌 一句话总结\s*\n\s*\n\*\*(.+?)\*\*/);
+                        const desc = summaryMatch ? summaryMatch[1].trim() : '';
+
+                        const dateMatch = content.match(/\*\*发布时间\*\*[：:]\s*(.+)$/m);
+                        const date = dateMatch ? dateMatch[1].trim() : new Date().toISOString().split('T')[0];
+
+                        const filePrefix = file.name.match(/^(\d{3})/);
+                        const prefix = filePrefix ? filePrefix[1] : '001';
+                        const catInfo = categoryMap[prefix] || { category: '书摘文案', icon: '📖' };
+
+                        const id = `book-excerpt-${file.name.replace('.md', '').replace(/[^a-zA-Z0-9\u4e00-\u9fa5]/g, '-').substring(0, 30)}`;
+
+                        excerpts.push({
+                            id: id,
+                            title: title,
+                            category: catInfo.category,
+                            icon: catInfo.icon,
+                            date: date,
+                            desc: desc,
+                            file: fileUrl
+                        });
+                    }
+                } catch (error) {
+                    console.error(`Error fetching ${file.name}:`, error);
+                }
+            }
+        }
+    } catch (error) {
+        console.error('Error getting book excerpts:', error);
     }
-];
+
+    if (excerpts.length > 0) {
+        return excerpts;
+    }
+
+    return getFallbackBookExcerpts();
+}
+
+function getFallbackBookExcerpts() {
+    return [
+        {
+            id: 'book-excerpt-001',
+            title: '经典书摘：那些直击灵魂的句子',
+            category: '经典书摘',
+            icon: '📖',
+            date: '2026-04-26',
+            desc: '那些被无数人划线、摘抄、反复品味的句子，每一句都是作者用一生写就的真理'
+        },
+        {
+            id: 'book-excerpt-002',
+            title: '名人名言：智者的一句话，胜过普通人的一生',
+            category: '名人名言',
+            icon: '🏛️',
+            date: '2026-04-26',
+            desc: '那些穿越时空的名言，每一句背后都是一个人用血泪换来的领悟'
+        },
+        {
+            id: 'book-excerpt-003',
+            title: '经典书评：一本书最好的注脚',
+            category: '经典书评',
+            icon: '✍️',
+            date: '2026-04-26',
+            desc: '好的书评能穿透纸背，直抵灵魂——它不仅是读后感，更是一个人与一本书的深度对话'
+        },
+        {
+            id: 'book-excerpt-004',
+            title: '微信读书高赞划线：百万读者共同标注的灵魂之句',
+            category: '微信读书',
+            icon: '📱',
+            date: '2026-04-26',
+            desc: '微信读书里被划线过万的句子，是百万读者用指尖投出的票'
+        },
+        {
+            id: 'book-excerpt-005',
+            title: '网络热梗与流行语：冲浪必备语言指南',
+            category: '网络热梗',
+            icon: '🔥',
+            date: '2026-04-26',
+            desc: '看不懂这些梗，你真的没法冲浪了！'
+        },
+        {
+            id: 'book-excerpt-006',
+            title: '抖音小红书高赞文案：爆款句子的秘密',
+            category: '高赞文案',
+            icon: '🌟',
+            date: '2026-04-26',
+            desc: '那些在抖音和小红书上获赞百万的句子，不是偶然爆火——它们精准击中了无数人的情绪'
+        }
+    ];
+}
 
 // 渲染搞钱排行卡片
 function renderMoneyCard(item) {
@@ -601,39 +820,82 @@ function renderLiteratureCard(item) {
 }
 
 // 渲染文学创作分类筛选
-function renderLiteratureWithFilter() {
+async function renderLiteratureWithFilter() {
     const container = document.getElementById('literature-container');
     if (!container) return;
-    
-    // 创建分类筛选按钮
+
+    const literatureData = await getBookExcerpts();
+
     const filterHtml = `
         <div class="literature-filter">
             <button class="literature-filter-btn active" data-category="all">全部</button>
-            <button class="literature-filter-btn" data-category="小说创作">小说</button>
-            <button class="literature-filter-btn" data-category="文案创作">文案</button>
-            <button class="literature-filter-btn" data-category="幽默段子">段子</button>
+            <button class="literature-filter-btn" data-category="经典书摘">书摘</button>
+            <button class="literature-filter-btn" data-category="名人名言">名言</button>
+            <button class="literature-filter-btn" data-category="经典书评">书评</button>
+            <button class="literature-filter-btn" data-category="网络热梗">热梗</button>
         </div>
     `;
-    
-    // 渲染卡片
-    const cardsHtml = LITERATURE_DATA.map(item => renderLiteratureCard(item)).join('');
-    
+
+    const cardsHtml = literatureData.map(item => renderLiteratureCard(item)).join('');
+
     container.innerHTML = filterHtml + `<div class="literature-grid">${cardsHtml}</div>`;
-    
-    // 绑定筛选按钮事件
+
     const filterBtns = container.querySelectorAll('.literature-filter-btn');
     filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-            // 更新按钮状态
             filterBtns.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-            
-            // 筛选卡片
+
             const category = btn.dataset.category;
             const cards = container.querySelectorAll('.literature-card');
             cards.forEach(card => {
                 const cardCategory = card.querySelector('.literature-category').textContent;
                 if (category === 'all' || cardCategory === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+}
+
+async function renderNewbieWithFilter() {
+    const container = document.getElementById('newbie-container');
+    if (!container) return;
+
+    const newbieData = await getNewbieLearningData();
+
+    const filterHtml = `
+        <div class="newbie-filter">
+            <button class="newbie-filter-btn active" data-category="all">全部</button>
+            <button class="newbie-filter-btn" data-category="入门基础">入门基础</button>
+            <button class="newbie-filter-btn" data-category="AI创作">AI创作</button>
+        </div>
+    `;
+
+    const cardsHtml = newbieData.map(item => renderNewbieCard(item)).join('');
+
+    container.innerHTML = filterHtml + `<div class="newbie-grid">${cardsHtml}</div>`;
+
+    const basicCategories = ['名人演讲', '热门教程', 'B站视频', '术语解释', '工具使用', '效率提升'];
+    const creativeCategories = ['AI写作', 'AI小说', 'AI诗歌', 'AI文案', '创作工具', 'Prompt技巧'];
+
+    const filterBtns = container.querySelectorAll('.newbie-filter-btn');
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const category = btn.dataset.category;
+            const cards = container.querySelectorAll('.newbie-card');
+            cards.forEach(card => {
+                const cardCategory = card.querySelector('.newbie-category').textContent;
+                if (category === 'all') {
+                    card.style.display = 'block';
+                } else if (category === '入门基础' && basicCategories.includes(cardCategory)) {
+                    card.style.display = 'block';
+                } else if (category === 'AI创作' && creativeCategories.includes(cardCategory)) {
                     card.style.display = 'block';
                 } else {
                     card.style.display = 'none';
@@ -1021,14 +1283,11 @@ async function renderHomepage() {
     }
     
     // 渲染萌新学习
-    const newbieGrid = document.getElementById('newbie-container');
-    if (newbieGrid) {
-        const newbieHTML = NEWBIE_DATA.map(item => renderNewbieCard(item)).join('');
-        newbieGrid.innerHTML = newbieHTML;
-    }
+    console.log('Rendering newbie learning...');
+    await renderNewbieWithFilter();
     
-    // 渲染AI创作（文学创作）
-    renderLiteratureWithFilter();
+    // 渲染书摘文案
+    await renderLiteratureWithFilter();
 }
 
 // 页面加载完成后执行

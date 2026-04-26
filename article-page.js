@@ -641,6 +641,69 @@ async function loadArticle() {
     const articleInfo = ARTICLES_MAP[articleId];
 
     if (!articleInfo) {
+        // 动态处理搞钱项目
+        if (articleId.startsWith('money-')) {
+            try {
+                console.log('Loading money project...');
+                // 尝试获取目录中的所有文件
+                const dirResponse = await fetch('data/搞钱项目/');
+                console.log('Directory response status:', dirResponse.status);
+                if (dirResponse.ok) {
+                    const html = await dirResponse.text();
+                    console.log('Directory HTML length:', html.length);
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, 'text/html');
+                    
+                    // 提取所有.md文件链接
+                    const links = doc.querySelectorAll('a[href$=".md"]');
+                    console.log('Found', links.length, 'MD files');
+                    const mdFiles = [];
+                    
+                    links.forEach(link => {
+                        const href = link.getAttribute('href');
+                        if (href) {
+                            const name = href.split('/').pop();
+                            if (name.endsWith('.md')) {
+                                mdFiles.push(name);
+                                console.log('Found MD file:', name);
+                            }
+                        }
+                    });
+                    
+                    // 按文件名排序
+                    mdFiles.sort();
+                    console.log('Sorted MD files:', mdFiles);
+                    
+                    // 直接使用第一个文件（简化处理）
+                    if (mdFiles.length > 0) {
+                        const targetFile = mdFiles[0];
+                        console.log('Using file:', targetFile);
+                        const fileResponse = await fetch(`data/搞钱项目/${targetFile}`);
+                        console.log('File response status:', fileResponse.status);
+                        if (fileResponse.ok) {
+                            const content = await fileResponse.text();
+                            console.log('File content length:', content.length);
+                            renderArticle({tag: '搞钱项目', tagClass: 'tag-ai'}, content);
+                            updateNextArticle(articleId);
+                            return;
+                        } else {
+                            console.error('File fetch failed:', fileResponse.status);
+                            throw new Error('搞钱创业项目文件加载失败');
+                        }
+                    } else {
+                        console.error('No MD files found');
+                        throw new Error('没有找到搞钱创业项目文件');
+                    }
+                } else {
+                    console.error('Directory fetch failed:', dirResponse.status);
+                    throw new Error('搞钱创业项目目录访问失败');
+                }
+            } catch (error) {
+                console.error('加载搞钱项目失败:', error);
+            }
+        }
+        
+        // 如果不是搞钱项目或者加载失败，显示错误
         document.getElementById('articleContent').innerHTML = `
             <div class="article-error">
                 <h2>文章未找到</h2>

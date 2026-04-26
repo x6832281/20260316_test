@@ -456,10 +456,14 @@ def generate_markdown(hot_items):
         content += f"**详细解读**：\n{eval_data['details']}\n\n"
         content += f"**个人评价**：\n"
         content += f"- **优点**：{eval_data['pros']}\n"
-        content += f"- **缺点**：{eval_data['cons']}\n"
-        content += f"- **适合人群**：{eval_data['suitable']}\n"
-        content += f"- **使用难度**：{eval_data['difficulty']}\n"
-        content += f"- **竞品对比**：{eval_data['comparison']}\n"
+        if eval_data.get('cons') and eval_data['cons'] != '暂无评价':
+            content += f"- **缺点**：{eval_data['cons']}\n"
+        if eval_data.get('suitable') and eval_data['suitable'] != '暂无评价':
+            content += f"- **适合人群**：{eval_data['suitable']}\n"
+        if eval_data.get('difficulty') and eval_data['difficulty'] != '暂无评价':
+            content += f"- **使用难度**：{eval_data['difficulty']}\n"
+        if eval_data.get('comparison') and eval_data['comparison'] != '暂无评价':
+            content += f"- **竞品对比**：{eval_data['comparison']}\n"
         content += f"- **推荐指数**：{eval_data['rating']}\n\n"
 
         content += f"**相关链接**：\n"
