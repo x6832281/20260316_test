@@ -1,6 +1,6 @@
 ---
 name: "github-trending-skill"
-description: "抓取GitHub上最近1个月最火的项目并生成中文总结文章"
+description: "抓取GitHub上最近1周最火的项目并生成中文总结文章"
 ---
 
 # GitHub 热门项目抓取工具

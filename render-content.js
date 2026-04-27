@@ -173,7 +173,7 @@ async function getNewbieLearningData() {
                         const prefix = filePrefix ? filePrefix[1] : '001';
                         const catInfo = categoryMap[prefix] || { category: '萌新学习', icon: '📘' };
 
-                        const id = `newbie-${file.name.replace('.md', '').replace(/[^a-zA-Z0-9\u4e00-\u9fa5]/g, '-').substring(0, 30)}`;
+                        const id = `newbie-${prefix}`;
 
                         items.push({
                             id: id,
@@ -182,7 +182,8 @@ async function getNewbieLearningData() {
                             icon: catInfo.icon,
                             date: date,
                             desc: desc,
-                            file: fileUrl
+                            file: fileUrl,
+                            fileName: file.name
                         });
                     }
                 } catch (error) {
@@ -374,7 +375,8 @@ async function getMoneyProjects() {
                         };
                         const category = categoryMap[source] || '创业项目';
                         
-                        const id = `money-${file.name.replace('.md', '').replace(/[^a-zA-Z0-9\u4e00-\u9fa5]/g, '-').substring(0, 30)}`;
+                        const index = filesToProcess.indexOf(file) + 1;
+                        const id = `money-${index}`;
                         
                         const desc = summary || (detail ? detail.substring(0, 80) + '...' : title);
                         
@@ -388,7 +390,8 @@ async function getMoneyProjects() {
                             revenue: revenue !== '未公开' ? revenue : null,
                             url: articleUrl,
                             urlVerified: urlVerified,
-                            file: fileUrl
+                            file: fileUrl,
+                            moneyFileName: file.name
                         });
                     }
                 } catch (error) {
@@ -785,8 +788,9 @@ function renderCaseCard(item) {
 
 // 渲染萌新学习卡片
 function renderNewbieCard(item) {
+    const fileParam = item.fileName ? `&file=${encodeURIComponent(item.fileName)}` : '';
     return `
-        <a href="article.html?id=${item.id}" class="newbie-card" data-newbie-id="${item.id}">
+        <a href="article.html?id=${item.id}${fileParam}" class="newbie-card" data-newbie-id="${item.id}">
             <div class="newbie-icon">${item.icon}</div>
             <div class="newbie-content">
                 <div class="newbie-meta">
@@ -959,63 +963,15 @@ function extractTrendingFromMarkdown(markdownContent) {
 // 获取最新的热搜排行文档
 async function getLatestTrendingData() {
     try {
-        // 直接尝试读取最新的文件（基于当前日期）
-        const today = new Date();
-        const dateStr = today.toISOString().split('T')[0];
-        const latestFileName = `hot-search-${dateStr}.md`;
-        
-        // 尝试读取今天的文件
-        const fileResponse = await fetch(`data/热搜排行/${latestFileName}`);
+        const fileResponse = await fetch('data/热搜排行/hot-search-latest.md');
         if (fileResponse.ok) {
             const content = await fileResponse.text();
             return extractTrendingFromMarkdown(content);
-        }
-        
-        // 如果今天的文件不存在，尝试获取目录中的所有文件
-        const dirResponse = await fetch('data/热搜排行/');
-        if (dirResponse.ok) {
-            const html = await dirResponse.text();
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(html, 'text/html');
-            
-            // 提取所有.md文件链接
-            const links = doc.querySelectorAll('a[href$=".md"]');
-            const mdFiles = [];
-            
-            links.forEach(link => {
-                const href = link.getAttribute('href');
-                if (href) {
-                    const fileName = decodeURIComponent(href.split('/').pop());
-                    if (fileName.endsWith('.md')) {
-                        mdFiles.push({href: href, name: fileName});
-                    }
-                }
-            });
-            
-            mdFiles.sort((a, b) => {
-                const dateA = a.name.match(/\d{4}-\d{2}-\d{2}/);
-                const dateB = b.name.match(/\d{4}-\d{2}-\d{2}/);
-                
-                if (dateA && dateB) {
-                    return new Date(dateB[0]) - new Date(dateA[0]);
-                }
-                return 0;
-            });
-            
-            if (mdFiles.length > 0) {
-                const latestFile = mdFiles[0];
-                const fileResponse = await fetch(`data/热搜排行/${latestFile.href}`);
-                if (fileResponse.ok) {
-                    const content = await fileResponse.text();
-                    return extractTrendingFromMarkdown(content);
-                }
-            }
         }
     } catch (error) {
         console.error('Error fetching latest trending data:', error);
     }
     
-    // 如果获取失败，返回默认数据
     return TRENDING_DATA;
 }
 

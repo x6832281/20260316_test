@@ -534,9 +534,12 @@ def main():
 
     markdown_content = generate_markdown(all_items)
 
-    today = datetime.now().strftime('%Y-%m-%d')
-    filename = f"hot-search-{today}.md"
+    filename = "hot-search-latest.md"
     save_path = os.path.join(SAVE_DIR, filename)
+
+    # 删除旧的热搜文件
+    if os.path.exists(save_path):
+        os.remove(save_path)
 
     try:
         with open(save_path, 'w', encoding='utf-8') as f:

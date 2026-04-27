@@ -121,6 +121,36 @@ const ARTICLES_MAP = {
         tag: 'AI效率提升',
         tagClass: 'tag-game'
     },
+    'newbie-007': {
+        file: 'data/萌新学习/007-AI写作入门从零开始用AI写文章.md',
+        tag: 'AI写作',
+        tagClass: 'tag-ai'
+    },
+    'newbie-008': {
+        file: 'data/萌新学习/008-AI小说创作如何用AI辅助写小说.md',
+        tag: 'AI小说',
+        tagClass: 'tag-ai'
+    },
+    'newbie-009': {
+        file: 'data/萌新学习/009-AI诗歌创作用AI激发诗意灵感.md',
+        tag: 'AI诗歌',
+        tagClass: 'tag-ai'
+    },
+    'newbie-010': {
+        file: 'data/萌新学习/010-AI文案写作爆款文案生成技巧.md',
+        tag: 'AI文案',
+        tagClass: 'tag-ai'
+    },
+    'newbie-011': {
+        file: 'data/萌新学习/011-AI文学创作网站与工具推荐.md',
+        tag: '创作工具',
+        tagClass: 'tag-ai'
+    },
+    'newbie-012': {
+        file: 'data/萌新学习/012-AI写作常用Prompt技巧大全.md',
+        tag: 'Prompt技巧',
+        tagClass: 'tag-ai'
+    },
     'money-001': {
         file: 'data/搞钱排行/001-AI自媒体月入过万.md',
         tag: '自媒体',
@@ -389,33 +419,15 @@ function updateNextArticle(currentId) {
 // 从热搜排行文档中提取指定项的内容
 async function getTrendingItemContent(index) {
     try {
-        // 直接尝试读取今天的文件
-        const today = new Date();
-        const dateStr = today.toISOString().split('T')[0];
-        const latestFileName = `hot-search-${dateStr}.md`;
+        // 直接读取固定文件名
+        const latestFileName = 'hot-search-latest.md';
         
         let fileResponse = await fetch(`data/热搜排行/${latestFileName}`);
         let content;
         
-        // 如果今天的文件不存在，尝试获取目录中的最新文件
+        // 如果文件不存在，返回模拟数据
         if (!fileResponse.ok) {
-            // 尝试直接读取目录中的文件
-            const files = ['hot-search-2026-04-25.md', 'week-01-2026-04-17.md'];
-            let found = false;
-            
-            for (const fileName of files) {
-                fileResponse = await fetch(`data/热搜排行/${fileName}`);
-                if (fileResponse.ok) {
-                    content = await fileResponse.text();
-                    found = true;
-                    break;
-                }
-            }
-            
-            if (!found) {
-                // 如果还是找不到文件，返回模拟数据
-                return generateMockTrendingContent(index);
-            }
+            return generateMockTrendingContent(index);
         } else {
             content = await fileResponse.text();
         }
@@ -641,69 +653,146 @@ async function loadArticle() {
     const articleInfo = ARTICLES_MAP[articleId];
 
     if (!articleInfo) {
-        // 动态处理搞钱项目
-        if (articleId.startsWith('money-')) {
+        // 动态处理搞钱项目 (money-1, money-2, etc.)
+        if (/^money-\d+$/.test(articleId)) {
             try {
-                console.log('Loading money project...');
-                // 尝试获取目录中的所有文件
+                const projectIndex = parseInt(articleId.replace('money-', ''));
+                
+                // 获取搞钱项目目录列表
                 const dirResponse = await fetch('data/搞钱项目/');
-                console.log('Directory response status:', dirResponse.status);
                 if (dirResponse.ok) {
                     const html = await dirResponse.text();
-                    console.log('Directory HTML length:', html.length);
                     const parser = new DOMParser();
                     const doc = parser.parseFromString(html, 'text/html');
                     
-                    // 提取所有.md文件链接
+                    // 提取所有.md文件
                     const links = doc.querySelectorAll('a[href$=".md"]');
-                    console.log('Found', links.length, 'MD files');
                     const mdFiles = [];
-                    
                     links.forEach(link => {
                         const href = link.getAttribute('href');
                         if (href) {
                             const name = href.split('/').pop();
                             if (name.endsWith('.md')) {
                                 mdFiles.push(name);
-                                console.log('Found MD file:', name);
                             }
                         }
                     });
                     
                     // 按文件名排序
                     mdFiles.sort();
-                    console.log('Sorted MD files:', mdFiles);
                     
-                    // 直接使用第一个文件（简化处理）
-                    if (mdFiles.length > 0) {
-                        const targetFile = mdFiles[0];
-                        console.log('Using file:', targetFile);
+                    // 根据索引获取对应的文件
+                    const targetIndex = projectIndex - 1;
+                    if (targetIndex >= 0 && targetIndex < mdFiles.length) {
+                        const targetFile = mdFiles[targetIndex];
                         const fileResponse = await fetch(`data/搞钱项目/${targetFile}`);
-                        console.log('File response status:', fileResponse.status);
                         if (fileResponse.ok) {
                             const content = await fileResponse.text();
-                            console.log('File content length:', content.length);
                             renderArticle({tag: '搞钱项目', tagClass: 'tag-ai'}, content);
                             updateNextArticle(articleId);
                             return;
                         } else {
-                            console.error('File fetch failed:', fileResponse.status);
-                            throw new Error('搞钱创业项目文件加载失败');
+                            console.error('搞钱项目文件加载失败:', targetFile, fileResponse.status);
                         }
                     } else {
-                        console.error('No MD files found');
-                        throw new Error('没有找到搞钱创业项目文件');
+                        console.error('搞钱项目索引超出范围:', projectIndex, mdFiles.length);
                     }
                 } else {
-                    console.error('Directory fetch failed:', dirResponse.status);
-                    throw new Error('搞钱创业项目目录访问失败');
+                    console.error('搞钱项目目录访问失败:', dirResponse.status);
                 }
             } catch (error) {
                 console.error('加载搞钱项目失败:', error);
             }
         }
         
-        // 如果不是搞钱项目或者加载失败，显示错误
+        // 动态处理萌新学习
+        if (articleId.startsWith('newbie-')) {
+            try {
+                console.log('Loading newbie learning article:', articleId);
+                const params = new URLSearchParams(window.location.search);
+                const fileName = params.get('file');
+                
+                if (fileName) {
+                    const fileResponse = await fetch(`data/萌新学习/${fileName}`);
+                    if (fileResponse.ok) {
+                        const content = await fileResponse.text();
+                        const titleMatch = content.match(/^# (.+)$/m);
+                        const dateMatch = content.match(/\*\*发布时间\*\*[：:]\s*(\d{4}-\d{2}-\d{2})/);
+                        const summaryMatch = content.match(/## 📌 一句话总结\s*\n\s*\n\*\*(.+?)\*\*/);
+                        
+                        const prefix = articleId.replace('newbie-', '');
+                        const categoryMap = {
+                            '001': '名人演讲', '002': '热门教程', '003': 'B站视频',
+                            '004': '术语解释', '005': '工具使用', '006': '效率提升',
+                            '007': 'AI写作', '008': 'AI小说', '009': 'AI诗歌',
+                            '010': 'AI文案', '011': '创作工具', '012': 'Prompt技巧'
+                        };
+                        
+                        renderArticle({
+                            tag: categoryMap[prefix] || '萌新学习',
+                            tagClass: 'tag-ai',
+                            title: titleMatch ? titleMatch[1] : '',
+                            date: dateMatch ? dateMatch[1] : ''
+                        }, content);
+                        updateNextArticle(articleId);
+                        return;
+                    }
+                }
+                
+                const dirResponse = await fetch('data/萌新学习/');
+                if (dirResponse.ok) {
+                    const html = await dirResponse.text();
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, 'text/html');
+                    const links = doc.querySelectorAll('a[href$=".md"]');
+                    const mdFiles = [];
+                    
+                    links.forEach(link => {
+                        const href = link.getAttribute('href');
+                        if (href) {
+                            const name = decodeURIComponent(href.split('/').pop());
+                            if (name.endsWith('.md')) {
+                                mdFiles.push(name);
+                            }
+                        }
+                    });
+                    
+                    mdFiles.sort();
+                    
+                    const prefix = articleId.replace('newbie-', '');
+                    const targetFile = mdFiles.find(f => f.startsWith(prefix));
+                    
+                    if (targetFile) {
+                        const fileResponse = await fetch(`data/萌新学习/${encodeURIComponent(targetFile)}`);
+                        if (fileResponse.ok) {
+                            const content = await fileResponse.text();
+                            const titleMatch = content.match(/^# (.+)$/m);
+                            const dateMatch = content.match(/\*\*发布时间\*\*[：:]\s*(\d{4}-\d{2}-\d{2})/);
+                            
+                            const categoryMap = {
+                                '001': '名人演讲', '002': '热门教程', '003': 'B站视频',
+                                '004': '术语解释', '005': '工具使用', '006': '效率提升',
+                                '007': 'AI写作', '008': 'AI小说', '009': 'AI诗歌',
+                                '010': 'AI文案', '011': '创作工具', '012': 'Prompt技巧'
+                            };
+                            
+                            renderArticle({
+                                tag: categoryMap[prefix] || '萌新学习',
+                                tagClass: 'tag-ai',
+                                title: titleMatch ? titleMatch[1] : '',
+                                date: dateMatch ? dateMatch[1] : ''
+                            }, content);
+                            updateNextArticle(articleId);
+                            return;
+                        }
+                    }
+                }
+            } catch (error) {
+                console.error('加载萌新学习文章失败:', error);
+            }
+        }
+        
+        // 如果不是已知类型或者加载失败，显示错误
         document.getElementById('articleContent').innerHTML = `
             <div class="article-error">
                 <h2>文章未找到</h2>
@@ -720,41 +809,23 @@ async function loadArticle() {
         
         // 处理热搜项 - 加载整个热搜排行文档
         if (articleId.startsWith('trending-')) {
-            // 加载最新的热搜排行文档
-            const today = new Date();
-            const dateStr = today.toISOString().split('T')[0];
-            const latestFileName = `hot-search-${dateStr}.md`;
+            // 加载最新的热搜排行文档（固定文件名）
+            const latestFileName = 'hot-search-latest.md';
             
             let fileResponse = await fetch(`data/热搜排行/${latestFileName}`);
             
-            // 如果今天的文件不存在，尝试其他文件
+            // 如果文件不存在，使用模拟数据
             if (!fileResponse.ok) {
-                const files = ['hot-search-2026-04-25.md', 'week-01-2026-04-17.md'];
-                let found = false;
-                
-                for (const fileName of files) {
-                    fileResponse = await fetch(`data/热搜排行/${fileName}`);
-                    if (fileResponse.ok) {
-                        found = true;
-                        break;
-                    }
-                }
-                
-                if (!found) {
-                    // 如果还是找不到文件，使用模拟数据
-                    content = generateMockTrendingContent(1).replace(/### 1️⃣/, '### 1️⃣') + 
-                             generateMockTrendingContent(2).replace(/### 2️⃣/, '### 2️⃣') +
-                             generateMockTrendingContent(3).replace(/### 3️⃣/, '### 3️⃣') +
-                             generateMockTrendingContent(4).replace(/### 4️⃣/, '### 4️⃣') +
-                             generateMockTrendingContent(5).replace(/### 5️⃣/, '### 5️⃣') +
-                             generateMockTrendingContent(6).replace(/### 6️⃣/, '### 6️⃣') +
-                             generateMockTrendingContent(7).replace(/### 7️⃣/, '### 7️⃣') +
-                             generateMockTrendingContent(8).replace(/### 8️⃣/, '### 8️⃣') +
-                             generateMockTrendingContent(9).replace(/### 9️⃣/, '### 9️⃣') +
-                             generateMockTrendingContent(10).replace(/### 10️⃣/, '### 10️⃣');
-                } else {
-                    content = await fileResponse.text();
-                }
+                content = generateMockTrendingContent(1).replace(/### 1️⃣/, '### 1️⃣') + 
+                         generateMockTrendingContent(2).replace(/### 2️⃣/, '### 2️⃣') +
+                         generateMockTrendingContent(3).replace(/### 3️⃣/, '### 3️⃣') +
+                         generateMockTrendingContent(4).replace(/### 4️⃣/, '### 4️⃣') +
+                         generateMockTrendingContent(5).replace(/### 5️⃣/, '### 5️⃣') +
+                         generateMockTrendingContent(6).replace(/### 6️⃣/, '### 6️⃣') +
+                         generateMockTrendingContent(7).replace(/### 7️⃣/, '### 7️⃣') +
+                         generateMockTrendingContent(8).replace(/### 8️⃣/, '### 8️⃣') +
+                         generateMockTrendingContent(9).replace(/### 9️⃣/, '### 9️⃣') +
+                         generateMockTrendingContent(10).replace(/### 10️⃣/, '### 10️⃣');
             } else {
                 content = await fileResponse.text();
             }

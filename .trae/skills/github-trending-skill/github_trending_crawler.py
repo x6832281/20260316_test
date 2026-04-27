@@ -363,8 +363,8 @@ def main():
             seen_names.add(project['full_name'])
             unique_projects.append(project)
     
-    # 筛选最近30天的项目
-    recent_projects = filter_recent_projects(unique_projects, days=30)
+    # 筛选最近7天的项目
+    recent_projects = filter_recent_projects(unique_projects, days=7)
     
     # 过滤掉star数为0的项目
     if recent_projects:
