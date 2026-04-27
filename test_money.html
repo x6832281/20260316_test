@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>搞钱项目测试</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #0f172a; color: #e2e8f0; padding: 20px; }
+        .result { margin: 20px 0; padding: 15px; border-radius: 8px; }
+        .success { background: rgba(34,197,94,0.1); border-left: 4px solid #22c55e; }
+        .error { background: rgba(239,68,68,0.1); border-left: 4px solid #ef4444; }
+        .info { background: rgba(59,130,246,0.1); border-left: 4px solid #3b82f6; }
+    </style>
+</head>
+<body>
+    <h1>搞钱项目渲染测试</h1>
+    <div id="results"></div>
+    <div id="cards"></div>
+
+    <script>
+    async function testMoneyProjects() {
+        const results = document.getElementById('results');
+        const cards = document.getElementById('cards');
+        
+        try {
+            // 测试目录访问
+            const dirPath = 'data/搞钱项目/';
+            const encodedDirPath = encodeURI(dirPath);
+            const dirResponse = await fetch(encodedDirPath);
+            
+            if (!dirResponse.ok) {
+                results.innerHTML += '<div class="result error">❌ 目录访问失败: ' + dirResponse.status + '</div>';
+                return;
+            }
+            
+            results.innerHTML += '<div class="result success">✅ 目录访问成功</div>';
+            
+            const html = await dirResponse.text();
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            
+            const links = doc.querySelectorAll('a[href$=".md"]');
+            results.innerHTML += '<div class="result info">📁 找到 ' + links.length + ' 个.md文件</div>';
+            
+            const mdFiles = [];
+            links.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href && href.endsWith('.md')) {
+                    mdFiles.push({href: href, name: decodeURIComponent(href.split('/').pop())});
+                }
+            });
+            
+            mdFiles.sort((a, b) => a.name.localeCompare(b.name));
+            const filesToProcess = mdFiles.slice(0, 6);
+            
+            // 加载并解析文件
+            const projects = [];
+            for (let i = 0; i < filesToProcess.length; i++) {
+                const file = filesToProcess[i];
+                try {
+                    const fileUrl = encodedDirPath + file.href;
+                    const fileResponse = await fetch(fileUrl);
+                    if (fileResponse.ok) {
+                        const content = await fileResponse.text();
+                        const titleMatch = content.match(/^# (.+)$/m);
+                        const title = titleMatch ? titleMatch[1].trim() : file.name.replace('.md', '');
+                        
+                        const sourceMatch = content.match(/^> 数据来源[：:]\s*(.+)$/m);
+                        const source = sourceMatch ? sourceMatch[1].trim() : '未知来源';
+                        
+                        const summaryMatch = content.match(/## 📋 一句话总结\s*\n\s*\n(.*?)\n/);
+                        const summary = summaryMatch ? summaryMatch[1].trim() : '';
+                        
+                        const categoryMap = {
+                            'TrustMRR': '海外创业',
+                            '36氪': '创投资讯',
+                            '创业邦': '创业项目',
+                            '虎嗅': '商业洞察',
+                            '人人都是产品经理': '产品经验',
+                            '钛媒体': '科技商业',
+                            '掘金': '技术创业',
+                            'i黑马': '创业报道',
+                            '鲸准': '投融资',
+                            '投融界': '项目融资',
+                        };
+                        const category = categoryMap[source] || '创业项目';
+                        
+                        const id = 'money-' + (i + 1);
+                        const desc = summary || title;
+                        
+                        projects.push({ id, title, category, desc, urlVerified: true });
+                        
+                        results.innerHTML += '<div class="result success">✅ ' + (i+1) + '. ' + title + '</div>';
+                    }
+                } catch (error) {
+                    results.innerHTML += '<div class="result error">❌ 文件 ' + file.name + ': ' + error.message + '</div>';
+                }
+            }
+            
+            // 渲染卡片
+            const moneyHTML = projects.map(item => `
+                <a href="article.html?id=${item.id}" class="card" style="display:block; margin:10px 0; padding:15px; background:rgba(255,255,255,0.05); border-radius:8px; text-decoration:none; color:inherit;">
+                    <div style="font-size:24px; margin-bottom:8px;">💰</div>
+                    <div>
+                        <div style="font-size:12px; color:#ffd700; margin-bottom:4px;">${item.category}</div>
+                        <h3 style="margin:0 0 4px 0;">${item.title}</h3>
+                        <p style="margin:0; font-size:14px; color:#94a3b8;">${item.desc}</p>
+                    </div>
+                </a>
+            `).join('');
+            
+            cards.innerHTML = '<h2>渲染的卡片：</h2>' + moneyHTML;
+            
+        } catch (error) {
+            results.innerHTML += '<div class="result error">❌ 错误: ' + error.message + '</div>';
+        }
+    }
+    
+    window.addEventListener('DOMContentLoaded', testMoneyProjects);
+    </script>
+</body>
+</html>

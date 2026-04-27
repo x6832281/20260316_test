@@ -92,63 +92,33 @@ const ARTICLES_MAP = {
         tagClass: 'tag-game'
     },
     'newbie-001': {
-        file: 'data/萌新学习/001-AI名人演讲精选.md',
-        tag: '名人演讲',
+        file: 'data/萌新学习/001-GitHub热门AI写作开源项目推荐.md',
+        tag: 'GitHub项目',
         tagClass: 'tag-ai'
     },
     'newbie-002': {
-        file: 'data/萌新学习/002-零基础AI入门教程.md',
-        tag: '热门教程',
+        file: 'data/萌新学习/002-AI写作必备SKILL推荐与实战指南.md',
+        tag: '写作SKILL',
         tagClass: 'tag-ai'
     },
     'newbie-003': {
-        file: 'data/萌新学习/003-B站热门AI学习视频.md',
-        tag: 'B站热门学习视频',
-        tagClass: 'tag-game'
+        file: 'data/萌新学习/003-数字生命卡兹克-AI写作心法与去AI味技巧.md',
+        tag: '博主教程',
+        tagClass: 'tag-ai'
     },
     'newbie-004': {
-        file: 'data/萌新学习/004-AI基本术语通俗解释.md',
-        tag: '基本术语解释',
-        tagClass: 'tag-resource'
+        file: 'data/萌新学习/004-秋芝与宝玉-AI工具避坑与提示词调教指南.md',
+        tag: '博主教程',
+        tagClass: 'tag-ai'
     },
     'newbie-005': {
-        file: 'data/萌新学习/005-AI工具使用入门指南.md',
-        tag: '工具使用',
+        file: 'data/萌新学习/005-林亦LYi与武彬-AI创作灵感与商业写作思维.md',
+        tag: '博主教程',
         tagClass: 'tag-ai'
     },
     'newbie-006': {
-        file: 'data/萌新学习/006-AI效率提升文档处理数据整理.md',
-        tag: 'AI效率提升',
-        tagClass: 'tag-game'
-    },
-    'newbie-007': {
-        file: 'data/萌新学习/007-AI写作入门从零开始用AI写文章.md',
-        tag: 'AI写作',
-        tagClass: 'tag-ai'
-    },
-    'newbie-008': {
-        file: 'data/萌新学习/008-AI小说创作如何用AI辅助写小说.md',
-        tag: 'AI小说',
-        tagClass: 'tag-ai'
-    },
-    'newbie-009': {
-        file: 'data/萌新学习/009-AI诗歌创作用AI激发诗意灵感.md',
-        tag: 'AI诗歌',
-        tagClass: 'tag-ai'
-    },
-    'newbie-010': {
-        file: 'data/萌新学习/010-AI文案写作爆款文案生成技巧.md',
-        tag: 'AI文案',
-        tagClass: 'tag-ai'
-    },
-    'newbie-011': {
-        file: 'data/萌新学习/011-AI文学创作网站与工具推荐.md',
-        tag: '创作工具',
-        tagClass: 'tag-ai'
-    },
-    'newbie-012': {
-        file: 'data/萌新学习/012-AI写作常用Prompt技巧大全.md',
-        tag: 'Prompt技巧',
+        file: 'data/萌新学习/006-AI写作达人合集-世界观构建与故事内核.md',
+        tag: '博主教程',
         tagClass: 'tag-ai'
     },
     'money-001': {
@@ -722,10 +692,9 @@ async function loadArticle() {
                         
                         const prefix = articleId.replace('newbie-', '');
                         const categoryMap = {
-                            '001': '名人演讲', '002': '热门教程', '003': 'B站视频',
-                            '004': '术语解释', '005': '工具使用', '006': '效率提升',
-                            '007': 'AI写作', '008': 'AI小说', '009': 'AI诗歌',
-                            '010': 'AI文案', '011': '创作工具', '012': 'Prompt技巧'
+                            '001': 'GitHub项目', '002': '写作SKILL',
+                            '003': '博主教程', '004': '博主教程',
+                            '005': '博主教程', '006': '博主教程'
                         };
                         
                         renderArticle({
@@ -770,12 +739,11 @@ async function loadArticle() {
                             const dateMatch = content.match(/\*\*发布时间\*\*[：:]\s*(\d{4}-\d{2}-\d{2})/);
                             
                             const categoryMap = {
-                                '001': '名人演讲', '002': '热门教程', '003': 'B站视频',
-                                '004': '术语解释', '005': '工具使用', '006': '效率提升',
-                                '007': 'AI写作', '008': 'AI小说', '009': 'AI诗歌',
-                                '010': 'AI文案', '011': '创作工具', '012': 'Prompt技巧'
+                                '001': 'GitHub项目', '002': '写作SKILL',
+                                '003': '博主教程', '004': '博主教程',
+                                '005': '博主教程', '006': '博主教程'
                             };
-                            
+
                             renderArticle({
                                 tag: categoryMap[prefix] || '萌新学习',
                                 tagClass: 'tag-ai',

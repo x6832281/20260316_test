@@ -139,18 +139,12 @@ async function getNewbieLearningData() {
             mdFiles.sort((a, b) => a.name.localeCompare(b.name));
 
             const categoryMap = {
-                '001': { category: '名人演讲', icon: '🎤' },
-                '002': { category: '热门教程', icon: '📚' },
-                '003': { category: 'B站视频', icon: '📺' },
-                '004': { category: '术语解释', icon: '📖' },
-                '005': { category: '工具使用', icon: '🛠️' },
-                '006': { category: '效率提升', icon: '⚡' },
-                '007': { category: 'AI写作', icon: '✍️' },
-                '008': { category: 'AI小说', icon: '📖' },
-                '009': { category: 'AI诗歌', icon: '🌸' },
-                '010': { category: 'AI文案', icon: '📢' },
-                '011': { category: '创作工具', icon: '🔧' },
-                '012': { category: 'Prompt技巧', icon: '🎯' },
+                '001': { category: 'GitHub项目', icon: '📦' },
+                '002': { category: '写作SKILL', icon: '🛠️' },
+                '003': { category: '博主教程', icon: '🎓' },
+                '004': { category: '博主教程', icon: '🎓' },
+                '005': { category: '博主教程', icon: '🎓' },
+                '006': { category: '博主教程', icon: '🎓' },
             };
 
             for (const file of mdFiles) {
@@ -206,99 +200,51 @@ function getFallbackNewbieData() {
     return [
         {
             id: 'newbie-001',
-            title: 'AI 名人演讲精选',
-            category: '名人演讲',
-            icon: '🎤',
-            date: '2026-04-20',
-            desc: 'Sam Altman、李开复等 AI 领域知名人物的核心观点与推荐演讲'
+            title: 'GitHub 热门 AI 写作开源项目推荐',
+            category: 'GitHub项目',
+            icon: '📦',
+            date: '2026-04-27',
+            desc: '从 GitHub 上精选的热门 AI 写作开源项目，帮你找到最适合的 AI 写作工具'
         },
         {
             id: 'newbie-002',
-            title: '零基础 AI 入门教程推荐',
-            category: '热门教程',
-            icon: '📚',
-            date: '2026-04-20',
-            desc: '吴恩达《AI For Everyone》等最适合新手的入门教程'
+            title: 'AI 写作必备 SKILL 推荐与实战指南',
+            category: '写作SKILL',
+            icon: '🛠️',
+            date: '2026-04-27',
+            desc: '掌握这4个 AI 写作核心 SKILL，让你的 AI 写作质量从"能用"提升到"专业"'
         },
         {
             id: 'newbie-003',
-            title: 'B站热门 AI 学习视频',
-            category: 'B站视频',
-            icon: '📺',
-            date: '2026-04-20',
-            desc: '播放量最高的 AI 入门视频，10分钟带你了解人工智能'
+            title: '数字生命卡兹克：AI 写作心法与去 AI 味技巧',
+            category: '博主教程',
+            icon: '🎓',
+            date: '2026-04-27',
+            desc: '学卡兹克的"去 AI 味"心法——让 AI 写出来的文字像人写的一样'
         },
         {
             id: 'newbie-004',
-            title: 'AI 基本术语通俗解释',
-            category: '术语解释',
-            icon: '📖',
-            date: '2026-04-20',
-            desc: '人工智能、机器学习、深度学习、大模型等术语的通俗解释'
+            title: '秋芝与宝玉：AI 工具避坑与提示词调教指南',
+            category: '博主教程',
+            icon: '🎓',
+            date: '2026-04-27',
+            desc: '秋芝教你找到对的路，宝玉教你走好每一步——工具选择 + 提示词技巧'
         },
         {
             id: 'newbie-005',
-            title: 'AI 工具使用入门指南',
-            category: '工具使用',
-            icon: '🛠️',
-            date: '2026-04-20',
-            desc: 'ChatGPT、通义千问、豆包等免费 AI 工具的使用方法'
+            title: '林亦 LYi 与武彬：AI 创作灵感与商业写作思维',
+            category: '博主教程',
+            icon: '🎓',
+            date: '2026-04-27',
+            desc: '林亦LYi 教你用 AI 打开脑洞找灵感，武彬教你用 AI 构建商业写作体系'
         },
         {
             id: 'newbie-006',
-            title: 'AI 效率提升：文档处理与数据整理',
-            category: '效率提升',
-            icon: '⚡',
-            date: '2026-04-20',
-            desc: '用 AI 写邮件、做表格、整理数据，效率提升 80%'
-        },
-        {
-            id: 'newbie-007',
-            title: 'AI 写作入门：从零开始用 AI 写文章',
-            category: 'AI写作',
-            icon: '✍️',
-            date: '2026-04-26',
-            desc: '用 AI 写文章不是偷懒，而是让 AI 帮你打开思路，你负责把关质量'
-        },
-        {
-            id: 'newbie-008',
-            title: 'AI 小说创作：如何用 AI 辅助写小说',
-            category: 'AI小说',
-            icon: '📖',
-            date: '2026-04-26',
-            desc: 'AI 是你的写作搭档，不是你的替写机器——用它来构思、扩展、润色，你来把控故事灵魂'
-        },
-        {
-            id: 'newbie-009',
-            title: 'AI 诗歌创作：用 AI 激发诗意灵感',
-            category: 'AI诗歌',
-            icon: '🌸',
-            date: '2026-04-26',
-            desc: 'AI 不是诗人，但它是最好的诗意触发器——给它一个意象，它还你一片星空'
-        },
-        {
-            id: 'newbie-010',
-            title: 'AI 文案写作：爆款文案的 AI 生成技巧',
-            category: 'AI文案',
-            icon: '📢',
-            date: '2026-04-26',
-            desc: '爆款文案不是靠灵感，而是靠公式——AI 帮你套公式，你负责注入灵魂'
-        },
-        {
-            id: 'newbie-011',
-            title: 'AI 文学创作网站与工具推荐',
-            category: '创作工具',
-            icon: '🔧',
-            date: '2026-04-26',
-            desc: '这些 AI 写作工具和网站，从灵感激发到成稿发布，覆盖创作全流程'
-        },
-        {
-            id: 'newbie-012',
-            title: 'AI 写作常用 Prompt 技巧大全',
-            category: 'Prompt技巧',
-            icon: '🎯',
-            date: '2026-04-26',
-            desc: '提示词就是你和 AI 的"对话说明书"——写得越清楚，AI 的回答越好'
+            title: 'AI 写作达人合集：世界观构建与故事内核',
+            category: '博主教程',
+            icon: '🎓',
+            date: '2026-04-27',
+            desc: '集合五位 AI 写作达人的精华——从世界观搭建到素材搜集的全链路方法论'
         }
     ];
 }
@@ -787,19 +733,27 @@ function renderCaseCard(item) {
 }
 
 // 渲染萌新学习卡片
-function renderNewbieCard(item) {
+function renderNewbieCard(item, index) {
     const fileParam = item.fileName ? `&file=${encodeURIComponent(item.fileName)}` : '';
+    const accentClass = item.category === 'GitHub项目' ? 'accent-project' : item.category === '写作SKILL' ? 'accent-skill' : 'accent-tutorial';
+    const num = String(index + 1).padStart(2, '0');
     return `
-        <a href="article.html?id=${item.id}${fileParam}" class="newbie-card" data-newbie-id="${item.id}">
-            <div class="newbie-icon">${item.icon}</div>
-            <div class="newbie-content">
-                <div class="newbie-meta">
-                    <span class="newbie-category">${item.category}</span>
-                    <time class="newbie-date">${item.date}</time>
+        <a href="article.html?id=${item.id}${fileParam}" class="newbie-card ${accentClass}" data-newbie-id="${item.id}" style="animation-delay: ${index * 0.08}s">
+            <div class="newbie-card-accent"></div>
+            <span class="newbie-card-num">${num}</span>
+            <div class="newbie-card-body">
+                <div class="newbie-card-header">
+                    <span class="newbie-card-icon">${item.icon}</span>
+                    <span class="newbie-card-category">${item.category}</span>
                 </div>
-                <h3 class="newbie-title">${item.title}</h3>
-                <p class="newbie-desc">${item.desc}</p>
-                <span class="newbie-link">学习 →</span>
+                <h3 class="newbie-card-title">${item.title}</h3>
+                <p class="newbie-card-desc">${item.desc}</p>
+                <div class="newbie-card-footer">
+                    <time class="newbie-card-date">${item.date}</time>
+                    <span class="newbie-card-arrow">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </span>
+                </div>
             </div>
         </a>
     `;
@@ -872,18 +826,17 @@ async function renderNewbieWithFilter() {
 
     const filterHtml = `
         <div class="newbie-filter">
-            <button class="newbie-filter-btn active" data-category="all">全部</button>
-            <button class="newbie-filter-btn" data-category="入门基础">入门基础</button>
-            <button class="newbie-filter-btn" data-category="AI创作">AI创作</button>
+            <span class="newbie-filter-label">筛选</span>
+            <button class="newbie-filter-btn active" data-category="all">全部文章</button>
+            <button class="newbie-filter-btn" data-category="GitHub项目">📦 GitHub项目</button>
+            <button class="newbie-filter-btn" data-category="写作SKILL">🛠️ 写作SKILL</button>
+            <button class="newbie-filter-btn" data-category="博主教程">🎓 博主教程</button>
         </div>
     `;
 
-    const cardsHtml = newbieData.map(item => renderNewbieCard(item)).join('');
+    const cardsHtml = newbieData.map((item, i) => renderNewbieCard(item, i)).join('');
 
     container.innerHTML = filterHtml + `<div class="newbie-grid">${cardsHtml}</div>`;
-
-    const basicCategories = ['名人演讲', '热门教程', 'B站视频', '术语解释', '工具使用', '效率提升'];
-    const creativeCategories = ['AI写作', 'AI小说', 'AI诗歌', 'AI文案', '创作工具', 'Prompt技巧'];
 
     const filterBtns = container.querySelectorAll('.newbie-filter-btn');
     filterBtns.forEach(btn => {
@@ -894,12 +847,8 @@ async function renderNewbieWithFilter() {
             const category = btn.dataset.category;
             const cards = container.querySelectorAll('.newbie-card');
             cards.forEach(card => {
-                const cardCategory = card.querySelector('.newbie-category').textContent;
-                if (category === 'all') {
-                    card.style.display = 'block';
-                } else if (category === '入门基础' && basicCategories.includes(cardCategory)) {
-                    card.style.display = 'block';
-                } else if (category === 'AI创作' && creativeCategories.includes(cardCategory)) {
+                const cardCategory = card.querySelector('.newbie-card-category').textContent;
+                if (category === 'all' || cardCategory === category) {
                     card.style.display = 'block';
                 } else {
                     card.style.display = 'none';
