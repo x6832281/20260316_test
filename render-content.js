@@ -249,23 +249,24 @@ function getFallbackNewbieData() {
     ];
 }
 
-// 从搞钱项目Markdown文件中提取数据
-async function getMoneyProjects() {
-    const projects = [];
-    
+// 从文学理论Markdown文件中提取数据
+async function getLiteraryTheoryData() {
+    console.log('=== Starting getLiteraryTheoryData ===');
+    const items = [];
+
     try {
-        const dirPath = 'data/搞钱项目/';
+        const dirPath = 'data/文学理论/';
         const encodedDirPath = encodeURI(dirPath);
-        
+
         const dirResponse = await fetch(encodedDirPath);
         if (dirResponse.ok) {
             const html = await dirResponse.text();
             const parser = new DOMParser();
             const doc = parser.parseFromString(html, 'text/html');
-            
+
             const links = doc.querySelectorAll('a[href$=".md"]');
             const mdFiles = [];
-            
+
             links.forEach(link => {
                 const href = link.getAttribute('href');
                 if (href) {
@@ -275,69 +276,49 @@ async function getMoneyProjects() {
                     }
                 }
             });
-            
+
             mdFiles.sort((a, b) => a.name.localeCompare(b.name));
             const filesToProcess = mdFiles.slice(0, 6);
-            
+
+            const categoryMap = {
+                '001': { category: '叙事学理论', icon: '📝' },
+                '002': { category: '结构主义', icon: '🔍' },
+                '003': { category: '读者批评', icon: '👁️' },
+                '004': { category: '女性主义', icon: '♀️' },
+                '005': { category: '后现代主义', icon: '🌀' },
+                '006': { category: '比较文学', icon: '🌍' }
+            };
+
             for (const file of filesToProcess) {
                 try {
                     const fileUrl = encodedDirPath + file.href;
                     const fileResponse = await fetch(fileUrl);
                     if (fileResponse.ok) {
                         const content = await fileResponse.text();
-                        
+
                         const titleMatch = content.match(/^# (.+)$/m);
                         const title = titleMatch ? titleMatch[1].trim() : file.name.replace('.md', '');
-                        
-                        const sourceMatch = content.match(/^> 数据来源[：:]\s*(.+)$/m);
-                        const source = sourceMatch ? sourceMatch[1].trim() : '未知来源';
-                        
-                        const summaryMatch = content.match(/## 📋 一句话总结\s*\n\s*\n(.*?)\n/);
-                        const summary = summaryMatch ? summaryMatch[1].trim() : '';
-                        
-                        const revenueMatch = content.match(/## 💰 真实收入\s*\n\s*\n(.*?)\n/);
-                        const revenue = revenueMatch ? revenueMatch[1].trim() : '未公开';
-                        
-                        const contentMatch = content.match(/## 📝 详细内容\s*\n\s*\n([\s\S]*?)(?=\n---\n)/);
-                        const detail = contentMatch ? contentMatch[1].trim() : '';
-                        
-                        const urlMatch = content.match(/## 🔗 原文链接\s*\n\s*\n\[(.+?)\]\((.+?)\)/);
-                        const articleUrl = urlMatch ? urlMatch[2] : '';
-                        
-                        const verifiedMatch = content.match(/✅ 已验证可访问/);
-                        const urlVerified = !!verifiedMatch;
-                        
-                        const categoryMap = {
-                            'TrustMRR': '海外创业',
-                            '36氪': '创投资讯',
-                            '创业邦': '创业项目',
-                            '虎嗅': '商业洞察',
-                            '人人都是产品经理': '产品经验',
-                            '钛媒体': '科技商业',
-                            '掘金': '技术创业',
-                            'i黑马': '创业报道',
-                            '鲸准': '投融资',
-                            '投融界': '项目融资',
-                        };
-                        const category = categoryMap[source] || '创业项目';
-                        
-                        const index = filesToProcess.indexOf(file) + 1;
-                        const id = `money-${index}`;
-                        
-                        const desc = summary || (detail ? detail.substring(0, 80) + '...' : title);
-                        
-                        projects.push({
+
+                        const summaryMatch = content.match(/## 📌 一句话总结\s*\n\s*\n\*\*(.+?)\*\*/);
+                        const desc = summaryMatch ? summaryMatch[1].trim() : '';
+
+                        const dateMatch = content.match(/\*\*发布时间\*\*[：:]\s*(.+)$/m);
+                        const date = dateMatch ? dateMatch[1].trim() : new Date().toISOString().split('T')[0];
+
+                        const filePrefix = file.name.match(/^(\d{3})/);
+                        const prefix = filePrefix ? filePrefix[1] : '001';
+                        const catInfo = categoryMap[prefix] || { category: '文学理论', icon: '🎓' };
+
+                        const id = `littheory-${prefix}`;
+
+                        items.push({
                             id: id,
                             title: title,
-                            category: category,
-                            icon: '💰',
-                            date: new Date().toISOString().split('T')[0],
+                            category: catInfo.category,
+                            icon: catInfo.icon,
+                            date: date,
                             desc: desc,
-                            revenue: revenue !== '未公开' ? revenue : null,
-                            url: articleUrl,
-                            urlVerified: urlVerified,
-                            file: fileUrl,
-                            moneyFileName: file.name
+                            file: fileUrl
                         });
                     }
                 } catch (error) {
@@ -346,83 +327,65 @@ async function getMoneyProjects() {
             }
         }
     } catch (error) {
-        console.error('Error getting money projects:', error);
+        console.error('Error getting literary theory data:', error);
     }
-    
-    if (projects.length > 0) {
-        return projects;
+
+    if (items.length > 0) {
+        return items;
     }
-    
-    return getFallbackMoneyProjects();
+
+    return getFallbackLiteraryTheoryData();
 }
 
-function getFallbackMoneyProjects() {
+function getFallbackLiteraryTheoryData() {
     return [
         {
-            id: 'money-project-1',
-            title: 'Stan',
-            category: 'SaaS',
-            icon: '💼',
-            date: new Date().toISOString().split('T')[0],
-            desc: '帮助创作者和自由职业者建立个人品牌、销售数字产品和服务的平台，月入$3.57M',
-            revenue: '$3.57M',
-            url: 'https://trustmrr.com',
-            urlVerified: true
+            id: 'littheory-001',
+            title: '叙事学入门：故事如何被讲述',
+            category: '杨宁·文学理论',
+            icon: '📝',
+            date: '2026-04-28',
+            desc: '杨宁老师B站千万播放课程，从普罗普到热奈特的叙事语法——故事如何被讲述？'
         },
         {
-            id: 'money-project-2',
-            title: 'TrimRx',
-            category: '健康医疗',
-            icon: '🏥',
-            date: new Date().toISOString().split('T')[0],
-            desc: '在线远程医疗公司，专注GLP-1药物个性化减肥方案，月入$314k，增长19%',
-            revenue: '$314k',
-            url: 'https://trustmrr.com',
-            urlVerified: true
+            id: 'littheory-002',
+            title: '结构主义文学理论：文本背后的深层结构',
+            category: '杨宁·西方文论',
+            icon: '🔍',
+            date: '2026-04-28',
+            desc: '索绪尔能指与所指，列维-斯特劳斯神话结构——杨宁《西方文论》系统讲解'
         },
         {
-            id: 'money-project-3',
-            title: 'Rezi',
-            category: 'AI/SaaS',
-            icon: '📄',
-            date: new Date().toISOString().split('T')[0],
-            desc: '全球最佳AI简历生成器，年新增100万用户，企业版服务300+组织，月入$287k',
-            revenue: '$287k',
-            url: 'https://trustmrr.com',
-            urlVerified: true
+            id: 'littheory-003',
+            title: '读者批评理论：文本在读者心中重生',
+            category: '杨宁·文学理论',
+            icon: '👁️',
+            date: '2026-04-28',
+            desc: '"你是否看到一只鸡？"杨宁第二季课程深入接受美学与读者反应批评'
         },
         {
-            id: 'money-project-4',
-            title: 'Kibu',
-            category: 'SaaS',
-            icon: '📋',
-            date: new Date().toISOString().split('T')[0],
-            desc: '专为智力障碍服务机构打造的内容合规与电子病历SaaS平台，覆盖48州，月入$234k',
-            revenue: '$234k',
-            url: 'https://trustmrr.com',
-            urlVerified: true
+            id: 'littheory-004',
+            title: '女性主义文学批评：重读经典中的她者之声',
+            category: '杨宁·西方文论',
+            icon: '♀️',
+            date: '2026-04-28',
+            desc: '杨宁症候阅读法拆解童话——从伍尔夫到斯皮瓦克的女性主义批评全脉络'
         },
         {
-            id: 'money-project-5',
-            title: 'Cometly',
-            category: '营销工具',
-            icon: '📊',
-            date: new Date().toISOString().split('T')[0],
-            desc: 'SaaS公司营销归因分析工具，用AI对话分析广告数据，月入$215k',
-            revenue: '$215k',
-            url: 'https://trustmrr.com',
-            urlVerified: true
+            id: 'littheory-005',
+            title: '后现代主义文学理论：意义之塔的崩塌',
+            category: '杨宁/樊星',
+            icon: '🌀',
+            date: '2026-04-28',
+            desc: '德里达解构、鲍德里亚拟像——杨宁西方文论+武大樊星专题研究双推荐'
         },
         {
-            id: 'money-project-6',
-            title: 'Postiz',
-            category: '营销工具',
-            icon: '📱',
-            date: new Date().toISOString().split('T')[0],
-            desc: '开源AI社媒管理排期工具，支持自动发布和数据分析，月入$97k，增长15%',
-            revenue: '$97k',
-            url: 'https://trustmrr.com',
-            urlVerified: true
+            id: 'littheory-006',
+            title: '比较文学：跨越语言与文化的理论视野',
+            category: '乐黛云/欧丽娟',
+            icon: '🌍',
+            date: '2026-04-28',
+            desc: '北大乐黛云比较文学+台大欧丽娟中国文学史——跨文化视野的双重盛宴'
         }
     ];
 }
@@ -671,26 +634,20 @@ function getFallbackBookExcerpts() {
     ];
 }
 
-// 渲染搞钱排行卡片
-function renderMoneyCard(item) {
-    const revenueBadge = item.revenue 
-        ? `<span class="money-revenue">💰 ${item.revenue}</span>` 
-        : '';
-    const verifiedIcon = item.urlVerified ? '✅' : '';
-    const linkTarget = `article.html?id=${item.id}`;
-    
+// 渲染文学理论卡片
+function renderLiteraryTheoryCard(item) {
+    const fileParam = item.file ? `&file=${encodeURIComponent(item.file)}` : '';
     return `
-        <a href="${linkTarget}" class="money-card" data-money-id="${item.id}">
-            <div class="money-icon">${item.icon || '💰'}</div>
-            <div class="money-content">
-                <div class="money-meta">
-                    <span class="money-category">${item.category}</span>
-                    ${revenueBadge}
-                    <time class="money-date">${item.date}</time>
+        <a href="article.html?id=${item.id}${fileParam}" class="littheory-card" data-littheory-id="${item.id}">
+            <div class="littheory-icon">${item.icon || '🎓'}</div>
+            <div class="littheory-content">
+                <div class="littheory-meta">
+                    <span class="littheory-category">${item.category}</span>
+                    <time class="littheory-date">${item.date}</time>
                 </div>
-                <h3 class="money-title">${item.title}</h3>
-                <p class="money-desc">${item.desc}</p>
-                <span class="money-link">查看详情 → ${verifiedIcon}</span>
+                <h3 class="littheory-title">${item.title}</h3>
+                <p class="littheory-desc">${item.desc}</p>
+                <span class="littheory-link">查看详情 →</span>
             </div>
         </a>
     `;
@@ -761,8 +718,9 @@ function renderNewbieCard(item, index) {
 
 // 渲染文学创作卡片
 function renderLiteratureCard(item) {
+    const fileParam = item.file ? `&file=${encodeURIComponent(item.file)}` : '';
     return `
-        <a href="article.html?id=${item.id}" class="literature-card" data-literature-id="${item.id}">
+        <a href="article.html?id=${item.id}${fileParam}" class="literature-card" data-literature-id="${item.id}">
             <div class="literature-icon">${item.icon}</div>
             <div class="literature-content">
                 <div class="literature-meta">
@@ -1084,6 +1042,200 @@ async function getFeaturedProjects() {
     ];
 }
 
+// 从知识创作Markdown文件中提取数据
+async function getKnowledgeCreationData() {
+    const projects = [];
+
+    try {
+        const dirPath = 'data/知识创作/';
+        const encodedDirPath = encodeURI(dirPath);
+
+        const dirResponse = await fetch(encodedDirPath);
+        if (dirResponse.ok) {
+            const html = await dirResponse.text();
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+
+            const links = doc.querySelectorAll('a[href$=".md"]');
+            const mdFiles = [];
+
+            links.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href) {
+                    const fileName = href.split('/').pop();
+                    if (fileName.endsWith('.md')) {
+                        mdFiles.push({href: href, name: decodeURIComponent(fileName)});
+                    }
+                }
+            });
+
+            mdFiles.sort((a, b) => a.name.localeCompare(b.name));
+            const filesToProcess = mdFiles.slice(0, 6);
+
+            for (const file of filesToProcess) {
+                try {
+                    const fileUrl = encodedDirPath + file.href;
+                    const fileResponse = await fetch(fileUrl);
+                    if (fileResponse.ok) {
+                        const content = await fileResponse.text();
+
+                        const nameMatch = content.match(/^# (.+)$/m);
+                        const name = nameMatch ? nameMatch[1].trim() : '未知项目';
+
+                        const urlMatch = content.match(/\[GitHub 仓库\]\(([^)]+)\)/);
+                        const url = urlMatch ? urlMatch[1] : '';
+
+                        const starsMatch = content.match(/\*\*⭐ 星标\*\*[：:]\s*([\d.]+k?)/);
+                        let stars = 0;
+                        if (starsMatch) {
+                            const starsStr = starsMatch[1];
+                            if (starsStr.endsWith('k')) {
+                                stars = parseInt(parseFloat(starsStr.replace('k', '')) * 1000);
+                            } else {
+                                stars = parseInt(starsStr);
+                            }
+                        }
+
+                        const summaryMatch = content.match(/## 📝 一句话总结\s*\n\s*\n\*\*(.+?)\*\*/);
+                        let summary = '暂无总结';
+                        if (summaryMatch && summaryMatch[1]) {
+                            summary = summaryMatch[1].trim();
+                        } else {
+                            const altMatch = content.match(/## 📝 一句话总结\s*\n\s*([^\n]+)/);
+                            if (altMatch && altMatch[1]) {
+                                summary = altMatch[1].trim();
+                            }
+                        }
+
+                        const dateMatch = content.match(/\*\*📅 更新日期\*\*[：:]\s*([^\n]+)/);
+                        const date = dateMatch ? dateMatch[1].trim() : new Date().toISOString().split('T')[0];
+
+                        const id = `knowledge-${file.name.replace('.md', '')}`;
+
+                        projects.push({
+                            id: id,
+                            name: name,
+                            url: url,
+                            stars: stars,
+                            summary: summary,
+                            date: date,
+                            file: fileUrl,
+                            fileName: file.name
+                        });
+                    }
+                } catch (error) {
+                    console.error(`Error fetching ${file.name}:`, error);
+                }
+            }
+        }
+    } catch (error) {
+        console.error('Error getting knowledge creation data:', error);
+    }
+
+    if (projects.length > 0) {
+        return projects;
+    }
+
+    return getFallbackKnowledgeCreationData();
+}
+
+function getFallbackKnowledgeCreationData() {
+    return [
+        {
+            id: 'knowledge-001-gpt-academic',
+            name: 'gpt_academic —— AI 学术写作助手',
+            url: 'https://github.com/binary-husky/gpt_academic',
+            stars: 65000,
+            summary: '中科院出品的高颜值AI学术写作助手，支持论文润色、翻译、代码解读、PDF分析等一站式学术写作功能。',
+            date: '2026-04-27',
+            fileName: '001-gpt-academic.md'
+        },
+        {
+            id: 'knowledge-002-langchain',
+            name: 'LangChain —— AI 写作流水线框架',
+            url: 'https://github.com/langchain-ai/langchain',
+            stars: 95000,
+            summary: '构建AI写作流水线的终极框架，用链式调用串联搜集→分析→大纲→写作→润色→检查全流程。',
+            date: '2026-04-27',
+            fileName: '002-langchain.md'
+        },
+        {
+            id: 'knowledge-003-lobe-chat',
+            name: 'LobeChat —— 现代化 AI 写作对话平台',
+            url: 'https://github.com/lobehub/lobe-chat',
+            stars: 48000,
+            summary: '颜值最高的开源ChatGPT网页客户端，支持多模型、插件市场、知识库，是AI写作的绝佳前端。',
+            date: '2026-04-27',
+            fileName: '003-lobe-chat.md'
+        },
+        {
+            id: 'knowledge-004-chatgpt-next-web',
+            name: 'ChatGPT Next Web —— 一键部署写作助手',
+            url: 'https://github.com/ChatGPTNextWeb/ChatGPT-Next-Web',
+            stars: 78000,
+            summary: 'GitHub上最火的ChatGPT私有化部署方案，一键拥有跨平台的AI写作助手，支持手机/电脑/平板。',
+            date: '2026-04-27',
+            fileName: '004-chatgpt-next-web.md'
+        },
+        {
+            id: 'knowledge-005-dify',
+            name: 'Dify —— LLM 应用开发与知识创作平台',
+            url: 'https://github.com/langgenius/dify',
+            stars: 52000,
+            summary: '国产开源的LLM应用开发平台，可视化构建AI知识库、写作助手和内容生成流水线。',
+            date: '2026-04-27',
+            fileName: '005-dify.md'
+        },
+        {
+            id: 'knowledge-006-open-interpreter',
+            name: 'Open Interpreter —— 自然语言操控电脑做研究',
+            url: 'https://github.com/OpenInterpreter/open-interpreter',
+            stars: 56000,
+            summary: '用自然语言让AI操控你的电脑——自动搜集资料、分析数据、生成报告，知识创作的超级助手。',
+            date: '2026-04-27',
+            fileName: '006-open-interpreter.md'
+        }
+    ];
+}
+
+function renderKnowledgeCreationCard(project, index) {
+    const num = String(index + 1).padStart(2, '0');
+    const formattedStars = formatStars(project.stars);
+    const projectName = project.name.replace(/⭐/g, '').trim();
+
+    return `
+        <a href="article.html?id=${project.id}" class="newbie-card accent-knowledge" style="animation-delay: ${index * 0.08}s">
+            <div class="newbie-card-accent"></div>
+            <span class="newbie-card-num">${num}</span>
+            <div class="newbie-card-body">
+                <div class="newbie-card-header">
+                    <span class="newbie-card-icon">📦</span>
+                    <span class="newbie-card-category">⭐ ${formattedStars}</span>
+                </div>
+                <h3 class="newbie-card-title">${projectName}</h3>
+                <p class="newbie-card-desc">${project.summary}</p>
+                <div class="newbie-card-footer">
+                    <time class="newbie-card-date">${project.date}</time>
+                    <span class="newbie-card-arrow">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </span>
+                </div>
+            </div>
+        </a>
+    `;
+}
+
+async function renderKnowledgeCreationWithFilter() {
+    const container = document.getElementById('knowledge-creation-container');
+    if (!container) return;
+
+    const knowledgeData = await getKnowledgeCreationData();
+
+    const cardsHtml = knowledgeData.map((item, i) => renderKnowledgeCreationCard(item, i)).join('');
+
+    container.innerHTML = `<div class="newbie-grid">${cardsHtml}</div>`;
+}
+
 // 格式化star数，使用k结尾
 function formatStars(stars) {
     if (stars >= 1000) {
@@ -1122,22 +1274,16 @@ function renderProjectCard(project) {
 // 初始化渲染
 async function renderHomepage() {
     console.log('=== Starting renderHomepage function ===');
-    
-    // 获取最新的热搜数据
-    console.log('Getting latest trending data...');
-    const latestTrendingData = await getLatestTrendingData();
-    console.log('Latest trending data loaded:', latestTrendingData.length, 'items');
-    
+
     // 获取精选项目数据
     console.log('Getting featured projects...');
     const featuredProjects = await getFeaturedProjects();
     console.log('Featured projects loaded:', featuredProjects.length, 'items');
     
-    // 获取搞钱创业项目数据
-    console.log('Getting money projects...');
-    const moneyProjects = await getMoneyProjects();
-    console.log('Money projects loaded:', moneyProjects.length, 'items');
-    console.log('Money projects:', moneyProjects);
+    // 获取文学理论数据
+    console.log('Getting literary theory data...');
+    const littheoryData = await getLiteraryTheoryData();
+    console.log('Literary theory data loaded:', littheoryData.length, 'items');
     
     // 渲染精选项目
     console.log('Rendering featured projects...');
@@ -1150,27 +1296,20 @@ async function renderHomepage() {
         console.error('articles-container not found');
     }
     
-    // 渲染热搜榜
-    console.log('Rendering trending list...');
-    const trendingList = document.getElementById('trending-container');
-    if (trendingList) {
-        trendingList.innerHTML = renderTrendingList(latestTrendingData);
-        console.log('Trending list rendered successfully');
-    } else {
-        console.error('trending-container not found');
-    }
+    // 渲染知识创作
+    console.log('Rendering knowledge creation...');
+    await renderKnowledgeCreationWithFilter();
+    console.log('Knowledge creation rendered successfully');
     
-    // 渲染搞钱排行
-    console.log('Rendering money projects...');
-    const moneyGrid = document.getElementById('money-container');
-    if (moneyGrid) {
-        console.log('money-container found, rendering', moneyProjects.length, 'projects');
-        const moneyHTML = moneyProjects.map(item => renderMoneyCard(item)).join('');
-        console.log('Generated money HTML:', moneyHTML);
-        moneyGrid.innerHTML = moneyHTML;
-        console.log('Money projects rendered successfully');
+    // 渲染文学理论
+    console.log('Rendering literary theory...');
+    const littheoryGrid = document.getElementById('littheory-container');
+    if (littheoryGrid) {
+        const littheoryHTML = littheoryData.map(item => renderLiteraryTheoryCard(item)).join('');
+        littheoryGrid.innerHTML = littheoryHTML;
+        console.log('Literary theory rendered successfully');
     } else {
-        console.error('money-container not found');
+        console.error('littheory-container not found');
     }
     
     // 渲染AI创意

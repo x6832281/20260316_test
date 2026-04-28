@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=20260418">
+    <link rel="stylesheet" href="styles.css?v=20260428c">
     <link rel="manifest" href="manifest.json?v=20260418">
     <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='40' fill='%230a0a0f'/%3E%3Ctext x='90' y='110' text-anchor='middle' font-size='80' font-family='serif' fill='%2300f5d4'%3EAI%3C/text%3E%3C/svg%3E">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -29,9 +29,9 @@
     <div class="noise-overlay"></div>
     <div class="grain-overlay"></div>
     
-    <div class="sub-page">
+    <div class="sub-page ai-page">
         <aside class="page-sidebar" id="sidebar">
-            <div class="sidebar-header">
+            <div class="sidebar-header ai-sidebar-header">
                 <a href="index.html" class="sidebar-logo">
                     <span>&#x2726;</span> AI 学习指南
                 </a>
@@ -55,7 +55,7 @@
                     <li><a href="#ai-video-courses" class="sidebar-link"><span class="link-icon">&#x1f3ac;</span><span>视频课程与讲座</span></a></li>
                 </ul>
             </nav>
-            <div class="sidebar-footer">
+            <div class="sidebar-footer ai-sidebar-footer">
                 <a href="index.html" class="back-home"><span>&#x2190;</span> 返回主页</a>
             </div>
         </aside>
@@ -63,17 +63,16 @@
         <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
         <main class="page-main">
-            <header class="page-header">
+            <header class="page-header ai-page-header">
                 <button class="mobile-sidebar-toggle" id="sidebarToggle">&#x2630;</button>
-                <div class="page-search">
-                    <span class="search-icon">&#x1f50d;</span>
-                    <input type="text" class="page-search-input" id="searchInput" placeholder="搜索教程、框架、开源项目...">
-                </div>
+                <div class="ai-header-title"><span class="ai-header-icon">🧠</span><span class="ai-header-text">AI 学习指南 · 神经网络花园</span></div>
+                <div class="ai-header-deco"><span class="ai-deco-stroke"></span><span class="ai-deco-dot"></span></div>
             </header>
 
-            <div class="page-content">
+            <div class="ai-content">
+                <div class="ai-intro"><p class="ai-intro-quote">「智能如花，自然生长」</p><p class="ai-intro-text">从基础教程到前沿论文，从开源框架到国内大模型，AI学习之路一页尽览</p></div>
                 <section id="foundations" class="content-section">
-                    <div class="section-heading"><h2>系统基础教程 (入门必看)</h2></div>
+                    <div class="section-heading ai-heading"><h2>系统基础教程 (入门必看)</h2></div>
                     <div class="resource-grid">
                         <a href="https://zh.d2l.ai/" target="_blank" class="resource-card"><div class="resource-icon">&#x1f4d6;</div><div class="resource-info"><div class="resource-title">动手学深度学习 (D2L)</div><div class="resource-desc">李沐大神经典之作，交互式深度学习神书，代码+原理完美结合。</div></div></a>
                         <a href="https://www.coursera.org/specializations/machine-learning-introduction" target="_blank" class="resource-card"><div class="resource-icon">&#x1f468;&#x200d;&#x1f3eb;</div><div class="resource-info"><div class="resource-title">吴恩达 机器学习专项课程</div><div class="resource-desc">AI入门的黄金标准，通俗易懂地讲解机器学习核心概念。</div></div></a>
@@ -335,6 +334,7 @@
                         <a href="https://www.youtube.com/@YannicKilcher" target="_blank" class="resource-card"><div class="resource-icon">&#x1f399;&#xfe0f;</div><div class="resource-info"><div class="resource-title">Yannic Kilcher</div><div class="resource-desc">AI 论文解读频道。</div></div></a>
                     </div>
                 </section>
+            <footer class="page-footer ai-footer"><p>© 2026 AI 萌新小窝 · AI学习指南 — 神经网络花园</p></footer>
             </div>
         </main>
     </div>

@@ -760,6 +760,204 @@ async function loadArticle() {
             }
         }
         
+        
+        // 动态处理书摘文案 (book-excerpt-*)
+        if (articleId.startsWith('book-excerpt-')) {
+            try {
+                console.log('Loading book excerpt article:', articleId);
+                const params = new URLSearchParams(window.location.search);
+                const filePath = params.get('file');
+                
+                if (filePath) {
+                    console.log('Loading from file param:', filePath);
+                    const fileResponse = await fetch(filePath);
+                    if (fileResponse.ok) {
+                        const content = await fileResponse.text();
+                        const titleMatch = content.match(/^# (.+)$/m);
+                        const dateMatch = content.match(/\*\*发布时间\*\*[：:]\s*(\d{4}-\d{2}-\d{2})/);
+
+                        renderArticle({
+                            tag: '书摘文案',
+                            tagClass: 'tag-ai',
+                            title: titleMatch ? titleMatch[1] : '',
+                            date: dateMatch ? dateMatch[1] : ''
+                        }, content);
+                        updateNextArticle(articleId);
+                        return;
+                    }
+                }
+                
+                // 从目录加载
+                const dirResponse = await fetch('data/书摘文案/');
+                if (dirResponse.ok) {
+                    const html = await dirResponse.text();
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, 'text/html');
+                    const links = doc.querySelectorAll('a[href$=".md"]');
+                    const mdFiles = [];
+                    
+                    links.forEach(link => {
+                        const href = link.getAttribute('href');
+                        if (href) {
+                            const name = decodeURIComponent(href.split('/').pop());
+                            if (name.endsWith('.md')) {
+                                mdFiles.push(name);
+                            }
+                        }
+                    });
+                    
+                    mdFiles.sort();
+                    
+                    const idNum = articleId.replace('book-excerpt-', '').replace(/[^0-9]/g, '');
+                    const prefix = idNum.padStart(3, '0') || '001';
+                    const targetFile = mdFiles.find(f => f.startsWith(prefix));
+                    
+                    if (targetFile) {
+                        const fileResponse = await fetch(`data/书摘文案/${encodeURIComponent(targetFile)}`);
+                        if (fileResponse.ok) {
+                            const content = await fileResponse.text();
+                            const titleMatch = content.match(/^# (.+)$/m);
+                            const dateMatch = content.match(/\*\*发布时间\*\*[：:]\s*(\d{4}-\d{2}-\d{2})/);
+
+                            renderArticle({
+                                tag: '书摘文案',
+                                tagClass: 'tag-ai',
+                                title: titleMatch ? titleMatch[1] : '',
+                                date: dateMatch ? dateMatch[1] : ''
+                            }, content);
+                            updateNextArticle(articleId);
+                            return;
+                        }
+                    }
+                }
+            } catch (error) {
+                console.error('加载书摘文案失败:', error);
+            }
+        }
+        
+        // 动态处理文学理论 (littheory-*)
+        if (articleId.startsWith('littheory-')) {
+            try {
+                console.log('Loading literary theory article:', articleId);
+                const params = new URLSearchParams(window.location.search);
+                const filePath = params.get('file');
+                
+                if (filePath) {
+                    console.log('Loading from file param:', filePath);
+                    const fileResponse = await fetch(filePath);
+                    if (fileResponse.ok) {
+                        const content = await fileResponse.text();
+                        const titleMatch = content.match(/^# (.+)$/m);
+                        const dateMatch = content.match(/\*\*发布时间\*\*[：:]\s*(\d{4}-\d{2}-\d{2})/);
+
+                        renderArticle({
+                            tag: '文学理论',
+                            tagClass: 'tag-ai',
+                            title: titleMatch ? titleMatch[1] : '',
+                            date: dateMatch ? dateMatch[1] : ''
+                        }, content);
+                        updateNextArticle(articleId);
+                        return;
+                    }
+                }
+                
+                const dirResponse = await fetch('data/文学理论/');
+                if (dirResponse.ok) {
+                    const html = await dirResponse.text();
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, 'text/html');
+                    const links = doc.querySelectorAll('a[href$=".md"]');
+                    const mdFiles = [];
+                    
+                    links.forEach(link => {
+                        const href = link.getAttribute('href');
+                        if (href) {
+                            const name = decodeURIComponent(href.split('/').pop());
+                            if (name.endsWith('.md')) {
+                                mdFiles.push(name);
+                            }
+                        }
+                    });
+                    
+                    mdFiles.sort();
+                    
+                    const prefix = articleId.replace('littheory-', '');
+                    const targetFile = mdFiles.find(f => f.startsWith(prefix));
+                    
+                    if (targetFile) {
+                        const fileResponse = await fetch(`data/文学理论/${encodeURIComponent(targetFile)}`);
+                        if (fileResponse.ok) {
+                            const content = await fileResponse.text();
+                            const titleMatch = content.match(/^# (.+)$/m);
+                            const dateMatch = content.match(/\*\*发布时间\*\*[：:]\s*(\d{4}-\d{2}-\d{2})/);
+
+                            renderArticle({
+                                tag: '文学理论',
+                                tagClass: 'tag-ai',
+                                title: titleMatch ? titleMatch[1] : '',
+                                date: dateMatch ? dateMatch[1] : ''
+                            }, content);
+                            updateNextArticle(articleId);
+                            return;
+                        }
+                    }
+                }
+            } catch (error) {
+                console.error('加载文学理论失败:', error);
+            }
+        }
+        
+        // 动态处理知识创作 (knowledge-*)
+        if (articleId.startsWith('knowledge-')) {
+            try {
+                console.log('Loading knowledge creation article:', articleId);
+
+                const dirResponse = await fetch('data/知识创作/');
+                if (dirResponse.ok) {
+                    const html = await dirResponse.text();
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, 'text/html');
+                    const links = doc.querySelectorAll('a[href$=".md"]');
+                    const mdFiles = [];
+
+                    links.forEach(link => {
+                        const href = link.getAttribute('href');
+                        if (href) {
+                            const name = decodeURIComponent(href.split('/').pop());
+                            if (name.endsWith('.md')) {
+                                mdFiles.push(name);
+                            }
+                        }
+                    });
+
+                    mdFiles.sort();
+
+                    const targetFile = articleId.replace('knowledge-', '') + '.md';
+                    let foundFile = mdFiles.find(f => f === targetFile);
+
+                    if (foundFile) {
+                        const fileResponse = await fetch(`data/知识创作/${encodeURIComponent(foundFile)}`);
+                        if (fileResponse.ok) {
+                            const content = await fileResponse.text();
+                            const titleMatch = content.match(/^# (.+)$/m);
+                            const dateMatch = content.match(/\*\*📅 更新日期\*\*[：:]\s*(\d{4}-\d{2}-\d{2})/);
+
+                            renderArticle({
+                                tag: '知识创作',
+                                tagClass: 'tag-ai',
+                                title: titleMatch ? titleMatch[1] : '',
+                                date: dateMatch ? dateMatch[1] : ''
+                            }, content);
+                            updateNextArticle(articleId);
+                            return;
+                        }
+                    }
+                }
+            } catch (error) {
+                console.error('加载知识创作文章失败:', error);
+            }
+        }
+        
         // 如果不是已知类型或者加载失败，显示错误
         document.getElementById('articleContent').innerHTML = `
             <div class="article-error">
