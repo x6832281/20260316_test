@@ -139,12 +139,10 @@ async function getNewbieLearningData() {
             mdFiles.sort((a, b) => a.name.localeCompare(b.name));
 
             const categoryMap = {
-                '001': { category: 'GitHub项目', icon: '📦' },
-                '002': { category: '写作SKILL', icon: '🛠️' },
+                '001': { category: '博主教程', icon: '🎓' },
+                '002': { category: '博主教程', icon: '🎓' },
                 '003': { category: '博主教程', icon: '🎓' },
                 '004': { category: '博主教程', icon: '🎓' },
-                '005': { category: '博主教程', icon: '🎓' },
-                '006': { category: '博主教程', icon: '🎓' },
             };
 
             for (const file of mdFiles) {
@@ -200,22 +198,6 @@ function getFallbackNewbieData() {
     return [
         {
             id: 'newbie-001',
-            title: 'GitHub 热门 AI 写作开源项目推荐',
-            category: 'GitHub项目',
-            icon: '📦',
-            date: '2026-04-27',
-            desc: '从 GitHub 上精选的热门 AI 写作开源项目，帮你找到最适合的 AI 写作工具'
-        },
-        {
-            id: 'newbie-002',
-            title: 'AI 写作必备 SKILL 推荐与实战指南',
-            category: '写作SKILL',
-            icon: '🛠️',
-            date: '2026-04-27',
-            desc: '掌握这4个 AI 写作核心 SKILL，让你的 AI 写作质量从"能用"提升到"专业"'
-        },
-        {
-            id: 'newbie-003',
             title: '数字生命卡兹克：AI 写作心法与去 AI 味技巧',
             category: '博主教程',
             icon: '🎓',
@@ -223,7 +205,7 @@ function getFallbackNewbieData() {
             desc: '学卡兹克的"去 AI 味"心法——让 AI 写出来的文字像人写的一样'
         },
         {
-            id: 'newbie-004',
+            id: 'newbie-002',
             title: '秋芝与宝玉：AI 工具避坑与提示词调教指南',
             category: '博主教程',
             icon: '🎓',
@@ -231,7 +213,7 @@ function getFallbackNewbieData() {
             desc: '秋芝教你找到对的路，宝玉教你走好每一步——工具选择 + 提示词技巧'
         },
         {
-            id: 'newbie-005',
+            id: 'newbie-003',
             title: '林亦 LYi 与武彬：AI 创作灵感与商业写作思维',
             category: '博主教程',
             icon: '🎓',
@@ -239,7 +221,7 @@ function getFallbackNewbieData() {
             desc: '林亦LYi 教你用 AI 打开脑洞找灵感，武彬教你用 AI 构建商业写作体系'
         },
         {
-            id: 'newbie-006',
+            id: 'newbie-004',
             title: 'AI 写作达人合集：世界观构建与故事内核',
             category: '博主教程',
             icon: '🎓',
@@ -692,10 +674,9 @@ function renderCaseCard(item) {
 // 渲染萌新学习卡片
 function renderNewbieCard(item, index) {
     const fileParam = item.fileName ? `&file=${encodeURIComponent(item.fileName)}` : '';
-    const accentClass = item.category === 'GitHub项目' ? 'accent-project' : item.category === '写作SKILL' ? 'accent-skill' : 'accent-tutorial';
     const num = String(index + 1).padStart(2, '0');
     return `
-        <a href="article.html?id=${item.id}${fileParam}" class="newbie-card ${accentClass}" data-newbie-id="${item.id}" style="animation-delay: ${index * 0.08}s">
+        <a href="article.html?id=${item.id}${fileParam}" class="newbie-card accent-tutorial" data-newbie-id="${item.id}" style="animation-delay: ${index * 0.08}s">
             <div class="newbie-card-accent"></div>
             <span class="newbie-card-num">${num}</span>
             <div class="newbie-card-body">
@@ -786,8 +767,6 @@ async function renderNewbieWithFilter() {
         <div class="newbie-filter">
             <span class="newbie-filter-label">筛选</span>
             <button class="newbie-filter-btn active" data-category="all">全部文章</button>
-            <button class="newbie-filter-btn" data-category="GitHub项目">📦 GitHub项目</button>
-            <button class="newbie-filter-btn" data-category="写作SKILL">🛠️ 写作SKILL</button>
             <button class="newbie-filter-btn" data-category="博主教程">🎓 博主教程</button>
         </div>
     `;
@@ -1070,7 +1049,7 @@ async function getKnowledgeCreationData() {
             });
 
             mdFiles.sort((a, b) => a.name.localeCompare(b.name));
-            const filesToProcess = mdFiles.slice(0, 6);
+            const filesToProcess = mdFiles.slice(0, 12);
 
             for (const file of filesToProcess) {
                 try {
@@ -1194,6 +1173,69 @@ function getFallbackKnowledgeCreationData() {
             summary: '用自然语言让AI操控你的电脑——自动搜集资料、分析数据、生成报告，知识创作的超级助手。',
             date: '2026-04-27',
             fileName: '006-open-interpreter.md'
+        },
+        {
+            id: 'knowledge-007-chatpaper',
+            name: 'ChatPaper —— AI 论文阅读与翻译工具',
+            url: 'https://github.com/kaixindelele/ChatPaper',
+            stars: 18000,
+            summary: 'arXiv论文一键翻译+摘要，AI辅助文献综述，科研写作者必备的论文阅读加速器。',
+            date: '2026-04-27',
+            fileName: '007-chatpaper.md'
+        },
+        {
+            id: 'knowledge-008-ollama',
+            name: 'Ollama —— 本地运行大模型，隐私写作利器',
+            url: 'https://github.com/ollama/ollama',
+            stars: 105000,
+            summary: '一键在本地运行Llama、Qwen、DeepSeek等大模型，写作数据不出电脑，隐私创作者的终极方案。',
+            date: '2026-04-27',
+            fileName: '008-ollama.md'
+        },
+        {
+            id: 'knowledge-009-anything-llm',
+            name: 'AnythingLLM —— 全功能桌面 AI 写作伴侣',
+            url: 'https://github.com/Mintplex-Labs/anything-llm',
+            stars: 32000,
+            summary: '把任何文档变成AI知识库，全能型桌面AI应用，写作、研究、整理一站式搞定。',
+            date: '2026-04-27',
+            fileName: '009-anything-llm.md'
+        },
+        {
+            id: 'knowledge-010-fastgpt',
+            name: 'FastGPT —— AI 知识库问答与内容生成平台',
+            url: 'https://github.com/labring/FastGPT',
+            stars: 22000,
+            summary: '国产开源AI知识库平台，拖拽式构建写作助手，支持RAG检索增强生成，让AI基于你的素材写作。',
+            date: '2026-04-27',
+            fileName: '010-fastgpt.md'
+        },
+        {
+            id: 'knowledge-011-prompt-engineering',
+            name: 'AI 写作提示词工程 —— 从入门到精通',
+            url: '',
+            stars: 0,
+            summary: '掌握提示词工程的5个核心技巧，让你的AI写作质量从"能用"飞跃到"专业"，告别AI味和流水账。',
+            date: '2026-04-27',
+            fileName: '011-prompt-engineering.md'
+        },
+        {
+            id: 'knowledge-012-toolchain',
+            name: 'AI 写作工具链 —— 从灵感到发布的完整工作流',
+            url: '',
+            stars: 0,
+            summary: '搭建专属的AI写作工具链：灵感搜集→大纲构建→AI写作→润色→发布，每个环节都有最佳开源工具推荐。',
+            date: '2026-04-27',
+            fileName: '012-toolchain.md'
+        },
+        {
+            id: 'knowledge-013-ecosystem',
+            name: '开源 AI 写作生态全景图 —— 2026 年度总结',
+            url: '',
+            stars: 0,
+            summary: '一张图看遍2026年AI写作开源生态：基础模型→推理框架→写作前端→知识库→发布工具，全部开源免费。',
+            date: '2026-04-27',
+            fileName: '013-ecosystem.md'
         }
     ];
 }
@@ -1202,6 +1244,9 @@ function renderKnowledgeCreationCard(project, index) {
     const num = String(index + 1).padStart(2, '0');
     const formattedStars = formatStars(project.stars);
     const projectName = project.name.replace(/⭐/g, '').trim();
+    const hasStars = project.stars > 0;
+    const categoryLabel = hasStars ? `⭐ ${formattedStars}` : '📘 指南';
+    const cardIcon = hasStars ? '📦' : '📘';
 
     return `
         <a href="article.html?id=${project.id}" class="newbie-card accent-knowledge" style="animation-delay: ${index * 0.08}s">
@@ -1209,8 +1254,8 @@ function renderKnowledgeCreationCard(project, index) {
             <span class="newbie-card-num">${num}</span>
             <div class="newbie-card-body">
                 <div class="newbie-card-header">
-                    <span class="newbie-card-icon">📦</span>
-                    <span class="newbie-card-category">⭐ ${formattedStars}</span>
+                    <span class="newbie-card-icon">${cardIcon}</span>
+                    <span class="newbie-card-category">${categoryLabel}</span>
                 </div>
                 <h3 class="newbie-card-title">${projectName}</h3>
                 <p class="newbie-card-desc">${project.summary}</p>

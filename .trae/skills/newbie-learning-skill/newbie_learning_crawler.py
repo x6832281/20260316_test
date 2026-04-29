@@ -919,37 +919,25 @@ def generate_linyi_wubin():
 
 DOCUMENTS = [
     {
-        'filename': '001-GitHub热门AI写作开源项目推荐.md',
-        'generator': generate_github_ai_writing_projects,
-        'category': 'GitHub项目',
-        'icon': '📦',
-    },
-    {
-        'filename': '002-AI写作必备SKILL推荐与实战指南.md',
-        'generator': generate_ai_writing_skills,
-        'category': '写作SKILL',
-        'icon': '🛠️',
-    },
-    {
-        'filename': '003-数字生命卡兹克-AI写作心法与去AI味技巧.md',
+        'filename': '001-数字生命卡兹克-AI写作心法与去AI味技巧.md',
         'generator': generate_kazike,
         'category': '博主教程',
         'icon': '🎓',
     },
     {
-        'filename': '004-秋芝与宝玉-AI工具避坑与提示词调教指南.md',
+        'filename': '002-秋芝与宝玉-AI工具避坑与提示词调教指南.md',
         'generator': generate_qiuzhi_baoyu,
         'category': '博主教程',
         'icon': '🎓',
     },
     {
-        'filename': '005-林亦LYi与武彬-AI创作灵感与商业写作思维.md',
+        'filename': '003-林亦LYi与武彬-AI创作灵感与商业写作思维.md',
         'generator': generate_linyi_wubin,
         'category': '博主教程',
         'icon': '🎓',
     },
     {
-        'filename': '006-AI写作达人合集-世界观构建与故事内核.md',
+        'filename': '004-AI写作达人合集-世界观构建与故事内核.md',
         'generator': generate_others_collection,
         'category': '博主教程',
         'icon': '🎓',

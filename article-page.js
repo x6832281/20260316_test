@@ -92,32 +92,22 @@ const ARTICLES_MAP = {
         tagClass: 'tag-game'
     },
     'newbie-001': {
-        file: 'data/萌新学习/001-GitHub热门AI写作开源项目推荐.md',
-        tag: 'GitHub项目',
+        file: 'data/萌新学习/001-数字生命卡兹克-AI写作心法与去AI味技巧.md',
+        tag: '博主教程',
         tagClass: 'tag-ai'
     },
     'newbie-002': {
-        file: 'data/萌新学习/002-AI写作必备SKILL推荐与实战指南.md',
-        tag: '写作SKILL',
+        file: 'data/萌新学习/002-秋芝与宝玉-AI工具避坑与提示词调教指南.md',
+        tag: '博主教程',
         tagClass: 'tag-ai'
     },
     'newbie-003': {
-        file: 'data/萌新学习/003-数字生命卡兹克-AI写作心法与去AI味技巧.md',
+        file: 'data/萌新学习/003-林亦LYi与武彬-AI创作灵感与商业写作思维.md',
         tag: '博主教程',
         tagClass: 'tag-ai'
     },
     'newbie-004': {
-        file: 'data/萌新学习/004-秋芝与宝玉-AI工具避坑与提示词调教指南.md',
-        tag: '博主教程',
-        tagClass: 'tag-ai'
-    },
-    'newbie-005': {
-        file: 'data/萌新学习/005-林亦LYi与武彬-AI创作灵感与商业写作思维.md',
-        tag: '博主教程',
-        tagClass: 'tag-ai'
-    },
-    'newbie-006': {
-        file: 'data/萌新学习/006-AI写作达人合集-世界观构建与故事内核.md',
+        file: 'data/萌新学习/004-AI写作达人合集-世界观构建与故事内核.md',
         tag: '博主教程',
         tagClass: 'tag-ai'
     },
@@ -692,11 +682,10 @@ async function loadArticle() {
                         
                         const prefix = articleId.replace('newbie-', '');
                         const categoryMap = {
-                            '001': 'GitHub项目', '002': '写作SKILL',
-                            '003': '博主教程', '004': '博主教程',
-                            '005': '博主教程', '006': '博主教程'
+                            '001': '博主教程', '002': '博主教程',
+                            '003': '博主教程', '004': '博主教程'
                         };
-                        
+
                         renderArticle({
                             tag: categoryMap[prefix] || '萌新学习',
                             tagClass: 'tag-ai',
@@ -739,9 +728,8 @@ async function loadArticle() {
                             const dateMatch = content.match(/\*\*发布时间\*\*[：:]\s*(\d{4}-\d{2}-\d{2})/);
                             
                             const categoryMap = {
-                                '001': 'GitHub项目', '002': '写作SKILL',
-                                '003': '博主教程', '004': '博主教程',
-                                '005': '博主教程', '006': '博主教程'
+                                '001': '博主教程', '002': '博主教程',
+                                '003': '博主教程', '004': '博主教程'
                             };
 
                             renderArticle({
