@@ -114,8 +114,111 @@ document.addEventListener('DOMContentLoaded', () => {
     // 初始化弹幕功能
     initDanmaku();
     
-    // 初始化弹幕开关
-    initDanmakuToggle();
+    // 返回顶部按钮
+    initBackToTop();
+    
+    // 卡片鼠标追踪光效
+    initCardMouseTracking();
+    
+    // 图片懒加载
+    initLazyLoading();
+    
+    // 移动端菜单
+    initMobileMenu();
+}
+
+// ============================================
+// 返回顶部按钮
+// ============================================
+function initBackToTop() {
+    const backToTopBtn = document.createElement('button');
+    backToTopBtn.className = 'back-to-top';
+    backToTopBtn.setAttribute('aria-label', '返回顶部');
+    document.body.appendChild(backToTopBtn);
+    
+    let isVisible = false;
+    
+    const toggleBackToTop = () => {
+        const shouldShow = window.scrollY > 400;
+        if (shouldShow !== isVisible) {
+            backToTopBtn.classList.toggle('visible', shouldShow);
+            isVisible = shouldShow;
+        }
+    };
+    
+    window.addEventListener('scroll', toggleBackToTop, { passive: true });
+    
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
+
+// ============================================
+// 卡片鼠标追踪光效
+// ============================================
+function initCardMouseTracking() {
+    const cards = document.querySelectorAll('.littheory-card, .case-card, .literature-card');
+    
+    cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = ((e.clientX - rect.left) / rect.width) * 100;
+            const y = ((e.clientY - rect.top) / rect.height) * 100;
+            card.style.setProperty('--mouse-x', x + '%');
+            card.style.setProperty('--mouse-y', y + '%');
+        });
+    });
+}
+
+// ============================================
+// 图片懒加载
+// ============================================
+function initLazyLoading() {
+    const images = document.querySelectorAll('img[loading="lazy"]');
+    
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src || img.src;
+                    img.classList.add('loaded');
+                    imageObserver.unobserve(img);
+                }
+            });
+        }, { rootMargin: '100px' });
+        
+        images.forEach(img => imageObserver.observe(img));
+    } else {
+        images.forEach(img => img.classList.add('loaded'));
+    }
+}
+
+// ============================================
+// 移动端菜单
+// ============================================
+function initMobileMenu() {
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    if (!menuBtn || !navMenu) return;
+    
+    menuBtn.addEventListener('click', () => {
+        menuBtn.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+    
+    // 点击菜单项后关闭菜单
+    navMenu.querySelectorAll('.nav-item').forEach(item => {
+        item.addEventListener('click', () => {
+            menuBtn.classList.remove('active');
+            navMenu.classList.remove('active');
+        });
+    });
+}
+
+// 初始化弹幕开关
+initDanmakuToggle();
 });
 
 // 初始化弹幕开关

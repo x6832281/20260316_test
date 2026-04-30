@@ -112,12 +112,12 @@ const ARTICLES_MAP = {
         tagClass: 'tag-ai'
     },
     'book-analysis-001': {
-        file: 'data/拆书心得/001-呼兰河传-大泥坑-环境叙事与群像刻画.md',
+        file: 'data/拆书心得/001-呼兰河传-祖父的园子-童年书写与自然意象.md',
         tag: '拆书心得',
         tagClass: 'tag-ai'
     },
     'book-analysis-002': {
-        file: 'data/拆书心得/002-呼兰河传-大泥坑-看客心理与冷叙事.md',
+        file: 'data/拆书心得/002-呼兰河传-大泥坑-环境叙事与群像刻画.md',
         tag: '拆书心得',
         tagClass: 'tag-ai'
     },
@@ -127,17 +127,17 @@ const ARTICLES_MAP = {
         tagClass: 'tag-ai'
     },
     'book-analysis-004': {
-        file: 'data/拆书心得/004-呼兰河传-小团圆媳妇之死-暴力叙事与反讽手法.md',
+        file: 'data/拆书心得/004-呼兰河传-看客群像-冷漠的社会心理学.md',
         tag: '拆书心得',
         tagClass: 'tag-ai'
     },
     'book-analysis-005': {
-        file: 'data/拆书心得/005-呼兰河传-冯歪嘴子-底层生命的微光.md',
+        file: 'data/拆书心得/005-呼兰河传-冯歪嘴子-底层生命的韧性.md',
         tag: '拆书心得',
         tagClass: 'tag-ai'
     },
     'book-analysis-006': {
-        file: 'data/拆书心得/006-呼兰河传-冯歪嘴子-儿童视角与留白艺术.md',
+        file: 'data/拆书心得/006-呼兰河传-儿童视角与留白艺术.md',
         tag: '拆书心得',
         tagClass: 'tag-ai'
     },
@@ -1250,6 +1250,39 @@ async function loadArticle() {
 }
 
 document.addEventListener('DOMContentLoaded', loadArticle);
+
+// 阅读进度条
+function initReadingProgress() {
+    const progressBar = document.getElementById('readingProgress');
+    if (!progressBar) return;
+    
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        progressBar.style.width = progress + '%';
+    }, { passive: true });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    initReadingProgress();
+    
+    // 分享按钮样式增强
+    document.querySelectorAll('.share-btn').forEach(btn => {
+        btn.addEventListener('mouseenter', () => {
+            btn.style.background = 'rgba(0, 245, 212, 0.1)';
+            btn.style.borderColor = 'var(--accent-primary)';
+            btn.style.color = 'var(--accent-primary)';
+            btn.style.transform = 'translateY(-2px)';
+        });
+        btn.addEventListener('mouseleave', () => {
+            btn.style.background = 'var(--bg-card)';
+            btn.style.borderColor = 'var(--border-color)';
+            btn.style.color = 'var(--text-secondary)';
+            btn.style.transform = 'translateY(0)';
+        });
+    });
+});
 
 function getShareInfo() {
     const title = document.title;

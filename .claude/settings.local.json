@@ -3,7 +3,8 @@
     "allow": [
       "WebSearch",
       "WebFetch(domain:github.com)",
-      "Bash(claude plugin *)"
+      "Bash(claude plugin *)",
+      "Bash(git *)"
     ]
   }
 }

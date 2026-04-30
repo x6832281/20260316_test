@@ -143,6 +143,8 @@ async function getNewbieLearningData() {
                 '002': { category: '博主教程', icon: '🎓' },
                 '003': { category: '博主教程', icon: '🎓' },
                 '004': { category: '博主教程', icon: '🎓' },
+                '005': { category: '博主教程', icon: '🎓' },
+                '006': { category: '博主教程', icon: '🎓' },
             };
 
             for (const file of mdFiles) {
@@ -227,6 +229,22 @@ function getFallbackNewbieData() {
             icon: '🎓',
             date: '2026-04-27',
             desc: '集合五位 AI 写作达人的精华——从世界观搭建到素材搜集的全链路方法论'
+        },
+        {
+            id: 'newbie-005',
+            title: 'AI 辅助网文写作：从大纲到连载的完整指南',
+            category: '博主教程',
+            icon: '🎓',
+            date: '2026-04-27',
+            desc: 'AI帮你写大纲、做设定、生成章节，再到续写连载——网文作者的AI生产力革命'
+        },
+        {
+            id: 'newbie-006',
+            title: 'AI 写作变现指南：从爱好到副业的进阶之路',
+            category: '博主教程',
+            icon: '🎓',
+            date: '2026-04-27',
+            desc: '用AI写作打造个人IP，接商单、做自媒体、写网文——零基础也能月入过万的变现路径'
         }
     ];
 }
@@ -1236,6 +1254,24 @@ function getFallbackKnowledgeCreationData() {
             summary: '一张图看遍2026年AI写作开源生态：基础模型→推理框架→写作前端→知识库→发布工具，全部开源免费。',
             date: '2026-04-27',
             fileName: '013-ecosystem.md'
+        },
+        {
+            id: 'knowledge-014-ai-writing-guide',
+            name: 'AI 写作风格指南 —— 打造个人化写作风格',
+            url: '',
+            stars: 0,
+            summary: '告别千篇一律的AI味，学会训练AI模仿你的写作风格——从用词习惯、句式节奏到情感表达，全方位打造专属文风。',
+            date: '2026-04-27',
+            fileName: '014-ai-writing-guide.md'
+        },
+        {
+            id: 'knowledge-015-content-matrix',
+            name: 'AI 内容矩阵搭建 —— 多平台分发策略',
+            url: '',
+            stars: 0,
+            summary: '用AI一次性生成适配知乎、小红书、公众号、抖音等不同平台的内容版本，一篇变多篇，效率翻倍。',
+            date: '2026-04-27',
+            fileName: '015-content-matrix.md'
         }
     ];
 }
