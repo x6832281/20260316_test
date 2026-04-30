@@ -1345,10 +1345,10 @@ async function getBookAnalysisData() {
             mdFiles.sort((a, b) => a.name.localeCompare(b.name));
 
             const categoryMap = {
-                '001': { category: '环境叙事', icon: '🌊' },
-                '002': { category: '看客心理', icon: '👁️' },
+                '001': { category: '童年书写', icon: '🌿' },
+                '002': { category: '环境叙事', icon: '🌊' },
                 '003': { category: '封建礼教', icon: '⛓️' },
-                '004': { category: '暴力叙事', icon: '🔥' },
+                '004': { category: '看客心理', icon: '👁️' },
                 '005': { category: '底层生命', icon: '🌱' },
                 '006': { category: '叙事创新', icon: '✨' }
             };
@@ -1406,21 +1406,21 @@ function getFallbackBookAnalysisData() {
     return [
         {
             id: 'book-analysis-001',
+            title: '呼兰河传·祖父的园子：童年书写与自然意象',
+            category: '童年书写',
+            icon: '🌿',
+            date: '2026-04-30',
+            desc: '祖父的园子是整部《呼兰河传》中唯一温暖的光——萧红用童稚的笔触写出了一个自由的世界，却也因此反衬出园外成人社会的冰冷',
+            fileName: '001-呼兰河传-祖父的园子-童年书写与自然意象.md'
+        },
+        {
+            id: 'book-analysis-002',
             title: '呼兰河传·大泥坑：环境叙事与群像刻画',
             category: '环境叙事',
             icon: '🌊',
             date: '2026-04-30',
-            desc: '萧红用一个泥坑写活了一座城——大泥坑不是背景板，而是呼兰河城的精神隐喻',
-            fileName: '001-呼兰河传-大泥坑-环境叙事与群像刻画.md'
-        },
-        {
-            id: 'book-analysis-002',
-            title: '呼兰河传·大泥坑：看客心理与冷叙事',
-            category: '看客心理',
-            icon: '👁️',
-            date: '2026-04-30',
-            desc: '萧红继承了鲁迅的"看客"批判，但她比鲁迅更冷——记录本身比愤怒更让人绝望',
-            fileName: '002-呼兰河传-大泥坑-看客心理与冷叙事.md'
+            desc: '萧红用一个泥坑写活了一座城——大泥坑不是背景板，而是呼兰河城的精神隐喻，每个人对待泥坑的态度就是他们对待命运的态度',
+            fileName: '002-呼兰河传-大泥坑-环境叙事与群像刻画.md'
         },
         {
             id: 'book-analysis-003',
@@ -1428,35 +1428,35 @@ function getFallbackBookAnalysisData() {
             category: '封建礼教',
             icon: '⛓️',
             date: '2026-04-30',
-            desc: '所有人都是凶手，没有人觉得自己有罪——萧红写出了中国文学中最恐怖的谋杀',
+            desc: '所有人都是凶手，没有人觉得自己有罪——萧红写出了中国文学中最恐怖的谋杀：一场以"善意"为名的集体杀害',
             fileName: '003-呼兰河传-小团圆媳妇之死-封建礼教吃人实录.md'
         },
         {
             id: 'book-analysis-004',
-            title: '呼兰河传·小团圆媳妇之死：暴力叙事与反讽手法',
-            category: '暴力叙事',
-            icon: '🔥',
+            title: '呼兰河传·看客群像：冷漠的社会心理学',
+            category: '看客心理',
+            icon: '👁️',
             date: '2026-04-30',
-            desc: '萧红写暴力不用暴力语言——用最日常的语气写最残忍的事，这种反差比血腥更窒息',
-            fileName: '004-呼兰河传-小团圆媳妇之死-暴力叙事与反讽手法.md'
+            desc: '萧红继承了鲁迅的"看客"批判，但她比鲁迅更冷——她不做道德评判，只是记录，而记录本身比愤怒更让人绝望',
+            fileName: '004-呼兰河传-看客群像-冷漠的社会心理学.md'
         },
         {
             id: 'book-analysis-005',
-            title: '呼兰河传·冯歪嘴子：底层生命的微光',
+            title: '呼兰河传·冯歪嘴子：底层生命的韧性',
             category: '底层生命',
             icon: '🌱',
             date: '2026-04-30',
-            desc: '冯歪嘴子是唯一没有被泥坑吞没的人——他只是绕过去，继续走',
-            fileName: '005-呼兰河传-冯歪嘴子-底层生命的微光.md'
+            desc: '冯歪嘴子是整部小说中唯一没有被泥坑吞没的人——他不代表伟大，只代表一种最低限度的生命韧性：活着，就这么简单',
+            fileName: '005-呼兰河传-冯歪嘴子-底层生命的韧性.md'
         },
         {
             id: 'book-analysis-006',
-            title: '呼兰河传·冯歪嘴子：儿童视角与留白艺术',
+            title: '呼兰河传·儿童视角与留白艺术',
             category: '叙事创新',
             icon: '✨',
             date: '2026-04-30',
-            desc: '儿童视角能看见成人看不见的东西：荒谬不需要解释，残忍不需要渲染',
-            fileName: '006-呼兰河传-冯歪嘴子-儿童视角与留白艺术.md'
+            desc: '儿童视角能看见成人看不见的东西：荒谬不需要解释，残忍不需要渲染——萧红的留白让读者自己在沉默中完成最深刻的阅读',
+            fileName: '006-呼兰河传-儿童视角与留白艺术.md'
         }
     ];
 }
@@ -1496,6 +1496,7 @@ async function renderBookAnalysisWithFilter() {
         <div class="newbie-filter">
             <span class="newbie-filter-label">筛选</span>
             <button class="newbie-filter-btn active" data-category="all">全部文章</button>
+            <button class="newbie-filter-btn" data-category="祖父的园子">🌿 祖父的园子</button>
             <button class="newbie-filter-btn" data-category="大泥坑">🌊 大泥坑</button>
             <button class="newbie-filter-btn" data-category="小团圆媳妇">⛓️ 小团圆媳妇</button>
             <button class="newbie-filter-btn" data-category="冯歪嘴子">🌱 冯歪嘴子</button>
@@ -1517,9 +1518,12 @@ async function renderBookAnalysisWithFilter() {
             cards.forEach(card => {
                 const cardCategory = card.querySelector('.newbie-card-category').textContent;
                 const categoryMap = {
-                    '大泥坑': ['环境叙事', '看客心理'],
-                    '小团圆媳妇': ['封建礼教', '暴力叙事'],
-                    '冯歪嘴子': ['底层生命', '叙事创新']
+                    '祖父的园子': ['童年书写'],
+                    '大泥坑': ['环境叙事'],
+                    '看客': ['看客心理'],
+                    '小团圆媳妇': ['封建礼教'],
+                    '冯歪嘴子': ['底层生命'],
+                    '儿童视角': ['叙事创新']
                 };
                 const allowedCategories = categoryMap[category];
                 if (category === 'all' || (allowedCategories && allowedCategories.includes(cardCategory))) {
