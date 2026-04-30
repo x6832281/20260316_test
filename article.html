@@ -3,9 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="description" content="AI 萌新小窝 - 热门文章详情">
+    <meta name="description" content="AI萌新小窝热门文章详情，AI写作教程、拆书心得、工具推荐等精选内容阅读">
+    <meta name="keywords" content="AI写作教程,AI拆书,AI工具推荐,AI创作技巧,AI学习文章">
     <meta name="theme-color" content="#0a0a0f">
-    <title>文章详情 - AI 萌新小窝</title>
+    <meta name="author" content="AI 萌新小窝">
+    <link rel="canonical" href="https://corely.top/article.html">
+    <title>文章详情 - AI写作教程与拆书心得 | AI 萌新小窝</title>
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="AI写作教程与拆书心得 | AI 萌新小窝">
+    <meta property="og:description" content="AI写作教程、拆书心得、工具推荐等精选内容阅读">
+    <meta property="og:url" content="https://corely.top/article.html">
+    <meta property="og:site_name" content="AI 萌新小窝">
+    <meta property="og:locale" content="zh_CN">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="AI写作教程与拆书心得">
+    <meta name="twitter:description" content="AI写作教程、拆书心得、工具推荐等精选内容阅读">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -50,6 +62,17 @@
                 </div>
             </article>
         </main>
+
+        <div class="share-bar" id="shareBar" style="max-width: 800px; margin: 0 auto; padding: 24px 0; border-top: 1px solid var(--border-color);">
+            <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 12px;">分享这篇文章</p>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                <button onclick="shareToWeibo()" class="share-btn" style="padding: 8px 16px; border-radius: var(--radius-sm); background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-secondary); cursor: pointer; font-size: 13px; transition: all 0.2s;">微博</button>
+                <button onclick="shareToQQ()" class="share-btn" style="padding: 8px 16px; border-radius: var(--radius-sm); background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-secondary); cursor: pointer; font-size: 13px; transition: all 0.2s;">QQ</button>
+                <button onclick="shareToDouban()" class="share-btn" style="padding: 8px 16px; border-radius: var(--radius-sm); background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-secondary); cursor: pointer; font-size: 13px; transition: all 0.2s;">豆瓣</button>
+                <button onclick="copyLink()" class="share-btn" id="copyLinkBtn" style="padding: 8px 16px; border-radius: var(--radius-sm); background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-secondary); cursor: pointer; font-size: 13px; transition: all 0.2s;">复制链接</button>
+                <button onclick="shareToWechat()" class="share-btn" style="padding: 8px 16px; border-radius: var(--radius-sm); background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-secondary); cursor: pointer; font-size: 13px; transition: all 0.2s;">微信</button>
+            </div>
+        </div>
 
         <footer class="article-footer">
             <div class="footer-nav">

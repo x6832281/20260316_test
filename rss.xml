@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AI 萌新小窝 - AI写作学习交流</title>
+    <description>面向新人的AI写作学习交流平台，提供AI拆书读书、AI小说创作教程、AI工具推荐和写作技巧分享</description>
+    <link>https://corely.top</link>
+    <atom:link href="https://corely.top/rss.xml" rel="self" type="application/rss+xml"/>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 30 Apr 2026 00:00:00 +0800</lastBuildDate>
+    <item>
+      <title>数字生命卡兹克：AI 写作心法与去 AI 味技巧</title>
+      <description>学卡兹克的"去 AI 味"心法——让 AI 写出来的文字像人写的一样，告别空洞和机械感。</description>
+      <link>https://corely.top/article.html?id=newbie-001</link>
+      <guid>https://corely.top/article.html?id=newbie-001</guid>
+      <pubDate>Tue, 29 Apr 2026 00:00:00 +0800</pubDate>
+      <category>AI写作</category>
+      <category>去AI味</category>
+    </item>
+    <item>
+      <title>秋芝与宝玉：AI工具避坑与提示词调教指南</title>
+      <description>掌握AI工具的正确使用姿势，学会调教提示词，避免常见坑点，让AI真正成为你的写作助手。</description>
+      <link>https://corely.top/article.html?id=newbie-002</link>
+      <guid>https://corely.top/article.html?id=newbie-002</guid>
+      <pubDate>Tue, 29 Apr 2026 00:00:00 +0800</pubDate>
+      <category>AI工具</category>
+      <category>提示词</category>
+    </item>
+    <item>
+      <title>林亦LYi与武彬：AI创作灵感与商业写作思维</title>
+      <description>从创作灵感到商业变现，学习顶级AI创作者的思维方式和工作流程。</description>
+      <link>https://corely.top/article.html?id=newbie-003</link>
+      <guid>https://corely.top/article.html?id=newbie-003</guid>
+      <pubDate>Tue, 29 Apr 2026 00:00:00 +0800</pubDate>
+      <category>AI创作</category>
+      <category>商业写作</category>
+    </item>
+    <item>
+      <title>AI写作达人合集：世界观构建与故事内核</title>
+      <description>用AI构建小说世界观和故事内核的完整方法论，从零开始打造引人入胜的故事框架。</description>
+      <link>https://corely.top/article.html?id=newbie-004</link>
+      <guid>https://corely.top/article.html?id=newbie-004</guid>
+      <pubDate>Tue, 29 Apr 2026 00:00:00 +0800</pubDate>
+      <category>AI写作</category>
+      <category>世界观构建</category>
+    </item>
+  </channel>
+</rss>

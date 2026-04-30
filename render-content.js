@@ -1316,6 +1316,222 @@ function renderProjectCard(project) {
     `;
 }
 
+async function getBookAnalysisData() {
+    const items = [];
+
+    try {
+        const dirPath = 'data/拆书心得/';
+        const encodedDirPath = encodeURI(dirPath);
+
+        const dirResponse = await fetch(encodedDirPath);
+        if (dirResponse.ok) {
+            const html = await dirResponse.text();
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+
+            const links = doc.querySelectorAll('a[href$=".md"]');
+            const mdFiles = [];
+
+            links.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href) {
+                    const fileName = href.split('/').pop();
+                    if (fileName.endsWith('.md')) {
+                        mdFiles.push({href: href, name: decodeURIComponent(fileName)});
+                    }
+                }
+            });
+
+            mdFiles.sort((a, b) => a.name.localeCompare(b.name));
+
+            const categoryMap = {
+                '001': { category: '环境叙事', icon: '🌊' },
+                '002': { category: '看客心理', icon: '👁️' },
+                '003': { category: '封建礼教', icon: '⛓️' },
+                '004': { category: '暴力叙事', icon: '🔥' },
+                '005': { category: '底层生命', icon: '🌱' },
+                '006': { category: '叙事创新', icon: '✨' }
+            };
+
+            for (const file of mdFiles) {
+                try {
+                    const fileUrl = encodedDirPath + file.href;
+                    const fileResponse = await fetch(fileUrl);
+                    if (fileResponse.ok) {
+                        const content = await fileResponse.text();
+
+                        const titleMatch = content.match(/^# (.+)$/m);
+                        const title = titleMatch ? titleMatch[1].trim() : file.name.replace('.md', '');
+
+                        const summaryMatch = content.match(/## 📌 一句话总结\s*\n\s*\n\*\*(.+?)\*\*/);
+                        const desc = summaryMatch ? summaryMatch[1].trim() : '';
+
+                        const dateMatch = content.match(/\*\*发布时间\*\*[：:]\s*(.+)$/m);
+                        const date = dateMatch ? dateMatch[1].trim() : new Date().toISOString().split('T')[0];
+
+                        const filePrefix = file.name.match(/^(\d{3})/);
+                        const prefix = filePrefix ? filePrefix[1] : '001';
+                        const catInfo = categoryMap[prefix] || { category: '拆书心得', icon: '📚' };
+
+                        const id = `book-analysis-${prefix}`;
+
+                        items.push({
+                            id: id,
+                            title: title,
+                            category: catInfo.category,
+                            icon: catInfo.icon,
+                            date: date,
+                            desc: desc,
+                            file: fileUrl,
+                            fileName: file.name
+                        });
+                    }
+                } catch (error) {
+                    console.error(`Error fetching ${file.name}:`, error);
+                }
+            }
+        }
+    } catch (error) {
+        console.error('Error getting book analysis data:', error);
+    }
+
+    if (items.length > 0) {
+        return items;
+    }
+
+    return getFallbackBookAnalysisData();
+}
+
+function getFallbackBookAnalysisData() {
+    return [
+        {
+            id: 'book-analysis-001',
+            title: '呼兰河传·大泥坑：环境叙事与群像刻画',
+            category: '环境叙事',
+            icon: '🌊',
+            date: '2026-04-30',
+            desc: '萧红用一个泥坑写活了一座城——大泥坑不是背景板，而是呼兰河城的精神隐喻',
+            fileName: '001-呼兰河传-大泥坑-环境叙事与群像刻画.md'
+        },
+        {
+            id: 'book-analysis-002',
+            title: '呼兰河传·大泥坑：看客心理与冷叙事',
+            category: '看客心理',
+            icon: '👁️',
+            date: '2026-04-30',
+            desc: '萧红继承了鲁迅的"看客"批判，但她比鲁迅更冷——记录本身比愤怒更让人绝望',
+            fileName: '002-呼兰河传-大泥坑-看客心理与冷叙事.md'
+        },
+        {
+            id: 'book-analysis-003',
+            title: '呼兰河传·小团圆媳妇之死：封建礼教吃人实录',
+            category: '封建礼教',
+            icon: '⛓️',
+            date: '2026-04-30',
+            desc: '所有人都是凶手，没有人觉得自己有罪——萧红写出了中国文学中最恐怖的谋杀',
+            fileName: '003-呼兰河传-小团圆媳妇之死-封建礼教吃人实录.md'
+        },
+        {
+            id: 'book-analysis-004',
+            title: '呼兰河传·小团圆媳妇之死：暴力叙事与反讽手法',
+            category: '暴力叙事',
+            icon: '🔥',
+            date: '2026-04-30',
+            desc: '萧红写暴力不用暴力语言——用最日常的语气写最残忍的事，这种反差比血腥更窒息',
+            fileName: '004-呼兰河传-小团圆媳妇之死-暴力叙事与反讽手法.md'
+        },
+        {
+            id: 'book-analysis-005',
+            title: '呼兰河传·冯歪嘴子：底层生命的微光',
+            category: '底层生命',
+            icon: '🌱',
+            date: '2026-04-30',
+            desc: '冯歪嘴子是唯一没有被泥坑吞没的人——他只是绕过去，继续走',
+            fileName: '005-呼兰河传-冯歪嘴子-底层生命的微光.md'
+        },
+        {
+            id: 'book-analysis-006',
+            title: '呼兰河传·冯歪嘴子：儿童视角与留白艺术',
+            category: '叙事创新',
+            icon: '✨',
+            date: '2026-04-30',
+            desc: '儿童视角能看见成人看不见的东西：荒谬不需要解释，残忍不需要渲染',
+            fileName: '006-呼兰河传-冯歪嘴子-儿童视角与留白艺术.md'
+        }
+    ];
+}
+
+function renderBookAnalysisCard(item, index) {
+    const fileParam = item.fileName ? `&file=${encodeURIComponent(item.fileName)}` : '';
+    const num = String(index + 1).padStart(2, '0');
+    return `
+        <a href="article.html?id=${item.id}${fileParam}" class="newbie-card accent-book" data-book-id="${item.id}" style="animation-delay: ${index * 0.08}s">
+            <div class="newbie-card-accent"></div>
+            <span class="newbie-card-num">${num}</span>
+            <div class="newbie-card-body">
+                <div class="newbie-card-header">
+                    <span class="newbie-card-icon">${item.icon}</span>
+                    <span class="newbie-card-category">${item.category}</span>
+                </div>
+                <h3 class="newbie-card-title">${item.title}</h3>
+                <p class="newbie-card-desc">${item.desc}</p>
+                <div class="newbie-card-footer">
+                    <time class="newbie-card-date">${item.date}</time>
+                    <span class="newbie-card-arrow">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </span>
+                </div>
+            </div>
+        </a>
+    `;
+}
+
+async function renderBookAnalysisWithFilter() {
+    const container = document.getElementById('case-container');
+    if (!container) return;
+
+    const bookData = await getBookAnalysisData();
+
+    const filterHtml = `
+        <div class="newbie-filter">
+            <span class="newbie-filter-label">筛选</span>
+            <button class="newbie-filter-btn active" data-category="all">全部文章</button>
+            <button class="newbie-filter-btn" data-category="大泥坑">🌊 大泥坑</button>
+            <button class="newbie-filter-btn" data-category="小团圆媳妇">⛓️ 小团圆媳妇</button>
+            <button class="newbie-filter-btn" data-category="冯歪嘴子">🌱 冯歪嘴子</button>
+        </div>
+    `;
+
+    const cardsHtml = bookData.map((item, i) => renderBookAnalysisCard(item, i)).join('');
+
+    container.innerHTML = filterHtml + `<div class="newbie-grid">${cardsHtml}</div>`;
+
+    const filterBtns = container.querySelectorAll('.newbie-filter-btn');
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const category = btn.dataset.category;
+            const cards = container.querySelectorAll('.newbie-card');
+            cards.forEach(card => {
+                const cardCategory = card.querySelector('.newbie-card-category').textContent;
+                const categoryMap = {
+                    '大泥坑': ['环境叙事', '看客心理'],
+                    '小团圆媳妇': ['封建礼教', '暴力叙事'],
+                    '冯歪嘴子': ['底层生命', '叙事创新']
+                };
+                const allowedCategories = categoryMap[category];
+                if (category === 'all' || (allowedCategories && allowedCategories.includes(cardCategory))) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+}
+
 // 初始化渲染
 async function renderHomepage() {
     console.log('=== Starting renderHomepage function ===');
@@ -1364,12 +1580,9 @@ async function renderHomepage() {
         creativeGrid.innerHTML = creativeHTML;
     }
     
-    // 渲染实战案例
-    const caseGrid = document.getElementById('case-container');
-    if (caseGrid) {
-        const caseHTML = CASE_DATA.map(item => renderCaseCard(item)).join('');
-        caseGrid.innerHTML = caseHTML;
-    }
+    // 渲染拆书心得
+    console.log('Rendering book analysis...');
+    await renderBookAnalysisWithFilter();
     
     // 渲染萌新学习
     console.log('Rendering newbie learning...');

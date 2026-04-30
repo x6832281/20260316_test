@@ -111,6 +111,36 @@ const ARTICLES_MAP = {
         tag: '博主教程',
         tagClass: 'tag-ai'
     },
+    'book-analysis-001': {
+        file: 'data/拆书心得/001-呼兰河传-大泥坑-环境叙事与群像刻画.md',
+        tag: '拆书心得',
+        tagClass: 'tag-ai'
+    },
+    'book-analysis-002': {
+        file: 'data/拆书心得/002-呼兰河传-大泥坑-看客心理与冷叙事.md',
+        tag: '拆书心得',
+        tagClass: 'tag-ai'
+    },
+    'book-analysis-003': {
+        file: 'data/拆书心得/003-呼兰河传-小团圆媳妇之死-封建礼教吃人实录.md',
+        tag: '拆书心得',
+        tagClass: 'tag-ai'
+    },
+    'book-analysis-004': {
+        file: 'data/拆书心得/004-呼兰河传-小团圆媳妇之死-暴力叙事与反讽手法.md',
+        tag: '拆书心得',
+        tagClass: 'tag-ai'
+    },
+    'book-analysis-005': {
+        file: 'data/拆书心得/005-呼兰河传-冯歪嘴子-底层生命的微光.md',
+        tag: '拆书心得',
+        tagClass: 'tag-ai'
+    },
+    'book-analysis-006': {
+        file: 'data/拆书心得/006-呼兰河传-冯歪嘴子-儿童视角与留白艺术.md',
+        tag: '拆书心得',
+        tagClass: 'tag-ai'
+    },
     'money-001': {
         file: 'data/搞钱排行/001-AI自媒体月入过万.md',
         tag: '自媒体',
@@ -946,6 +976,90 @@ async function loadArticle() {
             }
         }
         
+        // 动态处理拆书心得 (book-analysis-*)
+        if (articleId.startsWith('book-analysis-')) {
+            try {
+                console.log('Loading book analysis article:', articleId);
+                const params = new URLSearchParams(window.location.search);
+                const fileName = params.get('file');
+                
+                if (fileName) {
+                    const fileResponse = await fetch(`data/拆书心得/${fileName}`);
+                    if (fileResponse.ok) {
+                        const content = await fileResponse.text();
+                        const titleMatch = content.match(/^# (.+)$/m);
+                        const dateMatch = content.match(/\*\*发布时间\*\*[：:]\s*(\d{4}-\d{2}-\d{2})/);
+
+                        const prefix = articleId.replace('book-analysis-', '');
+                        const categoryMap = {
+                            '001': '环境叙事', '002': '看客心理',
+                            '003': '封建礼教', '004': '暴力叙事',
+                            '005': '底层生命', '006': '叙事创新'
+                        };
+
+                        renderArticle({
+                            tag: categoryMap[prefix] || '拆书心得',
+                            tagClass: 'tag-ai',
+                            title: titleMatch ? titleMatch[1] : '',
+                            date: dateMatch ? dateMatch[1] : ''
+                        }, content);
+                        updateNextArticle(articleId);
+                        return;
+                    }
+                }
+                
+                const dirResponse = await fetch('data/拆书心得/');
+                if (dirResponse.ok) {
+                    const html = await dirResponse.text();
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, 'text/html');
+                    const links = doc.querySelectorAll('a[href$=".md"]');
+                    const mdFiles = [];
+                    
+                    links.forEach(link => {
+                        const href = link.getAttribute('href');
+                        if (href) {
+                            const name = decodeURIComponent(href.split('/').pop());
+                            if (name.endsWith('.md')) {
+                                mdFiles.push(name);
+                            }
+                        }
+                    });
+                    
+                    mdFiles.sort();
+                    
+                    const prefix = articleId.replace('book-analysis-', '');
+                    const targetFile = mdFiles.find(f => f.startsWith(prefix));
+                    
+                    if (targetFile) {
+                        const fileResponse = await fetch(`data/拆书心得/${encodeURIComponent(targetFile)}`);
+                        if (fileResponse.ok) {
+                            const content = await fileResponse.text();
+                            const titleMatch = content.match(/^# (.+)$/m);
+                            const dateMatch = content.match(/\*\*发布时间\*\*[：:]\s*(\d{4}-\d{2}-\d{2})/);
+
+                            const categoryMap = {
+                                '001': '环境叙事', '002': '看客心理',
+                                '003': '封建礼教', '004': '暴力叙事',
+                                '005': '底层生命', '006': '叙事创新'
+                            };
+
+                            renderArticle({
+                                tag: categoryMap[prefix] || '拆书心得',
+                                tagClass: 'tag-ai',
+                                title: titleMatch ? titleMatch[1] : '',
+                                date: dateMatch ? dateMatch[1] : ''
+                            }, content);
+                            updateNextArticle(articleId);
+                            return;
+                        }
+                    }
+                }
+            } catch (error) {
+                console.error('加载拆书心得失败:', error);
+            }
+        }
+        
         // 如果不是已知类型或者加载失败，显示错误
         document.getElementById('articleContent').innerHTML = `
             <div class="article-error">
@@ -1136,3 +1250,62 @@ async function loadArticle() {
 }
 
 document.addEventListener('DOMContentLoaded', loadArticle);
+
+function getShareInfo() {
+    const title = document.title;
+    const url = window.location.href;
+    const desc = document.querySelector('meta[name="description"]')?.content || '';
+    return { title, url, desc };
+}
+
+function shareToWeibo() {
+    const { title, url, desc } = getShareInfo();
+    window.open(`https://service.weibo.com/share/share.php?url=${encodeURIComponent(url)}&title=${encodeURIComponent(title + ' - ' + desc)}`, '_blank', 'width=600,height=400');
+}
+
+function shareToQQ() {
+    const { title, url, desc } = getShareInfo();
+    window.open(`https://connect.qq.com/widget/shareqq/index.html?url=${encodeURIComponent(url)}&title=${encodeURIComponent(title)}&summary=${encodeURIComponent(desc)}`, '_blank', 'width=600,height=400');
+}
+
+function shareToDouban() {
+    const { title, url, desc } = getShareInfo();
+    window.open(`https://www.douban.com/share/service?url=${encodeURIComponent(url)}&name=${encodeURIComponent(title)}&text=${encodeURIComponent(desc)}`, '_blank', 'width=600,height=400');
+}
+
+function copyLink() {
+    const url = window.location.href;
+    navigator.clipboard.writeText(url).then(() => {
+        const btn = document.getElementById('copyLinkBtn');
+        if (btn) {
+            const original = btn.textContent;
+            btn.textContent = '已复制!';
+            btn.style.color = 'var(--accent-primary)';
+            setTimeout(() => {
+                btn.textContent = original;
+                btn.style.color = '';
+            }, 2000);
+        }
+    }).catch(() => {
+        const input = document.createElement('input');
+        input.value = url;
+        document.body.appendChild(input);
+        input.select();
+        document.execCommand('copy');
+        document.body.removeChild(input);
+        const btn = document.getElementById('copyLinkBtn');
+        if (btn) {
+            btn.textContent = '已复制!';
+            setTimeout(() => { btn.textContent = '复制链接'; }, 2000);
+        }
+    });
+}
+
+function shareToWechat() {
+    const url = window.location.href;
+    navigator.clipboard.writeText(url).then(() => {
+        alert('链接已复制！请打开微信，粘贴链接分享给朋友或发到朋友圈。');
+    }).catch(() => {
+        alert('请手动复制浏览器地址栏的链接，在微信中粘贴分享。');
+    });
+}

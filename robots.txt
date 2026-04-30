@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /test_
+Disallow: /backup.html
+
+Sitemap: https://corely.top/sitemap.xml

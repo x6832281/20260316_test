@@ -84,26 +84,32 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     
-    // 内容标签页切换
-    const tabButtons = document.querySelectorAll('.tab-btn');
-    const tabContents = document.querySelectorAll('.tab-content');
+    // 内容标签页锚点导航
+    const tabButtons = document.querySelectorAll('.content-tabs-anchor .tab-btn');
     
     tabButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const tabId = button.dataset.tab;
-            
-            // 移除所有 active 类
+        button.addEventListener('click', (e) => {
             tabButtons.forEach(btn => btn.classList.remove('active'));
-            tabContents.forEach(content => content.classList.remove('active'));
-            
-            // 添加 active 类到当前标签
             button.classList.add('active');
-            const targetContent = document.getElementById(`${tabId}-tab`);
-            if (targetContent) {
-                targetContent.classList.add('active');
-            }
         });
     });
+
+    // 滚动时高亮当前Section对应的Tab
+    const sections = document.querySelectorAll('.tab-content[id^="section-"]');
+    if (sections.length > 0 && tabButtons.length > 0) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const sectionId = entry.target.id;
+                    tabButtons.forEach(btn => {
+                        btn.classList.toggle('active', btn.getAttribute('href') === '#' + sectionId);
+                    });
+                }
+            });
+        }, { rootMargin: '-100px 0px -60% 0px' });
+        
+        sections.forEach(section => observer.observe(section));
+    }
     
     // 初始化弹幕功能
     initDanmaku();
