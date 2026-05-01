@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="description" content="AI萌新小窝创作者交流区，与萌新们交流AI写作心得、分享创作作品、讨论AI工具使用经验，问题咨询与建议反馈">
     <meta name="keywords" content="AI写作交流,AI创作社区,AI写作讨论,AI工具交流,创作者社区,AI学习交流">
-    <meta name="theme-color" content="#fdfbf7">
+    <meta name="theme-color" content="#0a0a0f">
     <meta name="author" content="AI 萌新小窝">
     <link rel="canonical" href="https://corely.top/board.html">
     <title>创作者交流 - AI写作学习交流社区 | AI 萌新小窝</title>
@@ -43,18 +43,18 @@
            ============================================ */
         
         :root {
-            --board-bg: #fdfbf7;
-            --board-surface: #f7f4ed;
-            --board-surface-elevated: #f3efe5;
-            --board-border: rgba(0, 0, 0, 0.08);
-            --board-accent: #4a7c59;
-            --board-accent-soft: rgba(74, 124, 89, 0.08);
-            --board-accent-glow: rgba(74, 124, 89, 0.12);
-            --board-warm: #c76b4a;
-            --board-warm-soft: rgba(199, 107, 74, 0.08);
-            --board-text: #2c2416;
-            --board-text-secondary: #6b5e4a;
-            --board-text-muted: #a09880;
+            --board-bg: #0a0a0f;
+            --board-surface: #12121a;
+            --board-surface-elevated: #1a1a25;
+            --board-border: rgba(255, 255, 255, 0.06);
+            --board-accent: #00f5d4;
+            --board-accent-soft: rgba(0, 245, 212, 0.1);
+            --board-accent-glow: rgba(0, 245, 212, 0.15);
+            --board-warm: #f4a261;
+            --board-warm-soft: rgba(244, 162, 97, 0.1);
+            --board-text: #e8e8ed;
+            --board-text-secondary: #8a8a9a;
+            --board-text-muted: #5a5a6a;
         }
 
         .board-page {
@@ -69,8 +69,8 @@
             position: fixed;
             inset: 0;
             background-image: 
-                linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
             background-size: 60px 60px;
             pointer-events: none;
             z-index: 0;
@@ -82,7 +82,7 @@
             right: -30%;
             width: 80vw;
             height: 80vw;
-            background: radial-gradient(circle, rgba(74, 124, 89, 0.03) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(0, 245, 212, 0.03) 0%, transparent 70%);
             pointer-events: none;
             z-index: 0;
         }
@@ -93,7 +93,7 @@
             left: -20%;
             width: 60vw;
             height: 60vw;
-            background: radial-gradient(circle, rgba(199, 107, 74, 0.02) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(244, 162, 97, 0.02) 0%, transparent 70%);
             pointer-events: none;
             z-index: 0;
         }
@@ -124,7 +124,7 @@
             width: 40px;
             height: 40px;
             background: var(--board-accent-soft);
-            border: 1px solid rgba(74, 124, 89, 0.2);
+            border: 1px solid rgba(0, 245, 212, 0.2);
             border-radius: 10px;
             display: flex;
             align-items: center;
@@ -367,14 +367,8 @@
             gap: 10px;
             padding: 14px 28px;
             background: var(--board-accent);
-            color: #fff;
+            color: #0a0a0f;
             border: none;
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all var(--transition-fast);
-            background: var(--board-accent);
             border-radius: 10px;
             font-size: 15px;
             font-weight: 600;
@@ -385,9 +379,9 @@
         }
 
         .board-form-submit:hover {
-            background: #3d6b4a;
+            background: #00e0c0;
             transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(74, 124, 89, 0.2);
+            box-shadow: 0 8px 24px rgba(0, 245, 212, 0.25);
         }
 
         .board-form-submit:active {
@@ -521,8 +515,8 @@
         }
 
         .board-item-type-question {
-            background: rgba(74, 124, 89, 0.08);
-            color: #4a7c59;
+            background: rgba(0, 245, 212, 0.1);
+            color: #00f5d4;
         }
 
         .board-item-type-work {
