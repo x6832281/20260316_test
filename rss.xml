@@ -1,12 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>AI 萌新小窝 - AI写作学习交流</title>
-    <description>面向新人的AI写作学习交流平台，提供AI拆书读书、AI小说创作教程、AI工具推荐和写作技巧分享</description>
+    <title>AI 萌新小窝 - AI拆书读书与写作学习</title>
+    <description>面向新人的AI写作学习交流平台，用AI逐段拆解经典名著，从好书中学会写作</description>
     <link>https://corely.top</link>
     <atom:link href="https://corely.top/rss.xml" rel="self" type="application/rss+xml"/>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 30 Apr 2026 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 01 May 2026 00:00:00 +0800</lastBuildDate>
+    <item>
+      <title>红楼梦·黛玉葬花：中国文学最伟大的独白</title>
+      <description>黛玉葬花不是哭花，是哭自己——曹雪芹用一首葬花吟，写出了中国文学中最绝望也最清醒的自我认知。</description>
+      <link>https://corely.top/article.html?id=book-analysis-007&amp;file=007-红楼梦-黛玉葬花-中国文学最伟大的独白.md</link>
+      <guid>https://corely.top/article.html?id=book-analysis-007</guid>
+      <pubDate>Thu, 01 May 2026 00:00:00 +0800</pubDate>
+      <category>红楼梦</category>
+      <category>拆书心得</category>
+    </item>
+    <item>
+      <title>红楼梦·刘姥姥进大观园：喜剧外壳下的残酷内核</title>
+      <description>所有人都笑刘姥姥，但刘姥姥才是大观园里唯一清醒的人——曹雪芹用一场闹剧写出了最深刻的阶级寓言。</description>
+      <link>https://corely.top/article.html?id=book-analysis-008&amp;file=008-红楼梦-刘姥姥进大观园-喜剧外壳下的残酷内核.md</link>
+      <guid>https://corely.top/article.html?id=book-analysis-008</guid>
+      <pubDate>Thu, 01 May 2026 00:00:00 +0800</pubDate>
+      <category>红楼梦</category>
+      <category>拆书心得</category>
+    </item>
+    <item>
+      <title>活着·福贵买牛：极简叙事的终极力量</title>
+      <description>余华用最少的字写出了最重的痛——当所有亲人都死了，福贵买了一头老牛，给它取名"福贵"，然后继续活着。</description>
+      <link>https://corely.top/article.html?id=book-analysis-013&amp;file=013-活着-福贵买牛-极简叙事的终极力量.md</link>
+      <guid>https://corely.top/article.html?id=book-analysis-013</guid>
+      <pubDate>Thu, 01 May 2026 00:00:00 +0800</pubDate>
+      <category>活着</category>
+      <category>拆书心得</category>
+    </item>
+    <item>
+      <title>百年孤独·开头：一句话改写了小说史</title>
+      <description>"多年以后，面对行刑队"——这一句话同时站在了过去、现在和未来，改写了整个小说的叙事语法。</description>
+      <link>https://corely.top/article.html?id=book-analysis-017&amp;file=017-百年孤独-开头-一句话改写了小说史.md</link>
+      <guid>https://corely.top/article.html?id=book-analysis-017</guid>
+      <pubDate>Thu, 01 May 2026 00:00:00 +0800</pubDate>
+      <category>百年孤独</category>
+      <category>拆书心得</category>
+    </item>
+    <item>
+      <title>AI拆书方法论（上）：让AI成为你的文学导师</title>
+      <description>拆书不是总结，是品味——用AI逐段拆解经典，把一本厚书变成一个个可以独立品读的写作课。</description>
+      <link>https://corely.top/article.html?id=book-analysis-020&amp;file=020-AI拆书方法论上-让AI成为你的文学导师.md</link>
+      <guid>https://corely.top/article.html?id=book-analysis-020</guid>
+      <pubDate>Thu, 01 May 2026 00:00:00 +0800</pubDate>
+      <category>AI拆书方法论</category>
+      <category>拆书心得</category>
+    </item>
+    <item>
+      <title>AI拆书方法论（下）：5个实战Prompt模板</title>
+      <description>5个从"选书"到"写拆书笔记"的实战Prompt模板，复制粘贴即可使用。</description>
+      <link>https://corely.top/article.html?id=book-analysis-021&amp;file=021-AI拆书方法论下-5个实战Prompt模板.md</link>
+      <guid>https://corely.top/article.html?id=book-analysis-021</guid>
+      <pubDate>Thu, 01 May 2026 00:00:00 +0800</pubDate>
+      <category>AI拆书方法论</category>
+      <category>拆书心得</category>
+    </item>
     <item>
       <title>数字生命卡兹克：AI 写作心法与去 AI 味技巧</title>
       <description>学卡兹克的"去 AI 味"心法——让 AI 写出来的文字像人写的一样，告别空洞和机械感。</description>
@@ -18,30 +72,12 @@
     </item>
     <item>
       <title>秋芝与宝玉：AI工具避坑与提示词调教指南</title>
-      <description>掌握AI工具的正确使用姿势，学会调教提示词，避免常见坑点，让AI真正成为你的写作助手。</description>
+      <description>掌握AI工具的正确使用姿势，学会调教提示词，避免常见坑点。</description>
       <link>https://corely.top/article.html?id=newbie-002</link>
       <guid>https://corely.top/article.html?id=newbie-002</guid>
       <pubDate>Tue, 29 Apr 2026 00:00:00 +0800</pubDate>
       <category>AI工具</category>
       <category>提示词</category>
-    </item>
-    <item>
-      <title>林亦LYi与武彬：AI创作灵感与商业写作思维</title>
-      <description>从创作灵感到商业变现，学习顶级AI创作者的思维方式和工作流程。</description>
-      <link>https://corely.top/article.html?id=newbie-003</link>
-      <guid>https://corely.top/article.html?id=newbie-003</guid>
-      <pubDate>Tue, 29 Apr 2026 00:00:00 +0800</pubDate>
-      <category>AI创作</category>
-      <category>商业写作</category>
-    </item>
-    <item>
-      <title>AI写作达人合集：世界观构建与故事内核</title>
-      <description>用AI构建小说世界观和故事内核的完整方法论，从零开始打造引人入胜的故事框架。</description>
-      <link>https://corely.top/article.html?id=newbie-004</link>
-      <guid>https://corely.top/article.html?id=newbie-004</guid>
-      <pubDate>Tue, 29 Apr 2026 00:00:00 +0800</pubDate>
-      <category>AI写作</category>
-      <category>世界观构建</category>
     </item>
   </channel>
 </rss>

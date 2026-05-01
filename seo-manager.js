@@ -5,8 +5,7 @@ const SeoManager = {
     // 更新页面标题
     setTitle(title) {
         document.title = `${title} - AI写作教程与拆书心得 | AI 萌新小窝`;
-    },
-    
+    },    
     // 更新Meta描述
     setDescription(description) {
         let meta = document.querySelector('meta[name="description"]');
@@ -50,12 +49,9 @@ const SeoManager = {
             'og:description': description,
             'og:url': url,
             'og:site_name': 'AI 萌新小窝',
-            'og:locale': 'zh_CN'
+            'og:locale': 'zh_CN',
+            'og:image': imageUrl || `${this.baseUrl}/logo.svg`
         };
-        
-        if (imageUrl) {
-            ogTags['og:image'] = imageUrl;
-        }
         
         Object.entries(ogTags).forEach(([property, content]) => {
             let meta = document.querySelector(`meta[property="${property}"]`);
@@ -73,7 +69,8 @@ const SeoManager = {
         const twitterTags = {
             'twitter:card': 'summary_large_image',
             'twitter:title': title,
-            'twitter:description': description
+            'twitter:description': description,
+            'twitter:image': `${this.baseUrl}/logo.svg`
         };
         
         Object.entries(twitterTags).forEach(([name, content]) => {

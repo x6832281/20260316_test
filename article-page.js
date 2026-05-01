@@ -111,6 +111,26 @@ const ARTICLES_MAP = {
         tag: '博主教程',
         tagClass: 'tag-ai'
     },
+    'newbie-005': {
+        file: 'data/萌新学习/005-AI辅助网文写作-从大纲到连载的完整指南.md',
+        tag: '网文写作',
+        tagClass: 'tag-ai'
+    },
+    'newbie-006': {
+        file: 'data/萌新学习/006-AI写作变现指南-从爱好到副业的进阶之路.md',
+        tag: '写作变现',
+        tagClass: 'tag-ai'
+    },
+    'newbie-007': {
+        file: 'data/萌新学习/007-AI拆书入门-从读过到读懂的第一步.md',
+        tag: '拆书入门',
+        tagClass: 'tag-ai'
+    },
+    'newbie-008': {
+        file: 'data/萌新学习/008-写作新手的第一篇AI辅助文章-从零到发布的完整流程.md',
+        tag: '实战教程',
+        tagClass: 'tag-ai'
+    },
     'book-analysis-001': {
         file: 'data/拆书心得/001-呼兰河传-祖父的园子-童年书写与自然意象.md',
         tag: '拆书心得',
@@ -139,6 +159,81 @@ const ARTICLES_MAP = {
     'book-analysis-006': {
         file: 'data/拆书心得/006-呼兰河传-儿童视角与留白艺术.md',
         tag: '拆书心得',
+        tagClass: 'tag-ai'
+    },
+    'book-analysis-007': {
+        file: 'data/拆书心得/007-红楼梦-黛玉葬花-中国文学最伟大的独白.md',
+        tag: '红楼梦',
+        tagClass: 'tag-ai'
+    },
+    'book-analysis-008': {
+        file: 'data/拆书心得/008-红楼梦-刘姥姥进大观园-喜剧外壳下的残酷内核.md',
+        tag: '红楼梦',
+        tagClass: 'tag-ai'
+    },
+    'book-analysis-009': {
+        file: 'data/拆书心得/009-红楼梦-宝钗扑蝶-完美人设的裂缝.md',
+        tag: '红楼梦',
+        tagClass: 'tag-ai'
+    },
+    'book-analysis-010': {
+        file: 'data/拆书心得/010-红楼梦-王熙凤出场-未见其人先闻其声的叙事革命.md',
+        tag: '红楼梦',
+        tagClass: 'tag-ai'
+    },
+    'book-analysis-011': {
+        file: 'data/拆书心得/011-红楼梦-宝玉挨打-父权暴力的全息投影.md',
+        tag: '红楼梦',
+        tagClass: 'tag-ai'
+    },
+    'book-analysis-012': {
+        file: 'data/拆书心得/012-红楼梦-晴雯撕扇-尊严比扇子贵.md',
+        tag: '红楼梦',
+        tagClass: 'tag-ai'
+    },
+    'book-analysis-013': {
+        file: 'data/拆书心得/013-活着-福贵买牛-极简叙事的终极力量.md',
+        tag: '活着',
+        tagClass: 'tag-ai'
+    },
+    'book-analysis-014': {
+        file: 'data/拆书心得/014-活着-有庆之死-荒诞比残忍更残忍.md',
+        tag: '活着',
+        tagClass: 'tag-ai'
+    },
+    'book-analysis-015': {
+        file: 'data/拆书心得/015-活着-家珍-沉默的重量.md',
+        tag: '活着',
+        tagClass: 'tag-ai'
+    },
+    'book-analysis-016': {
+        file: 'data/拆书心得/016-活着-苦根之死-最后一根稻草的荒诞.md',
+        tag: '活着',
+        tagClass: 'tag-ai'
+    },
+    'book-analysis-017': {
+        file: 'data/拆书心得/017-百年孤独-开头-一句话改写了小说史.md',
+        tag: '百年孤独',
+        tagClass: 'tag-ai'
+    },
+    'book-analysis-018': {
+        file: 'data/拆书心得/018-百年孤独-丽贝卡吃土-孤独的味觉.md',
+        tag: '百年孤独',
+        tagClass: 'tag-ai'
+    },
+    'book-analysis-019': {
+        file: 'data/拆书心得/019-百年孤独-末尾-羊皮卷的预言与宿命的闭环.md',
+        tag: '百年孤独',
+        tagClass: 'tag-ai'
+    },
+    'book-analysis-020': {
+        file: 'data/拆书心得/020-AI拆书方法论上-让AI成为你的文学导师.md',
+        tag: 'AI拆书方法论',
+        tagClass: 'tag-ai'
+    },
+    'book-analysis-021': {
+        file: 'data/拆书心得/021-AI拆书方法论下-5个实战Prompt模板.md',
+        tag: 'AI拆书方法论',
         tagClass: 'tag-ai'
     },
     'money-001': {
@@ -1021,9 +1116,17 @@ async function loadArticle() {
 
                         const prefix = articleId.replace('book-analysis-', '');
                         const categoryMap = {
-                            '001': '环境叙事', '002': '看客心理',
-                            '003': '封建礼教', '004': '暴力叙事',
-                            '005': '底层生命', '006': '叙事创新'
+                            '001': '呼兰河传', '002': '呼兰河传',
+                            '003': '呼兰河传', '004': '呼兰河传',
+                            '005': '呼兰河传', '006': '呼兰河传',
+                            '007': '红楼梦', '008': '红楼梦',
+                            '009': '红楼梦', '010': '红楼梦',
+                            '011': '红楼梦', '012': '红楼梦',
+                            '013': '活着', '014': '活着',
+                            '015': '活着', '016': '活着',
+                            '017': '百年孤独', '018': '百年孤独',
+                            '019': '百年孤独',
+                            '020': 'AI拆书方法论', '021': 'AI拆书方法论'
                         };
 
                         renderArticle({
@@ -1068,9 +1171,17 @@ async function loadArticle() {
                             const dateMatch = content.match(/\*\*发布时间\*\*[：:]\s*(\d{4}-\d{2}-\d{2})/);
 
                             const categoryMap = {
-                                '001': '环境叙事', '002': '看客心理',
-                                '003': '封建礼教', '004': '暴力叙事',
-                                '005': '底层生命', '006': '叙事创新'
+                                '001': '呼兰河传', '002': '呼兰河传',
+                                '003': '呼兰河传', '004': '呼兰河传',
+                                '005': '呼兰河传', '006': '呼兰河传',
+                                '007': '红楼梦', '008': '红楼梦',
+                                '009': '红楼梦', '010': '红楼梦',
+                                '011': '红楼梦', '012': '红楼梦',
+                                '013': '活着', '014': '活着',
+                                '015': '活着', '016': '活着',
+                                '017': '百年孤独', '018': '百年孤独',
+                                '019': '百年孤独',
+                                '020': 'AI拆书方法论', '021': 'AI拆书方法论'
                             };
 
                             renderArticle({
