@@ -385,12 +385,41 @@ function renderArticle(articleData, content) {
     const parsedHtml = parseMarkdown(content);
     articleContent.innerHTML = `<div class="article-body">${parsedHtml}</div>`;
 
-    document.title = `${articleData.title || '文章详情'} - AI 萌新小窝`;
-
-    const metaDesc = articleContent.querySelector('.article-body p');
-    if (metaDesc) {
-        document.querySelector('meta[name="description"]').content = metaDesc.textContent.substring(0, 160);
+    const articleId = getArticleIdFromUrl();
+    const title = articleData.title || extractFirstHeading(content) || '文章详情';
+    const description = extractDescription(content) || articleData.tag || 'AI写作教程与拆书心得';
+    
+    if (typeof SeoManager !== 'undefined') {
+        SeoManager.injectArticleSeo({
+            id: articleId,
+            title: title,
+            description: description,
+            tags: [articleData.tag],
+            publishDate: articleData.date || new Date().toISOString().split('T')[0],
+            imageUrl: articleData.imageUrl || null
+        });
+        SeoManager.addReadingTime(articleContent);
+    } else {
+        document.title = `${title} - AI 萌新小窝`;
+        const metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.content = description.substring(0, 160);
     }
+}
+
+function extractFirstHeading(content) {
+    const match = content.match(/^# (.+)$/m);
+    return match ? match[1] : '';
+}
+
+function extractDescription(content) {
+    const lines = content.split('\n');
+    for (const line of lines) {
+        const text = line.replace(/[*_#>`]/g, '').trim();
+        if (text.length > 20 && text.length < 200) {
+            return text;
+        }
+    }
+    return content.substring(0, 150);
 }
 
 function updateNextArticle(currentId) {
