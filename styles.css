@@ -63,6 +63,16 @@ body {
     line-height: 1.7;
     min-height: 100vh;
     overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: contain;
+}
+
+a, button, .tab-btn, .nav-item, .engine-btn, .article-card,
+.littheory-card, .case-card, .literature-card, .newbie-card,
+.creative-card, .resource-card {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
 }
 
 /* Noise & Grain Overlays */
@@ -425,7 +435,8 @@ body {
 /* 响应式设计 */
 @media (max-width: 768px) {
     .danmaku-container {
-        width: 500px;
+        width: 100%;
+        max-width: 500px;
     }
     
     .danmaku-item {

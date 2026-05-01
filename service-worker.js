@@ -1,6 +1,6 @@
-// Service Worker for PWA - Updated with version 20260418
+// Service Worker for PWA - Updated with version 20260501
 
-const CACHE_NAME = 'kaka-cache-v20260418';
+const CACHE_NAME = 'kaka-cache-v20260501';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
@@ -9,6 +9,11 @@ const ASSETS_TO_CACHE = [
   '/resource.html',
   '/disclaimer.html',
   '/article.html',
+  '/board.html',
+  '/backup.html',
+  '/webnovel.html',
+  '/faq.html',
+  '/glossary.html',
   '/styles.css',
   '/script.js',
   '/render-content.js',

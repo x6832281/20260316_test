@@ -1,26 +1,25 @@
 {
-  "name": "AI 萌新小窝 - 全球资源导航",
+  "name": "AI 萌新小窝 - AI写作学习交流平台",
   "short_name": "AI 萌新小窝",
-  "description": "全球最新、最火的免费开源资源导航",
+  "description": "面向新人的AI写作学习交流平台，AI拆书读书、小说创作教程、工具推荐和写作技巧分享",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#FFF9F5",
-  "theme_color": "#FFB6C1",
+  "background_color": "#0a0a0f",
+  "theme_color": "#00f5d4",
   "icons": [
     {
-      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23FFB6C1'/%3E%3Ctext x='50' y='55' text-anchor='middle' font-size='24' font-family='Arial' fill='white'%3E卡%3C/text%3E%3C/svg%3E",
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='40' fill='%230a0a0f'/%3E%3Ctext x='90' y='110' text-anchor='middle' font-size='80' font-family='serif' fill='%2300f5d4'%3EAI%3C/text%3E%3C/svg%3E",
       "sizes": "192x192",
       "type": "image/svg+xml",
       "purpose": "any maskable"
     },
     {
-      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Ccircle cx='256' cy='256' r='240' fill='%23FFB6C1'/%3E%3Ctext x='256' y='270' text-anchor='middle' font-size='80' font-family='Arial' fill='white'%3E卡%3C/text%3E%3C/svg%3E",
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='100' fill='%230a0a0f'/%3E%3Ctext x='256' y='300' text-anchor='middle' font-size='200' font-family='serif' fill='%2300f5d4'%3EAI%3C/text%3E%3C/svg%3E",
       "sizes": "512x512",
       "type": "image/svg+xml",
       "purpose": "any maskable"
     }
   ],
-  "orientation": "portrait",
   "categories": ["education", "productivity", "utilities"],
   "lang": "zh-CN",
   "dir": "ltr"
