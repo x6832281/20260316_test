@@ -126,7 +126,7 @@ a, button, .tab-btn, .nav-item, .engine-btn, .article-card,
     padding: 20px 0;
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 10000;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     background: rgba(10, 10, 15, 0.85);
@@ -1838,7 +1838,7 @@ a, button, .tab-btn, .nav-item, .engine-btn, .article-card,
         opacity: 0;
         visibility: hidden;
         transition: all var(--transition-fast);
-        z-index: 200;
+        z-index: 10001;
         width: 100%;
     }
     
@@ -1855,7 +1855,7 @@ a, button, .tab-btn, .nav-item, .engine-btn, .article-card,
     
     .mobile-menu-btn {
         display: flex;
-        z-index: 201;
+        z-index: 10002;
     }
     
     .hero {
