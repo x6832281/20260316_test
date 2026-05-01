@@ -65,25 +65,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     
-    // 移动端菜单切换
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const navMenu = document.querySelector('.nav-menu');
-    
-    if (mobileMenuBtn && navMenu) {
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenuBtn.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
-        
-        // 点击导航链接后关闭菜单
-        navMenu.querySelectorAll('.nav-item').forEach(item => {
-            item.addEventListener('click', () => {
-                mobileMenuBtn.classList.remove('active');
-                navMenu.classList.remove('active');
-            });
-        });
-    }
-    
     // 内容标签页锚点导航
     const tabButtons = document.querySelectorAll('.content-tabs-anchor .tab-btn');
     
@@ -113,6 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // 初始化弹幕功能
     initDanmaku();
+    initDanmakuToggle();
     
     // 返回顶部按钮
     initBackToTop();
@@ -217,9 +199,7 @@ function initMobileMenu() {
     });
 }
 
-// 初始化弹幕开关
-initDanmakuToggle();
-});
+
 
 // 初始化弹幕开关
 function initDanmakuToggle() {
