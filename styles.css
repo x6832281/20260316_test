@@ -1551,6 +1551,19 @@ a, button, .tab-btn, .nav-item, .engine-btn, .article-card,
     margin-top: 24px;
 }
 
+.book-analysis-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 28px;
+}
+
+@media (max-width: 768px) {
+    .book-analysis-info-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 .case-grid .newbie-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
