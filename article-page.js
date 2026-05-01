@@ -1270,7 +1270,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 分享按钮样式增强
     document.querySelectorAll('.share-btn').forEach(btn => {
         btn.addEventListener('mouseenter', () => {
-            btn.style.background = 'rgba(0, 245, 212, 0.1)';
+            btn.style.background = 'rgba(74, 124, 89, 0.06)';
             btn.style.borderColor = 'var(--accent-primary)';
             btn.style.color = 'var(--accent-primary)';
             btn.style.transform = 'translateY(-2px)';
