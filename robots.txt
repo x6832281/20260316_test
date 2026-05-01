@@ -2,5 +2,41 @@ User-agent: *
 Allow: /
 Disallow: /test_
 Disallow: /backup.html
+Disallow: /test_dir_access.py
+Disallow: /test_fix.py
+Disallow: /test_money.html
+Disallow: /test_money.js
+Disallow: /test_money_projects.js
+Disallow: /test_simple.py
+Disallow: /.claude/
+Disallow: /.trae/
+
+User-agent: Baiduspider
+Allow: /
+Disallow: /test_
+Disallow: /backup.html
+Disallow: /test_dir_access.py
+Disallow: /test_fix.py
+Disallow: /test_money.html
+Disallow: /test_money.js
+Disallow: /test_money_projects.js
+Disallow: /test_simple.py
+Disallow: /.claude/
+Disallow: /.trae/
+
+User-agent: 360Spider
+Allow: /
+Disallow: /test_
+Disallow: /backup.html
+
+User-agent: Sogou web spider
+Allow: /
+Disallow: /test_
+Disallow: /backup.html
+
+User-agent: Googlebot
+Allow: /
+Disallow: /test_
+Disallow: /backup.html
 
 Sitemap: https://corely.top/sitemap.xml

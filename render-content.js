@@ -1381,12 +1381,27 @@ async function getBookAnalysisData() {
             mdFiles.sort((a, b) => a.name.localeCompare(b.name));
 
             const categoryMap = {
-                '001': { category: '童年书写', icon: '🌿' },
-                '002': { category: '环境叙事', icon: '🌊' },
-                '003': { category: '封建礼教', icon: '⛓️' },
-                '004': { category: '看客心理', icon: '👁️' },
-                '005': { category: '底层生命', icon: '🌱' },
-                '006': { category: '叙事创新', icon: '✨' }
+                '001': { category: '呼兰河传', icon: '🌊' },
+                '002': { category: '呼兰河传', icon: '👁️' },
+                '003': { category: '呼兰河传', icon: '⛓️' },
+                '004': { category: '呼兰河传', icon: '👥' },
+                '005': { category: '呼兰河传', icon: '🌱' },
+                '006': { category: '呼兰河传', icon: '✨' },
+                '007': { category: '红楼梦', icon: '🌸' },
+                '008': { category: '红楼梦', icon: '🎭' },
+                '009': { category: '红楼梦', icon: '🦋' },
+                '010': { category: '红楼梦', icon: '🔥' },
+                '011': { category: '红楼梦', icon: '⚡' },
+                '012': { category: '红楼梦', icon: '🖐️' },
+                '013': { category: '活着', icon: '🐂' },
+                '014': { category: '活着', icon: '💉' },
+                '015': { category: '活着', icon: '🤍' },
+                '016': { category: '活着', icon: '🫘' },
+                '017': { category: '百年孤独', icon: '🧊' },
+                '018': { category: '百年孤独', icon: '🌍' },
+                '019': { category: '百年孤独', icon: '🌀' },
+                '020': { category: 'AI拆书方法论', icon: '🤖' },
+                '021': { category: 'AI拆书方法论', icon: '📋' }
             };
 
             for (const file of mdFiles) {
@@ -1532,10 +1547,11 @@ async function renderBookAnalysisWithFilter() {
         <div class="newbie-filter">
             <span class="newbie-filter-label">筛选</span>
             <button class="newbie-filter-btn active" data-category="all">全部文章</button>
-            <button class="newbie-filter-btn" data-category="祖父的园子">🌿 祖父的园子</button>
-            <button class="newbie-filter-btn" data-category="大泥坑">🌊 大泥坑</button>
-            <button class="newbie-filter-btn" data-category="小团圆媳妇">⛓️ 小团圆媳妇</button>
-            <button class="newbie-filter-btn" data-category="冯歪嘴子">🌱 冯歪嘴子</button>
+            <button class="newbie-filter-btn" data-category="红楼梦">🌸 红楼梦</button>
+            <button class="newbie-filter-btn" data-category="活着">🐂 活着</button>
+            <button class="newbie-filter-btn" data-category="百年孤独">🧊 百年孤独</button>
+            <button class="newbie-filter-btn" data-category="呼兰河传">🌊 呼兰河传</button>
+            <button class="newbie-filter-btn" data-category="AI拆书方法论">🤖 AI拆书方法论</button>
         </div>
     `;
 
@@ -1554,12 +1570,11 @@ async function renderBookAnalysisWithFilter() {
             cards.forEach(card => {
                 const cardCategory = card.querySelector('.newbie-card-category').textContent;
                 const categoryMap = {
-                    '祖父的园子': ['童年书写'],
-                    '大泥坑': ['环境叙事'],
-                    '看客': ['看客心理'],
-                    '小团圆媳妇': ['封建礼教'],
-                    '冯歪嘴子': ['底层生命'],
-                    '儿童视角': ['叙事创新']
+                    '红楼梦': ['红楼梦'],
+                    '活着': ['活着'],
+                    '百年孤独': ['百年孤独'],
+                    '呼兰河传': ['呼兰河传'],
+                    'AI拆书方法论': ['AI拆书方法论']
                 };
                 const allowedCategories = categoryMap[category];
                 if (category === 'all' || (allowedCategories && allowedCategories.includes(cardCategory))) {
