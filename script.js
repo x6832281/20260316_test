@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // 移动端菜单
     initMobileMenu();
-}
+});
 
 // ============================================
 // 返回顶部按钮
