@@ -185,17 +185,27 @@ function initMobileMenu() {
     
     if (!menuBtn || !navMenu) return;
     
-    menuBtn.addEventListener('click', () => {
-        menuBtn.classList.toggle('active');
+    menuBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isActive = menuBtn.classList.toggle('active');
         navMenu.classList.toggle('active');
+        document.body.style.overflow = isActive ? 'hidden' : '';
     });
     
-    // 点击菜单项后关闭菜单
     navMenu.querySelectorAll('.nav-item').forEach(item => {
         item.addEventListener('click', () => {
             menuBtn.classList.remove('active');
             navMenu.classList.remove('active');
+            document.body.style.overflow = '';
         });
+    });
+    
+    document.addEventListener('click', (e) => {
+        if (!navMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+            menuBtn.classList.remove('active');
+            navMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        }
     });
 }
 

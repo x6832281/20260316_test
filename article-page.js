@@ -499,6 +499,8 @@ function renderArticle(articleData, content) {
         const metaDesc = document.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.content = description.substring(0, 160);
     }
+    const h1El = document.getElementById('articleH1');
+    if (h1El) h1El.textContent = title;
 }
 
 function extractFirstHeading(content) {
