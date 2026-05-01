@@ -1,3 +1,4 @@
+// @ts-nocheck
 // PWA Service Worker Registration
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
@@ -15,8 +16,8 @@ if ('serviceWorker' in navigator) {
 const SEARCH_ENGINES = {
     bilibili: { url: 'https://search.bilibili.com/all', param: 'keyword', home: 'https://www.bilibili.com' },
     github: { url: 'https://github.com/search', param: 'q', home: 'https://github.com' },
-    doubao: { url: 'https://www.doubao.com/chat/', param: 'q', home: 'https://www.doubao.com' },
-    qianwen: { url: 'https://tongyi.aliyun.com/qianwen/', param: 'q', home: 'https://tongyi.aliyun.com' },
+    doubao: { url: '', param: '', home: 'https://www.doubao.com/chat/' },
+    qianwen: { url: '', param: '', home: 'https://tongyi.aliyun.com/qianwen/' },
     yandex: { url: 'https://yandex.com/search/', param: 'text', home: 'https://yandex.com' },
     baidu: { url: 'https://www.baidu.com/s', param: 'wd', home: 'https://www.baidu.com' }
 };
@@ -27,14 +28,17 @@ function search(engine) {
     const query = input ? input.value.trim() : '';
     const config = SEARCH_ENGINES[engine];
     if (!config) return;
-    
-    if (query) {
-        // 有搜索内容时：进行搜索
-        const url = `${config.url}?${config.param}=${encodeURIComponent(query)}`;
-        window.open(url, '_blank', 'noopener,noreferrer');
+
+    let url;
+    if (query && config.url && config.param) {
+        url = `${config.url}?${config.param}=${encodeURIComponent(query)}`;
     } else {
-        // 没有搜索内容时：打开搜索引擎首页
-        window.open(config.home, '_blank', 'noopener,noreferrer');
+        url = config.home;
+    }
+
+    const newWindow = window.open(url, '_blank');
+    if (newWindow) {
+        newWindow.opener = null;
     }
 }
 
