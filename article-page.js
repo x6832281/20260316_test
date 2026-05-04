@@ -236,6 +236,61 @@ const ARTICLES_MAP = {
         tag: 'AI拆书方法论',
         tagClass: 'tag-ai'
     },
+    'littheory-001': {
+        file: 'data/文学理论/001-叙事学入门.md',
+        tag: '文学理论',
+        tagClass: 'tag-ai'
+    },
+    'littheory-002': {
+        file: 'data/文学理论/002-结构主义.md',
+        tag: '文学理论',
+        tagClass: 'tag-ai'
+    },
+    'littheory-003': {
+        file: 'data/文学理论/003-读者批评理论.md',
+        tag: '文学理论',
+        tagClass: 'tag-ai'
+    },
+    'littheory-004': {
+        file: 'data/文学理论/004-女性主义文学批评.md',
+        tag: '文学理论',
+        tagClass: 'tag-ai'
+    },
+    'littheory-005': {
+        file: 'data/文学理论/005-后现代主义文学理论.md',
+        tag: '文学理论',
+        tagClass: 'tag-ai'
+    },
+    'littheory-006': {
+        file: 'data/文学理论/006-比较文学.md',
+        tag: '文学理论',
+        tagClass: 'tag-ai'
+    },
+    'book-excerpt-001': {
+        file: 'data/书摘文案/001-经典书摘.md',
+        tag: '书摘文案',
+        tagClass: 'tag-ai'
+    },
+    'book-excerpt-002': {
+        file: 'data/书摘文案/002-名人名言.md',
+        tag: '书摘文案',
+        tagClass: 'tag-ai'
+    },
+    'book-excerpt-003': {
+        file: 'data/书摘文案/003-经典书评.md',
+        tag: '书摘文案',
+        tagClass: 'tag-ai'
+    },
+    'book-excerpt-005': {
+        file: 'data/书摘文案/005-网络热梗与流行语.md',
+        tag: '书摘文案',
+        tagClass: 'tag-ai'
+    },
+    'book-excerpt-006': {
+        file: 'data/书摘文案/006-抖音小红书高赞文案.md',
+        tag: '书摘文案',
+        tagClass: 'tag-ai'
+    },
     'money-001': {
         file: 'data/搞钱排行/001-AI自媒体月入过万.md',
         tag: '自媒体',
