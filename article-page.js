@@ -1115,47 +1115,20 @@ async function loadArticle() {
         if (articleId.startsWith('knowledge-')) {
             try {
                 console.log('Loading knowledge creation article:', articleId);
-
-                const dirResponse = await fetch('data/知识创作/');
-                if (dirResponse.ok) {
-                    const html = await dirResponse.text();
-                    const parser = new DOMParser();
-                    const doc = parser.parseFromString(html, 'text/html');
-                    const links = doc.querySelectorAll('a[href$=".md"]');
-                    const mdFiles = [];
-
-                    links.forEach(link => {
-                        const href = link.getAttribute('href');
-                        if (href) {
-                            const name = decodeURIComponent(href.split('/').pop());
-                            if (name.endsWith('.md')) {
-                                mdFiles.push(name);
-                            }
-                        }
-                    });
-
-                    mdFiles.sort();
-
-                    const targetFile = articleId.replace('knowledge-', '') + '.md';
-                    let foundFile = mdFiles.find(f => f === targetFile);
-
-                    if (foundFile) {
-                        const fileResponse = await fetch(`data/知识创作/${encodeURIComponent(foundFile)}`);
-                        if (fileResponse.ok) {
-                            const content = await fileResponse.text();
-                            const titleMatch = content.match(/^# (.+)$/m);
-                            const dateMatch = content.match(/\*\*📅 更新日期\*\*[：:]\s*(\d{4}-\d{2}-\d{2})/);
-
-                            renderArticle({
-                                tag: '知识创作',
-                                tagClass: 'tag-ai',
-                                title: titleMatch ? titleMatch[1] : '',
-                                date: dateMatch ? dateMatch[1] : ''
-                            }, content);
-                            updateNextArticle(articleId);
-                            return;
-                        }
-                    }
+                const targetFile = articleId.replace('knowledge-', '') + '.md';
+                const fileResponse = await fetch(`data/知识创作/${encodeURIComponent(targetFile)}`);
+                if (fileResponse.ok) {
+                    const content = await fileResponse.text();
+                    const titleMatch = content.match(/^# (.+)$/m);
+                    const dateMatch = content.match(/\*\*📅 更新日期\*\*[：:]\s*(\d{4}-\d{2}-\d{2})/);
+                    renderArticle({
+                        tag: '知识创作',
+                        tagClass: 'tag-ai',
+                        title: titleMatch ? titleMatch[1] : '',
+                        date: dateMatch ? dateMatch[1] : ''
+                    }, content);
+                    updateNextArticle(articleId);
+                    return;
                 }
             } catch (error) {
                 console.error('加载知识创作文章失败:', error);
