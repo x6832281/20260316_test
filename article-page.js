@@ -281,6 +281,11 @@ const ARTICLES_MAP = {
         tag: '书摘文案',
         tagClass: 'tag-ai'
     },
+    'book-excerpt-004': {
+        file: 'data/书摘文案/004-微信读书高赞划线.md',
+        tag: '书摘文案',
+        tagClass: 'tag-ai'
+    },
     'book-excerpt-005': {
         file: 'data/书摘文案/005-网络热梗与流行语.md',
         tag: '书摘文案',
