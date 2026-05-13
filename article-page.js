@@ -211,6 +211,31 @@ const ARTICLES_MAP = {
         tag: 'AI拆书方法论',
         tagClass: 'tag-ai'
     },
+    'book-analysis-022': {
+        file: 'data/拆书心得/022-围城-方鸿渐的假文凭-知识分子的虚荣与自卑.md',
+        tag: '围城',
+        tagClass: 'tag-ai'
+    },
+    'book-analysis-023': {
+        file: 'data/拆书心得/023-围城-结尾-那只老钟的隐喻.md',
+        tag: '围城',
+        tagClass: 'tag-ai'
+    },
+    'book-analysis-024': {
+        file: 'data/拆书心得/024-三体-黑暗森林法则-宇宙社会学的冷酷逻辑.md',
+        tag: '三体',
+        tagClass: 'tag-ai'
+    },
+    'book-analysis-025': {
+        file: 'data/拆书心得/025-三体-面壁计划-人类最后的博弈.md',
+        tag: '三体',
+        tagClass: 'tag-ai'
+    },
+    'book-analysis-026': {
+        file: 'data/拆书心得/026-平凡的世界-孙少平的苦难美学-路遥的生命哲学.md',
+        tag: '平凡的世界',
+        tagClass: 'tag-ai'
+    },
     'littheory-001': {
         file: 'data/文学理论/001-叙事学入门.md',
         tag: '文学理论',
@@ -393,6 +418,9 @@ function renderArticle(articleData, content) {
     }
     const h1El = document.getElementById('articleH1');
     if (h1El) h1El.textContent = title;
+
+    // 加载相关文章推荐
+    loadRelatedArticles(articleId, articleData.tag);
 }
 
 function extractFirstHeading(content) {
@@ -433,6 +461,37 @@ function updateNextArticle(currentId) {
         nextLink.href = `article.html?id=${nextId}`;
         nextLink.querySelector('span:last-child').textContent = ARTICLES_MAP[nextId].tag;
     }
+}
+
+// 加载相关文章推荐
+function loadRelatedArticles(currentId, currentTag) {
+    const grid = document.getElementById('relatedArticlesGrid');
+    if (!grid) return;
+
+    // 找出同标签的其他文章
+    const related = Object.entries(ARTICLES_MAP)
+        .filter(([id, data]) => id !== currentId && data.tag === currentTag)
+        .slice(0, 3);
+
+    // 如果同标签不够3篇，补充其他文章
+    if (related.length < 3) {
+        const others = Object.entries(ARTICLES_MAP)
+            .filter(([id, data]) => id !== currentId && data.tag !== currentTag)
+            .slice(0, 3 - related.length);
+        related.push(...others);
+    }
+
+    if (related.length === 0) {
+        document.getElementById('relatedArticles').style.display = 'none';
+        return;
+    }
+
+    grid.innerHTML = related.map(([id, data]) => `
+        <a href="article.html?id=${id}" style="display: block; padding: 16px; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); text-decoration: none; transition: all 0.2s;">
+            <span style="display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 12px; background: rgba(0,245,212,0.1); color: var(--accent-primary); margin-bottom: 8px;">${data.tag}</span>
+            <div style="color: var(--text-secondary); font-size: 13px;">查看详情 →</div>
+        </a>
+    `).join('');
 }
 
 // 从热搜排行文档中提取指定项的内容
@@ -1005,7 +1064,75 @@ async function loadArticle() {
     }
 }
 
+// 文章阅读量和点赞功能
+function initArticleStats() {
+    const articleId = getArticleIdFromUrl();
+    if (!articleId) return;
+
+    // 阅读量统计
+    const viewKey = `views_${articleId}`;
+    const viewedKey = `viewed_${articleId}`;
+    let views = parseInt(localStorage.getItem(viewKey) || '0');
+
+    // 每个用户每篇文章只计一次阅读
+    if (!localStorage.getItem(viewedKey)) {
+        views++;
+        localStorage.setItem(viewKey, views.toString());
+        localStorage.setItem(viewedKey, '1');
+    }
+
+    const viewCountEl = document.getElementById('viewCount');
+    if (viewCountEl) viewCountEl.textContent = views;
+
+    // 点赞功能
+    const likeKey = `likes_${articleId}`;
+    const likedKey = `liked_${articleId}`;
+    let likes = parseInt(localStorage.getItem(likeKey) || '0');
+    const isLiked = localStorage.getItem(likedKey) === '1';
+
+    const likeCountEl = document.getElementById('likeCount');
+    const likeIconEl = document.getElementById('likeIcon');
+    if (likeCountEl) likeCountEl.textContent = likes;
+    if (likeIconEl) likeIconEl.textContent = isLiked ? '❤️' : '🤍';
+
+    // 存储到全局供 toggleLike 使用
+    window._articleStats = { articleId, likes, isLiked };
+}
+
+function toggleLike() {
+    const stats = window._articleStats;
+    if (!stats) return;
+
+    const likeKey = `likes_${stats.articleId}`;
+    const likedKey = `liked_${stats.articleId}`;
+
+    if (stats.isLiked) {
+        stats.likes--;
+        stats.isLiked = false;
+        localStorage.setItem(likedKey, '0');
+    } else {
+        stats.likes++;
+        stats.isLiked = true;
+        localStorage.setItem(likedKey, '1');
+    }
+
+    localStorage.setItem(likeKey, stats.likes.toString());
+
+    const likeCountEl = document.getElementById('likeCount');
+    const likeIconEl = document.getElementById('likeIcon');
+    if (likeCountEl) likeCountEl.textContent = stats.likes;
+    if (likeIconEl) likeIconEl.textContent = stats.isLiked ? '❤️' : '🤍';
+
+    // 添加动画效果
+    const btn = document.getElementById('likeBtn');
+    if (btn) {
+        btn.style.transform = 'scale(1.1)';
+        setTimeout(() => btn.style.transform = 'scale(1)', 200);
+    }
+}
+
 document.addEventListener('DOMContentLoaded', loadArticle);
+document.addEventListener('DOMContentLoaded', initArticleStats);
 
 // 阅读进度条
 function initReadingProgress() {
