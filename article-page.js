@@ -325,12 +325,20 @@ function parseMarkdown(md) {
 
     html = html.replace(/^---$/gm, '<hr class="article-divider">');
 
-    html = html.replace(/^(\d+)\. (.+)$/gm, '<li class="article-list-item">$2</li>');
+    // 有序列表 - 先标记为 ol-item
+    html = html.replace(/^(\d+)\. (.+)$/gm, '<li class="article-list-item ol-item">$2</li>');
 
-    html = html.replace(/^[-*] (.+)$/gm, '<li class="article-list-item">$1</li>');
+    // 无序列表
+    html = html.replace(/^[-*] (.+)$/gm, '<li class="article-list-item ul-item">$1</li>');
 
-    html = html.replace(/(<li[\s\S]*?<\/li>)+/g, (match) => {
-        return `<ul class="article-list">${match}</ul>`;
+    // 有序列表项包裹在 <ol> 中
+    html = html.replace(/(<li class="article-list-item ol-item">[\s\S]*?<\/li>)+/g, (match) => {
+        return `<ol class="article-list">${match.replace(/ ol-item/g, '')}</ol>`;
+    });
+
+    // 无序列表项包裹在 <ul> 中
+    html = html.replace(/(<li class="article-list-item(?: ul-item)?">[\s\S]*?<\/li>)+/g, (match) => {
+        return `<ul class="article-list">${match.replace(/ ul-item/g, '')}</ul>`;
     });
 
     html = html.replace(/^> (.+)$/gm, '<blockquote class="article-quote">$1</blockquote>');
@@ -406,13 +414,24 @@ function extractDescription(content) {
 function updateNextArticle(currentId) {
     const ids = Object.keys(ARTICLES_MAP);
     const currentIndex = ids.indexOf(currentId);
+    if (currentIndex === -1) return;
+
+    // 上一篇
+    const prevIndex = (currentIndex - 1 + ids.length) % ids.length;
+    const prevId = ids[prevIndex];
+    const prevLink = document.getElementById('prevArticle');
+    if (prevLink) {
+        prevLink.href = `article.html?id=${prevId}`;
+        prevLink.querySelector('span:last-child').textContent = ARTICLES_MAP[prevId].tag;
+    }
+
+    // 下一篇
     const nextIndex = (currentIndex + 1) % ids.length;
     const nextId = ids[nextIndex];
-
-    const nextArticleLink = document.getElementById('nextArticle');
-    if (nextArticleLink) {
-        nextArticleLink.href = `article.html?id=${nextId}`;
-        nextArticleLink.querySelector('span:last-child').textContent = ARTICLES_MAP[nextId].tag;
+    const nextLink = document.getElementById('nextArticle');
+    if (nextLink) {
+        nextLink.href = `article.html?id=${nextId}`;
+        nextLink.querySelector('span:last-child').textContent = ARTICLES_MAP[nextId].tag;
     }
 }
 

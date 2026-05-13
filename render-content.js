@@ -1476,55 +1476,41 @@ async function renderBookAnalysisWithFilter() {
 
 // 初始化渲染
 async function renderHomepage() {
-    console.log('=== Starting renderHomepage function ===');
+    console.log('=== Starting renderHomepage (parallel) ===');
 
-    // 获取精选项目数据
-    console.log('Getting featured projects...');
-    const featuredProjects = await getFeaturedProjects();
-    console.log('Featured projects loaded:', featuredProjects.length, 'items');
-    
-    // 获取文学理论数据
-    console.log('Getting literary theory data...');
-    const littheoryData = await getLiteraryTheoryData();
-    console.log('Literary theory data loaded:', littheoryData.length, 'items');
-    
-    // 渲染精选项目
-    console.log('Rendering featured projects...');
-    const articlesGrid = document.getElementById('articles-container');
-    if (articlesGrid) {
-        const projectsHTML = featuredProjects.map(project => renderProjectCard(project)).join('');
-        articlesGrid.innerHTML = projectsHTML;
-        console.log('Featured projects rendered successfully');
-    } else {
-        console.error('articles-container not found');
-    }
-    
-    // 渲染知识创作
-    console.log('Rendering knowledge creation...');
-    await renderKnowledgeCreationWithFilter();
-    console.log('Knowledge creation rendered successfully');
-    
-    // 渲染文学理论
-    console.log('Rendering literary theory...');
-    const littheoryGrid = document.getElementById('littheory-container');
-    if (littheoryGrid) {
-        const littheoryHTML = littheoryData.map(item => renderLiteraryTheoryCard(item)).join('');
-        littheoryGrid.innerHTML = littheoryHTML;
-        console.log('Literary theory rendered successfully');
-    } else {
-        console.error('littheory-container not found');
-    }
-    
-    // 渲染拆书心得
-    console.log('Rendering book analysis...');
-    await renderBookAnalysisWithFilter();
-    
-    // 渲染萌新学习
-    console.log('Rendering newbie learning...');
-    await renderNewbieWithFilter();
-    
-    // 渲染书摘文案
-    await renderLiteratureWithFilter();
+    // 并行加载所有数据源
+    const [featuredProjects, littheoryData] = await Promise.all([
+        getFeaturedProjects().catch(e => { console.error('Featured projects failed:', e); return []; }),
+        getLiteraryTheoryData().catch(e => { console.error('Literary theory failed:', e); return []; })
+    ]);
+
+    // 并行渲染所有板块
+    await Promise.all([
+        // 精选项目
+        (async () => {
+            const articlesGrid = document.getElementById('articles-container');
+            if (articlesGrid && featuredProjects.length) {
+                articlesGrid.innerHTML = featuredProjects.map(project => renderProjectCard(project)).join('');
+            }
+        })(),
+        // 文学理论
+        (async () => {
+            const littheoryGrid = document.getElementById('littheory-container');
+            if (littheoryGrid && littheoryData.length) {
+                littheoryGrid.innerHTML = littheoryData.map(item => renderLiteraryTheoryCard(item)).join('');
+            }
+        })(),
+        // 知识创作
+        renderKnowledgeCreationWithFilter().catch(e => console.error('Knowledge creation failed:', e)),
+        // 拆书心得
+        renderBookAnalysisWithFilter().catch(e => console.error('Book analysis failed:', e)),
+        // 萌新学习
+        renderNewbieWithFilter().catch(e => console.error('Newbie learning failed:', e)),
+        // 书摘文案
+        renderLiteratureWithFilter().catch(e => console.error('Literature failed:', e))
+    ]);
+
+    console.log('=== renderHomepage complete ===');
 }
 
 // 页面加载完成后执行

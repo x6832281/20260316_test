@@ -4,7 +4,13 @@
       "WebSearch",
       "WebFetch(domain:github.com)",
       "Bash(claude plugin *)",
-      "Bash(git *)"
+      "Bash(git *)",
+      "Bash([ -d \"E:/learning/web/20260316_test/data/$dir\" ])",
+      "Bash(python -c \"from PIL import Image; print\\('PIL available'\\)\")",
+      "Bash(python3 -c \"from PIL import Image; print\\('PIL available'\\)\")",
+      "Bash(node -e ' *)",
+      "WebFetch(domain:ziyuan.baidu.com)",
+      "WebFetch(domain:corely.top)"
     ]
   }
 }
