@@ -19,12 +19,17 @@ Each page is a self-contained HTML file. Key pages:
 - `book-analysis.html` — book deep-dive analysis
 - `ai-writing.html` — AI writing tutorials
 - `webnovel.html` — web novel content
+- `famous-books.html` — famous books listing
+- `famous-people.html` — famous people listing
+- `skill-evolution.html` — skill evolution page
 - `debate.html`, `faq.html`, `glossary.html`, `disclaimer.html`, `backup.html`
 
 ### JavaScript (data flow)
 - `render-content.js` — main content rendering engine; reads markdown from `data/` and renders to DOM. Contains hardcoded content arrays (`ARTICLES_DATA`, `TRENDING_DATA`) for homepage sections. Some sections (e.g., 萌新学习) dynamically fetch directory listings from `data/` subdirectories and parse markdown frontmatter.
 - `article-page.js` — article detail page logic. Contains `ARTICLES_MAP` mapping content IDs to file paths + metadata. Has its own custom regex-based markdown parser — NOT using marked.js or any library. Fallback data functions for offline mode.
 - `script.js` — search functionality (B站/GitHub/豆包/百度/Yandex), service worker registration, mobile menu toggle, tab anchor navigation, danmaku (bullet comments) system using localStorage.
+- `seo-manager.js` — dynamic SEO meta tag injection (Open Graph, canonical URLs, JSON-LD structured data)
+- `baidu-push.js` — Baidu search engine submission
 
 ### Content (`data/`)
 Markdown files organized by category:
@@ -36,10 +41,10 @@ Markdown files organized by category:
 - `data/书摘文案/` — book excerpts and quotes
 - `data/历史备份/` — historical backups
 
-Note: `article-page.js` also references file paths for `data/AI创意/`, `data/实战案例/`, `data/搞钱创业/`, `data/AI写作/`, and `weekly/weekly-package/articles/` — these directories may not exist currently; mappings may be stale.
+Note: `article-page.js` also references file paths for `data/AI创意/`, `data/实战案例/`, `data/搞钱创业/`, `data/AI写作/`, and `weekly/weekly-package/articles/` — these directories do not currently exist in the repo; those `ARTICLES_MAP` entries are stale/dead links.
 
 ### Styles
-- `styles.css` — single large stylesheet (~106KB), "Cyber Zen Garden" theme (dark bg, cyan/amber accents)
+- `styles.css` — single large stylesheet (~118KB), "Cyber Zen Garden" theme (dark bg, cyan/amber accents)
 
 ### PWA
 - `service-worker.js` — cache-first for CSS/JS, network-first for HTML nav

@@ -2,7 +2,7 @@
 // PWA Service Worker Registration
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/service-worker.js?v=20260418')
+    navigator.serviceWorker.register('/service-worker.js?v=20260512')
       .then((registration) => {
         console.log('Service Worker registered with scope:', registration.scope);
       })

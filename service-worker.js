@@ -1,6 +1,6 @@
 // Service Worker for PWA - Updated with version 20260501
 
-const CACHE_NAME = 'kaka-cache-v20260501';
+const CACHE_NAME = 'kaka-cache-v20260512';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
@@ -14,10 +14,17 @@ const ASSETS_TO_CACHE = [
   '/webnovel.html',
   '/faq.html',
   '/glossary.html',
+  '/ai-writing.html',
+  '/book-analysis.html',
+  '/famous-books.html',
+  '/famous-people.html',
+  '/skill-evolution.html',
   '/styles.css',
   '/script.js',
   '/render-content.js',
   '/article-page.js',
+  '/seo-manager.js',
+  '/baidu-push.js',
   '/manifest.json'
 ];
 
