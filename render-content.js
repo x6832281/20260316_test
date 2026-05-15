@@ -135,6 +135,46 @@ function getFallbackNewbieData() {
             icon: '🎓',
             date: '2026-04-27',
             desc: '用AI写作打造个人IP，接商单、做自媒体、写网文——零基础也能月入过万的变现路径'
+        },
+        {
+            id: 'newbie-009',
+            title: '去AI味核心方法论：识别与消除AI写作的六大特征',
+            category: '去AI味',
+            icon: '🎯',
+            date: '2026-05-13',
+            desc: '去AI味的第一步不是"改"，而是"认"——你得先知道AI味长什么样，才能把它去掉'
+        },
+        {
+            id: 'newbie-010',
+            title: '去AI味实战：Prompt调教技巧大全',
+            category: '去AI味',
+            icon: '🛠️',
+            date: '2026-05-13',
+            desc: '去AI味的核心在Prompt——你给AI什么指令，它就给你什么味道的文字'
+        },
+        {
+            id: 'newbie-011',
+            title: '去AI味进阶：文体风格控制与人味注入',
+            category: '去AI味',
+            icon: '🎨',
+            date: '2026-05-13',
+            desc: '去AI味的终极目标不是"去掉AI味"，而是"注入人味"——让文字有温度、有态度、有个性'
+        },
+        {
+            id: 'newbie-012',
+            title: '去AI味案例集：从AI味到人味的改写对比',
+            category: '去AI味',
+            icon: '📝',
+            date: '2026-05-13',
+            desc: '看100遍理论，不如看10个真实案例——去AI味最有效的方法，就是对比学习'
+        },
+        {
+            id: 'newbie-013',
+            title: '去AI味工具箱：各平台去AI味技巧汇总',
+            category: '去AI味',
+            icon: '🔧',
+            date: '2026-05-13',
+            desc: '不同平台的去AI味方法不同——公众号有公众号的套路，小红书有小红书的玩法'
         }
     ];
 }

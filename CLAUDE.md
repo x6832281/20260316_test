@@ -71,8 +71,9 @@ This is the most important workflow to understand. Content must be registered in
 ### Content ID naming convention
 IDs follow `{category}-{number}` or `{category}-{descriptive-slug}` patterns:
 - `article-001` through `article-005` — featured articles (homepage)
-- `newbie-001` through `newbie-004` — 萌新学习 / beginner tutorials
-- `book-analysis-001` through `book-analysis-006` — 拆书心得 / book analysis
+- `newbie-001` through `newbie-013` — 萌新学习 / beginner tutorials (includes 去AI味 series 009-013)
+- `book-analysis-001` through `book-analysis-026` — 拆书心得 / book analysis (呼兰河传, 红楼梦, 活着, 百年孤独, 围城, 三体, 平凡的世界)
+- `knowledge-001` through `knowledge-015` — 知识创作 / AI knowledge tools
 - `project-001-{slug}` through `project-006-{slug}` — 精选项目 / GitHub projects
 - `literature-001` through `literature-006` — AI writing / literature
 - `creative-001` through `creative-006` — AI creative works

@@ -106,6 +106,31 @@ const ARTICLES_MAP = {
         tag: '实战教程',
         tagClass: 'tag-ai'
     },
+    'newbie-009': {
+        file: 'data/萌新学习/009-去AI味核心方法论-识别与消除AI写作的六大特征.md',
+        tag: '去AI味',
+        tagClass: 'tag-ai'
+    },
+    'newbie-010': {
+        file: 'data/萌新学习/010-去AI味实战-Prompt调教技巧大全.md',
+        tag: '去AI味',
+        tagClass: 'tag-ai'
+    },
+    'newbie-011': {
+        file: 'data/萌新学习/011-去AI味进阶-文体风格控制与人味注入.md',
+        tag: '去AI味',
+        tagClass: 'tag-ai'
+    },
+    'newbie-012': {
+        file: 'data/萌新学习/012-去AI味案例集-从AI味到人味的改写对比.md',
+        tag: '去AI味',
+        tagClass: 'tag-ai'
+    },
+    'newbie-013': {
+        file: 'data/萌新学习/013-去AI味工具箱-各平台去AI味技巧汇总.md',
+        tag: '去AI味',
+        tagClass: 'tag-ai'
+    },
     'book-analysis-001': {
         file: 'data/拆书心得/001-呼兰河传-祖父的园子-童年书写与自然意象.md',
         tag: '拆书心得',
