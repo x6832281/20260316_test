@@ -179,6 +179,91 @@ function getFallbackNewbieData() {
     ];
 }
 
+function getFallbackDeaiData() {
+    return [
+        {
+            id: 'deai-001',
+            title: '去AI味 Prompt 模板库',
+            category: 'Prompt模板',
+            icon: '📋',
+            date: '2026-05-15',
+            desc: '各场景（公众号/小红书/知乎/短视频）的去AI味提示词模板，拿来就用'
+        },
+        {
+            id: 'deai-002',
+            title: 'AI高频词与表达词典',
+            category: 'AI高频词',
+            icon: '📖',
+            date: '2026-05-15',
+            desc: 'AI写作的高频词汇、句式、结构特征 + 替换方案，识别AI味的"身份证"'
+        },
+        {
+            id: 'deai-003',
+            title: '2026去AI味最新技巧速递',
+            category: '最新技巧',
+            icon: '🔥',
+            date: '2026-05-15',
+            desc: '多模型交叉去AI味、思维噪音注入、方言口语注入等2026年最新方法'
+        },
+        {
+            id: 'deai-004',
+            title: 'AI味 vs 人味对比案例集',
+            category: '对比案例',
+            icon: '🔄',
+            date: '2026-05-15',
+            desc: '6组AI味原文→人味改写对比，直观展示差异，对比学习最有效'
+        },
+        {
+            id: 'deai-005',
+            title: '去AI味终极指南',
+            category: '方法论',
+            icon: '🎯',
+            date: '2026-05-15',
+            desc: '去AI味不是改几个词，而是改变整个写作思维方式——四步法系统教程'
+        },
+        {
+            id: 'deai-006',
+            title: '2026年AI检测工具与反检测策略',
+            category: '最新技巧',
+            icon: '🛡️',
+            date: '2026-05-15',
+            desc: '知己知彼，百战不殆——想骗过AI检测器，先得知道它怎么抓你'
+        },
+        {
+            id: 'deai-007',
+            title: '学术论文去AI味实战指南',
+            category: '场景实战',
+            icon: '🎓',
+            date: '2026-05-15',
+            desc: '学术论文的AI味最重——因为它天生就"官方"，去AI味反而更难'
+        },
+        {
+            id: 'deai-008',
+            title: '自媒体文案去AI味全攻略',
+            category: '场景实战',
+            icon: '📱',
+            date: '2026-05-15',
+            desc: '公众号/小红书/知乎各平台去AI味实战技巧，对症下药'
+        },
+        {
+            id: 'deai-009',
+            title: 'Claude 4 / GPT-5 去AI味新方法',
+            category: '最新技巧',
+            icon: '🤖',
+            date: '2026-05-15',
+            desc: '新模型更强了，但AI味也更隐蔽了——需要更高级的去AI味方法'
+        },
+        {
+            id: 'deai-010',
+            title: '去AI味常见误区与避坑指南',
+            category: '避坑指南',
+            icon: '⚠️',
+            date: '2026-05-15',
+            desc: '去AI味最大的坑，不是方法不对，而是用力过猛'
+        }
+    ];
+}
+
 // 从文学理论Markdown文件中提取数据
 async function getLiteraryTheoryData() {
     console.log('=== Starting getLiteraryTheoryData ===');
@@ -605,6 +690,49 @@ async function renderNewbieWithFilter() {
     });
 }
 
+async function renderDeaiWithFilter() {
+    const container = document.getElementById('deai-container');
+    if (!container) return;
+
+    const deaiData = getFallbackDeaiData();
+
+    const filterHtml = `
+        <div class="newbie-filter">
+            <span class="newbie-filter-label">筛选</span>
+            <button class="newbie-filter-btn active" data-category="all">全部文章</button>
+            <button class="newbie-filter-btn" data-category="Prompt模板">📋 Prompt模板</button>
+            <button class="newbie-filter-btn" data-category="AI高频词">📖 AI高频词</button>
+            <button class="newbie-filter-btn" data-category="最新技巧">🔥 最新技巧</button>
+            <button class="newbie-filter-btn" data-category="对比案例">🔄 对比案例</button>
+            <button class="newbie-filter-btn" data-category="场景实战">🎓 场景实战</button>
+            <button class="newbie-filter-btn" data-category="避坑指南">⚠️ 避坑指南</button>
+        </div>
+    `;
+
+    const cardsHtml = deaiData.map((item, i) => renderNewbieCard(item, i)).join('');
+
+    container.innerHTML = filterHtml + `<div class="newbie-grid">${cardsHtml}</div>`;
+
+    const filterBtns = container.querySelectorAll('.newbie-filter-btn');
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const category = btn.dataset.category;
+            const cards = container.querySelectorAll('.newbie-card');
+            cards.forEach(card => {
+                const cardCategory = card.querySelector('.newbie-card-category').textContent;
+                if (category === 'all' || cardCategory === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+}
+
 // 从热搜排行文档中提取数据
 function extractTrendingFromMarkdown(markdownContent) {
     const trendingItems = [];
@@ -669,166 +797,6 @@ async function getLatestTrendingData() {
     }
     
     return [];
-}
-
-// 从精选项目Markdown文件中提取数据
-async function getFeaturedProjects() {
-    const projects = [];
-    
-    try {
-        // 尝试获取目录中的所有文件
-        const dirPath = 'data/精选项目/';
-        const encodedDirPath = encodeURI(dirPath);
-        
-        const dirResponse = await fetch(encodedDirPath);
-        if (dirResponse.ok) {
-            const html = await dirResponse.text();
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(html, 'text/html');
-            
-            // 提取所有.md文件链接
-            const links = doc.querySelectorAll('a[href$=".md"]');
-            const mdFiles = [];
-            
-            links.forEach(link => {
-                const href = link.getAttribute('href');
-                if (href) {
-                    const fileName = href.split('/').pop();
-                    if (fileName.endsWith('.md')) {
-                        mdFiles.push({href: href, name: decodeURIComponent(fileName)});
-                    }
-                }
-            });
-            
-            mdFiles.sort((a, b) => a.name.localeCompare(b.name));
-            const filesToProcess = mdFiles.slice(0, 6);
-            
-            for (const file of filesToProcess) {
-                try {
-                    const fileUrl = encodedDirPath + file.href;
-                    console.log('Fetching project file:', fileUrl);
-                    const fileResponse = await fetch(fileUrl);
-                    if (fileResponse.ok) {
-                        const content = await fileResponse.text();
-                        console.log('Successfully loaded:', file.name, 'Content length:', content.length);
-                        
-                        // 提取项目信息
-                        const nameMatch = content.match(/^# (.+)$/m);
-                        const name = nameMatch ? nameMatch[1].trim() : '未知项目';
-                        
-                        const urlMatch = content.match(/## 🔗 相关链接\n\n-\s*\[GitHub 仓库\]\(([^)]+)\)/);
-                        const url = urlMatch ? urlMatch[1] : '';
-                        
-                        // 提取星标数，支持带k的格式
-                        const starsMatch = content.match(/\*\*⭐ 星标\*\*[：:]\s*([\d.]+k?)/);
-                        let stars = 0;
-                        if (starsMatch) {
-                            const starsStr = starsMatch[1];
-                            if (starsStr.endsWith('k')) {
-                                stars = parseInt(parseFloat(starsStr.replace('k', '')) * 1000);
-                            } else {
-                                stars = parseInt(starsStr);
-                            }
-                        }
-                        
-                        // 提取一句话总结，使用更精确的匹配
-                        let summary = '暂无总结';
-                        // 首先尝试匹配标准格式
-                        const summaryMatch = content.match(/## 📝 一句话总结\s*\n\s*([^\n]+)\s*\n/);
-                        if (summaryMatch && summaryMatch[1]) {
-                            summary = summaryMatch[1].trim();
-                        } else {
-                            // 如果标准格式匹配失败，尝试其他格式
-                            const altSummaryMatch = content.match(/## 📝 一句话总结[\s\S]*?([^\n]+)\s*\n/);
-                            if (altSummaryMatch && altSummaryMatch[1]) {
-                                summary = altSummaryMatch[1].trim();
-                            }
-                        }
-                        
-                        // 确保只保留一句话，移除多余内容
-                        summary = summary.split('。')[0] + '。';
-                        if (summary.length > 100) {
-                            summary = summary.substring(0, 100) + '...';
-                        }
-                        
-                        console.log('Extracted for', file.name, '- name:', name, 'stars:', stars, 'summary:', summary);
-                        
-                        const id = `project-${file.name.replace('.md', '')}`;
-                        
-                        projects.push({
-                            id: id,
-                            name: name,
-                            url: url,
-                            stars: stars,
-                            summary: summary,
-                            file: fileUrl
-                        });
-                    } else {
-                        console.warn('Failed to fetch:', file.name, 'Status:', fileResponse.status);
-                    }
-                } catch (error) {
-                    console.error(`Error fetching ${file.name}:`, error);
-                }
-            }
-        } else {
-            console.warn('Failed to fetch directory:', dirResponse.status);
-        }
-    } catch (error) {
-        console.error('Error getting featured projects:', error);
-    }
-    
-    console.log('Total projects loaded:', projects.length);
-    
-    // 如果成功获取到项目，返回
-    if (projects.length > 0) {
-        return projects;
-    }
-    
-    // 如果获取失败，返回默认数据
-    return [
-        {
-            id: 'project-001-awesome-chatgpt-prompts',
-            name: 'awesome-chatgpt-prompts',
-            url: 'https://github.com/f/awesome-chatgpt-prompts',
-            stars: 150000,
-            summary: '这是一个收集了大量ChatGPT提示词的项目，包含各种场景下的实用提示词，帮助用户更好地与ChatGPT交互。'
-        },
-        {
-            id: 'project-002-awesome-python',
-            name: 'awesome-python',
-            url: 'https://github.com/vinta/awesome-python',
-            stars: 170000,
-            summary: '这是一个精选的Python框架、库、软件和资源列表，帮助开发者快速找到合适的Python工具。'
-        },
-        {
-            id: 'project-003-awesome-ai',
-            name: 'awesome-ai',
-            url: 'https://github.com/jayhack/awesome-ai',
-            stars: 60000,
-            summary: '这是一个精心策划的AI资源列表，涵盖了人工智能领域的各种工具、框架和项目。'
-        },
-        {
-            id: 'project-004-stable-diffusion-webui',
-            name: 'stable-diffusion-webui',
-            url: 'https://github.com/AUTOMATIC1111/stable-diffusion-webui',
-            stars: 100000,
-            summary: '这是一个基于Gradio库的Stable Diffusion浏览器界面，允许用户通过Web界面生成AI图像。'
-        },
-        {
-            id: 'project-005-LangChain',
-            name: 'LangChain',
-            url: 'https://github.com/langchain-ai/langchain',
-            stars: 80000,
-            summary: 'LangChain是一个用于构建基于大型语言模型(LLM)应用的框架，通过组合各种组件来创建复杂的AI应用。'
-        },
-        {
-            id: 'project-006-llama.cpp',
-            name: 'llama.cpp',
-            url: 'https://github.com/ggerganov/llama.cpp',
-            stars: 45000,
-            summary: 'llama.cpp是Facebook LLaMA模型的C/C++移植版本，允许在CPU上高效运行大型语言模型。'
-        }
-    ];
 }
 
 // 从知识创作Markdown文件中提取数据
@@ -1068,6 +1036,14 @@ function getFallbackKnowledgeCreationData() {
     ];
 }
 
+// 格式化star数，使用k结尾
+function formatStars(stars) {
+    if (stars >= 1000) {
+        return (stars / 1000).toFixed(1) + 'k';
+    }
+    return stars;
+}
+
 function renderKnowledgeCreationCard(project, index) {
     const num = String(index + 1).padStart(2, '0');
     const formattedStars = formatStars(project.stars);
@@ -1109,40 +1085,6 @@ async function renderKnowledgeCreationWithFilter() {
     container.innerHTML = `<div class="newbie-grid">${cardsHtml}</div>`;
 }
 
-// 格式化star数，使用k结尾
-function formatStars(stars) {
-    if (stars >= 1000) {
-        return (stars / 1000).toFixed(1) + 'k';
-    }
-    return stars;
-}
-
-// 渲染精选项目卡片
-function renderProjectCard(project) {
-    let summary = project.summary;
-    if (!/[\u4e00-\u9fa5]/.test(summary)) {
-        summary = "这是一个热门项目，受到了众多开发者的关注和贡献。";
-    }
-    
-    const formattedStars = formatStars(project.stars);
-    const projectName = project.name.replace(/⭐/g, '').trim();
-    
-    return `
-        <a href="article.html?id=${project.id}" class="article-card" data-article-id="${project.id}">
-            <div class="card-accent accent-ai"></div>
-            <div class="card-content">
-                <div class="card-meta">
-                    <span class="card-readtime">⭐ ${formattedStars}</span>
-                </div>
-                <h3 class="card-title">${projectName}</h3>
-                <p class="card-desc">${summary}</p>
-                <div class="card-footer">
-                    <span class="card-link">查看 →</span>
-                </div>
-            </div>
-        </a>
-    `;
-}
 
 async function getBookAnalysisData() {
     const items = [];
@@ -1564,20 +1506,12 @@ async function renderHomepage() {
     console.log('=== Starting renderHomepage (parallel) ===');
 
     // 并行加载所有数据源
-    const [featuredProjects, littheoryData] = await Promise.all([
-        getFeaturedProjects().catch(e => { console.error('Featured projects failed:', e); return []; }),
+    const [littheoryData] = await Promise.all([
         getLiteraryTheoryData().catch(e => { console.error('Literary theory failed:', e); return []; })
     ]);
 
     // 并行渲染所有板块
     await Promise.all([
-        // 精选项目
-        (async () => {
-            const articlesGrid = document.getElementById('articles-container');
-            if (articlesGrid && featuredProjects.length) {
-                articlesGrid.innerHTML = featuredProjects.map(project => renderProjectCard(project)).join('');
-            }
-        })(),
         // 文学理论
         (async () => {
             const littheoryGrid = document.getElementById('littheory-container');
@@ -1591,6 +1525,8 @@ async function renderHomepage() {
         renderBookAnalysisWithFilter().catch(e => console.error('Book analysis failed:', e)),
         // 萌新学习
         renderNewbieWithFilter().catch(e => console.error('Newbie learning failed:', e)),
+        // 去AI味专区
+        renderDeaiWithFilter().catch(e => console.error('Deai failed:', e)),
         // 书摘文案
         renderLiteratureWithFilter().catch(e => console.error('Literature failed:', e))
     ]);

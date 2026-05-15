@@ -131,6 +131,56 @@ const ARTICLES_MAP = {
         tag: '去AI味',
         tagClass: 'tag-ai'
     },
+    'deai-001': {
+        file: 'data/去AI味/001-去AI味Prompt模板库.md',
+        tag: '去AI味',
+        tagClass: 'tag-ai'
+    },
+    'deai-002': {
+        file: 'data/去AI味/002-AI高频词与表达词典.md',
+        tag: '去AI味',
+        tagClass: 'tag-ai'
+    },
+    'deai-003': {
+        file: 'data/去AI味/003-2026去AI味最新技巧速递.md',
+        tag: '去AI味',
+        tagClass: 'tag-ai'
+    },
+    'deai-004': {
+        file: 'data/去AI味/004-AI味vs人味对比案例集.md',
+        tag: '去AI味',
+        tagClass: 'tag-ai'
+    },
+    'deai-005': {
+        file: 'data/去AI味/005-去AI味终极指南.md',
+        tag: '去AI味',
+        tagClass: 'tag-ai'
+    },
+    'deai-006': {
+        file: 'data/去AI味/006-2026年AI检测工具与反检测策略.md',
+        tag: '去AI味',
+        tagClass: 'tag-ai'
+    },
+    'deai-007': {
+        file: 'data/去AI味/007-学术论文去AI味实战指南.md',
+        tag: '去AI味',
+        tagClass: 'tag-ai'
+    },
+    'deai-008': {
+        file: 'data/去AI味/008-自媒体文案去AI味全攻略.md',
+        tag: '去AI味',
+        tagClass: 'tag-ai'
+    },
+    'deai-009': {
+        file: 'data/去AI味/009-Claude4-GPT5去AI味新方法.md',
+        tag: '去AI味',
+        tagClass: 'tag-ai'
+    },
+    'deai-010': {
+        file: 'data/去AI味/010-去AI味常见误区与避坑指南.md',
+        tag: '去AI味',
+        tagClass: 'tag-ai'
+    },
     'book-analysis-001': {
         file: 'data/拆书心得/001-呼兰河传-祖父的园子-童年书写与自然意象.md',
         tag: '拆书心得',

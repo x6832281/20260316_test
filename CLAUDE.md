@@ -41,7 +41,7 @@ Markdown files organized by category:
 - `data/书摘文案/` — book excerpts and quotes
 - `data/历史备份/` — historical backups
 
-Note: `article-page.js` also references file paths for `data/AI创意/`, `data/实战案例/`, `data/搞钱创业/`, `data/AI写作/`, and `weekly/weekly-package/articles/` — these directories do not currently exist in the repo; those `ARTICLES_MAP` entries are stale/dead links.
+Note: The `ARTICLES_MAP` in `article-page.js` may contain entries for content not yet created — always verify a `.md` file exists before assuming a content ID works.
 
 ### Styles
 - `styles.css` — single large stylesheet (~118KB), "Cyber Zen Garden" theme (dark bg, cyan/amber accents)
@@ -74,6 +74,7 @@ IDs follow `{category}-{number}` or `{category}-{descriptive-slug}` patterns:
 - `newbie-001` through `newbie-013` — 萌新学习 / beginner tutorials (includes 去AI味 series 009-013)
 - `book-analysis-001` through `book-analysis-026` — 拆书心得 / book analysis (呼兰河传, 红楼梦, 活着, 百年孤独, 围城, 三体, 平凡的世界)
 - `knowledge-001` through `knowledge-015` — 知识创作 / AI knowledge tools
+- `deai-001` through `deai-005` — 去AI味 / de-AI (Prompt templates, high-frequency words, tips, cases)
 - `project-001-{slug}` through `project-006-{slug}` — 精选项目 / GitHub projects
 - `literature-001` through `literature-006` — AI writing / literature
 - `creative-001` through `creative-006` — AI creative works

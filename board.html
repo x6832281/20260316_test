@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="AI写作交流社区，与萌新们分享AI写小说作品、讨论提示词调教经验、交流AI工具使用心得，互助解决AI写作入门问题">
     <meta name="keywords" content="AI写作交流,AI创作社区,AI写小说讨论,AI工具交流,提示词调教,AI写作入门,创作者社区,AI写作心得">
-    <meta name="theme-color" content="#0a0a0f">
+    <meta name="theme-color" content="#ffffff">
     <meta name="author" content="AI 萌新小窝">
     <link rel="canonical" href="https://corely.top/board.html">
     <title>AI写作交流社区 - 创作者分享作品与讨论经验 | AI 萌新小窝</title>
@@ -47,18 +47,18 @@
            ============================================ */
         
         :root {
-            --board-bg: #0a0a0f;
-            --board-surface: #12121a;
-            --board-surface-elevated: #1a1a25;
-            --board-border: rgba(255, 255, 255, 0.06);
-            --board-accent: #00f5d4;
-            --board-accent-soft: rgba(0, 245, 212, 0.1);
-            --board-accent-glow: rgba(0, 245, 212, 0.15);
-            --board-warm: #f4a261;
+            --board-bg: #ffffff;
+            --board-surface: #f5f5f5;
+            --board-surface-elevated: #ffffff;
+            --board-border: #e8e8e8;
+            --board-accent: #37A;
+            --board-accent-soft: rgba(55, 170, 170, 0.1);
+            --board-accent-glow: rgba(55, 170, 170, 0.15);
+            --board-warm: #c4854a;
             --board-warm-soft: rgba(244, 162, 97, 0.1);
-            --board-text: #e8e8ed;
-            --board-text-secondary: #8a8a9a;
-            --board-text-muted: #5a5a6a;
+            --board-text: #333333;
+            --board-text-secondary: #666666;
+            --board-text-muted: #999999;
         }
 
         .board-page {
@@ -68,38 +68,11 @@
             overflow: hidden;
         }
 
-        /* 背景装饰 */
-        .board-bg-grid {
-            position: fixed;
-            inset: 0;
-            background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-            background-size: 60px 60px;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .board-bg-gradient {
-            position: fixed;
-            top: -50%;
-            right: -30%;
-            width: 80vw;
-            height: 80vw;
-            background: radial-gradient(circle, rgba(0, 245, 212, 0.03) 0%, transparent 70%);
-            pointer-events: none;
-            z-index: 0;
-        }
-
+        /* 背景装饰 - 已隐藏（白色主题不需要） */
+        .board-bg-grid,
+        .board-bg-gradient,
         .board-bg-gradient-2 {
-            position: fixed;
-            bottom: -40%;
-            left: -20%;
-            width: 60vw;
-            height: 60vw;
-            background: radial-gradient(circle, rgba(244, 162, 97, 0.02) 0%, transparent 70%);
-            pointer-events: none;
-            z-index: 0;
+            display: none;
         }
 
         /* 导航 */
@@ -519,23 +492,23 @@
         }
 
         .board-item-type-question {
-            background: rgba(0, 245, 212, 0.1);
-            color: #00f5d4;
+            background: rgba(55, 170, 170, 0.1);
+            color: #37A;
         }
 
         .board-item-type-work {
             background: rgba(244, 162, 97, 0.1);
-            color: #f4a261;
+            color: #c4854a;
         }
 
         .board-item-type-experience {
             background: rgba(114, 141, 226, 0.1);
-            color: #728de2;
+            color: #5b6abf;
         }
 
         .board-item-type-feedback {
             background: rgba(239, 129, 129, 0.1);
-            color: #ef8181;
+            color: #d46060;
         }
 
         /* 空状态 */
@@ -767,9 +740,9 @@
                     <div style="display:flex;flex-wrap:wrap;gap:10px;">
                         <span style="padding:8px 16px;border-radius:20px;font-size:13px;font-weight:600;background:var(--board-accent-soft);color:var(--board-accent);border:1px solid rgba(0,245,212,0.2);">《围城》</span>
                         <span style="padding:8px 16px;border-radius:20px;font-size:13px;font-weight:600;background:var(--board-warm-soft);color:var(--board-warm);border:1px solid rgba(244,162,97,0.2);">《平凡的世界》</span>
-                        <span style="padding:8px 16px;border-radius:20px;font-size:13px;font-weight:600;background:rgba(114,141,226,0.1);color:#728de2;border:1px solid rgba(114,141,226,0.2);">《人间失格》</span>
-                        <span style="padding:8px 16px;border-radius:20px;font-size:13px;font-weight:600;background:rgba(239,129,129,0.1);color:#ef8181;border:1px solid rgba(239,129,129,0.2);">《追风筝的人》</span>
-                        <span style="padding:8px 16px;border-radius:20px;font-size:13px;font-weight:600;background:rgba(168,230,207,0.1);color:#a8e6cf;border:1px solid rgba(168,230,207,0.2);">《三体》</span>
+                        <span style="padding:8px 16px;border-radius:20px;font-size:13px;font-weight:600;background:rgba(114,141,226,0.1);color:#5b6abf;border:1px solid rgba(114,141,226,0.2);">《人间失格》</span>
+                        <span style="padding:8px 16px;border-radius:20px;font-size:13px;font-weight:600;background:rgba(239,129,129,0.1);color:#d46060;border:1px solid rgba(239,129,129,0.2);">《追风筝的人》</span>
+                        <span style="padding:8px 16px;border-radius:20px;font-size:13px;font-weight:600;background:rgba(168,230,207,0.1);color:#3ba99e;border:1px solid rgba(168,230,207,0.2);">《三体》</span>
                     </div>
                 </div>
             </section>
