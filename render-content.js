@@ -759,86 +759,114 @@ async function renderLiteratureWithFilter() {
     });
 }
 
-async function renderNewbieWithFilter() {
+async function renderNewbieWithFilter(maxCards = 0) {
     const container = document.getElementById('newbie-container');
     if (!container) return;
 
     const newbieData = await getNewbieLearningData();
 
-    const filterHtml = `
-        <div class="newbie-filter">
-            <span class="newbie-filter-label">筛选</span>
-            <button class="newbie-filter-btn active" data-category="all">全部文章</button>
-            <button class="newbie-filter-btn" data-category="博主教程">🎓 博主教程</button>
-        </div>
-    `;
+    // Sort by date descending (newest first)
+    newbieData.sort((a, b) => {
+        const da = new Date(a.date); const db = new Date(b.date);
+        return (db - da) || a.fileName.localeCompare(b.fileName);
+    });
 
-    const cardsHtml = newbieData.map((item, i) => renderNewbieCard(item, i)).join('');
+    const displayData = maxCards > 0 ? newbieData.slice(0, maxCards) : newbieData;
+
+    // Only show filter bar on full listing (maxCards=0), not on homepage
+    let filterHtml = '';
+    if (maxCards === 0) {
+        filterHtml = `
+            <div class="newbie-filter">
+                <span class="newbie-filter-label">筛选</span>
+                <button class="newbie-filter-btn active" data-category="all">全部文章</button>
+                <button class="newbie-filter-btn" data-category="博主教程">🎓 博主教程</button>
+            </div>`;
+    }
+
+    const cardsHtml = displayData.map((item, i) => renderNewbieCard(item, i)).join('');
 
     container.innerHTML = filterHtml + `<div class="newbie-grid">${cardsHtml}</div>`;
 
-    const filterBtns = container.querySelectorAll('.newbie-filter-btn');
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            filterBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
+    // Wire filter buttons only when present
+    if (maxCards === 0) {
+        const filterBtns = container.querySelectorAll('.newbie-filter-btn');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
 
-            const category = btn.dataset.category;
-            const cards = container.querySelectorAll('.newbie-card');
-            cards.forEach(card => {
-                const cardCategory = card.querySelector('.newbie-card-category').textContent;
-                if (category === 'all' || cardCategory === category) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
+                const category = btn.dataset.category;
+                const cards = container.querySelectorAll('.newbie-card');
+                cards.forEach(card => {
+                    const cardCategory = card.querySelector('.newbie-card-category').textContent;
+                    if (category === 'all' || cardCategory === category) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
             });
         });
-    });
+    }
 }
 
-async function renderDeaiWithFilter() {
+async function renderDeaiWithFilter(maxCards = 0) {
     const container = document.getElementById('deai-container');
     if (!container) return;
 
     let deaiData = await fetchContentFromManifest('去AI味');
     if (!deaiData) deaiData = getFallbackDeaiData();
 
-    const filterHtml = `
-        <div class="newbie-filter">
-            <span class="newbie-filter-label">筛选</span>
-            <button class="newbie-filter-btn active" data-category="all">全部文章</button>
-            <button class="newbie-filter-btn" data-category="Prompt模板">📋 Prompt模板</button>
-            <button class="newbie-filter-btn" data-category="AI高频词">📖 AI高频词</button>
-            <button class="newbie-filter-btn" data-category="最新技巧">🔥 最新技巧</button>
-            <button class="newbie-filter-btn" data-category="对比案例">🔄 对比案例</button>
-            <button class="newbie-filter-btn" data-category="场景实战">🎓 场景实战</button>
-            <button class="newbie-filter-btn" data-category="避坑指南">⚠️ 避坑指南</button>
-        </div>
-    `;
+    // Sort by date descending (newest first)
+    deaiData.sort((a, b) => {
+        const da = new Date(a.date); const db = new Date(b.date);
+        return (db - da) || a.fileName.localeCompare(b.fileName);
+    });
 
-    const cardsHtml = deaiData.map((item, i) => renderNewbieCard(item, i)).join('');
+    const displayData = maxCards > 0 ? deaiData.slice(0, maxCards) : deaiData;
+
+    // Only show filter bar on full listing (maxCards=0), not on homepage
+    let filterHtml = '';
+    if (maxCards === 0) {
+        filterHtml = `
+            <div class="newbie-filter">
+                <span class="newbie-filter-label">筛选</span>
+                <button class="newbie-filter-btn active" data-category="all">全部文章</button>
+                <button class="newbie-filter-btn" data-category="Prompt模板">📋 Prompt模板</button>
+                <button class="newbie-filter-btn" data-category="AI高频词">📖 AI高频词</button>
+                <button class="newbie-filter-btn" data-category="最新技巧">🔥 最新技巧</button>
+                <button class="newbie-filter-btn" data-category="对比案例">🔄 对比案例</button>
+                <button class="newbie-filter-btn" data-category="场景实战">🎓 场景实战</button>
+                <button class="newbie-filter-btn" data-category="避坑指南">⚠️ 避坑指南</button>
+            </div>`;
+    }
+
+    const cardsHtml = displayData.map((item, i) => renderNewbieCard(item, i)).join('');
 
     container.innerHTML = filterHtml + `<div class="newbie-grid">${cardsHtml}</div>`;
 
-    const filterBtns = container.querySelectorAll('.newbie-filter-btn');
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            filterBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
+    // Wire filter buttons only when present
+    if (maxCards === 0) {
+        const filterBtns = container.querySelectorAll('.newbie-filter-btn');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
 
-            const category = btn.dataset.category;
-            const cards = container.querySelectorAll('.newbie-card');
-            cards.forEach(card => {
-                const cardCategory = card.querySelector('.newbie-card-category').textContent;
-                if (category === 'all' || cardCategory === category) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
+                const category = btn.dataset.category;
+                const cards = container.querySelectorAll('.newbie-card');
+                cards.forEach(card => {
+                    const cardCategory = card.querySelector('.newbie-card-category').textContent;
+                    if (category === 'all' || cardCategory === category) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
             });
         });
-    });
+    }
 }
 
 // 从热搜排行文档中提取数据
@@ -1185,13 +1213,21 @@ function renderKnowledgeCreationCard(project, index) {
     `;
 }
 
-async function renderKnowledgeCreationWithFilter() {
+async function renderKnowledgeCreationWithFilter(maxCards = 0) {
     const container = document.getElementById('knowledge-creation-container');
     if (!container) return;
 
     const knowledgeData = await getKnowledgeCreationData();
 
-    const cardsHtml = knowledgeData.map((item, i) => renderKnowledgeCreationCard(item, i)).join('');
+    // Sort by date descending (newest first)
+    knowledgeData.sort((a, b) => {
+        const da = new Date(a.date); const db = new Date(b.date);
+        return (db - da) || a.fileName.localeCompare(b.fileName);
+    });
+
+    const displayData = maxCards > 0 ? knowledgeData.slice(0, maxCards) : knowledgeData;
+
+    const cardsHtml = displayData.map((item, i) => renderKnowledgeCreationCard(item, i)).join('');
 
     container.innerHTML = `<div class="newbie-grid">${cardsHtml}</div>`;
 }
@@ -1570,54 +1606,61 @@ function renderBookAnalysisCard(item, index) {
     `;
 }
 
-async function renderBookAnalysisWithFilter() {
+async function renderBookAnalysisWithFilter(maxCards = 0) {
     const container = document.getElementById('case-container');
     if (!container) return;
 
     const bookData = await getBookAnalysisData();
 
-    const filterHtml = `
-        <div class="newbie-filter">
-            <span class="newbie-filter-label">筛选</span>
-            <button class="newbie-filter-btn active" data-category="all">全部文章</button>
-            <button class="newbie-filter-btn" data-category="红楼梦">🌸 红楼梦</button>
-            <button class="newbie-filter-btn" data-category="活着">🐂 活着</button>
-            <button class="newbie-filter-btn" data-category="百年孤独">🧊 百年孤独</button>
-            <button class="newbie-filter-btn" data-category="呼兰河传">🌊 呼兰河传</button>
-            <button class="newbie-filter-btn" data-category="AI拆书方法论">🤖 AI拆书方法论</button>
-        </div>
-    `;
+    // Sort by date descending (newest first)
+    bookData.sort((a, b) => {
+        const da = new Date(a.date); const db = new Date(b.date);
+        return (db - da) || a.fileName.localeCompare(b.fileName);
+    });
 
-    const cardsHtml = bookData.map((item, i) => renderBookAnalysisCard(item, i)).join('');
+    const displayData = maxCards > 0 ? bookData.slice(0, maxCards) : bookData;
 
+    // Only show filter bar on full listing (maxCards=0), not on homepage
+    let filterHtml = '';
+    if (maxCards === 0) {
+        filterHtml = `
+            <div class="newbie-filter">
+                <span class="newbie-filter-label">筛选</span>
+                <button class="newbie-filter-btn active" data-category="all">全部文章</button>
+                <button class="newbie-filter-btn" data-category="红楼梦">🌸 红楼梦</button>
+                <button class="newbie-filter-btn" data-category="活着">🐂 活着</button>
+                <button class="newbie-filter-btn" data-category="百年孤独">🧊 百年孤独</button>
+                <button class="newbie-filter-btn" data-category="呼兰河传">🌊 呼兰河传</button>
+                <button class="newbie-filter-btn" data-category="围城">🏰 围城</button>
+                <button class="newbie-filter-btn" data-category="三体">🌌 三体</button>
+                <button class="newbie-filter-btn" data-category="平凡的世界">🌾 平凡的世界</button>
+                <button class="newbie-filter-btn" data-category="AI拆书方法论">🤖 AI拆书方法论</button>
+            </div>`;
+    }
+
+    const cardsHtml = displayData.map((item, i) => renderBookAnalysisCard(item, i)).join('');
     container.innerHTML = filterHtml + `<div class="newbie-grid">${cardsHtml}</div>`;
 
-    const filterBtns = container.querySelectorAll('.newbie-filter-btn');
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            filterBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-
-            const category = btn.dataset.category;
-            const cards = container.querySelectorAll('.newbie-card');
-            cards.forEach(card => {
-                const cardCategory = card.querySelector('.newbie-card-category').textContent;
-                const categoryMap = {
-                    '红楼梦': ['红楼梦'],
-                    '活着': ['活着'],
-                    '百年孤独': ['百年孤独'],
-                    '呼兰河传': ['呼兰河传'],
-                    'AI拆书方法论': ['AI拆书方法论']
-                };
-                const allowedCategories = categoryMap[category];
-                if (category === 'all' || (allowedCategories && allowedCategories.includes(cardCategory))) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
+    // Wire filter buttons only when present
+    if (maxCards === 0) {
+        const filterBtns = container.querySelectorAll('.newbie-filter-btn');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const category = btn.dataset.category;
+                const cards = container.querySelectorAll('.newbie-card');
+                cards.forEach(card => {
+                    const cardCategory = card.querySelector('.newbie-card-category').textContent;
+                    if (category === 'all' || cardCategory === category) {
+                        card.style.display = '';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
             });
         });
-    });
+    }
 }
 
 // 初始化渲染
@@ -1638,17 +1681,19 @@ async function renderHomepage() {
         (async () => {
             const littheoryGrid = document.getElementById('littheory-container');
             if (littheoryGrid && littheoryData.length) {
-                littheoryGrid.innerHTML = littheoryData.map(item => renderLiteraryTheoryCard(item)).join('');
+                // Always show 6 on homepage
+                const display = littheoryData.slice(0, 6);
+                littheoryGrid.innerHTML = display.map(item => renderLiteraryTheoryCard(item)).join('');
             }
         })(),
         // 知识创作
-        renderKnowledgeCreationWithFilter().catch(e => console.error('Knowledge creation failed:', e)),
+        renderKnowledgeCreationWithFilter(6).catch(e => console.error('Knowledge creation failed:', e)),
         // 拆书心得
-        renderBookAnalysisWithFilter().catch(e => console.error('Book analysis failed:', e)),
+        renderBookAnalysisWithFilter(6).catch(e => console.error('Book analysis failed:', e)),
         // 萌新学习
-        renderNewbieWithFilter().catch(e => console.error('Newbie learning failed:', e)),
+        renderNewbieWithFilter(6).catch(e => console.error('Newbie learning failed:', e)),
         // 去AI味专区
-        renderDeaiWithFilter().catch(e => console.error('Deai failed:', e)),
+        renderDeaiWithFilter(6).catch(e => console.error('Deai failed:', e)),
         // 书摘文案
         renderLiteratureWithFilter().catch(e => console.error('Literature failed:', e))
     ]);
