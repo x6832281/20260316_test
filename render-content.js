@@ -69,10 +69,12 @@ async function fetchContentFromManifest(dirName) {
         items.push({
             id: id,
             title: meta.title,
+            name: meta.title,
             category: meta.category || NEWBIE_CATEGORIES[prefix] || dirName,
             icon: NEWBIE_ICONS[prefix] || '📘',
             date: meta.date,
             desc: meta.summary,
+            summary: meta.summary,
             file: path,
             fileName: fileName,
             stars: meta.stars || 0,
@@ -370,6 +372,9 @@ function getFallbackDeaiData() {
 
 // 从文学理论Markdown文件中提取数据
 async function getLiteraryTheoryData() {
+    const manifestData = await fetchContentFromManifest('文学理论');
+    if (manifestData) return manifestData;
+
     console.log('=== Starting getLiteraryTheoryData ===');
     const items = [];
 
@@ -749,7 +754,7 @@ async function renderLiteratureWithFilter() {
             const cards = container.querySelectorAll('.literature-card');
             cards.forEach(card => {
                 const cardCategory = card.querySelector('.literature-category').textContent;
-                if (category === 'all' || cardCategory === category) {
+                if (category === 'all' || cardCategory.includes(category)) {
                     card.style.display = 'block';
                 } else {
                     card.style.display = 'none';
@@ -800,7 +805,7 @@ async function renderNewbieWithFilter(maxCards = 0) {
                 const cards = container.querySelectorAll('.newbie-card');
                 cards.forEach(card => {
                     const cardCategory = card.querySelector('.newbie-card-category').textContent;
-                    if (category === 'all' || cardCategory === category) {
+                    if (category === 'all' || cardCategory.includes(category)) {
                         card.style.display = 'block';
                     } else {
                         card.style.display = 'none';
@@ -858,7 +863,7 @@ async function renderDeaiWithFilter(maxCards = 0) {
                 const cards = container.querySelectorAll('.newbie-card');
                 cards.forEach(card => {
                     const cardCategory = card.querySelector('.newbie-card-category').textContent;
-                    if (category === 'all' || cardCategory === category) {
+                    if (category === 'all' || cardCategory.includes(category)) {
                         card.style.display = 'block';
                     } else {
                         card.style.display = 'none';
@@ -1652,7 +1657,7 @@ async function renderBookAnalysisWithFilter(maxCards = 0) {
                 const cards = container.querySelectorAll('.newbie-card');
                 cards.forEach(card => {
                     const cardCategory = card.querySelector('.newbie-card-category').textContent;
-                    if (category === 'all' || cardCategory === category) {
+                    if (category === 'all' || cardCategory.includes(category)) {
                         card.style.display = '';
                     } else {
                         card.style.display = 'none';
@@ -1761,7 +1766,7 @@ async function renderTopicPage(dirName, containerId, options = {}) {
                 const cards = container.querySelectorAll('.newbie-card');
                 cards.forEach(card => {
                     const cardCat = card.querySelector('.newbie-card-category').textContent;
-                    if (cat === 'all' || cardCat === cat) {
+                    if (cat === 'all' || cardCat.includes(cat)) {
                         card.style.display = '';
                     } else {
                         card.style.display = 'none';
