@@ -1,6 +1,94 @@
+// ============================================================
+// Generic content fetcher — reads data/manifest.json
+// Single source of truth; eliminates dependency on server
+// directory listing for discovering .md files.
+// ============================================================
+const MANIFEST_CACHE = {};
+
+async function fetchManifest() {
+    if (MANIFEST_CACHE.data) return MANIFEST_CACHE.data;
+    try {
+        const resp = await fetch('data/manifest.json');
+        if (!resp.ok) throw new Error('Manifest fetch failed');
+        MANIFEST_CACHE.data = await resp.json();
+        return MANIFEST_CACHE.data;
+    } catch (e) {
+        console.warn('Manifest unavailable, using fallback:', e);
+        return null;
+    }
+}
+
+// ID prefix mapping: directory name -> content ID prefix
+const DIR_ID_PREFIX = {
+    '萌新学习': 'newbie',
+    '去AI味': 'deai',
+    '拆书心得': 'book-analysis',
+    '文学理论': 'littheory',
+    '书摘文案': 'book-excerpt',
+    '知识创作': 'knowledge',
+    '精选项目': 'project'
+};
+
+// Icon & category mapping for 萌新学习 (by file prefix)
+const NEWBIE_ICONS = {
+    '001': '🎓', '002': '🎓', '003': '🎓', '004': '🎓',
+    '005': '📖', '006': '💰', '007': '📚', '008': '✍️',
+    '009': '🎯', '010': '🛠️', '011': '🎨', '012': '📝', '013': '🔧'
+};
+
+const NEWBIE_CATEGORIES = {
+    '001': '博主教程', '002': '博主教程', '003': '博主教程', '004': '博主教程',
+    '005': '网文写作', '006': '写作变现', '007': '拆书入门', '008': '实战教程',
+    '009': '去AI味', '010': '去AI味', '011': '去AI味', '012': '去AI味', '013': '去AI味'
+};
+
+async function fetchContentFromManifest(dirName) {
+    const manifest = await fetchManifest();
+    if (!manifest) return null;
+
+    const items = [];
+    for (const [path, meta] of Object.entries(manifest)) {
+        if (meta.dir !== dirName) continue;
+
+        const fileName = path.split('/').pop();
+        const prefixMatch = fileName.match(/^(\d{3})/);
+        const prefix = prefixMatch ? prefixMatch[1] : '001';
+
+        // Generate content ID
+        let id;
+        if (dirName === '知识创作') {
+            id = 'knowledge-' + fileName.replace('.md', '');
+        } else if (dirName === '精选项目') {
+            const slug = fileName.replace('.md', '').replace(/^\d{3}-/, '');
+            id = 'project-' + prefix + '-' + slug;
+        } else {
+            const idPrefix = DIR_ID_PREFIX[dirName] || dirName;
+            id = idPrefix + '-' + prefix;
+        }
+
+        items.push({
+            id: id,
+            title: meta.title,
+            category: meta.category || NEWBIE_CATEGORIES[prefix] || dirName,
+            icon: NEWBIE_ICONS[prefix] || '📘',
+            date: meta.date,
+            desc: meta.summary,
+            file: path,
+            fileName: fileName,
+            stars: meta.stars || 0,
+            github_url: meta.github_url || ''
+        });
+    }
+
+    items.sort((a, b) => a.fileName.localeCompare(b.fileName));
+    return items.length > 0 ? items : null;
+}
 
 
 async function getNewbieLearningData() {
+    const manifestData = await fetchContentFromManifest('萌新学习');
+    if (manifestData) return manifestData;
+
     const items = [];
 
     try {
@@ -135,6 +223,22 @@ function getFallbackNewbieData() {
             icon: '🎓',
             date: '2026-04-27',
             desc: '用AI写作打造个人IP，接商单、做自媒体、写网文——零基础也能月入过万的变现路径'
+        },
+        {
+            id: 'newbie-007',
+            title: 'AI拆书入门：从"读过"到"读懂"的第一步',
+            category: '拆书入门',
+            icon: '📚',
+            date: '2026-05-01',
+            desc: '大多数人读书只是"看完了"，不是"读懂了"——AI拆书帮你从"看过"升级到"会用"'
+        },
+        {
+            id: 'newbie-008',
+            title: '写作新手的第一篇AI辅助文章：从零到发布',
+            category: '实战教程',
+            icon: '✍️',
+            date: '2026-05-01',
+            desc: '手把手带你从"空白文档"到"发布成品"——零基础也能跟着做'
         },
         {
             id: 'newbie-009',
@@ -408,6 +512,9 @@ function getFallbackLiteraryTheoryData() {
 
 // AI写作数据（文学创作）
 async function getBookExcerpts() {
+    const manifestData = await fetchContentFromManifest('书摘文案');
+    if (manifestData) return manifestData;
+
     const excerpts = [];
 
     try {
@@ -694,7 +801,8 @@ async function renderDeaiWithFilter() {
     const container = document.getElementById('deai-container');
     if (!container) return;
 
-    const deaiData = getFallbackDeaiData();
+    let deaiData = await fetchContentFromManifest('去AI味');
+    if (!deaiData) deaiData = getFallbackDeaiData();
 
     const filterHtml = `
         <div class="newbie-filter">
@@ -801,6 +909,9 @@ async function getLatestTrendingData() {
 
 // 从知识创作Markdown文件中提取数据
 async function getKnowledgeCreationData() {
+    const manifestData = await fetchContentFromManifest('知识创作');
+    if (manifestData) return manifestData;
+
     const projects = [];
 
     try {
@@ -1087,6 +1198,9 @@ async function renderKnowledgeCreationWithFilter() {
 
 
 async function getBookAnalysisData() {
+    const manifestData = await fetchContentFromManifest('拆书心得');
+    if (manifestData) return manifestData;
+
     const items = [];
 
     try {
@@ -1135,7 +1249,12 @@ async function getBookAnalysisData() {
                 '018': { category: '百年孤独', icon: '🌍' },
                 '019': { category: '百年孤独', icon: '🌀' },
                 '020': { category: 'AI拆书方法论', icon: '🤖' },
-                '021': { category: 'AI拆书方法论', icon: '📋' }
+                '021': { category: 'AI拆书方法论', icon: '📋' },
+                '022': { category: '围城', icon: '🏰' },
+                '023': { category: '围城', icon: '🕰️' },
+                '024': { category: '三体', icon: '🌌' },
+                '025': { category: '三体', icon: '🎯' },
+                '026': { category: '平凡的世界', icon: '🌾' }
             };
 
             for (const file of mdFiles) {
@@ -1503,6 +1622,9 @@ async function renderBookAnalysisWithFilter() {
 
 // 初始化渲染
 async function renderHomepage() {
+    // Skip full homepage rendering on topic pages
+    if (document.querySelector('meta[name="page-type"]')) return;
+
     console.log('=== Starting renderHomepage (parallel) ===');
 
     // 并行加载所有数据源
@@ -1532,6 +1654,77 @@ async function renderHomepage() {
     ]);
 
     console.log('=== renderHomepage complete ===');
+}
+
+// ============================================================
+// Generic topic page renderer — used by all topic listing pages
+// dirName: manifest dir field (e.g. '去AI味', '萌新学习')
+// containerId: DOM container id
+// options: { cardRenderer, maxCards, filterCategories }
+// ============================================================
+async function renderTopicPage(dirName, containerId, options = {}) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    const { cardRenderer = 'newbie', maxCards = 0, filterCategories = [] } = options;
+
+    const data = await fetchContentFromManifest(dirName);
+    if (!data) {
+        container.innerHTML = '<p style="color:var(--text-muted);text-align:center;padding:40px;">内容加载失败，请刷新页面重试</p>';
+        return;
+    }
+
+    // Sort by date descending
+    data.sort((a, b) => {
+        const da = new Date(a.date); const db = new Date(b.date);
+        return (db - da) || a.fileName.localeCompare(b.fileName);
+    });
+
+    const displayData = maxCards > 0 ? data.slice(0, maxCards) : data;
+
+    // Render filter bar if categories provided
+    let filterHtml = '';
+    if (filterCategories.length > 0) {
+        const buttons = [['all', '全部']].concat(filterCategories.map(c => [c, c]));
+        filterHtml = `
+            <div class="newbie-filter">
+                <span class="newbie-filter-label">筛选</span>
+                ${buttons.map(([val, label]) =>
+                    `<button class="newbie-filter-btn${val === 'all' ? ' active' : ''}" data-category="${val}">${label}</button>`
+                ).join('')}
+            </div>`;
+    }
+
+    // Render cards
+    const cardsHtml = displayData.map((item, i) => {
+        if (cardRenderer === 'knowledge') {
+            return renderKnowledgeCreationCard(item, i);
+        }
+        return renderNewbieCard(item, i);
+    }).join('');
+
+    container.innerHTML = filterHtml + `<div class="newbie-grid">${cardsHtml}</div>`;
+
+    // Wire filter buttons if present
+    if (filterCategories.length > 0) {
+        const filterBtns = container.querySelectorAll('.newbie-filter-btn');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const cat = btn.dataset.category;
+                const cards = container.querySelectorAll('.newbie-card');
+                cards.forEach(card => {
+                    const cardCat = card.querySelector('.newbie-card-category').textContent;
+                    if (cat === 'all' || cardCat === cat) {
+                        card.style.display = '';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    }
 }
 
 // 页面加载完成后执行
