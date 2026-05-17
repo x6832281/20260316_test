@@ -1489,7 +1489,7 @@ a, button, .tab-btn, .nav-item, .engine-btn, .article-card,
     }
     
     .search-section {
-        top: 54px;
+        position: static;
         padding: 0 0 8px;
     }
 
