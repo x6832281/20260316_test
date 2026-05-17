@@ -1,6 +1,6 @@
-// Service Worker for PWA - Updated with version 20260501
+// Service Worker for PWA - Updated with SEO optimizations
 
-const CACHE_NAME = 'kaka-cache-v20260517';
+const CACHE_NAME = 'kaka-cache-v20260517-seo';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',

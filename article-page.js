@@ -573,18 +573,25 @@ function loadRelatedArticles(currentId, currentTag) {
     const grid = document.getElementById('relatedArticlesGrid');
     if (!grid) return;
 
-    // 找出同标签的其他文章
-    const related = Object.entries(ARTICLES_MAP)
-        .filter(([id, data]) => id !== currentId && data.tag === currentTag)
-        .slice(0, 3);
+    // 相关类别映射
+    const RELATED_CATS = {
+        '去AI味': ['萌新学习'],
+        '萌新学习': ['去AI味'],
+        '拆书心得': ['文学理论', '书摘文案'],
+        '文学理论': ['拆书心得'],
+        '知识创作': ['萌新学习'],
+        '书摘文案': ['拆书心得', '文学理论']
+    };
 
-    // 如果同标签不够3篇，补充其他文章
-    if (related.length < 3) {
-        const others = Object.entries(ARTICLES_MAP)
-            .filter(([id, data]) => id !== currentId && data.tag !== currentTag)
-            .slice(0, 3 - related.length);
-        related.push(...others);
-    }
+    const relatedCats = RELATED_CATS[currentTag] || [];
+    const entries = Object.entries(ARTICLES_MAP).filter(([id]) => id !== currentId);
+
+    // 优先：同标签 > 相关类别 > 其他
+    const sameTag = entries.filter(([, d]) => d.tag === currentTag);
+    const relatedTag = entries.filter(([, d]) => d.tag !== currentTag && relatedCats.includes(d.tag));
+    const others = entries.filter(([, d]) => d.tag !== currentTag && !relatedCats.includes(d.tag));
+
+    const related = [...sameTag, ...relatedTag, ...others].slice(0, 6);
 
     if (related.length === 0) {
         document.getElementById('relatedArticles').style.display = 'none';
@@ -593,7 +600,7 @@ function loadRelatedArticles(currentId, currentTag) {
 
     grid.innerHTML = related.map(([id, data]) => `
         <a href="article.html?id=${id}" style="display: block; padding: 16px; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); text-decoration: none; transition: all 0.2s;">
-            <span style="display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 12px; background: rgba(0,245,212,0.1); color: var(--accent-primary); margin-bottom: 8px;">${data.tag}</span>
+            <span style="display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 12px; background: rgba(55,170,170,0.1); color: var(--accent-primary); margin-bottom: 8px;">${data.tag}</span>
             <div style="color: var(--text-secondary); font-size: 13px;">查看详情 →</div>
         </a>
     `).join('');

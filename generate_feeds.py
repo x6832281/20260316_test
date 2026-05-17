@@ -132,14 +132,28 @@ def generate_rss(articles):
   </channel>
 </rss>"""
 
+def get_file_lastmod(path):
+    """Get file modification date for a static page."""
+    if path == '/':
+        filepath = 'index.html'
+    else:
+        filepath = path.lstrip('/')
+    try:
+        mtime = os.path.getmtime(filepath)
+        return datetime.fromtimestamp(mtime).strftime('%Y-%m-%d')
+    except:
+        return datetime.now().strftime('%Y-%m-%d')
+
 def generate_sitemap(articles):
     """Generate sitemap.xml content."""
     urls_xml = []
 
     # Static pages
     for path, changefreq, priority in PAGE_URLS:
+        lastmod = get_file_lastmod(path)
         urls_xml.append(f"""  <url>
     <loc>{BASE_URL}{path}</loc>
+    <lastmod>{lastmod}</lastmod>
     <changefreq>{changefreq}</changefreq>
     <priority>{priority}</priority>
   </url>""")
