@@ -1,21 +1,25 @@
 {
   "permissions": {
     "allow": [
-      "WebSearch",
+      "Bash(git pull *)",
+      "Bash(python *)",
+      "Bash(xxd)",
+      "Bash(node --check render-content.js)",
+      "Bash(node --check article-page.js)",
+      "Bash(node --check script.js)",
+      "Bash(node --check seo-manager.js)",
+      "Skill(superpowers:using-superpowers)",
       "WebFetch(domain:github.com)",
-      "Bash(claude plugin *)",
+      "Bash(gh repo *)",
+      "WebSearch",
+      "Skill(superpowers:brainstorming)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Skill(superpowers:writing-plans)",
+      "Skill(superpowers:subagent-driven-development)",
+      "Bash(node *)",
       "Bash(git *)",
-      "Bash([ -d \"E:/learning/web/20260316_test/data/$dir\" ])",
-      "Bash(python -c \"from PIL import Image; print\\('PIL available'\\)\")",
-      "Bash(python3 -c \"from PIL import Image; print\\('PIL available'\\)\")",
-      "Bash(node -e ' *)",
-      "WebFetch(domain:ziyuan.baidu.com)",
-      "WebFetch(domain:corely.top)",
-      "WebFetch(domain:book.douban.com)",
-      "Bash(sed -i 's/content=\"#0a0a0f\"/content=\"#ffffff\"/g' article.html faq.html ai.html debate.html glossary.html game.html book-analysis.html)",
-      "Bash(sed -i 's/content=\"#0f0f1a\"/content=\"#ffffff\"/g' disclaimer.html)",
-      "Bash(sed -i 's/content=\"#1a1410\"/content=\"#fffbf5\"/g' webnovel.html)",
-      "Bash(sed -i 's/content=\"#0f0b1f\"/content=\"#f8f7fc\"/g' resource.html)"
+      "Skill(superpowers:finishing-a-development-branch)"
     ]
   }
 }
