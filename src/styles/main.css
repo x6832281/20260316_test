@@ -1456,7 +1456,7 @@ a, button, .tab-btn, .nav-item, .engine-btn, .article-card,
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
         position: sticky;
-        top: 185px;
+        top: 56px;
         background: rgba(255, 255, 255, 0.95);
         border-bottom: 1px solid var(--border-color);
         border-right: none;
