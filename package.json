@@ -11,7 +11,8 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "marked": "^15.0.0",
     "vite": "^6.0.0",
-    "marked": "^15.0.0"
+    "vite-plugin-static-copy": "^4.1.0"
   }
 }

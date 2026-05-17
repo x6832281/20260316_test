@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI写作交流社区，与萌新们分享AI写小说作品、讨论提示词调教经验、交流AI工具使用心得，互助解决AI写作入门问题">
+    <meta name="keywords" content="AI写作交流,AI创作社区,AI写小说讨论,AI工具交流,提示词调教,AI写作入门,创作者社区,AI写作心得">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="author" content="AI 萌新小窝">
+    <link rel="canonical" href="https://corely.top/board.html">
+    <title>AI写作交流社区 - 创作者分享作品与讨论经验 | AI 萌新小窝</title>
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="AI写作交流社区 - 创作者分享作品与讨论经验 | AI 萌新小窝">
+    <meta property="og:description" content="AI写作创作者交流区，分享AI写小说作品、讨论提示词调教经验、互助解决AI写作问题">
+    <meta property="og:url" content="https://corely.top/board.html">
+    <meta property="og:site_name" content="AI 萌新小窝">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:image" content="https://corely.top/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI写作交流社区 - 创作者分享作品与讨论经验">
+    <meta name="twitter:description" content="AI写作创作者交流区，分享作品、讨论经验、互助成长">
+    <meta name="twitter:image" content="https://corely.top/logo.svg">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" as="style">
+    <link rel="preload" href="./styles.css" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="manifest" href="./manifest.json">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='40' fill='%230a0a0f'/%3E%3Ctext x='90' y='110' text-anchor='middle' font-size='80' font-family='serif' fill='%2300f5d4'%3EAI%3C/text%3E%3C/svg%3E">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="AI 萌新小窝">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?7da04a23e1fb1934e90419a677b100e2";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"CollectionPage","name":"AI写作交流社区","description":"AI写作创作者交流区，分享AI写小说作品、讨论提示词调教经验、互助解决AI写作问题","url":"https://corely.top/board.html","isPartOf":{"@type":"WebSite","name":"AI 萌新小窝","url":"https://corely.top"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://corely.top/"},{"@type":"ListItem","position":2,"name":"交流社区","item":"https://corely.top/board.html"}]}
+    </script>
+    <script src="./scripts/baidu-push.js" defer></script>
+</head>
+<body>
+    <div class="board-page">
+        <!-- 背景装饰 -->
+        <div class="board-bg-grid"></div>
+        <div class="board-bg-gradient"></div>
+        <div class="board-bg-gradient-2"></div>
+
+        <!-- 导航 -->
+        <nav class="board-nav">
+            <a href="index.html" class="board-nav-logo">
+                <div class="board-nav-logo-icon">AI</div>
+                <span class="board-nav-logo-text">萌新小窝</span>
+            </a>
+            <ul class="board-nav-links nav-menu">
+                <li class="nav-item"><a href="index.html" class="board-nav-link">首页</a></li>
+                <li class="nav-item"><a href="resource.html" class="board-nav-link">资源导航</a></li>
+                <li class="nav-item"><a href="ai.html" class="board-nav-link">AI学习</a></li>
+                <li class="nav-item"><a href="game.html" class="board-nav-link">游戏开发</a></li>
+                <li class="nav-item"><a href="debate.html" class="board-nav-link">经典对话</a></li>
+                <li class="nav-item"><a href="board.html" class="board-nav-link active">创作者交流</a></li>
+                <li class="nav-item"><a href="backup.html" class="board-nav-link">历史备份</a></li>
+            </ul>
+            <button class="mobile-menu-btn" aria-label="菜单">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+
+        <!-- 主内容 -->
+        <main class="board-main">
+            <!-- 头部 -->
+            <header class="board-header">
+                <span class="board-header-label">创作者交流</span>
+                <h1 class="board-header-title">交流<span>区</span></h1>
+                <p class="board-header-desc">有问题咨询、作品分享或交流建议？欢迎和萌新们一起交流成长。</p>
+                <div class="board-header-line"></div>
+            </header>
+
+            <section style="margin-bottom:48px;animation:fadeInUp 0.6s ease-out 0.05s both;">
+                <div style="background:var(--board-surface);border:1px solid var(--board-border);border-radius:16px;padding:28px 32px;position:relative;overflow:hidden;">
+                    <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--board-warm),transparent);opacity:0.5;"></div>
+                    <h3 style="font-size:18px;font-weight:700;font-family:'Noto Serif SC',serif;color:var(--board-text);margin:0 0 16px 0;display:flex;align-items:center;gap:10px;">
+                        <span style="font-size:20px;">🔥</span> 本周写作挑战
+                    </h3>
+                    <p style="font-size:15px;color:var(--board-text-secondary);line-height:1.7;margin:0 0 12px 0;">
+                        用曹雪芹的"零度叙事"技法，写一段200字的场景——一个人经历了巨大的失去，但不要出现任何悲伤的词。只写动作，不写感受。
+                    </p>
+                    <p style="font-size:13px;color:var(--board-accent);margin:0;">
+                        💡 灵感来源：<a href="article.html?id=book-analysis-013&file=013-活着-福贵买牛-极简叙事的终极力量.md" style="color:var(--board-accent);text-decoration:underline;">活着·福贵买牛：极简叙事的终极力量</a>
+                    </p>
+                    <p style="font-size:13px;color:var(--board-text-muted);margin:8px 0 0 0;">选择「作品分享」类型提交你的练习，大家一起交流进步 ✍️</p>
+                </div>
+            </section>
+
+            <section style="margin-bottom:48px;animation:fadeInUp 0.6s ease-out 0.08s both;">
+                <div style="background:var(--board-surface);border:1px solid var(--board-border);border-radius:16px;padding:28px 32px;position:relative;overflow:hidden;">
+                    <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--board-accent),transparent);opacity:0.5;"></div>
+                    <h3 style="font-size:18px;font-weight:700;font-family:'Noto Serif SC',serif;color:var(--board-text);margin:0 0 16px 0;display:flex;align-items:center;gap:10px;">
+                        <span style="font-size:20px;">📚</span> 下一本拆什么书？投票
+                    </h3>
+                    <p style="font-size:14px;color:var(--board-text-secondary);margin:0 0 16px 0;">你最想看哪本经典的深度拆解？在评论区选「建议反馈」类型告诉我们！</p>
+                    <div style="display:flex;flex-wrap:wrap;gap:10px;">
+                        <span style="padding:8px 16px;border-radius:20px;font-size:13px;font-weight:600;background:var(--board-accent-soft);color:var(--board-accent);border:1px solid rgba(0,245,212,0.2);">《围城》</span>
+                        <span style="padding:8px 16px;border-radius:20px;font-size:13px;font-weight:600;background:var(--board-warm-soft);color:var(--board-warm);border:1px solid rgba(244,162,97,0.2);">《平凡的世界》</span>
+                        <span style="padding:8px 16px;border-radius:20px;font-size:13px;font-weight:600;background:rgba(114,141,226,0.1);color:#5b6abf;border:1px solid rgba(114,141,226,0.2);">《人间失格》</span>
+                        <span style="padding:8px 16px;border-radius:20px;font-size:13px;font-weight:600;background:rgba(239,129,129,0.1);color:#d46060;border:1px solid rgba(239,129,129,0.2);">《追风筝的人》</span>
+                        <span style="padding:8px 16px;border-radius:20px;font-size:13px;font-weight:600;background:rgba(168,230,207,0.1);color:#3ba99e;border:1px solid rgba(168,230,207,0.2);">《三体》</span>
+                    </div>
+                </div>
+            </section>
+
+            <section style="margin-bottom:48px;animation:fadeInUp 0.6s ease-out 0.1s both;">
+                <h3 style="font-size:16px;font-weight:700;font-family:'Noto Serif SC',serif;color:var(--board-text);margin:0 0 16px 0;display:flex;align-items:center;gap:10px;">
+                    <span style="font-size:18px;">💬</span> 热门话题
+                </h3>
+                <div style="display:flex;flex-wrap:wrap;gap:8px;">
+                    <span style="padding:6px 14px;border-radius:20px;font-size:13px;background:var(--board-surface-elevated);color:var(--board-text-secondary);border:1px solid var(--board-border);cursor:default;">#去AI味技巧</span>
+                    <span style="padding:6px 14px;border-radius:20px;font-size:13px;background:var(--board-surface-elevated);color:var(--board-text-secondary);border:1px solid var(--board-border);cursor:default;">#拆书心得</span>
+                    <span style="padding:6px 14px;border-radius:20px;font-size:13px;background:var(--board-surface-elevated);color:var(--board-text-secondary);border:1px solid var(--board-border);cursor:default;">#提示词分享</span>
+                    <span style="padding:6px 14px;border-radius:20px;font-size:13px;background:var(--board-surface-elevated);color:var(--board-text-secondary);border:1px solid var(--board-border);cursor:default;">#写作练习</span>
+                    <span style="padding:6px 14px;border-radius:20px;font-size:13px;background:var(--board-surface-elevated);color:var(--board-text-secondary);border:1px solid var(--board-border);cursor:default;">#新手求助</span>
+                    <span style="padding:6px 14px;border-radius:20px;font-size:13px;background:var(--board-surface-elevated);color:var(--board-text-secondary);border:1px solid var(--board-border);cursor:default;">#零度叙事</span>
+                </div>
+            </section>
+
+            <!-- 表单 -->
+            <section class="board-form-section">
+                <div class="board-form-card">
+                    <h2 class="board-form-heading">
+                        <span class="board-form-heading-icon">✍️</span>
+                        发表内容
+                    </h2>
+                    <form id="message-form" class="board-form">
+                        <div class="board-form-group">
+                            <label for="name" class="board-form-label">昵称</label>
+                            <input type="text" id="name" class="board-form-input" placeholder="请输入你的昵称" required>
+                        </div>
+                        <div class="board-form-group">
+                            <label for="type" class="board-form-label">留言类型</label>
+                            <select id="type" class="board-form-input" required>
+                                <option value="question">问题咨询</option>
+                                <option value="work">作品分享</option>
+                                <option value="experience">经验交流</option>
+                                <option value="feedback">建议反馈</option>
+                            </select>
+                        </div>
+                        <div class="board-form-group">
+                            <label for="message" class="board-form-label">内容</label>
+                            <textarea id="message" class="board-form-textarea" placeholder="写下你的想法..." rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="board-form-submit">
+                            <span class="board-form-submit-icon">✉️</span>
+                            提交
+                        </button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- 留言列表 -->
+            <section class="board-list-section">
+                <div class="board-list-header">
+                    <h2 class="board-list-heading">
+                        <span class="board-list-heading-icon">💬</span>
+                        最新交流
+                    </h2>
+                    <span class="board-list-count" id="message-count"></span>
+                </div>
+                <div id="message-list" class="board-list">
+                    <div class="board-loading">
+                        <div class="board-loading-spinner"></div>
+                        <p>正在加载留言...</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- 页脚 -->
+        <footer class="board-footer">
+            <div class="board-footer-content">
+                <div class="board-footer-brand">AI 萌新小窝</div>
+                <div class="board-footer-links">
+                    <a href="index.html" class="board-footer-link">首页</a>
+                    <a href="resource.html" class="board-footer-link">资源导航</a>
+                    <a href="ai.html" class="board-footer-link">AI学习</a>
+                    <a href="game.html" class="board-footer-link">游戏开发</a>
+                    <a href="debate.html" class="board-footer-link">经典对话</a>
+                    <a href="board.html" class="board-footer-link">创作者交流</a>
+                    <a href="backup.html" class="board-footer-link">历史备份</a>
+                    <a href="disclaimer.html" class="board-footer-link" target="_blank">免责声明</a>
+                </div>
+                <p class="board-footer-copy">&copy; 2026 AI 萌新小窝. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const supabaseUrl = 'https://wutixqqiuksglbijggdu.supabase.co';
+        const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind1dGl4cXFpdWtzZ2xiaWpnZ2R1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM4MzQ5NzAsImV4cCI6MjA4OTQxMDk3MH0.6y_uZrcSqcjOCz-8EaXZHmmnD28OAkcyNNBkX5JySBU';
+        const supabaseClient = supabase.createClient(supabaseUrl, supabaseAnonKey);
+
+        const messageForm = document.getElementById('message-form');
+        const messageList = document.getElementById('message-list');
+        const messageCount = document.getElementById('message-count');
+
+        if (messageForm) {
+            messageForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const name = document.getElementById('name').value.trim();
+                const type = document.getElementById('type').value;
+                const message = document.getElementById('message').value.trim();
+                
+                if (!name || !message) return;
+
+                const submitBtn = messageForm.querySelector('.board-form-submit');
+                const originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<span class="loading-dots">...</span>提交中';
+                submitBtn.disabled = true;
+
+                try {
+                    const { error } = await supabaseClient
+                        .from('message')
+                        .insert({ name, message, type });
+                    
+                    if (error) throw error;
+                    
+                    messageForm.reset();
+                    loadMessages();
+                } catch (err) {
+                    console.error('提交失败:', err);
+                    saveToLocal({ name, message, type, created_at: new Date().toISOString() });
+                    loadMessages();
+                } finally {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                }
+            });
+        }
+
+        async function loadMessages() {
+            try {
+                const { data: messages, error } = await supabaseClient
+                    .from('message')
+                    .select('*')
+                    .order('created_at', { ascending: false })
+                    .limit(50);
+
+                if (error) throw error;
+                displayMessages(messages);
+                saveToLocalStorage(messages);
+            } catch (err) {
+                console.error('加载失败:', err);
+                loadFromLocalStorage();
+            }
+        }
+
+        function displayMessages(messages) {
+            if (!messageList) return;
+            messageList.innerHTML = '';
+
+            if (messageCount) {
+                messageCount.textContent = messages ? `${messages.length} 条留言` : '';
+            }
+
+            if (!messages || messages.length === 0) {
+                messageList.innerHTML = `
+                    <div class="board-empty">
+                        <div class="board-empty-icon">💭</div>
+                        <p class="board-empty-text">暂无交流内容，来发表第一条吧！</p>
+                    </div>
+                `;
+                return;
+            }
+
+            messages.forEach((msg, index) => {
+                const item = document.createElement('div');
+                item.className = 'board-item';
+                item.style.animationDelay = `${index * 0.05}s`;
+                
+                const initial = msg.name.charAt(0).toUpperCase();
+                const type = msg.type || 'question';
+                const typeLabels = {
+                    question: '问题咨询',
+                    work: '作品分享',
+                    experience: '经验交流',
+                    feedback: '建议反馈'
+                };
+                const typeLabel = typeLabels[type] || '问题咨询';
+                
+                item.innerHTML = `
+                    <div class="board-item-header">
+                        <div class="board-item-author">
+                            <div class="board-item-avatar">${initial}</div>
+                            <span class="board-item-name">${escapeHtml(msg.name)}</span>
+                            <span class="board-item-type board-item-type-${type}">${typeLabel}</span>
+                        </div>
+                        <span class="board-item-time">${formatTime(msg.created_at)}</span>
+                    </div>
+                    <p class="board-item-content">${escapeHtml(msg.message)}</p>
+                `;
+                messageList.appendChild(item);
+            });
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        function formatTime(isoString) {
+            const date = new Date(isoString);
+            const now = new Date();
+            const diff = now - date;
+            
+            if (diff < 60000) return '刚刚';
+            if (diff < 3600000) return Math.floor(diff / 60000) + '分钟前';
+            if (diff < 86400000) return Math.floor(diff / 3600000) + '小时前';
+            if (diff < 604800000) return Math.floor(diff / 86400000) + '天前';
+            
+            return date.toLocaleDateString('zh-CN', { month: 'short', day: 'numeric' });
+        }
+
+        function saveToLocal(msg) {
+            try {
+                const messages = JSON.parse(localStorage.getItem('board_messages') || '[]');
+                messages.unshift(msg);
+                if (messages.length > 50) messages.splice(50);
+                localStorage.setItem('board_messages', JSON.stringify(messages));
+            } catch (e) {}
+        }
+
+        function saveToLocalStorage(messages) {
+            try {
+                localStorage.setItem('board_messages', JSON.stringify(messages));
+            } catch (e) {}
+        }
+
+        function loadFromLocalStorage() {
+            try {
+                const messages = JSON.parse(localStorage.getItem('board_messages') || '[]');
+                displayMessages(messages);
+            } catch (e) {
+                displayMessages([]);
+            }
+        }
+
+        loadMessages();
+
+        setInterval(loadMessages, 5000);
+
+        const subscription = supabaseClient
+            .channel('board-channel')
+            .on('postgres_changes', 
+                { event: 'INSERT', schema: 'public', table: 'message' },
+                (payload) => {
+                    loadMessages();
+                }
+            )
+            .subscribe();
+    });
+    </script>
+    <script src="./scripts/script.js"></script>
+</body>
+</html>

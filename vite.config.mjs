@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import { resolve } from 'path'
 import { fileURLToPath } from 'url'
+import { viteStaticCopy } from 'vite-plugin-static-copy'
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url))
 
@@ -34,7 +35,31 @@ export default defineConfig({
         disclaimer: resolve(__dirname, 'src/disclaimer.html'),
         backup: resolve(__dirname, 'src/backup.html'),
         'ai-writing': resolve(__dirname, 'src/ai-writing.html'),
+        '404': resolve(__dirname, 'src/404.html'),
+      },
+      output: {
+        assetFileNames: (chunkInfo) => {
+          // Don't hash manifest.json so PWA manifest path stays correct
+          if (chunkInfo.name === 'manifest.json') {
+            return '[name][extname]'
+          }
+          return 'assets/[name]-[hash][extname]'
+        }
       }
     }
-  }
+  },
+  plugins: [
+    viteStaticCopy({
+      targets: [
+        {
+          src: 'scripts/*.js',
+          dest: '.'
+        },
+        {
+          src: 'baidu_verify_codeva-hKe8DPIHeP.html',
+          dest: '.'
+        }
+      ]
+    })
+  ]
 })
