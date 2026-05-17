@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="AI写作教程、拆书心得、文学理论与创作技巧精选文章，涵盖AI写小说入门、提示词调教、去AI味技巧、经典名著拆解等实用内容">
+    <meta name="description" content="{{PAGE_DESC}}">
     <meta name="keywords" content="AI写作教程,AI拆书心得,AI写小说入门,提示词调教,去AI味技巧,经典名著拆解,AI创作技巧,文学理论入门,AI工具推荐">
     <meta name="theme-color" content="#ffffff">
     <meta name="author" content="AI 萌新小窝">
-    <link rel="canonical" href="https://corely.top/article.html">
-    <title>文章加载中... | AI 萌新小窝</title>
+    <link rel="canonical" href="{{CANONICAL_URL}}">
+    <title>{{PAGE_TITLE}}</title>
     <meta property="og:type" content="article">
     <meta property="og:title" content="AI写作教程与拆书心得 | AI 萌新小窝">
     <meta property="og:description" content="AI写作教程、拆书心得、文学理论与创作技巧精选文章">
     <meta property="og:url" content="https://corely.top/article.html">
     <meta property="og:site_name" content="AI 萌新小窝">
     <meta property="og:locale" content="zh_CN">
-    <meta property="og:image" content="https://corely.top/logo.svg">
+    <meta property="og:image" content="{{OG_IMAGE}}">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="AI写作教程与拆书心得 - 精选文章阅读">
     <meta name="twitter:description" content="AI写作教程、拆书心得、文学理论与创作技巧精选文章阅读">
-    <meta name="twitter:image" content="https://corely.top/logo.svg">
+    <meta name="twitter:image" content="{{OG_IMAGE}}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" as="style">
@@ -55,18 +55,15 @@
                 <span>返回首页</span>
             </a>
             <div class="article-meta-top">
-                <span class="article-tag" id="articleTag"></span>
-                <span class="article-date" id="articleDate"></span>
+                <span class="article-tag" id="articleTag">{{PAGE_TAG}}</span>
+                <span class="article-date" id="articleDate">{{PAGE_DATE}}</span>
             </div>
         </header>
 
         <main class="article-main">
             <article class="article-content" id="articleContent">
                 <h1 class="sr-only" id="articleH1">AI写作教程与拆书心得</h1>
-                <div class="article-loading">
-                    <div class="loading-spinner"></div>
-                    <p>正在加载文章...</p>
-                </div>
+                {{ARTICLE_HTML}}
             </article>
         </main>
 

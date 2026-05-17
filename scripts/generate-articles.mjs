@@ -10,7 +10,14 @@ function main() {
   console.log('Generating article pages...')
 
   const manifest = JSON.parse(readFileSync('data/manifest.json', 'utf-8'))
-  const template = readFileSync('src/templates/article.html', 'utf-8')
+
+  // Read Vite-processed article.html as template (already has correct hashed asset paths)
+  const templatePath = 'dist/article.html'
+  if (!existsSync(templatePath)) {
+    console.error('dist/article.html not found. Run vite build first.')
+    process.exit(1)
+  }
+  const template = readFileSync(templatePath, 'utf-8')
 
   const outputDir = 'dist/article'
   if (!existsSync(outputDir)) {
@@ -41,15 +48,18 @@ function main() {
       dir: meta.dir
     })
 
+    const jsonScript = `<script>window.__ARTICLE_DATA__ = ${articleJson};</script>`
+
+    // Use replacer functions to handle $ characters in content
     const pageHtml = template
-      .replace('{{ARTICLE_HTML}}', htmlContent)
-      .replace('{{PAGE_TITLE}}', `${meta.title} | AI 萌新小窝`)
-      .replace('{{PAGE_DESC}}', cleanSummary)
-      .replace('{{PAGE_TAG}}', meta.category || meta.dir)
-      .replace('{{PAGE_DATE}}', cleanDate)
-      .replace('{{ARTICLE_JSON}}', articleJson)
-      .replace('{{CANONICAL_URL}}', `${BASE_URL}/article.html?id=${id}`)
-      .replaceAll('{{OG_IMAGE}}', OG_IMAGE)
+      .replace('{{ARTICLE_HTML}}', () => htmlContent)
+      .replace('{{PAGE_TITLE}}', () => `${meta.title} | AI 萌新小窝`)
+      .replace('{{PAGE_DESC}}', () => cleanSummary)
+      .replace('{{PAGE_TAG}}', () => meta.category || meta.dir)
+      .replace('{{PAGE_DATE}}', () => cleanDate)
+      .replace('{{CANONICAL_URL}}', () => `${BASE_URL}/article.html?id=${id}`)
+      .replaceAll('{{OG_IMAGE}}', () => OG_IMAGE)
+      .replace('</body>', () => `${jsonScript}\n</body>`)
 
     writeFileSync(join(outputDir, `${id}.html`), pageHtml, 'utf-8')
     console.log(`  ✓ ${id}`)

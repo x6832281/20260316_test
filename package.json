@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "node scripts/validate.mjs && node scripts/generate-articles.mjs && vite build && python generate_feeds.py",
+    "build": "node scripts/validate.mjs && vite build && node scripts/generate-articles.mjs && python generate_feeds.py",
     "build:articles": "node scripts/generate-articles.mjs",
     "validate": "node scripts/validate.mjs",
     "build:vite": "vite build",
