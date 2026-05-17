@@ -13,7 +13,7 @@ The site uses a 4-step build pipeline (`npm run build`):
 1. **`node scripts/validate.mjs`** — validates `data/manifest.json` for ID conflicts and missing files
 2. **`vite build`** — Vite multi-page build from `src/` → `dist/` with CSS/JS code splitting and hashing
 3. **`node scripts/generate-articles.mjs`** — reads Vite-processed `dist/article.html` as template, renders all 82 markdown articles using `marked`, outputs to `dist/article/{id}.html`
-4. **`python generate_feeds.py`** — regenerates `rss.xml` and `sitemap.xml`
+4. **`py generate_feeds.py`** — regenerates `rss.xml` and `sitemap.xml`
 
 Build output goes to `dist/` (pure static files, Nginx-deployable).
 
@@ -73,10 +73,10 @@ Build output goes to `dist/` (pure static files, Nginx-deployable).
 
 `data/manifest.json` is the single source of truth for discovering `.md` content files. It maps file paths to metadata (title, summary, date, category, dir). Client-side JS reads it via `fetchManifest()`.
 
-**When to regenerate**: Run `python build_manifest.py` whenever `.md` files are added, removed, or renamed.
-- On Windows, `python` may not work (Windows Store stub exits with code 49). Use the full path: `/c/Users/jiexu/AppData/Local/Programs/Python/Python311/python.exe`
+**When to regenerate**: Run `py build_manifest.py` whenever `.md` files are added, removed, or renamed.
+- On Windows, use `py` (Python launcher) instead of `python` to avoid the Windows Store stub issue.
 
-**Feed generation**: Run `python generate_feeds.py` to regenerate `rss.xml` and `sitemap.xml`.
+**Feed generation**: Run `py generate_feeds.py` to regenerate `rss.xml` and `sitemap.xml`.
 
 ### CSS Loading Matrix
 | Page | CSS |
@@ -130,7 +130,7 @@ npx vite preview  # Preview production build
 
 ### Adding content
 1. Add `.md` file to `data/{category}/`
-2. Run `python build_manifest.py` to update `data/manifest.json`
+2. Run `py build_manifest.py` to update `data/manifest.json`
 3. Add mapping in `src/scripts/article.js` → `ARTICLES_MAP`
 4. Run `npm run build`
 
