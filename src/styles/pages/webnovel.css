@@ -1,0 +1,433 @@
+/* ═══════════════════════════════════════════
+   网文在线 — 墨香书斋 "Ink & Scroll"
+   设计方向：古籍卷轴 + 暖金墨韵 + 暗夜书房
+   ═══════════════════════════════════════════ */
+
+:root {
+    --wn-amber: #c4956a;
+    --wn-amber-light: #d4a574;
+    --wn-amber-deep: #a67c52;
+    --wn-ink: #333333;
+    --wn-ink-light: #666666;
+    --wn-paper: #fffbf5;
+    --wn-red-seal: #c44536;
+    --wn-gold: #b8943e;
+    --wn-border-ink: rgba(180, 140, 100, 0.2);
+}
+
+/* 页面基础 */
+.webnovel-page {
+    --accent-primary: var(--wn-amber);
+    --accent-secondary: var(--wn-amber-deep);
+    --accent-warm: var(--wn-gold);
+}
+
+.webnovel-page .page-sidebar {
+    background: #ffffff;
+    border-right-color: rgba(180, 140, 100, 0.15);
+}
+
+.webnovel-page .page-sidebar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent 0%, rgba(201, 169, 110, 0.15) 20%, rgba(201, 169, 110, 0.15) 80%, transparent 100%);
+    pointer-events: none;
+}
+
+/* 侧边栏头部 */
+.webnovel-sidebar-header {
+    border-bottom-color: rgba(180, 140, 100, 0.2);
+    position: relative;
+}
+
+.webnovel-sidebar-header .sidebar-logo {
+    color: var(--wn-amber-light);
+    font-family: var(--font-display);
+    letter-spacing: 0.04em;
+}
+
+/* 侧边栏导航 */
+.webnovel-page .sidebar-link {
+    border-left-color: transparent;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.webnovel-page .sidebar-link:hover {
+    background: rgba(180, 140, 100, 0.06);
+    color: var(--wn-amber-light);
+}
+
+.webnovel-page .sidebar-link.active {
+    background: linear-gradient(90deg, rgba(180, 140, 100, 0.12) 0%, rgba(180, 140, 100, 0.03) 100%);
+    color: var(--wn-amber-light);
+    border-left-color: var(--wn-amber);
+    font-weight: 600;
+}
+
+.webnovel-sidebar-footer .back-home {
+    color: rgba(200, 180, 150, 0.6);
+}
+
+.webnovel-sidebar-footer .back-home:hover {
+    color: var(--wn-amber-light);
+}
+
+/* 页面顶部 */
+.webnovel-page-header {
+    background: #ffffff;
+    border-bottom: 1px solid rgba(180, 140, 100, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+.webnovel-page-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(201, 169, 110, 0.4), transparent);
+}
+
+.webnovel-header-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 12px;
+}
+
+.webnovel-header-icon {
+    font-size: 22px;
+}
+
+.webnovel-header-text {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--wn-amber-light);
+    letter-spacing: 0.06em;
+}
+
+.webnovel-header-deco {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-left: auto;
+    margin-right: 24px;
+}
+
+.deco-stroke {
+    display: block;
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(201, 169, 110, 0.4));
+}
+
+.deco-dot {
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--wn-amber);
+    box-shadow: 0 0 4px rgba(212, 165, 116, 0.3);
+}
+
+/* 介绍区域 */
+.webnovel-intro {
+    text-align: center;
+    padding: 32px 24px 20px;
+    position: relative;
+}
+
+.webnovel-intro-quote {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--wn-amber-light);
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+}
+
+.webnovel-intro-text {
+    font-size: 14px;
+    color: rgba(200, 180, 150, 0.6);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+/* 区块标题 */
+.webnovel-heading {
+    border-bottom: 1px solid rgba(180, 140, 100, 0.12);
+    position: relative;
+}
+
+.webnovel-heading::before {
+    background: linear-gradient(180deg, var(--wn-amber), var(--wn-gold));
+}
+
+.webnovel-heading h2 {
+    font-family: var(--font-display);
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--wn-amber-light);
+    letter-spacing: 0.04em;
+}
+
+/* 网文卡片网格 */
+.webnovel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 16px;
+}
+
+/* 网文卡片 */
+.webnovel-card {
+    display: block;
+    text-decoration: none;
+    position: relative;
+    background: linear-gradient(135deg, rgba(30, 22, 14, 0.9), rgba(22, 16, 10, 0.95));
+    border: 1px solid rgba(180, 140, 100, 0.12);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.webnovel-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at 100% 0%, rgba(201, 169, 110, 0.04) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.webnovel-card:hover {
+    border-color: rgba(201, 169, 110, 0.35);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(201, 169, 110, 0.1) inset;
+}
+
+.webnovel-card:hover::before {
+    opacity: 1;
+}
+
+.webnovel-card-accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--wn-amber-deep), var(--wn-amber), transparent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0.6;
+}
+
+.webnovel-card:hover .webnovel-card-accent {
+    transform: scaleX(1);
+}
+
+.webnovel-card-inner {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 24px;
+    position: relative;
+    z-index: 1;
+}
+
+.webnovel-card-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(180, 140, 100, 0.12), rgba(180, 140, 100, 0.04));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    flex-shrink: 0;
+    transition: all 0.35s ease;
+    border: 1px solid rgba(180, 140, 100, 0.1);
+}
+
+.webnovel-card:hover .webnovel-card-icon {
+    transform: scale(1.1) rotate(-6deg);
+    background: linear-gradient(135deg, rgba(201, 169, 110, 0.18), rgba(180, 140, 100, 0.08));
+    border-color: rgba(201, 169, 110, 0.25);
+    box-shadow: 0 0 20px rgba(201, 169, 110, 0.12);
+}
+
+.webnovel-card-body {
+    flex: 1;
+    min-width: 0;
+}
+
+.webnovel-card-title {
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--wn-amber-light);
+    margin-bottom: 6px;
+    letter-spacing: 0.03em;
+    transition: color 0.35s ease;
+}
+
+.webnovel-card:hover .webnovel-card-title {
+    color: var(--wn-amber);
+}
+
+.webnovel-card-desc {
+    font-size: 13px;
+    color: rgba(200, 180, 150, 0.5);
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    transition: color 0.35s ease;
+}
+
+.webnovel-card:hover .webnovel-card-desc {
+    color: rgba(200, 180, 150, 0.7);
+}
+
+.webnovel-card-arrow {
+    font-size: 18px;
+    color: rgba(180, 140, 100, 0.3);
+    flex-shrink: 0;
+    transition: all 0.35s ease;
+}
+
+.webnovel-card:hover .webnovel-card-arrow {
+    color: var(--wn-amber);
+    transform: translateX(4px);
+}
+
+/* 内容区域 */
+.webnovel-content {
+    padding: 0 24px 24px;
+}
+
+/* 页脚 */
+.webnovel-footer {
+    border-top: 1px solid rgba(180, 140, 100, 0.12);
+    color: rgba(200, 180, 150, 0.4);
+    background: linear-gradient(180deg, transparent, rgba(18, 14, 10, 0.6));
+}
+
+/* 卡片入场动画 */
+.webnovel-card {
+    animation: webnovelCardIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+}
+
+.webnovel-card:nth-child(1) { animation-delay: 0.05s; }
+.webnovel-card:nth-child(2) { animation-delay: 0.12s; }
+.webnovel-card:nth-child(3) { animation-delay: 0.19s; }
+.webnovel-card:nth-child(4) { animation-delay: 0.26s; }
+.webnovel-card:nth-child(5) { animation-delay: 0.33s; }
+.webnovel-card:nth-child(6) { animation-delay: 0.40s; }
+
+@keyframes webnovelCardIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 响应式 */
+@media (max-width: 1024px) {
+    .webnovel-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .webnovel-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .webnovel-card-inner {
+        padding: 16px 20px;
+    }
+
+    .webnovel-card-icon {
+        width: 44px;
+        height: 44px;
+        font-size: 20px;
+    }
+
+    .webnovel-card-title {
+        font-size: 15px;
+    }
+
+    .webnovel-card-desc {
+        font-size: 12px;
+    }
+
+    .webnovel-intro {
+        padding: 24px 16px 16px;
+    }
+
+    .webnovel-intro-quote {
+        font-size: 18px;
+    }
+
+    .webnovel-header-title {
+        margin-left: 0;
+    }
+
+    .webnovel-header-text {
+        font-size: 16px;
+    }
+
+    .webnovel-header-deco {
+        display: none;
+    }
+
+    .webnovel-content {
+        padding: 0 16px 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .webnovel-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .webnovel-card-inner {
+        padding: 14px 16px;
+        gap: 12px;
+    }
+
+    .webnovel-card-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+        border-radius: 10px;
+    }
+
+    .webnovel-intro-quote {
+        font-size: 16px;
+    }
+
+    .webnovel-intro-text {
+        font-size: 13px;
+    }
+}

@@ -1,0 +1,7 @@
+/* ============================================
+   Topic page-specific styles (newbie, deai, knowledge, etc.)
+   ============================================ */
+
+/* Topic pages use the shared component styles from main.css
+   (newbie-card, literature-card, littheory-card, etc.)
+   This file is reserved for topic-specific overrides. */

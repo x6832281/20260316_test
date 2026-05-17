@@ -1,0 +1,85 @@
+/* ============================================
+   Homepage-specific styles
+   ============================================ */
+
+/* Hero Decorations */
+.hero-decoration {
+    position: absolute;
+    top: 0;
+    right: -100px;
+    width: 500px;
+    height: 500px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.deco-circle {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(55, 170, 170, 0.1);
+}
+
+.deco-1 {
+    width: 400px;
+    height: 400px;
+    top: 50px;
+    right: 0;
+    animation: decoFloat 12s ease-in-out infinite;
+}
+
+.deco-2 {
+    width: 250px;
+    height: 250px;
+    top: 120px;
+    right: 80px;
+    border-color: rgba(255, 209, 102, 0.08);
+    animation: decoFloat 12s ease-in-out infinite reverse;
+}
+
+@keyframes decoFloat {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(-20px, 20px) rotate(5deg); }
+}
+
+.deco-dots {
+    position: absolute;
+    top: 80px;
+    right: 40px;
+    width: 120px;
+    height: 120px;
+    background-image: radial-gradient(circle, rgba(55, 170, 170, 0.15) 1px, transparent 1px);
+    background-size: 20px 20px;
+    animation: decoFloat 15s ease-in-out infinite;
+}
+
+/* Content tabs anchor (homepage sidebar navigation) */
+.content-tabs-anchor {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 8px 12px 8px 0;
+    overflow-x: visible;
+    position: sticky;
+    top: 212px;
+    z-index: 50;
+    background: transparent;
+    border-bottom: none;
+    min-width: 130px;
+    max-width: 150px;
+    flex-shrink: 0;
+}
+
+.content-tabs-anchor::-webkit-scrollbar {
+    display: none;
+}
+
+.content-tabs-anchor .tab-btn {
+    position: relative;
+    display: flex;
+    width: 100%;
+    text-decoration: none;
+    white-space: nowrap;
+    justify-content: flex-start;
+    border: none;
+    border-radius: var(--radius-sm);
+}

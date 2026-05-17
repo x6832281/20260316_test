@@ -1,0 +1,275 @@
+/* ═══════════════════════════════════════════
+   AI学习 — 神经网络花园 "Neural Bloom"
+   设计方向：生物翡翠 + 有机科技 + 神经脉冲
+   ═══════════════════════════════════════════ */
+
+:root {
+    --nb-emerald: #2d8a5e;
+    --nb-mint: #319E4A;
+    --nb-mint-light: #5cb878;
+    --nb-deep: #f5faf7;
+    --nb-deeper: #edf5f0;
+    --nb-card: #ffffff;
+    --nb-border: rgba(49, 158, 74, 0.12);
+    --nb-pulse: rgba(49, 158, 74, 0.15);
+}
+
+.ai-page {
+    --accent-primary: var(--nb-mint);
+    --accent-secondary: var(--nb-emerald);
+    --accent-warm: var(--nb-mint-light);
+}
+
+.ai-page .page-sidebar {
+    background: #ffffff;
+    border-right-color: var(--nb-border);
+}
+
+.ai-page .page-sidebar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent 0%, var(--nb-pulse) 20%, var(--nb-pulse) 80%, transparent 100%);
+    pointer-events: none;
+}
+
+.ai-sidebar-header {
+    border-bottom-color: var(--nb-border);
+}
+
+.ai-sidebar-header .sidebar-logo {
+    color: var(--nb-mint-light);
+    font-family: var(--font-display);
+    letter-spacing: 0.04em;
+}
+
+.ai-page .sidebar-link {
+    border-left-color: transparent;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ai-page .sidebar-link:hover {
+    background: rgba(16, 185, 129, 0.07);
+    color: var(--nb-mint);
+}
+
+.ai-page .sidebar-link.active {
+    background: linear-gradient(90deg, rgba(16, 185, 129, 0.12) 0%, rgba(16, 185, 129, 0.03) 100%);
+    color: var(--nb-mint-light);
+    border-left-color: var(--nb-emerald);
+    font-weight: 600;
+}
+
+.ai-sidebar-footer .back-home {
+    color: rgba(110, 231, 183, 0.55);
+}
+
+.ai-sidebar-footer .back-home:hover {
+    color: var(--nb-mint-light);
+}
+
+/* 页面顶部 */
+.ai-page-header {
+    background: #ffffff;
+    border-bottom: 1px solid var(--nb-border);
+    position: relative;
+    overflow: hidden;
+}
+
+.ai-page-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--nb-pulse), transparent);
+}
+
+.ai-header-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 12px;
+}
+
+.ai-header-icon {
+    font-size: 22px;
+}
+
+.ai-header-text {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--nb-mint-light);
+    letter-spacing: 0.06em;
+}
+
+.ai-header-deco {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-left: auto;
+    margin-right: 24px;
+}
+
+.ai-deco-stroke {
+    display: block;
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--nb-pulse));
+}
+
+.ai-deco-dot {
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--nb-mint);
+    box-shadow: 0 0 4px rgba(49, 158, 74, 0.3);
+}
+
+/* 介绍区 */
+.ai-intro {
+    text-align: center;
+    padding: 32px 24px 20px;
+}
+
+.ai-intro-quote {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--nb-mint-light);
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+}
+
+.ai-intro-text {
+    font-size: 14px;
+    color: rgba(110, 231, 183, 0.5);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+/* 区块标题 */
+.ai-heading {
+    border-bottom: 1px solid var(--nb-border);
+}
+
+.ai-heading::before {
+    background: linear-gradient(180deg, var(--nb-mint), var(--nb-emerald));
+}
+
+.ai-heading h2 {
+    font-family: var(--font-display);
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--nb-mint-light);
+    letter-spacing: 0.04em;
+}
+
+/* 内容区 */
+.ai-content {
+    padding: 0 24px 24px;
+}
+
+/* 页脚 */
+.ai-footer {
+    border-top: 1px solid var(--nb-border);
+    color: rgba(110, 231, 183, 0.35);
+    background: linear-gradient(180deg, transparent, rgba(2, 10, 8, 0.7));
+}
+
+.ai-page .resource-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 14px;
+}
+
+.ai-page .resource-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 22px;
+    text-decoration: none;
+    position: relative;
+    background: linear-gradient(135deg, rgba(12, 26, 19, 0.9), rgba(5, 16, 11, 0.95));
+    border: 1px solid var(--nb-border);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    height: auto;
+    animation: nbCardIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+}
+
+.ai-page .resource-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(ellipse at 100% 100%, rgba(16, 185, 129, 0.07) 0%, transparent 50%);
+    opacity: 0; transition: opacity 0.4s ease; z-index: 0;
+}
+
+.ai-page .resource-card::after {
+    content: '';
+    position: absolute; top: 0; left: 0; width: 100%; height: 2px;
+    background: linear-gradient(90deg, var(--nb-emerald), var(--nb-mint), transparent);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0.7; z-index: 2;
+}
+
+.ai-page .resource-card:hover { border-color: rgba(52, 211, 153, 0.35); transform: translateY(-4px); box-shadow: 0 12px 36px rgba(0,0,0,0.5), 0 0 0 1px rgba(16,185,129,0.1) inset; }
+.ai-page .resource-card:hover::before { opacity: 1; }
+.ai-page .resource-card:hover::after { transform: scaleX(1); }
+
+.ai-page .resource-card .resource-icon { width: 48px; height: 48px; border-radius: 12px; background: linear-gradient(135deg, rgba(16,185,129,0.14), rgba(16,185,129,0.04)); font-size: 22px; flex-shrink: 0; transition: all 0.35s ease; border: 1px solid rgba(16,185,129,0.12); position: relative; z-index: 1; }
+.ai-page .resource-card:hover .resource-icon { transform: scale(1.1) rotate(-6deg); background: linear-gradient(135deg, rgba(52,211,153,0.1), rgba(16,185,129,0.05)); border-color: rgba(52,211,153,0.2); box-shadow: var(--shadow-sm); }
+
+.ai-page .resource-card .resource-info { flex: 1; min-width: 0; position: relative; z-index: 1; }
+.ai-page .resource-card .resource-title { font-family: var(--font-display); font-size: 15px; font-weight: 700; color: var(--nb-mint-light); margin-bottom: 4px; letter-spacing: 0.03em; transition: color 0.35s ease; }
+.ai-page .resource-card:hover .resource-title { color: var(--nb-mint); }
+.ai-page .resource-card .resource-desc { font-size: 12px; color: rgba(110,231,183,0.4); line-height: 1.5; transition: color 0.35s ease; white-space: normal; }
+.ai-page .resource-card:hover .resource-desc { color: rgba(110,231,183,0.6); }
+
+.ai-page .resource-card:nth-child(1) { animation-delay: 0.04s; }
+.ai-page .resource-card:nth-child(2) { animation-delay: 0.08s; }
+.ai-page .resource-card:nth-child(3) { animation-delay: 0.12s; }
+.ai-page .resource-card:nth-child(4) { animation-delay: 0.16s; }
+.ai-page .resource-card:nth-child(5) { animation-delay: 0.20s; }
+.ai-page .resource-card:nth-child(6) { animation-delay: 0.24s; }
+.ai-page .resource-card:nth-child(7) { animation-delay: 0.28s; }
+.ai-page .resource-card:nth-child(8) { animation-delay: 0.32s; }
+.ai-page .resource-card:nth-child(9) { animation-delay: 0.36s; }
+.ai-page .resource-card:nth-child(10) { animation-delay: 0.40s; }
+.ai-page .resource-card:nth-child(11) { animation-delay: 0.44s; }
+.ai-page .resource-card:nth-child(12) { animation-delay: 0.48s; }
+
+@keyframes nbCardIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+/* AI响应式 */
+@media (max-width: 1024px) {
+    .ai-page .resource-grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+}
+@media (max-width: 768px) {
+    .ai-page .resource-grid { grid-template-columns: 1fr; gap: 10px; }
+    .ai-page .resource-card { padding: 14px 18px; gap: 12px; }
+    .ai-page .resource-card .resource-icon { width: 42px; height: 42px; font-size: 18px; }
+    .ai-page .resource-card .resource-title { font-size: 14px; }
+    .ai-page .resource-card .resource-desc { font-size: 11px; }
+    .ai-intro { padding: 24px 16px 16px; }
+    .ai-intro-quote { font-size: 18px; }
+    .ai-header-deco { display: none; }
+    .ai-content { padding: 0 16px 16px; }
+}
+@media (max-width: 480px) {
+    .ai-page .resource-grid { gap: 8px; }
+    .ai-page .resource-card { padding: 12px 14px; gap: 10px; }
+    .ai-page .resource-card .resource-icon { width: 38px; height: 38px; font-size: 16px; border-radius: 10px; }
+    .ai-intro-quote { font-size: 16px; }
+}
