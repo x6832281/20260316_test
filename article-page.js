@@ -371,6 +371,81 @@ const ARTICLES_MAP = {
         tag: '书摘文案',
         tagClass: 'tag-ai'
     },
+    'knowledge-001-gpt-academic': {
+        file: 'data/知识创作/001-gpt-academic.md',
+        tag: '知识创作',
+        tagClass: 'tag-ai'
+    },
+    'knowledge-002-langchain': {
+        file: 'data/知识创作/002-langchain.md',
+        tag: '知识创作',
+        tagClass: 'tag-ai'
+    },
+    'knowledge-003-lobe-chat': {
+        file: 'data/知识创作/003-lobe-chat.md',
+        tag: '知识创作',
+        tagClass: 'tag-ai'
+    },
+    'knowledge-004-chatgpt-next-web': {
+        file: 'data/知识创作/004-chatgpt-next-web.md',
+        tag: '知识创作',
+        tagClass: 'tag-ai'
+    },
+    'knowledge-005-dify': {
+        file: 'data/知识创作/005-dify.md',
+        tag: '知识创作',
+        tagClass: 'tag-ai'
+    },
+    'knowledge-006-open-interpreter': {
+        file: 'data/知识创作/006-open-interpreter.md',
+        tag: '知识创作',
+        tagClass: 'tag-ai'
+    },
+    'knowledge-007-chatpaper': {
+        file: 'data/知识创作/007-chatpaper.md',
+        tag: '知识创作',
+        tagClass: 'tag-ai'
+    },
+    'knowledge-008-ollama': {
+        file: 'data/知识创作/008-ollama.md',
+        tag: '知识创作',
+        tagClass: 'tag-ai'
+    },
+    'knowledge-009-anything-llm': {
+        file: 'data/知识创作/009-anything-llm.md',
+        tag: '知识创作',
+        tagClass: 'tag-ai'
+    },
+    'knowledge-010-fastgpt': {
+        file: 'data/知识创作/010-fastgpt.md',
+        tag: '知识创作',
+        tagClass: 'tag-ai'
+    },
+    'knowledge-011-prompt-engineering': {
+        file: 'data/知识创作/011-prompt-engineering.md',
+        tag: '知识创作',
+        tagClass: 'tag-ai'
+    },
+    'knowledge-012-toolchain': {
+        file: 'data/知识创作/012-toolchain.md',
+        tag: '知识创作',
+        tagClass: 'tag-ai'
+    },
+    'knowledge-013-ecosystem': {
+        file: 'data/知识创作/013-ecosystem.md',
+        tag: '知识创作',
+        tagClass: 'tag-ai'
+    },
+    'knowledge-014-ai-writing-guide': {
+        file: 'data/知识创作/014-ai-writing-guide.md',
+        tag: '知识创作',
+        tagClass: 'tag-ai'
+    },
+    'knowledge-015-content-matrix': {
+        file: 'data/知识创作/015-content-matrix.md',
+        tag: '知识创作',
+        tagClass: 'tag-ai'
+    },
 };
 
 function getArticleIdFromUrl() {
@@ -381,47 +456,53 @@ function getArticleIdFromUrl() {
 function parseMarkdown(md) {
     let html = md;
 
-    html = html.replace(/^# (.+)$/gm, '<h1 class="article-title">$1</h1>');
+    html = html.replace(/^# (.+)$/gm, (m, t) => `<h1 class="article-title">${escapeHtml(t)}</h1>`);
 
-    html = html.replace(/^## (.+)$/gm, '<h2 class="article-section-title">$1</h2>');
+    html = html.replace(/^## (.+)$/gm, (m, t) => `<h2 class="article-section-title">${escapeHtml(t)}</h2>`);
 
     // 为热搜项添加锚点
     html = html.replace(/^### (\d+)️⃣ (.+)$/gm, (match, index, title) => {
-        return `<h3 class="article-subsection-title" id="trending-${index}">${match}</h3>`;
+        return `<h3 class="article-subsection-title" id="trending-${index}">${escapeHtml(match)}</h3>`;
     });
 
     // 处理其他三级标题
-    html = html.replace(/^### (.+)$/gm, '<h3 class="article-subsection-title">$1</h3>');
-
-    html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-
-    html = html.replace(/\*(.+?)\*/g, '<em>$1</em>');
-
-    html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
+    html = html.replace(/^### (.+)$/gm, (m, t) => `<h3 class="article-subsection-title">${escapeHtml(t)}</h3>`);
 
     html = html.replace(/```(\w+)?\n([\s\S]*?)```/g, (match, lang, code) => {
         return `<pre class="code-block"><code class="code-content">${escapeHtml(code.trim())}</code></pre>`;
     });
 
-    html = html.replace(/\|(.+)\|/gm, (match) => {
-        const cells = match.split('|').filter(c => c.trim());
-        if (cells.every(c => c.trim().match(/^-+$/))) {
-            return '';
+    // Bold before italic to avoid `*` inside `**` being partially matched
+    html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+    html = html.replace(/(?<!\*)\*(?!\*)([^*]+)(?<!\*)\*(?!\*)/g, '<em>$1</em>');
+
+    // Inline code (after bold/italic so `**code**` isn't broken)
+    html = html.replace(/`([^`]+)`/g, (match, code) => `<code>${escapeHtml(code)}</code>`);
+
+    // Process tables as multi-line blocks (first non-separator row = header)
+    html = html.replace(/(?:^\|.+\|$\n?)+/gm, (tableBlock) => {
+        const rows = tableBlock.trim().split('\n');
+        let tbl = '<table class="article-table">';
+        let header = true;
+        for (const row of rows) {
+            const cells = row.split('|').filter(c => c.trim());
+            if (cells.every(c => /^-+$/.test(c.trim()))) continue;
+            const tag = header ? 'th' : 'td';
+            header = false;
+            tbl += '<tr>' + cells.map(c => `<${tag}>${c.trim()}</${tag}>`).join('') + '</tr>';
         }
-        const isHeader = cells.some(c => c.trim().match(/^[\w\s]+$/));
-        const cellTag = isHeader ? 'th' : 'td';
-        const rowClass = isHeader ? 'table-header' : '';
-        const row = cells.map(c => `<${cellTag}>${c.trim()}</${cellTag}>`).join('');
-        return `<tr class="${rowClass}">${row}</tr>`;
+        tbl += '</table>';
+        return tbl;
     });
 
-    html = html.replace(/(<tr[\s\S]*?<\/tr>)+/g, (match) => {
-        return `<table class="article-table">${match}</table>`;
+    // Escape alt text and link text to prevent XSS
+    html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (match, alt, src) => {
+        return `<img src="${escapeHtml(src)}" alt="${escapeHtml(alt)}" class="article-image">`;
     });
 
-    html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" class="article-image">');
-
-    html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener" class="article-link">$1</a>');
+    html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (match, text, href) => {
+        return `<a href="${escapeHtml(href)}" target="_blank" rel="noopener" class="article-link">${escapeHtml(text)}</a>`;
+    });
 
     html = html.replace(/^---$/gm, '<hr class="article-divider">');
 
@@ -441,15 +522,11 @@ function parseMarkdown(md) {
         return `<ul class="article-list">${match.replace(/ ul-item/g, '')}</ul>`;
     });
 
-    html = html.replace(/^> (.+)$/gm, '<blockquote class="article-quote">$1</blockquote>');
+    html = html.replace(/^> (.+)$/gm, (m, t) => `<blockquote class="article-quote">${escapeHtml(t)}</blockquote>`);
 
-    html = html.replace(/^#### (.+)$/gm, '<h4 class="article-h4">$1</h4>');
+    html = html.replace(/^#### (.+)$/gm, (m, t) => `<h4 class="article-h4">${escapeHtml(t)}</h4>`);
 
-    html = html.replace(/^##### (.+)$/gm, '<h5 class="article-h5">$1</h5>');
-
-    html = html.replace(/```(\w+)?\n([\s\S]*?)```/g, (match, lang, code) => {
-        return `<pre class="code-block"><code class="code-content">${escapeHtml(code.trim())}</code></pre>`;
-    });
+    html = html.replace(/^##### (.+)$/gm, (m, t) => `<h5 class="article-h5">${escapeHtml(t)}</h5>`);
 
     return html;
 }
@@ -935,7 +1012,10 @@ async function loadArticle() {
                             '015': '活着', '016': '活着',
                             '017': '百年孤独', '018': '百年孤独',
                             '019': '百年孤独',
-                            '020': 'AI拆书方法论', '021': 'AI拆书方法论'
+                            '020': 'AI拆书方法论', '021': 'AI拆书方法论',
+                            '022': '围城', '023': '围城',
+                            '024': '三体', '025': '三体',
+                            '026': '平凡的世界'
                         };
 
                         renderArticle({
@@ -990,7 +1070,10 @@ async function loadArticle() {
                                 '015': '活着', '016': '活着',
                                 '017': '百年孤独', '018': '百年孤独',
                                 '019': '百年孤独',
-                                '020': 'AI拆书方法论', '021': 'AI拆书方法论'
+                                '020': 'AI拆书方法论', '021': 'AI拆书方法论',
+                                '022': '围城', '023': '围城',
+                                '024': '三体', '025': '三体',
+                                '026': '平凡的世界'
                             };
 
                             renderArticle({

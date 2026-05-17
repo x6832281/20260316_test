@@ -2,7 +2,7 @@
 // PWA Service Worker Registration
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/service-worker.js?v=20260512')
+    navigator.serviceWorker.register('/service-worker.js?v=20260517')
       .then((registration) => {
         console.log('Service Worker registered with scope:', registration.scope);
       })
@@ -254,17 +254,18 @@ function initDanmakuToggle() {
 
 // 弹幕循环定时器
 let danmakuInterval = null;
+let danmakuRefreshInterval = null;
 
 // 初始化弹幕功能
 function initDanmaku() {
     const container = document.getElementById('danmaku-container');
     if (!container) return;
-    
-    // 开始循环弹幕
+
     startDanmakuLoop(container);
-    
-    // 每30秒刷新一次留言数据
-    setInterval(() => {
+
+    // 每30秒刷新留言数据（只设置一次）
+    if (danmakuRefreshInterval) clearInterval(danmakuRefreshInterval);
+    danmakuRefreshInterval = setInterval(() => {
         startDanmakuLoop(container);
     }, 30000);
 }

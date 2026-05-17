@@ -724,44 +724,59 @@ function renderLiteratureCard(item) {
 }
 
 // 渲染文学创作分类筛选
-async function renderLiteratureWithFilter() {
+async function renderLiteratureWithFilter(maxCards = 0) {
     const container = document.getElementById('literature-container');
     if (!container) return;
 
     const literatureData = await getBookExcerpts();
 
-    const filterHtml = `
-        <div class="literature-filter">
-            <button class="literature-filter-btn active" data-category="all">全部</button>
-            <button class="literature-filter-btn" data-category="经典书摘">书摘</button>
-            <button class="literature-filter-btn" data-category="名人名言">名言</button>
-            <button class="literature-filter-btn" data-category="经典书评">书评</button>
-            <button class="literature-filter-btn" data-category="网络热梗">热梗</button>
-        </div>
-    `;
+    // Sort by date descending
+    literatureData.sort((a, b) => {
+        const da = new Date(a.date); const db = new Date(b.date);
+        return (db - da) || (a.fileName || '').localeCompare(b.fileName || '');
+    });
 
-    const cardsHtml = literatureData.map(item => renderLiteratureCard(item)).join('');
+    const displayData = maxCards > 0 ? literatureData.slice(0, maxCards) : literatureData;
+
+    // Only show filter bar on full listing, not on homepage
+    let filterHtml = '';
+    if (maxCards === 0) {
+        filterHtml = `
+            <div class="literature-filter">
+                <button class="literature-filter-btn active" data-category="all">全部</button>
+                <button class="literature-filter-btn" data-category="经典书摘">书摘</button>
+                <button class="literature-filter-btn" data-category="名人名言">名言</button>
+                <button class="literature-filter-btn" data-category="经典书评">书评</button>
+                <button class="literature-filter-btn" data-category="网络热梗">热梗</button>
+            </div>
+        `;
+    }
+
+    const cardsHtml = displayData.map(item => renderLiteratureCard(item)).join('');
 
     container.innerHTML = filterHtml + `<div class="literature-grid">${cardsHtml}</div>`;
 
-    const filterBtns = container.querySelectorAll('.literature-filter-btn');
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            filterBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
+    // Wire filter buttons only when present
+    if (maxCards === 0) {
+        const filterBtns = container.querySelectorAll('.literature-filter-btn');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
 
-            const category = btn.dataset.category;
-            const cards = container.querySelectorAll('.literature-card');
-            cards.forEach(card => {
-                const cardCategory = card.querySelector('.literature-category').textContent;
-                if (category === 'all' || cardCategory.includes(category)) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
+                const category = btn.dataset.category;
+                const cards = container.querySelectorAll('.literature-card');
+                cards.forEach(card => {
+                    const cardCategory = card.querySelector('.literature-category').textContent;
+                    if (category === 'all' || cardCategory.includes(category)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
             });
         });
-    });
+    }
 }
 
 async function renderNewbieWithFilter(maxCards = 0) {
@@ -1700,7 +1715,7 @@ async function renderHomepage() {
         // 去AI味专区
         renderDeaiWithFilter(6).catch(e => console.error('Deai failed:', e)),
         // 书摘文案
-        renderLiteratureWithFilter().catch(e => console.error('Literature failed:', e))
+        renderLiteratureWithFilter(6).catch(e => console.error('Literature failed:', e))
     ]);
 
     console.log('=== renderHomepage complete ===');
