@@ -1,6 +1,8 @@
 import { defineConfig } from 'vite'
 import { resolve } from 'path'
 import { fileURLToPath } from 'url'
+import { copyFileSync, existsSync } from 'fs'
+import { join } from 'path'
 import { viteStaticCopy } from 'vite-plugin-static-copy'
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url))
@@ -60,6 +62,20 @@ export default defineConfig({
           dest: '.'
         }
       ]
-    })
+    }),
+    {
+      name: 'copy-root-files',
+      closeBundle() {
+        const rootFiles = ['service-worker.js', 'robots.txt', 'rss.xml', 'sitemap.xml', 'logo.svg']
+        rootFiles.forEach(f => {
+          const srcPath = join(__dirname, f)
+          const destPath = join(__dirname, 'dist', f)
+          if (existsSync(srcPath)) {
+            copyFileSync(srcPath, destPath)
+            console.log(`  ✓ copied ${f}`)
+          }
+        })
+      }
+    }
   ]
 })
