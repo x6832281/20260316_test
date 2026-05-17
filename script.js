@@ -143,7 +143,7 @@ function initBackToTop() {
 // 卡片鼠标追踪光效
 // ============================================
 function initCardMouseTracking() {
-    const cards = document.querySelectorAll('.littheory-card, .case-card, .literature-card');
+    const cards = document.querySelectorAll('.littheory-card, .literature-card');
     
     cards.forEach(card => {
         card.addEventListener('mousemove', (e) => {

@@ -1,11 +1,5 @@
 // 文章详情页处理脚本
 const ARTICLES_MAP = {
-    // 热搜项映射
-    'trending-1': {
-        tag: '热搜',
-        tagClass: 'tag-ai'
-    },
-    // 精选项目映射
     'project-001-awesome-chatgpt-prompts': {
         tag: '精选项目',
         tagClass: 'tag-ai'
@@ -28,42 +22,6 @@ const ARTICLES_MAP = {
     },
     'project-006-llama.cpp': {
         tag: '精选项目',
-        tagClass: 'tag-ai'
-    },
-    'trending-2': {
-        tag: '热搜',
-        tagClass: 'tag-ai'
-    },
-    'trending-3': {
-        tag: '热搜',
-        tagClass: 'tag-ai'
-    },
-    'trending-4': {
-        tag: '热搜',
-        tagClass: 'tag-ai'
-    },
-    'trending-5': {
-        tag: '热搜',
-        tagClass: 'tag-ai'
-    },
-    'trending-6': {
-        tag: '热搜',
-        tagClass: 'tag-ai'
-    },
-    'trending-7': {
-        tag: '热搜',
-        tagClass: 'tag-ai'
-    },
-    'trending-8': {
-        tag: '热搜',
-        tagClass: 'tag-ai'
-    },
-    'trending-9': {
-        tag: '热搜',
-        tagClass: 'tag-ai'
-    },
-    'trending-10': {
-        tag: '热搜',
         tagClass: 'tag-ai'
     },
     'newbie-001': {
@@ -460,12 +418,6 @@ function parseMarkdown(md) {
 
     html = html.replace(/^## (.+)$/gm, (m, t) => `<h2 class="article-section-title">${escapeHtml(t)}</h2>`);
 
-    // 为热搜项添加锚点
-    html = html.replace(/^### (\d+)️⃣ (.+)$/gm, (match, index, title) => {
-        return `<h3 class="article-subsection-title" id="trending-${index}">${escapeHtml(match)}</h3>`;
-    });
-
-    // 处理其他三级标题
     html = html.replace(/^### (.+)$/gm, (m, t) => `<h3 class="article-subsection-title">${escapeHtml(t)}</h3>`);
 
     html = html.replace(/```(\w+)?\n([\s\S]*?)```/g, (match, lang, code) => {
@@ -544,6 +496,7 @@ function renderArticle(articleData, content) {
 
     articleTag.textContent = articleData.tag;
     articleTag.className = `article-tag ${articleData.tagClass}`;
+
     articleDate.textContent = articleData.date || '';
 
     const parsedHtml = parseMarkdown(content);
@@ -644,85 +597,6 @@ function loadRelatedArticles(currentId, currentTag) {
             <div style="color: var(--text-secondary); font-size: 13px;">查看详情 →</div>
         </a>
     `).join('');
-}
-
-// 从热搜排行文档中提取指定项的内容
-async function getTrendingItemContent(index) {
-    try {
-        // 直接读取固定文件名
-        const latestFileName = 'hot-search-latest.md';
-        
-        let fileResponse = await fetch(`data/热搜排行/${latestFileName}`);
-        let content;
-        
-        // 如果文件不存在，返回提示
-        if (!fileResponse.ok) {
-            return `# 热搜内容暂未上线\n\n**发布时间**：2026-05-12\n\n该热搜内容正在准备中，敬请期待！\n\n[返回首页](index.html)`;
-        } else {
-            content = await fileResponse.text();
-        }
-        
-        const lines = content.split('\n');
-        let inTrendingSection = false;
-        let currentItemIndex = 0;
-        let itemContent = [];
-        let captureContent = false;
-        
-        for (let i = 0; i < lines.length; i++) {
-            const line = lines[i];
-            
-            if (line.trim() === '## 🔥 今日热搜 TOP 10' || line.trim() === '## 🔥 本周热搜 TOP 10') {
-                inTrendingSection = true;
-                continue;
-            }
-            
-            if (inTrendingSection && line.trim().startsWith('### ')) {
-                // 匹配不同格式的标题
-                const itemMatch = line.match(/### (\d+)[️⃣\s]/);
-                if (itemMatch) {
-                    currentItemIndex = parseInt(itemMatch[1]);
-                    
-                    if (currentItemIndex === index) {
-                        captureContent = true;
-                        itemContent.push(line);
-                    } else if (captureContent) {
-                        // 已经捕获到目标项的内容，遇到下一个项时停止
-                        break;
-                    }
-                }
-            } else if (captureContent) {
-                // 捕获目标项的内容
-                itemContent.push(line);
-                
-                // 如果遇到分隔线，停止捕获
-                if (line.trim() === '---') {
-                    break;
-                }
-            }
-        }
-        
-        if (itemContent.length > 0) {
-            // 提取文档的标题和元信息
-            const titleMatch = content.match(/^# (.+)$/m);
-            const dateMatch = content.match(/\*\*发布时间\*\*[：:]\s*(\d{4}-\d{2}-\d{2})/);
-            
-            let result = '';
-            if (titleMatch) {
-                result += `# ${titleMatch[1]}\n\n`;
-            }
-            if (dateMatch) {
-                result += `**发布时间**：${dateMatch[1]}\n\n`;
-            }
-            result += itemContent.join('\n');
-            
-            return result;
-        } else {
-            return '# 热搜内容暂未上线\n\n该热搜内容正在准备中，敬请期待！';
-        }
-    } catch (error) {
-        console.error('获取热搜项内容失败:', error);
-        return '# 热搜内容暂未上线\n\n该热搜内容正在准备中，敬请期待！';
-    }
 }
 
 
@@ -1107,27 +981,7 @@ async function loadArticle() {
         let content;
         let hash = window.location.hash;
         
-        // 处理热搜项 - 加载整个热搜排行文档
-        if (articleId.startsWith('trending-')) {
-            // 加载最新的热搜排行文档（固定文件名）
-            const latestFileName = 'hot-search-latest.md';
-            
-            let fileResponse = await fetch(`data/热搜排行/${latestFileName}`);
-            
-            // 如果文件不存在，显示提示
-            if (!fileResponse.ok) {
-                content = '# 热搜内容暂未上线\n\n**发布时间**：2026-05-12\n\n该热搜内容正在准备中，敬请期待！\n\n[返回首页](index.html)';
-            } else {
-                content = await fileResponse.text();
-            }
-            
-            // 如果有锚点，添加到URL
-            if (!hash) {
-                const index = parseInt(articleId.split('-')[1]);
-                hash = `#trending-${index}`;
-                window.location.hash = hash;
-            }
-        } else if (articleId.startsWith('project-')) {
+        if (articleId.startsWith('project-')) {
             // 处理精选项目 - 从ID中提取文件名
             const fileName = articleId.replace('project-', '') + '.md';
             
