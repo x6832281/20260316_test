@@ -1,0 +1,17 @@
+{
+  "name": "ai-mengxin-xiaowo",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "node scripts/validate.mjs && node scripts/generate-articles.mjs && vite build && python generate_feeds.py",
+    "build:articles": "node scripts/generate-articles.mjs",
+    "validate": "node scripts/validate.mjs",
+    "build:vite": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^6.0.0",
+    "marked": "^15.0.0"
+  }
+}
