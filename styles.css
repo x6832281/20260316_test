@@ -211,7 +211,11 @@ a, button, .tab-btn, .nav-item, .engine-btn, .article-card,
     background: none;
     border: none;
     cursor: pointer;
-    padding: 8px;
+    padding: 10px;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
 }
 
 .mobile-menu-btn span {
@@ -1497,15 +1501,21 @@ a, button, .tab-btn, .nav-item, .engine-btn, .article-card,
         padding: 12px 14px;
     }
 
+    .search-input {
+        font-size: 16px;
+    }
+
     .search-engines {
         justify-content: center;
         margin-top: 8px;
     }
-    
+
     .engine-btn {
         flex: 1;
         justify-content: center;
         min-width: 80px;
+        padding: 10px 14px;
+        font-size: 13px;
     }
     
     .content-tabs {
@@ -1570,7 +1580,7 @@ a, button, .tab-btn, .nav-item, .engine-btn, .article-card,
     .tab-btn {
         flex: 1;
         min-width: 120px;
-        padding: 8px 12px;
+        padding: 10px 12px;
         font-size: 13px;
         justify-content: center;
     }
@@ -1605,7 +1615,7 @@ a, button, .tab-btn, .nav-item, .engine-btn, .article-card,
     .tab-btn {
         min-width: 100px;
         font-size: 12px;
-        padding: 6px 10px;
+        padding: 8px 10px;
     }
     
     .tab-icon {
@@ -2278,7 +2288,7 @@ a, button, .tab-btn, .nav-item, .engine-btn, .article-card,
     .form-input,
     .form-textarea {
         padding: 10px 12px;
-        font-size: 13px;
+        font-size: 16px;
     }
     
     .empty-state {
@@ -2664,7 +2674,7 @@ a, button, .tab-btn, .nav-item, .engine-btn, .article-card,
     .form-input,
     .form-textarea {
         padding: 10px 12px;
-        font-size: 13px;
+        font-size: 16px;
     }
     
     .form-textarea {
