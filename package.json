@@ -1,18 +1,13 @@
 {
-  "name": "ai-mengxin-xiaowo",
+  "name": "search-page",
   "private": true,
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "node scripts/validate.mjs && vite build && node scripts/generate-articles.mjs && py generate_feeds.py",
-    "build:articles": "node scripts/generate-articles.mjs",
-    "validate": "node scripts/validate.mjs",
-    "build:vite": "vite build",
+    "build": "vite build",
     "preview": "vite preview"
   },
   "devDependencies": {
-    "marked": "^15.0.0",
-    "vite": "^6.0.0",
-    "vite-plugin-static-copy": "^4.1.0"
+    "vite": "^6.0.0"
   }
 }
