@@ -30,7 +30,7 @@ const hasData = computed(() => !!result.value && result.value.total > 0)
     <div v-else class="mt-4 flex flex-col gap-3">
       <div v-for="c in event?.choices" :key="c.id" class="border border-ink/20 rounded p-3">
         <div class="flex justify-between text-sm">
-          <span>{{ (c.label as unknown as Record<string, string>)[locale] }}</span>
+          <span>{{ c.label[locale] }}</span>
           <span>{{ t('group.pct', { p: result!.total ? Math.round((result!.counts[c.id] || 0) / result!.total * 100) : 0 }) }}</span>
         </div>
         <div class="mt-2 h-2 bg-ink/10 rounded">
