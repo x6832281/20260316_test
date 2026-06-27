@@ -13,5 +13,5 @@ export default {
     createTitle: '降生', nameLabel: '名', birthplaceLabel: '出生地', backgroundLabel: '出身',
     confidantLabel: '知己原型', create: '开启此生', hermit: '隐士', historian: '太史', poet: '词客', strategist: '谋臣', monk: '禅师',
   },
-  journal: { title: '我的古代人生', todayQuestion: '今日,你面临:', decide: '落定', sealed: '此节已写入卷轴', adviceTitle: '知己曰', entryTitle: '分身日记' },
+  journal: { title: '我的古代人生', todayQuestion: '今日,你面临:', decide: '落定', sealed: '此节已写入卷轴', adviceTitle: '知己曰', entryTitle: '分身日记', error: '天机未显,稍候再试。' },
 }

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue'
+import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useDailyEvent } from '../composables/useDailyEvent'
 import { loadPersona } from '../store/persona'
@@ -18,11 +18,12 @@ const chosen = ref<string | null>(existing.value?.choiceId ?? null)
 const advice = ref<LocalizedText | null>(null)
 const narration = ref<LocalizedText | null>(existing.value?.narration ?? null)
 const loading = ref(false)
+const error = ref(false)
 
 async function decide(choiceId: string) {
-  if (chosen.value || !persona) return
-  chosen.value = choiceId
+  if (chosen.value || loading.value || !persona) return
   loading.value = true
+  error.value = false
   try {
     const [adv, nar] = await Promise.all([
       getConfidantAdvice(event.value, choiceId, persona, locale.value as 'zh' | 'en'),
@@ -40,6 +41,11 @@ async function decide(choiceId: string) {
       createdAt: new Date().toISOString(),
     }
     appendJournalEntry(entry)
+    // Seal the choice only after the fate is successfully recorded.
+    chosen.value = choiceId
+  } catch {
+    // Nothing was persisted — the fate was not sealed. Let the user retry.
+    error.value = true
   } finally {
     loading.value = false
   }
@@ -70,7 +76,9 @@ async function decide(choiceId: string) {
       </button>
     </div>
 
-    <p v-if="chosen" class="mt-4 text-sm text-seal">{{ loading ? t('fork.generating') : t('journal.sealed') }}</p>
+    <p v-if="loading" class="mt-4 text-sm text-seal">{{ t('fork.generating') }}</p>
+    <p v-else-if="chosen" class="mt-4 text-sm text-seal">{{ t('journal.sealed') }}</p>
+    <p v-else-if="error" class="mt-4 text-sm text-seal">{{ t('journal.error') }}</p>
 
     <div v-if="advice" class="mt-6">
       <p class="text-sm text-ink/60">{{ t('journal.adviceTitle') }}</p>
@@ -80,11 +88,6 @@ async function decide(choiceId: string) {
     <div v-if="narration" class="mt-6">
       <p class="text-sm text-ink/60">{{ t('journal.entryTitle') }}</p>
       <p class="mt-2 leading-relaxed whitespace-pre-line">{{ narration[locale] }}</p>
-    </div>
-
-    <div v-if="existing && !chosen" class="mt-6">
-      <p class="text-sm text-ink/60">{{ t('journal.entryTitle') }}</p>
-      <p class="mt-2 leading-relaxed whitespace-pre-line">{{ existing.narration[locale] }}</p>
     </div>
   </section>
 </template>

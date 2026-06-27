@@ -13,5 +13,5 @@ export default {
     createTitle: 'Be Born', nameLabel: 'Name', birthplaceLabel: 'Birthplace', backgroundLabel: 'Background',
     confidantLabel: 'Confidant archetype', create: 'Begin this life', hermit: 'Hermit', historian: 'Historian', poet: 'Poet', strategist: 'Strategist', monk: 'Monk',
   },
-  journal: { title: 'My Ancient Life', todayQuestion: 'Today, you face:', decide: 'Seal your choice', sealed: 'This chapter is written into your scroll', adviceTitle: 'Your confidant says', entryTitle: 'Journal' },
+  journal: { title: 'My Ancient Life', todayQuestion: 'Today, you face:', decide: 'Seal your choice', sealed: 'This chapter is written into your scroll', adviceTitle: 'Your confidant says', entryTitle: 'Journal', error: 'The heavens did not answer. Try again shortly.' },
 }
