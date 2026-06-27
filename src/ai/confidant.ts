@@ -1,4 +1,4 @@
-import type { ConfidantArchetype, HistoricalEvent, Locale, LocalizedText, Persona } from '../lib/types'
+import type { HistoricalEvent, Locale, LocalizedText, Persona } from '../lib/types'
 import { chat, type ChatOptions } from './client'
 import { buildConfidantPrompt } from './prompts'
 
