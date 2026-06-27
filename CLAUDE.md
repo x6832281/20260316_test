@@ -22,7 +22,7 @@ npm run build      # vite build → dist/
 npm run preview    # preview the built dist/
 ```
 
-No linter, no test framework is configured. Windows: use plain `npm` — there is no Python in the current build (the old `py generate_feeds.py` / `build_manifest.py` steps are gone).
+Tests: `npm test` (Vitest). No linter. Windows: use plain `npm`.
 
 ## Architecture (current)
 
