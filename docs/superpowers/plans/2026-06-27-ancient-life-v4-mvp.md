@@ -1558,13 +1558,13 @@ async function choose(choiceId: string) {
 
 <template>
   <section class="w-full max-w-xl">
-    <p class="text-sm text-ink/60">{{ event.value.dynasty }} · {{ event.value.yearCE }} CE</p>
-    <h2 class="mt-1 text-2xl">{{ event.value.title[locale] }}</h2>
-    <p class="mt-4 leading-relaxed">{{ event.value.scenario[locale] }}</p>
+    <p class="text-sm text-ink/60">{{ event.dynasty }} · {{ event.yearCE }} CE</p>
+    <h2 class="mt-1 text-2xl">{{ event.title[locale] }}</h2>
+    <p class="mt-4 leading-relaxed">{{ event.scenario[locale] }}</p>
 
     <div class="mt-6 flex flex-col gap-3">
       <button
-        v-for="c in event.value.choices"
+        v-for="c in event.choices"
         :key="c.id"
         :disabled="!!lockedChoice"
         :class="[
@@ -1789,7 +1789,7 @@ const hasData = computed(() => !!result.value && result.value.total > 0)
 ```bash
 npm run build
 ```
-Expected: `vue-tsc --noEmit && vite build` succeeds. (If `vue-tsc` reports the `event.value` usage inside `<template>` in DailyFork — Vue unwraps refs in templates, so use `event.title` not `event.value.title`. Fix any such references.)
+Expected: `vue-tsc --noEmit && vite build` succeeds and `vite build` produces `dist/`. (This is the first task where all referenced components — `FateCard`, `GroupResult` — exist, so a full build passes here for the first time.)
 
 - [ ] **Step 4: Commit**
 
@@ -1797,8 +1797,6 @@ Expected: `vue-tsc --noEmit && vite build` succeeds. (If `vue-tsc` reports the `
 git add src/components/GroupResult.vue src/i18n
 git commit -m "feat: group-result view with next-day reveal fallback"
 ```
-
-> **Self-check fix during Step 3:** In `DailyFork.vue` template, refs are auto-unwrapped — ensure references read `event.title`, `event.dynasty`, etc., not `event.value.*`. The script already uses `event.value` in JS, which is correct. Adjust the template if `vue-tsc` errors.
 
 ---
 
@@ -2017,7 +2015,7 @@ const persona = loadPersona()!
 const existing = ref<JournalEntry | undefined>(getEntryForEvent(event.value.id))
 const chosen = ref<string | null>(existing.value?.choiceId ?? null)
 const advice = ref<LocalizedText | null>(null)
-const narration = ref<LocaliszedText | null>(existing.value?.narration ?? null)
+const narration = ref<LocalizedText | null>(existing.value?.narration ?? null)
 const loading = ref(false)
 
 async function decide(choiceId: string) {
@@ -2050,14 +2048,14 @@ async function decide(choiceId: string) {
 <template>
   <section class="w-full max-w-xl">
     <h2 class="text-2xl">{{ t('journal.title') }}</h2>
-    <p class="mt-1 text-sm text-ink/60">{{ event.value.dynasty }} · {{ event.value.yearCE }} CE</p>
+    <p class="mt-1 text-sm text-ink/60">{{ event.dynasty }} · {{ event.yearCE }} CE</p>
     <p class="mt-4 text-sm text-ink/60">{{ t('journal.todayQuestion') }}</p>
-    <h3 class="text-xl mt-1">{{ event.value.title[locale] }}</h3>
-    <p class="mt-3 leading-relaxed">{{ event.value.scenario[locale] }}</p>
+    <h3 class="text-xl mt-1">{{ event.title[locale] }}</h3>
+    <p class="mt-3 leading-relaxed">{{ event.scenario[locale] }}</p>
 
     <div class="mt-6 flex flex-col gap-3">
       <button
-        v-for="c in event.value.choices"
+        v-for="c in event.choices"
         :key="c.id"
         :disabled="!!chosen"
         :class="[
@@ -2091,25 +2089,21 @@ async function decide(choiceId: string) {
 </template>
 ```
 
-- [ ] **Step 4: Fix the typo `LocaliszedText` → `LocalizedText`**
-
-In `DestinyJournal.vue`, the line `const narration = ref<LocaliszedText | null>` contains a typo. Change to `LocalizedText`.
-
-- [ ] **Step 5: Verify full build type-checks**
+- [ ] **Step 4: Verify full build type-checks**
 
 ```bash
 npm run build
 ```
 Expected: `vue-tsc --noEmit` passes and `vite build` produces `dist/`.
 
-- [ ] **Step 6: Run all tests**
+- [ ] **Step 5: Run all tests**
 
 ```bash
 npm test
 ```
 Expected: all PASS.
 
-- [ ] **Step 7: Commit**
+- [ ] **Step 6: Commit**
 
 ```bash
 git add src
@@ -2200,5 +2194,5 @@ git commit -m "docs: env example, refresh README and CLAUDE commands for v4 MVP"
 
 - **Spec coverage:** recall layer (Tasks 9–11), depth layer minimal loop (Tasks 12–13), shared event library (Task 3), aggregate worker (Task 4), AI core (Tasks 5–7), bilingual (Tasks 2, 9–13), local storage (Task 8). Rebirth layer explicitly out of MVP (spec §6) — not implemented, data structures (`loadJournal`, persona) reserved. ✅
 - **Type consistency:** `getDailyEvent` returns `HistoricalEvent` everywhere; `FateCard`, `JournalEntry`, `GroupResult`, `Persona` defined once in `types.ts` and reused. `chat`/`ChatOptions` consistent across `fateCard`/`confidant`/`narration`. ✅
-- **Known deliberate typos fixed inline:** `LocaliszedText` (Task 13 Step 4), and the `event.value` template-unwrapping note (Task 11 Step 3 / Step 4 note). ✅
+- **Known Vue ref-unwrapping:** templates use `event.X` (auto-unwrapped), scripts use `event.value.X`. Verified consistent across Tasks 9, 11, 12, 13. ✅
 - **Placeholder scan:** no TBD/TODO; every code step has real code. ✅
