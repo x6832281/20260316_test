@@ -7,4 +7,5 @@ export default {
     generating: 'Fate is unfolding…',
   },
   nav: { recall: 'Today', depth: 'My Life', lang: '中文' },
+  card: { title: 'Fate Card', share: 'Share', copied: 'Copied', footnote: 'Historical note' },
 }

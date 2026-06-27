@@ -7,4 +7,5 @@ export default {
     generating: '命运正在展开…',
   },
   nav: { recall: '今日', depth: '我的人生', lang: 'EN' },
+  card: { title: '命运卡', share: '分享', copied: '已复制', footnote: '史实注脚' },
 }
