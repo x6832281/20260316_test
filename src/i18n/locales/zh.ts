@@ -8,4 +8,5 @@ export default {
   },
   nav: { recall: '今日', depth: '我的人生', lang: 'EN' },
   card: { title: '命运卡', share: '分享', copied: '已复制', footnote: '史实注脚' },
+  group: { title: '世人抉择', total: '共 {n} 人', pct: '{p}%', pending: '群体结果次日揭晓' },
 }

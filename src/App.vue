@@ -4,12 +4,12 @@ import { useI18n } from 'vue-i18n'
 import DailyFork from './components/DailyFork.vue'
 import FateCard from './components/FateCard.vue'
 import GroupResult from './components/GroupResult.vue'
-import type { FateCard } from './lib/types'
+import type { FateCard as FateCardType } from './lib/types'
 import { useDailyEvent } from './composables/useDailyEvent'
 
 const { t, locale } = useI18n()
 const { event } = useDailyEvent()
-const card = ref<FateCard | null>(null)
+const card = ref<FateCardType | null>(null)
 const showResult = ref(false)
 
 function toggleLocale() {

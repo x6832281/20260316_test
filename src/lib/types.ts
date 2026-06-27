@@ -5,6 +5,7 @@ export type ConfidantArchetype = 'hermit' | 'historian' | 'poet' | 'strategist' 
 export interface LocalizedText {
   zh: string
   en: string
+  [locale: string]: string
 }
 
 export interface EventChoice {
