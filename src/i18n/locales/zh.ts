@@ -9,4 +9,8 @@ export default {
   nav: { recall: '今日', depth: '我的人生', lang: 'EN' },
   card: { title: '命运卡', share: '分享', copied: '已复制', footnote: '史实注脚' },
   group: { title: '世人抉择', total: '共 {n} 人', pct: '{p}%', pending: '群体结果次日揭晓' },
+  persona: {
+    createTitle: '降生', nameLabel: '名', birthplaceLabel: '出生地', backgroundLabel: '出身',
+    confidantLabel: '知己原型', create: '开启此生', hermit: '隐士', historian: '太史', poet: '词客', strategist: '谋臣', monk: '禅师',
+  },
 }

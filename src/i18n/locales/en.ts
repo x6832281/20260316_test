@@ -9,4 +9,8 @@ export default {
   nav: { recall: 'Today', depth: 'My Life', lang: '中文' },
   card: { title: 'Fate Card', share: 'Share', copied: 'Copied', footnote: 'Historical note' },
   group: { title: 'How the World Chose', total: '{n} people', pct: '{p}%', pending: 'Group results revealed tomorrow' },
+  persona: {
+    createTitle: 'Be Born', nameLabel: 'Name', birthplaceLabel: 'Birthplace', backgroundLabel: 'Background',
+    confidantLabel: 'Confidant archetype', create: 'Begin this life', hermit: 'Hermit', historian: 'Historian', poet: 'Poet', strategist: 'Strategist', monk: 'Monk',
+  },
 }
