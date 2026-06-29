@@ -9,12 +9,21 @@ const copied = ref(false)
 
 async function share() {
   const text = `${props.card.outcome[locale.value]}\n\n— ${props.card.footnote[locale.value]}`
+  // Prefer the Web Share API; on absence OR failure (e.g. user cancels) fall back to clipboard.
   if (navigator.share) {
-    try { await navigator.share({ text }) } catch {}
-  } else {
+    try {
+      await navigator.share({ text })
+      return
+    } catch {
+      // fall through to clipboard
+    }
+  }
+  try {
     await navigator.clipboard.writeText(text)
     copied.value = true
     setTimeout(() => (copied.value = false), 1500)
+  } catch {
+    // clipboard unavailable — nothing more we can do silently
   }
 }
 </script>

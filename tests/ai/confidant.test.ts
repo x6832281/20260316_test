@@ -2,6 +2,7 @@ import { describe, it, expect, vi } from 'vitest'
 import { getConfidantAdvice, parseAdvice } from '../../src/ai/confidant'
 import { EVENTS } from '../../src/data/events'
 import type { Persona } from '../../src/lib/types'
+import type { ChatOptions } from '../../src/ai/client'
 
 const event = EVENTS[0]
 const persona: Persona = {
@@ -27,7 +28,7 @@ describe('confidant', () => {
       new Response(JSON.stringify({ choices: [{ message: { content: JSON.stringify({ advice: { zh: '宜避', en: 'Best to avoid' } }) } }] }), { status: 200 }),
     )
     const advice = await getConfidantAdvice(event, 'flee-south', persona, 'zh', {
-      apiKey: 'k', fetchFn: fetchMock as any,
+      apiKey: 'k', fetchFn: fetchMock as ChatOptions['fetchFn'],
     })
     expect(advice.en).toBe('Best to avoid')
     expect(fetchMock).toHaveBeenCalled()

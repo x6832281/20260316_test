@@ -41,7 +41,7 @@ function onPersonaCreated() {
       <DailyFork @card="c => (card = c)" />
       <FateCard v-if="card" :card="card" class="mt-8" />
       <button v-if="card" class="mt-4 text-sm underline" @click="showResult = true">
-        {{ locale === 'zh' ? '看看世人如何抉择' : 'See how the world chose' }}
+        {{ t('fork.seeGroup') }}
       </button>
       <GroupResult v-if="showResult" :event-id="event.id" class="mt-6" />
     </template>

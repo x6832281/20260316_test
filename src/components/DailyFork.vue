@@ -12,18 +12,22 @@ const { event } = useDailyEvent()
 
 const lockedChoice = ref<string | null>(null)
 const loading = ref(false)
+const error = ref(false)
 const card = ref<FateCard | null>(null)
 const emit = defineEmits<{ (e: 'card', card: FateCard): void }>()
 
 async function choose(choiceId: string) {
-  if (lockedChoice.value) return
-  lockedChoice.value = choiceId
+  if (lockedChoice.value || loading.value) return
   loading.value = true
+  error.value = false
   try {
     await submitChoice(event.value.id, choiceId, getDeviceId())
     const c = await generateFateCard(event.value, choiceId, locale.value as 'zh' | 'en')
     card.value = c
     emit('card', c)
+    lockedChoice.value = choiceId
+  } catch {
+    error.value = true
   } finally {
     loading.value = false
   }
@@ -52,6 +56,8 @@ async function choose(choiceId: string) {
       </button>
     </div>
 
-    <p v-if="lockedChoice" class="mt-4 text-sm text-seal">{{ loading ? t('fork.generating') : t('fork.locked') }}</p>
+    <p v-if="loading" class="mt-4 text-sm text-seal">{{ t('fork.generating') }}</p>
+    <p v-else-if="lockedChoice" class="mt-4 text-sm text-seal">{{ t('fork.locked') }}</p>
+    <p v-else-if="error" class="mt-4 text-sm text-seal">{{ t('fork.error') }}</p>
   </section>
 </template>

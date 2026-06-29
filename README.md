@@ -23,3 +23,7 @@ Copy `.env.example` to `.env` and fill in `VITE_OPENAI_API_KEY`.
 - `src/ai/` — injectable OpenAI-compatible client + pure prompt builders + fate-card/confidant/narration generators.
 
 See `docs/superpowers/specs/2026-06-27-ancient-life-v4-design.md` for the design.
+
+## Security note
+
+`VITE_OPENAI_API_KEY` is read client-side, so it is **embedded in the production JS bundle** — any visitor can extract it from `dist/assets/index-*.js`. For any public deployment it MUST be a restricted, revocable key with spend caps (ideally a proxy that rate-limits and rewrites the request). The long-term fix is to route AI calls through a proxy Worker that holds the real key server-side and never ships it to browsers; that is out of the current MVP scope. The aggregate Worker takes no secret and counts choices only.

@@ -53,3 +53,4 @@ These are durable product rules — apply them to any new feature work:
 - `.trae/` holds the Trae IDE's project rules. The current design is the v4 spec at `docs/superpowers/specs/2026-06-27-ancient-life-v4-design.md`.
 - `.uploads/` is gitignored scratch space (not tracked).
 - To run the AI features locally, copy `.env.example` to `.env` and set `VITE_OPENAI_API_KEY` (and `VITE_AGGREGATE_URL` once the Worker is deployed). Without a key, AI calls fail gracefully — the recall choice still locks and the depth layer shows a retryable error (the fate is not sealed if nothing persisted).
+- **Security:** `VITE_OPENAI_API_KEY` is a client-side Vite env var, so it ships in the production JS bundle and is extractable by any visitor. In production it MUST be a restricted/revocable proxy key with spend caps; the long-term fix is a proxy Worker holding the real key server-side (out of current MVP scope). The aggregate Worker takes no secret.

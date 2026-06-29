@@ -5,6 +5,8 @@ export default {
     choose: 'Your choice',
     locked: 'Sealed — irreversible',
     generating: 'Fate is unfolding…',
+    error: 'The heavens did not answer. Try again shortly.',
+    seeGroup: 'See how the world chose',
   },
   nav: { recall: 'Today', depth: 'My Life', lang: '中文' },
   card: { title: 'Fate Card', share: 'Share', copied: 'Copied', footnote: 'Historical note' },
@@ -13,5 +15,5 @@ export default {
     createTitle: 'Be Born', nameLabel: 'Name', birthplaceLabel: 'Birthplace', backgroundLabel: 'Background',
     confidantLabel: 'Confidant archetype', create: 'Begin this life', hermit: 'Hermit', historian: 'Historian', poet: 'Poet', strategist: 'Strategist', monk: 'Monk',
   },
-  journal: { title: 'My Ancient Life', todayQuestion: 'Today, you face:', decide: 'Seal your choice', sealed: 'This chapter is written into your scroll', adviceTitle: 'Your confidant says', entryTitle: 'Journal', error: 'The heavens did not answer. Try again shortly.' },
+  journal: { title: 'My Ancient Life', todayQuestion: 'Today, you face:', sealed: 'This chapter is written into your scroll', adviceTitle: 'Your confidant says', entryTitle: 'Journal', error: 'The heavens did not answer. Try again shortly.' },
 }

@@ -1,7 +1,7 @@
 import type { GroupResult } from '../lib/types'
 
 export const AGGREGATE_BASE =
-  (import.meta as any).env?.VITE_AGGREGATE_URL || 'https://yal-aggregate.workers.dev'
+  import.meta.env.VITE_AGGREGATE_URL || 'https://yal-aggregate.workers.dev'
 
 async function defaultFetch(input: string, init?: RequestInit): Promise<Response> {
   return fetch(input, init)
@@ -18,6 +18,7 @@ export async function submitChoice(
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ eventId, choiceId, deviceId }),
   })
+  if (!res.ok) throw new Error(`aggregate request failed: ${res.status}`)
   return res.json()
 }
 
@@ -26,5 +27,6 @@ export async function fetchGroupResult(
   fetchFn: (input: string, init?: RequestInit) => Promise<Response> = defaultFetch,
 ): Promise<GroupResult> {
   const res = await fetchFn(`${AGGREGATE_BASE}/result?eventId=${encodeURIComponent(eventId)}`)
+  if (!res.ok) throw new Error(`aggregate request failed: ${res.status}`)
   return res.json()
 }

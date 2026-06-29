@@ -3,7 +3,7 @@ import { TANG_TIANBAO_EVENTS } from './tang-tianbao'
 
 export const EVENTS: HistoricalEvent[] = [...TANG_TIANBAO_EVENTS]
 
-/** Returns the event whose `date` matches `yyyymmdd` (YYYY-MM-DD). If none, falls back to a stable hash of the date so the world always sees one fork. */
+/** Returns the event whose `date` matches `YYYY-MM-DD`. If none, falls back to a stable hash of the date so the world always sees one fork. */
 export function getDailyEvent(date: string): HistoricalEvent {
   const exact = EVENTS.find((e) => e.date === date)
   if (exact) return exact
