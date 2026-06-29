@@ -8,3 +8,6 @@ dist/
 
 # Dependencies
 node_modules/
+
+# SDD scratch (progress ledger, briefs, review packages)
+.superpowers/
