@@ -9,5 +9,10 @@ dist/
 # Dependencies
 node_modules/
 
+# Local env (never commit real API keys)
+.env
+.env.*
+!.env.example
+
 # SDD scratch (progress ledger, briefs, review packages)
 .superpowers/
