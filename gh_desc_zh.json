@@ -1,0 +1,18 @@
+{
+  "mattpocock/skills": "面向真工程师的 Agent Skills，直接取自作者的 .agents 目录",
+  "affaan-m/ECC": "Agent harness 性能优化系统：为 Claude Code / Codex / Cursor 提供技能、直觉、记忆与安全机制",
+  "DietrichGebert/ponytail": "让你的 AI 像屋里最懒的资深工程师一样思考——最好的代码是从没写过的代码",
+  "NousResearch/hermes-agent": "与你共同成长的 Agent",
+  "fmtlib/fmt": "C++ 现代格式化库（老牌基础设施，长青项目）",
+  "anthropics/skills": "Anthropic 官方 Agent Skills 仓库",
+  "cathrynlavery/diagram-design": "38 种编辑级图表模板，自包含 HTML + SVG，无需 Mermaid",
+  "anomalyco/opencode": "开源编码 Agent",
+  "ruvnet/ruflo": "Agent 元框架：多智能体集群编排 + 自适应记忆 + RAG 集成",
+  "humanlayer/skills": "HumanLayer 官方 Skills 仓库",
+  "blader/humanizer": "去除文本 AI 味的 Agent 技能",
+  "BraveOPotato/FckSignups": "无需注册的开源浏览器工具清单",
+  "WorldFlowAI/everything-claude-code": "Claude Code 工具箱：agents / commands / skills / rules / hooks",
+  "magnitudedev/magnitude": "开源推理服务器：按你的硬件跑最优本地模型，接入现有 Agent",
+  "bikini/exploitarium": "公开漏洞 PoC 与安全研究文章归档",
+  "nvm-sh/nvm": "Node 版本管理器（POSIX 兼容 bash 脚本，长青基础设施）"
+}

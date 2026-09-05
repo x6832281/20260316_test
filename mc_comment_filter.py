@@ -12,7 +12,7 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
-MC_DIR = Path(__file__).resolve().parent / "MediaCrawler"
+MC_DIR = Path(r"e:\ai\2026\0828-hot\MediaCrawler")
 DATA_DIR = MC_DIR / "data" / "xhs" / "jsonl"
 
 

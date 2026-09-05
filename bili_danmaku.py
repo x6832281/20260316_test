@@ -175,7 +175,8 @@ def main() -> int:
     lines = []
     lines.append("=" * 60)
     lines.append("B站热门视频弹幕日报")
-    lines.append(f"视频数: {len(video_results)} | 生成时间: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    total_fetched = sum(v["fetched"] for v in video_results)
+    lines.append(f"视频数: {len(video_results)} | 弹幕总数: {total_fetched} | 生成时间: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     if args.recent_hours > 0:
         lines.append(f"时间过滤: 仅统计近 {args.recent_hours} 小时内发送的弹幕")
     lines.append("=" * 60)

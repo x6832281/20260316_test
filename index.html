@@ -213,12 +213,14 @@
       每天自动采集<strong>小红书</strong>热门笔记的高赞评论、<strong>B站</strong>热门视频的高赞评论与热门弹幕，
       以及 <strong>GitHub</strong> Trending 热门项目（含简介/星数），输出每日 TXT 日报。全流程免登录维护：首次扫码后登录态持久化复用。
     </p>
+    <!-- SYNC:STATS -->
     <div class="stats">
       <div class="stat"><div class="num red">4,774</div><div class="label">小红书评论（两轮采集）</div></div>
-      <div class="stat"><div class="num blue">19,017</div><div class="label">B站弹幕（热门视频聚合）</div></div>
+      <div class="stat"><div class="num blue">32,093</div><div class="label">B站弹幕（20 个热门视频聚合）</div></div>
       <div class="stat"><div class="num purple">16</div><div class="label">GitHub 今日热门项目</div></div>
       <div class="stat"><div class="num">104</div><div class="label">今日高赞评论入选（小红书 63 + B站 41）</div></div>
     </div>
+    <!-- /SYNC:STATS -->
   </div>
 </header>
 
@@ -282,87 +284,96 @@ flowchart LR
     </p>
 
     <div class="report-grid">
+      <!-- SYNC:CARD1 -->
       <div class="report-card">
         <span class="tag red">小红书 · 经典高赞</span>
         <div class="meta">4,774 条评论 → 63 条 ≥100 赞 · 热度排序爆款笔记</div>
         <div class="comment-item">
           <div class="head"><span class="likes">11,000 赞</span><span class="user">S***n</span></div>
           <div class="text">跟普通手机安装一个豆包APP有什么区别</div>
-          <div class="from">笔记《同事的豆包手机到了》· 笔记点赞 1.4万</div>
+          <div class="from">笔记《同事的豆包手机到了》 · 笔记点赞 1.4万</div>
         </div>
         <div class="comment-item">
           <div class="head"><span class="likes">8,313 赞</span><span class="user">序***📸</span></div>
           <div class="text">哪天豆包不开心了，不让你用手机怎么办</div>
-          <div class="from">笔记《同事的豆包手机到了》</div>
+          <div class="from">笔记《同事的豆包手机到了》 · 笔记点赞 1.4万</div>
         </div>
         <div class="comment-item">
-          <div class="head"><span class="likes">2,220 赞</span><span class="user">C***a</span></div>
-          <div class="text">最早玩黑莓那代人已经老花了</div>
-          <div class="from">笔记《年度颜值黑马｜Unihertz Titan 2 Elite》</div>
+          <div class="head"><span class="likes">3,024 赞</span><span class="user">小***3</span></div>
+          <div class="text">系统级 跨APP执行</div>
+          <div class="from">笔记《同事的豆包手机到了》 · 笔记点赞 1.4万</div>
         </div>
       </div>
+      <!-- /SYNC:CARD1 -->
 
+      <!-- SYNC:CARD2 -->
       <div class="report-card">
         <span class="tag red">小红书 · 今日最新</span>
-        <div class="meta">时间排序新笔记 · 仅保留近 24 小时发布的评论</div>
+        <div class="meta">时间排序新笔记 · 入选 10 条 · 仅保留近 24 小时发布的评论</div>
         <div class="comment-item">
           <div class="head"><span class="likes">1,352 赞</span><span class="user">苦***事</span></div>
-          <div class="text">大半夜脑子乱乱的写也乱乱的，反正就是万人嫌右位假装失忆试探所有人发现没人在意他……</div>
-          <div class="from">笔记《身不由己的万人嫌决定去亖1️⃣》· 今日 01:12</div>
+          <div class="text">大半夜脑子乱乱的写也乱乱的，反正就是万人嫌右位假装失忆试探所有人发现没人在意他于是乎决定去亖……</div>
+          <div class="from">笔记《身不由己的万人嫌决定去亖1️⃣》 · 今日 01:12</div>
         </div>
         <div class="comment-item">
           <div class="head"><span class="likes">675 赞</span><span class="user">暮*</span></div>
           <div class="text">[抽泣R]小苦瓜，和句号两个小苦瓜，让他俩私奔吧</div>
-          <div class="from">笔记《身不由己的万人嫌决定去亖1️⃣》</div>
+          <div class="from">笔记《身不由己的万人嫌决定去亖1️⃣》 · 今日 01:23</div>
         </div>
         <div class="comment-item">
           <div class="head"><span class="likes">236 赞</span><span class="user">提***叽</span></div>
           <div class="text">我tm在xhs住下了</div>
-          <div class="from">笔记《手机要冒烟了》· 今日 13:42</div>
+          <div class="from">笔记《手机要冒烟了》 · 今日 13:42</div>
         </div>
       </div>
+      <!-- /SYNC:CARD2 -->
 
+      <!-- SYNC:CARD3 -->
       <div class="report-card blue-card">
         <span class="tag blue">B站 · 高赞评论</span>
         <div class="meta">20 个热门/排行榜视频 → 41 条 ≥50 赞 · 游客可见热评</div>
         <div class="comment-item">
           <div class="head"><span class="likes">4,013 赞</span><span class="user">katyusha_Ace</span></div>
-          <div class="text">请求支援此评论，溯源之惧（深不可测的恐惧）已出第六章，可双人联机想看鲤鱼和社会人玩</div>
-          <div class="from">《午夜轮班，伪人超市》· 播放 49万</div>
+          <div class="text">请求支援此评论，溯源之惧（深不可测的恐惧）已出第六章，可双人联机想看鲤鱼和社会人玩（不是恶意建楼）</div>
+          <div class="from">《午夜轮班，伪人超市》 · 播放 49.1万</div>
         </div>
         <div class="comment-item">
           <div class="head"><span class="likes">2,849 赞</span><span class="user">一之昂昂溪</span></div>
           <div class="text">时间的力量[大哭][大哭][大哭]</div>
-          <div class="from">《"龙叔，如果要选一个符咒，你选哪一个？"》</div>
+          <div class="from">《“龙叔，如果要选一个符咒，你选哪一个？”》 · 播放 54.8万</div>
         </div>
         <div class="comment-item">
           <div class="head"><span class="likes">2,754 赞</span><span class="user">拂尘归事</span></div>
           <div class="text">我只是开玩笑的而已啊。[辣眼睛]</div>
-          <div class="from">《偷吃记录，厨师长在厨房里开小灶》· 播放 39万</div>
+          <div class="from">《偷吃记录，厨师长在厨房里开小灶味噌牛肠锅…》 · 播放 39.2万</div>
         </div>
       </div>
+      <!-- /SYNC:CARD3 -->
 
+      <!-- SYNC:CARD4 -->
       <div class="report-card blue-card">
         <span class="tag blue">B站 · 热门弹幕</span>
-        <div class="meta">19,017 条弹幕 · 频次聚合 · 三层噪声过滤（时间梗/灌水/纯语气）</div>
+        <div class="meta">32,093 条弹幕 · 频次聚合 · 三层噪声过滤（时间梗/灌水/纯语气）</div>
         <div class="comment-item">
-          <div class="head"><span class="likes">588 次</span><span class="user">全场刷屏</span></div>
+          <div class="head"><span class="likes">940 次</span><span class="user">全场刷屏</span></div>
+          <div class="text">见证历史</div>
+          <div class="from">跨 20 个视频聚合 · 去噪后频次第 1 名</div>
+        </div>
+        <div class="comment-item">
+          <div class="head"><span class="likes">563 次</span><span class="user">全场刷屏</span></div>
           <div class="text">火钳刘明</div>
-          <div class="from">跨视频复现最多的经典梗</div>
+          <div class="from">跨 20 个视频聚合 · 去噪后频次第 2 名</div>
         </div>
         <div class="comment-item">
-          <div class="head"><span class="likes">97 次</span><span class="user">全场刷屏</span></div>
-          <div class="text">kksk</div>
-          <div class="from">弹幕文化通用热词</div>
-        </div>
-        <div class="comment-item">
-          <div class="head"><span class="likes">86 次</span><span class="user">单视频</span></div>
-          <div class="text">聪明的小潮院长非常聪明</div>
-          <div class="from">《小潮team》粉丝团刷屏句式</div>
+          <div class="head"><span class="likes">177 次</span><span class="user">全场刷屏</span></div>
+          <div class="text">藏狐</div>
+          <div class="from">跨 20 个视频聚合 · 去噪后频次第 3 名</div>
         </div>
       </div>
+      <!-- /SYNC:CARD4 -->
     </div>
 
+    <!-- SYNC:GHTABLE -->
     <div class="table-header">
       <span class="tag purple">GitHub · 今日热门项目</span>
       <span class="count">Trending 全站榜 · 16 个项目 · 按今日新增 Star 排序 · 星数经 gh API 交叉验证</span>
@@ -382,7 +393,7 @@ flowchart LR
           <tr><td>7</td><td class="gh-repo"><a href="https://github.com/cathrynlavery/diagram-design">cathrynlavery/diagram-design</a></td><td>HTML</td><td class="gh-stars"><span class="today">+852</span></td><td class="gh-stars"><span class="total">31,368</span></td><td class="gh-desc">38 种编辑级图表模板，自包含 HTML + SVG，无需 Mermaid</td></tr>
           <tr><td>8</td><td class="gh-repo"><a href="https://github.com/anomalyco/opencode">anomalyco/opencode</a></td><td>TypeScript</td><td class="gh-stars"><span class="today">+725</span></td><td class="gh-stars"><span class="total">204,417</span></td><td class="gh-desc">开源编码 Agent</td></tr>
           <tr><td>9</td><td class="gh-repo"><a href="https://github.com/ruvnet/ruflo">ruvnet/ruflo</a></td><td>TypeScript</td><td class="gh-stars"><span class="today">+127</span></td><td class="gh-stars"><span class="total">70,556</span></td><td class="gh-desc">Agent 元框架：多智能体集群编排 + 自适应记忆 + RAG 集成</td></tr>
-          <tr><td>10</td><td class="gh-repo"><a href="https://github.com/humanlayer/skills">humanlayer/skills</a></td><td>TypeScript</td><td class="gh-stars"><span class="today">+1,141</span></td><td class="gh-stars"><span class="total">2,472</span></td><td class="gh-desc">HumanLayer 官方 Skills 仓库（总星仅 2.4k，今日爆涨的新仓库）</td></tr>
+          <tr><td>10</td><td class="gh-repo"><a href="https://github.com/humanlayer/skills">humanlayer/skills</a></td><td>TypeScript</td><td class="gh-stars"><span class="today">+1,141</span></td><td class="gh-stars"><span class="total">2,472</span></td><td class="gh-desc">HumanLayer 官方 Skills 仓库</td></tr>
           <tr><td>11</td><td class="gh-repo"><a href="https://github.com/blader/humanizer">blader/humanizer</a></td><td>Python</td><td class="gh-stars"><span class="today">+988</span></td><td class="gh-stars"><span class="total">43,115</span></td><td class="gh-desc">去除文本 AI 味的 Agent 技能</td></tr>
           <tr><td>12</td><td class="gh-repo"><a href="https://github.com/BraveOPotato/FckSignups">BraveOPotato/FckSignups</a></td><td>TypeScript</td><td class="gh-stars"><span class="today">+50</span></td><td class="gh-stars"><span class="total">2,659</span></td><td class="gh-desc">无需注册的开源浏览器工具清单</td></tr>
           <tr><td>13</td><td class="gh-repo"><a href="https://github.com/WorldFlowAI/everything-claude-code">WorldFlowAI/everything-claude-code</a></td><td>JavaScript</td><td class="gh-stars"><span class="today">+87</span></td><td class="gh-stars"><span class="total">2,168</span></td><td class="gh-desc">Claude Code 工具箱：agents / commands / skills / rules / hooks</td></tr>
@@ -392,6 +403,7 @@ flowchart LR
         </tbody>
       </table>
     </div>
+    <!-- /SYNC:GHTABLE -->
   </div>
 </section>
 
@@ -408,7 +420,7 @@ flowchart LR
 
     <figure class="chart-figure">
       <div class="chart-title">B站热门弹幕频次 TOP 12</div>
-      <div class="chart-note">跨 10 个热门视频聚合 · 单位：出现次数</div>
+      <div class="chart-note">跨 20 个热门视频聚合 · 单位：出现次数</div>
       <div id="chart-danmaku" style="width:100%;min-height:480px"></div>
     </figure>
 

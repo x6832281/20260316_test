@@ -6,12 +6,14 @@
   2. 今日最新：时间排序搜当天新笔记，只保留近24小时评论
 B站两轮：热门+排行榜视频的弹幕频次聚合 + 高赞评论。
 GitHub 一轮：Trending 今日热门项目（含简介/星数）。
+采集完成后自动调用 sync_to_github.py：更新 Pages 页面 → commit/push → 触发构建。
 
 用法:
     py -3.12 daily_run.py                    # 默认关键词"手机"
     py -3.12 daily_run.py --keywords "手机,数码"
     py -3.12 daily_run.py --skip-xhs         # 跳过小红书
     py -3.12 daily_run.py --skip-github      # 跳过GitHub Trending
+    py -3.12 daily_run.py --no-sync          # 只采集，不同步GitHub
 """
 
 import argparse
@@ -84,6 +86,7 @@ def main() -> int:
     ap.add_argument("--skip-xhs", action="store_true", help="跳过小红书采集")
     ap.add_argument("--skip-bili", action="store_true", help="跳过B站采集")
     ap.add_argument("--skip-github", action="store_true", help="跳过GitHub Trending采集")
+    ap.add_argument("--no-sync", action="store_true", help="采集后不同步GitHub/Pages")
     args = ap.parse_args()
 
     today = datetime.now().strftime("%Y-%m-%d")
@@ -149,8 +152,13 @@ def main() -> int:
     for k, v in results.items():
         print(f"  {k}: {'成功' if v else '失败'}")
     print(f"结果目录: {out_dir}")
-    ok_all = all(results.values())
+    ok_all = all(results.values()) if results else False
     print(f"整体状态: {'全部成功' if ok_all else '存在失败项'}")
+
+    if not args.no_sync and any(results.values()):
+        run([PY, str(ROOT / "sync_to_github.py"), "--date", today],
+            ROOT, "同步GitHub/Pages", timeout=300)
+
     return 0 if ok_all else 1
 
 
