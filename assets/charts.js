@@ -1,11 +1,29 @@
 (function () {
   var style = getComputedStyle(document.documentElement);
-  var accent = style.getPropertyValue('--accent').trim();
-  var accent2 = style.getPropertyValue('--accent2').trim();
+  var xhs = style.getPropertyValue('--xhs').trim();
+  var bili = style.getPropertyValue('--bili').trim();
+  var gh = style.getPropertyValue('--gh').trim();
   var ink = style.getPropertyValue('--ink').trim();
   var muted = style.getPropertyValue('--muted').trim();
   var rule = style.getPropertyValue('--rule').trim();
-  var bg2 = style.getPropertyValue('--bg2').trim();
+  var paper = style.getPropertyValue('--paper').trim();
+
+  var tooltipBase = {
+    trigger: 'axis',
+    axisPointer: { type: 'shadow' },
+    appendToBody: true,
+    backgroundColor: paper,
+    borderColor: rule,
+    borderWidth: 1,
+    padding: [8, 12],
+    textStyle: { color: ink, fontSize: 12.5 },
+    extraCssText: 'box-shadow: 0 4px 14px rgba(28,25,23,0.10); border-radius: 4px;'
+  };
+  var labelBase = {
+    show: true, position: 'right',
+    color: muted, fontSize: 12,
+    fontFamily: "'PingFang SC', 'Microsoft YaHei', sans-serif"
+  };
 
   // --- Chart 1: 今日全站最高赞评论 TOP 10 ---
   var topComments = [
@@ -24,15 +42,12 @@
   var chart1 = echarts.init(document.getElementById('chart-top-comments'), null, { renderer: 'svg' });
   chart1.setOption({
     animation: false,
-    tooltip: {
-      trigger: 'axis',
-      axisPointer: { type: 'shadow' },
-      appendToBody: true,
+    tooltip: Object.assign({}, tooltipBase, {
       formatter: function (params) {
         var p = params[0];
         return p.data.platform + ' · ' + p.data.likes + ' 赞<br>' + p.data.full;
       }
-    },
+    }),
     grid: { left: 8, right: 64, top: 10, bottom: 10, containLabel: true },
     xAxis: { type: 'value', axisLabel: { color: muted }, splitLine: { lineStyle: { color: rule } } },
     yAxis: {
@@ -53,14 +68,10 @@
           platform: d.platform,
           full: d.name,
           likes: d.value.toLocaleString(),
-          itemStyle: { color: d.platform === '小红书' ? accent : accent2, borderRadius: [0, 4, 4, 0] }
+          itemStyle: { color: d.platform === '小红书' ? xhs : bili, borderRadius: [0, 3, 3, 0] }
         };
       }),
-      label: {
-        show: true, position: 'right',
-        color: muted, fontFamily: 'JetBrainsMono, monospace', fontSize: 12,
-        formatter: function (p) { return p.data.likes + ' 赞'; }
-      },
+      label: Object.assign({}, labelBase, { formatter: function (p) { return p.data.likes + ' 赞'; } }),
       barMaxWidth: 20
     }]
   });
@@ -85,15 +96,12 @@
   var chart2 = echarts.init(document.getElementById('chart-danmaku'), null, { renderer: 'svg' });
   chart2.setOption({
     animation: false,
-    tooltip: {
-      trigger: 'axis',
-      axisPointer: { type: 'shadow' },
-      appendToBody: true,
+    tooltip: Object.assign({}, tooltipBase, {
       formatter: function (params) {
         var p = params[0];
         return p.name + '<br>' + p.value + ' 次';
       }
-    },
+    }),
     grid: { left: 8, right: 64, top: 10, bottom: 10, containLabel: true },
     xAxis: { type: 'value', axisLabel: { color: muted }, splitLine: { lineStyle: { color: rule } } },
     yAxis: {
@@ -108,16 +116,12 @@
         return {
           value: d.value,
           itemStyle: {
-            color: d.value > 300 ? accent2 : accent2 + '88',
-            borderRadius: [0, 4, 4, 0]
+            color: d.value > 300 ? bili : bili + '88',
+            borderRadius: [0, 3, 3, 0]
           }
         };
       }),
-      label: {
-        show: true, position: 'right',
-        color: muted, fontFamily: 'JetBrainsMono, monospace', fontSize: 12,
-        formatter: function (p) { return p.value.toLocaleString() + ' 次'; }
-      },
+      label: Object.assign({}, labelBase, { formatter: function (p) { return p.value.toLocaleString() + ' 次'; } }),
       barMaxWidth: 20
     }]
   });
@@ -140,16 +144,13 @@
   var chart3 = echarts.init(document.getElementById('chart-github'), null, { renderer: 'svg' });
   chart3.setOption({
     animation: false,
-    tooltip: {
-      trigger: 'axis',
-      axisPointer: { type: 'shadow' },
-      appendToBody: true,
+    tooltip: Object.assign({}, tooltipBase, {
       formatter: function (params) {
         var p = params[0];
         return p.data.repo + '<br>今日 +' + p.value.toLocaleString() + ' 星 · ' + p.data.lang +
           (p.data.total ? '<br>总星 ' + p.data.total : '');
       }
-    },
+    }),
     grid: { left: 8, right: 64, top: 10, bottom: 10, containLabel: true },
     xAxis: { type: 'value', axisLabel: { color: muted }, splitLine: { lineStyle: { color: rule } } },
     yAxis: {
@@ -167,16 +168,12 @@
           lang: d.lang,
           total: d.total,
           itemStyle: {
-            color: d.value > 1000 ? '#a371f7' : '#a371f788',
-            borderRadius: [0, 4, 4, 0]
+            color: d.value > 1000 ? gh : gh + '88',
+            borderRadius: [0, 3, 3, 0]
           }
         };
       }),
-      label: {
-        show: true, position: 'right',
-        color: muted, fontFamily: 'JetBrainsMono, monospace', fontSize: 12,
-        formatter: function (p) { return '+' + p.value.toLocaleString() + ' 星'; }
-      },
+      label: Object.assign({}, labelBase, { formatter: function (p) { return '+' + p.value.toLocaleString() + ' 星'; } }),
       barMaxWidth: 20
     }]
   });
