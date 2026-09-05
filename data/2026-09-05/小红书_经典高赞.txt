@@ -1,0 +1,133 @@
+﻿============================================================
+小红书高赞评论日报
+数据文件: search_comments_2026-09-05.jsonl
+笔记文件: search_contents_2026-09-05.jsonl
+评论总数: 4753 (去重后入选 22 条, 最低 500 赞)
+生成时间: 2026-09-05 19:35:52
+============================================================
+
+关键词分布: 手机(22条)
+
+#1  [11000 赞]  S***n  2025-12-04 07:12
+    跟普通手机安装一个豆包APP有什么区别
+    ↳ 笔记: 同事的豆包手机到了 (笔记点赞 1.4万)
+    ↳ 回复数: 46
+    ↳ 链接: https://www.xiaohongshu.com/explore/69301ff4000000001e029cef?xsec_token=ABJQrbMJ0rv4vhrlQjzwBrpN7kPqYGpdBxvpBx39mKU6g=&xsec_source=pc_search
+
+#2  [8313 赞]  序***📸  2025-12-04 08:30
+    哪天豆包不开心了，不让你用手机怎么办
+    ↳ 笔记: 同事的豆包手机到了 (笔记点赞 1.4万)
+    ↳ 回复数: 38
+    ↳ 链接: https://www.xiaohongshu.com/explore/69301ff4000000001e029cef?xsec_token=ABJQrbMJ0rv4vhrlQjzwBrpN7kPqYGpdBxvpBx39mKU6g=&xsec_source=pc_search
+
+#3  [3024 赞]  小***3  2025-12-04 07:24
+    系统级 跨APP执行
+    ↳ 笔记: 同事的豆包手机到了 (笔记点赞 1.4万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/69301ff4000000001e029cef?xsec_token=ABJQrbMJ0rv4vhrlQjzwBrpN7kPqYGpdBxvpBx39mKU6g=&xsec_source=pc_search
+
+#4  [2220 赞]  C***a  2026-04-23 14:19
+    最早玩黑莓那代人已经老花了
+    ↳ 笔记: 年度颜值黑马｜Unihertz Titan 2 Elite (笔记点赞 3516)
+    ↳ 回复数: 116
+    ↳ 链接: https://www.xiaohongshu.com/explore/69e224d9000000002101038b?xsec_token=ABmuylZEbxoHDcVfKEl8R1_BD21a9foH64_6sR_VGWK08=&xsec_source=pc_search
+
+#5  [1768 赞]  F***n  2026-02-23 21:08
+    2是7
+    ↳ 笔记: 相隔十年，iPhone到底进化了什么？ (笔记点赞 5774)
+    ↳ 链接: https://www.xiaohongshu.com/explore/699ab185000000001a02567f?xsec_token=AB9MRNPH7i-pxtsiwE-W46H8pRsztx20EmW77-H6o1bL4=&xsec_source=pc_search
+
+#6  [1680 赞]  ^***T  2026-09-02 20:20
+    妈你看手机不离手不就不会丢了吗[抽泣R]还成天说我[色色R]
+    ↳ 笔记: 是不是每次出远门非要丢点东西才算圆满 (笔记点赞 1.1万)
+    ↳ 回复数: 12
+    ↳ 链接: https://www.xiaohongshu.com/explore/6a981106000000002900f745?xsec_token=ABgFkexTizTcRuRHtiUpnK2k469XWnsLSy-Mcl9cbFqKg=&xsec_source=pc_search
+
+#7  [1531 赞]  未***🍀  2026-02-23 10:47
+    12年iphone4拍的[笑哭R]
+    ↳ 笔记: 相隔十年，iPhone到底进化了什么？ (笔记点赞 5774)
+    ↳ 回复数: 109
+    ↳ 链接: https://www.xiaohongshu.com/explore/699ab185000000001a02567f?xsec_token=AB9MRNPH7i-pxtsiwE-W46H8pRsztx20EmW77-H6o1bL4=&xsec_source=pc_search
+
+#8  [1380 赞]  八***屯  2026-05-09 12:10
+    第一个在哪买的，想要[害羞R]
+    ↳ 笔记: 千禧年复古手机开箱2📦真的太潮了！ (笔记点赞 6.8万)
+    ↳ 回复数: 149
+    ↳ 链接: https://www.xiaohongshu.com/explore/69feb1ff000000001a035b66?xsec_token=ABLFmE3bwpqQm6dEeTvDNCLDMYSrplaopo_JWirxUDbs0=&xsec_source=pc_search
+
+#9  [1352 赞]  苦***事  2026-09-05 01:12
+    大半夜脑子乱乱的写也乱乱的，反正就是万人嫌右位假装失忆试探所有人发现没人在意他于是乎决定去亖……
+    ↳ 笔记: 身不由己的万人嫌决定去亖1️⃣ (笔记点赞 1.1万)
+    ↳ 回复数: 240
+    ↳ 链接: https://www.xiaohongshu.com/explore/6a9afa38000000002b00221d?xsec_token=ABWbLj4SC99ktl33dmJNWVn9fU3s81nh8eovsYrjg-vcA=&xsec_source=pc_search
+
+#10  [1047 赞]  我***病  2026-02-23 10:55
+    Xsmax
+    ↳ 笔记: 相隔十年，iPhone到底进化了什么？ (笔记点赞 5774)
+    ↳ 回复数: 64
+    ↳ 链接: https://www.xiaohongshu.com/explore/699ab185000000001a02567f?xsec_token=AB9MRNPH7i-pxtsiwE-W46H8pRsztx20EmW77-H6o1bL4=&xsec_source=pc_search
+
+#11  [1041 赞]  m***o  2026-02-23 18:59
+    真的受不了像抠图贴上去的[失望R][失望R][失望R]
+    ↳ 笔记: 相隔十年，iPhone到底进化了什么？ (笔记点赞 5774)
+    ↳ 链接: https://www.xiaohongshu.com/explore/699ab185000000001a02567f?xsec_token=AB9MRNPH7i-pxtsiwE-W46H8pRsztx20EmW77-H6o1bL4=&xsec_source=pc_search
+
+#12  [1030 赞]  小***1  2025-12-04 10:04
+    哄它开心
+    ↳ 笔记: 同事的豆包手机到了 (笔记点赞 1.4万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/69301ff4000000001e029cef?xsec_token=ABJQrbMJ0rv4vhrlQjzwBrpN7kPqYGpdBxvpBx39mKU6g=&xsec_source=pc_search
+
+#13  [1010 赞]  盛*  2026-05-09 12:38
+    第一个我妈妈真用过，但是我妈带我去买橘子，让我落人橘子车上了
+    ↳ 笔记: 千禧年复古手机开箱2📦真的太潮了！ (笔记点赞 6.8万)
+    ↳ 回复数: 13
+    ↳ 链接: https://www.xiaohongshu.com/explore/69feb1ff000000001a035b66?xsec_token=ABLFmE3bwpqQm6dEeTvDNCLDMYSrplaopo_JWirxUDbs0=&xsec_source=pc_search
+
+#14  [938 赞]  日***家  2026-02-23 14:02
+    13pro真的是最差的 我的11都好看很多 当时真的感觉被背刺了
+    ↳ 笔记: 相隔十年，iPhone到底进化了什么？ (笔记点赞 5774)
+    ↳ 链接: https://www.xiaohongshu.com/explore/699ab185000000001a02567f?xsec_token=AB9MRNPH7i-pxtsiwE-W46H8pRsztx20EmW77-H6o1bL4=&xsec_source=pc_search
+
+#15  [796 赞]  1***蜜  2026-05-23 09:45
+    这个东西是又要重出江湖了吗
+    ↳ 笔记: 十个月后所有手机将迎来巨变#手机#手机电池 (笔记点赞 6296)
+    ↳ 回复数: 89
+    ↳ 链接: https://www.xiaohongshu.com/explore/6a104917000000000800207a?xsec_token=ABDiU_sx87uOkGaS8RXKwrLe8aSfoKu2898aWElYYAigE=&xsec_source=pc_search
+
+#16  [791 赞]  。*  2026-02-23 13:36
+    我哥的16pro和我的13就差很多
+    ↳ 笔记: 相隔十年，iPhone到底进化了什么？ (笔记点赞 5774)
+    ↳ 回复数: 217
+    ↳ 链接: https://www.xiaohongshu.com/explore/699ab185000000001a02567f?xsec_token=AB9MRNPH7i-pxtsiwE-W46H8pRsztx20EmW77-H6o1bL4=&xsec_source=pc_search
+
+#17  [790 赞]  月***静  2026-05-11 07:41
+    12用了第六年的人默默退出视频
+    ↳ 笔记: 从夯到拉锐评🌟历代iPhone机型📱 (笔记点赞 9034)
+    ↳ 回复数: 63
+    ↳ 链接: https://www.xiaohongshu.com/explore/6a00439c0000000037035eed?xsec_token=AB0KP38dd5RqF0JarzPtGPjr7Ma6CsNOAvJQ1zIugHJVY=&xsec_source=pc_search
+
+#18  [758 赞]  小***E  2026-02-23 15:05
+    这个句史锐化，一看就是13[笑哭R]
+    ↳ 笔记: 相隔十年，iPhone到底进化了什么？ (笔记点赞 5774)
+    ↳ 链接: https://www.xiaohongshu.com/explore/699ab185000000001a02567f?xsec_token=AB9MRNPH7i-pxtsiwE-W46H8pRsztx20EmW77-H6o1bL4=&xsec_source=pc_search
+
+#19  [675 赞]  暮*  2026-09-05 01:23
+    [抽泣R]小苦瓜，和句号两个小苦瓜，让他俩私奔吧
+    ↳ 笔记: 身不由己的万人嫌决定去亖1️⃣ (笔记点赞 1.1万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6a9afa38000000002b00221d?xsec_token=ABWbLj4SC99ktl33dmJNWVn9fU3s81nh8eovsYrjg-vcA=&xsec_source=pc_search
+
+#20  [671 赞]  波***顿  2026-04-23 13:08
+    都做回黑莓了，什么时候出我最喜欢的翻盖手机，挂电话时啪一下特别有气势，现在平板智能机完全做不到[doge]
+    ↳ 笔记: 年度颜值黑马｜Unihertz Titan 2 Elite (笔记点赞 3516)
+    ↳ 回复数: 67
+    ↳ 链接: https://www.xiaohongshu.com/explore/69e224d9000000002101038b?xsec_token=ABmuylZEbxoHDcVfKEl8R1_BD21a9foH64_6sR_VGWK08=&xsec_source=pc_search
+
+#21  [633 赞]  紫***剑  2026-04-21 18:31
+    我以为黑莓又复活了[笑哭R]
+    ↳ 笔记: 年度颜值黑马｜Unihertz Titan 2 Elite (笔记点赞 3516)
+    ↳ 回复数: 8
+    ↳ 链接: https://www.xiaohongshu.com/explore/69e224d9000000002101038b?xsec_token=ABmuylZEbxoHDcVfKEl8R1_BD21a9foH64_6sR_VGWK08=&xsec_source=pc_search
+
+#22  [562 赞]  茉***茶  2025-12-04 07:38
+    其实就是刷个系统包就行了[偷笑R]
+    ↳ 笔记: 同事的豆包手机到了 (笔记点赞 1.4万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/69301ff4000000001e029cef?xsec_token=ABJQrbMJ0rv4vhrlQjzwBrpN7kPqYGpdBxvpBx39mKU6g=&xsec_source=pc_search

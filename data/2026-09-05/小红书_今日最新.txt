@@ -1,0 +1,66 @@
+﻿============================================================
+小红书高赞评论日报
+数据文件: search_comments_2026-09-05.jsonl
+笔记文件: search_contents_2026-09-05.jsonl
+评论总数: 4774 (去重后入选 10 条, 最低 20 赞)
+时间过滤: 仅保留近 24 小时内发布的评论
+生成时间: 2026-09-05 19:38:27
+============================================================
+
+关键词分布: 手机(10条)
+
+#1  [1352 赞]  苦***事  2026-09-05 01:12
+    大半夜脑子乱乱的写也乱乱的，反正就是万人嫌右位假装失忆试探所有人发现没人在意他于是乎决定去亖……
+    ↳ 笔记: 身不由己的万人嫌决定去亖1️⃣ (笔记点赞 1.1万)
+    ↳ 回复数: 240
+    ↳ 链接: https://www.xiaohongshu.com/explore/6a9afa38000000002b00221d?xsec_token=ABWbLj4SC99ktl33dmJNWVn9fU3s81nh8eovsYrjg-vcA=&xsec_source=pc_search
+
+#2  [675 赞]  暮*  2026-09-05 01:23
+    [抽泣R]小苦瓜，和句号两个小苦瓜，让他俩私奔吧
+    ↳ 笔记: 身不由己的万人嫌决定去亖1️⃣ (笔记点赞 1.1万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6a9afa38000000002b00221d?xsec_token=ABWbLj4SC99ktl33dmJNWVn9fU3s81nh8eovsYrjg-vcA=&xsec_source=pc_search
+
+#3  [236 赞]  提***叽  2026-09-05 13:42
+    我tm在xhs住下了
+    ↳ 笔记: 手机要冒烟了 (笔记点赞 4002)
+    ↳ 回复数: 5
+    ↳ 链接: https://www.xiaohongshu.com/explore/6a9ba965000000002803821a?xsec_token=ABJh0GNjXjFMa6bb6szpePpE9eC19iUvxJEBG2rVc65Cg=&xsec_source=pc_search
+
+#4  [157 赞]  A***🍜  2026-09-05 13:33
+    老师我在你主页住下了
+    ↳ 笔记: 手机要冒烟了 (笔记点赞 4002)
+    ↳ 回复数: 7
+    ↳ 链接: https://www.xiaohongshu.com/explore/6a9ba965000000002803821a?xsec_token=ABJh0GNjXjFMa6bb6szpePpE9eC19iUvxJEBG2rVc65Cg=&xsec_source=pc_search
+
+#5  [93 赞]  ✨***踪  2026-09-05 09:05
+    置顶评论说了是装的……
+    ↳ 笔记: 身不由己的万人嫌决定去亖1️⃣ (笔记点赞 1.1万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6a9afa38000000002b00221d?xsec_token=ABWbLj4SC99ktl33dmJNWVn9fU3s81nh8eovsYrjg-vcA=&xsec_source=pc_search
+
+#6  [70 赞]  m***o  2026-09-05 07:27
+    全世界的第一章给我看到了
+    ↳ 笔记: 身不由己的万人嫌决定去亖1️⃣ (笔记点赞 1.1万)
+    ↳ 回复数: 1
+    ↳ 链接: https://www.xiaohongshu.com/explore/6a9afa38000000002b00221d?xsec_token=ABWbLj4SC99ktl33dmJNWVn9fU3s81nh8eovsYrjg-vcA=&xsec_source=pc_search
+
+#7  [44 赞]  灿*  2026-09-05 08:55
+    所以这次是没失忆是装的吗（求解答）
+    ↳ 笔记: 身不由己的万人嫌决定去亖1️⃣ (笔记点赞 1.1万)
+    ↳ 回复数: 2
+    ↳ 链接: https://www.xiaohongshu.com/explore/6a9afa38000000002b00221d?xsec_token=ABWbLj4SC99ktl33dmJNWVn9fU3s81nh8eovsYrjg-vcA=&xsec_source=pc_search
+
+#8  [41 赞]  槿*  2026-09-05 08:11
+    老师，写死渣爹渣哥，前任
+    ↳ 笔记: 身不由己的万人嫌决定去亖1️⃣ (笔记点赞 1.1万)
+    ↳ 回复数: 2
+    ↳ 链接: https://www.xiaohongshu.com/explore/6a9afa38000000002b00221d?xsec_token=ABWbLj4SC99ktl33dmJNWVn9fU3s81nh8eovsYrjg-vcA=&xsec_source=pc_search
+
+#9  [38 赞]  海***迟  2026-09-04 19:58
+    不是说了吗 把手机给妈妈了妈妈没拿 这怎么就全怪孩子头上了
+    ↳ 笔记: 是不是每次出远门非要丢点东西才算圆满 (笔记点赞 1.1万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6a981106000000002900f745?xsec_token=ABgFkexTizTcRuRHtiUpnK2k469XWnsLSy-Mcl9cbFqKg=&xsec_source=pc_search
+
+#10  [28 赞]  种***浆  2026-09-05 11:37
+    应该是写死老公？前任看着像正攻
+    ↳ 笔记: 身不由己的万人嫌决定去亖1️⃣ (笔记点赞 1.1万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6a9afa38000000002b00221d?xsec_token=ABWbLj4SC99ktl33dmJNWVn9fU3s81nh8eovsYrjg-vcA=&xsec_source=pc_search
