@@ -147,26 +147,31 @@ def parse_github(path: Path) -> dict | None:
 
 # ---------- 页面片段生成 ----------
 
-def comment_item(likes: str, user: str, text: str, from_: str) -> str:
+def cm_article(count_html: str, user: str, text: str, src: str) -> str:
     return (
-        "        <div class=\"comment-item\">\n"
-        f"          <div class=\"head\"><span class=\"likes\">{likes}</span><span class=\"user\">{esc(user)}</span></div>\n"
-        f"          <div class=\"text\">{esc(text)}</div>\n"
-        f"          <div class=\"from\">{esc(from_)}</div>\n"
-        "        </div>"
+        '          <article class="cm">\n'
+        f'            <div class="cm-stats">{count_html}<span class="cm-user">{esc(user)}</span></div>\n'
+        f'            <p class="cm-text">{esc(text)}</p>\n'
+        f'            <p class="cm-src">{esc(src)}</p>\n'
+        '          </article>'
     )
 
 
-def card(color: str, tag_cls: str, tag_text: str, meta: str, items: list[str]) -> str:
-    cls = f"report-card {color}" if color else "report-card"
+def build_col(tag_cls: str, tag_text: str, meta: str, items: list[str]) -> str:
     lines = [
-        f"      <div class=\"{cls}\">",
-        f"        <span class=\"tag {tag_cls}\">{tag_text}</span>",
-        f"        <div class=\"meta\">{esc(meta)}</div>",
+        '        <div class="col">',
+        '          <div class="col-head">',
+        f'            <span class="ptag {tag_cls}">{tag_text}</span>',
+        f'            <span class="col-meta">{esc(meta)}</span>',
+        '          </div>',
         *items,
-        "      </div>",
+        '        </div>',
     ]
     return "\n".join(lines)
+
+
+def heart(n: int) -> str:
+    return f'<span class="heart">♥ {n:,}</span>'
 
 
 def cut(s: str, n: int) -> str:
@@ -175,12 +180,12 @@ def cut(s: str, n: int) -> str:
 
 def build_card1(x: dict) -> str:
     items = [
-        comment_item(f"{e['likes']:,} 赞", e["user"], cut(e["content"], 60),
-                     f"笔记《{cut(e['note'], 24)}》 · 笔记点赞 {e['note_likes']}")
+        cm_article(heart(e["likes"]), e["user"], cut(e["content"], 60),
+                   f"出自《{cut(e['note'], 24)}》 · 笔记点赞 {e['note_likes']}")
         for e in x["entries"][:3]
     ]
-    meta = f"{x['total']:,} 条评论 → {x['selected']} 条 ≥{x['min_likes']} 赞 · 热度排序爆款笔记"
-    return card("", "red", "小红书 · 经典高赞", meta, items)
+    meta = f"{x['total']:,} 条评论，入选 {x['selected']} 条（≥{x['min_likes']} 赞）"
+    return build_col("xhs", "小红书 · 经典高赞", meta, items)
 
 
 def build_card2(x: dict, today: str) -> str:
@@ -188,32 +193,32 @@ def build_card2(x: dict, today: str) -> str:
         d, hm = e["time"].split(" ")
         return f"今日 {hm}" if d == today else f"{d[5:]} {hm}"
     items = [
-        comment_item(f"{e['likes']:,} 赞", e["user"], cut(e["content"], 60),
-                     f"笔记《{cut(e['note'], 24)}》 · {t(e)}")
+        cm_article(heart(e["likes"]), e["user"], cut(e["content"], 60),
+                   f"出自《{cut(e['note'], 24)}》 · {t(e)}")
         for e in x["entries"][:3]
     ]
-    meta = f"时间排序新笔记 · 入选 {x['selected']} 条 · 仅保留近 24 小时发布的评论"
-    return card("", "red", "小红书 · 今日最新", meta, items)
+    meta = f"时间排序新笔记，入选 {x['selected']} 条（≥{x['min_likes']} 赞）· 仅近 24 小时发布"
+    return build_col("xhs", "小红书 · 今日最新", meta, items)
 
 
 def build_card3(x: dict) -> str:
     items = [
-        comment_item(f"{e['likes']:,} 赞", e["user"], cut(e["content"], 60),
-                     f"《{cut(e['video'], 20)}》 · 播放 {fmt_wan(e['view'])}")
+        cm_article(heart(e["likes"]), e["user"], cut(e["content"], 60),
+                   f"出自《{cut(e['video'], 24)}》 · 播放 {fmt_wan(e['view'])}")
         for e in x["entries"][:3]
     ]
-    meta = f"{x['videos']} 个热门/排行榜视频 → {x['selected']} 条 ≥{x['min_likes']} 赞 · 游客可见热评"
-    return card("blue-card", "blue", "B站 · 高赞评论", meta, items)
+    meta = f"{x['videos']} 个热门/排行榜视频，入选 {x['selected']} 条（≥{x['min_likes']} 赞）"
+    return build_col("bili", "B站 · 高赞评论", meta, items)
 
 
 def build_card4(x: dict) -> str:
     items = [
-        comment_item(f"{e['count']} 次", "全场刷屏", cut(e["text"], 40),
-                     f"跨 {x['videos']} 个视频聚合 · 去噪后频次第 {e['rank']} 名")
+        cm_article(f'<span class="dm-count">{e["count"]} 次</span>', "全场刷屏", cut(e["text"], 40),
+                   f"跨 {x['videos']} 个视频聚合 · 去噪后频次第 {e['rank']} 名")
         for e in x["entries"][:3]
     ]
-    meta = f"{x['total']:,} 条弹幕 · 频次聚合 · 三层噪声过滤（时间梗/灌水/纯语气）"
-    return card("blue-card", "blue", "B站 · 热门弹幕", meta, items)
+    meta = f"{x['total']:,} 条弹幕聚合 · 三层噪声过滤（时间梗/灌水/纯语气）"
+    return build_col("bili", "B站 · 热门弹幕", meta, items)
 
 
 def build_ghtable(x: dict, zh: dict) -> str:
@@ -223,7 +228,7 @@ def build_ghtable(x: dict, zh: dict) -> str:
         if len(desc) > 80:
             desc = desc[:80] + "…"
         rows.append(
-            f"          <tr><td>{e['rank']}</td>"
+            f"            <tr><td>{e['rank']}</td>"
             f"<td class=\"gh-repo\"><a href=\"{e['url']}\">{e['repo']}</a></td>"
             f"<td>{esc(e['lang'])}</td>"
             f"<td class=\"gh-stars\"><span class=\"today\">+{e['stars_today']:,}</span></td>"
@@ -232,32 +237,32 @@ def build_ghtable(x: dict, zh: dict) -> str:
         )
     body = "\n".join(rows)
     return (
-        "    <div class=\"table-header\">\n"
-        "      <span class=\"tag purple\">GitHub · 今日热门项目</span>\n"
-        f"      <span class=\"count\">Trending 全站榜 · {x['count']} 个项目 · 按今日新增 Star 排序 · 星数经 gh API 交叉验证</span>\n"
-        "    </div>\n"
-        "    <div class=\"table-wrap\">\n"
-        "      <table>\n"
-        "        <thead>\n"
-        "          <tr><th style=\"width:36px\">#</th><th>项目</th><th style=\"width:90px\">语言</th><th style=\"width:120px\">今日 Star</th><th style=\"width:90px\">总星数</th><th>简介</th></tr>\n"
-        "        </thead>\n"
-        "        <tbody>\n"
+        "      <div class=\"gh-head\">\n"
+        "        <span class=\"ptag gh\">GitHub · 今日热门</span>\n"
+        f"        <span class=\"col-meta\">Trending 全站榜 · {x['count']} 个项目 · 按今日新增 Star 排序 · 星数经 gh API 交叉验证</span>\n"
+        "      </div>\n"
+        "      <div class=\"table-wrap\">\n"
+        "        <table>\n"
+        "          <thead>\n"
+        "            <tr><th style=\"width:36px\">#</th><th>项目</th><th style=\"width:90px\">语言</th><th style=\"width:110px\">今日 Star</th><th style=\"width:90px\">总星数</th><th>简介</th></tr>\n"
+        "          </thead>\n"
+        "          <tbody>\n"
         f"{body}\n"
-        "        </tbody>\n"
-        "      </table>\n"
-        "    </div>"
+        "          </tbody>\n"
+        "        </table>\n"
+        "      </div>"
     )
 
 
 def old_stat_lines(html_text: str) -> dict[str, str]:
-    m = re.search(r"<!-- SYNC:STATS -->\n(.*?)\n    <!-- /SYNC:STATS -->", html_text, re.S)
+    m = re.search(r"<!-- SYNC:STATS -->\n(.*?)\n\s*<!-- /SYNC:STATS -->", html_text, re.S)
     block = m.group(1) if m else ""
     out = {}
     for key, pat in (
-        ("xhs", r'<div class="stat"><div class="num red">.*?</div></div>'),
-        ("dm", r'<div class="stat"><div class="num blue">.*?</div></div>'),
-        ("gh", r'<div class="stat"><div class="num purple">.*?</div></div>'),
-        ("sel", r'<div class="stat"><div class="num">\d+</div><div class="label">.*?</div></div>'),
+        ("xhs", r'<div class="ds"><span class="ds-n xhs">.*?</span></div>'),
+        ("dm", r'<div class="ds"><span class="ds-n bili">.*?</span></div>'),
+        ("gh", r'<div class="ds"><span class="ds-n gh">.*?</span></div>'),
+        ("sel", r'<div class="ds"><span class="ds-n ink">.*?</span></div>'),
     ):
         mm = re.search(pat, block)
         if mm:
@@ -267,36 +272,62 @@ def old_stat_lines(html_text: str) -> dict[str, str]:
 
 def build_stats(data: dict, html_text: str) -> str:
     old = old_stat_lines(html_text)
-    lines = ["    <div class=\"stats\">"]
+    lines = ["      <div class=\"deck\">"]
 
     x = data.get("xhs_today") or data.get("xhs_classic")
     if x:
-        lines.append(f"      <div class=\"stat\"><div class=\"num red\">{x['total']:,}</div><div class=\"label\">小红书评论（两轮采集）</div></div>")
+        lines.append(f"        <div class=\"ds\"><span class=\"ds-n xhs\">{x['total']:,}</span><span class=\"ds-l\">条小红书评论（两轮采集）</span></div>")
     elif "xhs" in old:
-        lines.append("      " + old["xhs"])
+        lines.append("        " + old["xhs"])
 
     dm = data.get("danmaku")
     if dm:
-        lines.append(f"      <div class=\"stat\"><div class=\"num blue\">{dm['total']:,}</div><div class=\"label\">B站弹幕（{dm['videos']} 个热门视频聚合）</div></div>")
+        lines.append(f"        <div class=\"ds\"><span class=\"ds-n bili\">{dm['total']:,}</span><span class=\"ds-l\">条B站弹幕（{dm['videos']} 个视频聚合）</span></div>")
     elif "dm" in old:
-        lines.append("      " + old["dm"])
+        lines.append("        " + old["dm"])
 
     gh = data.get("github")
     if gh:
-        lines.append(f"      <div class=\"stat\"><div class=\"num purple\">{gh['count']}</div><div class=\"label\">GitHub 今日热门项目</div></div>")
+        lines.append(f"        <div class=\"ds\"><span class=\"ds-n gh\">{gh['count']}</span><span class=\"ds-l\">个GitHub热门项目</span></div>")
     elif "gh" in old:
-        lines.append("      " + old["gh"])
+        lines.append("        " + old["gh"])
 
     xc, bc = data.get("xhs_classic"), data.get("bili_comments")
     if xc or bc:
         xs = xc["selected"] if xc else 0
         bs = bc["selected"] if bc else 0
-        lines.append(f"      <div class=\"stat\"><div class=\"num\">{xs + bs}</div><div class=\"label\">今日高赞评论入选（小红书 {xs} + B站 {bs}）</div></div>")
+        lines.append(f"        <div class=\"ds\"><span class=\"ds-n ink\">{xs + bs}</span><span class=\"ds-l\">条高赞评论入选（小红书 {xs} + B站 {bs}）</span></div>")
     elif "sel" in old:
-        lines.append("      " + old["sel"])
+        lines.append("        " + old["sel"])
 
-    lines.append("    </div>")
+    lines.append("      </div>")
     return "\n".join(lines)
+
+
+def build_hero(data: dict) -> str:
+    candidates = []
+    if data.get("xhs_classic"):
+        for e in data["xhs_classic"]["entries"]:
+            candidates.append(("xhs", "小红书", e["likes"], e["user"], cut(e["content"], 60),
+                               f"出自《{cut(e['note'], 24)}》 · 笔记点赞 {e['note_likes']}"))
+    if data.get("bili_comments"):
+        for e in data["bili_comments"]["entries"]:
+            candidates.append(("bili", "B站", e["likes"], e["user"], cut(e["content"], 60),
+                               f"出自《{cut(e['video'], 24)}》 · 播放 {fmt_wan(e['view'])}"))
+    if not candidates:
+        raise ValueError("无可用头条数据")
+    tag_cls, plat, likes, user, text, src = max(candidates, key=lambda c: c[2])
+    return (
+        "      <figure class=\"hero\">\n"
+        f"        <div class=\"hero-kicker\">今日最高赞评论<span class=\"ptag {tag_cls}\">{plat}</span></div>\n"
+        f"        <blockquote class=\"hero-text\"><span class=\"q\">「</span>{esc(text)}<span class=\"q\">」</span></blockquote>\n"
+        "        <figcaption class=\"hero-by\">\n"
+        f"          <span class=\"heart big\">♥ {likes:,}</span><span class=\"by-sep\">·</span>\n"
+        f"          <span>{esc(user)}</span><span class=\"by-sep\">·</span>\n"
+        f"          <span>{esc(src)}</span>\n"
+        "        </figcaption>\n"
+        "      </figure>"
+    )
 
 
 # ---------- 锚点与图表替换 ----------
@@ -353,6 +384,11 @@ def main() -> int:
         text = re.sub(r"跨 \d+ 个热门视频聚合", f"跨 {data['danmaku']['videos']} 个热门视频聚合", text)
 
     text = replace_anchor(text, "STATS", build_stats(data, text))
+    if data["xhs_classic"] or data["bili_comments"]:
+        try:
+            text = replace_anchor(text, "HERO", build_hero(data))
+        except ValueError:
+            pass
     if data["xhs_classic"]:
         text = replace_anchor(text, "CARD1", build_card1(data["xhs_classic"]))
     if data["xhs_today"]:
