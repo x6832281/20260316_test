@@ -83,6 +83,7 @@
   }
   .stat .num.red { color: var(--accent); }
   .stat .num.blue { color: var(--accent2); }
+  .stat .num.purple { color: #a371f7; }
   .stat .label { color: var(--muted); font-size: 13px; margin-top: 4px; }
 
   /* ===== Sections ===== */
@@ -117,7 +118,8 @@
     letter-spacing: 0.05em;
   }
   .tag.red { color: var(--accent); background: rgba(255, 77, 106, 0.12); }
-  .tag.blue { color: var(--accent2); background: rgba(34, 184, 230, 0.12); }
+.tag.blue { color: var(--accent2); background: rgba(34, 184, 230, 0.12); }
+.tag.purple { color: #a371f7; background: rgba(163, 113, 247, 0.12); }
   .report-card .meta { color: var(--muted); font-size: 13px; margin-bottom: 16px; }
   .comment-item { padding: 12px 0; border-top: 1px solid var(--rule); }
   .comment-item:first-of-type { border-top: none; }
@@ -129,6 +131,7 @@
     color: var(--accent); white-space: nowrap;
   }
   .report-card.blue-card .comment-item .likes { color: var(--accent2); }
+  .report-card.purple-card .comment-item .likes { color: #a371f7; }
   .comment-item .user { color: var(--muted); font-size: 13px; }
   .comment-item .text { font-size: 15px; line-height: 1.6; }
   .comment-item .from { color: var(--muted); font-size: 12.5px; margin-top: 4px; }
@@ -199,14 +202,14 @@
     <div class="badge"><span class="dot"></span>每日 09:00 自动更新 · 数据日期 2026-09-05</div>
     <h1>热门评论区<span class="xhs">观察站</span></h1>
     <p class="subtitle">
-      每天自动采集<strong>小红书</strong>热门笔记的高赞评论与 <strong>B站</strong>热门视频的高赞评论、热门弹幕，
-      按点赞数排序筛选，输出每日 TXT 日报。全流程免登录维护：首次扫码后登录态持久化复用。
+      每天自动采集<strong>小红书</strong>热门笔记的高赞评论、<strong>B站</strong>热门视频的高赞评论与热门弹幕，
+      以及 <strong>GitHub</strong> Trending 热门项目（含简介/星数），输出每日 TXT 日报。全流程免登录维护：首次扫码后登录态持久化复用。
     </p>
     <div class="stats">
       <div class="stat"><div class="num red">4,774</div><div class="label">小红书评论（两轮采集）</div></div>
       <div class="stat"><div class="num blue">19,017</div><div class="label">B站弹幕（热门视频聚合）</div></div>
+      <div class="stat"><div class="num purple">16</div><div class="label">GitHub 今日热门项目</div></div>
       <div class="stat"><div class="num">104</div><div class="label">今日高赞评论入选（小红书 63 + B站 41）</div></div>
-      <div class="stat"><div class="num">40</div><div class="label">覆盖热门内容（20 笔记 + 20 视频）</div></div>
     </div>
   </div>
 </header>
@@ -216,8 +219,8 @@
     <h2><span class="index">01</span>项目是什么</h2>
     <p class="section-desc">
       一个<strong>每日热门内容采集流水线</strong>：以关键词为入口，抓取两个平台当天最热内容的评论区数据，
-      用真实点赞数回答「今天大家都在点赞什么」。数据经由官方 Web 接口采集（MediaCrawler 框架 + 自研脚本），
-      评论的 <strong>like_count 为接口原值</strong>，非估算。
+      加上 GitHub Trending 全站热门项目，用真实数据回答「今天大家都在点赞什么、在看什么」。评论与弹幕经由官方
+      Web 接口采集（MediaCrawler 框架 + 自研脚本），<strong>like_count 为接口原值</strong>，非估算。
     </p>
     <div class="table-wrap">
       <table>
@@ -229,6 +232,7 @@
           <tr><td>小红书 · 今日最新评论</td><td>评论点赞数（仅近 24 小时发布）</td><td class="mono">/api/sns/web/v2/comment/page</td><td>同上</td></tr>
           <tr><td>B站 · 高赞评论</td><td>评论点赞数（游客可见热评 Top3）</td><td class="mono">/x/v2/reply?sort=2</td><td>免登录</td></tr>
           <tr><td>B站 · 热门弹幕</td><td>弹幕发送频次（聚合去噪后）</td><td class="mono">comment.bilibili.com/{cid}.xml</td><td>免登录</td></tr>
+          <tr><td>GitHub · 热门项目</td><td>今日新增 Star 数（Trending）</td><td class="mono">github.com/trending 页面解析</td><td>免登录</td></tr>
         </tbody>
       </table>
     </div>
@@ -239,7 +243,7 @@
   <div class="container">
     <h2><span class="index">02</span>每日采集流水线</h2>
     <p class="section-desc">
-      由 <strong>daily_run.py</strong> 统一编排，每天 09:00 定时触发，自动跑完四轮采集后落盘到
+      由 <strong>daily_run.py</strong> 统一编排，每天 09:00 定时触发，自动跑完五轮采集后落盘到
       <strong>daily/&lt;日期&gt;/</strong> 目录。浏览器进程异常时自动清理重启，登录态失效时提示人工介入而非卡死。
     </p>
     <figure class="diagram">
@@ -250,12 +254,14 @@ flowchart LR
   B --> D[小红书·今日最新<br/>时间排序 + 24h过滤]
   B --> E[B站·热门弹幕<br/>频次聚合去噪]
   B --> F[B站·高赞评论<br/>按点赞数筛选]
-  C --> G((daily / 日期 /<br/>四份 TXT 日报))
+  B --> H[GitHub·Trending<br/>热门项目+简介]
+  C --> G((daily / 日期 /<br/>五份 TXT 日报))
   D --> G
   E --> G
   F --> G
+  H --> G
       </pre>
-      <figcaption>图 1：每日采集流水线（四轮并行输出）</figcaption>
+      <figcaption>图 1：每日采集流水线（五轮并行输出）</figcaption>
     </figure>
   </div>
 </section>
@@ -347,6 +353,26 @@ flowchart LR
           <div class="from">《小潮team》粉丝团刷屏句式</div>
         </div>
       </div>
+
+      <div class="report-card purple-card">
+        <span class="tag purple">GitHub · 今日热门项目</span>
+        <div class="meta">Trending 全站榜 · 16 个项目 · 按今日新增 Star 排序</div>
+        <div class="comment-item">
+          <div class="head"><span class="likes">+2,666 星今日</span><span class="user">Shell</span></div>
+          <div class="text">mattpocock/skills — Skills for Real Engineers. Straight from my .agents directory.</div>
+          <div class="from">总星 25.1万 · Agent Skills 风潮头部项目</div>
+        </div>
+        <div class="comment-item">
+          <div class="head"><span class="likes">+2,813 星今日</span><span class="user">JavaScript</span></div>
+          <div class="text">DietrichGebert/ponytail — Makes your AI agent think like the laziest senior dev in the room.</div>
+          <div class="from">总星 12.7万 · "最好的代码是从没写过的代码"</div>
+        </div>
+        <div class="comment-item">
+          <div class="head"><span class="likes">+1,325 星今日</span><span class="user">JavaScript</span></div>
+          <div class="text">affaan-m/ECC — The agent harness performance optimization system.</div>
+          <div class="from">总星 24.9万 · Skills/instincts/memory/安全 一体的 Agent 工程化</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -367,6 +393,12 @@ flowchart LR
       <div class="chart-note">跨 10 个热门视频聚合 · 单位：出现次数</div>
       <div id="chart-danmaku" style="width:100%;min-height:480px"></div>
     </figure>
+
+    <figure class="chart-figure">
+      <div class="chart-title">GitHub Trending 今日新增星数 TOP 10</div>
+      <div class="chart-note">2026-09-05 全站榜 · 单位：今日新增 Star</div>
+      <div id="chart-github" style="width:100%;min-height:460px"></div>
+    </figure>
   </div>
 </section>
 
@@ -377,10 +409,11 @@ flowchart LR
       <div class="usage-card">
         <h3>仓库结构</h3>
         <div class="file-tree">
-          <span class="dir">daily_run.py</span> <span class="cmt"># 每日编排（四轮采集入口）</span><br>
+          <span class="dir">daily_run.py</span> <span class="cmt"># 每日编排（五轮采集入口）</span><br>
           <span class="dir">mc_comment_filter.py</span> <span class="cmt"># 小红书评论筛选 → TXT</span><br>
           <span class="dir">bili_danmaku.py</span> <span class="cmt"># B站弹幕采集 + 去噪</span><br>
           <span class="dir">bili_comments.py</span> <span class="cmt"># B站高赞评论采集</span><br>
+          <span class="dir">github_trending.py</span> <span class="cmt"># GitHub Trending 热门项目</span><br>
           <span class="dir">MediaCrawler/</span> <span class="cmt"># 采集底座（需另行 clone）</span><br>
           <span class="dir">data/</span> <span class="cmt"># 每日 TXT 日报（按日期）</span><br>
           <span class="dir">index.html</span> <span class="cmt"># 本页面（数据呈现）</span>
@@ -399,7 +432,7 @@ pip install -r requirements.txt
     <div class="usage-card" style="margin-top:20px">
       <h3>定时任务</h3>
       <p style="margin-bottom:0">
-        已配置每天 09:00（北京时间）自动执行：采集完成后检查当日四份 TXT 是否产出，并向用户简报各报告入选条数与最高赞内容。
+        已配置每天 09:00（北京时间）自动执行：采集完成后检查当日五份 TXT 是否产出，并向用户简报各报告入选条数、最高赞内容与 GitHub 热门项目。
         登录态失效时会提示手动扫码而非卡死等待。
       </p>
     </div>
