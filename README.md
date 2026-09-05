@@ -33,14 +33,16 @@ start index.html
 ## 仓库结构
 
 ```
-daily_run.py           # 每日编排入口（五轮采集）
+daily_run.py           # 每日编排入口（五轮采集 + 自动同步）
 mc_comment_filter.py   # 小红书评论筛选 → TXT
 bili_danmaku.py        # B站弹幕采集 + 频次聚合 + 去噪
 bili_comments.py       # B站高赞评论采集
 github_trending.py     # GitHub Trending 热门项目采集
-index.html             # 数据呈现页（图表 + 当日高亮）
+sync_to_github.py      # 日报 → Pages 页面更新 → commit/push → 触发构建
+gh_desc_zh.json        # GitHub 项目中文简介映射（未知项目回退英文）
+index.html             # 数据呈现页（图表 + 当日高亮，含同步锚点）
 assets/ _shared/       # 呈现页静态资源
-data/                  # 每日 TXT 日报样例
+data/                  # 每日 TXT 日报（按日期）
 MediaCrawler/          # 采集底座（需另行 clone，不入库）
 ```
 
@@ -49,6 +51,7 @@ MediaCrawler/          # 采集底座（需另行 clone，不入库）
 - **小红书**：基于 [MediaCrawler](https://github.com/NanmiCoder/MediaCrawler)（Playwright + 官方 Web 接口），登录态持久化在本地浏览器目录，首次扫码后长期免登录。编排脚本自动切换排序策略跑两轮：热度排序（经典高赞）与时间排序（今日最新，仅保留近 24 小时发布的评论）。
 - **B站**：免登录直连接口。热门/排行榜 API 取视频列表（自带 cid），XML 弹幕接口采全量弹幕做频次聚合，评论接口（`sort=2` 热度序）取游客可见热评。
 - **GitHub**：免登录解析 github.com/trending 页面，取项目名/简介/语言/总星数/今日新增 Star（star 数已经 gh API 交叉验证）。
+- **自动同步**：采集完成后 `sync_to_github.py` 解析五份日报，按 `<!-- SYNC:* -->` 锚点更新 index.html 的统计卡/报告卡/项目表与 charts.js 图表数据，连同日报 TXT 一起 commit + push 并触发 Pages 构建，实现页面每日自动更新。
 - **定时**：每天 09:00 自动执行，产物按日期落盘，登录态失效时提示人工扫码而非卡死。
 
 ## 采集参数
