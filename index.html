@@ -131,7 +131,6 @@
     color: var(--accent); white-space: nowrap;
   }
   .report-card.blue-card .comment-item .likes { color: var(--accent2); }
-  .report-card.purple-card .comment-item .likes { color: #a371f7; }
   .comment-item .user { color: var(--muted); font-size: 13px; }
   .comment-item .text { font-size: 15px; line-height: 1.6; }
   .comment-item .from { color: var(--muted); font-size: 12.5px; margin-top: 4px; }
@@ -180,6 +179,15 @@
   td { padding: 12px 16px; border-bottom: 1px solid var(--rule); vertical-align: top; }
   tr:last-child td { border-bottom: none; }
   td.mono { font-family: 'JetBrainsMono', monospace; color: var(--accent2); }
+  td.gh-repo a { font-family: 'JetBrainsMono', monospace; font-size: 13px; color: var(--ink); text-decoration: none; }
+  td.gh-repo a:hover { color: #a371f7; }
+  td.gh-stars { font-family: 'JetBrainsMono', monospace; white-space: nowrap; }
+  td.gh-stars .today { color: #a371f7; font-weight: 700; }
+  td.gh-stars .total { color: var(--muted); font-size: 12.5px; }
+  td.gh-desc { color: var(--muted); font-size: 13px; line-height: 1.55; }
+  .table-header { display: flex; align-items: center; gap: 12px; margin-top: 36px; }
+  .table-header .tag { margin-bottom: 0; }
+  .table-header .count { color: var(--muted); font-size: 13px; }
 
   /* ===== Footer ===== */
   footer { margin-top: 64px; border-top: 1px solid var(--rule); padding: 32px 0 48px; }
@@ -353,26 +361,36 @@ flowchart LR
           <div class="from">《小潮team》粉丝团刷屏句式</div>
         </div>
       </div>
+    </div>
 
-      <div class="report-card purple-card">
-        <span class="tag purple">GitHub · 今日热门项目</span>
-        <div class="meta">Trending 全站榜 · 16 个项目 · 按今日新增 Star 排序</div>
-        <div class="comment-item">
-          <div class="head"><span class="likes">+2,666 星今日</span><span class="user">Shell</span></div>
-          <div class="text">mattpocock/skills — Skills for Real Engineers. Straight from my .agents directory.</div>
-          <div class="from">总星 25.1万 · Agent Skills 风潮头部项目</div>
-        </div>
-        <div class="comment-item">
-          <div class="head"><span class="likes">+2,813 星今日</span><span class="user">JavaScript</span></div>
-          <div class="text">DietrichGebert/ponytail — Makes your AI agent think like the laziest senior dev in the room.</div>
-          <div class="from">总星 12.7万 · "最好的代码是从没写过的代码"</div>
-        </div>
-        <div class="comment-item">
-          <div class="head"><span class="likes">+1,325 星今日</span><span class="user">JavaScript</span></div>
-          <div class="text">affaan-m/ECC — The agent harness performance optimization system.</div>
-          <div class="from">总星 24.9万 · Skills/instincts/memory/安全 一体的 Agent 工程化</div>
-        </div>
-      </div>
+    <div class="table-header">
+      <span class="tag purple">GitHub · 今日热门项目</span>
+      <span class="count">Trending 全站榜 · 16 个项目 · 按今日新增 Star 排序 · 星数经 gh API 交叉验证</span>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th style="width:36px">#</th><th>项目</th><th style="width:90px">语言</th><th style="width:120px">今日 Star</th><th style="width:90px">总星数</th><th>简介</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td class="gh-repo"><a href="https://github.com/mattpocock/skills">mattpocock/skills</a></td><td>Shell</td><td class="gh-stars"><span class="today">+2,666</span></td><td class="gh-stars"><span class="total">251,476</span></td><td class="gh-desc">面向真工程师的 Agent Skills，直接取自作者的 .agents 目录</td></tr>
+          <tr><td>2</td><td class="gh-repo"><a href="https://github.com/affaan-m/ECC">affaan-m/ECC</a></td><td>JavaScript</td><td class="gh-stars"><span class="today">+1,325</span></td><td class="gh-stars"><span class="total">249,080</span></td><td class="gh-desc">Agent harness 性能优化系统：为 Claude Code / Codex / Cursor 提供技能、直觉、记忆与安全机制</td></tr>
+          <tr><td>3</td><td class="gh-repo"><a href="https://github.com/DietrichGebert/ponytail">DietrichGebert/ponytail</a></td><td>JavaScript</td><td class="gh-stars"><span class="today">+2,813</span></td><td class="gh-stars"><span class="total">127,164</span></td><td class="gh-desc">让你的 AI 像屋里最懒的资深工程师一样思考——最好的代码是从没写过的代码</td></tr>
+          <tr><td>4</td><td class="gh-repo"><a href="https://github.com/NousResearch/hermes-agent">NousResearch/hermes-agent</a></td><td>Python</td><td class="gh-stars"><span class="today">+573</span></td><td class="gh-stars"><span class="total">241,745</span></td><td class="gh-desc">与你共同成长的 Agent</td></tr>
+          <tr><td>5</td><td class="gh-repo"><a href="https://github.com/fmtlib/fmt">fmtlib/fmt</a></td><td>C++</td><td class="gh-stars"><span class="today">+133</span></td><td class="gh-stars"><span class="total">25,530</span></td><td class="gh-desc">C++ 现代格式化库（老牌基础设施，长青项目）</td></tr>
+          <tr><td>6</td><td class="gh-repo"><a href="https://github.com/anthropics/skills">anthropics/skills</a></td><td>Python</td><td class="gh-stars"><span class="today">+472</span></td><td class="gh-stars"><span class="total">174,366</span></td><td class="gh-desc">Anthropic 官方 Agent Skills 仓库</td></tr>
+          <tr><td>7</td><td class="gh-repo"><a href="https://github.com/cathrynlavery/diagram-design">cathrynlavery/diagram-design</a></td><td>HTML</td><td class="gh-stars"><span class="today">+852</span></td><td class="gh-stars"><span class="total">31,368</span></td><td class="gh-desc">38 种编辑级图表模板，自包含 HTML + SVG，无需 Mermaid</td></tr>
+          <tr><td>8</td><td class="gh-repo"><a href="https://github.com/anomalyco/opencode">anomalyco/opencode</a></td><td>TypeScript</td><td class="gh-stars"><span class="today">+725</span></td><td class="gh-stars"><span class="total">204,417</span></td><td class="gh-desc">开源编码 Agent</td></tr>
+          <tr><td>9</td><td class="gh-repo"><a href="https://github.com/ruvnet/ruflo">ruvnet/ruflo</a></td><td>TypeScript</td><td class="gh-stars"><span class="today">+127</span></td><td class="gh-stars"><span class="total">70,556</span></td><td class="gh-desc">Agent 元框架：多智能体集群编排 + 自适应记忆 + RAG 集成</td></tr>
+          <tr><td>10</td><td class="gh-repo"><a href="https://github.com/humanlayer/skills">humanlayer/skills</a></td><td>TypeScript</td><td class="gh-stars"><span class="today">+1,141</span></td><td class="gh-stars"><span class="total">2,472</span></td><td class="gh-desc">HumanLayer 官方 Skills 仓库（总星仅 2.4k，今日爆涨的新仓库）</td></tr>
+          <tr><td>11</td><td class="gh-repo"><a href="https://github.com/blader/humanizer">blader/humanizer</a></td><td>Python</td><td class="gh-stars"><span class="today">+988</span></td><td class="gh-stars"><span class="total">43,115</span></td><td class="gh-desc">去除文本 AI 味的 Agent 技能</td></tr>
+          <tr><td>12</td><td class="gh-repo"><a href="https://github.com/BraveOPotato/FckSignups">BraveOPotato/FckSignups</a></td><td>TypeScript</td><td class="gh-stars"><span class="today">+50</span></td><td class="gh-stars"><span class="total">2,659</span></td><td class="gh-desc">无需注册的开源浏览器工具清单</td></tr>
+          <tr><td>13</td><td class="gh-repo"><a href="https://github.com/WorldFlowAI/everything-claude-code">WorldFlowAI/everything-claude-code</a></td><td>JavaScript</td><td class="gh-stars"><span class="today">+87</span></td><td class="gh-stars"><span class="total">2,168</span></td><td class="gh-desc">Claude Code 工具箱：agents / commands / skills / rules / hooks</td></tr>
+          <tr><td>14</td><td class="gh-repo"><a href="https://github.com/magnitudedev/magnitude">magnitudedev/magnitude</a></td><td>TypeScript</td><td class="gh-stars"><span class="today">+686</span></td><td class="gh-stars"><span class="total">2,835</span></td><td class="gh-desc">开源推理服务器：按你的硬件跑最优本地模型，接入现有 Agent</td></tr>
+          <tr><td>15</td><td class="gh-repo"><a href="https://github.com/bikini/exploitarium">bikini/exploitarium</a></td><td>Python</td><td class="gh-stars"><span class="today">+232</span></td><td class="gh-stars"><span class="total">4,609</span></td><td class="gh-desc">公开漏洞 PoC 与安全研究文章归档</td></tr>
+          <tr><td>16</td><td class="gh-repo"><a href="https://github.com/nvm-sh/nvm">nvm-sh/nvm</a></td><td>Shell</td><td class="gh-stars"><span class="today">+17</span></td><td class="gh-stars"><span class="total">94,846</span></td><td class="gh-desc">Node 版本管理器（POSIX 兼容 bash 脚本，长青基础设施）</td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </section>

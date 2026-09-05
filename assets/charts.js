@@ -33,7 +33,7 @@
         return p.data.platform + ' · ' + p.data.likes + ' 赞<br>' + p.data.full;
       }
     },
-    grid: { left: 8, right: 60, top: 10, bottom: 10, containLabel: true },
+    grid: { left: 8, right: 64, top: 10, bottom: 10, containLabel: true },
     xAxis: { type: 'value', axisLabel: { color: muted }, splitLine: { lineStyle: { color: rule } } },
     yAxis: {
       type: 'category',
@@ -59,9 +59,9 @@
       label: {
         show: true, position: 'right',
         color: muted, fontFamily: 'JetBrainsMono, monospace', fontSize: 12,
-        formatter: function (p) { return p.data.likes; }
+        formatter: function (p) { return p.data.likes + ' 赞'; }
       },
-      barMaxWidth: 22
+      barMaxWidth: 20
     }]
   });
   window.addEventListener('resize', function () { chart1.resize(); });
@@ -94,7 +94,7 @@
         return p.name + '<br>' + p.value + ' 次';
       }
     },
-    grid: { left: 8, right: 56, top: 10, bottom: 10, containLabel: true },
+    grid: { left: 8, right: 64, top: 10, bottom: 10, containLabel: true },
     xAxis: { type: 'value', axisLabel: { color: muted }, splitLine: { lineStyle: { color: rule } } },
     yAxis: {
       type: 'category',
@@ -116,7 +116,7 @@
       label: {
         show: true, position: 'right',
         color: muted, fontFamily: 'JetBrainsMono, monospace', fontSize: 12,
-        formatter: '{c} 次'
+        formatter: function (p) { return p.value.toLocaleString() + ' 次'; }
       },
       barMaxWidth: 20
     }]
@@ -128,13 +128,13 @@
     { name: 'DietrichGebert/ponytail', value: 2813, lang: 'JavaScript', total: '127,164' },
     { name: 'mattpocock/skills', value: 2666, lang: 'Shell', total: '251,476' },
     { name: 'affaan-m/ECC', value: 1325, lang: 'JavaScript', total: '249,080' },
-    { name: 'humanlayer/skills', value: 1141, lang: 'TypeScript', total: '—' },
-    { name: 'blader/humanizer', value: 988, lang: 'Python', total: '—' },
-    { name: 'cathrynlavery/diagram-design', value: 852, lang: 'HTML', total: '—' },
-    { name: 'anomalyco/opencode', value: 725, lang: 'TypeScript', total: '—' },
-    { name: 'magnitudedev/magnitude', value: 686, lang: 'TypeScript', total: '—' },
+    { name: 'humanlayer/skills', value: 1141, lang: 'TypeScript', total: '2,472' },
+    { name: 'blader/humanizer', value: 988, lang: 'Python', total: '43,115' },
+    { name: 'cathrynlavery/diagram-design', value: 852, lang: 'HTML', total: '31,368' },
+    { name: 'anomalyco/opencode', value: 725, lang: 'TypeScript', total: '204,417' },
+    { name: 'magnitudedev/magnitude', value: 686, lang: 'TypeScript', total: '2,835' },
     { name: 'NousResearch/hermes-agent', value: 573, lang: 'Python', total: '241,745' },
-    { name: 'anthropics/skills', value: 472, lang: 'Python', total: '—' }
+    { name: 'anthropics/skills', value: 472, lang: 'Python', total: '174,366' }
   ].reverse();
 
   var chart3 = echarts.init(document.getElementById('chart-github'), null, { renderer: 'svg' });
@@ -147,15 +147,15 @@
       formatter: function (params) {
         var p = params[0];
         return p.data.repo + '<br>今日 +' + p.value.toLocaleString() + ' 星 · ' + p.data.lang +
-          (p.data.total && p.data.total !== '—' ? '<br>总星 ' + p.data.total : '');
+          (p.data.total ? '<br>总星 ' + p.data.total : '');
       }
     },
-    grid: { left: 8, right: 70, top: 10, bottom: 10, containLabel: true },
+    grid: { left: 8, right: 64, top: 10, bottom: 10, containLabel: true },
     xAxis: { type: 'value', axisLabel: { color: muted }, splitLine: { lineStyle: { color: rule } } },
     yAxis: {
       type: 'category',
       data: ghTrending.map(function (d) { return d.name; }),
-      axisLabel: { color: ink, fontSize: 12, fontFamily: 'JetBrainsMono, monospace' },
+      axisLabel: { color: ink, fontSize: 13 },
       axisLine: { lineStyle: { color: rule } }
     },
     series: [{
@@ -166,13 +166,16 @@
           repo: d.name,
           lang: d.lang,
           total: d.total,
-          itemStyle: { color: '#a371f7', borderRadius: [0, 4, 4, 0] }
+          itemStyle: {
+            color: d.value > 1000 ? '#a371f7' : '#a371f788',
+            borderRadius: [0, 4, 4, 0]
+          }
         };
       }),
       label: {
         show: true, position: 'right',
         color: muted, fontFamily: 'JetBrainsMono, monospace', fontSize: 12,
-        formatter: function (p) { return '+' + p.value.toLocaleString(); }
+        formatter: function (p) { return '+' + p.value.toLocaleString() + ' 星'; }
       },
       barMaxWidth: 20
     }]
