@@ -195,6 +195,22 @@
   footer a { color: var(--accent); text-decoration: none; }
   footer a:hover { text-decoration: underline; }
 
+  /* ===== Quick Links ===== */
+  .quick-links { display: flex; flex-wrap: wrap; gap: 10px; margin: 4px 0 18px; }
+  .quick-links a {
+    display: inline-flex; align-items: center; gap: 7px;
+    padding: 7px 16px; border-radius: 999px;
+    border: 1px solid var(--rule); background: rgba(255, 255, 255, 0.04);
+    color: var(--ink); text-decoration: none; font-size: 13.5px; font-weight: 600;
+    transition: border-color 0.15s, background 0.15s, transform 0.1s;
+  }
+  .quick-links a:hover { border-color: var(--link-c); background: rgba(255, 255, 255, 0.08); transform: translateY(-1px); }
+  .quick-links a .lk-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--link-c); flex: none; }
+  .quick-links a.bili { --link-c: #22b8e6; }
+  .quick-links a.yandex { --link-c: #fc3f1d; }
+  .quick-links a.github { --link-c: #a371f7; }
+  .quick-links a.doubao { --link-c: #4d6bfe; }
+
   @media (max-width: 800px) {
     h1 { font-size: 32px; }
     .stats { grid-template-columns: repeat(2, 1fr); }
@@ -209,6 +225,12 @@
   <div class="container">
     <div class="badge"><span class="dot"></span>每日 09:00 自动更新 · 数据日期 2026-09-05</div>
     <h1>热门评论区<span class="xhs">观察站</span></h1>
+    <nav class="quick-links">
+      <a class="bili" href="https://www.bilibili.com" target="_blank" rel="noopener"><span class="lk-dot"></span>B站</a>
+      <a class="yandex" href="https://yandex.com" target="_blank" rel="noopener"><span class="lk-dot"></span>Yandex</a>
+      <a class="github" href="https://github.com" target="_blank" rel="noopener"><span class="lk-dot"></span>GitHub</a>
+      <a class="doubao" href="https://www.doubao.com" target="_blank" rel="noopener"><span class="lk-dot"></span>豆包</a>
+    </nav>
     <p class="subtitle">
       每天自动采集<strong>小红书</strong>热门笔记的高赞评论、<strong>B站</strong>热门视频的高赞评论与热门弹幕，
       以及 <strong>GitHub</strong> Trending 热门项目（含简介/星数），输出每日 TXT 日报。全流程免登录维护：首次扫码后登录态持久化复用。
