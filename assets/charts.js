@@ -11,14 +11,14 @@
   var topComments = [
     { name: '跟普通手机安装一个豆包APP有什么区别', value: 11000, platform: '小红书' },
     { name: '哪天豆包不开心了，不让你用手机怎么办', value: 8313, platform: '小红书' },
-    { name: '请求支援此评论，溯源之惧已出第六章', value: 3859, platform: 'B站' },
+    { name: '请求支援此评论，溯源之惧已出第六章', value: 4013, platform: 'B站' },
     { name: '系统级 跨APP执行', value: 3024, platform: '小红书' },
-    { name: '时间的力量[大哭][大哭][大哭]', value: 2823, platform: 'B站' },
+    { name: '时间的力量[大哭][大哭][大哭]', value: 2849, platform: 'B站' },
+    { name: '我只是开玩笑的而已啊。[辣眼睛]', value: 2754, platform: 'B站' },
     { name: '最早玩黑莓那代人已经老花了', value: 2220, platform: '小红书' },
     { name: '2是7', value: 1768, platform: '小红书' },
     { name: '妈你看手机不离手不就不会丢了吗', value: 1680, platform: '小红书' },
-    { name: '12年iphone4拍的[笑哭R]', value: 1531, platform: '小红书' },
-    { name: '第一个在哪买的，想要[害羞R]', value: 1380, platform: '小红书' }
+    { name: '12年iphone4拍的[笑哭R]', value: 1531, platform: '小红书' }
   ].reverse();
 
   var chart1 = echarts.init(document.getElementById('chart-top-comments'), null, { renderer: 'svg' });

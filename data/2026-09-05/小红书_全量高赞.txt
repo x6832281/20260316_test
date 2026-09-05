@@ -1,0 +1,365 @@
+﻿============================================================
+小红书高赞评论日报
+数据文件: search_comments_2026-09-05.jsonl
+笔记文件: search_contents_2026-09-05.jsonl
+评论总数: 4774 (去重后入选 63 条, 最低 100 赞)
+生成时间: 2026-09-05 20:09:38
+============================================================
+
+关键词分布: 手机(63条)
+
+#1  [11000 赞]  S***n  2025-12-04 07:12
+    跟普通手机安装一个豆包APP有什么区别
+    ↳ 笔记: 同事的豆包手机到了 (笔记点赞 1.4万)
+    ↳ 回复数: 46
+    ↳ 链接: https://www.xiaohongshu.com/explore/69301ff4000000001e029cef?xsec_token=ABJQrbMJ0rv4vhrlQjzwBrpN7kPqYGpdBxvpBx39mKU6g=&xsec_source=pc_search
+
+#2  [8313 赞]  序***📸  2025-12-04 08:30
+    哪天豆包不开心了，不让你用手机怎么办
+    ↳ 笔记: 同事的豆包手机到了 (笔记点赞 1.4万)
+    ↳ 回复数: 38
+    ↳ 链接: https://www.xiaohongshu.com/explore/69301ff4000000001e029cef?xsec_token=ABJQrbMJ0rv4vhrlQjzwBrpN7kPqYGpdBxvpBx39mKU6g=&xsec_source=pc_search
+
+#3  [3024 赞]  小***3  2025-12-04 07:24
+    系统级 跨APP执行
+    ↳ 笔记: 同事的豆包手机到了 (笔记点赞 1.4万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/69301ff4000000001e029cef?xsec_token=ABJQrbMJ0rv4vhrlQjzwBrpN7kPqYGpdBxvpBx39mKU6g=&xsec_source=pc_search
+
+#4  [2220 赞]  C***a  2026-04-23 14:19
+    最早玩黑莓那代人已经老花了
+    ↳ 笔记: 年度颜值黑马｜Unihertz Titan 2 Elite (笔记点赞 3516)
+    ↳ 回复数: 116
+    ↳ 链接: https://www.xiaohongshu.com/explore/69e224d9000000002101038b?xsec_token=ABmuylZEbxoHDcVfKEl8R1_BD21a9foH64_6sR_VGWK08=&xsec_source=pc_search
+
+#5  [1768 赞]  F***n  2026-02-23 21:08
+    2是7
+    ↳ 笔记: 相隔十年，iPhone到底进化了什么？ (笔记点赞 5774)
+    ↳ 链接: https://www.xiaohongshu.com/explore/699ab185000000001a02567f?xsec_token=AB9MRNPH7i-pxtsiwE-W46H8pRsztx20EmW77-H6o1bL4=&xsec_source=pc_search
+
+#6  [1680 赞]  ^***T  2026-09-02 20:20
+    妈你看手机不离手不就不会丢了吗[抽泣R]还成天说我[色色R]
+    ↳ 笔记: 是不是每次出远门非要丢点东西才算圆满 (笔记点赞 1.1万)
+    ↳ 回复数: 12
+    ↳ 链接: https://www.xiaohongshu.com/explore/6a981106000000002900f745?xsec_token=ABgFkexTizTcRuRHtiUpnK2k469XWnsLSy-Mcl9cbFqKg=&xsec_source=pc_search
+
+#7  [1531 赞]  未***🍀  2026-02-23 10:47
+    12年iphone4拍的[笑哭R]
+    ↳ 笔记: 相隔十年，iPhone到底进化了什么？ (笔记点赞 5774)
+    ↳ 回复数: 109
+    ↳ 链接: https://www.xiaohongshu.com/explore/699ab185000000001a02567f?xsec_token=AB9MRNPH7i-pxtsiwE-W46H8pRsztx20EmW77-H6o1bL4=&xsec_source=pc_search
+
+#8  [1380 赞]  八***屯  2026-05-09 12:10
+    第一个在哪买的，想要[害羞R]
+    ↳ 笔记: 千禧年复古手机开箱2📦真的太潮了！ (笔记点赞 6.8万)
+    ↳ 回复数: 149
+    ↳ 链接: https://www.xiaohongshu.com/explore/69feb1ff000000001a035b66?xsec_token=ABLFmE3bwpqQm6dEeTvDNCLDMYSrplaopo_JWirxUDbs0=&xsec_source=pc_search
+
+#9  [1352 赞]  苦***事  2026-09-05 01:12
+    大半夜脑子乱乱的写也乱乱的，反正就是万人嫌右位假装失忆试探所有人发现没人在意他于是乎决定去亖……
+    ↳ 笔记: 身不由己的万人嫌决定去亖1️⃣ (笔记点赞 1.1万)
+    ↳ 回复数: 240
+    ↳ 链接: https://www.xiaohongshu.com/explore/6a9afa38000000002b00221d?xsec_token=ABWbLj4SC99ktl33dmJNWVn9fU3s81nh8eovsYrjg-vcA=&xsec_source=pc_search
+
+#10  [1047 赞]  我***病  2026-02-23 10:55
+    Xsmax
+    ↳ 笔记: 相隔十年，iPhone到底进化了什么？ (笔记点赞 5774)
+    ↳ 回复数: 64
+    ↳ 链接: https://www.xiaohongshu.com/explore/699ab185000000001a02567f?xsec_token=AB9MRNPH7i-pxtsiwE-W46H8pRsztx20EmW77-H6o1bL4=&xsec_source=pc_search
+
+#11  [1041 赞]  m***o  2026-02-23 18:59
+    真的受不了像抠图贴上去的[失望R][失望R][失望R]
+    ↳ 笔记: 相隔十年，iPhone到底进化了什么？ (笔记点赞 5774)
+    ↳ 链接: https://www.xiaohongshu.com/explore/699ab185000000001a02567f?xsec_token=AB9MRNPH7i-pxtsiwE-W46H8pRsztx20EmW77-H6o1bL4=&xsec_source=pc_search
+
+#12  [1030 赞]  小***1  2025-12-04 10:04
+    哄它开心
+    ↳ 笔记: 同事的豆包手机到了 (笔记点赞 1.4万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/69301ff4000000001e029cef?xsec_token=ABJQrbMJ0rv4vhrlQjzwBrpN7kPqYGpdBxvpBx39mKU6g=&xsec_source=pc_search
+
+#13  [1010 赞]  盛*  2026-05-09 12:38
+    第一个我妈妈真用过，但是我妈带我去买橘子，让我落人橘子车上了
+    ↳ 笔记: 千禧年复古手机开箱2📦真的太潮了！ (笔记点赞 6.8万)
+    ↳ 回复数: 13
+    ↳ 链接: https://www.xiaohongshu.com/explore/69feb1ff000000001a035b66?xsec_token=ABLFmE3bwpqQm6dEeTvDNCLDMYSrplaopo_JWirxUDbs0=&xsec_source=pc_search
+
+#14  [938 赞]  日***家  2026-02-23 14:02
+    13pro真的是最差的 我的11都好看很多 当时真的感觉被背刺了
+    ↳ 笔记: 相隔十年，iPhone到底进化了什么？ (笔记点赞 5774)
+    ↳ 链接: https://www.xiaohongshu.com/explore/699ab185000000001a02567f?xsec_token=AB9MRNPH7i-pxtsiwE-W46H8pRsztx20EmW77-H6o1bL4=&xsec_source=pc_search
+
+#15  [796 赞]  1***蜜  2026-05-23 09:45
+    这个东西是又要重出江湖了吗
+    ↳ 笔记: 十个月后所有手机将迎来巨变#手机#手机电池 (笔记点赞 6296)
+    ↳ 回复数: 89
+    ↳ 链接: https://www.xiaohongshu.com/explore/6a104917000000000800207a?xsec_token=ABDiU_sx87uOkGaS8RXKwrLe8aSfoKu2898aWElYYAigE=&xsec_source=pc_search
+
+#16  [791 赞]  。*  2026-02-23 13:36
+    我哥的16pro和我的13就差很多
+    ↳ 笔记: 相隔十年，iPhone到底进化了什么？ (笔记点赞 5774)
+    ↳ 回复数: 217
+    ↳ 链接: https://www.xiaohongshu.com/explore/699ab185000000001a02567f?xsec_token=AB9MRNPH7i-pxtsiwE-W46H8pRsztx20EmW77-H6o1bL4=&xsec_source=pc_search
+
+#17  [790 赞]  月***静  2026-05-11 07:41
+    12用了第六年的人默默退出视频
+    ↳ 笔记: 从夯到拉锐评🌟历代iPhone机型📱 (笔记点赞 9034)
+    ↳ 回复数: 63
+    ↳ 链接: https://www.xiaohongshu.com/explore/6a00439c0000000037035eed?xsec_token=AB0KP38dd5RqF0JarzPtGPjr7Ma6CsNOAvJQ1zIugHJVY=&xsec_source=pc_search
+
+#18  [758 赞]  小***E  2026-02-23 15:05
+    这个句史锐化，一看就是13[笑哭R]
+    ↳ 笔记: 相隔十年，iPhone到底进化了什么？ (笔记点赞 5774)
+    ↳ 链接: https://www.xiaohongshu.com/explore/699ab185000000001a02567f?xsec_token=AB9MRNPH7i-pxtsiwE-W46H8pRsztx20EmW77-H6o1bL4=&xsec_source=pc_search
+
+#19  [675 赞]  暮*  2026-09-05 01:23
+    [抽泣R]小苦瓜，和句号两个小苦瓜，让他俩私奔吧
+    ↳ 笔记: 身不由己的万人嫌决定去亖1️⃣ (笔记点赞 1.1万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6a9afa38000000002b00221d?xsec_token=ABWbLj4SC99ktl33dmJNWVn9fU3s81nh8eovsYrjg-vcA=&xsec_source=pc_search
+
+#20  [671 赞]  波***顿  2026-04-23 13:08
+    都做回黑莓了，什么时候出我最喜欢的翻盖手机，挂电话时啪一下特别有气势，现在平板智能机完全做不到[doge]
+    ↳ 笔记: 年度颜值黑马｜Unihertz Titan 2 Elite (笔记点赞 3516)
+    ↳ 回复数: 67
+    ↳ 链接: https://www.xiaohongshu.com/explore/69e224d9000000002101038b?xsec_token=ABmuylZEbxoHDcVfKEl8R1_BD21a9foH64_6sR_VGWK08=&xsec_source=pc_search
+
+#21  [633 赞]  紫***剑  2026-04-21 18:31
+    我以为黑莓又复活了[笑哭R]
+    ↳ 笔记: 年度颜值黑马｜Unihertz Titan 2 Elite (笔记点赞 3516)
+    ↳ 回复数: 8
+    ↳ 链接: https://www.xiaohongshu.com/explore/69e224d9000000002101038b?xsec_token=ABmuylZEbxoHDcVfKEl8R1_BD21a9foH64_6sR_VGWK08=&xsec_source=pc_search
+
+#22  [562 赞]  茉***茶  2025-12-04 07:38
+    其实就是刷个系统包就行了[偷笑R]
+    ↳ 笔记: 同事的豆包手机到了 (笔记点赞 1.4万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/69301ff4000000001e029cef?xsec_token=ABJQrbMJ0rv4vhrlQjzwBrpN7kPqYGpdBxvpBx39mKU6g=&xsec_source=pc_search
+
+#23  [456 赞]  m***）  2026-02-23 21:06
+    猜猜哪个是7哪个是17pm
+    ↳ 笔记: 相隔十年，iPhone到底进化了什么？ (笔记点赞 5774)
+    ↳ 回复数: 188
+    ↳ 链接: https://www.xiaohongshu.com/explore/699ab185000000001a02567f?xsec_token=AB9MRNPH7i-pxtsiwE-W46H8pRsztx20EmW77-H6o1bL4=&xsec_source=pc_search
+
+#24  [455 赞]  大***🍍  2026-02-23 10:49
+    震惊是真不错啊
+    ↳ 笔记: 相隔十年，iPhone到底进化了什么？ (笔记点赞 5774)
+    ↳ 链接: https://www.xiaohongshu.com/explore/699ab185000000001a02567f?xsec_token=AB9MRNPH7i-pxtsiwE-W46H8pRsztx20EmW77-H6o1bL4=&xsec_source=pc_search
+
+#25  [433 赞]  斑***^  2026-07-26 01:00
+    没意思，但是要考
+    ↳ 笔记: 建议上大学准备一台二手备用机。
+不少开卷考试题目很偏，书本上找不到，用来查资料刚刚好。#小徐呀[话题]##大一新生[话题]# #大学生活[话题]#  #准大学生[话题]#  #大学生经验分享[话题]# (笔记点赞 5649)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6a643cef0000000001001739?xsec_token=ABiTlcFc0HHeiLIPycHkZUJkIMIXHzEw1p2jUkBxqAbXw=&xsec_source=pc_search
+
+#26  [364 赞]  Z***丶  2025-12-04 08:34
+    这个确实 你快把系统包放出来[偷笑R]
+    ↳ 笔记: 同事的豆包手机到了 (笔记点赞 1.4万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/69301ff4000000001e029cef?xsec_token=ABJQrbMJ0rv4vhrlQjzwBrpN7kPqYGpdBxvpBx39mKU6g=&xsec_source=pc_search
+
+#27  [352 赞]  萝***工  2025-11-10 22:07
+    本来冲着外形想买，结果发现这硬件甚至SOC都不如我5年前买的手机[笑哭R]
+    ↳ 笔记: 纯白手机的教科书｜索尼Xperia 10II (笔记点赞 7132)
+    ↳ 回复数: 53
+    ↳ 链接: https://www.xiaohongshu.com/explore/6911e094000000000303bf05?xsec_token=ABDG2jIAYMBGEqoC2uY82TTg5-URy31NB8dY4nMLuESnU=&xsec_source=pc_search
+
+#28  [318 赞]  余***东  2026-08-20 17:37
+    注意事项：
+1. 开奖后会在本条发帖置顶评论公示中奖用户账号信息。
+2. 请中奖用户及时留意，私信我的账号@余承东 并评论，于开奖后7天内提供邮寄信息（收件人姓名、联系电话、详细地址），逾期视为放弃中奖，奖品不再补发。我们的工作人员将在收到您反馈的邮寄信息后，10个工作日内安排奖品寄出。
+    ↳ 笔记: 准备了几台华为阔直板，送给你们 (笔记点赞 1.7万)
+    ↳ 回复数: 408
+    ↳ 链接: https://www.xiaohongshu.com/explore/6a86c5cf0000000028020c9c?xsec_token=ABShoTO2xamgZrL8pGa4bkGk8cFQHWCW5K-P1mbI-nmtY=&xsec_source=pc_search
+
+#29  [317 赞]  面***啡  2026-02-23 17:56
+    猜猜苹果几
+    ↳ 笔记: 相隔十年，iPhone到底进化了什么？ (笔记点赞 5774)
+    ↳ 回复数: 93
+    ↳ 链接: https://www.xiaohongshu.com/explore/699ab185000000001a02567f?xsec_token=AB9MRNPH7i-pxtsiwE-W46H8pRsztx20EmW77-H6o1bL4=&xsec_source=pc_search
+
+#30  [295 赞]  s***g  2026-04-20 22:43
+    既然这样，黑莓何必落幕[石化R]
+    ↳ 笔记: 年度颜值黑马｜Unihertz Titan 2 Elite (笔记点赞 3516)
+    ↳ 回复数: 18
+    ↳ 链接: https://www.xiaohongshu.com/explore/69e224d9000000002101038b?xsec_token=ABmuylZEbxoHDcVfKEl8R1_BD21a9foH64_6sR_VGWK08=&xsec_source=pc_search
+
+#31  [293 赞]  人***家  2026-05-09 14:21
+    罚你今天不许看电视[偷笑R]
+    ↳ 笔记: 千禧年复古手机开箱2📦真的太潮了！ (笔记点赞 6.8万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/69feb1ff000000001a035b66?xsec_token=ABLFmE3bwpqQm6dEeTvDNCLDMYSrplaopo_JWirxUDbs0=&xsec_source=pc_search
+
+#32  [279 赞]  。***。  2025-10-17 01:58
+    。。。三星的屏就是最好的啊。。苹果都是用的三星的屏幕[笑哭R]
+    ↳ 笔记: 这就是三星顶级屏幕的质感吗？ (笔记点赞 1.3万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/68ed1922000000000300de78?xsec_token=ABis87oFugc7YKzV1RacPYBCznEa7JMLVsGG7Cwnuyhww=&xsec_source=pc_search
+
+#33  [261 赞]  T***n  2026-02-23 10:57
+    卧槽好漂亮
+    ↳ 笔记: 相隔十年，iPhone到底进化了什么？ (笔记点赞 5774)
+    ↳ 链接: https://www.xiaohongshu.com/explore/699ab185000000001a02567f?xsec_token=AB9MRNPH7i-pxtsiwE-W46H8pRsztx20EmW77-H6o1bL4=&xsec_source=pc_search
+
+#34  [253 赞]  月***了  2025-09-18 16:13
+    三星真的看久了眼睛累不知道为啥
+    ↳ 笔记: 三星24ultra对比iPhone16pro！😋😋 (笔记点赞 4029)
+    ↳ 回复数: 15
+    ↳ 链接: https://www.xiaohongshu.com/explore/68ca07a6000000001201ef06?xsec_token=ABNPanvXCrx07mNpNZDIE8MUZr6BuM4V8XDiQ2Std7fWs=&xsec_source=pc_search
+
+#35  [247 赞]  齐***衍  2026-07-25 12:45
+    这种就是纯有钱，用不用倒是不在乎
+    ↳ 笔记: 初中生9台手机介绍 (笔记点赞 4001)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6a633a47000000000a03a0f1?xsec_token=ABQa5YRM9C8KgEDbCJQJPHyYuUtlPQrkKxoSkTWxvB5Ow=&xsec_source=pc_search
+
+#36  [236 赞]  提***叽  2026-09-05 13:42
+    我tm在xhs住下了
+    ↳ 笔记: 手机要冒烟了 (笔记点赞 4002)
+    ↳ 回复数: 5
+    ↳ 链接: https://www.xiaohongshu.com/explore/6a9ba965000000002803821a?xsec_token=ABJh0GNjXjFMa6bb6szpePpE9eC19iUvxJEBG2rVc65Cg=&xsec_source=pc_search
+
+#37  [220 赞]  渲***膀  2025-12-04 22:48
+    各个第三方app权限不给的话，相当于豆包手机被亚洲捆绑
+    ↳ 笔记: 同事的豆包手机到了 (笔记点赞 1.4万)
+    ↳ 回复数: 3
+    ↳ 链接: https://www.xiaohongshu.com/explore/69301ff4000000001e029cef?xsec_token=ABJQrbMJ0rv4vhrlQjzwBrpN7kPqYGpdBxvpBx39mKU6g=&xsec_source=pc_search
+
+#38  [205 赞]  旅***汤  2026-02-23 21:08
+    图1是17，图2是7
+    ↳ 笔记: 相隔十年，iPhone到底进化了什么？ (笔记点赞 5774)
+    ↳ 链接: https://www.xiaohongshu.com/explore/699ab185000000001a02567f?xsec_token=AB9MRNPH7i-pxtsiwE-W46H8pRsztx20EmW77-H6o1bL4=&xsec_source=pc_search
+
+#39  [200 赞]  李***ん  2026-04-22 15:33
+    我觉得滑盖不远了[呃R]
+    ↳ 笔记: 年度颜值黑马｜Unihertz Titan 2 Elite (笔记点赞 3516)
+    ↳ 回复数: 14
+    ↳ 链接: https://www.xiaohongshu.com/explore/69e224d9000000002101038b?xsec_token=ABmuylZEbxoHDcVfKEl8R1_BD21a9foH64_6sR_VGWK08=&xsec_source=pc_search
+
+#40  [199 赞]  布***克  2026-02-23 20:21
+    IPHONE6
+    ↳ 笔记: 相隔十年，iPhone到底进化了什么？ (笔记点赞 5774)
+    ↳ 回复数: 18
+    ↳ 链接: https://www.xiaohongshu.com/explore/699ab185000000001a02567f?xsec_token=AB9MRNPH7i-pxtsiwE-W46H8pRsztx20EmW77-H6o1bL4=&xsec_source=pc_search
+
+#41  [189 赞]  小***n  2025-12-03 21:00
+    什么手机啊？
+    ↳ 笔记: 同事的豆包手机到了 (笔记点赞 1.4万)
+    ↳ 回复数: 13
+    ↳ 链接: https://www.xiaohongshu.com/explore/69301ff4000000001e029cef?xsec_token=ABJQrbMJ0rv4vhrlQjzwBrpN7kPqYGpdBxvpBx39mKU6g=&xsec_source=pc_search
+
+#42  [171 赞]  梦*  2026-09-03 19:00
+    心疼你女儿 [抽泣R]
+    ↳ 笔记: 是不是每次出远门非要丢点东西才算圆满 (笔记点赞 1.1万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6a981106000000002900f745?xsec_token=ABgFkexTizTcRuRHtiUpnK2k469XWnsLSy-Mcl9cbFqKg=&xsec_source=pc_search
+
+#43  [159 赞]  吃***牛  2025-09-18 15:18
+    如果我手里有闲钱 我一定要买三星u
+    ↳ 笔记: 三星24ultra对比iPhone16pro！😋😋 (笔记点赞 4029)
+    ↳ 回复数: 14
+    ↳ 链接: https://www.xiaohongshu.com/explore/68ca07a6000000001201ef06?xsec_token=ABNPanvXCrx07mNpNZDIE8MUZr6BuM4V8XDiQ2Std7fWs=&xsec_source=pc_search
+
+#44  [157 赞]  A***🍜  2026-09-05 13:33
+    老师我在你主页住下了
+    ↳ 笔记: 手机要冒烟了 (笔记点赞 4002)
+    ↳ 回复数: 7
+    ↳ 链接: https://www.xiaohongshu.com/explore/6a9ba965000000002803821a?xsec_token=ABJh0GNjXjFMa6bb6szpePpE9eC19iUvxJEBG2rVc65Cg=&xsec_source=pc_search
+
+#45  [153 赞]  六***歌  2026-05-22 22:29
+    充电宝不得销量暴跌
+    ↳ 笔记: 十个月后所有手机将迎来巨变#手机#手机电池 (笔记点赞 6296)
+    ↳ 回复数: 81
+    ↳ 链接: https://www.xiaohongshu.com/explore/6a104917000000000800207a?xsec_token=ABDiU_sx87uOkGaS8RXKwrLe8aSfoKu2898aWElYYAigE=&xsec_source=pc_search
+
+#46  [153 赞]  i*  2026-07-07 13:24
+    就我一个是先截屏下来，然后裁出来吗？[笑哭R]
+    ↳ 笔记: 30秒带你解锁Phone手机小红书去水印！ (笔记点赞 4317)
+    ↳ 回复数: 8
+    ↳ 链接: https://www.xiaohongshu.com/explore/6a4b83e5000000000f028c40?xsec_token=ABKYqBHHbDN94w6UCE963mhD6_TFEeadXaHr7YqbDuFio=&xsec_source=pc_search
+
+#47  [152 赞]  西***林  2026-02-23 21:09
+    明显第二个是17，太锐利了
+    ↳ 笔记: 相隔十年，iPhone到底进化了什么？ (笔记点赞 5774)
+    ↳ 链接: https://www.xiaohongshu.com/explore/699ab185000000001a02567f?xsec_token=AB9MRNPH7i-pxtsiwE-W46H8pRsztx20EmW77-H6o1bL4=&xsec_source=pc_search
+
+#48  [148 赞]  鱼***子  2026-03-17 15:09
+    用下来的感受是 11 最好用，手感最好
+    ↳ 笔记: 目前苹果公认最好用的六款手机 (笔记点赞 4853)
+    ↳ 链接: https://www.xiaohongshu.com/explore/69b648770000000023011912?xsec_token=ABS0n3PuC03OoqncB66DhrUiTXdBsmGbsf4gt5BmLJwbQ=&xsec_source=pc_search
+
+#49  [147 赞]  你***价  2026-07-25 12:35
+    这么多，真的用的过来吗？[石化R]
+    ↳ 笔记: 初中生9台手机介绍 (笔记点赞 4001)
+    ↳ 回复数: 5
+    ↳ 链接: https://www.xiaohongshu.com/explore/6a633a47000000000a03a0f1?xsec_token=ABQa5YRM9C8KgEDbCJQJPHyYuUtlPQrkKxoSkTWxvB5Ow=&xsec_source=pc_search
+
+#50  [145 赞]  m***o  2026-02-23 14:03
+    不是啊 13是经典机型之一啊[笑哭R]都快绝版了
+    ↳ 笔记: 相隔十年，iPhone到底进化了什么？ (笔记点赞 5774)
+    ↳ 链接: https://www.xiaohongshu.com/explore/699ab185000000001a02567f?xsec_token=AB9MRNPH7i-pxtsiwE-W46H8pRsztx20EmW77-H6o1bL4=&xsec_source=pc_search
+
+#51  [142 赞]  M***m  2025-12-04 18:22
+    买手机送女朋友级体验[捂脸R]
+    ↳ 笔记: 同事的豆包手机到了 (笔记点赞 1.4万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/69301ff4000000001e029cef?xsec_token=ABJQrbMJ0rv4vhrlQjzwBrpN7kPqYGpdBxvpBx39mKU6g=&xsec_source=pc_search
+
+#52  [140 赞]  江***了  2025-09-23 00:31
+    苹果用户也这么说[doge]原因是你看 久 了[doge]
+    ↳ 笔记: 三星24ultra对比iPhone16pro！😋😋 (笔记点赞 4029)
+    ↳ 链接: https://www.xiaohongshu.com/explore/68ca07a6000000001201ef06?xsec_token=ABNPanvXCrx07mNpNZDIE8MUZr6BuM4V8XDiQ2Std7fWs=&xsec_source=pc_search
+
+#53  [136 赞]  M***汇  2026-04-24 20:25
+    虽然我嘴犟[笑哭R]
+    ↳ 笔记: 年度颜值黑马｜Unihertz Titan 2 Elite (笔记点赞 3516)
+    ↳ 链接: https://www.xiaohongshu.com/explore/69e224d9000000002101038b?xsec_token=ABmuylZEbxoHDcVfKEl8R1_BD21a9foH64_6sR_VGWK08=&xsec_source=pc_search
+
+#54  [132 赞]  烽*  2026-05-09 13:37
+    我嘞个豆，第一款还买得到吗想买一个[哭惹R]
+    ↳ 笔记: 千禧年复古手机开箱2📦真的太潮了！ (笔记点赞 6.8万)
+    ↳ 回复数: 18
+    ↳ 链接: https://www.xiaohongshu.com/explore/69feb1ff000000001a035b66?xsec_token=ABLFmE3bwpqQm6dEeTvDNCLDMYSrplaopo_JWirxUDbs0=&xsec_source=pc_search
+
+#55  [131 赞]  想***饼  2025-10-17 00:45
+    华为也有这样的柔光屏，然而没有人会这么发帖
+    ↳ 笔记: 这就是三星顶级屏幕的质感吗？ (笔记点赞 1.3万)
+    ↳ 回复数: 52
+    ↳ 链接: https://www.xiaohongshu.com/explore/68ed1922000000000300de78?xsec_token=ABis87oFugc7YKzV1RacPYBCznEa7JMLVsGG7Cwnuyhww=&xsec_source=pc_search
+
+#56  [129 赞]  全***厨  2026-04-21 13:13
+    时代是个轮回[捂脸R]，现在小孩总是会说为什么不能电池和存储做成可拆卸的
+    ↳ 笔记: 年度颜值黑马｜Unihertz Titan 2 Elite (笔记点赞 3516)
+    ↳ 链接: https://www.xiaohongshu.com/explore/69e224d9000000002101038b?xsec_token=ABmuylZEbxoHDcVfKEl8R1_BD21a9foH64_6sR_VGWK08=&xsec_source=pc_search
+
+#57  [124 赞]  只***包  2026-07-11 19:13
+    当个好人吧
+    ↳ 笔记: 30秒带你解锁Phone手机小红书去水印！ (笔记点赞 4317)
+    ↳ 回复数: 20
+    ↳ 链接: https://www.xiaohongshu.com/explore/6a4b83e5000000000f028c40?xsec_token=ABKYqBHHbDN94w6UCE963mhD6_TFEeadXaHr7YqbDuFio=&xsec_source=pc_search
+
+#58  [119 赞]  嗨***呦  2026-07-26 00:37
+    但是，这种考试有什么意思？
+    ↳ 笔记: 建议上大学准备一台二手备用机。
+不少开卷考试题目很偏，书本上找不到，用来查资料刚刚好。#小徐呀[话题]##大一新生[话题]# #大学生活[话题]#  #准大学生[话题]#  #大学生经验分享[话题]# (笔记点赞 5649)
+    ↳ 回复数: 7
+    ↳ 链接: https://www.xiaohongshu.com/explore/6a643cef0000000001001739?xsec_token=ABiTlcFc0HHeiLIPycHkZUJkIMIXHzEw1p2jUkBxqAbXw=&xsec_source=pc_search
+
+#59  [114 赞]  周***一  2026-05-23 10:13
+    早点重出江湖吧，都是资本家游戏[失望R]
+    ↳ 笔记: 十个月后所有手机将迎来巨变#手机#手机电池 (笔记点赞 6296)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6a104917000000000800207a?xsec_token=ABDiU_sx87uOkGaS8RXKwrLe8aSfoKu2898aWElYYAigE=&xsec_source=pc_search
+
+#60  [106 赞]  请***g  2026-02-23 21:08
+    没区别哒[失望R][失望R]
+    ↳ 笔记: 相隔十年，iPhone到底进化了什么？ (笔记点赞 5774)
+    ↳ 链接: https://www.xiaohongshu.com/explore/699ab185000000001a02567f?xsec_token=AB9MRNPH7i-pxtsiwE-W46H8pRsztx20EmW77-H6o1bL4=&xsec_source=pc_search
+
+#61  [105 赞]  m***o  2026-03-18 00:30
+    不好意思 最好用的还是X系列 机皇不是任何一代手机都能叫机皇
+    ↳ 笔记: 目前苹果公认最好用的六款手机 (笔记点赞 4853)
+    ↳ 回复数: 22
+    ↳ 链接: https://www.xiaohongshu.com/explore/69b648770000000023011912?xsec_token=ABS0n3PuC03OoqncB66DhrUiTXdBsmGbsf4gt5BmLJwbQ=&xsec_source=pc_search
+
+#62  [104 赞]  世***眸  2026-03-01 22:11
+    纯粹追求最强活人感建议选miu（miu没有线下注意），eve，预算够可以冲37
+    ↳ 笔记: 入了18个小手机（可来评论区提问） (笔记点赞 3711)
+    ↳ 回复数: 8
+    ↳ 链接: https://www.xiaohongshu.com/explore/69a4455e000000001d0251e6?xsec_token=ABCTO-4p5iqR8L739bC3WdPH_JMyoLNg1fFOIiMuI-62U=&xsec_source=pc_search
+
+#63  [104 赞]  A***s  2026-04-24 08:09
+    这种键盘不适合中文输入，中文就是九宫格最快
+    ↳ 笔记: 年度颜值黑马｜Unihertz Titan 2 Elite (笔记点赞 3516)
+    ↳ 回复数: 34
+    ↳ 链接: https://www.xiaohongshu.com/explore/69e224d9000000002101038b?xsec_token=ABmuylZEbxoHDcVfKEl8R1_BD21a9foH64_6sR_VGWK08=&xsec_source=pc_search
