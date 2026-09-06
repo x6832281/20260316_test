@@ -79,18 +79,18 @@
 
   // --- Chart 2: B站热门弹幕频次 TOP 12 ---
   var danmaku = [
-    {"name": "见证历史", "value": 940},
-    {"name": "火钳刘明", "value": 563},
-    {"name": "藏狐", "value": 177},
-    {"name": "kksk", "value": 93},
-    {"name": "先生大义", "value": 46},
-    {"name": "懂你意思", "value": 45},
-    {"name": "哔哩哔哩(゜-゜)つロ干杯~-bilibili", "value": 42},
-    {"name": "每周必看", "value": 38},
-    {"name": "万人血书致命公司第二季", "value": 34},
-    {"name": "笑死我了", "value": 32},
-    {"name": "文明", "value": 32},
-    {"name": "mj", "value": 28}
+    {"name": "藏狐", "value": 902},
+    {"name": "见证历史", "value": 858},
+    {"name": "晚安", "value": 684},
+    {"name": "古人", "value": 585},
+    {"name": "火钳刘明", "value": 564},
+    {"name": "秒吃", "value": 516},
+    {"name": "萌黄可爱捏", "value": 510},
+    {"name": "kksk", "value": 507},
+    {"name": "爷们", "value": 435},
+    {"name": "复旦之光", "value": 316},
+    {"name": "听见你说", "value": 283},
+    {"name": "文明", "value": 138}
   ].reverse();
 
   var chart2 = echarts.init(document.getElementById('chart-danmaku'), null, { renderer: 'svg' });
@@ -129,16 +129,16 @@
 
   // --- Chart 3: GitHub Trending 今日新增星数 TOP 10 ---
   var ghTrending = [
-    {"name": "DietrichGebert/ponytail", "value": 2813, "lang": "JavaScript", "total": "127,164"},
-    {"name": "mattpocock/skills", "value": 2666, "lang": "Shell", "total": "251,476"},
-    {"name": "affaan-m/ECC", "value": 1325, "lang": "JavaScript", "total": "249,080"},
-    {"name": "humanlayer/skills", "value": 1141, "lang": "TypeScript", "total": "2,472"},
-    {"name": "blader/humanizer", "value": 988, "lang": "Python", "total": "43,115"},
-    {"name": "cathrynlavery/diagram-design", "value": 852, "lang": "HTML", "total": "31,368"},
-    {"name": "anomalyco/opencode", "value": 725, "lang": "TypeScript", "total": "204,417"},
-    {"name": "magnitudedev/magnitude", "value": 686, "lang": "TypeScript", "total": "2,835"},
-    {"name": "NousResearch/hermes-agent", "value": 573, "lang": "Python", "total": "241,745"},
-    {"name": "anthropics/skills", "value": 472, "lang": "Python", "total": "174,366"}
+    {"name": "DietrichGebert/ponytail", "value": 2845, "lang": "JavaScript", "total": "127,962"},
+    {"name": "mattpocock/skills", "value": 2692, "lang": "Shell", "total": "252,657"},
+    {"name": "affaan-m/ECC", "value": 1314, "lang": "JavaScript", "total": "249,915"},
+    {"name": "blader/humanizer", "value": 990, "lang": "Python", "total": "43,491"},
+    {"name": "cathrynlavery/diagram-design", "value": 855, "lang": "HTML", "total": "31,696"},
+    {"name": "anomalyco/opencode", "value": 725, "lang": "TypeScript", "total": "204,682"},
+    {"name": "magnitudedev/magnitude", "value": 674, "lang": "TypeScript", "total": "3,214"},
+    {"name": "NousResearch/hermes-agent", "value": 575, "lang": "Python", "total": "242,017"},
+    {"name": "anthropics/skills", "value": 475, "lang": "Python", "total": "174,569"},
+    {"name": "humanlayer/skills", "value": 442, "lang": "TypeScript", "total": "2,711"}
   ].reverse();
 
   var chart3 = echarts.init(document.getElementById('chart-github'), null, { renderer: 'svg' });
