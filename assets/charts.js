@@ -27,16 +27,16 @@
 
   // --- Chart 1: 今日全站最高赞评论 TOP 10 ---
   var topComments = [
-    {"name": "跟普通手机安装一个豆包APP有什么区别", "value": 11000, "platform": "小红书"},
-    {"name": "哪天豆包不开心了，不让你用手机怎么办", "value": 8313, "platform": "小红书"},
-    {"name": "请求支援此评论，溯源之惧（深不可测的恐惧）已出第六章，可双人联机想看鲤鱼和社会人…", "value": 4013, "platform": "B站"},
-    {"name": "系统级 跨APP执行", "value": 3024, "platform": "小红书"},
-    {"name": "时间的力量[大哭][大哭][大哭]", "value": 2849, "platform": "B站"},
-    {"name": "我只是开玩笑的而已啊。[辣眼睛]", "value": 2754, "platform": "B站"},
-    {"name": "最早玩黑莓那代人已经老花了", "value": 2220, "platform": "小红书"},
-    {"name": "2是7", "value": 1768, "platform": "小红书"},
-    {"name": "我最喜欢的表情[吃瓜]", "value": 1685, "platform": "B站"},
-    {"name": "杨秋霞博士：啊？我的功德圆满了？原地飞升！", "value": 1684, "platform": "B站"}
+    {"name": "up这家伙最精了，外面的琴房练琴要钱，这里免费还倒送两杯酒还装到了[大笑]", "value": 21754, "platform": "B站"},
+    {"name": "有多少人一眼认出封面？查询二刺螈浓度[热词表情_世萌双冠]", "value": 10258, "platform": "B站"},
+    {"name": "关谷，你绝对不知道今天绝区零放啥了", "value": 9304, "platform": "B站"},
+    {"name": "上条视频发的时候你B的审核自作主张的给我加了个限制评论和弹幕的模型，于是三十分钟…", "value": 7974, "platform": "B站"},
+    {"name": "[鸣潮·共鸣与群星_点赞][鸣潮·共鸣与群星_点赞]大的要来了", "value": 7716, "platform": "B站"},
+    {"name": "孩子们，消息是真的，不用再被骗了", "value": 6381, "platform": "B站"},
+    {"name": "大家可能对曼哈顿停电4个小时没什么概念：这相当于北京2环内停电，而最近一次北京二…", "value": 6221, "platform": "B站"},
+    {"name": "请求支援此评论，溯源之惧（深不可测的恐惧）已出第六章，可双人联机想看鲤鱼和社会人…", "value": 6057, "platform": "B站"},
+    {"name": "看来是我没合上故事书，让我的公主跑出来了[笑哭]", "value": 5534, "platform": "B站"},
+    {"name": "才发现我的昵称居然和 miku 重名诶[哦呼]", "value": 5361, "platform": "B站"}
   ].reverse();
 
   var chart1 = echarts.init(document.getElementById('chart-top-comments'), null, { renderer: 'svg' });
