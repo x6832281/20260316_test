@@ -290,6 +290,11 @@ def old_stat_lines(html_text: str) -> dict[str, str]:
 
 def build_stats(data: dict, html_text: str) -> str:
     old = old_stat_lines(html_text)
+
+    def selected_from_page(anchor: str) -> int:
+        m = re.search(r"<!-- SYNC:%s -->.*?入选 (\d+) 条" % anchor, html_text, re.S)
+        return int(m.group(1)) if m else 0
+
     lines = ["      <div class=\"deck\">"]
 
     x = data.get("xhs_today") or data.get("xhs_classic")
@@ -312,9 +317,8 @@ def build_stats(data: dict, html_text: str) -> str:
 
     xc, bc = data.get("xhs_classic"), data.get("bili_comments")
     if xc or bc:
-        old_sel = re.search(r"小红书 (\d+) \+ B站 (\d+)", old.get("sel", ""))
-        xs = xc["selected"] if xc else (int(old_sel.group(1)) if old_sel else 0)
-        bs = bc["selected"] if bc else (int(old_sel.group(2)) if old_sel else 0)
+        xs = xc["selected"] if xc else selected_from_page("CARD1")
+        bs = bc["selected"] if bc else selected_from_page("CARD3")
         lines.append(f"        <div class=\"ds\"><span class=\"ds-n ink\">{xs + bs}</span><span class=\"ds-l\">条高赞评论入选（小红书 {xs} + B站 {bs}）</span></div>")
     elif "sel" in old:
         lines.append("        " + old["sel"])
