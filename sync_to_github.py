@@ -59,14 +59,18 @@ def parse_xhs(path: Path) -> dict | None:
     entries = []
     pat = re.compile(
         r"^#(\d+)\s+\[([\d,]+) 赞\]\s+(\S+)\s+(\d{4}-\d{2}-\d{2} \d{2}:\d{2})\s*$\n"
-        r"^\s+(.+)$\n"
-        r"^\s+↳ 笔记: (.+?) \(笔记点赞 (.+?)\)$",
+        r"(?P<content>(?:(?!.*↳)[^\n]*\n)+?)"
+        r"^\s+↳ 笔记: (?P<note>(?s:.+?)) \(笔记点赞 (?P<nl>.+?)\)\n"
+        r"(?:^\s+↳ 回复数: \d+\n)?"
+        r"^\s+↳ 链接: (?P<url>\S+)$",
         re.M)
     for m in pat.finditer(text):
+        content = " ".join(l.strip() for l in m.group("content").splitlines() if l.strip())
+        note = " ".join(l.strip() for l in m.group("note").splitlines() if l.strip())
         entries.append({
             "rank": int(m.group(1)), "likes": to_int(m.group(2)), "user": m.group(3),
-            "time": m.group(4), "content": m.group(5).strip(),
-            "note": m.group(6), "note_likes": m.group(7),
+            "time": m.group(4), "content": content,
+            "note": note, "note_likes": m.group("nl").strip(), "url": m.group("url"),
         })
     if not entries:
         return None
@@ -87,14 +91,18 @@ def parse_bili_comments(path: Path) -> dict | None:
     entries = []
     pat = re.compile(
         r"^#(\d+)\s+\[([\d,]+) 赞\]\s+(\S+)\s+(\d{4}-\d{2}-\d{2} \d{2}:\d{2})\s*$\n"
-        r"^\s+(.+)$\n"
-        r"^\s+↳ 视频: 《(.+?)》 播放([\d,]+)$",
+        r"(?P<content>(?:(?!.*↳)[^\n]*\n)+?)"
+        r"^\s+↳ 视频: 《(?P<video>.+?)》 播放(?P<view>[\d,]+)\n"
+        r"(?:^\s+↳ 回复数: \d+\n)?"
+        r"^\s+↳ 链接: (?P<url>\S+)$",
         re.M)
     for m in pat.finditer(text):
+        content = " ".join(l.strip() for l in m.group("content").splitlines() if l.strip())
+        video = " ".join(l.strip() for l in m.group("video").splitlines() if l.strip())
         entries.append({
             "rank": int(m.group(1)), "likes": to_int(m.group(2)), "user": m.group(3),
-            "time": m.group(4), "content": m.group(5).strip(),
-            "video": m.group(6), "view": to_int(m.group(7)),
+            "time": m.group(4), "content": content,
+            "video": video, "view": to_int(m.group("view")), "url": m.group("url"),
         })
     if not entries:
         return None
@@ -147,14 +155,22 @@ def parse_github(path: Path) -> dict | None:
 
 # ---------- 页面片段生成 ----------
 
-def cm_article(count_html: str, user: str, text: str, src: str) -> str:
+def cm_article(count_html: str, user: str, text: str, src_html: str) -> str:
     return (
         '          <article class="cm">\n'
         f'            <div class="cm-stats">{count_html}<span class="cm-user">{esc(user)}</span></div>\n'
         f'            <p class="cm-text">{esc(text)}</p>\n'
-        f'            <p class="cm-src">{esc(src)}</p>\n'
+        f'            <p class="cm-src">{src_html}</p>\n'
         '          </article>'
     )
+
+
+def src_link(url: str | None, label_html: str, tail: str = "") -> str:
+    """有链接时把 label_html 包成锚点，无链接时原样返回。"""
+    if not url:
+        return label_html + tail
+    return (f'<a class="cm-link" href="{html.escape(url, quote=True)}" '
+            f'target="_blank" rel="noopener">{label_html}</a>{tail}')
 
 
 def build_col(tag_cls: str, tag_text: str, meta: str, items: list[str]) -> str:
@@ -181,7 +197,8 @@ def cut(s: str, n: int) -> str:
 def build_card1(x: dict) -> str:
     items = [
         cm_article(heart(e["likes"]), e["user"], cut(e["content"], 60),
-                   f"出自《{cut(e['note'], 24)}》 · 笔记点赞 {e['note_likes']}")
+                   src_link(e.get("url"), f"出自《{esc(cut(e['note'], 24))}》",
+                            f" · 笔记点赞 {esc(e['note_likes'])}"))
         for e in x["entries"][:3]
     ]
     meta = f"{x['total']:,} 条评论，入选 {x['selected']} 条（≥{x['min_likes']} 赞）"
@@ -194,7 +211,7 @@ def build_card2(x: dict, today: str) -> str:
         return f"今日 {hm}" if d == today else f"{d[5:]} {hm}"
     items = [
         cm_article(heart(e["likes"]), e["user"], cut(e["content"], 60),
-                   f"出自《{cut(e['note'], 24)}》 · {t(e)}")
+                   src_link(e.get("url"), f"出自《{esc(cut(e['note'], 24))}》", f" · {t(e)}"))
         for e in x["entries"][:3]
     ]
     meta = f"时间排序新笔记，入选 {x['selected']} 条（≥{x['min_likes']} 赞）· 仅近 24 小时发布"
@@ -204,10 +221,11 @@ def build_card2(x: dict, today: str) -> str:
 def build_card3(x: dict) -> str:
     items = [
         cm_article(heart(e["likes"]), e["user"], cut(e["content"], 60),
-                   f"出自《{cut(e['video'], 24)}》 · 播放 {fmt_wan(e['view'])}")
+                   src_link(e.get("url"), f"出自《{esc(cut(e['video'], 24))}》",
+                            f" · 播放 {fmt_wan(e['view'])}"))
         for e in x["entries"][:3]
     ]
-    meta = f"{x['videos']} 个热门/排行榜视频，入选 {x['selected']} 条（≥{x['min_likes']} 赞）"
+    meta = f"{x['videos']} 个热门/排行榜视频，入选 {x['selected']} 条（≥{x['min_likes']} 赞）· 标题可点击直达视频"
     return build_col("bili", "B站 · 高赞评论", meta, items)
 
 
@@ -294,8 +312,9 @@ def build_stats(data: dict, html_text: str) -> str:
 
     xc, bc = data.get("xhs_classic"), data.get("bili_comments")
     if xc or bc:
-        xs = xc["selected"] if xc else 0
-        bs = bc["selected"] if bc else 0
+        old_sel = re.search(r"小红书 (\d+) \+ B站 (\d+)", old.get("sel", ""))
+        xs = xc["selected"] if xc else (int(old_sel.group(1)) if old_sel else 0)
+        bs = bc["selected"] if bc else (int(old_sel.group(2)) if old_sel else 0)
         lines.append(f"        <div class=\"ds\"><span class=\"ds-n ink\">{xs + bs}</span><span class=\"ds-l\">条高赞评论入选（小红书 {xs} + B站 {bs}）</span></div>")
     elif "sel" in old:
         lines.append("        " + old["sel"])
@@ -309,14 +328,16 @@ def build_hero(data: dict) -> str:
     if data.get("xhs_classic"):
         for e in data["xhs_classic"]["entries"]:
             candidates.append(("xhs", "小红书", e["likes"], e["user"], cut(e["content"], 60),
-                               f"出自《{cut(e['note'], 24)}》 · 笔记点赞 {e['note_likes']}"))
+                               src_link(e.get("url"), f"出自《{esc(cut(e['note'], 24))}》",
+                                        f" · 笔记点赞 {esc(e['note_likes'])}")))
     if data.get("bili_comments"):
         for e in data["bili_comments"]["entries"]:
             candidates.append(("bili", "B站", e["likes"], e["user"], cut(e["content"], 60),
-                               f"出自《{cut(e['video'], 24)}》 · 播放 {fmt_wan(e['view'])}"))
+                               src_link(e.get("url"), f"出自《{esc(cut(e['video'], 24))}》",
+                                        f" · 播放 {fmt_wan(e['view'])}")))
     if not candidates:
         raise ValueError("无可用头条数据")
-    tag_cls, plat, likes, user, text, src = max(candidates, key=lambda c: c[2])
+    tag_cls, plat, likes, user, text, src_html = max(candidates, key=lambda c: c[2])
     return (
         "      <figure class=\"hero\">\n"
         f"        <div class=\"hero-kicker\">今日最高赞评论<span class=\"ptag {tag_cls}\">{plat}</span></div>\n"
@@ -324,7 +345,7 @@ def build_hero(data: dict) -> str:
         "        <figcaption class=\"hero-by\">\n"
         f"          <span class=\"heart big\">♥ {likes:,}</span><span class=\"by-sep\">·</span>\n"
         f"          <span>{esc(user)}</span><span class=\"by-sep\">·</span>\n"
-        f"          <span>{esc(src)}</span>\n"
+        f"          <span>{src_html}</span>\n"
         "        </figcaption>\n"
         "      </figure>"
     )
@@ -407,10 +428,12 @@ def main() -> int:
 
     merged = []
     if data["xhs_classic"]:
-        merged += [{"name": cut(e["content"], 40), "value": e["likes"], "platform": "小红书"}
+        merged += [{"name": cut(e["content"], 40), "value": e["likes"], "platform": "小红书",
+                    "url": e.get("url", "")}
                    for e in data["xhs_classic"]["entries"]]
     if data["bili_comments"]:
-        merged += [{"name": cut(e["content"], 40), "value": e["likes"], "platform": "B站"}
+        merged += [{"name": cut(e["content"], 40), "value": e["likes"], "platform": "B站",
+                    "url": e.get("url", "")}
                    for e in data["bili_comments"]["entries"]]
     if merged:
         merged = sorted(merged, key=lambda d: -d["value"])[:10]
