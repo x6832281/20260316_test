@@ -27,16 +27,16 @@
 
   // --- Chart 1: 今日全站最高赞评论 TOP 10 ---
   var topComments = [
-    {"name": "up这家伙最精了，外面的琴房练琴要钱，这里免费还倒送两杯酒还装到了[大笑]", "value": 21754, "platform": "B站", "url": "https://www.bilibili.com/video/BV1e8tR6EER5"},
-    {"name": "有多少人一眼认出封面？查询二刺螈浓度[热词表情_世萌双冠]", "value": 10258, "platform": "B站", "url": "https://www.bilibili.com/video/BV1wote6gEQ1"},
-    {"name": "关谷，你绝对不知道今天绝区零放啥了", "value": 9304, "platform": "B站", "url": "https://www.bilibili.com/video/BV1wote6gEQ1"},
-    {"name": "上条视频发的时候你B的审核自作主张的给我加了个限制评论和弹幕的模型，于是三十分钟…", "value": 7974, "platform": "B站", "url": "https://www.bilibili.com/video/BV1Yubj6VEpD"},
-    {"name": "角：时序的力量 牢马：分割万物 拉海洛：唯心大运 心：能召唤很多机关，真的很多", "value": 7925, "platform": "B站", "url": "https://www.bilibili.com/video/BV1Q5tG6bEX3"},
-    {"name": "[鸣潮·共鸣与群星_点赞][鸣潮·共鸣与群星_点赞]大的要来了", "value": 7716, "platform": "B站", "url": "https://www.bilibili.com/video/BV1Q5tG6bEX3"},
-    {"name": "孩子们，消息是真的，不用再被骗了", "value": 6381, "platform": "B站", "url": "https://www.bilibili.com/video/BV1Q5tG6bEX3"},
-    {"name": "大家可能对曼哈顿停电4个小时没什么概念：这相当于北京2环内停电，而最近一次北京二…", "value": 6221, "platform": "B站", "url": "https://www.bilibili.com/video/BV1bHtd6CESR"},
-    {"name": "请求支援此评论，溯源之惧（深不可测的恐惧）已出第六章，可双人联机想看鲤鱼和社会人…", "value": 6057, "platform": "B站", "url": "https://www.bilibili.com/video/BV16Htm6rE8n"},
-    {"name": "看来是我没合上故事书，让我的公主跑出来了[笑哭]", "value": 5534, "platform": "B站", "url": "https://www.bilibili.com/video/BV1FUbF6rEFf"}
+    {"name": "洋葱此事早有记载[微笑]", "value": 8977, "platform": "B站", "url": "https://www.bilibili.com/video/BV1HBbE6cEc5"},
+    {"name": "手书？", "value": 7721, "platform": "B站", "url": "https://www.bilibili.com/video/BV1tHbj6PEmH"},
+    {"name": "终于到我发了", "value": 5382, "platform": "B站", "url": "https://www.bilibili.com/video/BV1tHbj6PEmH"},
+    {"name": "最喜欢的一段🥹速涂之", "value": 5053, "platform": "B站", "url": "https://www.bilibili.com/video/BV1HBbE6cEc5"},
+    {"name": "AA的那个短片真的拍得好好！力导🐮", "value": 3856, "platform": "B站", "url": "https://www.bilibili.com/video/BV1HBbE6cEc5"},
+    {"name": "曾经守在电视机前看成龙历险记的那个七八岁的小女孩，如今也是怀胎八月的准妈妈了[呲…", "value": 3761, "platform": "B站", "url": "https://www.bilibili.com/video/BV1Z4ti6BE4b"},
+    {"name": "又到了我最喜欢的欧盟笑话时刻[呲牙][doge]", "value": 3720, "platform": "B站", "url": "https://www.bilibili.com/video/BV1EEbL67ECU"},
+    {"name": "我一直在期待让他人生跌入谷底的转折，然后我发现视频播完了", "value": 3355, "platform": "B站", "url": "https://www.bilibili.com/video/BV1J1t26KEcz"},
+    {"name": "最伟大的厚黑！！", "value": 2193, "platform": "B站", "url": "https://www.bilibili.com/video/BV1iPbj61E3u"},
+    {"name": "能不能搬空一下这个，想看[doge]", "value": 1547, "platform": "B站", "url": "https://www.bilibili.com/video/BV1Xdt26bECx"}
   ].reverse();
 
   var chart1 = echarts.init(document.getElementById('chart-top-comments'), null, { renderer: 'svg' });
@@ -85,18 +85,18 @@
 
   // --- Chart 2: B站热门弹幕频次 TOP 12 ---
   var danmaku = [
-    {"name": "藏狐", "value": 902},
-    {"name": "见证历史", "value": 858},
-    {"name": "晚安", "value": 684},
-    {"name": "古人", "value": 585},
-    {"name": "火钳刘明", "value": 564},
-    {"name": "秒吃", "value": 516},
-    {"name": "萌黄可爱捏", "value": 510},
-    {"name": "kksk", "value": 507},
-    {"name": "爷们", "value": 435},
-    {"name": "复旦之光", "value": 316},
-    {"name": "听见你说", "value": 283},
-    {"name": "文明", "value": 138}
+    {"name": "生日快乐", "value": 2490},
+    {"name": "泪目", "value": 937},
+    {"name": "见证历史", "value": 729},
+    {"name": "古人", "value": 558},
+    {"name": "kksk", "value": 552},
+    {"name": "秒吃", "value": 507},
+    {"name": "《礼鱼》", "value": 470},
+    {"name": "复旦之光", "value": 445},
+    {"name": "他真好看", "value": 351},
+    {"name": "雨木99", "value": 335},
+    {"name": "我去", "value": 320},
+    {"name": "AA！", "value": 286}
   ].reverse();
 
   var chart2 = echarts.init(document.getElementById('chart-danmaku'), null, { renderer: 'svg' });
@@ -135,16 +135,16 @@
 
   // --- Chart 3: GitHub Trending 今日新增星数 TOP 10 ---
   var ghTrending = [
-    {"name": "DietrichGebert/ponytail", "value": 2845, "lang": "JavaScript", "total": "127,962"},
-    {"name": "mattpocock/skills", "value": 2692, "lang": "Shell", "total": "252,657"},
-    {"name": "affaan-m/ECC", "value": 1314, "lang": "JavaScript", "total": "249,915"},
-    {"name": "blader/humanizer", "value": 990, "lang": "Python", "total": "43,491"},
-    {"name": "cathrynlavery/diagram-design", "value": 855, "lang": "HTML", "total": "31,696"},
-    {"name": "anomalyco/opencode", "value": 725, "lang": "TypeScript", "total": "204,682"},
-    {"name": "magnitudedev/magnitude", "value": 674, "lang": "TypeScript", "total": "3,214"},
-    {"name": "NousResearch/hermes-agent", "value": 575, "lang": "Python", "total": "242,017"},
-    {"name": "anthropics/skills", "value": 475, "lang": "Python", "total": "174,569"},
-    {"name": "humanlayer/skills", "value": 442, "lang": "TypeScript", "total": "2,711"}
+    {"name": "mattpocock/skills", "value": 2207, "lang": "Shell", "total": "254,583"},
+    {"name": "DietrichGebert/ponytail", "value": 1539, "lang": "JavaScript", "total": "129,386"},
+    {"name": "affaan-m/ECC", "value": 1485, "lang": "JavaScript", "total": "251,362"},
+    {"name": "blader/humanizer", "value": 748, "lang": "Python", "total": "44,256"},
+    {"name": "cathrynlavery/diagram-design", "value": 620, "lang": "HTML", "total": "32,383"},
+    {"name": "magnitudedev/magnitude", "value": 604, "lang": "TypeScript", "total": "3,677"},
+    {"name": "anomalyco/opencode", "value": 551, "lang": "TypeScript", "total": "205,269"},
+    {"name": "NousResearch/hermes-agent", "value": 520, "lang": "Python", "total": "242,554"},
+    {"name": "humanlayer/skills", "value": 451, "lang": "TypeScript", "total": "3,147"},
+    {"name": "BraveOPotato/FckSignups", "value": 436, "lang": "TypeScript", "total": "3,317"}
   ].reverse();
 
   var chart3 = echarts.init(document.getElementById('chart-github'), null, { renderer: 'svg' });
