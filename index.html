@@ -290,23 +290,7 @@
   /* ===== 附页 ===== */
   .appendix .sec-head { border-top-color: var(--rule2); }
   .appendix .sec-no { color: var(--muted); }
-  .ap-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 26px 44px; margin: 6px 0 22px; }
-  .ap-grid h3 {
-    font-family: var(--serif); font-weight: 700; font-size: 16px;
-    border-bottom: 1px solid var(--rule2); padding-bottom: 8px; margin-bottom: 12px;
-  }
-  .ap-grid p { color: var(--muted); font-size: 14px; margin-bottom: 10px; }
   td.mono { font-family: 'JetBrainsMono', monospace; font-size: 12.5px; color: var(--bili); }
-  pre.code {
-    font-family: 'JetBrainsMono', monospace; font-size: 13px; line-height: 1.85;
-    background: var(--wash); border: 1px solid var(--rule);
-    border-radius: 4px; padding: 14px 16px; overflow-x: auto;
-  }
-  pre.code .c { color: var(--muted); }
-  pre.code .k { color: var(--seal); }
-  .file-tree { font-family: 'JetBrainsMono', monospace; font-size: 13px; line-height: 2.05; }
-  .file-tree .dir { color: var(--ink); font-weight: 700; }
-  .file-tree .cmt { color: var(--muted); }
   .diagram { margin: 8px 0 6px; text-align: center; }
   .diagram figcaption { font-size: 12.5px; color: var(--muted); margin-top: 8px; }
 
@@ -317,8 +301,7 @@
   footer a:hover { text-decoration: underline; }
 
   @media (max-width: 820px) {
-    .cm-grid, .ap-grid { grid-template-columns: 1fr; }
-    .cm-grid { gap: 30px; }
+    .cm-grid { grid-template-columns: 1fr; gap: 30px; }
     .sec { padding: 40px 0 14px; }
     .sec-sub { margin-left: 0; width: 100%; }
     .ds { flex-basis: 45%; }
@@ -583,7 +566,7 @@
       <div class="sec-head">
         <span class="sec-no">附</span>
         <h2>本报是怎么印出来的</h2>
-        <span class="sec-sub">采集流水线 · 仓库结构 · 运行方式</span>
+        <span class="sec-sub">采集流水线</span>
       </div>
       <p class="sec-desc">
         一个<strong>每日热门内容采集流水线</strong>：以关键词为入口，抓取各平台当天最热内容的评论区数据，
@@ -606,13 +589,13 @@
       </div>
 
       <p class="sec-desc" style="margin-top:26px">
-        由 <strong>daily_run.py</strong> 统一编排，每天 09:00 定时触发，自动跑完五轮采集后落盘到
+        由 <strong>daily_run.py</strong> 统一编排，跑完五轮采集后落盘到
         <strong>daily/&lt;日期&gt;/</strong> 目录，再自动更新本页并推送上线。浏览器进程异常时自动清理重启，登录态失效时提示人工介入而非卡死。
       </p>
       <figure class="diagram">
         <pre class="mermaid">
 flowchart LR
-  A[定时任务 09:00] --> B[daily_run.py 编排]
+  A[手动触发] --> B[daily_run.py 编排]
   B --> C[小红书·经典高赞<br/>热度排序搜索]
   B --> D[小红书·今日最新<br/>时间排序 + 24h过滤]
   B --> E[B站·热门弹幕<br/>频次聚合去噪]
@@ -626,33 +609,6 @@ flowchart LR
         </pre>
         <figcaption>每日采集流水线（五轮并行输出）</figcaption>
       </figure>
-
-      <div class="ap-grid">
-        <div>
-          <h3>仓库结构</h3>
-          <div class="file-tree">
-            <span class="dir">daily_run.py</span> <span class="cmt"># 每日编排（五轮采集入口）</span><br>
-            <span class="dir">mc_comment_filter.py</span> <span class="cmt"># 小红书评论筛选 → TXT</span><br>
-            <span class="dir">bili_danmaku.py</span> <span class="cmt"># B站弹幕采集 + 去噪</span><br>
-            <span class="dir">bili_comments.py</span> <span class="cmt"># B站高赞评论采集</span><br>
-            <span class="dir">github_trending.py</span> <span class="cmt"># GitHub Trending 热门项目</span><br>
-            <span class="dir">sync_to_github.py</span> <span class="cmt"># 日报 → 自动更新本页并推送</span><br>
-            <span class="dir">MediaCrawler/</span> <span class="cmt"># 采集底座（需另行 clone）</span><br>
-            <span class="dir">data/</span> <span class="cmt"># 每日 TXT 日报（按日期）</span><br>
-            <span class="dir">index.html</span> <span class="cmt"># 本页面（数据呈现）</span>
-          </div>
-        </div>
-        <div>
-          <h3>运行命令</h3>
-          <p>完整流水线（首次运行会弹出浏览器要求扫码登录小红书，之后免扫码）：</p>
-          <pre class="code"><span class="c"># 安装依赖</span>
-pip install -r requirements.txt
-
-<span class="c"># 一键采集（约 15-30 分钟）</span>
-<span class="k">py -3.12</span> daily_run.py --keywords <span class="k">"手机"</span></pre>
-          <p style="margin-top:12px">每天 09:00（北京时间）定时执行：采集完成后自动检查当日五份 TXT 是否产出并更新本页。登录态失效时会提示手动扫码，而非卡死等待。</p>
-        </div>
-      </div>
     </div>
   </section>
 </main>
