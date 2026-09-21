@@ -376,8 +376,9 @@ def replace_array(js: str, var: str, items: list[dict]) -> str:
 # ---------- git / gh ----------
 
 def run_git(*args) -> tuple[bool, str]:
-    r = subprocess.run(["git", *args], cwd=REPO, capture_output=True, text=True)
-    return r.returncode == 0, (r.stdout + r.stderr).strip()
+    r = subprocess.run(["git", *args], cwd=REPO, capture_output=True, encoding="utf-8", errors="replace")
+    out = (r.stdout or "") + (r.stderr or "")
+    return r.returncode == 0, out.strip()
 
 
 def main() -> int:
@@ -515,7 +516,7 @@ def main() -> int:
 
     if Path(GH).exists():
         r = subprocess.run([GH, "api", f"repos/{REPO_SLUG}/pages/builds", "-X", "POST"],
-                           capture_output=True, text=True)
+                           capture_output=True, encoding="utf-8", errors="replace")
         print("已触发 Pages 构建" if r.returncode == 0 else f"触发 Pages 构建失败（推送已成功，构建会自动排队）: {(r.stderr or '').strip()[:120]}")
     return 0
 
