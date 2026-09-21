@@ -1,0 +1,68 @@
+﻿============================================================
+GitHub Trending 今日热门项目
+项目数: 13 | 生成时间: 2026-09-21 11:15:57
+============================================================
+
+#1  affaan-m/ECC
+    今日 +826 星 | 总星 263,870 | Fork 39,475 | JavaScript
+    简介: The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond.
+    链接: https://github.com/affaan-m/ECC
+
+#2  BuilderIO/agent-native
+    今日 +98 星 | 总星 5,312 | Fork 496 | TypeScript
+    简介: A framework for building agentic apps
+    链接: https://github.com/BuilderIO/agent-native
+
+#3  cloudflare/security-audit-skill
+    今日 +2428 星 | 总星 18,169 | Fork 1,016 | JavaScript
+    简介: A coding-agent skill for multi-phase security audits with independently verified, machine-readable findings
+    链接: https://github.com/cloudflare/security-audit-skill
+
+#4  trycua/cua
+    今日 +1018 星 | 总星 25,235 | Fork 1,738 | HTML
+    简介: Scale computer-use 2.0 with open-source drivers, cross-OS fleets, and benchmarks for training, evaluation, and data generation.
+    链接: https://github.com/trycua/cua
+
+#5  anthropics/financial-services
+    今日 +260 星 | 总星 35,429 | Fork 5,253 | Python
+    链接: https://github.com/anthropics/financial-services
+
+#6  paperless-ngx/paperless-ngx
+    今日 +57 星 | 总星 45,623 | Fork 3,151 | Python
+    简介: A community-supported supercharged document management system: scan, index and archive all your documents
+    链接: https://github.com/paperless-ngx/paperless-ngx
+
+#7  anthropics/claude-code
+    今日 +419 星 | 总星 147,190 | Fork 24,083 | TypeScript
+    简介: Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows - all through natural language commands.
+    链接: https://github.com/anthropics/claude-code
+
+#8  mihail911/modern-software-dev-assignments
+    今日 +172 星 | 总星 4,597 | Fork 1,012 | Python
+    简介: Assignments for CS146S: The Modern Software Dev (Stanford University Fall 2026/2025)
+    链接: https://github.com/mihail911/modern-software-dev-assignments
+
+#9  higgsfield-ai/higgsfield
+    今日 +465 星 | 总星 5,429 | Fork 959 | Jupyter Notebook
+    简介: Fault-tolerant, highly scalable GPU orchestration, and a machine learning framework designed for training models with billions to trillions of parameters
+    链接: https://github.com/higgsfield-ai/higgsfield
+
+#10  Open-Dev-Society/OpenStock
+    今日 +755 星 | 总星 16,928 | Fork 2,140 | TypeScript
+    简介: OpenStock is an open-source alternative to expensive market platforms. Track real-time prices, set personalized alerts, and explore detailed company insights — built openly, for everyone, forever free.
+    链接: https://github.com/Open-Dev-Society/OpenStock
+
+#11  coder/coder
+    今日 +379 星 | 总星 16,101 | Fork 1,544 | Go
+    简介: Secure environments for developers and their agents
+    链接: https://github.com/coder/coder
+
+#12  vercel-labs/json-render
+    今日 +291 星 | 总星 17,416 | Fork 925 | TypeScript
+    简介: The Generative UI framework
+    链接: https://github.com/vercel-labs/json-render
+
+#13  addyosmani/agent-skills
+    今日 +736 星 | 总星 97,763 | Fork 10,297 | JavaScript
+    简介: Production-grade engineering skills for AI coding agents.
+    链接: https://github.com/addyosmani/agent-skills
