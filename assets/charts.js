@@ -27,16 +27,16 @@
 
   // --- Chart 1: 今日全站最高赞评论 TOP 10 ---
   var topComments = [
+    {"name": "正义属于正义的一方，文明属于文明的一方，胜利属于胜利的一方[奋斗]", "value": 15399, "platform": "B站", "url": "https://www.bilibili.com/video/BV1SZh76LEPA"},
+    {"name": "真珠因为画了这么一张图，被星神啊哈瞥视，踏上了欢愉的命途[思考][思考]", "value": 12849, "platform": "B站", "url": "https://www.bilibili.com/video/BV1yvhW6sEzi"},
     {"name": "跟普通手机安装一个豆包APP有什么区别", "value": 11000, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/69301ff4000000001e029cef?xsec_token=ABJQrbMJ0rv4vhrlQjzwBrpN7kPqYGpdBxvpBx39mKU6g=&xsec_source=pc_search"},
-    {"name": "此时就有明天10连三金沃雅妮莎的旅行者疑惑了", "value": 8690, "platform": "B站", "url": "https://www.bilibili.com/video/BV1BqhB6nEdN"},
-    {"name": "她妈妈长这样[阴阳师缘结神_我不活啦]", "value": 8582, "platform": "B站", "url": "https://www.bilibili.com/video/BV13Thi6AE3S"},
+    {"name": "她妈妈长这样[阴阳师缘结神_我不活啦]", "value": 9749, "platform": "B站", "url": "https://www.bilibili.com/video/BV13Thi6AE3S"},
     {"name": "哪天豆包不开心了，不让你用手机怎么办", "value": 8313, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/69301ff4000000001e029cef?xsec_token=ABJQrbMJ0rv4vhrlQjzwBrpN7kPqYGpdBxvpBx39mKU6g=&xsec_source=pc_search"},
-    {"name": "你们不许看，我是一集一集追的😭", "value": 6244, "platform": "B站", "url": "https://www.bilibili.com/video/BV1BreB6tEWT"},
-    {"name": "妹妹其实并没有像家长嘴里说的脾气大难相处喜欢吵架，她朝尿贴过去的时候就像一只害羞…", "value": 4179, "platform": "B站", "url": "https://www.bilibili.com/video/BV1T7hB6PEBm"},
-    {"name": "我说制作组审美高的惊人，这个字体真的太漂亮了", "value": 3993, "platform": "B站", "url": "https://www.bilibili.com/video/BV1BqhB6nEdN"},
-    {"name": "以后会刷到越来越多的，初代宠物博主的猫基本都到年纪了，唉", "value": 3379, "platform": "B站", "url": "https://www.bilibili.com/video/BV15bez6xEEB"},
-    {"name": "这下知道为什么海报上画的是沃雅妮莎了", "value": 3221, "platform": "B站", "url": "https://www.bilibili.com/video/BV1BqhB6nEdN"},
-    {"name": "千万别跟这种级别的大佬开玩笑[笑哭]，之前在长春的时候见过一个在保镖队干过的，打…", "value": 3035, "platform": "B站", "url": "https://www.bilibili.com/video/BV1J7hE6aEDQ"}
+    {"name": "经典回合制", "value": 6372, "platform": "B站", "url": "https://www.bilibili.com/video/BV1SZh76LEPA"},
+    {"name": "依旧善意引导", "value": 6172, "platform": "B站", "url": "https://www.bilibili.com/video/BV1kUht6wEKw"},
+    {"name": "小时候以为大雁往南飞是飞往中国的南方", "value": 6136, "platform": "B站", "url": "https://www.bilibili.com/video/BV1bQhs6YE9d"},
+    {"name": "考古回来了，今年没看到她呢？她还红吗？", "value": 6012, "platform": "B站", "url": "https://www.bilibili.com/video/BV13Thi6AE3S"},
+    {"name": "发现阿哈画的不是二创而是自传的真珠：", "value": 5369, "platform": "B站", "url": "https://www.bilibili.com/video/BV1yvhW6sEzi"}
   ].reverse();
 
   var chart1 = echarts.init(document.getElementById('chart-top-comments'), null, { renderer: 'svg' });
@@ -85,18 +85,18 @@
 
   // --- Chart 2: B站热门弹幕频次 TOP 12 ---
   var danmaku = [
-    {"name": "为了纳塔！", "value": 1181},
-    {"name": "kksk", "value": 858},
-    {"name": "晚安", "value": 846},
-    {"name": "沃来了", "value": 488},
-    {"name": "晚安泰哥", "value": 277},
-    {"name": "沃真好看", "value": 252},
-    {"name": "沃不歪！", "value": 176},
-    {"name": "无人机", "value": 115},
-    {"name": "文明", "value": 109},
-    {"name": "人民万岁", "value": 96},
-    {"name": "吓哭了", "value": 78},
-    {"name": "月轮启幕，星谱为听，指藏遗音，幻中见真，娅门永存…", "value": 72}
+    {"name": "秒吃", "value": 793},
+    {"name": "懂你意思", "value": 376},
+    {"name": "惊了", "value": 135},
+    {"name": "无人机", "value": 102},
+    {"name": "文明", "value": 87},
+    {"name": "哔哩哔哩 (゜-゜)つロ 干杯~-bilibil", "value": 61},
+    {"name": "这是好事啊", "value": 48},
+    {"name": "bilibili- ( ゜- ゜)つロ 乾杯~", "value": 47},
+    {"name": "恭喜", "value": 46},
+    {"name": "正义必胜", "value": 43},
+    {"name": "大大方方", "value": 35},
+    {"name": "那能一样吗", "value": 32}
   ].reverse();
 
   var chart2 = echarts.init(document.getElementById('chart-danmaku'), null, { renderer: 'svg' });
@@ -135,14 +135,16 @@
 
   // --- Chart 3: GitHub Trending 今日新增星数 TOP 10 ---
   var ghTrending = [
-    {"name": "google/ax", "value": 2305, "lang": "Go", "total": "7,629"},
-    {"name": "mvt-project/mvt", "value": 441, "lang": "Python", "total": "14,119"},
-    {"name": "anthropics/financial-services", "value": 438, "lang": "Python", "total": "36,348"},
-    {"name": "dream-num/univer", "value": 255, "lang": "TypeScript", "total": "15,423"},
-    {"name": "agent-substrate/substrate", "value": 245, "lang": "Go", "total": "2,983"},
-    {"name": "superdesigndev/treg", "value": 230, "lang": "Python", "total": "2,231"},
-    {"name": "browser-use/video-use", "value": 191, "lang": "Python", "total": "25,852"},
-    {"name": "davila7/claude-code-templates", "value": 64, "lang": "Python", "total": "31,135"}
+    {"name": "google/ax", "value": 1543, "lang": "Go", "total": "9,088"},
+    {"name": "dream-num/univer", "value": 1142, "lang": "TypeScript", "total": "16,338"},
+    {"name": "browser-use/video-use", "value": 746, "lang": "Python", "total": "26,499"},
+    {"name": "anthropics/financial-services", "value": 664, "lang": "Python", "total": "36,948"},
+    {"name": "agent-substrate/substrate", "value": 558, "lang": "Go", "total": "3,503"},
+    {"name": "mvt-project/mvt", "value": 543, "lang": "Python", "total": "14,484"},
+    {"name": "superdesigndev/treg", "value": 506, "lang": "Python", "total": "2,719"},
+    {"name": "obra/superpowers", "value": 474, "lang": "Shell", "total": "290,688"},
+    {"name": "davila7/claude-code-templates", "value": 389, "lang": "Python", "total": "31,503"},
+    {"name": "Open-Dev-Society/OpenStock", "value": 344, "lang": "TypeScript", "total": "18,834"}
   ].reverse();
 
   var chart3 = echarts.init(document.getElementById('chart-github'), null, { renderer: 'svg' });

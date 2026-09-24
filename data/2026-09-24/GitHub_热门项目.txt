@@ -1,0 +1,88 @@
+﻿============================================================
+GitHub Trending 今日热门项目
+项目数: 17 | 生成时间: 2026-09-24 09:23:40
+============================================================
+
+#1  anthropics/financial-services
+    今日 +664 星 | 总星 36,948 | Fork 5,377 | Python
+    链接: https://github.com/anthropics/financial-services
+
+#2  google/ax
+    今日 +1543 星 | 总星 9,088 | Fork 437 | Go
+    简介: Google's open agentic orchestration runtime
+    链接: https://github.com/google/ax
+
+#3  davila7/claude-code-templates
+    今日 +389 星 | 总星 31,503 | Fork 3,580 | Python
+    简介: CLI tool for configuring and monitoring Claude Code
+    链接: https://github.com/davila7/claude-code-templates
+
+#4  BuilderIO/agent-native
+    今日 +87 星 | 总星 6,553 | Fork 587 | TypeScript
+    简介: A framework for building agentic apps
+    链接: https://github.com/BuilderIO/agent-native
+
+#5  obra/superpowers
+    今日 +474 星 | 总星 290,688 | Fork 26,012 | Shell
+    简介: An agentic skills framework &amp; software development methodology that works.
+    链接: https://github.com/obra/superpowers
+
+#6  dream-num/univer
+    今日 +1142 星 | 总星 16,338 | Fork 1,435 | TypeScript
+    简介: The Office Harness for AI Agents — Spreadsheets, Docs, Slides, Canvas, Relational Tables, and PDF in one runtime.
+    链接: https://github.com/dream-num/univer
+
+#7  Open-Dev-Society/OpenStock
+    今日 +344 星 | 总星 18,834 | Fork 2,287 | TypeScript
+    简介: OpenStock is an open-source alternative to expensive market platforms. Track real-time prices, set personalized alerts, and explore detailed company insights — built openly, for everyone, forever free.
+    链接: https://github.com/Open-Dev-Society/OpenStock
+
+#8  agent-substrate/substrate
+    今日 +558 星 | 总星 3,503 | Fork 413 | Go
+    简介: Agent Substrate: the core system
+    链接: https://github.com/agent-substrate/substrate
+
+#9  strands-agents/harness-sdk
+    今日 +115 星 | 总星 7,849 | Fork 1,201 | Python
+    简介: Build an agent harness and control it end-to-end. Open-source SDK for production AI agents in Python &amp; TypeScript - any model, any cloud.
+    链接: https://github.com/strands-agents/harness-sdk
+
+#10  HKUDS/CLI-Anything
+    今日 +57 星 | 总星 49,936 | Fork 4,601 | Python
+    简介: "CLI-Anything: Making ALL Software Agent-Native" -- CLI-Hub: https://clianything.cc/
+    链接: https://github.com/HKUDS/CLI-Anything
+
+#11  superdesigndev/treg
+    今日 +506 星 | 总星 2,719 | Fork 242 | Python
+    简介: OpenRouter for agent tools. Join community here: https://discord.gg/6mQYYfFMAn
+    链接: https://github.com/superdesigndev/treg
+
+#12  pbakaus/impeccable
+    今日 +304 星 | 总星 70,346 | Fork 4,271 | JavaScript
+    简介: The design language that makes your AI harness better at design.
+    链接: https://github.com/pbakaus/impeccable
+
+#13  mvt-project/mvt
+    今日 +543 星 | 总星 14,484 | Fork 1,383 | Python
+    简介: MVT (Mobile Verification Toolkit) helps with conducting forensics of mobile devices in order to find signs of a potential compromise.
+    链接: https://github.com/mvt-project/mvt
+
+#14  DeusData/codebase-memory-mcp
+    今日 +190 星 | 总星 44,571 | Fork 3,638 | C
+    简介: High-performance code intelligence MCP server. Indexes codebases into a persistent knowledge graph — average repo in milliseconds. 158 languages, sub-ms queries, 99% fewer tokens. Single static binary, zero dependencies.
+    链接: https://github.com/DeusData/codebase-memory-mcp
+
+#15  harry7557558/spirula-studio
+    今日 +69 星 | 总星 744 | Fork 56 | C++
+    简介: Cross-vendor 3D Gaussian Splatting trainer - video to splat to mesh, Vulkan or CUDA.
+    链接: https://github.com/harry7557558/spirula-studio
+
+#16  browser-use/video-use
+    今日 +746 星 | 总星 26,499 | Fork 3,166 | Python
+    简介: Edit videos with coding agents
+    链接: https://github.com/browser-use/video-use
+
+#17  TNT-Likely/PanWatch
+    今日 +95 星 | 总星 1,513 | Fork 299 | Python
+    简介: 盯盘侠 PanWatch · 自托管 AI 盯盘助手，集成 TradingAgents 多 Agent 投资决策 | A股/港股/美股实时监控、持仓管理、智能分析、全渠道推送
+    链接: https://github.com/TNT-Likely/PanWatch
