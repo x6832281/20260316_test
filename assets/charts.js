@@ -27,16 +27,16 @@
 
   // --- Chart 1: 今日全站最高赞评论 TOP 10 ---
   var topComments = [
-    {"name": "正义属于正义的一方，文明属于文明的一方，胜利属于胜利的一方[奋斗]", "value": 15399, "platform": "B站", "url": "https://www.bilibili.com/video/BV1SZh76LEPA"},
-    {"name": "真珠因为画了这么一张图，被星神啊哈瞥视，踏上了欢愉的命途[思考][思考]", "value": 12849, "platform": "B站", "url": "https://www.bilibili.com/video/BV1yvhW6sEzi"},
     {"name": "跟普通手机安装一个豆包APP有什么区别", "value": 11000, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/69301ff4000000001e029cef?xsec_token=ABJQrbMJ0rv4vhrlQjzwBrpN7kPqYGpdBxvpBx39mKU6g=&xsec_source=pc_search"},
-    {"name": "她妈妈长这样[阴阳师缘结神_我不活啦]", "value": 9749, "platform": "B站", "url": "https://www.bilibili.com/video/BV13Thi6AE3S"},
     {"name": "哪天豆包不开心了，不让你用手机怎么办", "value": 8313, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/69301ff4000000001e029cef?xsec_token=ABJQrbMJ0rv4vhrlQjzwBrpN7kPqYGpdBxvpBx39mKU6g=&xsec_source=pc_search"},
-    {"name": "经典回合制", "value": 6372, "platform": "B站", "url": "https://www.bilibili.com/video/BV1SZh76LEPA"},
-    {"name": "依旧善意引导", "value": 6172, "platform": "B站", "url": "https://www.bilibili.com/video/BV1kUht6wEKw"},
-    {"name": "小时候以为大雁往南飞是飞往中国的南方", "value": 6136, "platform": "B站", "url": "https://www.bilibili.com/video/BV1bQhs6YE9d"},
-    {"name": "考古回来了，今年没看到她呢？她还红吗？", "value": 6012, "platform": "B站", "url": "https://www.bilibili.com/video/BV13Thi6AE3S"},
-    {"name": "发现阿哈画的不是二创而是自传的真珠：", "value": 5369, "platform": "B站", "url": "https://www.bilibili.com/video/BV1yvhW6sEzi"}
+    {"name": "老鼠自己跑了又自己回来的时候我真的笑岔气了。哈哈哈哈哈哈哈哈哈哈哈[笑哭] 老鼠…", "value": 5546, "platform": "B站", "url": "https://www.bilibili.com/video/BV1ZFeB6xEs9"},
+    {"name": "不是？去世了？我之前看他拍的视频身子骨不是挺好的吗？这么突然啊[酸了][酸了]", "value": 3827, "platform": "B站", "url": "https://www.bilibili.com/video/BV17Eaw6DEMi"},
+    {"name": "谁点的男模围棋？[doge]", "value": 3579, "platform": "B站", "url": "https://www.bilibili.com/video/BV1YDhJ6ZEL6"},
+    {"name": "系统级 跨APP执行", "value": 3024, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/69301ff4000000001e029cef?xsec_token=ABJQrbMJ0rv4vhrlQjzwBrpN7kPqYGpdBxvpBx39mKU6g=&xsec_source=pc_search"},
+    {"name": "这游戏主角的真实身份是从良的连环杀手，还是疑似信恐虐的，每个月杀8个，为了给自己…", "value": 2960, "platform": "B站", "url": "https://www.bilibili.com/video/BV18fhb65EGs"},
+    {"name": "以前听说你在卖围棋课，现在看来你确实在卖了。", "value": 2449, "platform": "B站", "url": "https://www.bilibili.com/video/BV1YDhJ6ZEL6"},
+    {"name": "午夜轮班 这款曾经爆火的游戏 玩起来 太刺激了简直不要太爽 硬生生玩成搞笑游戏[…", "value": 2436, "platform": "B站", "url": "https://www.bilibili.com/video/BV18fhb65EGs"},
+    {"name": "地铁终于开了，希望可以作为我们店的救命稻草，实现扭亏为盈，不过目前这个经济形势，…", "value": 2300, "platform": "B站", "url": "https://www.bilibili.com/video/BV11WaA6KEBb"}
   ].reverse();
 
   var chart1 = echarts.init(document.getElementById('chart-top-comments'), null, { renderer: 'svg' });
@@ -85,18 +85,18 @@
 
   // --- Chart 2: B站热门弹幕频次 TOP 12 ---
   var danmaku = [
-    {"name": "秒吃", "value": 793},
-    {"name": "懂你意思", "value": 376},
-    {"name": "惊了", "value": 135},
-    {"name": "无人机", "value": 102},
-    {"name": "文明", "value": 87},
-    {"name": "哔哩哔哩 (゜-゜)つロ 干杯~-bilibil", "value": 61},
-    {"name": "这是好事啊", "value": 48},
-    {"name": "bilibili- ( ゜- ゜)つロ 乾杯~", "value": 47},
-    {"name": "恭喜", "value": 46},
-    {"name": "正义必胜", "value": 43},
-    {"name": "大大方方", "value": 35},
-    {"name": "那能一样吗", "value": 32}
+    {"name": "牛来", "value": 562},
+    {"name": "这很COLMO！", "value": 518},
+    {"name": "一路走好", "value": 343},
+    {"name": "哔哩哔哩 (゜-゜)つロ 干杯~-bilibil", "value": 99},
+    {"name": "谢谢款待", "value": 57},
+    {"name": "中秋快乐", "value": 55},
+    {"name": "绵羊绵羊，是不是你的番茄品种买错了咯？", "value": 53},
+    {"name": "bilibili- ( ゜- ゜)つロ 乾杯~", "value": 49},
+    {"name": "啊？", "value": 49},
+    {"name": "那能一样吗", "value": 49},
+    {"name": "还真是", "value": 43},
+    {"name": "笑死我了", "value": 40}
   ].reverse();
 
   var chart2 = echarts.init(document.getElementById('chart-danmaku'), null, { renderer: 'svg' });
@@ -135,16 +135,16 @@
 
   // --- Chart 3: GitHub Trending 今日新增星数 TOP 10 ---
   var ghTrending = [
-    {"name": "google/ax", "value": 1543, "lang": "Go", "total": "9,088"},
-    {"name": "dream-num/univer", "value": 1142, "lang": "TypeScript", "total": "16,338"},
-    {"name": "browser-use/video-use", "value": 746, "lang": "Python", "total": "26,499"},
-    {"name": "anthropics/financial-services", "value": 664, "lang": "Python", "total": "36,948"},
-    {"name": "agent-substrate/substrate", "value": 558, "lang": "Go", "total": "3,503"},
-    {"name": "mvt-project/mvt", "value": 543, "lang": "Python", "total": "14,484"},
-    {"name": "superdesigndev/treg", "value": 506, "lang": "Python", "total": "2,719"},
-    {"name": "obra/superpowers", "value": 474, "lang": "Shell", "total": "290,688"},
-    {"name": "davila7/claude-code-templates", "value": 389, "lang": "Python", "total": "31,503"},
-    {"name": "Open-Dev-Society/OpenStock", "value": 344, "lang": "TypeScript", "total": "18,834"}
+    {"name": "vectorize-io/hindsight", "value": 1668, "lang": "Python", "total": "27,796"},
+    {"name": "google/ax", "value": 1373, "lang": "Go", "total": "10,472"},
+    {"name": "dream-num/univer", "value": 1082, "lang": "TypeScript", "total": "17,698"},
+    {"name": "obra/superpowers", "value": 611, "lang": "Shell", "total": "291,234"},
+    {"name": "anthropics/financial-services", "value": 509, "lang": "Python", "total": "37,358"},
+    {"name": "superdesigndev/treg", "value": 468, "lang": "Python", "total": "3,167"},
+    {"name": "strands-agents/harness-sdk", "value": 455, "lang": "Python", "total": "8,261"},
+    {"name": "HKUDS/CLI-Anything", "value": 413, "lang": "Python", "total": "50,337"},
+    {"name": "rohitg00/ai-engineering-from-scratch", "value": 347, "lang": "Python", "total": "56,573"},
+    {"name": "mvt-project/mvt", "value": 272, "lang": "Python", "total": "14,732"}
   ].reverse();
 
   var chart3 = echarts.init(document.getElementById('chart-github'), null, { renderer: 'svg' });
