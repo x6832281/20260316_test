@@ -27,16 +27,16 @@
 
   // --- Chart 1: 今日全站最高赞评论 TOP 10 ---
   var topComments = [
+    {"name": "下次记得给嘉宾准备点儿水，有点干了………[doge_金箍]", "value": 20068, "platform": "B站", "url": "https://www.bilibili.com/video/BV1JFaN6hEL9"},
+    {"name": "[抓狂]", "value": 11112, "platform": "B站", "url": "https://www.bilibili.com/video/BV1Vkag6TExf"},
     {"name": "跟普通手机安装一个豆包APP有什么区别", "value": 11000, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/69301ff4000000001e029cef?xsec_token=ABJQrbMJ0rv4vhrlQjzwBrpN7kPqYGpdBxvpBx39mKU6g=&xsec_source=pc_search"},
     {"name": "哪天豆包不开心了，不让你用手机怎么办", "value": 8313, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/69301ff4000000001e029cef?xsec_token=ABJQrbMJ0rv4vhrlQjzwBrpN7kPqYGpdBxvpBx39mKU6g=&xsec_source=pc_search"},
-    {"name": "老鼠自己跑了又自己回来的时候我真的笑岔气了。哈哈哈哈哈哈哈哈哈哈哈[笑哭] 老鼠…", "value": 5546, "platform": "B站", "url": "https://www.bilibili.com/video/BV1ZFeB6xEs9"},
-    {"name": "不是？去世了？我之前看他拍的视频身子骨不是挺好的吗？这么突然啊[酸了][酸了]", "value": 3827, "platform": "B站", "url": "https://www.bilibili.com/video/BV17Eaw6DEMi"},
-    {"name": "谁点的男模围棋？[doge]", "value": 3579, "platform": "B站", "url": "https://www.bilibili.com/video/BV1YDhJ6ZEL6"},
+    {"name": "小约翰同志， 9月份的指标能不能更新10期呢", "value": 3190, "platform": "B站", "url": "https://www.bilibili.com/video/BV1WhaA6hE7s"},
     {"name": "系统级 跨APP执行", "value": 3024, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/69301ff4000000001e029cef?xsec_token=ABJQrbMJ0rv4vhrlQjzwBrpN7kPqYGpdBxvpBx39mKU6g=&xsec_source=pc_search"},
-    {"name": "这游戏主角的真实身份是从良的连环杀手，还是疑似信恐虐的，每个月杀8个，为了给自己…", "value": 2960, "platform": "B站", "url": "https://www.bilibili.com/video/BV18fhb65EGs"},
-    {"name": "以前听说你在卖围棋课，现在看来你确实在卖了。", "value": 2449, "platform": "B站", "url": "https://www.bilibili.com/video/BV1YDhJ6ZEL6"},
-    {"name": "午夜轮班 这款曾经爆火的游戏 玩起来 太刺激了简直不要太爽 硬生生玩成搞笑游戏[…", "value": 2436, "platform": "B站", "url": "https://www.bilibili.com/video/BV18fhb65EGs"},
-    {"name": "地铁终于开了，希望可以作为我们店的救命稻草，实现扭亏为盈，不过目前这个经济形势，…", "value": 2300, "platform": "B站", "url": "https://www.bilibili.com/video/BV11WaA6KEBb"}
+    {"name": "最早玩黑莓那代人已经老花了", "value": 2220, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/69e224d9000000002101038b?xsec_token=ABmuylZEbxoHDcVfKEl8R1_BD21a9foH64_6sR_VGWK08=&xsec_source=pc_search"},
+    {"name": "一部通辽史，半部勋宗传[笑哭]", "value": 1802, "platform": "B站", "url": "https://www.bilibili.com/video/BV1WhaA6hE7s"},
+    {"name": "苏联的粮食政策真的太抽象了，解体之后的苏联各个加盟国虽然有各种各样的问题，但是在…", "value": 1777, "platform": "B站", "url": "https://www.bilibili.com/video/BV1WhaA6hE7s"},
+    {"name": "2是7", "value": 1768, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/699ab185000000001a02567f?xsec_token=AB9MRNPH7i-pxtsiwE-W46H8pRsztx20EmW77-H6o1bL4=&xsec_source=pc_search"}
   ].reverse();
 
   var chart1 = echarts.init(document.getElementById('chart-top-comments'), null, { renderer: 'svg' });
@@ -85,18 +85,18 @@
 
   // --- Chart 2: B站热门弹幕频次 TOP 12 ---
   var danmaku = [
-    {"name": "牛来", "value": 562},
-    {"name": "这很COLMO！", "value": 518},
-    {"name": "一路走好", "value": 343},
-    {"name": "哔哩哔哩 (゜-゜)つロ 干杯~-bilibil", "value": 99},
-    {"name": "谢谢款待", "value": 57},
-    {"name": "中秋快乐", "value": 55},
-    {"name": "绵羊绵羊，是不是你的番茄品种买错了咯？", "value": 53},
-    {"name": "bilibili- ( ゜- ゜)つロ 乾杯~", "value": 49},
-    {"name": "啊？", "value": 49},
-    {"name": "那能一样吗", "value": 49},
-    {"name": "还真是", "value": 43},
-    {"name": "笑死我了", "value": 40}
+    {"name": "完结撒花", "value": 922},
+    {"name": "这很COLMO！", "value": 787},
+    {"name": "中秋快乐", "value": 443},
+    {"name": "懂你意思", "value": 160},
+    {"name": "嘉豪", "value": 141},
+    {"name": "谢谢款待", "value": 131},
+    {"name": "中秋节快乐", "value": 117},
+    {"name": "害怕", "value": 109},
+    {"name": "░░░░░░░░░░░░░░░░░░░░ 防网暴…", "value": 98},
+    {"name": "绵羊绵羊，是不是你的番茄品种买错了咯？", "value": 97},
+    {"name": "中秋快乐！", "value": 91},
+    {"name": "谁？", "value": 78}
   ].reverse();
 
   var chart2 = echarts.init(document.getElementById('chart-danmaku'), null, { renderer: 'svg' });
@@ -135,16 +135,16 @@
 
   // --- Chart 3: GitHub Trending 今日新增星数 TOP 10 ---
   var ghTrending = [
-    {"name": "vectorize-io/hindsight", "value": 1668, "lang": "Python", "total": "27,796"},
-    {"name": "google/ax", "value": 1373, "lang": "Go", "total": "10,472"},
-    {"name": "dream-num/univer", "value": 1082, "lang": "TypeScript", "total": "17,698"},
-    {"name": "obra/superpowers", "value": 611, "lang": "Shell", "total": "291,234"},
-    {"name": "anthropics/financial-services", "value": 509, "lang": "Python", "total": "37,358"},
-    {"name": "superdesigndev/treg", "value": 468, "lang": "Python", "total": "3,167"},
-    {"name": "strands-agents/harness-sdk", "value": 455, "lang": "Python", "total": "8,261"},
-    {"name": "HKUDS/CLI-Anything", "value": 413, "lang": "Python", "total": "50,337"},
-    {"name": "rohitg00/ai-engineering-from-scratch", "value": 347, "lang": "Python", "total": "56,573"},
-    {"name": "mvt-project/mvt", "value": 272, "lang": "Python", "total": "14,732"}
+    {"name": "paperclipai/paperclip", "value": 2109, "lang": "TypeScript", "total": "84,990"},
+    {"name": "vectorize-io/hindsight", "value": 1653, "lang": "Python", "total": "29,817"},
+    {"name": "google/ax", "value": 1379, "lang": "Go", "total": "11,515"},
+    {"name": "rohitg00/ai-engineering-from-scratch", "value": 1177, "lang": "Python", "total": "57,515"},
+    {"name": "dream-num/univer", "value": 1050, "lang": "TypeScript", "total": "18,450"},
+    {"name": "mattpocock/skills", "value": 583, "lang": "Shell", "total": "269,735"},
+    {"name": "obra/superpowers", "value": 468, "lang": "Shell", "total": "291,665"},
+    {"name": "NVIDIA/Model-Optimizer", "value": 359, "lang": "Python", "total": "4,479"},
+    {"name": "pbakaus/impeccable", "value": 306, "lang": "JavaScript", "total": "71,208"},
+    {"name": "anthropics/skills", "value": 189, "lang": "Python", "total": "178,323"}
   ].reverse();
 
   var chart3 = echarts.init(document.getElementById('chart-github'), null, { renderer: 'svg' });
