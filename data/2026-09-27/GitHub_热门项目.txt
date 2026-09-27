@@ -1,0 +1,78 @@
+﻿============================================================
+GitHub Trending 今日热门项目
+项目数: 15 | 生成时间: 2026-09-27 09:24:14
+============================================================
+
+#1  paperclipai/paperclip
+    今日 +2608 星 | 总星 87,375 | Fork 15,435 | TypeScript
+    简介: The open-source app everyone uses to manage agents at work
+    链接: https://github.com/paperclipai/paperclip
+
+#2  vectorize-io/hindsight
+    今日 +2147 星 | 总星 32,229 | Fork 3,575 | Python
+    简介: Hindsight: Agent Memory That Learns
+    链接: https://github.com/vectorize-io/hindsight
+
+#3  NVIDIA/Model-Optimizer
+    今日 +357 星 | 总星 4,758 | Fork 669 | Python
+    简介: A unified library of SOTA model optimization techniques like quantization, distillation, pruning, neural architecture search, speculative decoding, etc. It compresses deep learning models for downstream deployment frameworks like TensorRT-LLM, TensorRT, vLLM, etc. to optimize inference speed.
+    链接: https://github.com/NVIDIA/Model-Optimizer
+
+#4  dream-num/univer
+    今日 +849 星 | 总星 19,235 | Fork 1,636 | TypeScript
+    简介: The Office Harness for AI Agents — Spreadsheets, Docs, Slides, Canvas, Relational Tables, and PDF in one runtime.
+    链接: https://github.com/dream-num/univer
+
+#5  tensorflow/tensorflow
+    今日 +46 星 | 总星 200,463 | Fork 77,622 | C++
+    简介: An Open Source Machine Learning Framework for Everyone
+    链接: https://github.com/tensorflow/tensorflow
+
+#6  rohitg00/ai-engineering-from-scratch
+    今日 +827 星 | 总星 58,393 | Fork 10,125 | Python
+    简介: Learn it. Build it. Ship it for others.
+    链接: https://github.com/rohitg00/ai-engineering-from-scratch
+
+#7  openbao/openbao
+    今日 +364 星 | 总星 8,010 | Fork 590 | Go
+    简介: OpenBao is a software solution to manage, store, and distribute sensitive data including secrets, certificates, and keys.
+    链接: https://github.com/openbao/openbao
+
+#8  block/buzz
+    今日 +339 星 | 总星 34,834 | Fork 4,596 | Rust
+    简介: A hive mind communication platform
+    链接: https://github.com/block/buzz
+
+#9  microsoft/vscode
+    今日 +95 星 | 总星 193,077 | Fork 43,558 | TypeScript
+    简介: Visual Studio Code
+    链接: https://github.com/microsoft/vscode
+
+#10  zhaoxuya520/reverse-skill
+    今日 +361 星 | 总星 38,022 | Fork 5,273 | PowerShell
+    简介: Reverse Engineering / Authorized Penetration Testing / Security Research Skill Router Pack AI-powered routing + On-demand toolchain bootstrapping + Self-evolving knowledge base Supports Claude Code, Kiro, Cursor, Cline, and other AI coding clients 逆向/渗透/安全技能路由包 - AI 自动路由 + 按需自举工具链 + 自动进化经验库 | 支持 Claude Code / Kiro / Cursor / Cline 等代码 AI 客户端
+    链接: https://github.com/zhaoxuya520/reverse-skill
+
+#11  llvm/llvm-project
+    今日 +41 星 | 总星 40,753 | Fork 18,823 | LLVM
+    简介: The LLVM Project is a collection of modular and reusable compiler and toolchain technologies.
+    链接: https://github.com/llvm/llvm-project
+
+#12  anthropics/claude-code-action
+    今日 +31 星 | 总星 9,095 | Fork 2,164 | TypeScript
+    链接: https://github.com/anthropics/claude-code-action
+
+#13  actions/runner-images
+    今日 +19 星 | 总星 13,303 | Fork 3,868 | PowerShell
+    简介: GitHub Actions runner images
+    链接: https://github.com/actions/runner-images
+
+#14  mobile-next/mobile-mcp
+    今日 +168 星 | 总星 7,361 | Fork 641 | TypeScript
+    简介: Model Context Protocol Server for Mobile Automation and Scraping (iOS, Android, Emulators, Simulators and Real Devices)
+    链接: https://github.com/mobile-next/mobile-mcp
+
+#15  vercel/next.js
+    今日 +54 星 | 总星 142,641 | Fork 33,169 | JavaScript
+    简介: The React Framework
+    链接: https://github.com/vercel/next.js

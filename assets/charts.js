@@ -27,16 +27,16 @@
 
   // --- Chart 1: 今日全站最高赞评论 TOP 10 ---
   var topComments = [
-    {"name": "下次记得给嘉宾准备点儿水，有点干了………[doge_金箍]", "value": 20068, "platform": "B站", "url": "https://www.bilibili.com/video/BV1JFaN6hEL9"},
-    {"name": "[抓狂]", "value": 11112, "platform": "B站", "url": "https://www.bilibili.com/video/BV1Vkag6TExf"},
+    {"name": "下次记得给嘉宾准备点儿水，有点干了………[doge_金箍]", "value": 32192, "platform": "B站", "url": "https://www.bilibili.com/video/BV1JFaN6hEL9"},
     {"name": "跟普通手机安装一个豆包APP有什么区别", "value": 11000, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/69301ff4000000001e029cef?xsec_token=ABJQrbMJ0rv4vhrlQjzwBrpN7kPqYGpdBxvpBx39mKU6g=&xsec_source=pc_search"},
+    {"name": "我们一般不把艺术家叫做嘉豪", "value": 8838, "platform": "B站", "url": "https://www.bilibili.com/video/BV1DvaP62ECv"},
+    {"name": "体验就是 手机翻译软件更好用[doge]", "value": 8638, "platform": "B站", "url": "https://www.bilibili.com/video/BV1F5h86PEUH"},
     {"name": "哪天豆包不开心了，不让你用手机怎么办", "value": 8313, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/69301ff4000000001e029cef?xsec_token=ABJQrbMJ0rv4vhrlQjzwBrpN7kPqYGpdBxvpBx39mKU6g=&xsec_source=pc_search"},
-    {"name": "小约翰同志， 9月份的指标能不能更新10期呢", "value": 3190, "platform": "B站", "url": "https://www.bilibili.com/video/BV1WhaA6hE7s"},
-    {"name": "系统级 跨APP执行", "value": 3024, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/69301ff4000000001e029cef?xsec_token=ABJQrbMJ0rv4vhrlQjzwBrpN7kPqYGpdBxvpBx39mKU6g=&xsec_source=pc_search"},
-    {"name": "最早玩黑莓那代人已经老花了", "value": 2220, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/69e224d9000000002101038b?xsec_token=ABmuylZEbxoHDcVfKEl8R1_BD21a9foH64_6sR_VGWK08=&xsec_source=pc_search"},
-    {"name": "一部通辽史，半部勋宗传[笑哭]", "value": 1802, "platform": "B站", "url": "https://www.bilibili.com/video/BV1WhaA6hE7s"},
-    {"name": "苏联的粮食政策真的太抽象了，解体之后的苏联各个加盟国虽然有各种各样的问题，但是在…", "value": 1777, "platform": "B站", "url": "https://www.bilibili.com/video/BV1WhaA6hE7s"},
-    {"name": "2是7", "value": 1768, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/699ab185000000001a02567f?xsec_token=AB9MRNPH7i-pxtsiwE-W46H8pRsztx20EmW77-H6o1bL4=&xsec_source=pc_search"}
+    {"name": "午夜轮班 这款曾经爆火的游戏 玩起来 太刺激了简直不要太爽 硬生生玩成搞笑游戏[…", "value": 6164, "platform": "B站", "url": "https://www.bilibili.com/video/BV18fhb65EGs"},
+    {"name": "哥们内存够大的，装这么多语种语音包", "value": 6035, "platform": "B站", "url": "https://www.bilibili.com/video/BV1F5h86PEUH"},
+    {"name": "这游戏主角的真实身份是从良的连环杀手，还是疑似信恐虐的，每个月杀8个，为了给自己…", "value": 5976, "platform": "B站", "url": "https://www.bilibili.com/video/BV18fhb65EGs"},
+    {"name": "冷知识， NBA并没有规定不能用须佐手臂扣篮，也没有规定打球不能放雷遁和火遁[笑…", "value": 4736, "platform": "B站", "url": "https://www.bilibili.com/video/BV1c7hX6hEgh"},
+    {"name": "由两个动物和一个水果经营的杀人商厦[doge_金箍]", "value": 3727, "platform": "B站", "url": "https://www.bilibili.com/video/BV18fhb65EGs"}
   ].reverse();
 
   var chart1 = echarts.init(document.getElementById('chart-top-comments'), null, { renderer: 'svg' });
@@ -85,18 +85,18 @@
 
   // --- Chart 2: B站热门弹幕频次 TOP 12 ---
   var danmaku = [
-    {"name": "完结撒花", "value": 922},
-    {"name": "这很COLMO！", "value": 787},
-    {"name": "中秋快乐", "value": 443},
-    {"name": "懂你意思", "value": 160},
-    {"name": "嘉豪", "value": 141},
-    {"name": "谢谢款待", "value": 131},
-    {"name": "中秋节快乐", "value": 117},
-    {"name": "害怕", "value": 109},
-    {"name": "░░░░░░░░░░░░░░░░░░░░ 防网暴…", "value": 98},
-    {"name": "绵羊绵羊，是不是你的番茄品种买错了咯？", "value": 97},
-    {"name": "中秋快乐！", "value": 91},
-    {"name": "谁？", "value": 78}
+    {"name": "一路走好", "value": 1024},
+    {"name": "豪到我了", "value": 581},
+    {"name": "藏狐", "value": 567},
+    {"name": "掉皮掉肉不掉队！", "value": 510},
+    {"name": "jo等了", "value": 470},
+    {"name": "牛来", "value": 468},
+    {"name": "许愿心不歪，玩到关服", "value": 417},
+    {"name": "谢谢款待", "value": 307},
+    {"name": "中秋快乐", "value": 270},
+    {"name": "爷们！", "value": 262},
+    {"name": "大王", "value": 215},
+    {"name": "man！", "value": 200}
   ].reverse();
 
   var chart2 = echarts.init(document.getElementById('chart-danmaku'), null, { renderer: 'svg' });
@@ -135,16 +135,16 @@
 
   // --- Chart 3: GitHub Trending 今日新增星数 TOP 10 ---
   var ghTrending = [
-    {"name": "paperclipai/paperclip", "value": 2109, "lang": "TypeScript", "total": "84,990"},
-    {"name": "vectorize-io/hindsight", "value": 1653, "lang": "Python", "total": "29,817"},
-    {"name": "google/ax", "value": 1379, "lang": "Go", "total": "11,515"},
-    {"name": "rohitg00/ai-engineering-from-scratch", "value": 1177, "lang": "Python", "total": "57,515"},
-    {"name": "dream-num/univer", "value": 1050, "lang": "TypeScript", "total": "18,450"},
-    {"name": "mattpocock/skills", "value": 583, "lang": "Shell", "total": "269,735"},
-    {"name": "obra/superpowers", "value": 468, "lang": "Shell", "total": "291,665"},
-    {"name": "NVIDIA/Model-Optimizer", "value": 359, "lang": "Python", "total": "4,479"},
-    {"name": "pbakaus/impeccable", "value": 306, "lang": "JavaScript", "total": "71,208"},
-    {"name": "anthropics/skills", "value": 189, "lang": "Python", "total": "178,323"}
+    {"name": "paperclipai/paperclip", "value": 2608, "lang": "TypeScript", "total": "87,375"},
+    {"name": "vectorize-io/hindsight", "value": 2147, "lang": "Python", "total": "32,229"},
+    {"name": "dream-num/univer", "value": 849, "lang": "TypeScript", "total": "19,235"},
+    {"name": "rohitg00/ai-engineering-from-scratch", "value": 827, "lang": "Python", "total": "58,393"},
+    {"name": "openbao/openbao", "value": 364, "lang": "Go", "total": "8,010"},
+    {"name": "zhaoxuya520/reverse-skill", "value": 361, "lang": "PowerShell", "total": "38,022"},
+    {"name": "NVIDIA/Model-Optimizer", "value": 357, "lang": "Python", "total": "4,758"},
+    {"name": "block/buzz", "value": 339, "lang": "Rust", "total": "34,834"},
+    {"name": "mobile-next/mobile-mcp", "value": 168, "lang": "TypeScript", "total": "7,361"},
+    {"name": "microsoft/vscode", "value": 95, "lang": "TypeScript", "total": "193,077"}
   ].reverse();
 
   var chart3 = echarts.init(document.getElementById('chart-github'), null, { renderer: 'svg' });
