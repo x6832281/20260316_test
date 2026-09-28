@@ -27,16 +27,16 @@
 
   // --- Chart 1: 今日全站最高赞评论 TOP 10 ---
   var topComments = [
-    {"name": "下次记得给嘉宾准备点儿水，有点干了………[doge_金箍]", "value": 32192, "platform": "B站", "url": "https://www.bilibili.com/video/BV1JFaN6hEL9"},
     {"name": "跟普通手机安装一个豆包APP有什么区别", "value": 11000, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/69301ff4000000001e029cef?xsec_token=ABJQrbMJ0rv4vhrlQjzwBrpN7kPqYGpdBxvpBx39mKU6g=&xsec_source=pc_search"},
-    {"name": "我们一般不把艺术家叫做嘉豪", "value": 8838, "platform": "B站", "url": "https://www.bilibili.com/video/BV1DvaP62ECv"},
-    {"name": "体验就是 手机翻译软件更好用[doge]", "value": 8638, "platform": "B站", "url": "https://www.bilibili.com/video/BV1F5h86PEUH"},
     {"name": "哪天豆包不开心了，不让你用手机怎么办", "value": 8313, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/69301ff4000000001e029cef?xsec_token=ABJQrbMJ0rv4vhrlQjzwBrpN7kPqYGpdBxvpBx39mKU6g=&xsec_source=pc_search"},
-    {"name": "午夜轮班 这款曾经爆火的游戏 玩起来 太刺激了简直不要太爽 硬生生玩成搞笑游戏[…", "value": 6164, "platform": "B站", "url": "https://www.bilibili.com/video/BV18fhb65EGs"},
-    {"name": "哥们内存够大的，装这么多语种语音包", "value": 6035, "platform": "B站", "url": "https://www.bilibili.com/video/BV1F5h86PEUH"},
-    {"name": "这游戏主角的真实身份是从良的连环杀手，还是疑似信恐虐的，每个月杀8个，为了给自己…", "value": 5976, "platform": "B站", "url": "https://www.bilibili.com/video/BV18fhb65EGs"},
-    {"name": "冷知识， NBA并没有规定不能用须佐手臂扣篮，也没有规定打球不能放雷遁和火遁[笑…", "value": 4736, "platform": "B站", "url": "https://www.bilibili.com/video/BV1c7hX6hEgh"},
-    {"name": "由两个动物和一个水果经营的杀人商厦[doge_金箍]", "value": 3727, "platform": "B站", "url": "https://www.bilibili.com/video/BV18fhb65EGs"}
+    {"name": "[笑哭]", "value": 6825, "platform": "B站", "url": "https://www.bilibili.com/video/BV1UNhR6jEiW"},
+    {"name": "在快要毁灭性的星球看到这样的景象你也会踏上开拓的", "value": 5381, "platform": "B站", "url": "https://www.bilibili.com/video/BV1Rmh96ZEXh"},
+    {"name": "冷知识：真珠是第1个欢愉命途PV不欢快的角色", "value": 5302, "platform": "B站", "url": "https://www.bilibili.com/video/BV1Rmh96ZEXh"},
+    {"name": "看到pv最后，各位是否发自内心的感到高兴了？ 所以说，经此淬炼者，方得欢愉", "value": 3339, "platform": "B站", "url": "https://www.bilibili.com/video/BV1Rmh96ZEXh"},
+    {"name": "系统级 跨APP执行", "value": 3024, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/69301ff4000000001e029cef?xsec_token=ABJQrbMJ0rv4vhrlQjzwBrpN7kPqYGpdBxvpBx39mKU6g=&xsec_source=pc_search"},
+    {"name": "最早玩黑莓那代人已经老花了", "value": 2220, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/69e224d9000000002101038b?xsec_token=ABmuylZEbxoHDcVfKEl8R1_BD21a9foH64_6sR_VGWK08=&xsec_source=pc_search"},
+    {"name": "2是7", "value": 1768, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/699ab185000000001a02567f?xsec_token=AB9MRNPH7i-pxtsiwE-W46H8pRsztx20EmW77-H6o1bL4=&xsec_source=pc_search"},
+    {"name": "妈你看手机不离手不就不会丢了吗[抽泣R]还成天说我[色色R]", "value": 1680, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6a981106000000002900f745?xsec_token=ABgFkexTizTcRuRHtiUpnK2k469XWnsLSy-Mcl9cbFqKg=&xsec_source=pc_search"}
   ].reverse();
 
   var chart1 = echarts.init(document.getElementById('chart-top-comments'), null, { renderer: 'svg' });
@@ -85,18 +85,18 @@
 
   // --- Chart 2: B站热门弹幕频次 TOP 12 ---
   var danmaku = [
-    {"name": "一路走好", "value": 1024},
-    {"name": "豪到我了", "value": 581},
-    {"name": "藏狐", "value": 567},
-    {"name": "掉皮掉肉不掉队！", "value": 510},
-    {"name": "jo等了", "value": 470},
-    {"name": "牛来", "value": 468},
-    {"name": "许愿心不歪，玩到关服", "value": 417},
-    {"name": "谢谢款待", "value": 307},
-    {"name": "中秋快乐", "value": 270},
-    {"name": "爷们！", "value": 262},
-    {"name": "大王", "value": 215},
-    {"name": "man！", "value": 200}
+    {"name": "跨火盆", "value": 1485},
+    {"name": "藏狐", "value": 573},
+    {"name": "掉皮掉肉不掉队！", "value": 555},
+    {"name": "谢谢款待", "value": 552},
+    {"name": "爷们！", "value": 451},
+    {"name": "秒吃", "value": 361},
+    {"name": "那能一样吗", "value": 301},
+    {"name": "许愿真珠不歪", "value": 284},
+    {"name": "中秋快乐", "value": 255},
+    {"name": "爷青回", "value": 150},
+    {"name": "她真好看", "value": 116},
+    {"name": "哎呀 timtim 我不想听你讲这些绕口令 这个…", "value": 85}
   ].reverse();
 
   var chart2 = echarts.init(document.getElementById('chart-danmaku'), null, { renderer: 'svg' });
@@ -135,16 +135,15 @@
 
   // --- Chart 3: GitHub Trending 今日新增星数 TOP 10 ---
   var ghTrending = [
-    {"name": "paperclipai/paperclip", "value": 2608, "lang": "TypeScript", "total": "87,375"},
-    {"name": "vectorize-io/hindsight", "value": 2147, "lang": "Python", "total": "32,229"},
-    {"name": "dream-num/univer", "value": 849, "lang": "TypeScript", "total": "19,235"},
-    {"name": "rohitg00/ai-engineering-from-scratch", "value": 827, "lang": "Python", "total": "58,393"},
-    {"name": "openbao/openbao", "value": 364, "lang": "Go", "total": "8,010"},
-    {"name": "zhaoxuya520/reverse-skill", "value": 361, "lang": "PowerShell", "total": "38,022"},
-    {"name": "NVIDIA/Model-Optimizer", "value": 357, "lang": "Python", "total": "4,758"},
-    {"name": "block/buzz", "value": 339, "lang": "Rust", "total": "34,834"},
-    {"name": "mobile-next/mobile-mcp", "value": 168, "lang": "TypeScript", "total": "7,361"},
-    {"name": "microsoft/vscode", "value": 95, "lang": "TypeScript", "total": "193,077"}
+    {"name": "vectorize-io/hindsight", "value": 4520, "lang": "Python", "total": "37,363"},
+    {"name": "debpalash/VoiceStudio", "value": 3086, "lang": "Python", "total": "40,203"},
+    {"name": "paperclipai/paperclip", "value": 2401, "lang": "TypeScript", "total": "89,957"},
+    {"name": "dream-num/univer", "value": 895, "lang": "TypeScript", "total": "20,262"},
+    {"name": "rohitg00/ai-engineering-from-scratch", "value": 790, "lang": "Python", "total": "59,318"},
+    {"name": "InfinityLoop1308/PipePipe", "value": 242, "lang": "Shell", "total": "6,582"},
+    {"name": "mvschwarz/openrig", "value": 114, "lang": "TypeScript", "total": "992"},
+    {"name": "vercel-labs/scriptc", "value": 102, "lang": "TypeScript", "total": "5,410"},
+    {"name": "willfaust/Madeira", "value": 83, "lang": "C", "total": "821"}
   ].reverse();
 
   var chart3 = echarts.init(document.getElementById('chart-github'), null, { renderer: 'svg' });

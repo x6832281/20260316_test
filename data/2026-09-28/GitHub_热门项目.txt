@@ -1,0 +1,49 @@
+﻿============================================================
+GitHub Trending 今日热门项目
+项目数: 9 | 生成时间: 2026-09-28 09:23:32
+============================================================
+
+#1  paperclipai/paperclip
+    今日 +2401 星 | 总星 89,957 | Fork 15,670 | TypeScript
+    简介: The open-source app everyone uses to manage agents at work
+    链接: https://github.com/paperclipai/paperclip
+
+#2  vectorize-io/hindsight
+    今日 +4520 星 | 总星 37,363 | Fork 4,840 | Python
+    简介: Hindsight: Agent Memory That Learns
+    链接: https://github.com/vectorize-io/hindsight
+
+#3  debpalash/VoiceStudio
+    今日 +3086 星 | 总星 40,203 | Fork 4,779 | Python
+    简介: VoiceStudio is the open-source, fully-local ElevenLabs alternative — voice cloning, voice design, video dubbing, dictation, transcription &amp; audiobook creation in 646 languages.
+    链接: https://github.com/debpalash/VoiceStudio
+
+#4  rohitg00/ai-engineering-from-scratch
+    今日 +790 星 | 总星 59,318 | Fork 10,239 | Python
+    简介: Learn it. Build it. Ship it for others.
+    链接: https://github.com/rohitg00/ai-engineering-from-scratch
+
+#5  InfinityLoop1308/PipePipe
+    今日 +242 星 | 总星 6,582 | Fork 223 | Shell
+    简介: An open-source Android app to let you browse YouTube and other services freely.
+    链接: https://github.com/InfinityLoop1308/PipePipe
+
+#6  vercel-labs/scriptc
+    今日 +102 星 | 总星 5,410 | Fork 141 | TypeScript
+    简介: TypeScript-to-Native Compiler
+    链接: https://github.com/vercel-labs/scriptc
+
+#7  mvschwarz/openrig
+    今日 +114 星 | 总星 992 | Fork 104 | TypeScript
+    简介: Multi-agent harness that runs Claude Code and Codex together as one system
+    链接: https://github.com/mvschwarz/openrig
+
+#8  dream-num/univer
+    今日 +895 星 | 总星 20,262 | Fork 1,714 | TypeScript
+    简介: The Office Harness for AI Agents — Spreadsheets, Docs, Slides, Canvas, Relational Tables, and PDF in one runtime.
+    链接: https://github.com/dream-num/univer
+
+#9  willfaust/Madeira
+    今日 +83 星 | 总星 821 | Fork 152 | C
+    简介: Run x86-64 Windows PC games on jailed iOS via FEX-Emu + Wine + DXMT
+    链接: https://github.com/willfaust/Madeira
