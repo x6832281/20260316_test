@@ -27,16 +27,16 @@
 
   // --- Chart 1: 今日全站最高赞评论 TOP 10 ---
   var topComments = [
+    {"name": "想盖一栋“六周年快乐”的楼", "value": 17361, "platform": "B站", "url": "https://www.bilibili.com/video/BV14Baa6JENd"},
     {"name": "跟普通手机安装一个豆包APP有什么区别", "value": 11000, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/69301ff4000000001e029cef?xsec_token=ABJQrbMJ0rv4vhrlQjzwBrpN7kPqYGpdBxvpBx39mKU6g=&xsec_source=pc_search"},
+    {"name": "老资历在此", "value": 8513, "platform": "B站", "url": "https://www.bilibili.com/video/BV14Baa6JENd"},
     {"name": "哪天豆包不开心了，不让你用手机怎么办", "value": 8313, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/69301ff4000000001e029cef?xsec_token=ABJQrbMJ0rv4vhrlQjzwBrpN7kPqYGpdBxvpBx39mKU6g=&xsec_source=pc_search"},
-    {"name": "[笑哭]", "value": 6825, "platform": "B站", "url": "https://www.bilibili.com/video/BV1UNhR6jEiW"},
-    {"name": "在快要毁灭性的星球看到这样的景象你也会踏上开拓的", "value": 5381, "platform": "B站", "url": "https://www.bilibili.com/video/BV1Rmh96ZEXh"},
-    {"name": "冷知识：真珠是第1个欢愉命途PV不欢快的角色", "value": 5302, "platform": "B站", "url": "https://www.bilibili.com/video/BV1Rmh96ZEXh"},
-    {"name": "看到pv最后，各位是否发自内心的感到高兴了？ 所以说，经此淬炼者，方得欢愉", "value": 3339, "platform": "B站", "url": "https://www.bilibili.com/video/BV1Rmh96ZEXh"},
+    {"name": "周年庆也是绫华的生日哦~ 想建一栋绫华生日快乐的楼", "value": 5752, "platform": "B站", "url": "https://www.bilibili.com/video/BV14Baa6JENd"},
+    {"name": "评论区不用怀疑，他的声乐就是纯天赋[笑哭]在他来川音之前从来没学过声乐，他也是钢…", "value": 4479, "platform": "B站", "url": "https://www.bilibili.com/video/BV14KaK6LE8w"},
+    {"name": "你两个同伙呢？", "value": 4383, "platform": "B站", "url": "https://www.bilibili.com/video/BV14KaK6LE8w"},
+    {"name": "孩子们，这期视频直接干到半个小时我原本是想拆开发的，花了爱播1.8w块😭，目前完…", "value": 3284, "platform": "B站", "url": "https://www.bilibili.com/video/BV1LraY6KES1"},
     {"name": "系统级 跨APP执行", "value": 3024, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/69301ff4000000001e029cef?xsec_token=ABJQrbMJ0rv4vhrlQjzwBrpN7kPqYGpdBxvpBx39mKU6g=&xsec_source=pc_search"},
-    {"name": "最早玩黑莓那代人已经老花了", "value": 2220, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/69e224d9000000002101038b?xsec_token=ABmuylZEbxoHDcVfKEl8R1_BD21a9foH64_6sR_VGWK08=&xsec_source=pc_search"},
-    {"name": "2是7", "value": 1768, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/699ab185000000001a02567f?xsec_token=AB9MRNPH7i-pxtsiwE-W46H8pRsztx20EmW77-H6o1bL4=&xsec_source=pc_search"},
-    {"name": "妈你看手机不离手不就不会丢了吗[抽泣R]还成天说我[色色R]", "value": 1680, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6a981106000000002900f745?xsec_token=ABgFkexTizTcRuRHtiUpnK2k469XWnsLSy-Mcl9cbFqKg=&xsec_source=pc_search"}
+    {"name": "[doge]", "value": 2758, "platform": "B站", "url": "https://www.bilibili.com/video/BV1ntah6TEe9"}
   ].reverse();
 
   var chart1 = echarts.init(document.getElementById('chart-top-comments'), null, { renderer: 'svg' });
@@ -85,18 +85,18 @@
 
   // --- Chart 2: B站热门弹幕频次 TOP 12 ---
   var danmaku = [
-    {"name": "跨火盆", "value": 1485},
-    {"name": "藏狐", "value": 573},
-    {"name": "掉皮掉肉不掉队！", "value": 555},
-    {"name": "谢谢款待", "value": 552},
-    {"name": "爷们！", "value": 451},
-    {"name": "秒吃", "value": 361},
-    {"name": "那能一样吗", "value": 301},
-    {"name": "许愿真珠不歪", "value": 284},
-    {"name": "中秋快乐", "value": 255},
-    {"name": "爷青回", "value": 150},
-    {"name": "她真好看", "value": 116},
-    {"name": "哎呀 timtim 我不想听你讲这些绕口令 这个…", "value": 85}
+    {"name": "精彩", "value": 1201},
+    {"name": "六周年快乐！", "value": 742},
+    {"name": "许愿心不歪，玩到关服", "value": 609},
+    {"name": "过年了", "value": 569},
+    {"name": "过年了？", "value": 415},
+    {"name": "六周年快乐", "value": 205},
+    {"name": "合影", "value": 137},
+    {"name": "爷青回", "value": 134},
+    {"name": "绫华生日快乐！", "value": 125},
+    {"name": "今夕是何年", "value": 91},
+    {"name": "完结撒花", "value": 80},
+    {"name": "火钳刘明", "value": 77}
   ].reverse();
 
   var chart2 = echarts.init(document.getElementById('chart-danmaku'), null, { renderer: 'svg' });
@@ -135,15 +135,14 @@
 
   // --- Chart 3: GitHub Trending 今日新增星数 TOP 10 ---
   var ghTrending = [
-    {"name": "vectorize-io/hindsight", "value": 4520, "lang": "Python", "total": "37,363"},
-    {"name": "debpalash/VoiceStudio", "value": 3086, "lang": "Python", "total": "40,203"},
-    {"name": "paperclipai/paperclip", "value": 2401, "lang": "TypeScript", "total": "89,957"},
-    {"name": "dream-num/univer", "value": 895, "lang": "TypeScript", "total": "20,262"},
-    {"name": "rohitg00/ai-engineering-from-scratch", "value": 790, "lang": "Python", "total": "59,318"},
-    {"name": "InfinityLoop1308/PipePipe", "value": 242, "lang": "Shell", "total": "6,582"},
-    {"name": "mvschwarz/openrig", "value": 114, "lang": "TypeScript", "total": "992"},
-    {"name": "vercel-labs/scriptc", "value": 102, "lang": "TypeScript", "total": "5,410"},
-    {"name": "willfaust/Madeira", "value": 83, "lang": "C", "total": "821"}
+    {"name": "vectorize-io/hindsight", "value": 4561, "lang": "Python", "total": "41,018"},
+    {"name": "debpalash/VoiceStudio", "value": 3221, "lang": "Python", "total": "44,189"},
+    {"name": "paperclipai/paperclip", "value": 3197, "lang": "TypeScript", "total": "92,857"},
+    {"name": "dream-num/univer", "value": 1099, "lang": "TypeScript", "total": "21,282"},
+    {"name": "mvschwarz/openrig", "value": 734, "lang": "TypeScript", "total": "1,737"},
+    {"name": "byoungd/up", "value": 327, "lang": "JavaScript", "total": "64,702"},
+    {"name": "cs341-illinois/coursebook", "value": 195, "lang": "TeX", "total": "2,527"},
+    {"name": "NawfalMotii79/PLFM_RADAR", "value": 158, "lang": "PLSQL", "total": "25,771"}
   ].reverse();
 
   var chart3 = echarts.init(document.getElementById('chart-github'), null, { renderer: 'svg' });

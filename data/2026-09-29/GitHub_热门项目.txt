@@ -1,0 +1,44 @@
+﻿============================================================
+GitHub Trending 今日热门项目
+项目数: 8 | 生成时间: 2026-09-29 09:23:21
+============================================================
+
+#1  debpalash/VoiceStudio
+    今日 +3221 星 | 总星 44,189 | Fork 5,106 | Python
+    简介: VoiceStudio is the open-source, fully-local ElevenLabs alternative — voice cloning, voice design, video dubbing, dictation, transcription &amp; audiobook creation in 646 languages.
+    链接: https://github.com/debpalash/VoiceStudio
+
+#2  paperclipai/paperclip
+    今日 +3197 星 | 总星 92,857 | Fork 15,897 | TypeScript
+    简介: The open-source app everyone uses to manage agents at work
+    链接: https://github.com/paperclipai/paperclip
+
+#3  vectorize-io/hindsight
+    今日 +4561 星 | 总星 41,018 | Fork 5,539 | Python
+    简介: Hindsight: Agent Memory That Learns
+    链接: https://github.com/vectorize-io/hindsight
+
+#4  NawfalMotii79/PLFM_RADAR
+    今日 +158 星 | 总星 25,771 | Fork 5,887 | PLSQL
+    简介: Open-source, low-cost 10.5 GHz PLFM phased array RADAR system
+    链接: https://github.com/NawfalMotii79/PLFM_RADAR
+
+#5  cs341-illinois/coursebook
+    今日 +195 星 | 总星 2,527 | Fork 239 | TeX
+    简介: Open Source Introductory Systems Programming Textbook for the University of Illinois
+    链接: https://github.com/cs341-illinois/coursebook
+
+#6  byoungd/up
+    今日 +327 星 | 总星 64,702 | Fork 6,516 | JavaScript
+    简介: An advanced guide which might benefit you a lot 🎉 . 韩先凯的人生进阶指南 人生进阶指南 离谱的人生 人生进阶 AI学习 AI指南 韩先凯的AI学习指南 英语学习指南/英语学习教程/英语学习/学英语
+    链接: https://github.com/byoungd/up
+
+#7  mvschwarz/openrig
+    今日 +734 星 | 总星 1,737 | Fork 138 | TypeScript
+    简介: Multi-agent harness that runs Claude Code and Codex together as one system
+    链接: https://github.com/mvschwarz/openrig
+
+#8  dream-num/univer
+    今日 +1099 星 | 总星 21,282 | Fork 1,804 | TypeScript
+    简介: The Office Harness for AI Agents — Spreadsheets, Docs, Slides, Canvas, Relational Tables, and PDF in one runtime.
+    链接: https://github.com/dream-num/univer
