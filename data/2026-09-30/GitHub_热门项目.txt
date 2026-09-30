@@ -1,0 +1,74 @@
+﻿============================================================
+GitHub Trending 今日热门项目
+项目数: 14 | 生成时间: 2026-09-30 09:24:11
+============================================================
+
+#1  debpalash/VoiceStudio
+    今日 +4758 星 | 总星 48,189 | Fork 5,402 | Python
+    简介: VoiceStudio is the open-source, fully-local ElevenLabs alternative — voice cloning, voice design, video dubbing, dictation, transcription &amp; audiobook creation in 646 languages.
+    链接: https://github.com/debpalash/VoiceStudio
+
+#2  NVIDIA/OpenShell
+    今日 +990 星 | 总星 10,636 | Fork 1,422 | Rust
+    简介: OpenShell is the safe, private runtime for autonomous AI agents.
+    链接: https://github.com/NVIDIA/OpenShell
+
+#3  vectorize-io/hindsight
+    今日 +2575 星 | 总星 42,873 | Fork 5,772 | Python
+    简介: Hindsight: Agent Memory That Learns
+    链接: https://github.com/vectorize-io/hindsight
+
+#4  paperclipai/paperclip
+    今日 +2458 星 | 总星 94,489 | Fork 16,051 | TypeScript
+    简介: The open-source app everyone uses to manage agents at work
+    链接: https://github.com/paperclipai/paperclip
+
+#5  t8y2/dbx
+    今日 +232 星 | 总星 22,049 | Fork 2,087 | Rust
+    简介: 25 MB lightweight cross-platform database client for 100+ databases, including MySQL, PostgreSQL, SQLite, Redis, MongoDB, DuckDB, SQL Server, and Dameng. Built-in AI, MCP Server, CLI, desktop and Docker. | 轻量级跨平台数据库管理工具，支持 MySQL、PostgreSQL、SQLite、Redis、MongoDB、达梦等 100+ 数据库，提供桌面端、Docker、CLI、内置 AI 助手和 MCP。
+    链接: https://github.com/t8y2/dbx
+
+#6  mvschwarz/openrig
+    今日 +737 星 | 总星 2,452 | Fork 177 | TypeScript
+    简介: Multi-agent harness that runs Claude Code and Codex together as one system
+    链接: https://github.com/mvschwarz/openrig
+
+#7  oblien/openship
+    今日 +437 星 | 总星 13,840 | Fork 1,238 | TypeScript
+    简介: Self-hosted deployment platform
+    链接: https://github.com/oblien/openship
+
+#8  averygan/reclip
+    今日 +113 星 | 总星 10,125 | Fork 1,538 | HTML
+    简介: Download videos from almost any website. Lightweight, self-hosted media downloader with a clean web UI.
+    链接: https://github.com/averygan/reclip
+
+#9  cs341-illinois/coursebook
+    今日 +572 星 | 总星 3,111 | Fork 276 | TeX
+    简介: Open Source Introductory Systems Programming Textbook for the University of Illinois
+    链接: https://github.com/cs341-illinois/coursebook
+
+#10  rohitg00/ai-engineering-from-scratch
+    今日 +786 星 | 总星 61,414 | Fork 10,534 | Python
+    简介: Learn it. Build it. Ship it for others.
+    链接: https://github.com/rohitg00/ai-engineering-from-scratch
+
+#11  VectifyAI/PageIndex
+    今日 +835 星 | 总星 37,398 | Fork 3,264 | Python
+    简介: 📑 PageIndex: Document Index for Vectorless, Reasoning-based RAG
+    链接: https://github.com/VectifyAI/PageIndex
+
+#12  willfaust/Madeira
+    今日 +81 星 | 总星 1,100 | Fork 188 | C
+    简介: Run x86-64 Windows PC games on jailed iOS via FEX-Emu + Wine + DXMT
+    链接: https://github.com/willfaust/Madeira
+
+#13  dream-num/univer
+    今日 +696 星 | 总星 21,866 | Fork 1,848 | TypeScript
+    简介: The Office Harness for AI Agents — Spreadsheets, Docs, Slides, Canvas, Relational Tables, and PDF in one runtime.
+    链接: https://github.com/dream-num/univer
+
+#14  rakyll/hey
+    今日 +34 星 | 总星 20,482 | Fork 1,312 | Go
+    简介: HTTP load generator, ApacheBench (ab) replacement
+    链接: https://github.com/rakyll/hey
