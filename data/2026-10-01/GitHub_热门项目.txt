@@ -1,0 +1,89 @@
+﻿============================================================
+GitHub Trending 今日热门项目
+项目数: 17 | 生成时间: 2026-10-01 09:23:43
+============================================================
+
+#1  NVIDIA/OpenShell
+    今日 +1281 星 | 总星 12,706 | Fork 1,549 | Rust
+    简介: OpenShell is the safe, private runtime for autonomous AI agents.
+    链接: https://github.com/NVIDIA/OpenShell
+
+#2  debpalash/VoiceStudio
+    今日 +3483 星 | 总星 50,459 | Fork 5,602 | Python
+    简介: VoiceStudio is the open-source, fully-local ElevenLabs alternative — voice cloning, voice design, video dubbing, dictation, transcription &amp; audiobook creation in 646 languages.
+    链接: https://github.com/debpalash/VoiceStudio
+
+#3  mvschwarz/openrig
+    今日 +624 星 | 总星 3,035 | Fork 212 | TypeScript
+    简介: Multi-agent harness that runs Claude Code and Codex together as one system
+    链接: https://github.com/mvschwarz/openrig
+
+#4  mksglu/context-mode
+    今日 +90 星 | 总星 24,498 | Fork 1,769 | TypeScript
+    简介: Context window optimization for AI coding agents. Sandboxes tool output (98% reduction), persists session memory, and enforces routing across 17 platforms via MCP + hooks.
+    链接: https://github.com/mksglu/context-mode
+
+#5  DietrichGebert/ponytail
+    今日 +743 星 | 总星 149,203 | Fork 8,021 | JavaScript
+    简介: Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote.
+    链接: https://github.com/DietrichGebert/ponytail
+
+#6  harry0703/MoneyPrinterTurbo
+    今日 +431 星 | 总星 127,574 | Fork 19,956 | Python
+    简介: 利用 AI 大模型和自动化工作流，根据主题或关键词一键生成高清短视频。Generate HD short videos from a topic or keyword with an automated AI workflow.
+    链接: https://github.com/harry0703/MoneyPrinterTurbo
+
+#7  openclaw/openclaw
+    今日 +136 星 | 总星 390,992 | Fork 82,222 | TypeScript
+    简介: The AI that really does things. Any OS. Any Platform. The lobster way. 🦞
+    链接: https://github.com/openclaw/openclaw
+
+#8  ComposioHQ/awesome-claude-skills
+    今日 +123 星 | 总星 76,137 | Fork 8,880 | Python
+    简介: A curated list of awesome Claude Skills, resources, and tools for customizing Claude AI workflows
+    链接: https://github.com/ComposioHQ/awesome-claude-skills
+
+#9  mattpocock/skills
+    今日 +876 星 | 总星 273,019 | Fork 22,961 | Shell
+    简介: Skills for Real Engineers. Straight from my .agents directory.
+    链接: https://github.com/mattpocock/skills
+
+#10  heygen-com/hyperframes
+    今日 +349 星 | 总星 54,744 | Fork 4,974 | TypeScript
+    简介: Write HTML. Render video. Built for agents.
+    链接: https://github.com/heygen-com/hyperframes
+
+#11  firebase/firebase-ios-sdk
+    今日 +8 星 | 总星 6,768 | Fork 1,800 | C++
+    简介: Firebase SDK for Apple App Development
+    链接: https://github.com/firebase/firebase-ios-sdk
+
+#12  modelcontextprotocol/servers
+    今日 +50 星 | 总星 90,818 | Fork 11,724 | TypeScript
+    简介: Model Context Protocol Servers
+    链接: https://github.com/modelcontextprotocol/servers
+
+#13  byoungd/up
+    今日 +743 星 | 总星 66,393 | Fork 6,638 | JavaScript
+    简介: An advanced guide which might benefit you a lot 🎉 . 韩先凯的人生进阶指南 人生进阶指南 离谱的人生 人生进阶 AI学习 AI指南 韩先凯的AI学习指南 英语学习指南/英语学习教程/英语学习/学英语
+    链接: https://github.com/byoungd/up
+
+#14  colbymchenry/codegraph
+    今日 +118 星 | 总星 72,601 | Fork 4,664 | C
+    简介: Pre-indexed code knowledge graph, auto syncs on code changes, for Claude Code, Codex, Gemini, Cursor, OpenCode, AntiGravity, Kiro, CoPilot, and Hermes Agent — fewer tokens, fewer tool calls, 100% local
+    链接: https://github.com/colbymchenry/codegraph
+
+#15  t8y2/dbx
+    今日 +1138 星 | 总星 23,200 | Fork 2,152 | Rust
+    简介: 25 MB lightweight cross-platform database client for 100+ databases, including MySQL, PostgreSQL, SQLite, Redis, MongoDB, DuckDB, SQL Server, and Dameng. Built-in AI, MCP Server, CLI, desktop and Docker. | 轻量级跨平台数据库管理工具，支持 MySQL、PostgreSQL、SQLite、Redis、MongoDB、达梦等 100+ 数据库，提供桌面端、Docker、CLI、内置 AI 助手和 MCP。
+    链接: https://github.com/t8y2/dbx
+
+#16  NawfalMotii79/PLFM_RADAR
+    今日 +263 星 | 总星 26,422 | Fork 5,971 | PLSQL
+    简介: Open-source, low-cost 10.5 GHz PLFM phased array RADAR system
+    链接: https://github.com/NawfalMotii79/PLFM_RADAR
+
+#17  VectifyAI/PageIndex
+    今日 +1097 星 | 总星 38,133 | Fork 3,306 | Python
+    简介: 📑 PageIndex: Document Index for Vectorless, Reasoning-based RAG
+    链接: https://github.com/VectifyAI/PageIndex
