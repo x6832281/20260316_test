@@ -1,0 +1,79 @@
+﻿============================================================
+GitHub Trending 今日热门项目
+项目数: 15 | 生成时间: 2026-10-02 09:23:38
+============================================================
+
+#1  DietrichGebert/ponytail
+    今日 +1194 星 | 总星 150,537 | Fork 8,083 | JavaScript
+    简介: Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote.
+    链接: https://github.com/DietrichGebert/ponytail
+
+#2  mattpocock/skills
+    今日 +883 星 | 总星 273,919 | Fork 22,996 | Shell
+    简介: Skills for Real Engineers. Straight from my .agents directory.
+    链接: https://github.com/mattpocock/skills
+
+#3  NVIDIA/OpenShell
+    今日 +2456 星 | 总星 14,028 | Fork 1,628 | Rust
+    简介: OpenShell is the safe, private runtime for autonomous AI agents.
+    链接: https://github.com/NVIDIA/OpenShell
+
+#4  firebase/firebase-ios-sdk
+    今日 +112 星 | 总星 6,861 | Fork 1,806 | C++
+    简介: Firebase SDK for Apple App Development
+    链接: https://github.com/firebase/firebase-ios-sdk
+
+#5  mvschwarz/openrig
+    今日 +642 星 | 总星 3,733 | Fork 247 | TypeScript
+    简介: Build your own network of agents from Claude Code, Codex and Pi: persistent teams with roles, shared context and owned work.
+    链接: https://github.com/mvschwarz/openrig
+
+#6  cursor/plugins
+    今日 +150 星 | 总星 9,323 | Fork 883 | TypeScript
+    简介: Cursor plugin specification and official plugins
+    链接: https://github.com/cursor/plugins
+
+#7  obra/superpowers
+    今日 +455 星 | 总星 293,981 | Fork 26,294 | Shell
+    简介: An agentic skills framework &amp; software development methodology that works.
+    链接: https://github.com/obra/superpowers
+
+#8  mksglu/context-mode
+    今日 +362 星 | 总星 24,786 | Fork 1,784 | TypeScript
+    简介: Context window optimization for AI coding agents. Sandboxes tool output (98% reduction), persists session memory, and enforces routing across 17 platforms via MCP + hooks.
+    链接: https://github.com/mksglu/context-mode
+
+#9  heygen-com/hyperframes
+    今日 +627 星 | 总星 55,355 | Fork 5,019 | TypeScript
+    简介: Write HTML. Render video. Built for agents.
+    链接: https://github.com/heygen-com/hyperframes
+
+#10  earendil-works/pi
+    今日 +298 星 | 总星 111,233 | Fork 14,133 | TypeScript
+    简介: AI agent toolkit: unified LLM API, agent loop, TUI, coding agent CLI
+    链接: https://github.com/earendil-works/pi
+
+#11  tile-ai/tilelang
+    今日 +163 星 | 总星 8,114 | Fork 815 | Python
+    简介: Domain-specific language designed to streamline the development of high-performance GPU/CPU/Accelerators kernels
+    链接: https://github.com/tile-ai/tilelang
+
+#12  pablostanley/yoinks
+    今日 +361 星 | 总星 2,947 | Fork 277 | TypeScript
+    简介: yoink any video from your terminal. no shady ads.
+    链接: https://github.com/pablostanley/yoinks
+
+#13  HunxByts/GhostTrack
+    今日 +368 星 | 总星 16,412 | Fork 2,256 | Python
+    简介: Useful tool to track location or mobile number
+    链接: https://github.com/HunxByts/GhostTrack
+
+#14  pbakaus/impeccable
+    今日 +495 星 | 总星 73,688 | Fork 4,438 | JavaScript
+    简介: The design language that makes your AI harness better at design.
+    链接: https://github.com/pbakaus/impeccable
+
+#15  Friedrich-M/UniMate
+    今日 +217 星 | 总星 1,083 | Fork 101 | Python
+    简介: [SIGGRAPH Asia 2026] UniMate: One Unified Model to Animate Diverse Skeletons
+    链接: https://github.com/Friedrich-M/UniMate
