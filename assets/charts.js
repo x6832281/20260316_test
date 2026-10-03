@@ -27,16 +27,16 @@
 
   // --- Chart 1: 今日全站最高赞评论 TOP 10 ---
   var topComments = [
-    {"name": "ai生成的我跳不了这么傻", "value": 19596, "platform": "B站", "url": "https://www.bilibili.com/video/BV13Yao6fEwa"},
     {"name": "跟普通手机安装一个豆包APP有什么区别", "value": 11000, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/69301ff4000000001e029cef?xsec_token=ABJQrbMJ0rv4vhrlQjzwBrpN7kPqYGpdBxvpBx39mKU6g=&xsec_source=pc_search"},
     {"name": "哪天豆包不开心了，不让你用手机怎么办", "value": 8313, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/69301ff4000000001e029cef?xsec_token=ABJQrbMJ0rv4vhrlQjzwBrpN7kPqYGpdBxvpBx39mKU6g=&xsec_source=pc_search"},
-    {"name": "我们一起戒掉拖更吧[抓狂]", "value": 8140, "platform": "B站", "url": "https://www.bilibili.com/video/BV1cAYP6YEvj"},
-    {"name": "这又是谁来了呢？[doge]", "value": 7284, "platform": "B站", "url": "https://www.bilibili.com/video/BV1hEaz6LE4X"},
-    {"name": "妈妈癌症后一直觉得自己身上不好闻（怕被医护人员嫌弃），我正好看到Oliver的视…", "value": 5224, "platform": "B站", "url": "https://www.bilibili.com/video/BV1hTYN6UE6p"},
-    {"name": "🇨🇳", "value": 4666, "platform": "B站", "url": "https://www.bilibili.com/video/BV1FiaZ62EAG"},
-    {"name": "国庆快乐 这期凑了[良辰共此曲动态表情包_探头]", "value": 3909, "platform": "B站", "url": "https://www.bilibili.com/video/BV1jxaB6QEsN"},
-    {"name": "谁没把头像换回来我不说[大笑]", "value": 3324, "platform": "B站", "url": "https://www.bilibili.com/video/BV1cAYP6YEvj"},
-    {"name": "刚刚开始我也不理解，直到我也学着跳了一段，虽然很生硬，但是跳完之后，我想通了很多", "value": 3282, "platform": "B站", "url": "https://www.bilibili.com/video/BV13Yao6fEwa"}
+    {"name": "这人招了吗[妙啊]", "value": 7704, "platform": "B站", "url": "https://www.bilibili.com/video/BV1SyaB6zEEs"},
+    {"name": "一个初音，一个重音，一边挥刀，一边唱歌", "value": 6630, "platform": "B站", "url": "https://www.bilibili.com/video/BV1UGa961Ejt"},
+    {"name": "这段歌词上半体裁使用了楚辞式，下半则是宋词式。使用这两种古典文学体裁，分别对应玄…", "value": 6374, "platform": "B站", "url": "https://www.bilibili.com/video/BV1cQap6UEr2"},
+    {"name": "啊啊啊啊，宝宝", "value": 6193, "platform": "B站", "url": "https://www.bilibili.com/video/BV1SyaB6zEEs"},
+    {"name": "这次的诗歌是分了两个部分，上半仿楚辞，下半仿宋词，以玄鸟仙子和祖师爷两个视角分别…", "value": 5503, "platform": "B站", "url": "https://www.bilibili.com/video/BV1cQap6UEr2"},
+    {"name": "找到同款了", "value": 4963, "platform": "B站", "url": "https://www.bilibili.com/video/BV1UGa961Ejt"},
+    {"name": "十月份是一个适合塑造苦命鸳鸯的季节[doge_金箍][doge_金箍][doge…", "value": 4259, "platform": "B站", "url": "https://www.bilibili.com/video/BV1cQap6UEr2"},
+    {"name": "你职业的第一冠献给祖国", "value": 4153, "platform": "B站", "url": "https://www.bilibili.com/video/BV1SyaB6zEEs"}
   ].reverse();
 
   var chart1 = echarts.init(document.getElementById('chart-top-comments'), null, { renderer: 'svg' });
@@ -85,18 +85,18 @@
 
   // --- Chart 2: B站热门弹幕频次 TOP 12 ---
   var danmaku = [
-    {"name": "国庆快乐", "value": 846},
-    {"name": "雨木99", "value": 470},
-    {"name": "火钳刘明", "value": 436},
-    {"name": "mj", "value": 433},
-    {"name": "AA！", "value": 307},
-    {"name": "你是？", "value": 292},
-    {"name": "懂你意思", "value": 248},
-    {"name": "暗影猎手，准备就绪！", "value": 242},
-    {"name": "fruit", "value": 219},
-    {"name": "“这里埋葬的是章鱼哥的梦想”", "value": 197},
-    {"name": "暗影猎手，准备就绪", "value": 189},
-    {"name": "祖国万岁", "value": 186}
+    {"name": "想看", "value": 780},
+    {"name": "致敬", "value": 700},
+    {"name": "懂你意思", "value": 580},
+    {"name": "古人", "value": 375},
+    {"name": "秒吃", "value": 326},
+    {"name": "火钳刘明", "value": 310},
+    {"name": "“这里埋葬的是章鱼哥的梦想”", "value": 303},
+    {"name": "kksk", "value": 288},
+    {"name": "哔哩哔哩(゜-゜)つロ干杯~-bilibili", "value": 140},
+    {"name": "养好号的话这段话正好二十个字快点拿去用吧养好号的…", "value": 83},
+    {"name": "谢谢", "value": 80},
+    {"name": "开头见", "value": 76}
   ].reverse();
 
   var chart2 = echarts.init(document.getElementById('chart-danmaku'), null, { renderer: 'svg' });
@@ -135,16 +135,16 @@
 
   // --- Chart 3: GitHub Trending 今日新增星数 TOP 10 ---
   var ghTrending = [
-    {"name": "NVIDIA/OpenShell", "value": 2456, "lang": "Rust", "total": "14,028"},
-    {"name": "DietrichGebert/ponytail", "value": 1194, "lang": "JavaScript", "total": "150,537"},
-    {"name": "mattpocock/skills", "value": 883, "lang": "Shell", "total": "273,919"},
-    {"name": "mvschwarz/openrig", "value": 642, "lang": "TypeScript", "total": "3,733"},
-    {"name": "heygen-com/hyperframes", "value": 627, "lang": "TypeScript", "total": "55,355"},
-    {"name": "pbakaus/impeccable", "value": 495, "lang": "JavaScript", "total": "73,688"},
-    {"name": "obra/superpowers", "value": 455, "lang": "Shell", "total": "293,981"},
-    {"name": "HunxByts/GhostTrack", "value": 368, "lang": "Python", "total": "16,412"},
-    {"name": "mksglu/context-mode", "value": 362, "lang": "TypeScript", "total": "24,786"},
-    {"name": "pablostanley/yoinks", "value": 361, "lang": "TypeScript", "total": "2,947"}
+    {"name": "DietrichGebert/ponytail", "value": 1435, "lang": "JavaScript", "total": "151,825"},
+    {"name": "mattpocock/skills", "value": 955, "lang": "Shell", "total": "274,718"},
+    {"name": "pbakaus/impeccable", "value": 722, "lang": "JavaScript", "total": "74,335"},
+    {"name": "Panniantong/Agent-Reach", "value": 696, "lang": "Python", "total": "88,654"},
+    {"name": "mvschwarz/openrig", "value": 683, "lang": "TypeScript", "total": "4,317"},
+    {"name": "pablostanley/yoinks", "value": 623, "lang": "TypeScript", "total": "3,508"},
+    {"name": "NVIDIA/OpenShell", "value": 594, "lang": "Rust", "total": "14,437"},
+    {"name": "heygen-com/hyperframes", "value": 580, "lang": "TypeScript", "total": "55,909"},
+    {"name": "obra/superpowers", "value": 556, "lang": "Shell", "total": "294,473"},
+    {"name": "mksglu/context-mode", "value": 282, "lang": "TypeScript", "total": "25,045"}
   ].reverse();
 
   var chart3 = echarts.init(document.getElementById('chart-github'), null, { renderer: 'svg' });
