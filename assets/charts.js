@@ -27,16 +27,16 @@
 
   // --- Chart 1: 今日全站最高赞评论 TOP 10 ---
   var topComments = [
-    {"name": "可能要断更了，我遇到了麻烦，也就是不会经常更新了，抱歉了大家！", "value": 15434, "platform": "B站", "url": "https://www.bilibili.com/video/BV1xtaU6cE3Z"},
     {"name": "跟普通手机安装一个豆包APP有什么区别", "value": 11000, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/69301ff4000000001e029cef?xsec_token=ABJQrbMJ0rv4vhrlQjzwBrpN7kPqYGpdBxvpBx39mKU6g=&xsec_source=pc_search"},
-    {"name": "[难过]", "value": 8700, "platform": "B站", "url": "https://www.bilibili.com/video/BV1o9YP6tEJm"},
     {"name": "哪天豆包不开心了，不让你用手机怎么办", "value": 8313, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/69301ff4000000001e029cef?xsec_token=ABJQrbMJ0rv4vhrlQjzwBrpN7kPqYGpdBxvpBx39mKU6g=&xsec_source=pc_search"},
-    {"name": "这人招了吗[妙啊]", "value": 8188, "platform": "B站", "url": "https://www.bilibili.com/video/BV1SyaB6zEEs"},
-    {"name": "一个赞当一天头像😋", "value": 6997, "platform": "B站", "url": "https://www.bilibili.com/video/BV1PSaf6dEmW"},
-    {"name": "啊啊啊啊，宝宝", "value": 6397, "platform": "B站", "url": "https://www.bilibili.com/video/BV1SyaB6zEEs"},
-    {"name": "1", "value": 4891, "platform": "B站", "url": "https://www.bilibili.com/video/BV1PSaf6dEmW"},
-    {"name": "你职业的第一冠献给祖国", "value": 4726, "platform": "B站", "url": "https://www.bilibili.com/video/BV1SyaB6zEEs"},
-    {"name": "[喜欢]", "value": 4178, "platform": "B站", "url": "https://www.bilibili.com/video/BV1o9YP6tEJm"}
+    {"name": "我看见有人发为什么要编对面，我有点没绷住，有些人就爱用没说规定什么来说事，其实视…", "value": 8135, "platform": "B站", "url": "https://www.bilibili.com/video/BV1m3HY68EB2"},
+    {"name": "吓哭了[笑哭]", "value": 4947, "platform": "B站", "url": "https://www.bilibili.com/video/BV15UHz6bEe6"},
+    {"name": "系统级 跨APP执行", "value": 3024, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/69301ff4000000001e029cef?xsec_token=ABJQrbMJ0rv4vhrlQjzwBrpN7kPqYGpdBxvpBx39mKU6g=&xsec_source=pc_search"},
+    {"name": "这是哪个逆天编剧写的剧本?太雷霆了[笑哭]", "value": 2602, "platform": "B站", "url": "https://www.bilibili.com/video/BV1YNHv6GE2y"},
+    {"name": "最早玩黑莓那代人已经老花了", "value": 2220, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/69e224d9000000002101038b?xsec_token=ABmuylZEbxoHDcVfKEl8R1_BD21a9foH64_6sR_VGWK08=&xsec_source=pc_search"},
+    {"name": "2是7", "value": 1768, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/699ab185000000001a02567f?xsec_token=AB9MRNPH7i-pxtsiwE-W46H8pRsztx20EmW77-H6o1bL4=&xsec_source=pc_search"},
+    {"name": "妈你看手机不离手不就不会丢了吗[抽泣R]还成天说我[色色R]", "value": 1680, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6a981106000000002900f745?xsec_token=ABgFkexTizTcRuRHtiUpnK2k469XWnsLSy-Mcl9cbFqKg=&xsec_source=pc_search"},
+    {"name": "12年iphone4拍的[笑哭R]", "value": 1531, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/699ab185000000001a02567f?xsec_token=AB9MRNPH7i-pxtsiwE-W46H8pRsztx20EmW77-H6o1bL4=&xsec_source=pc_search"}
   ].reverse();
 
   var chart1 = echarts.init(document.getElementById('chart-top-comments'), null, { renderer: 'svg' });
@@ -85,18 +85,18 @@
 
   // --- Chart 2: B站热门弹幕频次 TOP 12 ---
   var danmaku = [
-    {"name": "致敬", "value": 811},
-    {"name": "至↑此↓间→ 我↑知↓觉→ 流↑年↓应↑有↓限→", "value": 658},
-    {"name": "生日快乐", "value": 533},
-    {"name": "整段垮掉", "value": 448},
-    {"name": "爷们儿！", "value": 297},
-    {"name": "好听", "value": 127},
-    {"name": "古人", "value": 115},
-    {"name": "未识别到人脸", "value": 93},
-    {"name": "来了来了", "value": 82},
-    {"name": "开头见", "value": 76},
-    {"name": "好耶", "value": 68},
-    {"name": "好听！", "value": 66}
+    {"name": "生日快乐", "value": 1075},
+    {"name": "忍耐已经结束！", "value": 554},
+    {"name": "Again↓→ and↓again→↑ I→↑s…", "value": 412},
+    {"name": "bilibili(゜- ゜)つロ 干杯~", "value": 330},
+    {"name": "我去", "value": 204},
+    {"name": "花生与葱花", "value": 192},
+    {"name": "吓哭了", "value": 127},
+    {"name": "花生葱花", "value": 99},
+    {"name": "啊？", "value": 95},
+    {"name": "好耶", "value": 91},
+    {"name": "kksk", "value": 90},
+    {"name": "wow", "value": 90}
   ].reverse();
 
   var chart2 = echarts.init(document.getElementById('chart-danmaku'), null, { renderer: 'svg' });
@@ -135,16 +135,16 @@
 
   // --- Chart 3: GitHub Trending 今日新增星数 TOP 10 ---
   var ghTrending = [
-    {"name": "Panniantong/Agent-Reach", "value": 1696, "lang": "Python", "total": "89,827"},
-    {"name": "DietrichGebert/ponytail", "value": 1281, "lang": "JavaScript", "total": "153,443"},
-    {"name": "affaan-m/ECC", "value": 897, "lang": "JavaScript", "total": "272,265"},
-    {"name": "mattpocock/skills", "value": 751, "lang": "Shell", "total": "275,376"},
-    {"name": "pbakaus/impeccable", "value": 699, "lang": "JavaScript", "total": "75,325"},
-    {"name": "obra/superpowers", "value": 577, "lang": "Shell", "total": "294,922"},
-    {"name": "JuliusBrussee/caveman", "value": 507, "lang": "Go", "total": "109,539"},
-    {"name": "earendil-works/pi", "value": 408, "lang": "TypeScript", "total": "112,164"},
-    {"name": "Effect-TS/effect", "value": 302, "lang": "TypeScript", "total": "16,824"},
-    {"name": "mksglu/context-mode", "value": 256, "lang": "TypeScript", "total": "25,251"}
+    {"name": "DietrichGebert/ponytail", "value": 1894, "lang": "JavaScript", "total": "154,903"},
+    {"name": "pbakaus/impeccable", "value": 1171, "lang": "JavaScript", "total": "76,309"},
+    {"name": "Panniantong/Agent-Reach", "value": 980, "lang": "Python", "total": "90,905"},
+    {"name": "thedotmack/claude-mem", "value": 628, "lang": "TypeScript", "total": "96,142"},
+    {"name": "OpenCut-app/OpenCut", "value": 512, "lang": "TypeScript", "total": "92,154"},
+    {"name": "pingdotgg/t3code", "value": 490, "lang": "TypeScript", "total": "25,182"},
+    {"name": "tester-army/e2e", "value": 345, "lang": "TypeScript", "total": "3,141"},
+    {"name": "addyosmani/agent-skills", "value": 336, "lang": "JavaScript", "total": "101,222"},
+    {"name": "calesthio/OpenMontage", "value": 245, "lang": "Python", "total": "63,233"},
+    {"name": "michael-denyer/pstack-claude", "value": 232, "lang": "JavaScript", "total": "1,147"}
   ].reverse();
 
   var chart3 = echarts.init(document.getElementById('chart-github'), null, { renderer: 'svg' });
