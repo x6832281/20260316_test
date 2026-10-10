@@ -27,16 +27,16 @@
 
   // --- Chart 1: 今日全站最高赞评论 TOP 10 ---
   var topComments = [
+    {"name": "在音乐领域你才是挑战者 faker，", "value": 19483, "platform": "B站", "url": "https://www.bilibili.com/video/BV1DRHU6LELy"},
+    {"name": "你把我的预言家还给我😭", "value": 11737, "platform": "B站", "url": "https://www.bilibili.com/video/BV1arH968EzQ"},
     {"name": "跟普通手机安装一个豆包APP有什么区别", "value": 11000, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/69301ff4000000001e029cef?xsec_token=ABJQrbMJ0rv4vhrlQjzwBrpN7kPqYGpdBxvpBx39mKU6g=&xsec_source=pc_search"},
+    {"name": "这么多食物如果让你自己吃，你能在一年内吃完吗[doge]", "value": 10481, "platform": "B站", "url": "https://www.bilibili.com/video/BV1VeHQ6tEaS"},
+    {"name": "01:31 这是哪个战队哦？", "value": 8881, "platform": "B站", "url": "https://www.bilibili.com/video/BV1DRHU6LELy"},
     {"name": "哪天豆包不开心了，不让你用手机怎么办", "value": 8313, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/69301ff4000000001e029cef?xsec_token=ABJQrbMJ0rv4vhrlQjzwBrpN7kPqYGpdBxvpBx39mKU6g=&xsec_source=pc_search"},
-    {"name": "这么多食物如果让你自己吃，你能在一年内吃完吗[doge]", "value": 3392, "platform": "B站", "url": "https://www.bilibili.com/video/BV1VeHQ6tEaS"},
-    {"name": "系统级 跨APP执行", "value": 3024, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/69301ff4000000001e029cef?xsec_token=ABJQrbMJ0rv4vhrlQjzwBrpN7kPqYGpdBxvpBx39mKU6g=&xsec_source=pc_search"},
-    {"name": "技术力与财力像大运一样碾过来了", "value": 2762, "platform": "B站", "url": "https://www.bilibili.com/video/BV1vpHm6EEYD"},
-    {"name": "若娜瓦别尬黑，莱茵多特只是触发了魔女茶会被动，遇到茶必须喝完。", "value": 2441, "platform": "B站", "url": "https://www.bilibili.com/video/BV1rgap62Ez5"},
-    {"name": "莱茵多特：茶需慢慢摇，心急则味散 若娜瓦：煮豆烧豆杆，豆在锅里喊，都是四执政，为…", "value": 2393, "platform": "B站", "url": "https://www.bilibili.com/video/BV1rgap62Ez5"},
-    {"name": "最早玩黑莓那代人已经老花了", "value": 2220, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/69e224d9000000002101038b?xsec_token=ABmuylZEbxoHDcVfKEl8R1_BD21a9foH64_6sR_VGWK08=&xsec_source=pc_search"},
-    {"name": "可爱的把你们早起复工的困意消除🪄", "value": 2149, "platform": "B站", "url": "https://www.bilibili.com/video/BV1vpHm6EEYD"},
-    {"name": "家人们，合体带货了[doge][doge][doge]", "value": 2102, "platform": "B站", "url": "https://www.bilibili.com/video/BV1ZfHs6sEHf"}
+    {"name": "老李头，音乐这一块，过得了乐队，再谈未来", "value": 6931, "platform": "B站", "url": "https://www.bilibili.com/video/BV1DRHU6LELy"},
+    {"name": "纯奖励局啊，又可以合作，又不限时，还提供健身器材，还提供私教[笑哭]", "value": 5482, "platform": "B站", "url": "https://www.bilibili.com/video/BV1VeHQ6tEaS"},
+    {"name": "这才是我呀，没有绝望舞步那么傻，没有虎了吧唧声音难听，没有臭企鹅那么矮，这个帅的…", "value": 4141, "platform": "B站", "url": "https://www.bilibili.com/video/BV1Dwpx6jEaB"},
+    {"name": "买一箱猕猴桃 第一天：硬邦邦 第二天：吃一个，有点酸 第三天：吃三个 第四天：吃…", "value": 3821, "platform": "B站", "url": "https://www.bilibili.com/video/BV1Y6H96cEkz"}
   ].reverse();
 
   var chart1 = echarts.init(document.getElementById('chart-top-comments'), null, { renderer: 'svg' });
@@ -85,18 +85,18 @@
 
   // --- Chart 2: B站热门弹幕频次 TOP 12 ---
   var danmaku = [
-    {"name": "节哀", "value": 546},
-    {"name": "晚安", "value": 451},
-    {"name": "古人", "value": 348},
-    {"name": "好看", "value": 81},
-    {"name": "学到了", "value": 73},
-    {"name": "8分以上", "value": 69},
-    {"name": "正在刷弹幕", "value": 58},
-    {"name": "正在看", "value": 55},
-    {"name": "弹幕飞过", "value": 54},
-    {"name": "好好听", "value": 50},
-    {"name": "啊？", "value": 40},
-    {"name": "懂你意思", "value": 40}
+    {"name": "懂你意思", "value": 974},
+    {"name": "吓哭了", "value": 326},
+    {"name": "谢谢", "value": 72},
+    {"name": "难说", "value": 55},
+    {"name": "若娜瓦！", "value": 55},
+    {"name": "还真是", "value": 52},
+    {"name": "完结撒花", "value": 49},
+    {"name": "man", "value": 47},
+    {"name": "别这么说", "value": 43},
+    {"name": "生日快乐", "value": 41},
+    {"name": "没绷住", "value": 39},
+    {"name": "未识别到人脸", "value": 39}
   ].reverse();
 
   var chart2 = echarts.init(document.getElementById('chart-danmaku'), null, { renderer: 'svg' });
@@ -135,15 +135,16 @@
 
   // --- Chart 3: GitHub Trending 今日新增星数 TOP 10 ---
   var ghTrending = [
-    {"name": "morluto/rea", "value": 7738, "lang": "TypeScript", "total": "26,875"},
-    {"name": "boykopovar/AnyPS5", "value": 4669, "lang": "C++", "total": "15,864"},
-    {"name": "storytold/artcraft", "value": 2103, "lang": "Rust", "total": "8,024"},
-    {"name": "mattpocock/skills", "value": 1774, "lang": "Shell", "total": "281,123"},
-    {"name": "cathrynlavery/diagram-design", "value": 1160, "lang": "HTML", "total": "46,395"},
-    {"name": "thedotmack/claude-mem", "value": 670, "lang": "TypeScript", "total": "98,488"},
-    {"name": "liquidslr/system-design-notes", "value": 393, "lang": "—", "total": "24,641"},
-    {"name": "anthropics/knowledge-work-plugins", "value": 392, "lang": "Python", "total": "27,590"},
-    {"name": "EpicGames/raddebugger", "value": 279, "lang": "C", "total": "8,118"}
+    {"name": "morluto/rea", "value": 14927, "lang": "TypeScript", "total": "46,836"},
+    {"name": "boykopovar/AnyPS5", "value": 5868, "lang": "C++", "total": "22,453"},
+    {"name": "storytold/artcraft", "value": 3752, "lang": "Rust", "total": "11,561"},
+    {"name": "cathrynlavery/diagram-design", "value": 1739, "lang": "HTML", "total": "47,899"},
+    {"name": "mattpocock/skills", "value": 1687, "lang": "Shell", "total": "282,742"},
+    {"name": "anthropics/knowledge-work-plugins", "value": 709, "lang": "Python", "total": "28,276"},
+    {"name": "addyosmani/agent-skills", "value": 436, "lang": "JavaScript", "total": "104,003"},
+    {"name": "alibaba/open-code-review", "value": 326, "lang": "Go", "total": "45,250"},
+    {"name": "Robbyant/lingbot-map", "value": 110, "lang": "Python", "total": "17,708"},
+    {"name": "BerriAI/litellm", "value": 95, "lang": "Python", "total": "60,675"}
   ].reverse();
 
   var chart3 = echarts.init(document.getElementById('chart-github'), null, { renderer: 'svg' });

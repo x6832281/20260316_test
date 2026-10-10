@@ -1,0 +1,59 @@
+﻿============================================================
+GitHub Trending 今日热门项目
+项目数: 11 | 生成时间: 2026-10-10 09:23:41
+============================================================
+
+#1  morluto/rea
+    今日 +14927 星 | 总星 46,836 | Fork 7,547 | TypeScript
+    简介: Reverse engineer anything with agents, from app behavior down to native binaries.
+    链接: https://github.com/morluto/rea
+
+#2  boykopovar/AnyPS5
+    今日 +5868 星 | 总星 22,453 | Fork 1,827 | C++
+    简介: Tool for automatic PS5 executables porting to Linux and Windows
+    链接: https://github.com/boykopovar/AnyPS5
+
+#3  mattpocock/skills
+    今日 +1687 星 | 总星 282,742 | Fork 23,689 | Shell
+    简介: Skills for Real Engineers. Straight from my .agents directory.
+    链接: https://github.com/mattpocock/skills
+
+#4  cathrynlavery/diagram-design
+    今日 +1739 星 | 总星 47,899 | Fork 3,034 | HTML
+    简介: Editorial diagram design for Claude Code, Codex, GitHub Copilot, Factory Droid, and Pi. 42 diagram types. Self-contained HTML + SVG. No shadows. No Mermaid slop.
+    链接: https://github.com/cathrynlavery/diagram-design
+
+#5  alibaba/open-code-review
+    今日 +326 星 | 总星 45,250 | Fork 3,263 | Go
+    简介: Secure, fast, efficient, battle-tested at Alibaba's scale. Hybrid architecture code review tool: deterministic pipelines + LLM Agent, precise line-level comments, built-in multi-language ruleset (NPE, thread-safety, XSS, SQL injection), OpenAI &amp; Anthropic compatible.
+    链接: https://github.com/alibaba/open-code-review
+
+#6  anthropics/knowledge-work-plugins
+    今日 +709 星 | 总星 28,276 | Fork 3,246 | Python
+    简介: Open source repository of plugins primarily intended for knowledge workers to use in Claude Cowork
+    链接: https://github.com/anthropics/knowledge-work-plugins
+
+#7  BerriAI/litellm
+    今日 +95 星 | 总星 60,675 | Fork 12,188 | Python
+    简介: The fastest, litest AI Gateway. Rust core with Python SDK. Call 100+ LLM APIs in OpenAI (or native) format with cost tracking, guardrails, load balancing, and logging [Bedrock, Azure, OpenAI, Anthropic, OpenAI, VertexAI, vLLM, Nvidia NIM]
+    链接: https://github.com/BerriAI/litellm
+
+#8  addyosmani/agent-skills
+    今日 +436 星 | 总星 104,003 | Fork 10,868 | JavaScript
+    简介: Production-grade engineering skills for AI coding agents.
+    链接: https://github.com/addyosmani/agent-skills
+
+#9  storytold/artcraft
+    今日 +3752 星 | 总星 11,561 | Fork 1,745 | Rust
+    简介: ArtCraft is an intentional crafting engine for artists, designers, and filmmakers
+    链接: https://github.com/storytold/artcraft
+
+#10  Robbyant/lingbot-map
+    今日 +110 星 | 总星 17,708 | Fork 1,951 | Python
+    简介: [ECCV 2026 Best Paper Award Candidate] LingBot-Map: Geometric Context Transformer for Streaming 3D Reconstruction
+    链接: https://github.com/Robbyant/lingbot-map
+
+#11  twostraws/SwiftUI-Agent-Skill
+    今日 +65 星 | 总星 5,443 | Fork 196
+    简介: SwiftUI agent skill for Claude Code, Codex, and other AI tools.
+    链接: https://github.com/twostraws/SwiftUI-Agent-Skill
