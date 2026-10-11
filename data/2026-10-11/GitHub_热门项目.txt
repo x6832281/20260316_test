@@ -1,0 +1,69 @@
+﻿============================================================
+GitHub Trending 今日热门项目
+项目数: 13 | 生成时间: 2026-10-11 09:03:03
+============================================================
+
+#1  morluto/rea
+    今日 +25793 星 | 总星 72,904 | Fork 15,354 | TypeScript
+    简介: Reverse engineer anything with agents, from app behavior down to native binaries.
+    链接: https://github.com/morluto/rea
+
+#2  boykopovar/AnyPS5
+    今日 +5805 星 | 总星 26,884 | Fork 2,262 | C++
+    简介: Tool for automatic PS5 executables porting to Linux and Windows
+    链接: https://github.com/boykopovar/AnyPS5
+
+#3  storytold/artcraft
+    今日 +3222 星 | 总星 14,524 | Fork 2,294 | Rust
+    简介: ArtCraft is an intentional crafting engine for artists, designers, and filmmakers
+    链接: https://github.com/storytold/artcraft
+
+#4  cathrynlavery/diagram-design
+    今日 +1190 星 | 总星 48,958 | Fork 3,095 | HTML
+    简介: Editorial diagram design for Claude Code, Codex, GitHub Copilot, Cursor, Factory Droid, and Pi. 44 diagram types. Self-contained HTML + SVG. No shadows. No Mermaid slop.
+    链接: https://github.com/cathrynlavery/diagram-design
+
+#5  mksglu/context-mode
+    今日 +178 星 | 总星 26,320 | Fork 1,893 | TypeScript
+    简介: Context window optimization for AI coding agents. Sandboxes tool output (98% reduction), persists session memory, and enforces routing across 17 platforms via MCP + hooks.
+    链接: https://github.com/mksglu/context-mode
+
+#6  mattpocock/skills
+    今日 +1736 星 | 总星 284,510 | Fork 23,812 | Shell
+    简介: Skills for Real Engineers. Straight from my .agents directory.
+    链接: https://github.com/mattpocock/skills
+
+#7  flutter/flutter
+    今日 +88 星 | 总星 179,526 | Fork 33,600 | Dart
+    简介: Flutter makes it easy and fast to build beautiful apps for mobile and beyond
+    链接: https://github.com/flutter/flutter
+
+#8  tensorflow/tensorflow
+    今日 +26 星 | 总星 200,730 | Fork 78,964 | C++
+    简介: An Open Source Machine Learning Framework for Everyone
+    链接: https://github.com/tensorflow/tensorflow
+
+#9  hugohe3/ppt-master
+    今日 +461 星 | 总星 59,464 | Fork 4,685 | Python
+    简介: AI turns documents or topics into real, native PowerPoint decks—with native shapes, transitions and animations, data-backed charts and tables on demand, audio narration from speaker notes, and support for your own .pptx templates. · by Hugo He
+    链接: https://github.com/hugohe3/ppt-master
+
+#10  pytorch/pytorch
+    今日 +84 星 | 总星 104,144 | Fork 31,954 | Python
+    简介: Tensors and Dynamic neural networks in Python with strong GPU acceleration
+    链接: https://github.com/pytorch/pytorch
+
+#11  huggingface/transformers
+    今日 +96 星 | 总星 167,265 | Fork 34,797 | Python
+    简介: 🤗 Transformers: the model-definition framework for state-of-the-art machine learning models in text, vision, audio, and multimodal models, for both inference and training.
+    链接: https://github.com/huggingface/transformers
+
+#12  anthropics/knowledge-work-plugins
+    今日 +625 星 | 总星 28,822 | Fork 3,277 | Python
+    简介: Open source repository of plugins primarily intended for knowledge workers to use in Claude Cowork
+    链接: https://github.com/anthropics/knowledge-work-plugins
+
+#13  multica-ai/andrej-karpathy-skills
+    今日 +278 星 | 总星 218,283 | Fork 21,982
+    简介: A single CLAUDE.md file to improve Claude Code behavior, derived from Andrej Karpathy's observations on LLM coding pitfalls.
+    链接: https://github.com/multica-ai/andrej-karpathy-skills

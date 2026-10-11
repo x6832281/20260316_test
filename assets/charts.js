@@ -27,16 +27,16 @@
 
   // --- Chart 1: 今日全站最高赞评论 TOP 10 ---
   var topComments = [
-    {"name": "在音乐领域你才是挑战者 faker，", "value": 19483, "platform": "B站", "url": "https://www.bilibili.com/video/BV1DRHU6LELy"},
-    {"name": "你把我的预言家还给我😭", "value": 11737, "platform": "B站", "url": "https://www.bilibili.com/video/BV1arH968EzQ"},
-    {"name": "跟普通手机安装一个豆包APP有什么区别", "value": 11000, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/69301ff4000000001e029cef?xsec_token=ABJQrbMJ0rv4vhrlQjzwBrpN7kPqYGpdBxvpBx39mKU6g=&xsec_source=pc_search"},
-    {"name": "这么多食物如果让你自己吃，你能在一年内吃完吗[doge]", "value": 10481, "platform": "B站", "url": "https://www.bilibili.com/video/BV1VeHQ6tEaS"},
-    {"name": "01:31 这是哪个战队哦？", "value": 8881, "platform": "B站", "url": "https://www.bilibili.com/video/BV1DRHU6LELy"},
-    {"name": "哪天豆包不开心了，不让你用手机怎么办", "value": 8313, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/69301ff4000000001e029cef?xsec_token=ABJQrbMJ0rv4vhrlQjzwBrpN7kPqYGpdBxvpBx39mKU6g=&xsec_source=pc_search"},
-    {"name": "老李头，音乐这一块，过得了乐队，再谈未来", "value": 6931, "platform": "B站", "url": "https://www.bilibili.com/video/BV1DRHU6LELy"},
-    {"name": "纯奖励局啊，又可以合作，又不限时，还提供健身器材，还提供私教[笑哭]", "value": 5482, "platform": "B站", "url": "https://www.bilibili.com/video/BV1VeHQ6tEaS"},
-    {"name": "这才是我呀，没有绝望舞步那么傻，没有虎了吧唧声音难听，没有臭企鹅那么矮，这个帅的…", "value": 4141, "platform": "B站", "url": "https://www.bilibili.com/video/BV1Dwpx6jEaB"},
-    {"name": "买一箱猕猴桃 第一天：硬邦邦 第二天：吃一个，有点酸 第三天：吃三个 第四天：吃…", "value": 3821, "platform": "B站", "url": "https://www.bilibili.com/video/BV1Y6H96cEkz"}
+    {"name": "祝大家都能找到自己的幸福喵", "value": 4374, "platform": "B站", "url": "https://www.bilibili.com/video/BV16xpt6BE6t"},
+    {"name": "耐人寻味的是，我们一帮人做了这么久视频，对彼此内心的了解可能不到10％，只有特定…", "value": 4153, "platform": "B站", "url": "https://www.bilibili.com/video/BV1Rgpi6DEhX"},
+    {"name": "去，哪有那么多规矩，我前列腺发炎还起飞呢，我才是身体的主人", "value": 3995, "platform": "B站", "url": "https://www.bilibili.com/video/BV1AQHS6MEfW"},
+    {"name": "是皮特赢了，砍不到脖子 00:36", "value": 2539, "platform": "B站", "url": "https://www.bilibili.com/video/BV1CLHQ6zEHC"},
+    {"name": "声带是最后衰老的器官，按道理来讲，大妈要是保养的好，其实跟十几年前声音差别不大", "value": 2515, "platform": "B站", "url": "https://www.bilibili.com/video/BV1FUpb6kERs"},
+    {"name": "我去开心成舍利子了[星星眼][星星眼][星星眼]谢谢你们的支持！！！", "value": 2459, "platform": "B站", "url": "https://www.bilibili.com/video/BV1ispc6sEHg"},
+    {"name": "太不专业了，居然不开会研究一下塞嘴布的颜色", "value": 2444, "platform": "B站", "url": "https://www.bilibili.com/video/BV1fopY6QEmP"},
+    {"name": "难道只有我一个人在看男生女生向前冲的节目觉得别人很菜，然后幻想自己上去的话会拿到…", "value": 2268, "platform": "B站", "url": "https://www.bilibili.com/video/BV15rpt6bEPm"},
+    {"name": "海关“额……你的意思是说，她做为一个法师  在一个世俗的 非宗教的 普遍无神论的…", "value": 1978, "platform": "B站", "url": "https://www.bilibili.com/video/BV1QJpi6yEPp"},
+    {"name": "有攻略剧透。和朋友玩了两个周目，一周目是正常玩的，钱不够，不过没打电话给警长，所…", "value": 1964, "platform": "B站", "url": "https://www.bilibili.com/video/BV1iqpt6cEMU"}
   ].reverse();
 
   var chart1 = echarts.init(document.getElementById('chart-top-comments'), null, { renderer: 'svg' });
@@ -85,18 +85,18 @@
 
   // --- Chart 2: B站热门弹幕频次 TOP 12 ---
   var danmaku = [
-    {"name": "懂你意思", "value": 974},
-    {"name": "吓哭了", "value": 326},
-    {"name": "谢谢", "value": 72},
-    {"name": "难说", "value": 55},
-    {"name": "若娜瓦！", "value": 55},
-    {"name": "还真是", "value": 52},
-    {"name": "完结撒花", "value": 49},
-    {"name": "man", "value": 47},
-    {"name": "别这么说", "value": 43},
-    {"name": "生日快乐", "value": 41},
-    {"name": "没绷住", "value": 39},
-    {"name": "未识别到人脸", "value": 39}
+    {"name": "出必还愿", "value": 375},
+    {"name": "吓哭了", "value": 301},
+    {"name": "世纪大和解", "value": 228},
+    {"name": "生日快乐", "value": 200},
+    {"name": "懂你意思", "value": 115},
+    {"name": "心生爱慕", "value": 68},
+    {"name": "好看", "value": 64},
+    {"name": "kksk", "value": 62},
+    {"name": "没绷住", "value": 52},
+    {"name": "绷不住了", "value": 52},
+    {"name": "弹幕飞过", "value": 52},
+    {"name": "学到了", "value": 49}
   ].reverse();
 
   var chart2 = echarts.init(document.getElementById('chart-danmaku'), null, { renderer: 'svg' });
@@ -135,16 +135,16 @@
 
   // --- Chart 3: GitHub Trending 今日新增星数 TOP 10 ---
   var ghTrending = [
-    {"name": "morluto/rea", "value": 14927, "lang": "TypeScript", "total": "46,836"},
-    {"name": "boykopovar/AnyPS5", "value": 5868, "lang": "C++", "total": "22,453"},
-    {"name": "storytold/artcraft", "value": 3752, "lang": "Rust", "total": "11,561"},
-    {"name": "cathrynlavery/diagram-design", "value": 1739, "lang": "HTML", "total": "47,899"},
-    {"name": "mattpocock/skills", "value": 1687, "lang": "Shell", "total": "282,742"},
-    {"name": "anthropics/knowledge-work-plugins", "value": 709, "lang": "Python", "total": "28,276"},
-    {"name": "addyosmani/agent-skills", "value": 436, "lang": "JavaScript", "total": "104,003"},
-    {"name": "alibaba/open-code-review", "value": 326, "lang": "Go", "total": "45,250"},
-    {"name": "Robbyant/lingbot-map", "value": 110, "lang": "Python", "total": "17,708"},
-    {"name": "BerriAI/litellm", "value": 95, "lang": "Python", "total": "60,675"}
+    {"name": "morluto/rea", "value": 25793, "lang": "TypeScript", "total": "72,904"},
+    {"name": "boykopovar/AnyPS5", "value": 5805, "lang": "C++", "total": "26,884"},
+    {"name": "storytold/artcraft", "value": 3222, "lang": "Rust", "total": "14,524"},
+    {"name": "mattpocock/skills", "value": 1736, "lang": "Shell", "total": "284,510"},
+    {"name": "cathrynlavery/diagram-design", "value": 1190, "lang": "HTML", "total": "48,958"},
+    {"name": "anthropics/knowledge-work-plugins", "value": 625, "lang": "Python", "total": "28,822"},
+    {"name": "hugohe3/ppt-master", "value": 461, "lang": "Python", "total": "59,464"},
+    {"name": "multica-ai/andrej-karpathy-skills", "value": 278, "lang": "—", "total": "218,283"},
+    {"name": "mksglu/context-mode", "value": 178, "lang": "TypeScript", "total": "26,320"},
+    {"name": "huggingface/transformers", "value": 96, "lang": "Python", "total": "167,265"}
   ].reverse();
 
   var chart3 = echarts.init(document.getElementById('chart-github'), null, { renderer: 'svg' });
