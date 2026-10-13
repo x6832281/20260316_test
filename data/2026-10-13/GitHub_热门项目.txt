@@ -1,0 +1,49 @@
+﻿============================================================
+GitHub Trending 今日热门项目
+项目数: 9 | 生成时间: 2026-10-13 09:23:49
+============================================================
+
+#1  morluto/rea
+    今日 +45327 星 | 总星 158,764 | Fork 36,870 | TypeScript
+    简介: Reverse engineer anything with agents, from app behavior down to native binaries.
+    链接: https://github.com/morluto/rea
+
+#2  bilawalsidhu/gods-eye-view
+    今日 +1895 星 | 总星 53,715 | Fork 10,610 | JavaScript
+    简介: A spy satellite simulator in your browser, except the data is real. Live open source spatial intelligence on a photorealistic 3D globe.
+    链接: https://github.com/bilawalsidhu/gods-eye-view
+
+#3  mksglu/context-mode
+    今日 +246 星 | 总星 27,309 | Fork 1,945 | TypeScript
+    简介: Context window optimization for AI coding agents. Sandboxes tool output (98% reduction), persists session memory, and enforces routing across 17 platforms via MCP + hooks.
+    链接: https://github.com/mksglu/context-mode
+
+#4  storytold/artcraft
+    今日 +4095 星 | 总星 22,115 | Fork 3,566 | Rust
+    简介: ArtCraft is an intentional crafting engine for artists, designers, and filmmakers
+    链接: https://github.com/storytold/artcraft
+
+#5  open-webui/open-webui
+    今日 +157 星 | 总星 155,034 | Fork 22,642 | Python
+    简介: User-friendly AI Interface (Supports Ollama, OpenAI API, ...)
+    链接: https://github.com/open-webui/open-webui
+
+#6  cathrynlavery/diagram-design
+    今日 +2081 星 | 总星 52,654 | Fork 3,332 | HTML
+    简介: Editorial diagram design for Claude Code, Codex, GitHub Copilot, Cursor, Factory Droid, and Pi. 44 diagram types. Self-contained HTML + SVG. No shadows. No Mermaid slop.
+    链接: https://github.com/cathrynlavery/diagram-design
+
+#7  lyogavin/airllm
+    今日 +879 星 | 总星 37,557 | Fork 3,872 | Jupyter Notebook
+    简介: AirLLM 2.8T LLM inference with single 4GB GPU
+    链接: https://github.com/lyogavin/airllm
+
+#8  microsoft/BitNet
+    今日 +97 星 | 总星 40,922 | Fork 3,807 | C++
+    简介: Official inference framework for 1-bit LLMs
+    链接: https://github.com/microsoft/BitNet
+
+#9  Alishahryar1/free-claude-code
+    今日 +626 星 | 总星 59,144 | Fork 9,318 | Python
+    简介: Use Claude Code, Codex, VSCode, Pi, and OpenCode (and 6 other harnesses) for free (1.3B+ free tokens) from your terminal, app, IDE, or phone, and now from the browser with native browser sessions (multi-harness + multi-model) like OpenClaw (voice supported + ToS friendly)
+    链接: https://github.com/Alishahryar1/free-claude-code

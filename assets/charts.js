@@ -27,16 +27,16 @@
 
   // --- Chart 1: 今日全站最高赞评论 TOP 10 ---
   var topComments = [
-    {"name": "祝大家都能找到自己的幸福喵", "value": 4374, "platform": "B站", "url": "https://www.bilibili.com/video/BV16xpt6BE6t"},
-    {"name": "耐人寻味的是，我们一帮人做了这么久视频，对彼此内心的了解可能不到10％，只有特定…", "value": 4153, "platform": "B站", "url": "https://www.bilibili.com/video/BV1Rgpi6DEhX"},
-    {"name": "去，哪有那么多规矩，我前列腺发炎还起飞呢，我才是身体的主人", "value": 3995, "platform": "B站", "url": "https://www.bilibili.com/video/BV1AQHS6MEfW"},
-    {"name": "是皮特赢了，砍不到脖子 00:36", "value": 2539, "platform": "B站", "url": "https://www.bilibili.com/video/BV1CLHQ6zEHC"},
-    {"name": "声带是最后衰老的器官，按道理来讲，大妈要是保养的好，其实跟十几年前声音差别不大", "value": 2515, "platform": "B站", "url": "https://www.bilibili.com/video/BV1FUpb6kERs"},
-    {"name": "我去开心成舍利子了[星星眼][星星眼][星星眼]谢谢你们的支持！！！", "value": 2459, "platform": "B站", "url": "https://www.bilibili.com/video/BV1ispc6sEHg"},
-    {"name": "太不专业了，居然不开会研究一下塞嘴布的颜色", "value": 2444, "platform": "B站", "url": "https://www.bilibili.com/video/BV1fopY6QEmP"},
-    {"name": "难道只有我一个人在看男生女生向前冲的节目觉得别人很菜，然后幻想自己上去的话会拿到…", "value": 2268, "platform": "B站", "url": "https://www.bilibili.com/video/BV15rpt6bEPm"},
-    {"name": "海关“额……你的意思是说，她做为一个法师  在一个世俗的 非宗教的 普遍无神论的…", "value": 1978, "platform": "B站", "url": "https://www.bilibili.com/video/BV1QJpi6yEPp"},
-    {"name": "有攻略剧透。和朋友玩了两个周目，一周目是正常玩的，钱不够，不过没打电话给警长，所…", "value": 1964, "platform": "B站", "url": "https://www.bilibili.com/video/BV1iqpt6cEMU"}
+    {"name": "跟普通手机安装一个豆包APP有什么区别", "value": 11000, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/69301ff4000000001e029cef?xsec_token=ABJQrbMJ0rv4vhrlQjzwBrpN7kPqYGpdBxvpBx39mKU6g=&xsec_source=pc_search"},
+    {"name": "哪天豆包不开心了，不让你用手机怎么办", "value": 8313, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/69301ff4000000001e029cef?xsec_token=ABJQrbMJ0rv4vhrlQjzwBrpN7kPqYGpdBxvpBx39mKU6g=&xsec_source=pc_search"},
+    {"name": "用感光基因帮助盲人复现世界的轮廓……一个相当大胆和天才的想法，今年诺奖太强了[笑…", "value": 4107, "platform": "B站", "url": "https://www.bilibili.com/video/BV1Fbpt6qEPq"},
+    {"name": "系统级 跨APP执行", "value": 3024, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/69301ff4000000001e029cef?xsec_token=ABJQrbMJ0rv4vhrlQjzwBrpN7kPqYGpdBxvpBx39mKU6g=&xsec_source=pc_search"},
+    {"name": "午后昏昏欲睡，然后醒来。大脑还是昏沉沉的，但是手机没有消息比有消息好多了[笑哭]", "value": 2895, "platform": "B站", "url": "https://www.bilibili.com/video/BV179p76zEZR"},
+    {"name": "最早玩黑莓那代人已经老花了", "value": 2220, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/69e224d9000000002101038b?xsec_token=ABmuylZEbxoHDcVfKEl8R1_BD21a9foH64_6sR_VGWK08=&xsec_source=pc_search"},
+    {"name": "说白了，就算是玩过的也不能配的这么合适[doge]", "value": 2156, "platform": "B站", "url": "https://www.bilibili.com/video/BV11UpG6qETa"},
+    {"name": "希望博主能讲做一期蒋介石到了台湾后的视频，因为我们目前的历史关于蒋介石也就除了蒋…", "value": 2115, "platform": "B站", "url": "https://www.bilibili.com/video/BV1wspE6EEFd"},
+    {"name": "这我朋友煮的鸡蛋，看起来十分美味", "value": 2090, "platform": "B站", "url": "https://www.bilibili.com/video/BV1D9pn6KE9p"},
+    {"name": "暑假某天去看展，后来路过咖啡店也看到了这句话，很有共鸣", "value": 1990, "platform": "B站", "url": "https://www.bilibili.com/video/BV179p76zEZR"}
   ].reverse();
 
   var chart1 = echarts.init(document.getElementById('chart-top-comments'), null, { renderer: 'svg' });
@@ -85,18 +85,18 @@
 
   // --- Chart 2: B站热门弹幕频次 TOP 12 ---
   var danmaku = [
-    {"name": "出必还愿", "value": 375},
-    {"name": "吓哭了", "value": 301},
-    {"name": "世纪大和解", "value": 228},
-    {"name": "生日快乐", "value": 200},
-    {"name": "懂你意思", "value": 115},
-    {"name": "心生爱慕", "value": 68},
-    {"name": "好看", "value": 64},
-    {"name": "kksk", "value": 62},
-    {"name": "没绷住", "value": 52},
-    {"name": "绷不住了", "value": 52},
-    {"name": "弹幕飞过", "value": 52},
-    {"name": "学到了", "value": 49}
+    {"name": "接生", "value": 697},
+    {"name": "懂你意思", "value": 600},
+    {"name": "秒吃", "value": 449},
+    {"name": "爷青回", "value": 388},
+    {"name": "好久不见", "value": 353},
+    {"name": "《通缉令》", "value": 173},
+    {"name": "看完了", "value": 169},
+    {"name": "《金色大狗熊》", "value": 155},
+    {"name": "藏狐", "value": 99},
+    {"name": "害怕", "value": 68},
+    {"name": "这是好事啊", "value": 68},
+    {"name": "吓哭了", "value": 67}
   ].reverse();
 
   var chart2 = echarts.init(document.getElementById('chart-danmaku'), null, { renderer: 'svg' });
@@ -135,16 +135,14 @@
 
   // --- Chart 3: GitHub Trending 今日新增星数 TOP 10 ---
   var ghTrending = [
-    {"name": "morluto/rea", "value": 25793, "lang": "TypeScript", "total": "72,904"},
-    {"name": "boykopovar/AnyPS5", "value": 5805, "lang": "C++", "total": "26,884"},
-    {"name": "storytold/artcraft", "value": 3222, "lang": "Rust", "total": "14,524"},
-    {"name": "mattpocock/skills", "value": 1736, "lang": "Shell", "total": "284,510"},
-    {"name": "cathrynlavery/diagram-design", "value": 1190, "lang": "HTML", "total": "48,958"},
-    {"name": "anthropics/knowledge-work-plugins", "value": 625, "lang": "Python", "total": "28,822"},
-    {"name": "hugohe3/ppt-master", "value": 461, "lang": "Python", "total": "59,464"},
-    {"name": "multica-ai/andrej-karpathy-skills", "value": 278, "lang": "—", "total": "218,283"},
-    {"name": "mksglu/context-mode", "value": 178, "lang": "TypeScript", "total": "26,320"},
-    {"name": "huggingface/transformers", "value": 96, "lang": "Python", "total": "167,265"}
+    {"name": "morluto/rea", "value": 45327, "lang": "TypeScript", "total": "158,764"},
+    {"name": "storytold/artcraft", "value": 4095, "lang": "Rust", "total": "22,115"},
+    {"name": "cathrynlavery/diagram-design", "value": 2081, "lang": "HTML", "total": "52,654"},
+    {"name": "bilawalsidhu/gods-eye-view", "value": 1895, "lang": "JavaScript", "total": "53,715"},
+    {"name": "Alishahryar1/free-claude-code", "value": 626, "lang": "Python", "total": "59,144"},
+    {"name": "mksglu/context-mode", "value": 246, "lang": "TypeScript", "total": "27,309"},
+    {"name": "open-webui/open-webui", "value": 157, "lang": "Python", "total": "155,034"},
+    {"name": "microsoft/BitNet", "value": 97, "lang": "C++", "total": "40,922"}
   ].reverse();
 
   var chart3 = echarts.init(document.getElementById('chart-github'), null, { renderer: 'svg' });
