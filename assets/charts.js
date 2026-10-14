@@ -28,15 +28,15 @@
   // --- Chart 1: 今日全站最高赞评论 TOP 10 ---
   var topComments = [
     {"name": "跟普通手机安装一个豆包APP有什么区别", "value": 11000, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/69301ff4000000001e029cef?xsec_token=ABJQrbMJ0rv4vhrlQjzwBrpN7kPqYGpdBxvpBx39mKU6g=&xsec_source=pc_search"},
+    {"name": "用感光基因帮助盲人复现世界的轮廓……一个相当大胆和天才的想法，今年诺奖太强了[笑…", "value": 10068, "platform": "B站", "url": "https://www.bilibili.com/video/BV1Fbpt6qEPq"},
     {"name": "哪天豆包不开心了，不让你用手机怎么办", "value": 8313, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/69301ff4000000001e029cef?xsec_token=ABJQrbMJ0rv4vhrlQjzwBrpN7kPqYGpdBxvpBx39mKU6g=&xsec_source=pc_search"},
-    {"name": "用感光基因帮助盲人复现世界的轮廓……一个相当大胆和天才的想法，今年诺奖太强了[笑…", "value": 4107, "platform": "B站", "url": "https://www.bilibili.com/video/BV1Fbpt6qEPq"},
-    {"name": "系统级 跨APP执行", "value": 3024, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/69301ff4000000001e029cef?xsec_token=ABJQrbMJ0rv4vhrlQjzwBrpN7kPqYGpdBxvpBx39mKU6g=&xsec_source=pc_search"},
-    {"name": "午后昏昏欲睡，然后醒来。大脑还是昏沉沉的，但是手机没有消息比有消息好多了[笑哭]", "value": 2895, "platform": "B站", "url": "https://www.bilibili.com/video/BV179p76zEZR"},
-    {"name": "最早玩黑莓那代人已经老花了", "value": 2220, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/69e224d9000000002101038b?xsec_token=ABmuylZEbxoHDcVfKEl8R1_BD21a9foH64_6sR_VGWK08=&xsec_source=pc_search"},
-    {"name": "说白了，就算是玩过的也不能配的这么合适[doge]", "value": 2156, "platform": "B站", "url": "https://www.bilibili.com/video/BV11UpG6qETa"},
-    {"name": "希望博主能讲做一期蒋介石到了台湾后的视频，因为我们目前的历史关于蒋介石也就除了蒋…", "value": 2115, "platform": "B站", "url": "https://www.bilibili.com/video/BV1wspE6EEFd"},
-    {"name": "这我朋友煮的鸡蛋，看起来十分美味", "value": 2090, "platform": "B站", "url": "https://www.bilibili.com/video/BV1D9pn6KE9p"},
-    {"name": "暑假某天去看展，后来路过咖啡店也看到了这句话，很有共鸣", "value": 1990, "platform": "B站", "url": "https://www.bilibili.com/video/BV179p76zEZR"}
+    {"name": "孩子们，学物理真的很累", "value": 5538, "platform": "B站", "url": "https://www.bilibili.com/video/BV1EKWc6hEmQ"},
+    {"name": "你孟德尔叔叔有多超标，生物地基都没盖好，他先把顶封上了[笑哭][笑哭][笑哭]", "value": 4974, "platform": "B站", "url": "https://www.bilibili.com/video/BV1XupR6NEeo"},
+    {"name": "希腊有个说法，叫nostos，就是在长远的旅行后回归自己原本的身份。在伊萨卡，我…", "value": 4801, "platform": "B站", "url": "https://www.bilibili.com/video/BV1mopE6xEqv"},
+    {"name": "是真的，挂到大鱼，跟挂地球一样，这是我挂到鱼之后一点动静都没有，我心想完了，切了…", "value": 4187, "platform": "B站", "url": "https://www.bilibili.com/video/BV1xTpG6iEbV"},
+    {"name": "封面幻视凤凰传奇怎么办[笑哭]", "value": 3929, "platform": "B站", "url": "https://www.bilibili.com/video/BV1mopE6xEqv"},
+    {"name": "我爸看网上说吃土豆降血糖，吃了一个月，结果血糖飙升。后来发现他是正常吃完饭再啃个…", "value": 3311, "platform": "B站", "url": "https://www.bilibili.com/video/BV1doWc6xEjL"},
+    {"name": "这母亲感觉是战略性原谅一波，毕竟两年没有接触外界，加上要是在公共节目逼她儿子保不…", "value": 3309, "platform": "B站", "url": "https://www.bilibili.com/video/BV1wAp76yEu1"}
   ].reverse();
 
   var chart1 = echarts.init(document.getElementById('chart-top-comments'), null, { renderer: 'svg' });
@@ -85,18 +85,18 @@
 
   // --- Chart 2: B站热门弹幕频次 TOP 12 ---
   var danmaku = [
-    {"name": "接生", "value": 697},
-    {"name": "懂你意思", "value": 600},
-    {"name": "秒吃", "value": 449},
-    {"name": "爷青回", "value": 388},
-    {"name": "好久不见", "value": 353},
-    {"name": "《通缉令》", "value": 173},
-    {"name": "看完了", "value": 169},
-    {"name": "《金色大狗熊》", "value": 155},
-    {"name": "藏狐", "value": 99},
-    {"name": "害怕", "value": 68},
-    {"name": "这是好事啊", "value": 68},
-    {"name": "吓哭了", "value": 67}
+    {"name": "接生", "value": 721},
+    {"name": "芙芙生日快乐", "value": 495},
+    {"name": "爷青回", "value": 467},
+    {"name": "好久不见", "value": 419},
+    {"name": "《金色大狗熊》", "value": 398},
+    {"name": "害怕", "value": 365},
+    {"name": "《通缉令》", "value": 300},
+    {"name": "看完了", "value": 153},
+    {"name": "懂你意思", "value": 119},
+    {"name": "忠诚", "value": 111},
+    {"name": "吓哭了", "value": 110},
+    {"name": "啊？", "value": 102}
   ].reverse();
 
   var chart2 = echarts.init(document.getElementById('chart-danmaku'), null, { renderer: 'svg' });
@@ -135,14 +135,14 @@
 
   // --- Chart 3: GitHub Trending 今日新增星数 TOP 10 ---
   var ghTrending = [
-    {"name": "morluto/rea", "value": 45327, "lang": "TypeScript", "total": "158,764"},
-    {"name": "storytold/artcraft", "value": 4095, "lang": "Rust", "total": "22,115"},
-    {"name": "cathrynlavery/diagram-design", "value": 2081, "lang": "HTML", "total": "52,654"},
-    {"name": "bilawalsidhu/gods-eye-view", "value": 1895, "lang": "JavaScript", "total": "53,715"},
-    {"name": "Alishahryar1/free-claude-code", "value": 626, "lang": "Python", "total": "59,144"},
-    {"name": "mksglu/context-mode", "value": 246, "lang": "TypeScript", "total": "27,309"},
-    {"name": "open-webui/open-webui", "value": 157, "lang": "Python", "total": "155,034"},
-    {"name": "microsoft/BitNet", "value": 97, "lang": "C++", "total": "40,922"}
+    {"name": "morluto/rea", "value": 54679, "lang": "TypeScript", "total": "208,412"},
+    {"name": "storytold/artcraft", "value": 4081, "lang": "Rust", "total": "25,730"},
+    {"name": "bilawalsidhu/gods-eye-view", "value": 1961, "lang": "JavaScript", "total": "55,432"},
+    {"name": "cathrynlavery/diagram-design", "value": 1815, "lang": "HTML", "total": "54,161"},
+    {"name": "debpalash/VoiceStudio", "value": 1748, "lang": "Python", "total": "63,368"},
+    {"name": "xtool-org/xtool", "value": 1198, "lang": "Swift", "total": "9,402"},
+    {"name": "mksglu/context-mode", "value": 969, "lang": "TypeScript", "total": "28,261"},
+    {"name": "vercel-labs/skills", "value": 190, "lang": "TypeScript", "total": "34,528"}
   ].reverse();
 
   var chart3 = echarts.init(document.getElementById('chart-github'), null, { renderer: 'svg' });

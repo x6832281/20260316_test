@@ -1,0 +1,49 @@
+﻿============================================================
+GitHub Trending 今日热门项目
+项目数: 9 | 生成时间: 2026-10-14 09:24:24
+============================================================
+
+#1  morluto/rea
+    今日 +54679 星 | 总星 208,412 | Fork 50,948 | TypeScript
+    简介: Reverse engineer anything with agents, from app behavior down to native binaries.
+    链接: https://github.com/morluto/rea
+
+#2  bilawalsidhu/gods-eye-view
+    今日 +1961 星 | 总星 55,432 | Fork 10,837 | JavaScript
+    简介: A spy satellite simulator in your browser, except the data is real. Live open source spatial intelligence on a photorealistic 3D globe.
+    链接: https://github.com/bilawalsidhu/gods-eye-view
+
+#3  debpalash/VoiceStudio
+    今日 +1748 星 | 总星 63,368 | Fork 7,048 | Python
+    简介: VoiceStudio is the open-source, fully-local ElevenLabs alternative — voice cloning, voice design, video dubbing, dictation, transcription &amp; audiobook creation in 646 languages.
+    链接: https://github.com/debpalash/VoiceStudio
+
+#4  mksglu/context-mode
+    今日 +969 星 | 总星 28,261 | Fork 1,995 | TypeScript
+    简介: Context window optimization for AI coding agents. Sandboxes tool output (98% reduction), persists session memory, and enforces routing across 17 platforms via MCP + hooks.
+    链接: https://github.com/mksglu/context-mode
+
+#5  cathrynlavery/diagram-design
+    今日 +1815 星 | 总星 54,161 | Fork 3,436 | HTML
+    简介: Editorial diagram design for Claude Code, Codex, GitHub Copilot, Cursor, Factory Droid, and Pi. 44 diagram types. Self-contained HTML + SVG. No shadows. No Mermaid slop.
+    链接: https://github.com/cathrynlavery/diagram-design
+
+#6  vercel-labs/skills
+    今日 +190 星 | 总星 34,528 | Fork 2,953 | TypeScript
+    简介: The open agent skills tool - npx skills
+    链接: https://github.com/vercel-labs/skills
+
+#7  lyogavin/airllm
+    今日 +1001 星 | 总星 38,351 | Fork 3,921 | Jupyter Notebook
+    简介: AirLLM 2.8T LLM inference with single 4GB GPU
+    链接: https://github.com/lyogavin/airllm
+
+#8  storytold/artcraft
+    今日 +4081 星 | 总星 25,730 | Fork 4,032 | Rust
+    简介: ArtCraft is an intentional crafting engine for artists, designers, and filmmakers
+    链接: https://github.com/storytold/artcraft
+
+#9  xtool-org/xtool
+    今日 +1198 星 | 总星 9,402 | Fork 399 | Swift
+    简介: Cross-platform Xcode replacement. Build and deploy iOS apps with SwiftPM on Linux, Windows, macOS.
+    链接: https://github.com/xtool-org/xtool
