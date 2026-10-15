@@ -27,16 +27,16 @@
 
   // --- Chart 1: 今日全站最高赞评论 TOP 10 ---
   var topComments = [
+    {"name": "用感光基因帮助盲人复现世界的轮廓……一个相当大胆和天才的想法，今年诺奖太强了[笑…", "value": 12263, "platform": "B站", "url": "https://www.bilibili.com/video/BV1Fbpt6qEPq"},
     {"name": "跟普通手机安装一个豆包APP有什么区别", "value": 11000, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/69301ff4000000001e029cef?xsec_token=ABJQrbMJ0rv4vhrlQjzwBrpN7kPqYGpdBxvpBx39mKU6g=&xsec_source=pc_search"},
-    {"name": "用感光基因帮助盲人复现世界的轮廓……一个相当大胆和天才的想法，今年诺奖太强了[笑…", "value": 10068, "platform": "B站", "url": "https://www.bilibili.com/video/BV1Fbpt6qEPq"},
     {"name": "哪天豆包不开心了，不让你用手机怎么办", "value": 8313, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/69301ff4000000001e029cef?xsec_token=ABJQrbMJ0rv4vhrlQjzwBrpN7kPqYGpdBxvpBx39mKU6g=&xsec_source=pc_search"},
-    {"name": "孩子们，学物理真的很累", "value": 5538, "platform": "B站", "url": "https://www.bilibili.com/video/BV1EKWc6hEmQ"},
-    {"name": "你孟德尔叔叔有多超标，生物地基都没盖好，他先把顶封上了[笑哭][笑哭][笑哭]", "value": 4974, "platform": "B站", "url": "https://www.bilibili.com/video/BV1XupR6NEeo"},
-    {"name": "希腊有个说法，叫nostos，就是在长远的旅行后回归自己原本的身份。在伊萨卡，我…", "value": 4801, "platform": "B站", "url": "https://www.bilibili.com/video/BV1mopE6xEqv"},
-    {"name": "是真的，挂到大鱼，跟挂地球一样，这是我挂到鱼之后一点动静都没有，我心想完了，切了…", "value": 4187, "platform": "B站", "url": "https://www.bilibili.com/video/BV1xTpG6iEbV"},
-    {"name": "封面幻视凤凰传奇怎么办[笑哭]", "value": 3929, "platform": "B站", "url": "https://www.bilibili.com/video/BV1mopE6xEqv"},
-    {"name": "我爸看网上说吃土豆降血糖，吃了一个月，结果血糖飙升。后来发现他是正常吃完饭再啃个…", "value": 3311, "platform": "B站", "url": "https://www.bilibili.com/video/BV1doWc6xEjL"},
-    {"name": "这母亲感觉是战略性原谅一波，毕竟两年没有接触外界，加上要是在公共节目逼她儿子保不…", "value": 3309, "platform": "B站", "url": "https://www.bilibili.com/video/BV1wAp76yEu1"}
+    {"name": "孩子们，学物理真的很累", "value": 7689, "platform": "B站", "url": "https://www.bilibili.com/video/BV1EKWc6hEmQ"},
+    {"name": "基拉，用这个死亡笔记，劲大", "value": 7259, "platform": "B站", "url": "https://www.bilibili.com/video/BV1Sepk6bEZC"},
+    {"name": "你孟德尔叔叔有多超标，生物地基都没盖好，他先把顶封上了[笑哭][笑哭][笑哭]", "value": 6046, "platform": "B站", "url": "https://www.bilibili.com/video/BV1XupR6NEeo"},
+    {"name": "宿傩和大小保底交给我，你们先十连双红吧", "value": 6037, "platform": "B站", "url": "https://www.bilibili.com/video/BV1fspq6cEty"},
+    {"name": "希腊有个说法，叫nostos，就是在长远的旅行后回归自己原本的身份。在伊萨卡，我…", "value": 5183, "platform": "B站", "url": "https://www.bilibili.com/video/BV1mopE6xEqv"},
+    {"name": "封面幻视凤凰传奇怎么办[笑哭]", "value": 4005, "platform": "B站", "url": "https://www.bilibili.com/video/BV1mopE6xEqv"},
+    {"name": "村里人眼中的up", "value": 3182, "platform": "B站", "url": "https://www.bilibili.com/video/BV1kKWA6uEyr"}
   ].reverse();
 
   var chart1 = echarts.init(document.getElementById('chart-top-comments'), null, { renderer: 'svg' });
@@ -85,18 +85,18 @@
 
   // --- Chart 2: B站热门弹幕频次 TOP 12 ---
   var danmaku = [
-    {"name": "接生", "value": 721},
-    {"name": "芙芙生日快乐", "value": 495},
-    {"name": "爷青回", "value": 467},
-    {"name": "好久不见", "value": 419},
-    {"name": "《金色大狗熊》", "value": 398},
-    {"name": "害怕", "value": 365},
-    {"name": "《通缉令》", "value": 300},
-    {"name": "看完了", "value": 153},
-    {"name": "懂你意思", "value": 119},
-    {"name": "忠诚", "value": 111},
-    {"name": "吓哭了", "value": 110},
-    {"name": "啊？", "value": 102}
+    {"name": "接生", "value": 748},
+    {"name": "千言万语，感谢现役", "value": 640},
+    {"name": "LPL加油", "value": 177},
+    {"name": "阿一古", "value": 133},
+    {"name": "咕咕嘎嘎", "value": 31},
+    {"name": "舒服了", "value": 29},
+    {"name": "吓哭了", "value": 28},
+    {"name": "最芙幻想", "value": 22},
+    {"name": "河南", "value": 21},
+    {"name": "山东", "value": 19},
+    {"name": "好人一生平安", "value": 18},
+    {"name": "来都来了", "value": 17}
   ].reverse();
 
   var chart2 = echarts.init(document.getElementById('chart-danmaku'), null, { renderer: 'svg' });
@@ -135,14 +135,16 @@
 
   // --- Chart 3: GitHub Trending 今日新增星数 TOP 10 ---
   var ghTrending = [
-    {"name": "morluto/rea", "value": 54679, "lang": "TypeScript", "total": "208,412"},
-    {"name": "storytold/artcraft", "value": 4081, "lang": "Rust", "total": "25,730"},
-    {"name": "bilawalsidhu/gods-eye-view", "value": 1961, "lang": "JavaScript", "total": "55,432"},
-    {"name": "cathrynlavery/diagram-design", "value": 1815, "lang": "HTML", "total": "54,161"},
-    {"name": "debpalash/VoiceStudio", "value": 1748, "lang": "Python", "total": "63,368"},
-    {"name": "xtool-org/xtool", "value": 1198, "lang": "Swift", "total": "9,402"},
-    {"name": "mksglu/context-mode", "value": 969, "lang": "TypeScript", "total": "28,261"},
-    {"name": "vercel-labs/skills", "value": 190, "lang": "TypeScript", "total": "34,528"}
+    {"name": "morluto/rea", "value": 41034, "lang": "TypeScript", "total": "242,950"},
+    {"name": "debpalash/VoiceStudio", "value": 3538, "lang": "Python", "total": "66,419"},
+    {"name": "ifixai-ai/iFixAi", "value": 2109, "lang": "Python", "total": "27,444"},
+    {"name": "xtool-org/xtool", "value": 1502, "lang": "Swift", "total": "10,855"},
+    {"name": "vxcontrol/pentagi", "value": 1025, "lang": "Go", "total": "29,513"},
+    {"name": "NationalSecurityAgency/ghidra", "value": 1008, "lang": "Java", "total": "87,547"},
+    {"name": "mksglu/context-mode", "value": 947, "lang": "TypeScript", "total": "29,145"},
+    {"name": "rust-lang/rust", "value": 207, "lang": "Rust", "total": "120,045"},
+    {"name": "K-Dense-AI/scientific-agent-skills", "value": 163, "lang": "Python", "total": "49,362"},
+    {"name": "ntdevlabs/tiny11builder", "value": 139, "lang": "C#", "total": "20,246"}
   ].reverse();
 
   var chart3 = echarts.init(document.getElementById('chart-github'), null, { renderer: 'svg' });

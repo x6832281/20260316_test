@@ -1,0 +1,64 @@
+﻿============================================================
+GitHub Trending 今日热门项目
+项目数: 12 | 生成时间: 2026-10-15 09:23:58
+============================================================
+
+#1  morluto/rea
+    今日 +41034 星 | 总星 242,950 | Fork 60,568 | TypeScript
+    简介: Reverse engineer anything with agents, from app behavior down to native binaries.
+    链接: https://github.com/morluto/rea
+
+#2  debpalash/VoiceStudio
+    今日 +3538 星 | 总星 66,419 | Fork 7,321 | Python
+    简介: VoiceStudio is the open-source, fully-local ElevenLabs alternative — voice cloning, voice design, video dubbing, dictation, transcription &amp; audiobook creation in 646 languages.
+    链接: https://github.com/debpalash/VoiceStudio
+
+#3  mksglu/context-mode
+    今日 +947 星 | 总星 29,145 | Fork 2,046 | TypeScript
+    简介: Context window optimization for AI coding agents. Sandboxes tool output (98% reduction), persists session memory, and enforces routing across 17 platforms via MCP + hooks.
+    链接: https://github.com/mksglu/context-mode
+
+#4  nvm-sh/nvm
+    今日 +52 星 | 总星 95,460 | Fork 10,517 | Shell
+    简介: Node Version Manager - POSIX-compliant bash script to manage multiple active node.js versions.
+    链接: https://github.com/nvm-sh/nvm
+
+#5  K-Dense-AI/scientific-agent-skills
+    今日 +163 星 | 总星 49,362 | Fork 4,422 | Python
+    简介: Turn any AI agent into an AI Scientist. The #1 Agent Skills library for science, used by 250,000+ scientists worldwide. 177 ready-to-use validated skills plus 100+ scientific databases covering biology, chemistry, medicine, and drug discovery. Compatible with Cursor, Claude Code, Codex, Pi, Antigravity, and the open Agent Skills standard.
+    链接: https://github.com/K-Dense-AI/scientific-agent-skills
+
+#6  HKUDS/CLI-Anything
+    今日 +103 星 | 总星 52,522 | Fork 4,774 | Python
+    简介: "CLI-Anything: Making ALL Software Agent-Native" -- CLI-Hub: https://clianything.cc/
+    链接: https://github.com/HKUDS/CLI-Anything
+
+#7  ifixai-ai/iFixAi
+    今日 +2109 星 | 总星 27,444 | Fork 1,504 | Python
+    简介: Independent Auditing of AI Agents. Run by human or the agent itself, to answer the most crucial question in the AI Agent Economy. Is the agent doing what is supposed to do? With iFixAi you can have this answer in less than 120 seconds.
+    链接: https://github.com/ifixai-ai/iFixAi
+
+#8  vxcontrol/pentagi
+    今日 +1025 星 | 总星 29,513 | Fork 4,430 | Go
+    简介: Fully autonomous AI Agents system capable of performing complex penetration testing tasks
+    链接: https://github.com/vxcontrol/pentagi
+
+#9  rust-lang/rust
+    今日 +207 星 | 总星 120,045 | Fork 18,701 | Rust
+    简介: Empowering everyone to build reliable and efficient software.
+    链接: https://github.com/rust-lang/rust
+
+#10  xtool-org/xtool
+    今日 +1502 星 | 总星 10,855 | Fork 492 | Swift
+    简介: Cross-platform Xcode replacement. Build and deploy iOS apps with SwiftPM on Linux, Windows, macOS.
+    链接: https://github.com/xtool-org/xtool
+
+#11  ntdevlabs/tiny11builder
+    今日 +139 星 | 总星 20,246 | Fork 1,556 | C#
+    简介: WinUI app for building smaller, customized Windows 11 images.
+    链接: https://github.com/ntdevlabs/tiny11builder
+
+#12  NationalSecurityAgency/ghidra
+    今日 +1008 星 | 总星 87,547 | Fork 9,771 | Java
+    简介: Ghidra is a software reverse engineering (SRE) framework
+    链接: https://github.com/NationalSecurityAgency/ghidra
