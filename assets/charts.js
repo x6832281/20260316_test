@@ -27,16 +27,16 @@
 
   // --- Chart 1: 今日全站最高赞评论 TOP 10 ---
   var topComments = [
-    {"name": "用感光基因帮助盲人复现世界的轮廓……一个相当大胆和天才的想法，今年诺奖太强了[笑…", "value": 12263, "platform": "B站", "url": "https://www.bilibili.com/video/BV1Fbpt6qEPq"},
+    {"name": "小猫原来认人啊。。一直以为它谁都黏", "value": 18697, "platform": "B站", "url": "https://www.bilibili.com/video/BV1Eapz6PErV"},
     {"name": "跟普通手机安装一个豆包APP有什么区别", "value": 11000, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/69301ff4000000001e029cef?xsec_token=ABJQrbMJ0rv4vhrlQjzwBrpN7kPqYGpdBxvpBx39mKU6g=&xsec_source=pc_search"},
     {"name": "哪天豆包不开心了，不让你用手机怎么办", "value": 8313, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/69301ff4000000001e029cef?xsec_token=ABJQrbMJ0rv4vhrlQjzwBrpN7kPqYGpdBxvpBx39mKU6g=&xsec_source=pc_search"},
-    {"name": "孩子们，学物理真的很累", "value": 7689, "platform": "B站", "url": "https://www.bilibili.com/video/BV1EKWc6hEmQ"},
-    {"name": "基拉，用这个死亡笔记，劲大", "value": 7259, "platform": "B站", "url": "https://www.bilibili.com/video/BV1Sepk6bEZC"},
-    {"name": "你孟德尔叔叔有多超标，生物地基都没盖好，他先把顶封上了[笑哭][笑哭][笑哭]", "value": 6046, "platform": "B站", "url": "https://www.bilibili.com/video/BV1XupR6NEeo"},
-    {"name": "宿傩和大小保底交给我，你们先十连双红吧", "value": 6037, "platform": "B站", "url": "https://www.bilibili.com/video/BV1fspq6cEty"},
-    {"name": "希腊有个说法，叫nostos，就是在长远的旅行后回归自己原本的身份。在伊萨卡，我…", "value": 5183, "platform": "B站", "url": "https://www.bilibili.com/video/BV1mopE6xEqv"},
-    {"name": "封面幻视凤凰传奇怎么办[笑哭]", "value": 4005, "platform": "B站", "url": "https://www.bilibili.com/video/BV1mopE6xEqv"},
-    {"name": "村里人眼中的up", "value": 3182, "platform": "B站", "url": "https://www.bilibili.com/video/BV1kKWA6uEyr"}
+    {"name": "你鼠大哥被人类做了这么多年实验KD 都没拉平", "value": 8016, "platform": "B站", "url": "https://www.bilibili.com/video/BV1gFp26uEPD"},
+    {"name": "村里人眼中的up", "value": 4764, "platform": "B站", "url": "https://www.bilibili.com/video/BV1kKWA6uEyr"},
+    {"name": "斯拉夫大区特有的，你以为他没牌了，他其实还有，你看以为他有牌，他确实是没有", "value": 4060, "platform": "B站", "url": "https://www.bilibili.com/video/BV1nyJ66PEPQ"},
+    {"name": "我朋友的猫也是收养的，后来面相都变了[笑哭]", "value": 3722, "platform": "B站", "url": "https://www.bilibili.com/video/BV1cApB6NEPq"},
+    {"name": "集朔的女子力，望的阳光，令的自律，均的红火 ，颉的生龙活虎，黍的丰满，绩的慷慨，…", "value": 3115, "platform": "B站", "url": "https://www.bilibili.com/video/BV1fspq6cEty"},
+    {"name": "系统级 跨APP执行", "value": 3024, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/69301ff4000000001e029cef?xsec_token=ABJQrbMJ0rv4vhrlQjzwBrpN7kPqYGpdBxvpBx39mKU6g=&xsec_source=pc_search"},
+    {"name": "强得可怕[哦呼]", "value": 2624, "platform": "B站", "url": "https://www.bilibili.com/video/BV1dfJk6hEjX"}
   ].reverse();
 
   var chart1 = echarts.init(document.getElementById('chart-top-comments'), null, { renderer: 'svg' });
@@ -85,18 +85,18 @@
 
   // --- Chart 2: B站热门弹幕频次 TOP 12 ---
   var danmaku = [
-    {"name": "接生", "value": 748},
-    {"name": "千言万语，感谢现役", "value": 640},
-    {"name": "LPL加油", "value": 177},
-    {"name": "阿一古", "value": 133},
-    {"name": "咕咕嘎嘎", "value": 31},
-    {"name": "舒服了", "value": 29},
-    {"name": "吓哭了", "value": 28},
-    {"name": "最芙幻想", "value": 22},
-    {"name": "河南", "value": 21},
-    {"name": "山东", "value": 19},
-    {"name": "好人一生平安", "value": 18},
-    {"name": "来都来了", "value": 17}
+    {"name": "接生", "value": 774},
+    {"name": "千言万语，感谢现役", "value": 514},
+    {"name": "芙芙生日快乐", "value": 500},
+    {"name": "许愿祀不歪，出必还愿", "value": 413},
+    {"name": "舒服了", "value": 285},
+    {"name": "LPL加油", "value": 232},
+    {"name": "许愿祀，出必还愿", "value": 223},
+    {"name": "阿一古", "value": 137},
+    {"name": "让奇迹发生", "value": 115},
+    {"name": "见证历史", "value": 96},
+    {"name": "吓哭了", "value": 82},
+    {"name": "我吃饱了", "value": 82}
   ].reverse();
 
   var chart2 = echarts.init(document.getElementById('chart-danmaku'), null, { renderer: 'svg' });
@@ -135,16 +135,16 @@
 
   // --- Chart 3: GitHub Trending 今日新增星数 TOP 10 ---
   var ghTrending = [
-    {"name": "morluto/rea", "value": 41034, "lang": "TypeScript", "total": "242,950"},
-    {"name": "debpalash/VoiceStudio", "value": 3538, "lang": "Python", "total": "66,419"},
-    {"name": "ifixai-ai/iFixAi", "value": 2109, "lang": "Python", "total": "27,444"},
-    {"name": "xtool-org/xtool", "value": 1502, "lang": "Swift", "total": "10,855"},
-    {"name": "vxcontrol/pentagi", "value": 1025, "lang": "Go", "total": "29,513"},
-    {"name": "NationalSecurityAgency/ghidra", "value": 1008, "lang": "Java", "total": "87,547"},
-    {"name": "mksglu/context-mode", "value": 947, "lang": "TypeScript", "total": "29,145"},
-    {"name": "rust-lang/rust", "value": 207, "lang": "Rust", "total": "120,045"},
-    {"name": "K-Dense-AI/scientific-agent-skills", "value": 163, "lang": "Python", "total": "49,362"},
-    {"name": "ntdevlabs/tiny11builder", "value": 139, "lang": "C#", "total": "20,246"}
+    {"name": "morluto/rea", "value": 32314, "lang": "TypeScript", "total": "270,879"},
+    {"name": "debpalash/VoiceStudio", "value": 3024, "lang": "Python", "total": "69,144"},
+    {"name": "NationalSecurityAgency/ghidra", "value": 1369, "lang": "Java", "total": "88,785"},
+    {"name": "K-Dense-AI/scientific-agent-skills", "value": 1091, "lang": "Python", "total": "50,498"},
+    {"name": "affaan-m/ECC", "value": 1013, "lang": "JavaScript", "total": "280,417"},
+    {"name": "mksglu/context-mode", "value": 904, "lang": "TypeScript", "total": "29,803"},
+    {"name": "xerj-org/xerj", "value": 715, "lang": "Rust", "total": "5,681"},
+    {"name": "obra/superpowers", "value": 582, "lang": "Shell", "total": "299,913"},
+    {"name": "JuliusBrussee/caveman", "value": 433, "lang": "Go", "total": "112,574"},
+    {"name": "anthropics/claude-plugins-official", "value": 307, "lang": "Python", "total": "39,127"}
   ].reverse();
 
   var chart3 = echarts.init(document.getElementById('chart-github'), null, { renderer: 'svg' });
