@@ -1,0 +1,68 @@
+﻿============================================================
+GitHub Trending 今日热门项目
+项目数: 13 | 生成时间: 2026-10-17 09:23:53
+============================================================
+
+#1  anthropics/claude-plugins-official
+    今日 +1552 星 | 总星 40,596 | Fork 4,401 | Python
+    简介: Official, Anthropic-managed directory of high quality Claude Code Plugins.
+    链接: https://github.com/anthropics/claude-plugins-official
+
+#2  K-Dense-AI/scientific-agent-skills
+    今日 +1158 星 | 总星 51,526 | Fork 4,563 | Python
+    简介: Turn any AI agent into an AI Scientist. The #1 Agent Skills library for science, used by 250,000+ scientists worldwide. 177 ready-to-use validated skills plus 100+ scientific databases covering biology, chemistry, medicine, and drug discovery. Compatible with Cursor, Claude Code, Codex, Pi, Antigravity, and the open Agent Skills standard.
+    链接: https://github.com/K-Dense-AI/scientific-agent-skills
+
+#3  affaan-m/ECC
+    今日 +1057 星 | 总星 281,532 | Fork 41,856 | JavaScript
+    简介: The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond.
+    链接: https://github.com/affaan-m/ECC
+
+#4  HKUDS/CLI-Anything
+    今日 +281 星 | 总星 53,512 | Fork 4,849 | Python
+    简介: "CLI-Anything: Making ALL Software Agent-Native" -- CLI-Hub: https://clianything.cc/
+    链接: https://github.com/HKUDS/CLI-Anything
+
+#5  mksglu/context-mode
+    今日 +449 星 | 总星 30,243 | Fork 2,128 | TypeScript
+    简介: Context window optimization for AI coding agents. Sandboxes tool output (98% reduction), persists session memory, and enforces routing across 17 platforms via MCP + hooks.
+    链接: https://github.com/mksglu/context-mode
+
+#6  ruvnet/ruflo
+    今日 +672 星 | 总星 75,645 | Fork 8,967 | TypeScript
+    简介: 🌊 The original agent harness. Deploy intelligent multi-player swarms, coordinate autonomous workflows, and build conversational AI systems. Features adaptive memory, self-learning intelligence, federation, vector RAG integration, and native Claude Code / Codex / Hermes and many more Integrated
+    链接: https://github.com/ruvnet/ruflo
+
+#7  android/skills
+    今日 +36 星 | 总星 8,083 | Fork 536 | Kotlin
+    链接: https://github.com/android/skills
+
+#8  obra/superpowers
+    今日 +973 星 | 总星 300,686 | Fork 26,843 | Shell
+    简介: An agentic skills framework &amp; software development methodology that works.
+    链接: https://github.com/obra/superpowers
+
+#9  cursor/plugins
+    今日 +278 星 | 总星 11,967 | Fork 1,162 | TypeScript
+    简介: Cursor plugin specification and official plugins
+    链接: https://github.com/cursor/plugins
+
+#10  debpalash/VoiceStudio
+    今日 +2301 星 | 总星 71,262 | Fork 7,794 | Python
+    简介: VoiceStudio is the open-source, fully-local ElevenLabs alternative — voice cloning, voice design, video dubbing, dictation, transcription &amp; audiobook creation in 646 languages.
+    链接: https://github.com/debpalash/VoiceStudio
+
+#11  MadsLorentzen/ai-job-search
+    今日 +898 星 | 总星 48,539 | Fork 16,638 | Python
+    简介: The job search that runs on your machine. AI job application framework built on Claude Code: evaluate postings, tailor CVs, write cover letters, prep interviews. Fork it and own it.
+    链接: https://github.com/MadsLorentzen/ai-job-search
+
+#12  hmjz100/LinkSwift
+    今日 +538 星 | 总星 23,717 | Fork 1,437 | JavaScript
+    简介: 一个基于 JavaScript 的网盘文件下载地址获取工具。基于【网盘直链下载助手】修改 ，支持 百度网盘 / 阿里云盘 / 中国移动云盘 / 天翼云盘 / 迅雷云盘 / 夸克网盘 / UC网盘 / 123云盘 八大网盘
+    链接: https://github.com/hmjz100/LinkSwift
+
+#13  xerj-org/xerj
+    今日 +1648 星 | 总星 6,949 | Fork 353 | Rust
+    简介: XERJ is the new way for AI to search data. Its autoindex capability activates agents to know your data without the token waste of grep and sed. One command indexes code, docs, logs and PDFs for search, RAG, security audits and agent memory, using 40x fewer tokens than grep. Elasticsearch compatible, so existing clients just work.
+    链接: https://github.com/xerj-org/xerj

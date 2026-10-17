@@ -27,16 +27,16 @@
 
   // --- Chart 1: 今日全站最高赞评论 TOP 10 ---
   var topComments = [
-    {"name": "小猫原来认人啊。。一直以为它谁都黏", "value": 18697, "platform": "B站", "url": "https://www.bilibili.com/video/BV1Eapz6PErV"},
+    {"name": "你鼠大哥被人类做了这么多年实验KD 都没拉平", "value": 13934, "platform": "B站", "url": "https://www.bilibili.com/video/BV1gFp26uEPD"},
     {"name": "跟普通手机安装一个豆包APP有什么区别", "value": 11000, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/69301ff4000000001e029cef?xsec_token=ABJQrbMJ0rv4vhrlQjzwBrpN7kPqYGpdBxvpBx39mKU6g=&xsec_source=pc_search"},
     {"name": "哪天豆包不开心了，不让你用手机怎么办", "value": 8313, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/69301ff4000000001e029cef?xsec_token=ABJQrbMJ0rv4vhrlQjzwBrpN7kPqYGpdBxvpBx39mKU6g=&xsec_source=pc_search"},
-    {"name": "你鼠大哥被人类做了这么多年实验KD 都没拉平", "value": 8016, "platform": "B站", "url": "https://www.bilibili.com/video/BV1gFp26uEPD"},
-    {"name": "村里人眼中的up", "value": 4764, "platform": "B站", "url": "https://www.bilibili.com/video/BV1kKWA6uEyr"},
-    {"name": "斯拉夫大区特有的，你以为他没牌了，他其实还有，你看以为他有牌，他确实是没有", "value": 4060, "platform": "B站", "url": "https://www.bilibili.com/video/BV1nyJ66PEPQ"},
-    {"name": "我朋友的猫也是收养的，后来面相都变了[笑哭]", "value": 3722, "platform": "B站", "url": "https://www.bilibili.com/video/BV1cApB6NEPq"},
-    {"name": "集朔的女子力，望的阳光，令的自律，均的红火 ，颉的生龙活虎，黍的丰满，绩的慷慨，…", "value": 3115, "platform": "B站", "url": "https://www.bilibili.com/video/BV1fspq6cEty"},
-    {"name": "系统级 跨APP执行", "value": 3024, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/69301ff4000000001e029cef?xsec_token=ABJQrbMJ0rv4vhrlQjzwBrpN7kPqYGpdBxvpBx39mKU6g=&xsec_source=pc_search"},
-    {"name": "强得可怕[哦呼]", "value": 2624, "platform": "B站", "url": "https://www.bilibili.com/video/BV1dfJk6hEjX"}
+    {"name": "我去这一下看起来很轻松，实际上也不简单😭", "value": 6509, "platform": "B站", "url": "https://www.bilibili.com/video/BV1ocJm61ERF"},
+    {"name": "哥们，这是你吧", "value": 5128, "platform": "B站", "url": "https://www.bilibili.com/video/BV1KiJk67EQ9"},
+    {"name": "感谢大up发声。 没人觉得粉圈很可怕吗？把普通人艰辛的维权，说成黑红营销，给我家…", "value": 3969, "platform": "B站", "url": "https://www.bilibili.com/video/BV1s7JX6gELt"},
+    {"name": "适用场景：", "value": 3508, "platform": "B站", "url": "https://www.bilibili.com/video/BV12eJQ6zEN1"},
+    {"name": "支持大up发声。。。需要越来越多的大up发声", "value": 3401, "platform": "B站", "url": "https://www.bilibili.com/video/BV1s7JX6gELt"},
+    {"name": "热知识:当时的春晚晚会只有阎王爷没有来，而后面阎王爷扮演者刘江爷爷老师被采访时说…", "value": 3347, "platform": "B站", "url": "https://www.bilibili.com/video/BV1Fspj66E66"},
+    {"name": "这个是真绝", "value": 3064, "platform": "B站", "url": "https://www.bilibili.com/video/BV1wbpR6HE1g"}
   ].reverse();
 
   var chart1 = echarts.init(document.getElementById('chart-top-comments'), null, { renderer: 'svg' });
@@ -85,18 +85,18 @@
 
   // --- Chart 2: B站热门弹幕频次 TOP 12 ---
   var danmaku = [
-    {"name": "接生", "value": 774},
-    {"name": "千言万语，感谢现役", "value": 514},
-    {"name": "芙芙生日快乐", "value": 500},
-    {"name": "许愿祀不歪，出必还愿", "value": 413},
-    {"name": "舒服了", "value": 285},
-    {"name": "LPL加油", "value": 232},
-    {"name": "许愿祀，出必还愿", "value": 223},
-    {"name": "阿一古", "value": 137},
-    {"name": "让奇迹发生", "value": 115},
-    {"name": "见证历史", "value": 96},
-    {"name": "吓哭了", "value": 82},
-    {"name": "我吃饱了", "value": 82}
+    {"name": "生日快乐", "value": 471},
+    {"name": "\\Mizi/\\Mizi/\\Mizi/\\Mizi/…", "value": 121},
+    {"name": "支持", "value": 110},
+    {"name": "文明", "value": 90},
+    {"name": "遥遥领先", "value": 87},
+    {"name": "吓哭了", "value": 86},
+    {"name": "守护", "value": 52},
+    {"name": "生日快乐！", "value": 49},
+    {"name": "懂你意思", "value": 42},
+    {"name": "\\Mizi/\\Mizi/\\Mizi/\\Mizi/…", "value": 39},
+    {"name": "Ciallo～(∠・ω< )⌒☆", "value": 32},
+    {"name": "刘浩存", "value": 31}
   ].reverse();
 
   var chart2 = echarts.init(document.getElementById('chart-danmaku'), null, { renderer: 'svg' });
@@ -135,16 +135,16 @@
 
   // --- Chart 3: GitHub Trending 今日新增星数 TOP 10 ---
   var ghTrending = [
-    {"name": "morluto/rea", "value": 32314, "lang": "TypeScript", "total": "270,879"},
-    {"name": "debpalash/VoiceStudio", "value": 3024, "lang": "Python", "total": "69,144"},
-    {"name": "NationalSecurityAgency/ghidra", "value": 1369, "lang": "Java", "total": "88,785"},
-    {"name": "K-Dense-AI/scientific-agent-skills", "value": 1091, "lang": "Python", "total": "50,498"},
-    {"name": "affaan-m/ECC", "value": 1013, "lang": "JavaScript", "total": "280,417"},
-    {"name": "mksglu/context-mode", "value": 904, "lang": "TypeScript", "total": "29,803"},
-    {"name": "xerj-org/xerj", "value": 715, "lang": "Rust", "total": "5,681"},
-    {"name": "obra/superpowers", "value": 582, "lang": "Shell", "total": "299,913"},
-    {"name": "JuliusBrussee/caveman", "value": 433, "lang": "Go", "total": "112,574"},
-    {"name": "anthropics/claude-plugins-official", "value": 307, "lang": "Python", "total": "39,127"}
+    {"name": "debpalash/VoiceStudio", "value": 2301, "lang": "Python", "total": "71,262"},
+    {"name": "xerj-org/xerj", "value": 1648, "lang": "Rust", "total": "6,949"},
+    {"name": "anthropics/claude-plugins-official", "value": 1552, "lang": "Python", "total": "40,596"},
+    {"name": "K-Dense-AI/scientific-agent-skills", "value": 1158, "lang": "Python", "total": "51,526"},
+    {"name": "affaan-m/ECC", "value": 1057, "lang": "JavaScript", "total": "281,532"},
+    {"name": "obra/superpowers", "value": 973, "lang": "Shell", "total": "300,686"},
+    {"name": "MadsLorentzen/ai-job-search", "value": 898, "lang": "Python", "total": "48,539"},
+    {"name": "ruvnet/ruflo", "value": 672, "lang": "TypeScript", "total": "75,645"},
+    {"name": "hmjz100/LinkSwift", "value": 538, "lang": "JavaScript", "total": "23,717"},
+    {"name": "mksglu/context-mode", "value": 449, "lang": "TypeScript", "total": "30,243"}
   ].reverse();
 
   var chart3 = echarts.init(document.getElementById('chart-github'), null, { renderer: 'svg' });
