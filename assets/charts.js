@@ -27,16 +27,16 @@
 
   // --- Chart 1: 今日全站最高赞评论 TOP 10 ---
   var topComments = [
-    {"name": "你鼠大哥被人类做了这么多年实验KD 都没拉平", "value": 13934, "platform": "B站", "url": "https://www.bilibili.com/video/BV1gFp26uEPD"},
-    {"name": "跟普通手机安装一个豆包APP有什么区别", "value": 11000, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/69301ff4000000001e029cef?xsec_token=ABJQrbMJ0rv4vhrlQjzwBrpN7kPqYGpdBxvpBx39mKU6g=&xsec_source=pc_search"},
-    {"name": "哪天豆包不开心了，不让你用手机怎么办", "value": 8313, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/69301ff4000000001e029cef?xsec_token=ABJQrbMJ0rv4vhrlQjzwBrpN7kPqYGpdBxvpBx39mKU6g=&xsec_source=pc_search"},
-    {"name": "我去这一下看起来很轻松，实际上也不简单😭", "value": 6509, "platform": "B站", "url": "https://www.bilibili.com/video/BV1ocJm61ERF"},
-    {"name": "哥们，这是你吧", "value": 5128, "platform": "B站", "url": "https://www.bilibili.com/video/BV1KiJk67EQ9"},
-    {"name": "感谢大up发声。 没人觉得粉圈很可怕吗？把普通人艰辛的维权，说成黑红营销，给我家…", "value": 3969, "platform": "B站", "url": "https://www.bilibili.com/video/BV1s7JX6gELt"},
-    {"name": "适用场景：", "value": 3508, "platform": "B站", "url": "https://www.bilibili.com/video/BV12eJQ6zEN1"},
-    {"name": "支持大up发声。。。需要越来越多的大up发声", "value": 3401, "platform": "B站", "url": "https://www.bilibili.com/video/BV1s7JX6gELt"},
-    {"name": "热知识:当时的春晚晚会只有阎王爷没有来，而后面阎王爷扮演者刘江爷爷老师被采访时说…", "value": 3347, "platform": "B站", "url": "https://www.bilibili.com/video/BV1Fspj66E66"},
-    {"name": "这个是真绝", "value": 3064, "platform": "B站", "url": "https://www.bilibili.com/video/BV1wbpR6HE1g"}
+    {"name": "谱子来了： 运动牛仔混合洗运动单漂单排单甩单漂牛仔节能洗运动牛仔混合洗运动单漂单…", "value": 13605, "platform": "B站", "url": "https://www.bilibili.com/video/BV1fNJQ6bEAj"},
+    {"name": "只能说粉丝多说，大家自会去调查。甚至是“全部未履行”，这集太神了[笑哭]", "value": 10420, "platform": "B站", "url": "https://www.bilibili.com/video/BV1s7JX6gELt"},
+    {"name": "叮动基", "value": 7160, "platform": "B站", "url": "https://www.bilibili.com/video/BV1pVJU64Ey6"},
+    {"name": "感谢大up发声。 没人觉得粉圈很可怕吗？把普通人艰辛的维权，说成黑红营销，给我家…", "value": 5899, "platform": "B站", "url": "https://www.bilibili.com/video/BV1s7JX6gELt"},
+    {"name": "因为非法取证法院不予采纳，而且你只能证明他开过这个保险柜。", "value": 5712, "platform": "B站", "url": "https://www.bilibili.com/video/BV1q3pS6tE4J"},
+    {"name": "无障碍电影是在原版影片音频基础上，插入旁白解说画面内容，方便视障人士理解剧情的电…", "value": 4707, "platform": "B站", "url": "https://www.bilibili.com/video/BV1G5po6zECY"},
+    {"name": "虽然很搞笑，但是搞出这么多纸板，还给每一块上了色，还专门弄出窗户孔和细节，规模真…", "value": 4147, "platform": "B站", "url": "https://www.bilibili.com/video/BV1XJJ96oEXg"},
+    {"name": "其实到这里就可以结束了，感谢大自然的馈赠", "value": 3468, "platform": "B站", "url": "https://www.bilibili.com/video/BV1dfJk6hEjX"},
+    {"name": "强得可怕[哦呼]", "value": 3089, "platform": "B站", "url": "https://www.bilibili.com/video/BV1dfJk6hEjX"},
+    {"name": "本期探访女嘉宾 @是盈妹ovo 大家还想我去探访谁的家？[doge]", "value": 2538, "platform": "B站", "url": "https://www.bilibili.com/video/BV1dfJk6hEjX"}
   ].reverse();
 
   var chart1 = echarts.init(document.getElementById('chart-top-comments'), null, { renderer: 'svg' });
@@ -85,18 +85,18 @@
 
   // --- Chart 2: B站热门弹幕频次 TOP 12 ---
   var danmaku = [
-    {"name": "生日快乐", "value": 471},
-    {"name": "\\Mizi/\\Mizi/\\Mizi/\\Mizi/…", "value": 121},
-    {"name": "支持", "value": 110},
-    {"name": "文明", "value": 90},
-    {"name": "遥遥领先", "value": 87},
-    {"name": "吓哭了", "value": 86},
-    {"name": "守护", "value": 52},
-    {"name": "生日快乐！", "value": 49},
-    {"name": "懂你意思", "value": 42},
-    {"name": "\\Mizi/\\Mizi/\\Mizi/\\Mizi/…", "value": 39},
-    {"name": "Ciallo～(∠・ω< )⌒☆", "value": 32},
-    {"name": "刘浩存", "value": 31}
+    {"name": "永远不死", "value": 1079},
+    {"name": "接生", "value": 838},
+    {"name": "简介nb", "value": 631},
+    {"name": "永远不死！", "value": 563},
+    {"name": "懂你意思", "value": 435},
+    {"name": "舒服了", "value": 427},
+    {"name": "生日快乐", "value": 426},
+    {"name": "古人", "value": 386},
+    {"name": "kksk", "value": 228},
+    {"name": "完结撒花", "value": 191},
+    {"name": "生日快乐！", "value": 156},
+    {"name": "虞书欣", "value": 82}
   ].reverse();
 
   var chart2 = echarts.init(document.getElementById('chart-danmaku'), null, { renderer: 'svg' });
@@ -135,16 +135,16 @@
 
   // --- Chart 3: GitHub Trending 今日新增星数 TOP 10 ---
   var ghTrending = [
-    {"name": "debpalash/VoiceStudio", "value": 2301, "lang": "Python", "total": "71,262"},
-    {"name": "xerj-org/xerj", "value": 1648, "lang": "Rust", "total": "6,949"},
-    {"name": "anthropics/claude-plugins-official", "value": 1552, "lang": "Python", "total": "40,596"},
-    {"name": "K-Dense-AI/scientific-agent-skills", "value": 1158, "lang": "Python", "total": "51,526"},
-    {"name": "affaan-m/ECC", "value": 1057, "lang": "JavaScript", "total": "281,532"},
-    {"name": "obra/superpowers", "value": 973, "lang": "Shell", "total": "300,686"},
-    {"name": "MadsLorentzen/ai-job-search", "value": 898, "lang": "Python", "total": "48,539"},
-    {"name": "ruvnet/ruflo", "value": 672, "lang": "TypeScript", "total": "75,645"},
-    {"name": "hmjz100/LinkSwift", "value": 538, "lang": "JavaScript", "total": "23,717"},
-    {"name": "mksglu/context-mode", "value": 449, "lang": "TypeScript", "total": "30,243"}
+    {"name": "debpalash/VoiceStudio", "value": 2125, "lang": "Python", "total": "73,480"},
+    {"name": "anthropics/claude-plugins-official", "value": 1397, "lang": "Python", "total": "41,822"},
+    {"name": "MadsLorentzen/ai-job-search", "value": 1365, "lang": "Python", "total": "50,513"},
+    {"name": "xerj-org/xerj", "value": 1160, "lang": "Rust", "total": "7,844"},
+    {"name": "affaan-m/ECC", "value": 1145, "lang": "JavaScript", "total": "282,557"},
+    {"name": "K-Dense-AI/scientific-agent-skills", "value": 878, "lang": "Python", "total": "52,281"},
+    {"name": "stablyai/orca", "value": 830, "lang": "TypeScript", "total": "95,481"},
+    {"name": "HKUDS/CLI-Anything", "value": 574, "lang": "Python", "total": "54,091"},
+    {"name": "anomalyco/opencode", "value": 438, "lang": "TypeScript", "total": "215,423"},
+    {"name": "ruvnet/ruflo", "value": 420, "lang": "TypeScript", "total": "76,101"}
   ].reverse();
 
   var chart3 = echarts.init(document.getElementById('chart-github'), null, { renderer: 'svg' });

@@ -1,0 +1,68 @@
+﻿============================================================
+GitHub Trending 今日热门项目
+项目数: 13 | 生成时间: 2026-10-18 10:21:27
+============================================================
+
+#1  anthropics/claude-plugins-official
+    今日 +1397 星 | 总星 41,822 | Fork 4,467 | Python
+    简介: Official, Anthropic-managed directory of high quality Claude Code Plugins.
+    链接: https://github.com/anthropics/claude-plugins-official
+
+#2  MadsLorentzen/ai-job-search
+    今日 +1365 星 | 总星 50,513 | Fork 16,951 | Python
+    简介: The job search that runs on your machine. AI job application framework built on Claude Code: evaluate postings, tailor CVs, write cover letters, prep interviews. Fork it and own it.
+    链接: https://github.com/MadsLorentzen/ai-job-search
+
+#3  affaan-m/ECC
+    今日 +1145 星 | 总星 282,557 | Fork 41,990 | JavaScript
+    简介: The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond.
+    链接: https://github.com/affaan-m/ECC
+
+#4  HKUDS/CLI-Anything
+    今日 +574 星 | 总星 54,091 | Fork 4,906 | Python
+    简介: "CLI-Anything: Making ALL Software Agent-Native" -- CLI-Hub: https://clianything.cc/
+    链接: https://github.com/HKUDS/CLI-Anything
+
+#5  K-Dense-AI/scientific-agent-skills
+    今日 +878 星 | 总星 52,281 | Fork 4,630 | Python
+    简介: Turn any AI agent into an AI Scientist. The #1 Agent Skills library for science, used by 250,000+ scientists worldwide. 177 ready-to-use validated skills plus 100+ scientific databases covering biology, chemistry, medicine, and drug discovery. Compatible with Cursor, Claude Code, Codex, Pi, Antigravity, and the open Agent Skills standard.
+    链接: https://github.com/K-Dense-AI/scientific-agent-skills
+
+#6  akitaonrails/ai-memory
+    今日 +178 星 | 总星 9,945 | Fork 721 | Rust
+    简介: Solution for long term memory for agent coding CLIs and to facilitate handoff between different agent vendors
+    链接: https://github.com/akitaonrails/ai-memory
+
+#7  android/skills
+    今日 +355 星 | 总星 8,446 | Fork 555 | Kotlin
+    链接: https://github.com/android/skills
+
+#8  stablyai/orca
+    今日 +830 星 | 总星 95,481 | Fork 6,114 | TypeScript
+    简介: Orca is the place for working with a fleet of agents (e.g. Grok Bot, Claude Code). Run any coding agent with your own subscription. Available on desktop, mobile and remote runtime.
+    链接: https://github.com/stablyai/orca
+
+#9  anthropics/claude-code
+    今日 +179 星 | 总星 151,796 | Fork 26,879 | TypeScript
+    简介: Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows - all through natural language commands.
+    链接: https://github.com/anthropics/claude-code
+
+#10  debpalash/VoiceStudio
+    今日 +2125 星 | 总星 73,480 | Fork 8,043 | Python
+    简介: VoiceStudio is the open-source, fully-local ElevenLabs alternative — voice cloning, voice design, video dubbing, dictation, transcription &amp; audiobook creation in 646 languages.
+    链接: https://github.com/debpalash/VoiceStudio
+
+#11  anomalyco/opencode
+    今日 +438 星 | 总星 215,423 | Fork 28,865 | TypeScript
+    简介: The open source coding agent.
+    链接: https://github.com/anomalyco/opencode
+
+#12  ruvnet/ruflo
+    今日 +420 星 | 总星 76,101 | Fork 9,002 | TypeScript
+    简介: 🌊 The original agent harness. Deploy intelligent multi-player swarms, coordinate autonomous workflows, and build conversational AI systems. Features adaptive memory, self-learning intelligence, federation, vector RAG integration, and native Claude Code / Codex / Hermes and many more Integrated
+    链接: https://github.com/ruvnet/ruflo
+
+#13  xerj-org/xerj
+    今日 +1160 星 | 总星 7,844 | Fork 417 | Rust
+    简介: XERJ is the new way for AI to search data. Its autoindex capability activates agents to know your data without the token waste of grep (1974 tool). One command indexes code, docs, logs and PDFs for search, RAG, security audits and agent memory, using 40x fewer tokens than grep. It’s durable and can replace ElasticSearch saving you x10 infra costs.
+    链接: https://github.com/xerj-org/xerj
