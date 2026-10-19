@@ -1,0 +1,68 @@
+﻿============================================================
+GitHub Trending 今日热门项目
+项目数: 13 | 生成时间: 2026-10-19 09:43:17
+============================================================
+
+#1  MadsLorentzen/ai-job-search
+    今日 +2232 星 | 总星 53,338 | Fork 17,410 | Python
+    简介: The job search that runs on your machine. AI job application framework built on Claude Code: evaluate postings, tailor CVs, write cover letters, prep interviews. Fork it and own it.
+    链接: https://github.com/MadsLorentzen/ai-job-search
+
+#2  anthropics/claude-plugins-official
+    今日 +1175 星 | 总星 42,723 | Fork 4,535 | Python
+    简介: Official, Anthropic-managed directory of high quality Claude Code Plugins.
+    链接: https://github.com/anthropics/claude-plugins-official
+
+#3  anomalyco/opencode
+    今日 +1414 星 | 总星 216,640 | Fork 29,005 | TypeScript
+    简介: The open source coding agent.
+    链接: https://github.com/anomalyco/opencode
+
+#4  cursor/plugins
+    今日 +350 星 | 总星 12,760 | Fork 1,258 | TypeScript
+    简介: Cursor plugin specification and official plugins
+    链接: https://github.com/cursor/plugins
+
+#5  ruvnet/ruflo
+    今日 +513 星 | 总星 76,545 | Fork 9,049 | TypeScript
+    简介: 🌊 The original agent harness. Deploy intelligent multi-player swarms, coordinate autonomous workflows, and build conversational AI systems. Features adaptive memory, self-learning intelligence, federation, vector RAG integration, and native Claude Code / Codex / Hermes and many more Integrated
+    链接: https://github.com/ruvnet/ruflo
+
+#6  akitaonrails/ai-memory
+    今日 +512 星 | 总星 10,518 | Fork 750 | Rust
+    简介: Solution for long term memory for agent coding CLIs and to facilitate handoff between different agent vendors
+    链接: https://github.com/akitaonrails/ai-memory
+
+#7  stablyai/orca
+    今日 +1146 星 | 总星 96,712 | Fork 6,177 | TypeScript
+    简介: Orca is the place for working with a fleet of agents (e.g. Grok Bot, Claude Code). Run any coding agent with your own subscription. Available on desktop, mobile and remote runtime.
+    链接: https://github.com/stablyai/orca
+
+#8  HKUDS/CLI-Anything
+    今日 +589 星 | 总星 54,612 | Fork 4,949 | Python
+    简介: "CLI-Anything: Making ALL Software Agent-Native" -- CLI-Hub: https://clianything.cc/
+    链接: https://github.com/HKUDS/CLI-Anything
+
+#9  debpalash/VoiceStudio
+    今日 +2082 星 | 总星 75,468 | Fork 8,262 | Python
+    简介: VoiceStudio is the open-source, fully-local ElevenLabs alternative — voice cloning, voice design, video dubbing, dictation, transcription &amp; audiobook creation in 646 languages.
+    链接: https://github.com/debpalash/VoiceStudio
+
+#10  android/skills
+    今日 +375 星 | 总星 8,789 | Fork 568 | Kotlin
+    链接: https://github.com/android/skills
+
+#11  mlabonne/llm-course
+    今日 +81 星 | 总星 84,053 | Fork 9,784
+    简介: Course to get into Large Language Models (LLMs) with roadmaps and Colab notebooks.
+    链接: https://github.com/mlabonne/llm-course
+
+#12  Kruk2/jasna
+    今日 +115 星 | 总星 2,429 | Fork 187 | Python
+    简介: Video restoration tool
+    链接: https://github.com/Kruk2/jasna
+
+#13  Comfy-Org/ComfyUI
+    今日 +154 星 | 总星 138,649 | Fork 16,503 | Python
+    简介: The most powerful and modular diffusion model GUI, api and backend with a graph/nodes interface. The fastest local inference engine in the world.
+    链接: https://github.com/Comfy-Org/ComfyUI

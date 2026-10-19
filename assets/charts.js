@@ -27,16 +27,16 @@
 
   // --- Chart 1: 今日全站最高赞评论 TOP 10 ---
   var topComments = [
-    {"name": "谱子来了： 运动牛仔混合洗运动单漂单排单甩单漂牛仔节能洗运动牛仔混合洗运动单漂单…", "value": 13605, "platform": "B站", "url": "https://www.bilibili.com/video/BV1fNJQ6bEAj"},
-    {"name": "只能说粉丝多说，大家自会去调查。甚至是“全部未履行”，这集太神了[笑哭]", "value": 10420, "platform": "B站", "url": "https://www.bilibili.com/video/BV1s7JX6gELt"},
-    {"name": "叮动基", "value": 7160, "platform": "B站", "url": "https://www.bilibili.com/video/BV1pVJU64Ey6"},
-    {"name": "感谢大up发声。 没人觉得粉圈很可怕吗？把普通人艰辛的维权，说成黑红营销，给我家…", "value": 5899, "platform": "B站", "url": "https://www.bilibili.com/video/BV1s7JX6gELt"},
-    {"name": "因为非法取证法院不予采纳，而且你只能证明他开过这个保险柜。", "value": 5712, "platform": "B站", "url": "https://www.bilibili.com/video/BV1q3pS6tE4J"},
-    {"name": "无障碍电影是在原版影片音频基础上，插入旁白解说画面内容，方便视障人士理解剧情的电…", "value": 4707, "platform": "B站", "url": "https://www.bilibili.com/video/BV1G5po6zECY"},
-    {"name": "虽然很搞笑，但是搞出这么多纸板，还给每一块上了色，还专门弄出窗户孔和细节，规模真…", "value": 4147, "platform": "B站", "url": "https://www.bilibili.com/video/BV1XJJ96oEXg"},
-    {"name": "其实到这里就可以结束了，感谢大自然的馈赠", "value": 3468, "platform": "B站", "url": "https://www.bilibili.com/video/BV1dfJk6hEjX"},
-    {"name": "强得可怕[哦呼]", "value": 3089, "platform": "B站", "url": "https://www.bilibili.com/video/BV1dfJk6hEjX"},
-    {"name": "本期探访女嘉宾 @是盈妹ovo 大家还想我去探访谁的家？[doge]", "value": 2538, "platform": "B站", "url": "https://www.bilibili.com/video/BV1dfJk6hEjX"}
+    {"name": "有人说他有天分，只能说你有钱你也能发觉自己的天赋，但大多数人只能稳妥的苦哈哈走读…", "value": 11329, "platform": "B站", "url": "https://www.bilibili.com/video/BV1s7JX6gELt"},
+    {"name": "盛艾敬家长要招员工可以直接从盛艾敬超话里找免费劳动力。", "value": 6828, "platform": "B站", "url": "https://www.bilibili.com/video/BV1s7JX6gELt"},
+    {"name": "1945柏林", "value": 6641, "platform": "B站", "url": "https://www.bilibili.com/video/BV1wMJv6WErL"},
+    {"name": "这波是说到点上了 三谋全新 S1 讨董赏金服 10 月 17 日 12 点 - …", "value": 5717, "platform": "B站", "url": "https://www.bilibili.com/video/BV1s7JX6gELt"},
+    {"name": "记得怪鸽在直播的时候有人录到他对弟弟嫌弃而且怒喝。我只想说，试试照顾一个精神疾病…", "value": 5415, "platform": "B站", "url": "https://www.bilibili.com/video/BV1GMnM6aEzJ"},
+    {"name": "试着闭着眼睛想象了一会儿，感觉脑内token用完了_(:з」∠)_", "value": 5014, "platform": "B站", "url": "https://www.bilibili.com/video/BV1G5po6zECY"},
+    {"name": "太久不见，相当想念！我目前已经在新的目的地拍摄，11月中旬将恢复稳定更新，咕咕勒…", "value": 4258, "platform": "B站", "url": "https://www.bilibili.com/video/BV18Bn36BE6S"},
+    {"name": "[doge]再加上服务员脾气有点大 停车免费", "value": 3120, "platform": "B站", "url": "https://www.bilibili.com/video/BV11CJy6nEaC"},
+    {"name": "你是说这个超人背着雷霆重的装备朝着个有长枪和防弹衣的大规模枪击犯狂奔，又立刻隔着…", "value": 2732, "platform": "B站", "url": "https://www.bilibili.com/video/BV1dCJe6zEgv"},
+    {"name": "看了下评论区的大家都多少有些坎坷，我说下我自己吧，00年26岁女生，毕业三年半，…", "value": 2514, "platform": "B站", "url": "https://www.bilibili.com/video/BV1ifJY66EjT"}
   ].reverse();
 
   var chart1 = echarts.init(document.getElementById('chart-top-comments'), null, { renderer: 'svg' });
@@ -85,18 +85,18 @@
 
   // --- Chart 2: B站热门弹幕频次 TOP 12 ---
   var danmaku = [
-    {"name": "永远不死", "value": 1079},
-    {"name": "接生", "value": 838},
-    {"name": "简介nb", "value": 631},
-    {"name": "永远不死！", "value": 563},
-    {"name": "懂你意思", "value": 435},
-    {"name": "舒服了", "value": 427},
-    {"name": "生日快乐", "value": 426},
-    {"name": "古人", "value": 386},
-    {"name": "kksk", "value": 228},
-    {"name": "完结撒花", "value": 191},
-    {"name": "生日快乐！", "value": 156},
-    {"name": "虞书欣", "value": 82}
+    {"name": "失踪人口回归", "value": 521},
+    {"name": "生日快乐", "value": 432},
+    {"name": "虞书欣", "value": 362},
+    {"name": "r.i.p", "value": 338},
+    {"name": "锁暝不歪，玩到关服", "value": 332},
+    {"name": "rip", "value": 260},
+    {"name": "空军", "value": 207},
+    {"name": "生日快乐！", "value": 171},
+    {"name": "大彻大悟", "value": 113},
+    {"name": "默哀", "value": 86},
+    {"name": "文明", "value": 84},
+    {"name": "听见你说", "value": 76}
   ].reverse();
 
   var chart2 = echarts.init(document.getElementById('chart-danmaku'), null, { renderer: 'svg' });
@@ -135,16 +135,16 @@
 
   // --- Chart 3: GitHub Trending 今日新增星数 TOP 10 ---
   var ghTrending = [
-    {"name": "debpalash/VoiceStudio", "value": 2125, "lang": "Python", "total": "73,480"},
-    {"name": "anthropics/claude-plugins-official", "value": 1397, "lang": "Python", "total": "41,822"},
-    {"name": "MadsLorentzen/ai-job-search", "value": 1365, "lang": "Python", "total": "50,513"},
-    {"name": "xerj-org/xerj", "value": 1160, "lang": "Rust", "total": "7,844"},
-    {"name": "affaan-m/ECC", "value": 1145, "lang": "JavaScript", "total": "282,557"},
-    {"name": "K-Dense-AI/scientific-agent-skills", "value": 878, "lang": "Python", "total": "52,281"},
-    {"name": "stablyai/orca", "value": 830, "lang": "TypeScript", "total": "95,481"},
-    {"name": "HKUDS/CLI-Anything", "value": 574, "lang": "Python", "total": "54,091"},
-    {"name": "anomalyco/opencode", "value": 438, "lang": "TypeScript", "total": "215,423"},
-    {"name": "ruvnet/ruflo", "value": 420, "lang": "TypeScript", "total": "76,101"}
+    {"name": "MadsLorentzen/ai-job-search", "value": 2232, "lang": "Python", "total": "53,338"},
+    {"name": "debpalash/VoiceStudio", "value": 2082, "lang": "Python", "total": "75,468"},
+    {"name": "anomalyco/opencode", "value": 1414, "lang": "TypeScript", "total": "216,640"},
+    {"name": "anthropics/claude-plugins-official", "value": 1175, "lang": "Python", "total": "42,723"},
+    {"name": "stablyai/orca", "value": 1146, "lang": "TypeScript", "total": "96,712"},
+    {"name": "HKUDS/CLI-Anything", "value": 589, "lang": "Python", "total": "54,612"},
+    {"name": "ruvnet/ruflo", "value": 513, "lang": "TypeScript", "total": "76,545"},
+    {"name": "akitaonrails/ai-memory", "value": 512, "lang": "Rust", "total": "10,518"},
+    {"name": "android/skills", "value": 375, "lang": "Kotlin", "total": "8,789"},
+    {"name": "cursor/plugins", "value": 350, "lang": "TypeScript", "total": "12,760"}
   ].reverse();
 
   var chart3 = echarts.init(document.getElementById('chart-github'), null, { renderer: 'svg' });
