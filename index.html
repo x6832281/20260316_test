@@ -1,10 +1,20 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>评论区日报 · 全网高赞评论每日摘编</title>
 <meta name="description" content="每天自动采集小红书、B站的高赞评论与热门弹幕，以及 GitHub Trending 热门项目，摘编成一份日报。">
+<script>
+  (function() {
+    var savedTheme = localStorage.getItem('comments_daily_theme');
+    if (savedTheme) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  })();
+</script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/noto-serif-sc@5.1.1/700.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/noto-serif-sc@5.1.1/900.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.7.0/style.css">
@@ -20,21 +30,50 @@
     font-weight: 700;
   }
 
+  /* ===== 墨痕纸本 / Editorial Papercraft 色彩体系 ===== */
   :root {
-    --paper: #FDFCFA;
-    --ink: #1C1917;
-    --muted: #6E6862;
-    --faint: #B9B3A9;
-    --rule: #E8E4DC;
-    --rule2: #D8D3C9;
-    --wash: #F6F4EF;
-    --seal: #C0272D;
-    --xhs: #E02020;
-    --bili: #0094C8;
-    --gh: #8250DF;
+    --paper: #FAF8F5;
+    --wash: #F3EFE8;
+    --wash-hover: #ECE7DD;
+    --rule: #E5E0D8;
+    --rule2: #D5CEBF;
+    --ink: #1F1B18;
+    --muted: #615B54;
+    --faint: #A39D94;
+    --seal: #BA2D32;
+    --seal-bg: rgba(186, 45, 50, 0.08);
+
+    /* 传统矿物调和色 */
+    --xhs: #C73E3A;
+    --bili: #2679B2;
+    --gh: #5A488A;
+
     --serif: 'Noto Serif SC', 'Songti SC', 'STSong', 'SimSun', serif;
     --wenkai: 'LXGW WenKai', 'Kaiti SC', 'KaiTi', 'STKaiti', serif;
     --sans: -apple-system, 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
+    --shadow-card: 0 4px 18px -2px rgba(31, 27, 24, 0.05);
+    --shadow-hover: 0 8px 24px -4px rgba(31, 27, 24, 0.09);
+  }
+
+  /* ===== 夜幕星宿 / Midnight Codex 深色主题 ===== */
+  [data-theme="dark"] {
+    --paper: #121316;
+    --wash: #1C1E23;
+    --wash-hover: #262930;
+    --rule: #272A32;
+    --rule2: #383D47;
+    --ink: #E6E8EB;
+    --muted: #9499A3;
+    --faint: #565C68;
+    --seal: #D9444A;
+    --seal-bg: rgba(217, 68, 74, 0.16);
+
+    --xhs: #E85D59;
+    --bili: #47A1DE;
+    --gh: #9683C7;
+
+    --shadow-card: 0 4px 18px -2px rgba(0, 0, 0, 0.4);
+    --shadow-hover: 0 8px 24px -4px rgba(0, 0, 0, 0.6);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -43,125 +82,201 @@
     background: var(--paper);
     color: var(--ink);
     font-family: var(--sans);
-    font-size: 15.5px;
+    font-size: 15px;
     line-height: 1.75;
     -webkit-font-smoothing: antialiased;
+    transition: background-color 0.25s ease, color 0.25s ease;
   }
   a { color: inherit; }
   a:focus-visible, button:focus-visible { outline: 2px solid var(--seal); outline-offset: 3px; }
-  .container { max-width: 1060px; margin: 0 auto; padding: 0 26px; }
+  .container { max-width: min(1480px, 94vw); margin: 0 auto; padding: 0 clamp(20px, 3vw, 44px); }
+
+  /* ===== 顶栏：刊期与昼夜切换 ===== */
+  .top-ledger {
+    border-bottom: 1px solid var(--rule);
+    background: var(--paper);
+    padding: 10px 0;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .top-ledger-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+  .ledger-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    letter-spacing: 0.04em;
+  }
+  .ledger-pill {
+    display: inline-block;
+    padding: 2px 7px;
+    background: var(--wash);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+  }
+  .theme-toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--wash);
+    color: var(--ink);
+    border: 1px solid var(--rule);
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 12px;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 500;
+    transition: background 0.15s, border-color 0.15s, transform 0.1s;
+    user-select: none;
+  }
+  .theme-toggle-btn:hover {
+    background: var(--wash-hover);
+    border-color: var(--rule2);
+  }
+  .theme-toggle-btn:active {
+    transform: scale(0.97);
+  }
+  [data-theme="light"] .dark-icon { opacity: 0.35; }
+  [data-theme="dark"] .light-icon { opacity: 0.35; }
 
   /* ===== 报头 ===== */
-  .masthead { padding: 64px 0 0; text-align: center; }
+  .masthead { padding: 48px 0 0; text-align: center; }
   .paper-title {
     font-family: var(--serif); font-weight: 900;
-    font-size: clamp(40px, 7vw, 62px);
-    letter-spacing: 0.06em; line-height: 1.1;
+    font-size: clamp(38px, 6.8vw, 58px);
+    letter-spacing: 0.07em; line-height: 1.15;
     display: inline-flex; align-items: flex-start; gap: 14px;
   }
   .seal {
     font-family: var(--wenkai); font-weight: 400;
-    writing-mode: vertical-rl; letter-spacing: 0.2em;
-    background: var(--seal); color: var(--paper);
-    font-size: 15px; line-height: 1;
+    writing-mode: vertical-rl; letter-spacing: 0.22em;
+    background: var(--seal); color: #FAF8F5;
+    font-size: 14px; line-height: 1;
     padding: 7px 6px; border-radius: 3px;
-    transform: rotate(4deg) translateY(4px);
+    transform: rotate(3deg) translateY(4px);
     user-select: none;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.18);
   }
   .paper-en {
     font-family: var(--serif); font-weight: 700;
-    font-size: 12px; letter-spacing: 0.42em;
-    color: var(--muted); margin-top: 10px;
+    font-size: 12px; letter-spacing: 0.38em;
+    color: var(--muted); margin-top: 12px;
   }
   .dateline {
-    display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 18px;
-    font-size: 13.5px; color: var(--ink);
-    padding: 14px 0; margin-top: 18px;
-    border-top: 1px solid var(--rule2);
-    border-bottom: 1px solid var(--rule2);
+    display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px 16px;
+    font-size: 13.5px; color: var(--muted);
+    padding: 13px 0; margin-top: 20px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
     font-variant-numeric: tabular-nums;
   }
-  .dateline .sep { color: var(--faint); }
+  .dateline .dl-sep { color: var(--faint); opacity: 0.7; }
   .qlinks {
-    display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 22px;
-    padding: 13px 0;
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 18px;
+    padding: 14px 0 8px;
   }
   .qlinks a {
-    display: inline-flex; align-items: center; gap: 7px;
-    font-size: 13.5px; font-weight: 600; text-decoration: none;
-    color: var(--ink); padding: 2px 2px;
-    border-bottom: 2px solid transparent;
-    transition: border-color 0.12s;
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 13px; font-weight: 500; text-decoration: none;
+    color: var(--muted); padding: 3px 10px;
+    border: 1px solid var(--rule);
+    background: var(--wash);
+    border-radius: 20px;
+    transition: all 0.15s ease;
   }
-  .qlinks a:hover { border-bottom-color: var(--link-c); }
-  .qlinks .lk-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--link-c); flex: none; }
-  .qlinks a.bili { --link-c: #00AEEC; }
-  .qlinks a.yandex { --link-c: #FC3F1D; }
+  .qlinks a:hover {
+    color: var(--ink);
+    border-color: var(--link-c);
+    background: var(--paper);
+    transform: translateY(-1px);
+  }
+  .qlinks .lk-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--link-c); flex: none; }
+  .qlinks a.bili { --link-c: #2679B2; }
+  .qlinks a.yandex { --link-c: #E84D38; }
   .qlinks a.github { --link-c: #8250DF; }
   .qlinks a.doubao { --link-c: #4D6BFE; }
-  .qlinks a.weibo { --link-c: #FF6B35; }
+  .qlinks a.weibo { --link-c: #E86034; }
   .qlinks a.zhihu { --link-c: #0084FF; }
-  .wenwu { height: 6px; border-top: 3px solid var(--ink); border-bottom: 1px solid var(--ink); }
-
-  /* ===== 版面 ===== */
-  .sec { padding: 52px 0 20px; }
-  .sec-head {
-    display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap;
+  .wenwu {
+    height: 6px;
     border-top: 2.5px solid var(--ink);
-    border-bottom: 1px solid var(--rule2);
-    padding: 10px 0 9px; margin-bottom: 26px;
+    border-bottom: 0.75px solid var(--ink);
+    margin-top: 16px;
+    opacity: 0.9;
   }
-  .sec-no {
-    font-family: var(--serif); font-weight: 900;
-    font-size: 26px; color: var(--seal); line-height: 1;
-  }
-  .sec-head h2 {
-    font-family: var(--serif); font-weight: 700;
-    font-size: 23px; letter-spacing: 0.04em; line-height: 1.2;
-  }
-  .sec-sub { font-size: 13px; color: var(--muted); margin-left: auto; }
-  .sec-desc { color: var(--muted); max-width: 780px; margin-bottom: 22px; }
-  .sec-desc strong { color: var(--ink); font-weight: 700; }
 
   /* ===== 头版：今日最高赞 ===== */
-  .frontpage { padding: 46px 0 8px; }
-  .hero { max-width: 840px; }
+  .frontpage { padding: 44px 0 10px; }
+  .hero {
+    position: relative;
+    padding: 34px 36px 30px;
+    background: var(--wash);
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--seal);
+    border-radius: 4px;
+    box-shadow: var(--shadow-card);
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .hero::before {
+    content: "“";
+    position: absolute;
+    top: 12px;
+    right: 28px;
+    font-family: var(--serif);
+    font-size: 110px;
+    line-height: 1;
+    color: var(--rule2);
+    opacity: 0.45;
+    pointer-events: none;
+    user-select: none;
+  }
   .hero-kicker {
-    display: flex; align-items: center; gap: 12px;
+    display: inline-flex; align-items: center; gap: 10px;
     font-family: var(--serif); font-weight: 700;
-    font-size: 15px; letter-spacing: 0.18em;
-    margin-bottom: 18px;
+    font-size: 13.5px; letter-spacing: 0.15em;
+    color: var(--muted); margin-bottom: 16px;
+    text-transform: uppercase;
   }
   .hero-text {
     font-family: var(--wenkai); font-weight: 400;
-    font-size: clamp(24px, 3.6vw, 34px);
-    line-height: 1.6; letter-spacing: 0.02em;
-    max-width: 22em;
+    font-size: clamp(23px, 3vw, 35px);
+    line-height: 1.68; letter-spacing: 0.02em;
+    color: var(--ink); max-width: 60rem;
+    margin: 0 0 20px; position: relative; z-index: 1;
   }
-  .hero-text .q { color: var(--seal); font-size: 1.12em; }
+  .hero-text .q { color: var(--seal); opacity: 0.85; margin: 0 2px; }
   .hero-by {
-    display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px;
-    color: var(--muted); font-size: 14px; margin-top: 18px;
-    font-variant-numeric: tabular-nums;
+    display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px;
+    font-size: 13.5px; color: var(--muted);
+    padding-top: 16px; border-top: 1px dashed var(--rule2);
+    font-variant-numeric: tabular-nums; position: relative; z-index: 1;
   }
-  .hero-by .by-sep { color: var(--faint); }
+  .hero-by .by-sep { color: var(--faint); opacity: 0.7; }
 
   .heart {
     font-family: var(--sans); font-weight: 700;
     color: var(--seal); white-space: nowrap;
     font-variant-numeric: tabular-nums; letter-spacing: 0.01em;
   }
-  .heart.big { font-size: 19px; }
+  .heart.big { font-size: 18px; }
   .dm-count {
     font-weight: 700; color: var(--muted); white-space: nowrap;
     font-variant-numeric: tabular-nums;
   }
 
-  /* 平台标识 */
+  /* 平台标识标签 */
   .ptag {
-    display: inline-block; font-size: 12px; font-weight: 700;
+    display: inline-block; font-size: 11.5px; font-weight: 700;
     letter-spacing: 0.06em; line-height: 1;
-    padding: 4px 9px 3px; border-radius: 2px;
+    padding: 4px 8px 3px; border-radius: 3px;
     border: 1px solid currentColor; background: transparent;
     white-space: nowrap;
   }
@@ -169,76 +284,131 @@
   .ptag.bili { color: var(--bili); }
   .ptag.gh { color: var(--gh); }
 
-  /* 数字栏 */
+  /* 数字看板（4列网格） */
   .deck {
-    display: flex; flex-wrap: wrap;
-    border-top: 1px solid var(--rule2); border-bottom: 1px solid var(--rule2);
-    margin-top: 34px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-top: 26px;
   }
   .ds {
-    flex: 1 1 200px; display: flex; align-items: baseline; gap: 9px;
-    padding: 14px 18px 14px 0;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 16px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    transition: border-color 0.2s, transform 0.18s, box-shadow 0.18s;
   }
-  .ds + .ds { border-left: 1px solid var(--rule); padding-left: 18px; }
+  .ds:hover {
+    border-color: var(--rule2);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card);
+  }
   .ds-n {
-    font-family: var(--serif); font-weight: 900;
-    font-size: 25px; line-height: 1; font-variant-numeric: tabular-nums;
+    font-family: 'JetBrainsMono', var(--serif); font-weight: 700;
+    font-size: 26px; line-height: 1.1; font-variant-numeric: tabular-nums;
   }
   .ds-n.xhs { color: var(--xhs); }
   .ds-n.bili { color: var(--bili); }
   .ds-n.gh { color: var(--gh); }
   .ds-n.ink { color: var(--ink); }
-  .ds-l { font-size: 13px; color: var(--muted); }
+  .ds-l { font-size: 12.5px; color: var(--muted); line-height: 1.45; }
 
-  /* ===== 评论栏 ===== */
-  .cm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 44px; }
+  /* ===== 版面板块 ===== */
+  .sec { padding: 52px 0 20px; }
+  .sec-head {
+    display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap;
+    border-top: 2px solid var(--ink);
+    border-bottom: 1px solid var(--rule2);
+    padding: 12px 0 10px; margin-bottom: 24px;
+  }
+  .sec-no {
+    font-family: var(--serif); font-weight: 900;
+    font-size: 24px; color: var(--seal); line-height: 1;
+    letter-spacing: 0.04em;
+  }
+  .sec-head h2 {
+    font-family: var(--serif); font-weight: 700;
+    font-size: 22px; letter-spacing: 0.04em; line-height: 1.2;
+  }
+  .sec-sub { font-size: 13px; color: var(--muted); margin-left: auto; }
+  .sec-desc {
+    color: var(--muted); font-size: 14.5px;
+    max-width: 1040px; margin-bottom: 24px; line-height: 1.7;
+  }
+  .sec-desc strong { color: var(--ink); font-weight: 600; }
+
+  /* ===== 评论两栏网格 ===== */
+  .cm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+  .col {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 20px 22px;
+  }
   .col-head {
-    display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;
-    border-bottom: 2px solid var(--ink);
-    padding-bottom: 9px;
+    display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+    border-bottom: 1.5px solid var(--ink);
+    padding-bottom: 11px; margin-bottom: 12px;
   }
   .col-meta {
     font-size: 12.5px; color: var(--muted);
     font-variant-numeric: tabular-nums;
   }
-  .cm { padding: 17px 0 15px; border-bottom: 1px solid var(--rule); }
-  .col .cm:last-child { border-bottom: none; }
-  .cm-stats {
-    display: flex; align-items: baseline; gap: 12px;
-    margin-bottom: 5px;
+  .cm {
+    padding: 16px 14px;
+    border-radius: 4px;
+    border-bottom: 1px solid var(--rule);
+    transition: background 0.15s;
   }
-  .cm-stats .heart { font-size: 15.5px; }
-  .cm-user { font-size: 13px; color: var(--muted); }
+  .col .cm:last-child { border-bottom: none; }
+  .cm:hover { background: var(--wash); }
+  .cm-stats {
+    display: flex; align-items: baseline; gap: 10px;
+    margin-bottom: 7px;
+  }
+  .cm-stats .heart { font-size: 15px; }
+  .cm-user { font-size: 13px; color: var(--muted); font-weight: 500; }
   .cm-text {
     font-family: var(--wenkai); font-weight: 400;
-    font-size: 18px; line-height: 1.72; letter-spacing: 0.01em;
+    font-size: 17.5px; line-height: 1.74; letter-spacing: 0.015em;
+    color: var(--ink);
   }
-  .cm-src { font-size: 12.5px; color: var(--muted); margin-top: 6px; }
+  .cm-src { font-size: 12.5px; color: var(--muted); margin-top: 8px; line-height: 1.5; }
   .cm-src a, .hero-by a {
     color: inherit; text-decoration: none;
-    border-bottom: 1px solid var(--faint);
-    transition: color 0.12s, border-color 0.12s;
+    border-bottom: 1px solid var(--rule2);
+    transition: color 0.15s, border-color 0.15s;
   }
-  .cm-src a:hover, .hero-by a:hover { color: var(--ink); border-bottom-color: var(--ink); }
+  .cm-src a:hover, .hero-by a:hover {
+    color: var(--seal); border-bottom-color: var(--seal);
+  }
 
   /* ===== 弹幕带 ===== */
   .dm-strip {
     overflow: hidden; white-space: nowrap;
-    border-bottom: 1px solid var(--rule);
-    margin: -8px 0 26px; padding: 5px 0;
+    background: var(--wash);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    margin: -6px 0 26px; padding: 10px 0;
     user-select: none;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
   }
   .dm-track {
     display: inline-flex;
-    animation: dmscroll 60s linear infinite;
+    animation: dmscroll 50s linear infinite;
     will-change: transform;
   }
+  .dm-track:hover { animation-play-state: paused; }
   .dm-track span {
     font-family: var(--wenkai); font-size: 15px;
-    color: var(--faint); letter-spacing: 0.05em;
-    margin-right: 46px;
+    color: var(--muted); letter-spacing: 0.06em;
+    margin-right: 42px;
   }
-  .dm-track span:nth-child(3n) { color: var(--bili); opacity: 0.55; }
+  .dm-track span:nth-child(3n) { color: var(--bili); font-weight: 600; }
   @keyframes dmscroll {
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
@@ -250,76 +420,113 @@
 
   /* ===== GitHub 行情表 ===== */
   .gh-head {
-    display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;
-    border-bottom: 2px solid var(--ink); padding-bottom: 9px; margin-bottom: 0;
+    display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+    border-bottom: 1.5px solid var(--ink); padding-bottom: 11px; margin-bottom: 0;
   }
   .table-wrap {
     overflow-x: auto; overflow-y: auto; max-height: 620px;
-    border-bottom: 1px solid var(--rule2);
+    border: 1px solid var(--rule); border-top: none;
+    border-radius: 0 0 4px 4px; background: var(--paper);
   }
   table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 680px; }
   th {
-    text-align: left; padding: 11px 14px; color: var(--muted);
+    text-align: left; padding: 12px 16px; color: var(--muted);
     font-size: 12.5px; font-weight: 600; letter-spacing: 0.04em;
     border-bottom: 1px solid var(--rule2);
-    position: sticky; top: 0; background: var(--paper); z-index: 1;
+    position: sticky; top: 0; background: var(--paper); z-index: 2;
   }
-  td { padding: 11px 14px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  td { padding: 12px 16px; border-bottom: 1px solid var(--rule); vertical-align: top; line-height: 1.55; }
   tbody tr:hover td { background: var(--wash); }
   tbody tr:last-child td { border-bottom: none; }
   td.gh-repo a {
+    font-family: 'JetBrainsMono', var(--sans);
     font-size: 13.5px; font-weight: 600; color: var(--ink);
-    text-decoration: none; border-bottom: 1px solid var(--rule2);
+    text-decoration: none; border-bottom: 1px solid transparent;
+    transition: color 0.15s, border-color 0.15s;
   }
   td.gh-repo a:hover { border-bottom-color: var(--gh); color: var(--gh); }
-  td.gh-stars { white-space: nowrap; font-variant-numeric: tabular-nums; }
+  td.gh-stars { white-space: nowrap; font-variant-numeric: tabular-nums; font-family: 'JetBrainsMono', monospace; }
   td.gh-stars .today { color: var(--seal); font-weight: 700; }
-  td.gh-stars .total { color: var(--muted); font-size: 13px; }
-  td.gh-desc { color: #4A453E; font-size: 13.5px; line-height: 1.6; }
+  td.gh-stars .total { color: var(--muted); font-size: 12.5px; }
+  td.gh-desc { color: var(--muted); font-size: 13.5px; line-height: 1.6; }
 
-  /* ===== 图表 ===== */
-  .chart-figure { margin: 34px 0 8px; }
-  .chart-head {
-    display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap;
-    border-top: 1px solid var(--rule2);
-    padding-top: 12px; margin-bottom: 10px;
+  /* ===== 图表卡片 ===== */
+  .chart-figure {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 22px 24px;
+    margin: 26px 0 14px;
+    box-shadow: var(--shadow-card);
   }
-  .chart-title { font-family: var(--serif); font-weight: 700; font-size: 16.5px; }
+  .chart-head {
+    display: flex; align-items: baseline; justify-content: space-between; gap: 14px; flex-wrap: wrap;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 12px; margin-bottom: 14px;
+  }
+  .chart-title { font-family: var(--serif); font-weight: 700; font-size: 16.5px; letter-spacing: 0.03em; }
   .chart-note { font-size: 12.5px; color: var(--muted); }
 
   /* ===== 附页 ===== */
   .appendix .sec-head { border-top-color: var(--rule2); }
   .appendix .sec-no { color: var(--muted); }
   td.mono { font-family: 'JetBrainsMono', monospace; font-size: 12.5px; color: var(--bili); }
-  .diagram { margin: 8px 0 6px; text-align: center; }
-  .diagram figcaption { font-size: 12.5px; color: var(--muted); margin-top: 8px; }
+  .diagram {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 24px 20px;
+    margin: 18px 0 10px;
+    text-align: center;
+  }
+  .diagram figcaption { font-size: 13px; color: var(--muted); margin-top: 14px; }
 
   /* ===== 页脚 ===== */
-  footer { margin-top: 56px; border-top: 2.5px solid var(--ink); padding: 20px 0 56px; }
-  footer p { color: var(--muted); font-size: 13px; margin-bottom: 6px; }
-  footer a { color: var(--seal); text-decoration: none; }
-  footer a:hover { text-decoration: underline; }
+  footer { margin-top: 60px; border-top: 2.5px solid var(--ink); padding: 24px 0 60px; }
+  footer p { color: var(--muted); font-size: 13px; margin-bottom: 8px; line-height: 1.6; }
+  footer a { color: var(--seal); text-decoration: none; border-bottom: 1px solid transparent; }
+  footer a:hover { border-bottom-color: var(--seal); }
 
-  @media (max-width: 820px) {
-    .cm-grid { grid-template-columns: 1fr; gap: 30px; }
+  @media (max-width: 860px) {
+    .cm-grid { grid-template-columns: 1fr; gap: 24px; }
+    .deck { grid-template-columns: repeat(2, 1fr); }
     .sec { padding: 40px 0 14px; }
     .sec-sub { margin-left: 0; width: 100%; }
-    .ds { flex-basis: 45%; }
-    .ds + .ds { border-left: none; padding-left: 0; }
-    .masthead { padding-top: 44px; }
+    .hero { padding: 24px 22px; }
+    .masthead { padding-top: 36px; }
+  }
+  @media (max-width: 480px) {
+    .deck { grid-template-columns: 1fr; }
+    .hero-text { font-size: 21px; }
   }
 </style>
 </head>
 <body>
 
+<div class="top-ledger">
+  <div class="container top-ledger-inner">
+    <div class="ledger-brand">
+      <span class="ledger-pill">每日汇编</span>
+      <span class="ledger-meta">网络高赞评论 · 热门弹幕 · 开源趋势</span>
+    </div>
+    <div class="ledger-controls">
+      <button id="theme-toggle" class="theme-toggle-btn" type="button" aria-label="切换昼夜模式" title="点击切换昼夜阅读模式">
+        <span class="light-icon" aria-hidden="true">☼</span>
+        <span class="dark-icon" aria-hidden="true">☽</span>
+        <span>昼 / 夜</span>
+      </button>
+    </div>
+  </div>
+</div>
+
 <header class="masthead">
   <div class="container">
     <h1 class="paper-title">评论区日报<span class="seal" aria-hidden="true">热评</span></h1>
-    <p class="paper-en">COMMENT SECTION DAILY</p>
+    <p class="paper-en">COMMENT SECTION DAILY · EDITORIAL DIGEST</p>
     <div class="dateline">
-      <span>2026年9月5日 星期六</span><span class="sep">·</span>
-      <span>数据日期 2026-10-19</span><span class="sep">·</span>
-      <span>每日 09:00 自动刊发</span>
+      <span class="dl-item">2026年9月5日 星期六</span><span class="dl-sep">/</span>
+      <span class="dl-item">数据日期 2026-10-20</span><span class="dl-sep">/</span>
+      <span class="dl-item">每日 09:00 自动刊发</span>
     </div>
     <nav class="qlinks" aria-label="常用站点">
       <a class="bili" href="https://www.bilibili.com" target="_blank" rel="noopener"><span class="lk-dot"></span>B站</a>
@@ -338,22 +545,22 @@
     <div class="container">
       <!-- SYNC:HERO -->
       <figure class="hero">
-        <div class="hero-kicker">今日最高赞评论<span class="ptag bili">B站</span></div>
-        <blockquote class="hero-text"><span class="q">「</span>有人说他有天分，只能说你有钱你也能发觉自己的天赋，但大多数人只能稳妥的苦哈哈走读书的道路<span class="q">」</span></blockquote>
+        <div class="hero-kicker">今日最高赞评论<span class="ptag xhs">小红书</span></div>
+        <blockquote class="hero-text"><span class="q">「</span>iPhone paper<span class="q">」</span></blockquote>
         <figcaption class="hero-by">
-          <span class="heart big">♥ 11,329</span><span class="by-sep">·</span>
-          <span>沉墨云烟</span><span class="by-sep">·</span>
-          <span><a class="cm-link" href="https://www.bilibili.com/video/BV1s7JX6gELt" target="_blank" rel="noopener">出自《欠钱不还却有钱出道？是谁又在给老赖之女洗白？深扒…》</a> · 播放 221.1万</span>
+          <span class="heart big">♥ 24,000</span><span class="by-sep">·</span>
+          <span>宇***o</span><span class="by-sep">·</span>
+          <span><a class="cm-link" href="https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&amp;xsec_source=pc_search" target="_blank" rel="noopener">出自《2035年的iphone折叠屏手机》</a> · 笔记点赞 4.1万</span>
         </figcaption>
       </figure>
       <!-- /SYNC:HERO -->
 
       <!-- SYNC:STATS -->
       <div class="deck">
-        <div class="ds"><span class="ds-n xhs">4,774</span><span class="ds-l">条小红书评论（两轮采集）</span></div>
-        <div class="ds"><span class="ds-n bili">39,359</span><span class="ds-l">条B站弹幕（40 个视频聚合）</span></div>
-        <div class="ds"><span class="ds-n gh">13</span><span class="ds-l">个GitHub热门项目</span></div>
-        <div class="ds"><span class="ds-n ink">161</span><span class="ds-l">条高赞评论入选（小红书 111 + B站 50）</span></div>
+        <div class="ds"><span class="ds-n xhs">2,014</span><span class="ds-l">条小红书评论（两轮采集）</span></div>
+        <div class="ds"><span class="ds-n bili">53,069</span><span class="ds-l">条B站弹幕（40 个视频聚合）</span></div>
+        <div class="ds"><span class="ds-n gh">12</span><span class="ds-l">个GitHub热门项目</span></div>
+        <div class="ds"><span class="ds-n ink">121</span><span class="ds-l">条高赞评论入选（小红书 71 + B站 50）</span></div>
       </div>
       <!-- /SYNC:STATS -->
     </div>
@@ -366,28 +573,28 @@
         <h2>小红书热评</h2>
         <span class="sec-sub">「手机」关键词 · 热度与时间两种排序</span>
       </div>
-      <p class="sec-desc">以下为 2026-10-19 实际采集结果的头部内容，完整榜单见 <strong>data/</strong> 目录下的当日日报。</p>
+      <p class="sec-desc">以下为 2026-10-20 实际采集结果的头部内容，完整榜单见 <strong>data/</strong> 目录下的当日日报。</p>
       <div class="cm-grid">
         <!-- SYNC:CARD1 -->
         <div class="col">
           <div class="col-head">
             <span class="ptag xhs">小红书 · 经典高赞</span>
-            <span class="col-meta">4,774 条评论，入选 111 条（≥50 赞）</span>
+            <span class="col-meta">2,014 条评论，入选 71 条（≥50 赞）</span>
           </div>
           <article class="cm">
-            <div class="cm-stats"><span class="heart">♥ 11,000</span><span class="cm-user">S***n</span></div>
-            <p class="cm-text">跟普通手机安装一个豆包APP有什么区别</p>
-            <p class="cm-src"><a class="cm-link" href="https://www.xiaohongshu.com/explore/69301ff4000000001e029cef?xsec_token=ABJQrbMJ0rv4vhrlQjzwBrpN7kPqYGpdBxvpBx39mKU6g=&amp;xsec_source=pc_search" target="_blank" rel="noopener">出自《同事的豆包手机到了》</a> · 笔记点赞 1.4万</p>
+            <div class="cm-stats"><span class="heart">♥ 24,000</span><span class="cm-user">宇***o</span></div>
+            <p class="cm-text">iPhone paper</p>
+            <p class="cm-src"><a class="cm-link" href="https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&amp;xsec_source=pc_search" target="_blank" rel="noopener">出自《2035年的iphone折叠屏手机》</a> · 笔记点赞 4.1万</p>
           </article>
           <article class="cm">
-            <div class="cm-stats"><span class="heart">♥ 8,313</span><span class="cm-user">序***📸</span></div>
-            <p class="cm-text">哪天豆包不开心了，不让你用手机怎么办</p>
-            <p class="cm-src"><a class="cm-link" href="https://www.xiaohongshu.com/explore/69301ff4000000001e029cef?xsec_token=ABJQrbMJ0rv4vhrlQjzwBrpN7kPqYGpdBxvpBx39mKU6g=&amp;xsec_source=pc_search" target="_blank" rel="noopener">出自《同事的豆包手机到了》</a> · 笔记点赞 1.4万</p>
+            <div class="cm-stats"><span class="heart">♥ 11,000</span><span class="cm-user">奇*</span></div>
+            <p class="cm-text">人迟早从兜里掏出一台电视机</p>
+            <p class="cm-src"><a class="cm-link" href="https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&amp;xsec_source=pc_search" target="_blank" rel="noopener">出自《2035年的iphone折叠屏手机》</a> · 笔记点赞 4.1万</p>
           </article>
           <article class="cm">
-            <div class="cm-stats"><span class="heart">♥ 3,024</span><span class="cm-user">小***3</span></div>
-            <p class="cm-text">系统级 跨APP执行</p>
-            <p class="cm-src"><a class="cm-link" href="https://www.xiaohongshu.com/explore/69301ff4000000001e029cef?xsec_token=ABJQrbMJ0rv4vhrlQjzwBrpN7kPqYGpdBxvpBx39mKU6g=&amp;xsec_source=pc_search" target="_blank" rel="noopener">出自《同事的豆包手机到了》</a> · 笔记点赞 1.4万</p>
+            <div class="cm-stats"><span class="heart">♥ 9,802</span><span class="cm-user">涛***x</span></div>
+            <p class="cm-text">iPhone Door</p>
+            <p class="cm-src"><a class="cm-link" href="https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&amp;xsec_source=pc_search" target="_blank" rel="noopener">出自《2035年的iphone折叠屏手机》</a> · 笔记点赞 4.1万</p>
           </article>
         </div>
         <!-- /SYNC:CARD1 -->
@@ -440,19 +647,19 @@
             <span class="col-meta">40 个热门/排行榜视频，入选 50 条（≥30 赞）· 标题可点击直达视频</span>
           </div>
           <article class="cm">
-            <div class="cm-stats"><span class="heart">♥ 11,329</span><span class="cm-user">沉墨云烟</span></div>
+            <div class="cm-stats"><span class="heart">♥ 15,015</span><span class="cm-user">沉墨云烟</span></div>
             <p class="cm-text">有人说他有天分，只能说你有钱你也能发觉自己的天赋，但大多数人只能稳妥的苦哈哈走读书的道路</p>
-            <p class="cm-src"><a class="cm-link" href="https://www.bilibili.com/video/BV1s7JX6gELt" target="_blank" rel="noopener">出自《欠钱不还却有钱出道？是谁又在给老赖之女洗白？深扒…》</a> · 播放 221.1万</p>
+            <p class="cm-src"><a class="cm-link" href="https://www.bilibili.com/video/BV1s7JX6gELt" target="_blank" rel="noopener">出自《欠钱不还却有钱出道？是谁又在给老赖之女洗白？深扒…》</a> · 播放 256.0万</p>
           </article>
           <article class="cm">
-            <div class="cm-stats"><span class="heart">♥ 6,828</span><span class="cm-user">14_38_250</span></div>
+            <div class="cm-stats"><span class="heart">♥ 9,540</span><span class="cm-user">亚瑟摩根ArthurMorga</span></div>
+            <p class="cm-text">这么辛苦搬上去 山顶的物价贵我能接受，但是希望溢价能多点给到这些辛苦的挑山</p>
+            <p class="cm-src"><a class="cm-link" href="https://www.bilibili.com/video/BV1Jonu6mEwN" target="_blank" rel="noopener">出自《每一位认真谋生的人都值得被仰望》</a> · 播放 192.5万</p>
+          </article>
+          <article class="cm">
+            <div class="cm-stats"><span class="heart">♥ 8,328</span><span class="cm-user">14_38_250</span></div>
             <p class="cm-text">盛艾敬家长要招员工可以直接从盛艾敬超话里找免费劳动力。</p>
-            <p class="cm-src"><a class="cm-link" href="https://www.bilibili.com/video/BV1s7JX6gELt" target="_blank" rel="noopener">出自《欠钱不还却有钱出道？是谁又在给老赖之女洗白？深扒…》</a> · 播放 221.1万</p>
-          </article>
-          <article class="cm">
-            <div class="cm-stats"><span class="heart">♥ 6,641</span><span class="cm-user">缥漂</span></div>
-            <p class="cm-text">1945柏林</p>
-            <p class="cm-src"><a class="cm-link" href="https://www.bilibili.com/video/BV1wMJv6WErL" target="_blank" rel="noopener">出自《以为又是一次遗憾炸机，直到打开素材的瞬间 感觉一…》</a> · 播放 70.6万</p>
+            <p class="cm-src"><a class="cm-link" href="https://www.bilibili.com/video/BV1s7JX6gELt" target="_blank" rel="noopener">出自《欠钱不还却有钱出道？是谁又在给老赖之女洗白？深扒…》</a> · 播放 256.0万</p>
           </article>
         </div>
         <!-- /SYNC:CARD3 -->
@@ -461,21 +668,21 @@
         <div class="col">
           <div class="col-head">
             <span class="ptag bili">B站 · 热门弹幕</span>
-            <span class="col-meta">39,359 条弹幕聚合 · 三层噪声过滤（时间梗/灌水/纯语气）</span>
+            <span class="col-meta">53,069 条弹幕聚合 · 三层噪声过滤（时间梗/灌水/纯语气）</span>
           </div>
           <article class="cm">
-            <div class="cm-stats"><span class="dm-count">521 次</span><span class="cm-user">全场刷屏</span></div>
+            <div class="cm-stats"><span class="dm-count">560 次</span><span class="cm-user">全场刷屏</span></div>
             <p class="cm-text">失踪人口回归</p>
             <p class="cm-src">跨 40 个视频聚合 · 去噪后频次第 1 名</p>
           </article>
           <article class="cm">
-            <div class="cm-stats"><span class="dm-count">432 次</span><span class="cm-user">全场刷屏</span></div>
-            <p class="cm-text">生日快乐</p>
+            <div class="cm-stats"><span class="dm-count">341 次</span><span class="cm-user">全场刷屏</span></div>
+            <p class="cm-text">虞书欣</p>
             <p class="cm-src">跨 40 个视频聚合 · 去噪后频次第 2 名</p>
           </article>
           <article class="cm">
-            <div class="cm-stats"><span class="dm-count">362 次</span><span class="cm-user">全场刷屏</span></div>
-            <p class="cm-text">虞书欣</p>
+            <div class="cm-stats"><span class="dm-count">307 次</span><span class="cm-user">全场刷屏</span></div>
+            <p class="cm-text">空军</p>
             <p class="cm-src">跨 40 个视频聚合 · 去噪后频次第 3 名</p>
           </article>
         </div>
@@ -489,12 +696,12 @@
       <div class="sec-head">
         <span class="sec-no">肆</span>
         <h2>开源行情</h2>
-        <span class="sec-sub">GitHub Trending · 红涨为新入库热度</span>
+        <span class="sec-sub">GitHub Trending · 每日星火榜单</span>
       </div>
       <!-- SYNC:GHTABLE -->
       <div class="gh-head">
         <span class="ptag gh">GitHub · 今日热门</span>
-        <span class="col-meta">Trending 全站榜 · 13 个项目 · 按今日新增 Star 排序 · 星数经 gh API 交叉验证</span>
+        <span class="col-meta">Trending 全站榜 · 12 个项目 · 按今日新增 Star 排序 · 星数经 gh API 交叉验证</span>
       </div>
       <div class="table-wrap">
         <table>
@@ -502,19 +709,18 @@
             <tr><th style="width:36px">#</th><th>项目</th><th style="width:90px">语言</th><th style="width:110px">今日 Star</th><th style="width:90px">总星数</th><th>简介</th></tr>
           </thead>
           <tbody>
-            <tr><td>1</td><td class="gh-repo"><a href="https://github.com/MadsLorentzen/ai-job-search">MadsLorentzen/ai-job-search</a></td><td>Python</td><td class="gh-stars"><span class="today">+2,232</span></td><td class="gh-stars"><span class="total">53,338</span></td><td class="gh-desc">The job search that runs on your machine. AI job application framework built on …</td></tr>
-            <tr><td>2</td><td class="gh-repo"><a href="https://github.com/anthropics/claude-plugins-official">anthropics/claude-plugins-official</a></td><td>Python</td><td class="gh-stars"><span class="today">+1,175</span></td><td class="gh-stars"><span class="total">42,723</span></td><td class="gh-desc">Official, Anthropic-managed directory of high quality Claude Code Plugins.</td></tr>
-            <tr><td>3</td><td class="gh-repo"><a href="https://github.com/anomalyco/opencode">anomalyco/opencode</a></td><td>TypeScript</td><td class="gh-stars"><span class="today">+1,414</span></td><td class="gh-stars"><span class="total">216,640</span></td><td class="gh-desc">开源编码 Agent</td></tr>
-            <tr><td>4</td><td class="gh-repo"><a href="https://github.com/cursor/plugins">cursor/plugins</a></td><td>TypeScript</td><td class="gh-stars"><span class="today">+350</span></td><td class="gh-stars"><span class="total">12,760</span></td><td class="gh-desc">Cursor plugin specification and official plugins</td></tr>
-            <tr><td>5</td><td class="gh-repo"><a href="https://github.com/ruvnet/ruflo">ruvnet/ruflo</a></td><td>TypeScript</td><td class="gh-stars"><span class="today">+513</span></td><td class="gh-stars"><span class="total">76,545</span></td><td class="gh-desc">Agent 元框架：多智能体集群编排 + 自适应记忆 + RAG 集成</td></tr>
-            <tr><td>6</td><td class="gh-repo"><a href="https://github.com/akitaonrails/ai-memory">akitaonrails/ai-memory</a></td><td>Rust</td><td class="gh-stars"><span class="today">+512</span></td><td class="gh-stars"><span class="total">10,518</span></td><td class="gh-desc">Solution for long term memory for agent coding CLIs and to facilitate handoff be…</td></tr>
-            <tr><td>7</td><td class="gh-repo"><a href="https://github.com/stablyai/orca">stablyai/orca</a></td><td>TypeScript</td><td class="gh-stars"><span class="today">+1,146</span></td><td class="gh-stars"><span class="total">96,712</span></td><td class="gh-desc">Orca is the place for working with a fleet of agents (e.g. Grok Bot, Claude Code…</td></tr>
-            <tr><td>8</td><td class="gh-repo"><a href="https://github.com/HKUDS/CLI-Anything">HKUDS/CLI-Anything</a></td><td>Python</td><td class="gh-stars"><span class="today">+589</span></td><td class="gh-stars"><span class="total">54,612</span></td><td class="gh-desc">"CLI-Anything: Making ALL Software Agent-Native" -- CLI-Hub: https://clianything…</td></tr>
-            <tr><td>9</td><td class="gh-repo"><a href="https://github.com/debpalash/VoiceStudio">debpalash/VoiceStudio</a></td><td>Python</td><td class="gh-stars"><span class="today">+2,082</span></td><td class="gh-stars"><span class="total">75,468</span></td><td class="gh-desc">VoiceStudio is the open-source, fully-local ElevenLabs alternative — voice cloni…</td></tr>
-            <tr><td>10</td><td class="gh-repo"><a href="https://github.com/android/skills">android/skills</a></td><td>Kotlin</td><td class="gh-stars"><span class="today">+375</span></td><td class="gh-stars"><span class="total">8,789</span></td><td class="gh-desc"></td></tr>
-            <tr><td>11</td><td class="gh-repo"><a href="https://github.com/mlabonne/llm-course">mlabonne/llm-course</a></td><td>—</td><td class="gh-stars"><span class="today">+81</span></td><td class="gh-stars"><span class="total">84,053</span></td><td class="gh-desc">Course to get into Large Language Models (LLMs) with roadmaps and Colab notebook…</td></tr>
-            <tr><td>12</td><td class="gh-repo"><a href="https://github.com/Kruk2/jasna">Kruk2/jasna</a></td><td>Python</td><td class="gh-stars"><span class="today">+115</span></td><td class="gh-stars"><span class="total">2,429</span></td><td class="gh-desc">Video restoration tool</td></tr>
-            <tr><td>13</td><td class="gh-repo"><a href="https://github.com/Comfy-Org/ComfyUI">Comfy-Org/ComfyUI</a></td><td>Python</td><td class="gh-stars"><span class="today">+154</span></td><td class="gh-stars"><span class="total">138,649</span></td><td class="gh-desc">The most powerful and modular diffusion model GUI, api and backend with a graph/…</td></tr>
+            <tr><td>1</td><td class="gh-repo"><a href="https://github.com/MadsLorentzen/ai-job-search">MadsLorentzen/ai-job-search</a></td><td>Python</td><td class="gh-stars"><span class="today">+3,856</span></td><td class="gh-stars"><span class="total">57,358</span></td><td class="gh-desc">The job search that runs on your machine. AI job application framework built on …</td></tr>
+            <tr><td>2</td><td class="gh-repo"><a href="https://github.com/anomalyco/opencode">anomalyco/opencode</a></td><td>TypeScript</td><td class="gh-stars"><span class="today">+1,311</span></td><td class="gh-stars"><span class="total">217,841</span></td><td class="gh-desc">开源编码 Agent</td></tr>
+            <tr><td>3</td><td class="gh-repo"><a href="https://github.com/akitaonrails/ai-memory">akitaonrails/ai-memory</a></td><td>Rust</td><td class="gh-stars"><span class="today">+666</span></td><td class="gh-stars"><span class="total">11,368</span></td><td class="gh-desc">Solution for long term memory for agent coding CLIs and to facilitate handoff be…</td></tr>
+            <tr><td>4</td><td class="gh-repo"><a href="https://github.com/Comfy-Org/ComfyUI">Comfy-Org/ComfyUI</a></td><td>Python</td><td class="gh-stars"><span class="today">+1,011</span></td><td class="gh-stars"><span class="total">139,749</span></td><td class="gh-desc">The most powerful and modular diffusion model GUI, api and backend with a graph/…</td></tr>
+            <tr><td>5</td><td class="gh-repo"><a href="https://github.com/ruvnet/ruflo">ruvnet/ruflo</a></td><td>TypeScript</td><td class="gh-stars"><span class="today">+564</span></td><td class="gh-stars"><span class="total">77,205</span></td><td class="gh-desc">Agent 元框架：多智能体集群编排 + 自适应记忆 + RAG 集成</td></tr>
+            <tr><td>6</td><td class="gh-repo"><a href="https://github.com/stablyai/orca">stablyai/orca</a></td><td>TypeScript</td><td class="gh-stars"><span class="today">+1,590</span></td><td class="gh-stars"><span class="total">98,319</span></td><td class="gh-desc">Orca is the place for working with a fleet of agents (e.g. Grok Bot, Claude Code…</td></tr>
+            <tr><td>7</td><td class="gh-repo"><a href="https://github.com/headroomlabs-ai/headroom">headroomlabs-ai/headroom</a></td><td>Python</td><td class="gh-stars"><span class="today">+310</span></td><td class="gh-stars"><span class="total">76,259</span></td><td class="gh-desc">Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 20…</td></tr>
+            <tr><td>8</td><td class="gh-repo"><a href="https://github.com/withmarbleapp/os-taxonomy">withmarbleapp/os-taxonomy</a></td><td>JavaScript</td><td class="gh-stars"><span class="today">+284</span></td><td class="gh-stars"><span class="total">6,142</span></td><td class="gh-desc"></td></tr>
+            <tr><td>9</td><td class="gh-repo"><a href="https://github.com/Kruk2/jasna">Kruk2/jasna</a></td><td>Python</td><td class="gh-stars"><span class="today">+498</span></td><td class="gh-stars"><span class="total">2,901</span></td><td class="gh-desc">Video restoration tool</td></tr>
+            <tr><td>10</td><td class="gh-repo"><a href="https://github.com/HKUDS/CLI-Anything">HKUDS/CLI-Anything</a></td><td>Python</td><td class="gh-stars"><span class="today">+606</span></td><td class="gh-stars"><span class="total">55,257</span></td><td class="gh-desc">"CLI-Anything: Making ALL Software Agent-Native" -- CLI-Hub: https://clianything…</td></tr>
+            <tr><td>11</td><td class="gh-repo"><a href="https://github.com/anthropics/claude-code">anthropics/claude-code</a></td><td>TypeScript</td><td class="gh-stars"><span class="today">+167</span></td><td class="gh-stars"><span class="total">152,663</span></td><td class="gh-desc">Claude Code is an agentic coding tool that lives in your terminal, understands y…</td></tr>
+            <tr><td>12</td><td class="gh-repo"><a href="https://github.com/shiyu-coder/Kronos">shiyu-coder/Kronos</a></td><td>Python</td><td class="gh-stars"><span class="today">+363</span></td><td class="gh-stars"><span class="total">41,689</span></td><td class="gh-desc">Kronos: A Foundation Model for the Language of Financial Markets</td></tr>
           </tbody>
         </table>
       </div>
@@ -533,7 +739,7 @@
       <figure class="chart-figure">
         <div class="chart-head">
           <span class="chart-title">今日全站最高赞评论 TOP 10</span>
-          <span class="chart-note">红为小红书，蓝为 B站 · 单位：赞 · 点击柱条直达原视频/笔记</span>
+          <span class="chart-note">朱砂为小红书，石青为 B站 · 单位：赞 · 点击柱条直达原链接</span>
         </div>
         <div id="chart-top-comments" style="width:100%;min-height:460px"></div>
       </figure>
@@ -549,7 +755,7 @@
       <figure class="chart-figure">
         <div class="chart-head">
           <span class="chart-title">GitHub Trending 今日新增星数 TOP 10</span>
-          <span class="chart-note">2026-10-19 全站榜 · 单位：今日新增 Star</span>
+          <span class="chart-note">2026-10-20 全站榜 · 单位：今日新增 Star</span>
         </div>
         <div id="chart-github" style="width:100%;min-height:460px"></div>
       </figure>
@@ -617,7 +823,48 @@ flowchart LR
 
 <script src="./_shared/js/echarts.min.js"></script>
 <script src="./_shared/js/mermaid.min.js"></script>
-<script>mermaid.initialize({ startOnLoad: true, theme: 'base', securityLevel: 'loose', themeVariables: { primaryColor: '#FDFCFA', primaryBorderColor: '#1C1917', primaryTextColor: '#1C1917', lineColor: '#6E6862', secondaryColor: '#F6F4EF', tertiaryColor: '#F6F4EF', fontSize: '14px', background: '#FDFCFA' } });</script>
+<script>
+  function initMermaid() {
+    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'base',
+      securityLevel: 'loose',
+      themeVariables: isDark ? {
+        primaryColor: '#1C1E23',
+        primaryBorderColor: '#383D47',
+        primaryTextColor: '#E6E8EB',
+        lineColor: '#9499A3',
+        secondaryColor: '#262930',
+        tertiaryColor: '#262930',
+        fontSize: '14px',
+        background: '#121316'
+      } : {
+        primaryColor: '#FAF8F5',
+        primaryBorderColor: '#1F1B18',
+        primaryTextColor: '#1F1B18',
+        lineColor: '#615B54',
+        secondaryColor: '#F3EFE8',
+        tertiaryColor: '#F3EFE8',
+        fontSize: '14px',
+        background: '#FAF8F5'
+      }
+    });
+  }
+  initMermaid();
+
+  // 主题切换交互
+  var toggleBtn = document.getElementById('theme-toggle');
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme') || 'light';
+      var next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('comments_daily_theme', next);
+      window.dispatchEvent(new Event('themeChanged'));
+    });
+  }
+</script>
 <script src="assets/charts.js"></script>
 </body>
 </html>

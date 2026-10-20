@@ -1,187 +1,262 @@
 (function () {
-  var style = getComputedStyle(document.documentElement);
-  var xhs = style.getPropertyValue('--xhs').trim();
-  var bili = style.getPropertyValue('--bili').trim();
-  var gh = style.getPropertyValue('--gh').trim();
-  var ink = style.getPropertyValue('--ink').trim();
-  var muted = style.getPropertyValue('--muted').trim();
-  var rule = style.getPropertyValue('--rule').trim();
-  var paper = style.getPropertyValue('--paper').trim();
-
-  var tooltipBase = {
-    trigger: 'axis',
-    axisPointer: { type: 'shadow' },
-    appendToBody: true,
-    backgroundColor: paper,
-    borderColor: rule,
-    borderWidth: 1,
-    padding: [8, 12],
-    textStyle: { color: ink, fontSize: 12.5 },
-    extraCssText: 'box-shadow: 0 4px 14px rgba(28,25,23,0.10); border-radius: 4px;'
-  };
-  var labelBase = {
-    show: true, position: 'right',
-    color: muted, fontSize: 12,
-    fontFamily: "'PingFang SC', 'Microsoft YaHei', sans-serif"
-  };
-
   // --- Chart 1: 今日全站最高赞评论 TOP 10 ---
   var topComments = [
-    {"name": "有人说他有天分，只能说你有钱你也能发觉自己的天赋，但大多数人只能稳妥的苦哈哈走读…", "value": 11329, "platform": "B站", "url": "https://www.bilibili.com/video/BV1s7JX6gELt"},
-    {"name": "盛艾敬家长要招员工可以直接从盛艾敬超话里找免费劳动力。", "value": 6828, "platform": "B站", "url": "https://www.bilibili.com/video/BV1s7JX6gELt"},
-    {"name": "1945柏林", "value": 6641, "platform": "B站", "url": "https://www.bilibili.com/video/BV1wMJv6WErL"},
-    {"name": "这波是说到点上了 三谋全新 S1 讨董赏金服 10 月 17 日 12 点 - …", "value": 5717, "platform": "B站", "url": "https://www.bilibili.com/video/BV1s7JX6gELt"},
-    {"name": "记得怪鸽在直播的时候有人录到他对弟弟嫌弃而且怒喝。我只想说，试试照顾一个精神疾病…", "value": 5415, "platform": "B站", "url": "https://www.bilibili.com/video/BV1GMnM6aEzJ"},
-    {"name": "试着闭着眼睛想象了一会儿，感觉脑内token用完了_(:з」∠)_", "value": 5014, "platform": "B站", "url": "https://www.bilibili.com/video/BV1G5po6zECY"},
-    {"name": "太久不见，相当想念！我目前已经在新的目的地拍摄，11月中旬将恢复稳定更新，咕咕勒…", "value": 4258, "platform": "B站", "url": "https://www.bilibili.com/video/BV18Bn36BE6S"},
-    {"name": "[doge]再加上服务员脾气有点大 停车免费", "value": 3120, "platform": "B站", "url": "https://www.bilibili.com/video/BV11CJy6nEaC"},
-    {"name": "你是说这个超人背着雷霆重的装备朝着个有长枪和防弹衣的大规模枪击犯狂奔，又立刻隔着…", "value": 2732, "platform": "B站", "url": "https://www.bilibili.com/video/BV1dCJe6zEgv"},
-    {"name": "看了下评论区的大家都多少有些坎坷，我说下我自己吧，00年26岁女生，毕业三年半，…", "value": 2514, "platform": "B站", "url": "https://www.bilibili.com/video/BV1ifJY66EjT"}
+    {"name": "iPhone paper", "value": 24000, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search"},
+    {"name": "有人说他有天分，只能说你有钱你也能发觉自己的天赋，但大多数人只能稳妥的苦哈哈走读…", "value": 15015, "platform": "B站", "url": "https://www.bilibili.com/video/BV1s7JX6gELt"},
+    {"name": "人迟早从兜里掏出一台电视机", "value": 11000, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search"},
+    {"name": "iPhone Door", "value": 9802, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search"},
+    {"name": "这么辛苦搬上去 山顶的物价贵我能接受，但是希望溢价能多点给到这些辛苦的挑山", "value": 9540, "platform": "B站", "url": "https://www.bilibili.com/video/BV1Jonu6mEwN"},
+    {"name": "盛艾敬家长要招员工可以直接从盛艾敬超话里找免费劳动力。", "value": 8328, "platform": "B站", "url": "https://www.bilibili.com/video/BV1s7JX6gELt"},
+    {"name": "怀谷老师太强了，每个视频都是这种意想不到却又令人产生无限好奇的高质量视频[支持]", "value": 8108, "platform": "B站", "url": "https://www.bilibili.com/video/BV1pGnn67EbB"},
+    {"name": "原来一边直角一边圆角就是Duo的D啊！", "value": 7608, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa313dc000000002b003caa?xsec_token=ABhkdwyqAEzNZFGz82SqksE1UMR3Eqww5nXJYcwrD2taE=&xsec_source=pc_search"},
+    {"name": "试着闭着眼睛想象了一会儿，感觉脑内token用完了_(:з」∠)_", "value": 7604, "platform": "B站", "url": "https://www.bilibili.com/video/BV1G5po6zECY"},
+    {"name": "感谢大up发声。 没人觉得粉圈很可怕吗？把普通人艰辛的维权，说成黑红营销，给我家…", "value": 6602, "platform": "B站", "url": "https://www.bilibili.com/video/BV1s7JX6gELt"}
   ].reverse();
-
-  var chart1 = echarts.init(document.getElementById('chart-top-comments'), null, { renderer: 'svg' });
-  chart1.setOption({
-    animation: false,
-    tooltip: Object.assign({}, tooltipBase, {
-      formatter: function (params) {
-        var p = params[0];
-        return p.data.platform + ' · ' + p.data.likes + ' 赞<br>' + p.data.full;
-      }
-    }),
-    grid: { left: 8, right: 64, top: 10, bottom: 10, containLabel: true },
-    xAxis: { type: 'value', axisLabel: { color: muted }, splitLine: { lineStyle: { color: rule } } },
-    yAxis: {
-      type: 'category',
-      data: topComments.map(function (d) { return d.name; }),
-      axisLabel: {
-        color: ink, fontSize: 12,
-        width: 220, overflow: 'truncate',
-        formatter: function (v) { return v.length > 16 ? v.slice(0, 16) + '…' : v; }
-      },
-      axisLine: { lineStyle: { color: rule } }
-    },
-    series: [{
-      type: 'bar',
-      data: topComments.map(function (d) {
-        return {
-          value: d.value,
-          platform: d.platform,
-          full: d.name,
-          likes: d.value.toLocaleString(),
-          url: d.url || '',
-          itemStyle: { color: d.platform === '小红书' ? xhs : bili, borderRadius: [0, 3, 3, 0] }
-        };
-      }),
-      label: Object.assign({}, labelBase, { formatter: function (p) { return p.data.likes + ' 赞'; } }),
-      barMaxWidth: 20
-    }]
-  });
-  chart1.on('click', function (params) {
-    if (params.data && params.data.url) {
-      window.open(params.data.url, '_blank', 'noopener');
-    }
-  });
-  window.addEventListener('resize', function () { chart1.resize(); });
 
   // --- Chart 2: B站热门弹幕频次 TOP 12 ---
   var danmaku = [
-    {"name": "失踪人口回归", "value": 521},
-    {"name": "生日快乐", "value": 432},
-    {"name": "虞书欣", "value": 362},
-    {"name": "r.i.p", "value": 338},
-    {"name": "锁暝不歪，玩到关服", "value": 332},
-    {"name": "rip", "value": 260},
-    {"name": "空军", "value": 207},
-    {"name": "生日快乐！", "value": 171},
-    {"name": "大彻大悟", "value": 113},
-    {"name": "默哀", "value": 86},
-    {"name": "文明", "value": 84},
-    {"name": "听见你说", "value": 76}
+    {"name": "失踪人口回归", "value": 560},
+    {"name": "虞书欣", "value": 341},
+    {"name": "空军", "value": 307},
+    {"name": "守护", "value": 186},
+    {"name": "支持", "value": 119},
+    {"name": "恩瑟长愿爻在一起", "value": 104},
+    {"name": "已然陷入NMIXX的爱河", "value": 93},
+    {"name": "无限进步", "value": 90},
+    {"name": "我会为你许下绵长无尽的心愿", "value": 76},
+    {"name": "你们是恩瑟曾缺失的部分", "value": 76},
+    {"name": "kksk", "value": 70},
+    {"name": "陌生", "value": 70}
   ].reverse();
-
-  var chart2 = echarts.init(document.getElementById('chart-danmaku'), null, { renderer: 'svg' });
-  chart2.setOption({
-    animation: false,
-    tooltip: Object.assign({}, tooltipBase, {
-      formatter: function (params) {
-        var p = params[0];
-        return p.name + '<br>' + p.value + ' 次';
-      }
-    }),
-    grid: { left: 8, right: 64, top: 10, bottom: 10, containLabel: true },
-    xAxis: { type: 'value', axisLabel: { color: muted }, splitLine: { lineStyle: { color: rule } } },
-    yAxis: {
-      type: 'category',
-      data: danmaku.map(function (d) { return d.name; }),
-      axisLabel: { color: ink, fontSize: 13 },
-      axisLine: { lineStyle: { color: rule } }
-    },
-    series: [{
-      type: 'bar',
-      data: danmaku.map(function (d) {
-        return {
-          value: d.value,
-          itemStyle: {
-            color: d.value > 300 ? bili : bili + '88',
-            borderRadius: [0, 3, 3, 0]
-          }
-        };
-      }),
-      label: Object.assign({}, labelBase, { formatter: function (p) { return p.value.toLocaleString() + ' 次'; } }),
-      barMaxWidth: 20
-    }]
-  });
-  window.addEventListener('resize', function () { chart2.resize(); });
 
   // --- Chart 3: GitHub Trending 今日新增星数 TOP 10 ---
   var ghTrending = [
-    {"name": "MadsLorentzen/ai-job-search", "value": 2232, "lang": "Python", "total": "53,338"},
-    {"name": "debpalash/VoiceStudio", "value": 2082, "lang": "Python", "total": "75,468"},
-    {"name": "anomalyco/opencode", "value": 1414, "lang": "TypeScript", "total": "216,640"},
-    {"name": "anthropics/claude-plugins-official", "value": 1175, "lang": "Python", "total": "42,723"},
-    {"name": "stablyai/orca", "value": 1146, "lang": "TypeScript", "total": "96,712"},
-    {"name": "HKUDS/CLI-Anything", "value": 589, "lang": "Python", "total": "54,612"},
-    {"name": "ruvnet/ruflo", "value": 513, "lang": "TypeScript", "total": "76,545"},
-    {"name": "akitaonrails/ai-memory", "value": 512, "lang": "Rust", "total": "10,518"},
-    {"name": "android/skills", "value": 375, "lang": "Kotlin", "total": "8,789"},
-    {"name": "cursor/plugins", "value": 350, "lang": "TypeScript", "total": "12,760"}
+    {"name": "MadsLorentzen/ai-job-search", "value": 3856, "lang": "Python", "total": "57,358"},
+    {"name": "stablyai/orca", "value": 1590, "lang": "TypeScript", "total": "98,319"},
+    {"name": "anomalyco/opencode", "value": 1311, "lang": "TypeScript", "total": "217,841"},
+    {"name": "Comfy-Org/ComfyUI", "value": 1011, "lang": "Python", "total": "139,749"},
+    {"name": "akitaonrails/ai-memory", "value": 666, "lang": "Rust", "total": "11,368"},
+    {"name": "HKUDS/CLI-Anything", "value": 606, "lang": "Python", "total": "55,257"},
+    {"name": "ruvnet/ruflo", "value": 564, "lang": "TypeScript", "total": "77,205"},
+    {"name": "Kruk2/jasna", "value": 498, "lang": "Python", "total": "2,901"},
+    {"name": "shiyu-coder/Kronos", "value": 363, "lang": "Python", "total": "41,689"},
+    {"name": "headroomlabs-ai/headroom", "value": 310, "lang": "Python", "total": "76,259"}
   ].reverse();
 
-  var chart3 = echarts.init(document.getElementById('chart-github'), null, { renderer: 'svg' });
-  chart3.setOption({
-    animation: false,
-    tooltip: Object.assign({}, tooltipBase, {
-      formatter: function (params) {
-        var p = params[0];
-        return p.data.repo + '<br>今日 +' + p.value.toLocaleString() + ' 星 · ' + p.data.lang +
-          (p.data.total ? '<br>总星 ' + p.data.total : '');
-      }
-    }),
-    grid: { left: 8, right: 64, top: 10, bottom: 10, containLabel: true },
-    xAxis: { type: 'value', axisLabel: { color: muted }, splitLine: { lineStyle: { color: rule } } },
-    yAxis: {
-      type: 'category',
-      data: ghTrending.map(function (d) { return d.name; }),
-      axisLabel: { color: ink, fontSize: 13 },
-      axisLine: { lineStyle: { color: rule } }
-    },
-    series: [{
-      type: 'bar',
-      data: ghTrending.map(function (d) {
-        return {
-          value: d.value,
-          repo: d.name,
-          lang: d.lang,
-          total: d.total,
-          itemStyle: {
-            color: d.value > 1000 ? gh : gh + '88',
-            borderRadius: [0, 3, 3, 0]
+  var chart1 = null, chart2 = null, chart3 = null;
+
+  function renderCharts() {
+    var style = getComputedStyle(document.documentElement);
+    var xhs = (style.getPropertyValue('--xhs') || '#C73E3A').trim();
+    var bili = (style.getPropertyValue('--bili') || '#2679B2').trim();
+    var gh = (style.getPropertyValue('--gh') || '#5A488A').trim();
+    var ink = (style.getPropertyValue('--ink') || '#1F1B18').trim();
+    var muted = (style.getPropertyValue('--muted') || '#615B54').trim();
+    var rule = (style.getPropertyValue('--rule') || '#E5E0D8').trim();
+    var paper = (style.getPropertyValue('--paper') || '#FAF8F5').trim();
+    var wash = (style.getPropertyValue('--wash') || '#F3EFE8').trim();
+
+    var tooltipBase = {
+      trigger: 'axis',
+      axisPointer: { type: 'shadow', shadowStyle: { color: wash, opacity: 0.6 } },
+      appendToBody: true,
+      backgroundColor: paper,
+      borderColor: rule,
+      borderWidth: 1,
+      padding: [10, 14],
+      textStyle: { color: ink, fontSize: 13, fontFamily: "-apple-system, 'PingFang SC', sans-serif" },
+      extraCssText: 'box-shadow: 0 8px 24px rgba(0,0,0,0.12); border-radius: 6px; backdrop-filter: blur(8px);'
+    };
+
+    var labelBase = {
+      show: true, position: 'right',
+      color: muted, fontSize: 12,
+      fontFamily: "'JetBrainsMono', -apple-system, sans-serif"
+    };
+
+    // Chart 1
+    var el1 = document.getElementById('chart-top-comments');
+    if (el1) {
+      if (!chart1) {
+        chart1 = echarts.init(el1, null, { renderer: 'svg' });
+        chart1.on('click', function (params) {
+          if (params.data && params.data.url) {
+            window.open(params.data.url, '_blank', 'noopener');
           }
-        };
-      }),
-      label: Object.assign({}, labelBase, { formatter: function (p) { return '+' + p.value.toLocaleString() + ' 星'; } }),
-      barMaxWidth: 20
-    }]
+        });
+      }
+      chart1.setOption({
+        animation: false,
+        tooltip: Object.assign({}, tooltipBase, {
+          formatter: function (params) {
+            var p = params[0];
+            return '<span style="font-weight:600;color:' + (p.data.platform === '小红书' ? xhs : bili) + '">' +
+                   p.data.platform + '</span> · <span style="font-weight:700">' + p.data.likes + ' 赞</span><br>' +
+                   '<span style="font-size:12px;opacity:0.85;margin-top:4px;display:inline-block;max-width:320px;white-space:normal">' +
+                   (p.data.full || p.name) + '</span>';
+          }
+        }),
+        grid: { left: 8, right: 84, top: 12, bottom: 12, containLabel: true },
+        xAxis: {
+          type: 'value',
+          axisLabel: { color: muted, fontFamily: "'JetBrainsMono', monospace", fontSize: 11 },
+          splitLine: { lineStyle: { color: rule, type: 'dashed' } }
+        },
+        yAxis: {
+          type: 'category',
+          data: topComments.map(function (d) { return d.name; }),
+          axisLabel: {
+            color: ink, fontSize: 12.5,
+            width: 360, overflow: 'truncate',
+            formatter: function (v) { return v.length > 26 ? v.slice(0, 26) + '…' : v; }
+          },
+          axisLine: { lineStyle: { color: rule } },
+          axisTick: { show: false }
+        },
+        series: [{
+          type: 'bar',
+          data: topComments.map(function (d) {
+            return {
+              value: d.value,
+              platform: d.platform,
+              full: d.name,
+              likes: d.value.toLocaleString(),
+              url: d.url || '',
+              itemStyle: {
+                color: d.platform === '小红书' ? xhs : bili,
+                borderRadius: [0, 4, 4, 0]
+              }
+            };
+          }),
+          label: Object.assign({}, labelBase, {
+            formatter: function (p) { return p.data.likes + ' 赞'; }
+          }),
+          barMaxWidth: 20
+        }]
+      });
+    }
+
+    // Chart 2
+    var el2 = document.getElementById('chart-danmaku');
+    if (el2) {
+      if (!chart2) {
+        chart2 = echarts.init(el2, null, { renderer: 'svg' });
+      }
+      chart2.setOption({
+        animation: false,
+        tooltip: Object.assign({}, tooltipBase, {
+          formatter: function (params) {
+            var p = params[0];
+            return '<span style="font-weight:600;color:' + bili + '">热门弹幕</span><br>' +
+                   p.name + ' · <b>' + p.value.toLocaleString() + ' 次</b>';
+          }
+        }),
+        grid: { left: 8, right: 68, top: 12, bottom: 12, containLabel: true },
+        xAxis: {
+          type: 'value',
+          axisLabel: { color: muted, fontFamily: "'JetBrainsMono', monospace", fontSize: 11 },
+          splitLine: { lineStyle: { color: rule, type: 'dashed' } }
+        },
+        yAxis: {
+          type: 'category',
+          data: danmaku.map(function (d) { return d.name; }),
+          axisLabel: { color: ink, fontSize: 12.5 },
+          axisLine: { lineStyle: { color: rule } },
+          axisTick: { show: false }
+        },
+        series: [{
+          type: 'bar',
+          data: danmaku.map(function (d) {
+            return {
+              value: d.value,
+              itemStyle: {
+                color: d.value > 300 ? bili : bili + '99',
+                borderRadius: [0, 4, 4, 0]
+              }
+            };
+          }),
+          label: Object.assign({}, labelBase, {
+            formatter: function (p) { return p.value.toLocaleString() + ' 次'; }
+          }),
+          barMaxWidth: 20
+        }]
+      });
+    }
+
+    // Chart 3
+    var el3 = document.getElementById('chart-github');
+    if (el3) {
+      if (!chart3) {
+        chart3 = echarts.init(el3, null, { renderer: 'svg' });
+      }
+      chart3.setOption({
+        animation: false,
+        tooltip: Object.assign({}, tooltipBase, {
+          formatter: function (params) {
+            var p = params[0];
+            return '<span style="font-weight:600;color:' + gh + '">' + p.data.repo + '</span><br>' +
+                   '今日新增 <b>+' + p.value.toLocaleString() + ' Star</b> · ' + p.data.lang +
+                   (p.data.total ? '<br><span style="opacity:0.8;font-size:12px">全网总星数 ' + p.data.total + '</span>' : '');
+          }
+        }),
+        grid: { left: 8, right: 78, top: 12, bottom: 12, containLabel: true },
+        xAxis: {
+          type: 'value',
+          axisLabel: { color: muted, fontFamily: "'JetBrainsMono', monospace", fontSize: 11 },
+          splitLine: { lineStyle: { color: rule, type: 'dashed' } }
+        },
+        yAxis: {
+          type: 'category',
+          data: ghTrending.map(function (d) { return d.name; }),
+          axisLabel: { color: ink, fontSize: 12, fontFamily: "'JetBrainsMono', monospace" },
+          axisLine: { lineStyle: { color: rule } },
+          axisTick: { show: false }
+        },
+        series: [{
+          type: 'bar',
+          data: ghTrending.map(function (d) {
+            return {
+              value: d.value,
+              repo: d.name,
+              lang: d.lang,
+              total: d.total,
+              itemStyle: {
+                color: d.value > 1000 ? gh : gh + '99',
+                borderRadius: [0, 4, 4, 0]
+              }
+            };
+          }),
+          label: Object.assign({}, labelBase, {
+            formatter: function (p) { return '+' + p.value.toLocaleString() + ' ★'; }
+          }),
+          barMaxWidth: 20
+        }]
+      });
+    }
+  }
+
+  // Initial render
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', renderCharts);
+  } else {
+    renderCharts();
+  }
+
+  // Resize handler
+  window.addEventListener('resize', function () {
+    if (chart1) chart1.resize();
+    if (chart2) chart2.resize();
+    if (chart3) chart3.resize();
   });
-  window.addEventListener('resize', function () { chart3.resize(); });
+
+  // Watch for theme changes on html attribute
+  var observer = new MutationObserver(function (mutations) {
+    mutations.forEach(function (m) {
+      if (m.attributeName === 'data-theme') {
+        renderCharts();
+      }
+    });
+  });
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+  window.addEventListener('themeChanged', renderCharts);
 })();
