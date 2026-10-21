@@ -2,45 +2,45 @@
   // --- Chart 1: 今日全站最高赞评论 TOP 10 ---
   var topComments = [
     {"name": "iPhone paper", "value": 24000, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search"},
-    {"name": "有人说他有天分，只能说你有钱你也能发觉自己的天赋，但大多数人只能稳妥的苦哈哈走读…", "value": 15015, "platform": "B站", "url": "https://www.bilibili.com/video/BV1s7JX6gELt"},
+    {"name": "怀谷老师太强了，每个视频都是这种意想不到却又令人产生无限好奇的高质量视频[支持]", "value": 18209, "platform": "B站", "url": "https://www.bilibili.com/video/BV1pGnn67EbB"},
+    {"name": "拍照就给我拍好了呀[辣眼睛]", "value": 11071, "platform": "B站", "url": "https://www.bilibili.com/video/BV1v3nc6jEiV"},
     {"name": "人迟早从兜里掏出一台电视机", "value": 11000, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search"},
+    {"name": "[哦呼][哦呼][哦呼]这个选题是不是之前Q&amp;A出现过 现在返点有得看了…", "value": 10968, "platform": "B站", "url": "https://www.bilibili.com/video/BV1pGnn67EbB"},
+    {"name": "想看一期有关黑客的，感觉很神秘也很危险，以及很好奇在ai时代下拥有致命网络打击能…", "value": 9973, "platform": "B站", "url": "https://www.bilibili.com/video/BV1pGnn67EbB"},
     {"name": "iPhone Door", "value": 9802, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search"},
-    {"name": "这么辛苦搬上去 山顶的物价贵我能接受，但是希望溢价能多点给到这些辛苦的挑山", "value": 9540, "platform": "B站", "url": "https://www.bilibili.com/video/BV1Jonu6mEwN"},
-    {"name": "盛艾敬家长要招员工可以直接从盛艾敬超话里找免费劳动力。", "value": 8328, "platform": "B站", "url": "https://www.bilibili.com/video/BV1s7JX6gELt"},
-    {"name": "怀谷老师太强了，每个视频都是这种意想不到却又令人产生无限好奇的高质量视频[支持]", "value": 8108, "platform": "B站", "url": "https://www.bilibili.com/video/BV1pGnn67EbB"},
     {"name": "原来一边直角一边圆角就是Duo的D啊！", "value": 7608, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa313dc000000002b003caa?xsec_token=ABhkdwyqAEzNZFGz82SqksE1UMR3Eqww5nXJYcwrD2taE=&xsec_source=pc_search"},
-    {"name": "试着闭着眼睛想象了一会儿，感觉脑内token用完了_(:з」∠)_", "value": 7604, "platform": "B站", "url": "https://www.bilibili.com/video/BV1G5po6zECY"},
-    {"name": "感谢大up发声。 没人觉得粉圈很可怕吗？把普通人艰辛的维权，说成黑红营销，给我家…", "value": 6602, "platform": "B站", "url": "https://www.bilibili.com/video/BV1s7JX6gELt"}
+    {"name": "最想看到“社会各界人士”“热情招待”“深切慰问”“进一步缓解各方压力”的一集[妙…", "value": 4405, "platform": "B站", "url": "https://www.bilibili.com/video/BV1APJd62Esz"},
+    {"name": "主力机难道不是用来生活的吗？[汗颜R]我备用机里才有办公app", "value": 3669, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/68bc4d3b000000001d002244?xsec_token=ABn_i7G-eMUa4DSWmT7-_MrUthLxtsO9gJoiEekw1RbQY=&xsec_source=pc_search"}
   ].reverse();
 
   // --- Chart 2: B站热门弹幕频次 TOP 12 ---
   var danmaku = [
-    {"name": "失踪人口回归", "value": 560},
-    {"name": "虞书欣", "value": 341},
-    {"name": "空军", "value": 307},
-    {"name": "守护", "value": 186},
-    {"name": "支持", "value": 119},
-    {"name": "恩瑟长愿爻在一起", "value": 104},
-    {"name": "已然陷入NMIXX的爱河", "value": 93},
-    {"name": "无限进步", "value": 90},
-    {"name": "我会为你许下绵长无尽的心愿", "value": 76},
-    {"name": "你们是恩瑟曾缺失的部分", "value": 76},
-    {"name": "kksk", "value": 70},
-    {"name": "陌生", "value": 70}
+    {"name": "无限进步", "value": 1034},
+    {"name": "莱拉！", "value": 877},
+    {"name": "再来亿遍", "value": 876},
+    {"name": "大彻大悟", "value": 426},
+    {"name": "莱拉", "value": 114},
+    {"name": "已然陷入NMIXX的爱河", "value": 111},
+    {"name": "生日快乐", "value": 107},
+    {"name": "还真是", "value": 101},
+    {"name": "ig加油", "value": 99},
+    {"name": "kksk", "value": 97},
+    {"name": "NMIXX永远是恩瑟的缪斯", "value": 88},
+    {"name": "可爱捏", "value": 84}
   ].reverse();
 
   // --- Chart 3: GitHub Trending 今日新增星数 TOP 10 ---
   var ghTrending = [
-    {"name": "MadsLorentzen/ai-job-search", "value": 3856, "lang": "Python", "total": "57,358"},
-    {"name": "stablyai/orca", "value": 1590, "lang": "TypeScript", "total": "98,319"},
-    {"name": "anomalyco/opencode", "value": 1311, "lang": "TypeScript", "total": "217,841"},
-    {"name": "Comfy-Org/ComfyUI", "value": 1011, "lang": "Python", "total": "139,749"},
-    {"name": "akitaonrails/ai-memory", "value": 666, "lang": "Rust", "total": "11,368"},
-    {"name": "HKUDS/CLI-Anything", "value": 606, "lang": "Python", "total": "55,257"},
-    {"name": "ruvnet/ruflo", "value": 564, "lang": "TypeScript", "total": "77,205"},
-    {"name": "Kruk2/jasna", "value": 498, "lang": "Python", "total": "2,901"},
-    {"name": "shiyu-coder/Kronos", "value": 363, "lang": "Python", "total": "41,689"},
-    {"name": "headroomlabs-ai/headroom", "value": 310, "lang": "Python", "total": "76,259"}
+    {"name": "MadsLorentzen/ai-job-search", "value": 3861, "lang": "Python", "total": "60,656"},
+    {"name": "cloudflare/security-audit-skill", "value": 1712, "lang": "JavaScript", "total": "34,277"},
+    {"name": "stablyai/orca", "value": 1565, "lang": "TypeScript", "total": "99,773"},
+    {"name": "anomalyco/opencode", "value": 1240, "lang": "TypeScript", "total": "218,951"},
+    {"name": "DietrichGebert/ponytail", "value": 1208, "lang": "JavaScript", "total": "169,711"},
+    {"name": "Comfy-Org/ComfyUI", "value": 1206, "lang": "Python", "total": "140,794"},
+    {"name": "Graphify-Labs/graphify", "value": 802, "lang": "Python", "total": "130,275"},
+    {"name": "shiyu-coder/Kronos", "value": 733, "lang": "Python", "total": "42,363"},
+    {"name": "ruvnet/ruflo", "value": 684, "lang": "TypeScript", "total": "77,861"},
+    {"name": "msitarzewski/agency-agents", "value": 562, "lang": "Shell", "total": "162,372"}
   ].reverse();
 
   var chart1 = null, chart2 = null, chart3 = null;

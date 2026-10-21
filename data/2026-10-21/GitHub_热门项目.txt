@@ -1,0 +1,79 @@
+﻿============================================================
+GitHub Trending 今日热门项目
+项目数: 15 | 生成时间: 2026-10-21 09:24:08
+============================================================
+
+#1  MadsLorentzen/ai-job-search
+    今日 +3861 星 | 总星 60,656 | Fork 18,906 | Python
+    简介: The job search that runs on your machine. AI job application framework built on Claude Code: evaluate postings, tailor CVs, write cover letters, prep interviews. Fork it and own it.
+    链接: https://github.com/MadsLorentzen/ai-job-search
+
+#2  cloudflare/security-audit-skill
+    今日 +1712 星 | 总星 34,277 | Fork 2,142 | JavaScript
+    简介: A coding-agent skill for multi-phase security audits with independently verified, machine-readable findings
+    链接: https://github.com/cloudflare/security-audit-skill
+
+#3  stablyai/orca
+    今日 +1565 星 | 总星 99,773 | Fork 6,321 | TypeScript
+    简介: Orca is the place for working with a fleet of agents (e.g. Grok Bot, Claude Code). Run any coding agent with your own subscription. Available on desktop, mobile and remote runtime.
+    链接: https://github.com/stablyai/orca
+
+#4  DietrichGebert/ponytail
+    今日 +1208 星 | 总星 169,711 | Fork 9,230 | JavaScript
+    简介: Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote.
+    链接: https://github.com/DietrichGebert/ponytail
+
+#5  Comfy-Org/ComfyUI
+    今日 +1206 星 | 总星 140,794 | Fork 16,665 | Python
+    简介: The most powerful and modular diffusion model GUI, api and backend with a graph/nodes interface. The fastest local inference engine in the world.
+    链接: https://github.com/Comfy-Org/ComfyUI
+
+#6  ruvnet/ruflo
+    今日 +684 星 | 总星 77,861 | Fork 9,161 | TypeScript
+    简介: 🌊 The original agent harness. Deploy intelligent multi-player swarms, coordinate autonomous workflows, and build conversational AI systems. Features adaptive memory, self-learning intelligence, federation, vector RAG integration, and native Claude Code / Codex / Hermes and many more Integrated
+    链接: https://github.com/ruvnet/ruflo
+
+#7  Graphify-Labs/graphify
+    今日 +802 星 | 总星 130,275 | Fork 12,544 | Python
+    简介: Turn any codebase, with its docs, SQL schemas, configs, and PDFs, into a queryable knowledge graph. A /graphify skill for Claude Code, Cursor, Codex, and Gemini CLI: local deterministic AST parsing, every edge explained, no vector store.
+    链接: https://github.com/Graphify-Labs/graphify
+
+#8  anomalyco/opencode
+    今日 +1240 星 | 总星 218,951 | Fork 29,211 | TypeScript
+    简介: The open source coding agent.
+    链接: https://github.com/anomalyco/opencode
+
+#9  msitarzewski/agency-agents
+    今日 +562 星 | 总星 162,372 | Fork 26,230 | Shell
+    简介: A complete AI agency at your fingertips - From frontend wizards to Reddit community ninjas, from whimsy injectors to reality checkers. Each agent is a specialized expert with personality, processes, and proven deliverables.
+    链接: https://github.com/msitarzewski/agency-agents
+
+#10  headroomlabs-ai/headroom
+    今日 +549 星 | 总星 76,777 | Fork 5,959 | Python
+    简介: Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 20% fewer tokens for coding agents, 60-95% fewer tokens for JSON, same answers. Library, proxy, MCP server.
+    链接: https://github.com/headroomlabs-ai/headroom
+
+#11  anthropics/knowledge-work-plugins
+    今日 +267 星 | 总星 30,804 | Fork 3,464 | Python
+    简介: Open source repository of plugins primarily intended for knowledge workers to use in Claude Cowork
+    链接: https://github.com/anthropics/knowledge-work-plugins
+
+#12  wshobson/agents
+    今日 +93 星 | 总星 41,264 | Fork 4,393 | Python
+    简介: Multi-harness agentic plugin marketplace for Claude Code, Codex, Cursor, OpenCode, GitHub Copilot, Google Antigravity, and Pi
+    链接: https://github.com/wshobson/agents
+
+#13  sickn33/agentic-awesome-skills
+    今日 +83 星 | 总星 48,109 | Fork 7,021 | Python
+    简介: AAS Core is the local, agent-first control plane for complete catalog discovery, agent-owned selection, stack validation, and planning, backed by 2,600+ agentic skills. Includes CLI, local MCP, catalog, plugins, and Workbench.
+    链接: https://github.com/sickn33/agentic-awesome-skills
+
+#14  shiyu-coder/Kronos
+    今日 +733 星 | 总星 42,363 | Fork 7,014 | Python
+    简介: Kronos: A Foundation Model for the Language of Financial Markets
+    链接: https://github.com/shiyu-coder/Kronos
+
+#15  vllm-project/vllm
+    今日 +128 星 | 总星 94,445 | Fork 23,674 | Python
+    简介: A high-throughput and memory-efficient inference and serving engine for LLMs
+    链接: https://github.com/vllm-project/vllm
