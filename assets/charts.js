@@ -2,45 +2,45 @@
   // --- Chart 1: 今日全站最高赞评论 TOP 10 ---
   var topComments = [
     {"name": "iPhone paper", "value": 24000, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search"},
-    {"name": "怀谷老师太强了，每个视频都是这种意想不到却又令人产生无限好奇的高质量视频[支持]", "value": 18209, "platform": "B站", "url": "https://www.bilibili.com/video/BV1pGnn67EbB"},
-    {"name": "拍照就给我拍好了呀[辣眼睛]", "value": 11071, "platform": "B站", "url": "https://www.bilibili.com/video/BV1v3nc6jEiV"},
+    {"name": "拍照就给我拍好了呀[辣眼睛]", "value": 18461, "platform": "B站", "url": "https://www.bilibili.com/video/BV1v3nc6jEiV"},
     {"name": "人迟早从兜里掏出一台电视机", "value": 11000, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search"},
-    {"name": "[哦呼][哦呼][哦呼]这个选题是不是之前Q&amp;A出现过 现在返点有得看了…", "value": 10968, "platform": "B站", "url": "https://www.bilibili.com/video/BV1pGnn67EbB"},
-    {"name": "想看一期有关黑客的，感觉很神秘也很危险，以及很好奇在ai时代下拥有致命网络打击能…", "value": 9973, "platform": "B站", "url": "https://www.bilibili.com/video/BV1pGnn67EbB"},
     {"name": "iPhone Door", "value": 9802, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search"},
     {"name": "原来一边直角一边圆角就是Duo的D啊！", "value": 7608, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa313dc000000002b003caa?xsec_token=ABhkdwyqAEzNZFGz82SqksE1UMR3Eqww5nXJYcwrD2taE=&xsec_source=pc_search"},
-    {"name": "最想看到“社会各界人士”“热情招待”“深切慰问”“进一步缓解各方压力”的一集[妙…", "value": 4405, "platform": "B站", "url": "https://www.bilibili.com/video/BV1APJd62Esz"},
-    {"name": "主力机难道不是用来生活的吗？[汗颜R]我备用机里才有办公app", "value": 3669, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/68bc4d3b000000001d002244?xsec_token=ABn_i7G-eMUa4DSWmT7-_MrUthLxtsO9gJoiEekw1RbQY=&xsec_source=pc_search"}
+    {"name": "日本人想象不出来具体中国人的工作环境，全凭刻板印象。说明国内保密措施做的还是很好…", "value": 4709, "platform": "B站", "url": "https://www.bilibili.com/video/BV1iMnv6jEZw"},
+    {"name": "评论区一堆人豪完了，想嘲笑up自我感动，但是暴露了自己不知道手机等电子设备有配备…", "value": 3824, "platform": "B站", "url": "https://www.bilibili.com/video/BV1G5po6zECY"},
+    {"name": "主力机难道不是用来生活的吗？[汗颜R]我备用机里才有办公app", "value": 3669, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/68bc4d3b000000001d002244?xsec_token=ABn_i7G-eMUa4DSWmT7-_MrUthLxtsO9gJoiEekw1RbQY=&xsec_source=pc_search"},
+    {"name": "东大的情报组织最厉害的一点就是：你都不知道它是啥，叫什么，在哪里。 国安、总参、…", "value": 3500, "platform": "B站", "url": "https://www.bilibili.com/video/BV1iMnv6jEZw"},
+    {"name": "", "value": 3202, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search"}
   ].reverse();
 
   // --- Chart 2: B站热门弹幕频次 TOP 12 ---
   var danmaku = [
-    {"name": "无限进步", "value": 1034},
-    {"name": "莱拉！", "value": 877},
-    {"name": "再来亿遍", "value": 876},
-    {"name": "大彻大悟", "value": 426},
-    {"name": "莱拉", "value": 114},
-    {"name": "已然陷入NMIXX的爱河", "value": 111},
-    {"name": "生日快乐", "value": 107},
-    {"name": "还真是", "value": 101},
-    {"name": "ig加油", "value": 99},
-    {"name": "kksk", "value": 97},
-    {"name": "NMIXX永远是恩瑟的缪斯", "value": 88},
-    {"name": "可爱捏", "value": 84}
+    {"name": "冒泡", "value": 2187},
+    {"name": "无限进步", "value": 1302},
+    {"name": "再来亿遍", "value": 875},
+    {"name": "neo got my back", "value": 586},
+    {"name": "kksk", "value": 437},
+    {"name": "祝愿你 漂洋过海不负峡谷的风景", "value": 357},
+    {"name": "抽我", "value": 263},
+    {"name": "20周年见！", "value": 119},
+    {"name": "生日快乐", "value": 115},
+    {"name": "已然陷入NMIXX的爱河", "value": 105},
+    {"name": "哔哩哔哩 (゜ - ゜)つロ 乾杯~", "value": 86},
+    {"name": "恩瑟长愿爻在一起", "value": 79}
   ].reverse();
 
   // --- Chart 3: GitHub Trending 今日新增星数 TOP 10 ---
   var ghTrending = [
-    {"name": "MadsLorentzen/ai-job-search", "value": 3861, "lang": "Python", "total": "60,656"},
-    {"name": "cloudflare/security-audit-skill", "value": 1712, "lang": "JavaScript", "total": "34,277"},
-    {"name": "stablyai/orca", "value": 1565, "lang": "TypeScript", "total": "99,773"},
-    {"name": "anomalyco/opencode", "value": 1240, "lang": "TypeScript", "total": "218,951"},
-    {"name": "DietrichGebert/ponytail", "value": 1208, "lang": "JavaScript", "total": "169,711"},
-    {"name": "Comfy-Org/ComfyUI", "value": 1206, "lang": "Python", "total": "140,794"},
-    {"name": "Graphify-Labs/graphify", "value": 802, "lang": "Python", "total": "130,275"},
-    {"name": "shiyu-coder/Kronos", "value": 733, "lang": "Python", "total": "42,363"},
-    {"name": "ruvnet/ruflo", "value": 684, "lang": "TypeScript", "total": "77,861"},
-    {"name": "msitarzewski/agency-agents", "value": 562, "lang": "Shell", "total": "162,372"}
+    {"name": "DietrichGebert/ponytail", "value": 2079, "lang": "JavaScript", "total": "171,678"},
+    {"name": "cloudflare/security-audit-skill", "value": 2012, "lang": "JavaScript", "total": "36,555"},
+    {"name": "stablyai/orca", "value": 1541, "lang": "TypeScript", "total": "101,307"},
+    {"name": "Graphify-Labs/graphify", "value": 1433, "lang": "Python", "total": "131,669"},
+    {"name": "Comfy-Org/ComfyUI", "value": 939, "lang": "Python", "total": "141,536"},
+    {"name": "shiyu-coder/Kronos", "value": 575, "lang": "Python", "total": "42,839"},
+    {"name": "supabase/supabase", "value": 504, "lang": "TypeScript", "total": "113,022"},
+    {"name": "headroomlabs-ai/headroom", "value": 474, "lang": "Python", "total": "77,270"},
+    {"name": "vllm-project/vllm", "value": 441, "lang": "Python", "total": "94,887"},
+    {"name": "strelov1/freehire", "value": 360, "lang": "Go", "total": "2,408"}
   ].reverse();
 
   var chart1 = null, chart2 = null, chart3 = null;

@@ -1,0 +1,64 @@
+﻿============================================================
+GitHub Trending 今日热门项目
+项目数: 12 | 生成时间: 2026-10-22 09:24:13
+============================================================
+
+#1  cloudflare/security-audit-skill
+    今日 +2012 星 | 总星 36,555 | Fork 2,281 | JavaScript
+    简介: A coding-agent skill for multi-phase security audits with independently verified, machine-readable findings
+    链接: https://github.com/cloudflare/security-audit-skill
+
+#2  vllm-project/vllm
+    今日 +441 星 | 总星 94,887 | Fork 23,744 | Python
+    简介: A high-throughput and memory-efficient inference and serving engine for LLMs
+    链接: https://github.com/vllm-project/vllm
+
+#3  stablyai/orca
+    今日 +1541 星 | 总星 101,307 | Fork 6,406 | TypeScript
+    简介: Orca is the place for working with a fleet of agents (e.g. Grok Bot, Claude Code). Run any coding agent with your own subscription. Available on desktop, mobile and remote runtime.
+    链接: https://github.com/stablyai/orca
+
+#4  headroomlabs-ai/headroom
+    今日 +474 星 | 总星 77,270 | Fork 5,992 | Python
+    简介: Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 20% fewer tokens for coding agents, 60-95% fewer tokens for JSON, same answers. Library, proxy, MCP server.
+    链接: https://github.com/headroomlabs-ai/headroom
+
+#5  DietrichGebert/ponytail
+    今日 +2079 星 | 总星 171,678 | Fork 9,341 | JavaScript
+    简介: Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote.
+    链接: https://github.com/DietrichGebert/ponytail
+
+#6  Comfy-Org/ComfyUI
+    今日 +939 星 | 总星 141,536 | Fork 16,726 | Python
+    简介: The most powerful and modular diffusion model GUI, api and backend with a graph/nodes interface. The fastest local inference engine in the world.
+    链接: https://github.com/Comfy-Org/ComfyUI
+
+#7  supabase/supabase
+    今日 +504 星 | 总星 113,022 | Fork 16,937 | TypeScript
+    简介: The Postgres development platform. Supabase gives you a dedicated Postgres database to build your web, mobile, and AI applications.
+    链接: https://github.com/supabase/supabase
+
+#8  twentyhq/twenty
+    今日 +112 星 | 总星 59,184 | Fork 9,663 | TypeScript
+    简介: The open alternative to Salesforce, designed for AI.
+    链接: https://github.com/twentyhq/twenty
+
+#9  shiyu-coder/Kronos
+    今日 +575 星 | 总星 42,839 | Fork 7,071 | Python
+    简介: Kronos: A Foundation Model for the Language of Financial Markets
+    链接: https://github.com/shiyu-coder/Kronos
+
+#10  strelov1/freehire
+    今日 +360 星 | 总星 2,408 | Fork 244 | Go
+    简介: freehire — the open-source search engine for job seekers
+    链接: https://github.com/strelov1/freehire
+
+#11  akitaonrails/ai-memory
+    今日 +286 星 | 总星 12,347 | Fork 873 | Rust
+    简介: Solution for long term memory for agent coding CLIs and to facilitate handoff between different agent vendors
+    链接: https://github.com/akitaonrails/ai-memory
+
+#12  Graphify-Labs/graphify
+    今日 +1433 星 | 总星 131,669 | Fork 12,640 | Python
+    简介: Turn any codebase, with its docs, SQL schemas, configs, and PDFs, into a queryable knowledge graph. A /graphify skill for Claude Code, Cursor, Codex, and Gemini CLI: local deterministic AST parsing, every edge explained, no vector store.
+    链接: https://github.com/Graphify-Labs/graphify
