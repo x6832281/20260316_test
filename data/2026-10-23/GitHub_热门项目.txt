@@ -1,0 +1,49 @@
+﻿============================================================
+GitHub Trending 今日热门项目
+项目数: 9 | 生成时间: 2026-10-23 09:23:41
+============================================================
+
+#1  php/php-src
+    今日 +287 星 | 总星 41,169 | Fork 8,314 | C
+    简介: The PHP Interpreter
+    链接: https://github.com/php/php-src
+
+#2  anthropics/knowledge-work-plugins
+    今日 +303 星 | 总星 31,626 | Fork 3,534 | Python
+    简介: Open source repository of plugins primarily intended for knowledge workers to use in Claude Cowork
+    链接: https://github.com/anthropics/knowledge-work-plugins
+
+#3  DietrichGebert/ponytail
+    今日 +1948 星 | 总星 173,524 | Fork 9,441 | JavaScript
+    简介: Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote.
+    链接: https://github.com/DietrichGebert/ponytail
+
+#4  cloudflare/security-audit-skill
+    今日 +2979 星 | 总星 39,616 | Fork 2,470 | JavaScript
+    简介: A coding-agent skill for multi-phase security audits with independently verified, machine-readable findings
+    链接: https://github.com/cloudflare/security-audit-skill
+
+#5  Graphify-Labs/graphify
+    今日 +1408 星 | 总星 132,982 | Fork 12,725 | Python
+    简介: Turn any codebase, with its docs, SQL schemas, configs, and PDFs, into a queryable knowledge graph. A /graphify skill for Claude Code, Cursor, Codex, and Gemini CLI: local deterministic AST parsing, every edge explained, no vector store.
+    链接: https://github.com/Graphify-Labs/graphify
+
+#6  supabase/supabase
+    今日 +693 星 | 总星 113,495 | Fork 17,001 | TypeScript
+    简介: The Postgres development platform. Supabase gives you a dedicated Postgres database to build your web, mobile, and AI applications.
+    链接: https://github.com/supabase/supabase
+
+#7  fastapi/fastapi
+    今日 +101 星 | 总星 103,763 | Fork 10,088 | Python
+    简介: FastAPI framework, high performance, easy to learn, fast to code, ready for production
+    链接: https://github.com/fastapi/fastapi
+
+#8  luongnv89/claude-howto
+    今日 +177 星 | 总星 43,242 | Fork 5,391 | Python
+    简介: A visual, example-driven guide to Claude Code — from basic concepts to advanced agents, with copy-paste templates that bring immediate value.
+    链接: https://github.com/luongnv89/claude-howto
+
+#9  Meloong-Git/PCL
+    今日 +119 星 | 总星 8,705 | Fork 1,201 | Visual Basic .NET
+    简介: Minecraft 启动器 Plain Craft Launcher（PCL）。
+    链接: https://github.com/Meloong-Git/PCL

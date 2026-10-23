@@ -2,45 +2,43 @@
   // --- Chart 1: 今日全站最高赞评论 TOP 10 ---
   var topComments = [
     {"name": "iPhone paper", "value": 24000, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search"},
-    {"name": "拍照就给我拍好了呀[辣眼睛]", "value": 18461, "platform": "B站", "url": "https://www.bilibili.com/video/BV1v3nc6jEiV"},
+    {"name": "👋💿🤓✋🎤哇奥！♿️在这个特别的日子里～👋送给你们一首非常特别🤟的歌曲👄特别↑的…", "value": 18559, "platform": "B站", "url": "https://www.bilibili.com/video/BV1Wone6REPF"},
+    {"name": "一路走来实属不易，是给所有玩家的主线钩子，老玩家也可以一瞥不少熟悉元素的新形态，…", "value": 11903, "platform": "B站", "url": "https://www.bilibili.com/video/BV1AHnB6NEhM"},
     {"name": "人迟早从兜里掏出一台电视机", "value": 11000, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search"},
     {"name": "iPhone Door", "value": 9802, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search"},
+    {"name": "东大的情报组织最厉害的一点就是：你都不知道它是啥，叫什么，在哪里。 国安、总参、…", "value": 8952, "platform": "B站", "url": "https://www.bilibili.com/video/BV1iMnv6jEZw"},
+    {"name": "日本人想象不出来具体中国人的工作环境，全凭刻板印象。说明国内保密措施做的还是很好…", "value": 8651, "platform": "B站", "url": "https://www.bilibili.com/video/BV1iMnv6jEZw"},
     {"name": "原来一边直角一边圆角就是Duo的D啊！", "value": 7608, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa313dc000000002b003caa?xsec_token=ABhkdwyqAEzNZFGz82SqksE1UMR3Eqww5nXJYcwrD2taE=&xsec_source=pc_search"},
-    {"name": "日本人想象不出来具体中国人的工作环境，全凭刻板印象。说明国内保密措施做的还是很好…", "value": 4709, "platform": "B站", "url": "https://www.bilibili.com/video/BV1iMnv6jEZw"},
-    {"name": "评论区一堆人豪完了，想嘲笑up自我感动，但是暴露了自己不知道手机等电子设备有配备…", "value": 3824, "platform": "B站", "url": "https://www.bilibili.com/video/BV1G5po6zECY"},
-    {"name": "主力机难道不是用来生活的吗？[汗颜R]我备用机里才有办公app", "value": 3669, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/68bc4d3b000000001d002244?xsec_token=ABn_i7G-eMUa4DSWmT7-_MrUthLxtsO9gJoiEekw1RbQY=&xsec_source=pc_search"},
-    {"name": "东大的情报组织最厉害的一点就是：你都不知道它是啥，叫什么，在哪里。 国安、总参、…", "value": 3500, "platform": "B站", "url": "https://www.bilibili.com/video/BV1iMnv6jEZw"},
-    {"name": "", "value": 3202, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search"}
+    {"name": "此乃何物啊", "value": 7332, "platform": "B站", "url": "https://www.bilibili.com/video/BV1Agnr6gEPk"},
+    {"name": "叶师傅与沟槽的日军交手时遭偷袭枪击负伤，急需前往香港就医，还差 328 元费用，…", "value": 4564, "platform": "B站", "url": "https://www.bilibili.com/video/BV1AHnB6NEhM"}
   ].reverse();
 
   // --- Chart 2: B站热门弹幕频次 TOP 12 ---
   var danmaku = [
-    {"name": "冒泡", "value": 2187},
-    {"name": "无限进步", "value": 1302},
-    {"name": "再来亿遍", "value": 875},
-    {"name": "neo got my back", "value": 586},
-    {"name": "kksk", "value": 437},
-    {"name": "祝愿你 漂洋过海不负峡谷的风景", "value": 357},
-    {"name": "抽我", "value": 263},
-    {"name": "20周年见！", "value": 119},
-    {"name": "生日快乐", "value": 115},
-    {"name": "已然陷入NMIXX的爱河", "value": 105},
-    {"name": "哔哩哔哩 (゜ - ゜)つロ 乾杯~", "value": 86},
-    {"name": "恩瑟长愿爻在一起", "value": 79}
+    {"name": "冒泡", "value": 2122},
+    {"name": "合影", "value": 562},
+    {"name": "吓哭了", "value": 453},
+    {"name": "藏狐", "value": 440},
+    {"name": "无限进步", "value": 355},
+    {"name": "抽我", "value": 262},
+    {"name": "懂你意思", "value": 179},
+    {"name": "新婚快乐", "value": 121},
+    {"name": "哔哩哔哩 (゜ - ゜)つロ 乾杯~", "value": 108},
+    {"name": "恭喜", "value": 103},
+    {"name": "谢谢", "value": 97},
+    {"name": "千言万语，感谢现役", "value": 69}
   ].reverse();
 
   // --- Chart 3: GitHub Trending 今日新增星数 TOP 10 ---
   var ghTrending = [
-    {"name": "DietrichGebert/ponytail", "value": 2079, "lang": "JavaScript", "total": "171,678"},
-    {"name": "cloudflare/security-audit-skill", "value": 2012, "lang": "JavaScript", "total": "36,555"},
-    {"name": "stablyai/orca", "value": 1541, "lang": "TypeScript", "total": "101,307"},
-    {"name": "Graphify-Labs/graphify", "value": 1433, "lang": "Python", "total": "131,669"},
-    {"name": "Comfy-Org/ComfyUI", "value": 939, "lang": "Python", "total": "141,536"},
-    {"name": "shiyu-coder/Kronos", "value": 575, "lang": "Python", "total": "42,839"},
-    {"name": "supabase/supabase", "value": 504, "lang": "TypeScript", "total": "113,022"},
-    {"name": "headroomlabs-ai/headroom", "value": 474, "lang": "Python", "total": "77,270"},
-    {"name": "vllm-project/vllm", "value": 441, "lang": "Python", "total": "94,887"},
-    {"name": "strelov1/freehire", "value": 360, "lang": "Go", "total": "2,408"}
+    {"name": "cloudflare/security-audit-skill", "value": 2979, "lang": "JavaScript", "total": "39,616"},
+    {"name": "DietrichGebert/ponytail", "value": 1948, "lang": "JavaScript", "total": "173,524"},
+    {"name": "Graphify-Labs/graphify", "value": 1408, "lang": "Python", "total": "132,982"},
+    {"name": "supabase/supabase", "value": 693, "lang": "TypeScript", "total": "113,495"},
+    {"name": "anthropics/knowledge-work-plugins", "value": 303, "lang": "Python", "total": "31,626"},
+    {"name": "php/php-src", "value": 287, "lang": "C", "total": "41,169"},
+    {"name": "luongnv89/claude-howto", "value": 177, "lang": "Python", "total": "43,242"},
+    {"name": "fastapi/fastapi", "value": 101, "lang": "Python", "total": "103,763"}
   ].reverse();
 
   var chart1 = null, chart2 = null, chart3 = null;
