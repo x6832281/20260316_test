@@ -1,0 +1,44 @@
+﻿============================================================
+GitHub Trending 今日热门项目
+项目数: 8 | 生成时间: 2026-10-24 10:01:24
+============================================================
+
+#1  cloudflare/security-audit-skill
+    今日 +2716 星 | 总星 42,221 | Fork 2,638 | JavaScript
+    简介: A coding-agent skill for multi-phase security audits with independently verified, machine-readable findings
+    链接: https://github.com/cloudflare/security-audit-skill
+
+#2  php/php-src
+    今日 +716 星 | 总星 41,573 | Fork 8,361 | C
+    简介: The PHP Interpreter
+    链接: https://github.com/php/php-src
+
+#3  anthropics/knowledge-work-plugins
+    今日 +635 星 | 总星 32,249 | Fork 3,574 | Python
+    简介: Open source repository of plugins primarily intended for knowledge workers to use in Claude Cowork
+    链接: https://github.com/anthropics/knowledge-work-plugins
+
+#4  NVIDIA/OpenShell
+    今日 +1119 星 | 总星 18,831 | Fork 1,886 | Rust
+    简介: OpenShell is the safe, private runtime for autonomous AI agents.
+    链接: https://github.com/NVIDIA/OpenShell
+
+#5  Renhuai123/ziwei-doushu
+    今日 +546 星 | 总星 6,892 | Fork 1,413 | TypeScript
+    简介: 紫微斗数开源排盘引擎 — 基于倪海厦《天纪》体系，含完整排盘算法、四化系统、格局知识库、古籍原文数据
+    链接: https://github.com/Renhuai123/ziwei-doushu
+
+#6  SnailSploit/Claude-Red
+    今日 +226 星 | 总星 8,521 | Fork 1,103 | Python
+    简介: claude-red is a curated library of offensive security skills designed for the Claude skills system. Each skill is a structured SKILL.md file that primes Claude with expert-level methodology for a specific attack surface — from SQLi to shellcode, EDR evasion to exploit development.
+    链接: https://github.com/SnailSploit/Claude-Red
+
+#7  OpenBMB/VoxCPM
+    今日 +150 星 | 总星 40,282 | Fork 4,579 | Python
+    简介: VoxCPM2: Tokenizer-Free TTS for Multilingual Speech Generation, Creative Voice Design, and True-to-Life Cloning
+    链接: https://github.com/OpenBMB/VoxCPM
+
+#8  nodejs/node
+    今日 +66 星 | 总星 122,891 | Fork 39,834 | JavaScript
+    简介: Node.js JavaScript runtime ✨🐢🚀✨
+    链接: https://github.com/nodejs/node
