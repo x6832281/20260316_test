@@ -1,44 +1,46 @@
 (function () {
   // --- Chart 1: 今日全站最高赞评论 TOP 10 ---
   var topComments = [
+    {"name": "握笔开写，不要让我听到迟疑的声音😠 去告诉新来的助教🤨我的小蜜蜂该保养了😡 我要…", "value": 25774, "platform": "B站", "url": "https://www.bilibili.com/video/BV1jvn46dEY2"},
     {"name": "iPhone paper", "value": 24000, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search"},
-    {"name": "[doge]", "value": 15975, "platform": "B站", "url": "https://www.bilibili.com/video/BV1Agnr6gEPk"},
-    {"name": "东大的情报组织最厉害的一点就是：你都不知道它是啥，叫什么，在哪里。 国安、总参、…", "value": 12155, "platform": "B站", "url": "https://www.bilibili.com/video/BV1iMnv6jEZw"},
+    {"name": "[doge]", "value": 22886, "platform": "B站", "url": "https://www.bilibili.com/video/BV1Agnr6gEPk"},
+    {"name": "我真上过这个爱能补习班，，当时吹的是一分钟读完一本书，科学依据是量子力学。", "value": 12447, "platform": "B站", "url": "https://www.bilibili.com/video/BV1zDnx6dEPp"},
     {"name": "人迟早从兜里掏出一台电视机", "value": 11000, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search"},
-    {"name": "握笔开写，不要让我听到迟疑的声音😠 去告诉新来的助教🤨我的小蜜蜂该保养了😡 我要…", "value": 10153, "platform": "B站", "url": "https://www.bilibili.com/video/BV1jvn46dEY2"},
+    {"name": "看完先导演示后的绳匠：", "value": 10487, "platform": "B站", "url": "https://www.bilibili.com/video/BV1U3n46GEzY"},
+    {"name": "像VCTCN这么强的赛区，我们有两个！", "value": 10280, "platform": "B站", "url": "https://www.bilibili.com/video/BV1WtHA6TEew"},
     {"name": "iPhone Door", "value": 9802, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search"},
-    {"name": "日本人想象不出来具体中国人的工作环境，全凭刻板印象。说明国内保密措施做的还是很好…", "value": 9771, "platform": "B站", "url": "https://www.bilibili.com/video/BV1iMnv6jEZw"},
-    {"name": "依旧B站最不忘本之人[doge]", "value": 8140, "platform": "B站", "url": "https://www.bilibili.com/video/BV1uVnJ6ZEHF"},
-    {"name": "我真上过这个爱能补习班，，当时吹的是一分钟读完一本书，科学依据是量子力学。", "value": 7634, "platform": "B站", "url": "https://www.bilibili.com/video/BV1zDnx6dEPp"},
-    {"name": "原来一边直角一边圆角就是Duo的D啊！", "value": 7608, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa313dc000000002b003caa?xsec_token=ABhkdwyqAEzNZFGz82SqksE1UMR3Eqww5nXJYcwrD2taE=&xsec_source=pc_search"}
+    {"name": "要饭不要钱。又有谁会不给呢？", "value": 8508, "platform": "B站", "url": "https://www.bilibili.com/video/BV1KMnw6ME1Z"},
+    {"name": "论发型的重要性。注意，这是同一只狗，一只23斤的比熊。", "value": 7628, "platform": "B站", "url": "https://www.bilibili.com/video/BV1Agnr6gEPk"}
   ].reverse();
 
   // --- Chart 2: B站热门弹幕频次 TOP 12 ---
   var danmaku = [
-    {"name": "冒泡", "value": 1716},
-    {"name": "吓哭了", "value": 1137},
-    {"name": "我活到头了", "value": 673},
-    {"name": "欢迎来到，四毛妙妙屋！！！", "value": 428},
-    {"name": "懂你意思", "value": 406},
-    {"name": "无限进步", "value": 343},
-    {"name": "请复制这条弹幕重新发送，帮助up主增加推流！请复…", "value": 262},
-    {"name": "抽我", "value": 211},
-    {"name": "新婚快乐", "value": 186},
-    {"name": "哔哩哔哩 (゜ - ゜)つロ 乾杯~", "value": 110},
-    {"name": "加油", "value": 71},
-    {"name": "千言万语，感谢现役", "value": 55}
+    {"name": "冒泡", "value": 1571},
+    {"name": "请复制这条弹幕重新发送，帮助up主增加推流！请复…", "value": 966},
+    {"name": "许愿塔露拉，出必还愿", "value": 551},
+    {"name": "懂你意思", "value": 508},
+    {"name": "无限进步", "value": 316},
+    {"name": "抽我", "value": 251},
+    {"name": "吓哭了", "value": 231},
+    {"name": "是扁扁的！", "value": 167},
+    {"name": "古人", "value": 116},
+    {"name": "心生爱慕", "value": 91},
+    {"name": "好久不见", "value": 77},
+    {"name": "誓死效忠整合运动", "value": 67}
   ].reverse();
 
   // --- Chart 3: GitHub Trending 今日新增星数 TOP 10 ---
   var ghTrending = [
-    {"name": "cloudflare/security-audit-skill", "value": 2716, "lang": "JavaScript", "total": "42,221"},
-    {"name": "NVIDIA/OpenShell", "value": 1119, "lang": "Rust", "total": "18,831"},
-    {"name": "php/php-src", "value": 716, "lang": "C", "total": "41,573"},
-    {"name": "anthropics/knowledge-work-plugins", "value": 635, "lang": "Python", "total": "32,249"},
-    {"name": "Renhuai123/ziwei-doushu", "value": 546, "lang": "TypeScript", "total": "6,892"},
-    {"name": "SnailSploit/Claude-Red", "value": 226, "lang": "Python", "total": "8,521"},
-    {"name": "OpenBMB/VoxCPM", "value": 150, "lang": "Python", "total": "40,282"},
-    {"name": "nodejs/node", "value": 66, "lang": "JavaScript", "total": "122,891"}
+    {"name": "cloudflare/security-audit-skill", "value": 2264, "lang": "JavaScript", "total": "44,605"},
+    {"name": "NVIDIA/OpenShell", "value": 896, "lang": "Rust", "total": "19,486"},
+    {"name": "pbakaus/impeccable", "value": 619, "lang": "Rust", "total": "86,432"},
+    {"name": "makecindy/cindy", "value": 477, "lang": "TypeScript", "total": "4,113"},
+    {"name": "Nutlope/hallmark", "value": 455, "lang": "CSS", "total": "32,173"},
+    {"name": "luongnv89/claude-howto", "value": 392, "lang": "Python", "total": "44,574"},
+    {"name": "pollen-robotics/microduck", "value": 319, "lang": "Rust", "total": "11,006"},
+    {"name": "jbiaojerry/ebook-treasure-chest", "value": 227, "lang": "Python", "total": "22,625"},
+    {"name": "google-gemini/gemini-cli", "value": 44, "lang": "TypeScript", "total": "108,070"},
+    {"name": "aws/agent-toolkit-for-aws", "value": 13, "lang": "Python", "total": "3,138"}
   ].reverse();
 
   var chart1 = null, chart2 = null, chart3 = null;

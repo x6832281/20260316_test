@@ -1,0 +1,54 @@
+﻿============================================================
+GitHub Trending 今日热门项目
+项目数: 10 | 生成时间: 2026-10-25 09:23:47
+============================================================
+
+#1  cloudflare/security-audit-skill
+    今日 +2264 星 | 总星 44,605 | Fork 2,769 | JavaScript
+    简介: A coding-agent skill for multi-phase security audits with independently verified, machine-readable findings
+    链接: https://github.com/cloudflare/security-audit-skill
+
+#2  NVIDIA/OpenShell
+    今日 +896 星 | 总星 19,486 | Fork 1,932 | Rust
+    简介: OpenShell is the safe, private runtime for autonomous AI agents.
+    链接: https://github.com/NVIDIA/OpenShell
+
+#3  aws/agent-toolkit-for-aws
+    今日 +13 星 | 总星 3,138 | Fork 400 | Python
+    简介: Official, AWS-supported MCP servers, skills, and plugins to help AI agents build on AWS
+    链接: https://github.com/aws/agent-toolkit-for-aws
+
+#4  Nutlope/hallmark
+    今日 +455 星 | 总星 32,173 | Fork 1,653 | CSS
+    简介: Anti-AI-slop design skill for Claude Code, Cursor, and Codex.
+    链接: https://github.com/Nutlope/hallmark
+
+#5  luongnv89/claude-howto
+    今日 +392 星 | 总星 44,574 | Fork 5,494 | Python
+    简介: A visual, example-driven guide to Claude Code — from basic concepts to advanced agents, with copy-paste templates that bring immediate value.
+    链接: https://github.com/luongnv89/claude-howto
+
+#6  pbakaus/impeccable
+    今日 +619 星 | 总星 86,432 | Fork 5,155 | Rust
+    简介: The design language that makes your AI harness better at design.
+    链接: https://github.com/pbakaus/impeccable
+
+#7  pollen-robotics/microduck
+    今日 +319 星 | 总星 11,006 | Fork 1,414 | Rust
+    简介: A Tiny biped duck robot 🦆
+    链接: https://github.com/pollen-robotics/microduck
+
+#8  google-gemini/gemini-cli
+    今日 +44 星 | 总星 108,070 | Fork 14,808 | TypeScript
+    简介: An open-source AI agent that brings the power of Gemini directly into your terminal.
+    链接: https://github.com/google-gemini/gemini-cli
+
+#9  jbiaojerry/ebook-treasure-chest
+    今日 +227 星 | 总星 22,625 | Fork 3,192 | Python
+    简介: 欢迎来到电子书下载宝库，一个汇聚了各类电子书下载链接的地方。无论你是喜欢阅读经典文学、经管励志、终身学习、职场创业、技术手册还是其他类型的书籍，这里都能满足你的需求。 该库涵盖了帆书app(原樊登读书)、微信读书、京东读书、喜马拉雅等读书app的大部分电子书。
+    链接: https://github.com/jbiaojerry/ebook-treasure-chest
+
+#10  makecindy/cindy
+    今日 +477 星 | 总星 4,113 | Fork 590 | TypeScript
+    简介: Consider it done. The open-source AI agent that works out of the box · 想到，就能做到。开源、开箱即用的 AI Agent。
+    链接: https://github.com/makecindy/cindy
