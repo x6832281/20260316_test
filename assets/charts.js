@@ -1,46 +1,46 @@
 (function () {
   // --- Chart 1: 今日全站最高赞评论 TOP 10 ---
   var topComments = [
-    {"name": "握笔开写，不要让我听到迟疑的声音😠 去告诉新来的助教🤨我的小蜜蜂该保养了😡 我要…", "value": 25774, "platform": "B站", "url": "https://www.bilibili.com/video/BV1jvn46dEY2"},
-    {"name": "iPhone paper", "value": 24000, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search"},
-    {"name": "[doge]", "value": 22886, "platform": "B站", "url": "https://www.bilibili.com/video/BV1Agnr6gEPk"},
-    {"name": "我真上过这个爱能补习班，，当时吹的是一分钟读完一本书，科学依据是量子力学。", "value": 12447, "platform": "B站", "url": "https://www.bilibili.com/video/BV1zDnx6dEPp"},
-    {"name": "人迟早从兜里掏出一台电视机", "value": 11000, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search"},
-    {"name": "看完先导演示后的绳匠：", "value": 10487, "platform": "B站", "url": "https://www.bilibili.com/video/BV1U3n46GEzY"},
-    {"name": "像VCTCN这么强的赛区，我们有两个！", "value": 10280, "platform": "B站", "url": "https://www.bilibili.com/video/BV1WtHA6TEew"},
-    {"name": "iPhone Door", "value": 9802, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search"},
-    {"name": "要饭不要钱。又有谁会不给呢？", "value": 8508, "platform": "B站", "url": "https://www.bilibili.com/video/BV1KMnw6ME1Z"},
-    {"name": "论发型的重要性。注意，这是同一只狗，一只23斤的比熊。", "value": 7628, "platform": "B站", "url": "https://www.bilibili.com/video/BV1Agnr6gEPk"}
+    {"name": "去年，在影视飓风团队的支持下，深海呼吸乐队的热爱被更多人看见，Tim捐赠的资金也…", "value": 16425, "platform": "B站", "url": "https://www.bilibili.com/video/BV14Enb6LEDe"},
+    {"name": "看完先导演示后的绳匠：", "value": 14599, "platform": "B站", "url": "https://www.bilibili.com/video/BV1U3n46GEzY"},
+    {"name": "为什么没有海水过滤器和尿液过滤器？", "value": 9257, "platform": "B站", "url": "https://www.bilibili.com/video/BV1UnHN6SECP"},
+    {"name": "纳垢为啥讨厌恐虐 belike： 纳垢：“给自己弄个小花园” 恐虐：“点了”", "value": 8141, "platform": "B站", "url": "https://www.bilibili.com/video/BV111na6WExX"},
+    {"name": "国内没普及是因为国内校车少见，我从小大就只见过一次校车", "value": 7674, "platform": "B站", "url": "https://www.bilibili.com/video/BV14cHP6yEYj"},
+    {"name": "报告，今天上午把三只土鸡，一个柜子，还有一个不常见生物怼到不敢回话，下午再接再厉…", "value": 7283, "platform": "B站", "url": "https://www.bilibili.com/video/BV1tcHK6pEZo"},
+    {"name": "悬着的心终于似了 派蒙和光之镜的四国CV都是一致的", "value": 7091, "platform": "B站", "url": "https://www.bilibili.com/video/BV1z9nt6aE5H"},
+    {"name": "振宇的省钱小技巧", "value": 6479, "platform": "B站", "url": "https://www.bilibili.com/video/BV1U3n46GEzY"},
+    {"name": "应该再说说，那个土耳其女士庆祝母亲战胜癌症的帖子有很多中国人祝福的事，我觉得这个…", "value": 6334, "platform": "B站", "url": "https://www.bilibili.com/video/BV1tcHK6pEZo"},
+    {"name": "竟然一打开b站就刷到了挽昼 振宇的小妙招呢！[Neuro sama收藏集_比心]", "value": 6309, "platform": "B站", "url": "https://www.bilibili.com/video/BV1U3n46GEzY"}
   ].reverse();
 
   // --- Chart 2: B站热门弹幕频次 TOP 12 ---
   var danmaku = [
-    {"name": "冒泡", "value": 1571},
-    {"name": "请复制这条弹幕重新发送，帮助up主增加推流！请复…", "value": 966},
-    {"name": "许愿塔露拉，出必还愿", "value": 551},
-    {"name": "懂你意思", "value": 508},
-    {"name": "无限进步", "value": 316},
-    {"name": "抽我", "value": 251},
-    {"name": "吓哭了", "value": 231},
-    {"name": "是扁扁的！", "value": 167},
-    {"name": "古人", "value": 116},
-    {"name": "心生爱慕", "value": 91},
-    {"name": "好久不见", "value": 77},
-    {"name": "誓死效忠整合运动", "value": 67}
+    {"name": "请复制这条弹幕重新发送，帮助up主增加推流！请复…", "value": 1193},
+    {"name": "吓哭了", "value": 1152},
+    {"name": "恭喜", "value": 792},
+    {"name": "无限进步", "value": 492},
+    {"name": "kksk", "value": 296},
+    {"name": "啊？", "value": 206},
+    {"name": "买个der", "value": 160},
+    {"name": "文明", "value": 122},
+    {"name": "古人", "value": 114},
+    {"name": "懂你意思", "value": 92},
+    {"name": "好客山东欢迎您", "value": 84},
+    {"name": "这么近，那么美，周末到河北", "value": 77}
   ].reverse();
 
   // --- Chart 3: GitHub Trending 今日新增星数 TOP 10 ---
   var ghTrending = [
-    {"name": "cloudflare/security-audit-skill", "value": 2264, "lang": "JavaScript", "total": "44,605"},
-    {"name": "NVIDIA/OpenShell", "value": 896, "lang": "Rust", "total": "19,486"},
-    {"name": "pbakaus/impeccable", "value": 619, "lang": "Rust", "total": "86,432"},
-    {"name": "makecindy/cindy", "value": 477, "lang": "TypeScript", "total": "4,113"},
-    {"name": "Nutlope/hallmark", "value": 455, "lang": "CSS", "total": "32,173"},
-    {"name": "luongnv89/claude-howto", "value": 392, "lang": "Python", "total": "44,574"},
-    {"name": "pollen-robotics/microduck", "value": 319, "lang": "Rust", "total": "11,006"},
-    {"name": "jbiaojerry/ebook-treasure-chest", "value": 227, "lang": "Python", "total": "22,625"},
-    {"name": "google-gemini/gemini-cli", "value": 44, "lang": "TypeScript", "total": "108,070"},
-    {"name": "aws/agent-toolkit-for-aws", "value": 13, "lang": "Python", "total": "3,138"}
+    {"name": "cloudflare/security-audit-skill", "value": 2878, "lang": "JavaScript", "total": "46,933"},
+    {"name": "debpalash/VoiceStudio", "value": 1592, "lang": "Python", "total": "86,857"},
+    {"name": "Nutlope/hallmark", "value": 1317, "lang": "CSS", "total": "33,809"},
+    {"name": "pbakaus/impeccable", "value": 1092, "lang": "Rust", "total": "87,719"},
+    {"name": "makecindy/cindy", "value": 675, "lang": "TypeScript", "total": "4,886"},
+    {"name": "pollen-robotics/microduck", "value": 647, "lang": "Rust", "total": "11,655"},
+    {"name": "TauricResearch/TradingAgents", "value": 381, "lang": "Python", "total": "114,629"},
+    {"name": "Renhuai123/ziwei-doushu", "value": 199, "lang": "TypeScript", "total": "7,575"},
+    {"name": "AgriciDaniel/claude-seo", "value": 197, "lang": "Python", "total": "20,892"},
+    {"name": "coollabsio/coolify", "value": 152, "lang": "PHP", "total": "64,398"}
   ].reverse();
 
   var chart1 = null, chart2 = null, chart3 = null;
