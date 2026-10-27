@@ -1,46 +1,46 @@
 (function () {
   // --- Chart 1: 今日全站最高赞评论 TOP 10 ---
   var topComments = [
-    {"name": "去年，在影视飓风团队的支持下，深海呼吸乐队的热爱被更多人看见，Tim捐赠的资金也…", "value": 16425, "platform": "B站", "url": "https://www.bilibili.com/video/BV14Enb6LEDe"},
-    {"name": "看完先导演示后的绳匠：", "value": 14599, "platform": "B站", "url": "https://www.bilibili.com/video/BV1U3n46GEzY"},
-    {"name": "为什么没有海水过滤器和尿液过滤器？", "value": 9257, "platform": "B站", "url": "https://www.bilibili.com/video/BV1UnHN6SECP"},
-    {"name": "纳垢为啥讨厌恐虐 belike： 纳垢：“给自己弄个小花园” 恐虐：“点了”", "value": 8141, "platform": "B站", "url": "https://www.bilibili.com/video/BV111na6WExX"},
-    {"name": "国内没普及是因为国内校车少见，我从小大就只见过一次校车", "value": 7674, "platform": "B站", "url": "https://www.bilibili.com/video/BV14cHP6yEYj"},
-    {"name": "报告，今天上午把三只土鸡，一个柜子，还有一个不常见生物怼到不敢回话，下午再接再厉…", "value": 7283, "platform": "B站", "url": "https://www.bilibili.com/video/BV1tcHK6pEZo"},
-    {"name": "悬着的心终于似了 派蒙和光之镜的四国CV都是一致的", "value": 7091, "platform": "B站", "url": "https://www.bilibili.com/video/BV1z9nt6aE5H"},
-    {"name": "振宇的省钱小技巧", "value": 6479, "platform": "B站", "url": "https://www.bilibili.com/video/BV1U3n46GEzY"},
-    {"name": "应该再说说，那个土耳其女士庆祝母亲战胜癌症的帖子有很多中国人祝福的事，我觉得这个…", "value": 6334, "platform": "B站", "url": "https://www.bilibili.com/video/BV1tcHK6pEZo"},
-    {"name": "竟然一打开b站就刷到了挽昼 振宇的小妙招呢！[Neuro sama收藏集_比心]", "value": 6309, "platform": "B站", "url": "https://www.bilibili.com/video/BV1U3n46GEzY"}
+    {"name": "iPhone paper", "value": 24000, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search"},
+    {"name": "人迟早从兜里掏出一台电视机", "value": 11000, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search"},
+    {"name": "iPhone Door", "value": 9802, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search"},
+    {"name": "原来一边直角一边圆角就是Duo的D啊！", "value": 7608, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa313dc000000002b003caa?xsec_token=ABhkdwyqAEzNZFGz82SqksE1UMR3Eqww5nXJYcwrD2taE=&xsec_source=pc_search"},
+    {"name": "我喜欢躺着看", "value": 5835, "platform": "B站", "url": "https://www.bilibili.com/video/BV12qnt6VEM1"},
+    {"name": "本部给了9，gs给了8，开分91，这影境有力气[doge][doge]", "value": 5563, "platform": "B站", "url": "https://www.bilibili.com/video/BV19bHK6AEBD"},
+    {"name": "我很想知道，第一次坐飞机需要注意什么？[脸红]", "value": 4550, "platform": "B站", "url": "https://www.bilibili.com/video/BV12qnt6VEM1"},
+    {"name": "为什么他露点就没事🙂其他人露点就超管警告？", "value": 4234, "platform": "B站", "url": "https://www.bilibili.com/video/BV194n86ZEAD"},
+    {"name": "[笑哭]这么看原版是真强，哪怕经常跳舞的猛男舞团也做不到还原。", "value": 4143, "platform": "B站", "url": "https://www.bilibili.com/video/BV194n86ZEAD"},
+    {"name": "刚想说社长喝清酒的面相不对，这样就对了[doge_金箍]", "value": 3762, "platform": "B站", "url": "https://www.bilibili.com/video/BV1EzH56bE5k"}
   ].reverse();
 
   // --- Chart 2: B站热门弹幕频次 TOP 12 ---
   var danmaku = [
-    {"name": "请复制这条弹幕重新发送，帮助up主增加推流！请复…", "value": 1193},
-    {"name": "吓哭了", "value": 1152},
-    {"name": "恭喜", "value": 792},
-    {"name": "无限进步", "value": 492},
-    {"name": "kksk", "value": 296},
-    {"name": "啊？", "value": 206},
-    {"name": "买个der", "value": 160},
-    {"name": "文明", "value": 122},
-    {"name": "古人", "value": 114},
-    {"name": "懂你意思", "value": 92},
-    {"name": "好客山东欢迎您", "value": 84},
-    {"name": "这么近，那么美，周末到河北", "value": 77}
+    {"name": "请复制这条弹幕重新发送，帮助up主增加推流！请复…", "value": 1171},
+    {"name": "吓哭了", "value": 738},
+    {"name": "爆了", "value": 238},
+    {"name": "合影", "value": 209},
+    {"name": "买个der", "value": 201},
+    {"name": "文明", "value": 88},
+    {"name": "橹穆99", "value": 80},
+    {"name": "（擦眼泪）（说了一堆赞美的话）", "value": 63},
+    {"name": "懂你意思", "value": 62},
+    {"name": "先生大义", "value": 57},
+    {"name": "无限进步", "value": 52},
+    {"name": "我知道你为何而来", "value": 48}
   ].reverse();
 
   // --- Chart 3: GitHub Trending 今日新增星数 TOP 10 ---
   var ghTrending = [
-    {"name": "cloudflare/security-audit-skill", "value": 2878, "lang": "JavaScript", "total": "46,933"},
-    {"name": "debpalash/VoiceStudio", "value": 1592, "lang": "Python", "total": "86,857"},
-    {"name": "Nutlope/hallmark", "value": 1317, "lang": "CSS", "total": "33,809"},
-    {"name": "pbakaus/impeccable", "value": 1092, "lang": "Rust", "total": "87,719"},
-    {"name": "makecindy/cindy", "value": 675, "lang": "TypeScript", "total": "4,886"},
-    {"name": "pollen-robotics/microduck", "value": 647, "lang": "Rust", "total": "11,655"},
-    {"name": "TauricResearch/TradingAgents", "value": 381, "lang": "Python", "total": "114,629"},
-    {"name": "Renhuai123/ziwei-doushu", "value": 199, "lang": "TypeScript", "total": "7,575"},
-    {"name": "AgriciDaniel/claude-seo", "value": 197, "lang": "Python", "total": "20,892"},
-    {"name": "coollabsio/coolify", "value": 152, "lang": "PHP", "total": "64,398"}
+    {"name": "debpalash/VoiceStudio", "value": 2297, "lang": "Python", "total": "89,305"},
+    {"name": "Nutlope/hallmark", "value": 2244, "lang": "CSS", "total": "36,401"},
+    {"name": "pbakaus/impeccable", "value": 1506, "lang": "Rust", "total": "89,240"},
+    {"name": "TauricResearch/TradingAgents", "value": 1395, "lang": "Python", "total": "116,135"},
+    {"name": "makecindy/cindy", "value": 1296, "lang": "TypeScript", "total": "6,509"},
+    {"name": "JetBrains/thinkrail", "value": 1173, "lang": "TypeScript", "total": "2,935"},
+    {"name": "affaan-m/ECC", "value": 896, "lang": "JavaScript", "total": "289,869"},
+    {"name": "pollen-robotics/microduck", "value": 843, "lang": "Rust", "total": "12,430"},
+    {"name": "Panniantong/Agent-Reach", "value": 746, "lang": "Python", "total": "103,629"},
+    {"name": "multica-ai/andrej-karpathy-skills", "value": 638, "lang": "—", "total": "224,666"}
   ].reverse();
 
   var chart1 = null, chart2 = null, chart3 = null;
