@@ -74,7 +74,7 @@
       fontFamily: "'JetBrainsMono', -apple-system, sans-serif"
     };
 
-    // Chart 1
+    // --- Chart 1: 今日全站最高赞评论 TOP 10 ---
     var el1 = document.getElementById('chart-top-comments');
     if (el1) {
       if (!chart1) {
@@ -90,17 +90,18 @@
         tooltip: Object.assign({}, tooltipBase, {
           formatter: function (params) {
             var p = params[0];
-            return '<span style="font-weight:600;color:' + (p.data.platform === '小红书' ? xhs : bili) + '">' +
+            var col = p.data.platform === '小红书' ? xhs : bili;
+            return '<span style="font-weight:700;color:' + col + '">' +
                    p.data.platform + '</span> · <span style="font-weight:700">' + p.data.likes + ' 赞</span><br>' +
-                   '<span style="font-size:12px;opacity:0.85;margin-top:4px;display:inline-block;max-width:320px;white-space:normal">' +
+                   '<span style="font-size:12.5px;opacity:0.9;margin-top:6px;display:inline-block;max-width:340px;line-height:1.5;white-space:normal">' +
                    (p.data.full || p.name) + '</span>';
           }
         }),
-        grid: { left: 8, right: 84, top: 12, bottom: 12, containLabel: true },
+        grid: { left: 8, right: 88, top: 12, bottom: 12, containLabel: true },
         xAxis: {
           type: 'value',
           axisLabel: { color: muted, fontFamily: "'JetBrainsMono', monospace", fontSize: 11 },
-          splitLine: { lineStyle: { color: rule, type: 'dashed' } }
+          splitLine: { lineStyle: { color: rule, type: [3, 4], dashOffset: 1 } }
         },
         yAxis: {
           type: 'category',
@@ -116,6 +117,7 @@
         series: [{
           type: 'bar',
           data: topComments.map(function (d) {
+            var col = d.platform === '小红书' ? xhs : bili;
             return {
               value: d.value,
               platform: d.platform,
@@ -123,20 +125,32 @@
               likes: d.value.toLocaleString(),
               url: d.url || '',
               itemStyle: {
-                color: d.platform === '小红书' ? xhs : bili,
+                color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [
+                  { offset: 0, color: col + '44' },
+                  { offset: 1, color: col }
+                ]),
+                borderColor: col,
+                borderWidth: 0.8,
                 borderRadius: [0, 4, 4, 0]
+              },
+              emphasis: {
+                itemStyle: {
+                  color: col,
+                  shadowBlur: 8,
+                  shadowColor: col + '66'
+                }
               }
             };
           }),
           label: Object.assign({}, labelBase, {
             formatter: function (p) { return p.data.likes + ' 赞'; }
           }),
-          barMaxWidth: 20
+          barMaxWidth: 18
         }]
       });
     }
 
-    // Chart 2
+    // --- Chart 2: B站热门弹幕频次 TOP 12 ---
     var el2 = document.getElementById('chart-danmaku');
     if (el2) {
       if (!chart2) {
@@ -147,15 +161,15 @@
         tooltip: Object.assign({}, tooltipBase, {
           formatter: function (params) {
             var p = params[0];
-            return '<span style="font-weight:600;color:' + bili + '">热门弹幕</span><br>' +
-                   p.name + ' · <b>' + p.value.toLocaleString() + ' 次</b>';
+            return '<span style="font-weight:700;color:' + bili + '">热门弹幕</span><br>' +
+                   '<span style="font-size:13px;font-weight:600">' + p.name + '</span> · <b>' + p.value.toLocaleString() + ' 次</b>';
           }
         }),
-        grid: { left: 8, right: 68, top: 12, bottom: 12, containLabel: true },
+        grid: { left: 8, right: 88, top: 12, bottom: 12, containLabel: true },
         xAxis: {
           type: 'value',
           axisLabel: { color: muted, fontFamily: "'JetBrainsMono', monospace", fontSize: 11 },
-          splitLine: { lineStyle: { color: rule, type: 'dashed' } }
+          splitLine: { lineStyle: { color: rule, type: [3, 4], dashOffset: 1 } }
         },
         yAxis: {
           type: 'category',
@@ -170,20 +184,32 @@
             return {
               value: d.value,
               itemStyle: {
-                color: d.value > 300 ? bili : bili + '99',
+                color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [
+                  { offset: 0, color: bili + (d.value > 300 ? '44' : '22') },
+                  { offset: 1, color: bili + (d.value > 300 ? 'ff' : 'bb') }
+                ]),
+                borderColor: bili,
+                borderWidth: d.value > 300 ? 0.8 : 0.4,
                 borderRadius: [0, 4, 4, 0]
+              },
+              emphasis: {
+                itemStyle: {
+                  color: bili,
+                  shadowBlur: 8,
+                  shadowColor: bili + '66'
+                }
               }
             };
           }),
           label: Object.assign({}, labelBase, {
             formatter: function (p) { return p.value.toLocaleString() + ' 次'; }
           }),
-          barMaxWidth: 20
+          barMaxWidth: 18
         }]
       });
     }
 
-    // Chart 3
+    // --- Chart 3: GitHub Trending 今日新增星数 TOP 10 ---
     var el3 = document.getElementById('chart-github');
     if (el3) {
       if (!chart3) {
@@ -194,16 +220,16 @@
         tooltip: Object.assign({}, tooltipBase, {
           formatter: function (params) {
             var p = params[0];
-            return '<span style="font-weight:600;color:' + gh + '">' + p.data.repo + '</span><br>' +
+            return '<span style="font-weight:700;color:' + gh + '">' + p.data.repo + '</span><br>' +
                    '今日新增 <b>+' + p.value.toLocaleString() + ' Star</b> · ' + p.data.lang +
                    (p.data.total ? '<br><span style="opacity:0.8;font-size:12px">全网总星数 ' + p.data.total + '</span>' : '');
           }
         }),
-        grid: { left: 8, right: 78, top: 12, bottom: 12, containLabel: true },
+        grid: { left: 8, right: 96, top: 12, bottom: 12, containLabel: true },
         xAxis: {
           type: 'value',
           axisLabel: { color: muted, fontFamily: "'JetBrainsMono', monospace", fontSize: 11 },
-          splitLine: { lineStyle: { color: rule, type: 'dashed' } }
+          splitLine: { lineStyle: { color: rule, type: [3, 4], dashOffset: 1 } }
         },
         yAxis: {
           type: 'category',
@@ -221,15 +247,27 @@
               lang: d.lang,
               total: d.total,
               itemStyle: {
-                color: d.value > 1000 ? gh : gh + '99',
+                color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [
+                  { offset: 0, color: gh + (d.value > 1000 ? '44' : '22') },
+                  { offset: 1, color: gh + (d.value > 1000 ? 'ff' : 'bb') }
+                ]),
+                borderColor: gh,
+                borderWidth: d.value > 1000 ? 0.8 : 0.4,
                 borderRadius: [0, 4, 4, 0]
+              },
+              emphasis: {
+                itemStyle: {
+                  color: gh,
+                  shadowBlur: 8,
+                  shadowColor: gh + '66'
+                }
               }
             };
           }),
           label: Object.assign({}, labelBase, {
             formatter: function (p) { return '+' + p.value.toLocaleString() + ' ★'; }
           }),
-          barMaxWidth: 20
+          barMaxWidth: 18
         }]
       });
     }

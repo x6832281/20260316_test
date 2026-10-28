@@ -262,41 +262,55 @@
   }
   .hero-by .by-sep { color: var(--faint); opacity: 0.7; }
 
-  .heart {
-    font-family: var(--sans); font-weight: 700;
-    color: var(--seal); white-space: nowrap;
-    font-variant-numeric: tabular-nums; letter-spacing: 0.01em;
-  }
-  .heart.big { font-size: 18px; }
-  .dm-count {
-    font-weight: 700; color: var(--muted); white-space: nowrap;
-    font-variant-numeric: tabular-nums;
-  }
-
-  /* 平台标识标签 */
+  /* 平台标识标签与徽记 */
   .ptag {
-    display: inline-block; font-size: 11.5px; font-weight: 700;
-    letter-spacing: 0.06em; line-height: 1;
-    padding: 4px 8px 3px; border-radius: 3px;
+    display: inline-block; font-size: 11px; font-weight: 700;
+    letter-spacing: 0.08em; line-height: 1;
+    padding: 3px 8px 3px; border-radius: 3px;
     border: 1px solid currentColor; background: transparent;
-    white-space: nowrap;
+    white-space: nowrap; text-transform: uppercase;
   }
   .ptag.xhs { color: var(--xhs); }
   .ptag.bili { color: var(--bili); }
   .ptag.gh { color: var(--gh); }
 
+  /* 数据印章微徽章（去中点化名片质感） */
+  .heart {
+    display: inline-flex; align-items: center; gap: 4px;
+    font-family: 'JetBrainsMono', var(--sans); font-weight: 700;
+    color: var(--seal); font-size: 12px; line-height: 1.2;
+    padding: 2.5px 8px; border-radius: 3px;
+    background: var(--seal-bg);
+    border: 1px solid rgba(186, 45, 50, 0.2);
+    white-space: nowrap; font-variant-numeric: tabular-nums;
+    letter-spacing: 0.02em;
+  }
+  .heart.big {
+    font-size: 13.5px; padding: 4px 10px;
+    border-width: 1.5px;
+  }
+  .dm-count {
+    display: inline-flex; align-items: center; gap: 4px;
+    font-family: 'JetBrainsMono', var(--sans); font-weight: 700;
+    color: var(--bili); font-size: 12px; line-height: 1.2;
+    padding: 2.5px 8px; border-radius: 3px;
+    background: rgba(38, 121, 178, 0.08);
+    border: 1px solid rgba(38, 121, 178, 0.22);
+    white-space: nowrap; font-variant-numeric: tabular-nums;
+  }
+
   /* 数字看板（4列网格） */
   .deck {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 14px;
+    gap: 16px;
     margin-top: 26px;
   }
   .ds {
     background: var(--paper);
     border: 1px solid var(--rule);
     border-radius: 4px;
-    padding: 16px 18px;
+    padding: 18px 20px;
     display: flex;
     flex-direction: column;
     gap: 6px;
@@ -309,7 +323,7 @@
   }
   .ds-n {
     font-family: 'JetBrainsMono', var(--serif); font-weight: 700;
-    font-size: 26px; line-height: 1.1; font-variant-numeric: tabular-nums;
+    font-size: 27px; line-height: 1.1; font-variant-numeric: tabular-nums;
   }
   .ds-n.xhs { color: var(--xhs); }
   .ds-n.bili { color: var(--bili); }
@@ -317,99 +331,147 @@
   .ds-n.ink { color: var(--ink); }
   .ds-l { font-size: 12.5px; color: var(--muted); line-height: 1.45; }
 
-  /* ===== 版面板块 ===== */
-  .sec { padding: 52px 0 20px; }
+  /* ===== 版面板块（金石章回感印记） ===== */
+  .sec { padding: 56px 0 20px; }
   .sec-head {
-    display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap;
-    border-top: 2px solid var(--ink);
+    display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+    border-top: 2.5px solid var(--ink);
     border-bottom: 1px solid var(--rule2);
-    padding: 12px 0 10px; margin-bottom: 24px;
+    padding: 13px 0 11px; margin-bottom: 24px;
   }
   .sec-no {
     font-family: var(--serif); font-weight: 900;
-    font-size: 24px; color: var(--seal); line-height: 1;
-    letter-spacing: 0.04em;
+    font-size: 13px; line-height: 1;
+    background: var(--seal); color: #FAF8F5;
+    padding: 4px 7px; border-radius: 2px;
+    letter-spacing: 0.1em;
+    box-shadow: 0 2px 6px rgba(186, 45, 50, 0.25);
+    user-select: none;
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  [data-theme="dark"] .sec-no {
+    background: var(--seal); color: #121316;
+    box-shadow: 0 2px 8px rgba(217, 68, 74, 0.4);
   }
   .sec-head h2 {
     font-family: var(--serif); font-weight: 700;
-    font-size: 22px; letter-spacing: 0.04em; line-height: 1.2;
+    font-size: 23px; letter-spacing: 0.05em; line-height: 1.2;
   }
-  .sec-sub { font-size: 13px; color: var(--muted); margin-left: auto; }
+  .sec-sub { font-size: 13px; color: var(--muted); margin-left: auto; letter-spacing: 0.02em; }
   .sec-desc {
     color: var(--muted); font-size: 14.5px;
     max-width: 1040px; margin-bottom: 24px; line-height: 1.7;
   }
   .sec-desc strong { color: var(--ink); font-weight: 600; }
 
-  /* ===== 评论两栏网格 ===== */
+  /* ===== 评论两栏网格（名片化微标签交互） ===== */
   .cm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
   .col {
     background: var(--paper);
     border: 1px solid var(--rule);
     border-radius: 4px;
-    padding: 20px 22px;
+    padding: 22px 24px;
   }
   .col-head {
     display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
     border-bottom: 1.5px solid var(--ink);
-    padding-bottom: 11px; margin-bottom: 12px;
+    padding-bottom: 11px; margin-bottom: 14px;
   }
   .col-meta {
     font-size: 12.5px; color: var(--muted);
     font-variant-numeric: tabular-nums;
   }
   .cm {
-    padding: 16px 14px;
+    position: relative;
+    padding: 18px 16px;
     border-radius: 4px;
     border-bottom: 1px solid var(--rule);
-    transition: background 0.15s;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .col .cm:last-child { border-bottom: none; }
-  .cm:hover { background: var(--wash); }
-  .cm-stats {
-    display: flex; align-items: baseline; gap: 10px;
-    margin-bottom: 7px;
+  .cm:hover {
+    background: var(--wash);
+    transform: translateX(4px);
+    box-shadow: inset 3px 0 0 var(--seal);
   }
-  .cm-stats .heart { font-size: 15px; }
-  .cm-user { font-size: 13px; color: var(--muted); font-weight: 500; }
+  .cm-stats {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 8px;
+  }
+  .cm-user {
+    font-size: 13px; color: var(--muted); font-weight: 500;
+    letter-spacing: 0.02em;
+  }
   .cm-text {
     font-family: var(--wenkai); font-weight: 400;
     font-size: 17.5px; line-height: 1.74; letter-spacing: 0.015em;
     color: var(--ink);
   }
-  .cm-src { font-size: 12.5px; color: var(--muted); margin-top: 8px; line-height: 1.5; }
+  .cm-src {
+    font-size: 12px; color: var(--muted); margin-top: 10px; line-height: 1.6;
+    display: flex; align-items: center; flex-wrap: wrap; gap: 6px;
+  }
   .cm-src a, .hero-by a {
     color: inherit; text-decoration: none;
     border-bottom: 1px solid var(--rule2);
     transition: color 0.15s, border-color 0.15s;
   }
+  .cm-src a.cm-link, .hero-by a.cm-link {
+    display: inline-flex; align-items: center;
+    color: var(--ink); font-weight: 500;
+  }
   .cm-src a:hover, .hero-by a:hover {
     color: var(--seal); border-bottom-color: var(--seal);
   }
 
-  /* ===== 弹幕带 ===== */
+  /* ===== 弹幕带声浪分级 ===== */
   .dm-strip {
     overflow: hidden; white-space: nowrap;
     background: var(--wash);
     border: 1px solid var(--rule);
     border-radius: 4px;
-    margin: -6px 0 26px; padding: 10px 0;
+    margin: -6px 0 26px; padding: 11px 0;
     user-select: none;
     -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
     mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
   }
   .dm-track {
-    display: inline-flex;
+    display: inline-flex; align-items: center;
     animation: dmscroll 50s linear infinite;
     will-change: transform;
   }
   .dm-track:hover { animation-play-state: paused; }
   .dm-track span {
     font-family: var(--wenkai); font-size: 15px;
-    color: var(--muted); letter-spacing: 0.06em;
-    margin-right: 42px;
+    color: var(--muted); letter-spacing: 0.05em;
+    margin-right: 44px;
+    display: inline-flex; align-items: center;
+    transition: color 0.15s;
   }
-  .dm-track span:nth-child(3n) { color: var(--bili); font-weight: 600; }
+  .dm-track span.hot-top1 {
+    color: var(--seal); font-weight: 700; font-size: 15.5px;
+  }
+  .dm-track span.hot-top2, .dm-track span.hot-top3 {
+    color: var(--bili); font-weight: 600;
+  }
+  .dm-badge {
+    font-family: 'JetBrainsMono', var(--sans);
+    font-size: 9.5px; font-weight: 700; line-height: 1;
+    padding: 2px 5px; border-radius: 2px; margin-left: 6px;
+    letter-spacing: 0.04em; vertical-align: middle;
+  }
+  .dm-badge.seal {
+    background: var(--seal); color: #FAF8F5;
+  }
+  .dm-badge.bili {
+    background: var(--bili); color: #FAF8F5;
+  }
+  [data-theme="dark"] .dm-badge.seal {
+    background: var(--seal); color: #121316;
+  }
+  [data-theme="dark"] .dm-badge.bili {
+    background: var(--bili); color: #121316;
+  }
   @keyframes dmscroll {
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
@@ -467,10 +529,6 @@
   }
   .chart-title { font-family: var(--serif); font-weight: 700; font-size: 16.5px; letter-spacing: 0.03em; }
   .chart-note { font-size: 12.5px; color: var(--muted); }
-
-  /* ===== 附页 ===== */
-  .appendix .sec-head { border-top-color: var(--rule2); }
-  .appendix .sec-no { color: var(--muted); }
   td.mono { font-family: 'JetBrainsMono', monospace; font-size: 12.5px; color: var(--bili); }
   .diagram {
     background: var(--paper);
@@ -637,8 +695,18 @@
       </div>
       <div class="dm-strip" aria-hidden="true">
         <div class="dm-track">
-          <span>火钳刘明</span><span>爷青回</span><span>前方高能</span><span>见证历史</span><span>kksk</span><span>太真实了</span><span>泪目</span><span>优雅，实在是太优雅了</span>
-          <span>火钳刘明</span><span>爷青回</span><span>前方高能</span><span>见证历史</span><span>kksk</span><span>太真实了</span><span>泪目</span><span>优雅，实在是太优雅了</span>
+          <span class="hot-top1">失踪人口回归<b class="dm-badge seal">TOP 1</b></span>
+          <span class="hot-top2">生日快乐<b class="dm-badge bili">TOP 2</b></span>
+          <span class="hot-top3">虞书欣<b class="dm-badge bili">TOP 3</b></span>
+          <span>r.i.p</span><span>锁暝不歪，玩到关服</span><span>前方高能</span>
+          <span>火钳刘明</span><span>爷青回</span><span>见证历史</span><span>kksk</span>
+          <span>优雅，实在是太优雅了</span><span>太真实了</span><span>泪目</span>
+          <span class="hot-top1">失踪人口回归<b class="dm-badge seal">TOP 1</b></span>
+          <span class="hot-top2">生日快乐<b class="dm-badge bili">TOP 2</b></span>
+          <span class="hot-top3">虞书欣<b class="dm-badge bili">TOP 3</b></span>
+          <span>r.i.p</span><span>锁暝不歪，玩到关服</span><span>前方高能</span>
+          <span>火钳刘明</span><span>爷青回</span><span>见证历史</span><span>kksk</span>
+          <span>优雅，实在是太优雅了</span><span>太真实了</span><span>泪目</span>
         </div>
       </div>
       <div class="cm-grid">
@@ -761,58 +829,7 @@
         <div id="chart-github" style="width:100%;min-height:460px"></div>
       </figure>
     </div>
-  </section>
-
-  <section class="sec appendix">
-    <div class="container">
-      <div class="sec-head">
-        <span class="sec-no">附</span>
-        <h2>本报是怎么印出来的</h2>
-        <span class="sec-sub">采集流水线</span>
-      </div>
-      <p class="sec-desc">
-        一个<strong>每日热门内容采集流水线</strong>：以关键词为入口，抓取各平台当天最热内容的评论区数据，
-        加上 GitHub Trending 全站热门项目。评论与弹幕经由官方 Web 接口采集（MediaCrawler 框架 + 自研脚本），
-        <strong>like_count 为接口原值</strong>，非估算。
-      </p>
-      <div class="table-wrap" style="max-height:none">
-        <table>
-          <thead>
-            <tr><th>采集目标</th><th>排序依据</th><th>数据来源</th><th>登录要求</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>小红书 · 经典高赞评论</td><td>评论点赞数（历史爆款笔记）</td><td class="mono">/api/sns/web/v2/comment/page</td><td>扫码一次，长期复用</td></tr>
-            <tr><td>小红书 · 今日最新评论</td><td>评论点赞数（仅近 24 小时发布）</td><td class="mono">/api/sns/web/v2/comment/page</td><td>同上</td></tr>
-            <tr><td>B站 · 高赞评论</td><td>评论点赞数（游客可见热评 Top3）</td><td class="mono">/x/v2/reply?sort=2</td><td>免登录</td></tr>
-            <tr><td>B站 · 热门弹幕</td><td>弹幕发送频次（聚合去噪后）</td><td class="mono">comment.bilibili.com/{cid}.xml</td><td>免登录</td></tr>
-            <tr><td>GitHub · 热门项目</td><td>今日新增 Star 数（Trending）</td><td class="mono">github.com/trending 页面解析</td><td>免登录</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <p class="sec-desc" style="margin-top:26px">
-        由 <strong>daily_run.py</strong> 统一编排，跑完五轮采集后落盘到
-        <strong>daily/&lt;日期&gt;/</strong> 目录，再自动更新本页并推送上线。浏览器进程异常时自动清理重启，登录态失效时提示人工介入而非卡死。
-      </p>
-      <figure class="diagram">
-        <pre class="mermaid">
-flowchart LR
-  A[手动触发] --> B[daily_run.py 编排]
-  B --> C[小红书·经典高赞<br/>热度排序搜索]
-  B --> D[小红书·今日最新<br/>时间排序 + 24h过滤]
-  B --> E[B站·热门弹幕<br/>频次聚合去噪]
-  B --> F[B站·高赞评论<br/>按点赞数筛选]
-  B --> H[GitHub·Trending<br/>热门项目+简介]
-  C --> G((daily / 日期 /<br/>五份 TXT 日报))
-  D --> G
-  E --> G
-  F --> G
-  H --> G
-        </pre>
-        <figcaption>每日采集流水线（五轮并行输出）</figcaption>
-      </figure>
-    </div>
-  </section>
+  </section>
 </main>
 
 <footer>
@@ -823,36 +840,7 @@ flowchart LR
 </footer>
 
 <script src="./_shared/js/echarts.min.js"></script>
-<script src="./_shared/js/mermaid.min.js"></script>
 <script>
-  function initMermaid() {
-    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-    mermaid.initialize({
-      startOnLoad: true,
-      theme: 'base',
-      securityLevel: 'loose',
-      themeVariables: isDark ? {
-        primaryColor: '#1C1E23',
-        primaryBorderColor: '#383D47',
-        primaryTextColor: '#E6E8EB',
-        lineColor: '#9499A3',
-        secondaryColor: '#262930',
-        tertiaryColor: '#262930',
-        fontSize: '14px',
-        background: '#121316'
-      } : {
-        primaryColor: '#FAF8F5',
-        primaryBorderColor: '#1F1B18',
-        primaryTextColor: '#1F1B18',
-        lineColor: '#615B54',
-        secondaryColor: '#F3EFE8',
-        tertiaryColor: '#F3EFE8',
-        fontSize: '14px',
-        background: '#FAF8F5'
-      }
-    });
-  }
-  initMermaid();
 
   // 主题切换交互
   var toggleBtn = document.getElementById('theme-toggle');
