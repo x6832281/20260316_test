@@ -1,0 +1,58 @@
+﻿============================================================
+GitHub Trending 今日热门项目
+项目数: 11 | 生成时间: 2026-10-28 09:13:48
+============================================================
+
+#1  elayadesign/ai-design-skills
+    今日 +1395 星 | 总星 9,375 | Fork 673
+    链接: https://github.com/elayadesign/ai-design-skills
+
+#2  Nutlope/hallmark
+    今日 +2830 星 | 总星 39,028 | Fork 2,036 | CSS
+    简介: Anti-AI-slop design skill for Claude Code, Cursor, and Codex.
+    链接: https://github.com/Nutlope/hallmark
+
+#3  nightly-labs/openbot
+    今日 +777 星 | 总星 2,453 | Fork 253 | TypeScript
+    简介: A local-first desktop workspace for persistent AI teammates. Run Codex, Claude, and Grok with dedicated workspaces, task queues, file sharing, browser control, and agent-to-agent collaboration.
+    链接: https://github.com/nightly-labs/openbot
+
+#4  obra/superpowers
+    今日 +617 星 | 总星 306,449 | Fork 27,280 | Shell
+    简介: An agentic skills framework &amp; software development methodology that works.
+    链接: https://github.com/obra/superpowers
+
+#5  pbakaus/impeccable
+    今日 +1449 星 | 总星 90,550 | Fork 5,376 | Rust
+    简介: The design language that makes your AI harness better at design.
+    链接: https://github.com/pbakaus/impeccable
+
+#6  makecindy/cindy
+    今日 +1465 星 | 总星 7,484 | Fork 886 | TypeScript
+    简介: Consider it done. The open-source AI agent that works out of the box · 想到，就能做到。开源、开箱即用的 AI Agent。
+    链接: https://github.com/makecindy/cindy
+
+#7  gitroomhq/postiz-app
+    今日 +951 星 | 总星 39,393 | Fork 7,519 | TypeScript
+    简介: 📨 The ultimate agentic social media scheduling tool 🤖
+    链接: https://github.com/gitroomhq/postiz-app
+
+#8  affaan-m/ECC
+    今日 +1165 星 | 总星 290,904 | Fork 43,077 | JavaScript
+    简介: The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond.
+    链接: https://github.com/affaan-m/ECC
+
+#9  HKUDS/DeepTutor
+    今日 +1598 星 | 总星 45,924 | Fork 5,761 | Python
+    简介: DeepTutor: Lifelong Personalized Tutoring. https://deeptutor.info/.
+    链接: https://github.com/HKUDS/DeepTutor
+
+#10  JetBrains/thinkrail
+    今日 +1204 星 | 总星 4,021 | Fork 216 | TypeScript
+    简介: Vibe code with pi in a lightweight, real IDE that customises itself around the way you work — The Vibe You Need
+    链接: https://github.com/JetBrains/thinkrail
+
+#11  togg53192-cmd/jailbreaks
+    今日 +902 星 | 总星 5,561 | Fork 824
+    简介: LIST OF ALL MY JAILBREAKS
+    链接: https://github.com/togg53192-cmd/jailbreaks

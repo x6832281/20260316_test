@@ -1,46 +1,46 @@
 (function () {
   // --- Chart 1: 今日全站最高赞评论 TOP 10 ---
   var topComments = [
-    {"name": "iPhone paper", "value": 24000, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search"},
-    {"name": "人迟早从兜里掏出一台电视机", "value": 11000, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search"},
-    {"name": "iPhone Door", "value": 9802, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search"},
-    {"name": "原来一边直角一边圆角就是Duo的D啊！", "value": 7608, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa313dc000000002b003caa?xsec_token=ABhkdwyqAEzNZFGz82SqksE1UMR3Eqww5nXJYcwrD2taE=&xsec_source=pc_search"},
-    {"name": "我喜欢躺着看", "value": 5835, "platform": "B站", "url": "https://www.bilibili.com/video/BV12qnt6VEM1"},
-    {"name": "本部给了9，gs给了8，开分91，这影境有力气[doge][doge]", "value": 5563, "platform": "B站", "url": "https://www.bilibili.com/video/BV19bHK6AEBD"},
-    {"name": "我很想知道，第一次坐飞机需要注意什么？[脸红]", "value": 4550, "platform": "B站", "url": "https://www.bilibili.com/video/BV12qnt6VEM1"},
-    {"name": "为什么他露点就没事🙂其他人露点就超管警告？", "value": 4234, "platform": "B站", "url": "https://www.bilibili.com/video/BV194n86ZEAD"},
-    {"name": "[笑哭]这么看原版是真强，哪怕经常跳舞的猛男舞团也做不到还原。", "value": 4143, "platform": "B站", "url": "https://www.bilibili.com/video/BV194n86ZEAD"},
-    {"name": "刚想说社长喝清酒的面相不对，这样就对了[doge_金箍]", "value": 3762, "platform": "B站", "url": "https://www.bilibili.com/video/BV1EzH56bE5k"}
+    {"name": "[Cat2_Watching!]", "value": 27216, "platform": "B站", "url": "https://www.bilibili.com/video/BV1S3nQ6EEoW"},
+    {"name": "刚从888换了8ee6，还能说啥呢", "value": 7750, "platform": "B站", "url": "https://www.bilibili.com/video/BV1kMxM6FECM"},
+    {"name": "我喜欢躺着看", "value": 6378, "platform": "B站", "url": "https://www.bilibili.com/video/BV12qnt6VEM1"},
+    {"name": "卡黄就是很典型的喜恶同因，喜欢发卡的活泼开朗，就一定会被她的鲁莽冲动创到，同样卡…", "value": 6170, "platform": "B站", "url": "https://www.bilibili.com/video/BV1HZnR6yEGj"},
+    {"name": "我很想知道，第一次坐飞机需要注意什么？[脸红]", "value": 5619, "platform": "B站", "url": "https://www.bilibili.com/video/BV12qnt6VEM1"},
+    {"name": "为众人抱薪者，不可使其冻毙于风雪。 为愚昧启蒙者，不可使其困惑于无知。 为自由开…", "value": 5473, "platform": "B站", "url": "https://www.bilibili.com/video/BV1mdxN68E7F"},
+    {"name": "《当意大利黑手党发现在网上擦边比贩毒更健康》[脱单doge][脱单doge][脱…", "value": 4966, "platform": "B站", "url": "https://www.bilibili.com/video/BV1GDHN6FE6X"},
+    {"name": "本尼还能打开卡子的主页吗，这编年史堪比卡黄应援会了", "value": 4963, "platform": "B站", "url": "https://www.bilibili.com/video/BV1HZnR6yEGj"},
+    {"name": "[笑哭]这么看原版是真强，哪怕经常跳舞的猛男舞团也做不到还原。", "value": 4852, "platform": "B站", "url": "https://www.bilibili.com/video/BV194n86ZEAD"},
+    {"name": "她们已经不断变成对方最理想的模样，李艺彤学会了分寸与边界，黄婷婷学会了表达自己的…", "value": 4700, "platform": "B站", "url": "https://www.bilibili.com/video/BV1HZnR6yEGj"}
   ].reverse();
 
   // --- Chart 2: B站热门弹幕频次 TOP 12 ---
   var danmaku = [
-    {"name": "请复制这条弹幕重新发送，帮助up主增加推流！请复…", "value": 1171},
-    {"name": "吓哭了", "value": 738},
-    {"name": "爆了", "value": 238},
-    {"name": "合影", "value": 209},
-    {"name": "买个der", "value": 201},
-    {"name": "文明", "value": 88},
-    {"name": "橹穆99", "value": 80},
-    {"name": "（擦眼泪）（说了一堆赞美的话）", "value": 63},
-    {"name": "懂你意思", "value": 62},
-    {"name": "先生大义", "value": 57},
-    {"name": "无限进步", "value": 52},
-    {"name": "我知道你为何而来", "value": 48}
+    {"name": "花融99", "value": 1386},
+    {"name": "致敬", "value": 1016},
+    {"name": "好兄弟一辈子", "value": 994},
+    {"name": "吓哭了", "value": 990},
+    {"name": "大胆", "value": 486},
+    {"name": "桃绒99", "value": 352},
+    {"name": "纳尼", "value": 299},
+    {"name": "啊？", "value": 254},
+    {"name": "干就完了", "value": 187},
+    {"name": "相信", "value": 154},
+    {"name": "懂你意思", "value": 138},
+    {"name": "正规媒体", "value": 123}
   ].reverse();
 
   // --- Chart 3: GitHub Trending 今日新增星数 TOP 10 ---
   var ghTrending = [
-    {"name": "debpalash/VoiceStudio", "value": 2297, "lang": "Python", "total": "89,305"},
-    {"name": "Nutlope/hallmark", "value": 2244, "lang": "CSS", "total": "36,401"},
-    {"name": "pbakaus/impeccable", "value": 1506, "lang": "Rust", "total": "89,240"},
-    {"name": "TauricResearch/TradingAgents", "value": 1395, "lang": "Python", "total": "116,135"},
-    {"name": "makecindy/cindy", "value": 1296, "lang": "TypeScript", "total": "6,509"},
-    {"name": "JetBrains/thinkrail", "value": 1173, "lang": "TypeScript", "total": "2,935"},
-    {"name": "affaan-m/ECC", "value": 896, "lang": "JavaScript", "total": "289,869"},
-    {"name": "pollen-robotics/microduck", "value": 843, "lang": "Rust", "total": "12,430"},
-    {"name": "Panniantong/Agent-Reach", "value": 746, "lang": "Python", "total": "103,629"},
-    {"name": "multica-ai/andrej-karpathy-skills", "value": 638, "lang": "—", "total": "224,666"}
+    {"name": "Nutlope/hallmark", "value": 2830, "lang": "CSS", "total": "39,028"},
+    {"name": "HKUDS/DeepTutor", "value": 1598, "lang": "Python", "total": "45,924"},
+    {"name": "makecindy/cindy", "value": 1465, "lang": "TypeScript", "total": "7,484"},
+    {"name": "pbakaus/impeccable", "value": 1449, "lang": "Rust", "total": "90,550"},
+    {"name": "elayadesign/ai-design-skills", "value": 1395, "lang": "—", "total": "9,375"},
+    {"name": "JetBrains/thinkrail", "value": 1204, "lang": "TypeScript", "total": "4,021"},
+    {"name": "affaan-m/ECC", "value": 1165, "lang": "JavaScript", "total": "290,904"},
+    {"name": "gitroomhq/postiz-app", "value": 951, "lang": "TypeScript", "total": "39,393"},
+    {"name": "togg53192-cmd/jailbreaks", "value": 902, "lang": "—", "total": "5,561"},
+    {"name": "nightly-labs/openbot", "value": 777, "lang": "TypeScript", "total": "2,453"}
   ].reverse();
 
   var chart1 = null, chart2 = null, chart3 = null;
