@@ -1,46 +1,46 @@
 (function () {
   // --- Chart 1: 今日全站最高赞评论 TOP 10 ---
   var topComments = [
-    {"name": "[Cat2_Watching!]", "value": 27216, "platform": "B站", "url": "https://www.bilibili.com/video/BV1S3nQ6EEoW"},
-    {"name": "刚从888换了8ee6，还能说啥呢", "value": 7750, "platform": "B站", "url": "https://www.bilibili.com/video/BV1kMxM6FECM"},
-    {"name": "我喜欢躺着看", "value": 6378, "platform": "B站", "url": "https://www.bilibili.com/video/BV12qnt6VEM1"},
-    {"name": "卡黄就是很典型的喜恶同因，喜欢发卡的活泼开朗，就一定会被她的鲁莽冲动创到，同样卡…", "value": 6170, "platform": "B站", "url": "https://www.bilibili.com/video/BV1HZnR6yEGj"},
-    {"name": "我很想知道，第一次坐飞机需要注意什么？[脸红]", "value": 5619, "platform": "B站", "url": "https://www.bilibili.com/video/BV12qnt6VEM1"},
-    {"name": "为众人抱薪者，不可使其冻毙于风雪。 为愚昧启蒙者，不可使其困惑于无知。 为自由开…", "value": 5473, "platform": "B站", "url": "https://www.bilibili.com/video/BV1mdxN68E7F"},
-    {"name": "《当意大利黑手党发现在网上擦边比贩毒更健康》[脱单doge][脱单doge][脱…", "value": 4966, "platform": "B站", "url": "https://www.bilibili.com/video/BV1GDHN6FE6X"},
-    {"name": "本尼还能打开卡子的主页吗，这编年史堪比卡黄应援会了", "value": 4963, "platform": "B站", "url": "https://www.bilibili.com/video/BV1HZnR6yEGj"},
-    {"name": "[笑哭]这么看原版是真强，哪怕经常跳舞的猛男舞团也做不到还原。", "value": 4852, "platform": "B站", "url": "https://www.bilibili.com/video/BV194n86ZEAD"},
-    {"name": "她们已经不断变成对方最理想的模样，李艺彤学会了分寸与边界，黄婷婷学会了表达自己的…", "value": 4700, "platform": "B站", "url": "https://www.bilibili.com/video/BV1HZnR6yEGj"}
+    {"name": "iPhone paper", "value": 24000, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search"},
+    {"name": "致敬，这是真的对得起自己的签名[保佑]", "value": 18679, "platform": "B站", "url": "https://www.bilibili.com/video/BV1mdxN68E7F"},
+    {"name": "想知道东鹏当时有多急吗？注意看，他第一句甚至没来得及空两格", "value": 16312, "platform": "B站", "url": "https://www.bilibili.com/video/BV1XSxT6GEwQ"},
+    {"name": "确实厉害，18点30，去零食很忙买东西，东鹏补水啦就已经开始撤柜了。", "value": 14830, "platform": "B站", "url": "https://www.bilibili.com/video/BV1XSxT6GEwQ"},
+    {"name": "刚从888换了8ee6，还能说啥呢", "value": 11095, "platform": "B站", "url": "https://www.bilibili.com/video/BV1kMxM6FECM"},
+    {"name": "人迟早从兜里掏出一台电视机", "value": 11000, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search"},
+    {"name": "《当意大利黑手党发现在网上擦边比贩毒更健康》[脱单doge][脱单doge][脱…", "value": 10940, "platform": "B站", "url": "https://www.bilibili.com/video/BV1GDHN6FE6X"},
+    {"name": "iPhone Door", "value": 9802, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search"},
+    {"name": "不太理解，判决书里面写了好几个从重，也说了社会影响极其恶劣谅解书不能适用。 判的…", "value": 8430, "platform": "B站", "url": "https://www.bilibili.com/video/BV1mdxN68E7F"},
+    {"name": "我看完视频，只能说充满了愤怒，同时希望up保护好自己。", "value": 8014, "platform": "B站", "url": "https://www.bilibili.com/video/BV1mdxN68E7F"}
   ].reverse();
 
   // --- Chart 2: B站热门弹幕频次 TOP 12 ---
   var danmaku = [
-    {"name": "花融99", "value": 1386},
-    {"name": "致敬", "value": 1016},
-    {"name": "好兄弟一辈子", "value": 994},
-    {"name": "吓哭了", "value": 990},
-    {"name": "大胆", "value": 486},
-    {"name": "桃绒99", "value": 352},
-    {"name": "纳尼", "value": 299},
-    {"name": "啊？", "value": 254},
-    {"name": "干就完了", "value": 187},
-    {"name": "相信", "value": 154},
-    {"name": "懂你意思", "value": 138},
-    {"name": "正规媒体", "value": 123}
+    {"name": "致敬", "value": 995},
+    {"name": "新婚快乐", "value": 570},
+    {"name": "爆了", "value": 393},
+    {"name": "懂你意思", "value": 345},
+    {"name": "咕咕嘎嘎", "value": 240},
+    {"name": "惊了", "value": 172},
+    {"name": "无限进步", "value": 169},
+    {"name": "合影", "value": 162},
+    {"name": "吓哭了", "value": 111},
+    {"name": "再见了，燕小弟", "value": 93},
+    {"name": "哔哩哔哩 - ( ゜- ゜)つロ 乾杯~", "value": 69},
+    {"name": "罗老师好", "value": 62}
   ].reverse();
 
   // --- Chart 3: GitHub Trending 今日新增星数 TOP 10 ---
   var ghTrending = [
-    {"name": "Nutlope/hallmark", "value": 2830, "lang": "CSS", "total": "39,028"},
-    {"name": "HKUDS/DeepTutor", "value": 1598, "lang": "Python", "total": "45,924"},
-    {"name": "makecindy/cindy", "value": 1465, "lang": "TypeScript", "total": "7,484"},
-    {"name": "pbakaus/impeccable", "value": 1449, "lang": "Rust", "total": "90,550"},
-    {"name": "elayadesign/ai-design-skills", "value": 1395, "lang": "—", "total": "9,375"},
-    {"name": "JetBrains/thinkrail", "value": 1204, "lang": "TypeScript", "total": "4,021"},
-    {"name": "affaan-m/ECC", "value": 1165, "lang": "JavaScript", "total": "290,904"},
-    {"name": "gitroomhq/postiz-app", "value": 951, "lang": "TypeScript", "total": "39,393"},
-    {"name": "togg53192-cmd/jailbreaks", "value": 902, "lang": "—", "total": "5,561"},
-    {"name": "nightly-labs/openbot", "value": 777, "lang": "TypeScript", "total": "2,453"}
+    {"name": "HKUDS/DeepTutor", "value": 2371, "lang": "Python", "total": "48,031"},
+    {"name": "elayadesign/ai-design-skills", "value": 2139, "lang": "—", "total": "11,142"},
+    {"name": "Nutlope/hallmark", "value": 2110, "lang": "CSS", "total": "40,744"},
+    {"name": "hmjz100/LinkSwift", "value": 1616, "lang": "JavaScript", "total": "34,784"},
+    {"name": "togg53192-cmd/jailbreaks", "value": 1477, "lang": "—", "total": "7,145"},
+    {"name": "pbakaus/impeccable", "value": 1472, "lang": "Rust", "total": "92,730"},
+    {"name": "obra/superpowers", "value": 1095, "lang": "Shell", "total": "307,463"},
+    {"name": "JetBrains/thinkrail", "value": 1068, "lang": "TypeScript", "total": "5,090"},
+    {"name": "nightly-labs/openbot", "value": 1054, "lang": "TypeScript", "total": "3,273"},
+    {"name": "makecindy/cindy", "value": 728, "lang": "TypeScript", "total": "8,113"}
   ].reverse();
 
   var chart1 = null, chart2 = null, chart3 = null;

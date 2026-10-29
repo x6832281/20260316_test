@@ -1,0 +1,73 @@
+﻿============================================================
+GitHub Trending 今日热门项目
+项目数: 14 | 生成时间: 2026-10-29 09:24:04
+============================================================
+
+#1  JetBrains/thinkrail
+    今日 +1068 星 | 总星 5,090 | Fork 263 | TypeScript
+    简介: Vibe code with pi in a lightweight, real IDE that customises itself around the way you work — The Vibe You Need
+    链接: https://github.com/JetBrains/thinkrail
+
+#2  elayadesign/ai-design-skills
+    今日 +2139 星 | 总星 11,142 | Fork 799
+    链接: https://github.com/elayadesign/ai-design-skills
+
+#3  obra/superpowers
+    今日 +1095 星 | 总星 307,463 | Fork 27,348 | Shell
+    简介: An agentic skills framework &amp; software development methodology that works.
+    链接: https://github.com/obra/superpowers
+
+#4  HKUDS/DeepTutor
+    今日 +2371 星 | 总星 48,031 | Fork 5,955 | Python
+    简介: DeepTutor: Lifelong Personalized Tutoring. https://deeptutor.info/.
+    链接: https://github.com/HKUDS/DeepTutor
+
+#5  macro-inc/macro
+    今日 +117 星 | 总星 5,430 | Fork 519 | Rust
+    简介: Macro is a unified workspace for teams: email, chat, docs, tasks, agents, calls, and CRM — @-linked together with shared AI memory.
+    链接: https://github.com/macro-inc/macro
+
+#6  Nutlope/hallmark
+    今日 +2110 星 | 总星 40,744 | Fork 2,111 | CSS
+    简介: Anti-AI-slop design skill for Claude Code, Cursor, and Codex.
+    链接: https://github.com/Nutlope/hallmark
+
+#7  pbakaus/impeccable
+    今日 +1472 星 | 总星 92,730 | Fork 5,482 | Rust
+    简介: The design vocabulary for your coding agent. Steer with polish and bolder, review with critique and audit, catch AI slop before it ships.
+    链接: https://github.com/pbakaus/impeccable
+
+#8  makecindy/cindy
+    今日 +728 星 | 总星 8,113 | Fork 949 | TypeScript
+    简介: Consider it done. The open-source AI agent that works out of the box · 想到，就能做到。开源、开箱即用的 AI Agent。
+    链接: https://github.com/makecindy/cindy
+
+#9  nightly-labs/openbot
+    今日 +1054 星 | 总星 3,273 | Fork 316 | TypeScript
+    简介: A local-first desktop workspace for persistent AI teammates. Run Codex, Claude, and Grok with dedicated workspaces, task queues, file sharing, browser control, and agent-to-agent collaboration.
+    链接: https://github.com/nightly-labs/openbot
+
+#10  togg53192-cmd/jailbreaks
+    今日 +1477 星 | 总星 7,145 | Fork 1,029
+    简介: LIST OF ALL MY JAILBREAKS
+    链接: https://github.com/togg53192-cmd/jailbreaks
+
+#11  hmjz100/LinkSwift
+    今日 +1616 星 | 总星 34,784 | Fork 2,468 | JavaScript
+    简介: 一个基于 JavaScript 的网盘文件下载地址获取工具。基于【网盘直链下载助手】修改 ，支持 百度网盘 / 阿里云盘 / 中国移动云盘 / 天翼云盘 / 迅雷云盘 / 夸克网盘 / UC网盘 / 123云盘 八大网盘
+    链接: https://github.com/hmjz100/LinkSwift
+
+#12  expo/skills
+    今日 +90 星 | 总星 3,589 | Fork 229 | Shell
+    简介: A collection of AI agent skills for working with Expo projects and Expo Application Services
+    链接: https://github.com/expo/skills
+
+#13  ruvnet/RuView
+    今日 +557 星 | 总星 101,073 | Fork 13,162 | Rust
+    简介: π RuView turns commodity WiFi signals into real-time spatial intelligence, vital sign monitoring, and presence detection — all without a single pixel of video.
+    链接: https://github.com/ruvnet/RuView
+
+#14  xiaolai/the-craft-of-selfteaching
+    今日 +148 星 | 总星 18,520 | Fork 17,888 | Jupyter Notebook
+    简介: One has no future if one couldn't teach themself.
+    链接: https://github.com/xiaolai/the-craft-of-selfteaching
