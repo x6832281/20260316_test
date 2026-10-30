@@ -1,0 +1,403 @@
+﻿============================================================
+小红书高赞评论日报
+数据文件: search_comments_2026-10-19.jsonl
+笔记文件: search_contents_2026-10-19.jsonl
+评论总数: 2014 (去重后入选 71 条, 最低 50 赞)
+生成时间: 2026-10-30 09:11:17
+============================================================
+
+关键词分布: 手机(71条)
+
+#1  [24000 赞]  宇***o  2026-09-12 16:40
+    iPhone paper
+    ↳ 笔记: 2035年的iphone折叠屏手机 (笔记点赞 4.1万)
+    ↳ 回复数: 688
+    ↳ 链接: https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search
+
+#2  [11000 赞]  奇*  2026-09-12 21:01
+    人迟早从兜里掏出一台电视机
+    ↳ 笔记: 2035年的iphone折叠屏手机 (笔记点赞 4.1万)
+    ↳ 回复数: 214
+    ↳ 链接: https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search
+
+#3  [9802 赞]  涛***x  2026-09-12 16:47
+    iPhone Door
+    ↳ 笔记: 2035年的iphone折叠屏手机 (笔记点赞 4.1万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search
+
+#4  [7608 赞]  好***i  2026-09-11 10:14
+    原来一边直角一边圆角就是Duo的D啊！
+    ↳ 笔记: 带上壳的 iPhone Duo，美貌全肯定👍 (笔记点赞 4万)
+    ↳ 回复数: 180
+    ↳ 链接: https://www.xiaohongshu.com/explore/6aa313dc000000002b003caa?xsec_token=ABhkdwyqAEzNZFGz82SqksE1UMR3Eqww5nXJYcwrD2taE=&xsec_source=pc_search
+
+#5  [3669 赞]  卡***拉  2025-09-07 09:17
+    主力机难道不是用来生活的吗？[汗颜R]我备用机里才有办公app
+    ↳ 笔记: 终于理解为啥越来越多人使用两台手机了 (笔记点赞 8137)
+    ↳ 回复数: 25
+    ↳ 链接: https://www.xiaohongshu.com/explore/68bc4d3b000000001d002244?xsec_token=ABn_i7G-eMUa4DSWmT7-_MrUthLxtsO9gJoiEekw1RbQY=&xsec_source=pc_search
+
+#6  [3202 赞]  P***y  2026-09-12 23:20
+    
+    ↳ 笔记: 2035年的iphone折叠屏手机 (笔记点赞 4.1万)
+    ↳ 回复数: 44
+    ↳ 链接: https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search
+
+#7  [2337 赞]  太***圆  2026-09-13 00:40
+    以后按尺寸起名字，iPhone A4 A3 A2 A1
+    ↳ 笔记: 2035年的iphone折叠屏手机 (笔记点赞 4.1万)
+    ↳ 回复数: 35
+    ↳ 链接: https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search
+
+#8  [1841 赞]  m***o  2026-10-10 13:35
+    旧款同时涨价[doge]
+    ↳ 笔记: 手机全面涨价 一切都回不去了 (笔记点赞 1.5万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6ac85d7200000000180284cc?xsec_token=ABFeAyBEhDhCF3BpwK5LL4PaH7ciREJ5jl_LD1lhw7mrg=&xsec_source=pc_search
+
+#9  [1748 赞]  a***t  2026-09-11 10:43
+    诶！！！你的解读好有意思！！！
+    ↳ 笔记: 带上壳的 iPhone Duo，美貌全肯定👍 (笔记点赞 4万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6aa313dc000000002b003caa?xsec_token=ABhkdwyqAEzNZFGz82SqksE1UMR3Eqww5nXJYcwrD2taE=&xsec_source=pc_search
+
+#10  [1648 赞]  吾*  2026-10-13 20:33
+    生态上他们已经垄断了，再不是智能机刚兴起那个时候了。杂牌机复兴基本等于0。
+    ↳ 笔记: 手机全面涨价 一切都回不去了 (笔记点赞 1.5万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6ac85d7200000000180284cc?xsec_token=ABFeAyBEhDhCF3BpwK5LL4PaH7ciREJ5jl_LD1lhw7mrg=&xsec_source=pc_search
+
+#11  [1491 赞]  B***1  2026-09-12 22:48
+    这个应该不会有了
+    ↳ 笔记: 2035年的iphone折叠屏手机 (笔记点赞 4.1万)
+    ↳ 回复数: 33
+    ↳ 链接: https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search
+
+#12  [1173 赞]  0***0  2026-10-10 10:21
+    山寨机和小品牌机会卷土重来
+    ↳ 笔记: 手机全面涨价 一切都回不去了 (笔记点赞 1.5万)
+    ↳ 回复数: 88
+    ↳ 链接: https://www.xiaohongshu.com/explore/6ac85d7200000000180284cc?xsec_token=ABFeAyBEhDhCF3BpwK5LL4PaH7ciREJ5jl_LD1lhw7mrg=&xsec_source=pc_search
+
+#13  [873 赞]  晴*  2026-09-11 08:53
+    打开之后很像一个小的平板，非常好奇能不能用苹果的笔画画[笑哭R][捂脸R]
+    ↳ 笔记: 带上壳的 iPhone Duo，美貌全肯定👍 (笔记点赞 4万)
+    ↳ 回复数: 121
+    ↳ 链接: https://www.xiaohongshu.com/explore/6aa313dc000000002b003caa?xsec_token=ABhkdwyqAEzNZFGz82SqksE1UMR3Eqww5nXJYcwrD2taE=&xsec_source=pc_search
+
+#14  [873 赞]  夏***空  2026-10-10 07:19
+    说实话还不如买前一两代的二手旗舰。
+    ↳ 笔记: 手机全面涨价 一切都回不去了 (笔记点赞 1.5万)
+    ↳ 回复数: 40
+    ↳ 链接: https://www.xiaohongshu.com/explore/6ac85d7200000000180284cc?xsec_token=ABFeAyBEhDhCF3BpwK5LL4PaH7ciREJ5jl_LD1lhw7mrg=&xsec_source=pc_search
+
+#15  [766 赞]  m***o  2026-09-12 22:01
+    华为已经有折叠电脑了，老大一个，我第一次见以为别人搬着电视刷视频[doge]
+    ↳ 笔记: 2035年的iphone折叠屏手机 (笔记点赞 4.1万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search
+
+#16  [632 赞]  唔***我  2025-09-07 14:16
+    这是主备用颠倒的用法...
+    ↳ 笔记: 终于理解为啥越来越多人使用两台手机了 (笔记点赞 8137)
+    ↳ 回复数: 0
+    ↳ 链接: https://www.xiaohongshu.com/explore/68bc4d3b000000001d002244?xsec_token=ABn_i7G-eMUa4DSWmT7-_MrUthLxtsO9gJoiEekw1RbQY=&xsec_source=pc_search
+
+#17  [612 赞]  玄***女  2026-09-12 23:15
+    它本来想竖着走的，都该你们，只能横着走了
+    ↳ 笔记: 2035年的iphone折叠屏手机 (笔记点赞 4.1万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search
+
+#18  [592 赞]  瀛***🥑  2026-09-11 10:40
+    真是一场酣畅淋漓的小拇指霸凌[哭惹R]
+    ↳ 笔记: 带上壳的 iPhone Duo，美貌全肯定👍 (笔记点赞 4万)
+    ↳ 回复数: 24
+    ↳ 链接: https://www.xiaohongshu.com/explore/6aa313dc000000002b003caa?xsec_token=ABhkdwyqAEzNZFGz82SqksE1UMR3Eqww5nXJYcwrD2taE=&xsec_source=pc_search
+
+#19  [552 赞]  冬*  2026-09-11 08:57
+    我昨天刷视频看到好像是可以的 并且自带类纸膜[doge]
+    ↳ 笔记: 带上壳的 iPhone Duo，美貌全肯定👍 (笔记点赞 4万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6aa313dc000000002b003caa?xsec_token=ABhkdwyqAEzNZFGz82SqksE1UMR3Eqww5nXJYcwrD2taE=&xsec_source=pc_search
+
+#20  [490 赞]  j***e  2025-09-06 11:16
+    带出去会觉得尴尬吗，有点社恐[哭惹R]
+    ↳ 笔记: 250r入手的超Q小手机后续 (笔记点赞 3.5万)
+    ↳ 回复数: 21
+    ↳ 链接: https://www.xiaohongshu.com/explore/68ba75d8000000001d024347?xsec_token=AB1rJie-T1KQS_-gesMM2hCa3Pjop2O9PnYU-lPkY-fFM=&xsec_source=pc_search
+
+#21  [476 赞]  寄***喔  2025-09-05 13:38
+    
+    ↳ 笔记: 250r入手的超Q小手机后续 (笔记点赞 3.5万)
+    ↳ 回复数: 12
+    ↳ 链接: https://www.xiaohongshu.com/explore/68ba75d8000000001d024347?xsec_token=AB1rJie-T1KQS_-gesMM2hCa3Pjop2O9PnYU-lPkY-fFM=&xsec_source=pc_search
+
+#22  [450 赞]  M***e  2025-09-06 12:54
+    备用机无所谓吧[吧唧R]
+    ↳ 笔记: 250r入手的超Q小手机后续 (笔记点赞 3.5万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/68ba75d8000000001d024347?xsec_token=AB1rJie-T1KQS_-gesMM2hCa3Pjop2O9PnYU-lPkY-fFM=&xsec_source=pc_search
+
+#23  [400 赞]  面***人  2026-10-10 10:02
+    旧款已经跟涨了
+    ↳ 笔记: 手机全面涨价 一切都回不去了 (笔记点赞 1.5万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6ac85d7200000000180284cc?xsec_token=ABFeAyBEhDhCF3BpwK5LL4PaH7ciREJ5jl_LD1lhw7mrg=&xsec_source=pc_search
+
+#24  [384 赞]  太***了  2026-10-10 19:32
+    电脑可不止6年
+    ↳ 笔记: 手机全面涨价 一切都回不去了 (笔记点赞 1.5万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6ac85d7200000000180284cc?xsec_token=ABFeAyBEhDhCF3BpwK5LL4PaH7ciREJ5jl_LD1lhw7mrg=&xsec_source=pc_search
+
+#25  [363 赞]  m***o  2026-10-13 19:52
+    我之前才看到说ai的存储和手机的存储根本不一样，其实就是内存厂商想涨，并不是ai挤占了
+    ↳ 笔记: 手机全面涨价 一切都回不去了 (笔记点赞 1.5万)
+    ↳ 回复数: 17
+    ↳ 链接: https://www.xiaohongshu.com/explore/6ac85d7200000000180284cc?xsec_token=ABFeAyBEhDhCF3BpwK5LL4PaH7ciREJ5jl_LD1lhw7mrg=&xsec_source=pc_search
+
+#26  [352 赞]  毛*  2026-09-13 01:20
+    或者8 开，4开，半开，全开！
+    ↳ 笔记: 2035年的iphone折叠屏手机 (笔记点赞 4.1万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search
+
+#27  [344 赞]  毛***勇  2026-09-13 00:23
+    是要上朝吗[doge]
+    ↳ 笔记: 2035年的iphone折叠屏手机 (笔记点赞 4.1万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search
+
+#28  [327 赞]  尘*  2026-10-14 10:45
+    这是手机价格正常时候的样子，不管是因为ai公司抢产能也罢，手机厂商趁机乱涨价也罢，大家不要被当韭菜割了，ai公司的产品大多数也是要大家在智能终端上去消费的，智能终端不好卖了它们又能好到哪去，市场总是能自我调节的，在此之前守好自己的钱包。
+    ↳ 笔记: 手机全面涨价 一切都回不去了 (笔记点赞 1.5万)
+    ↳ 回复数: 17
+    ↳ 链接: https://www.xiaohongshu.com/explore/6ac85d7200000000180284cc?xsec_token=ABFeAyBEhDhCF3BpwK5LL4PaH7ciREJ5jl_LD1lhw7mrg=&xsec_source=pc_search
+
+#29  [303 赞]  H***o  2026-09-12 23:18
+    我认为接下来是搞伸缩的方式了。
+    ↳ 笔记: 2035年的iphone折叠屏手机 (笔记点赞 4.1万)
+    ↳ 回复数: 10
+    ↳ 链接: https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search
+
+#30  [303 赞]  m***o  2026-09-13 00:00
+    返祖了，当年的滑盖翻盖
+    ↳ 笔记: 2035年的iphone折叠屏手机 (笔记点赞 4.1万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search
+
+#31  [302 赞]  蛋***士  2026-10-14 14:42
+    要不诺基亚 黑莓时代的手机卷土重来吧，现在人冲浪如此上瘾，怀念手机功能简约的时代[捂脸R]
+    ↳ 笔记: 手机全面涨价 一切都回不去了 (笔记点赞 1.5万)
+    ↳ 回复数: 14
+    ↳ 链接: https://www.xiaohongshu.com/explore/6ac85d7200000000180284cc?xsec_token=ABFeAyBEhDhCF3BpwK5LL4PaH7ciREJ5jl_LD1lhw7mrg=&xsec_source=pc_search
+
+#32  [280 赞]  小***8  2026-10-13 19:57
+    是不一样，就是纯粹内存厂家产线直接大部分做ai用的存储去了，导致手机存储产量就少了，价格也就高了
+    ↳ 笔记: 手机全面涨价 一切都回不去了 (笔记点赞 1.5万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6ac85d7200000000180284cc?xsec_token=ABFeAyBEhDhCF3BpwK5LL4PaH7ciREJ5jl_LD1lhw7mrg=&xsec_source=pc_search
+
+#33  [251 赞]  E***n  2026-10-14 09:36
+    不买就行了[汗颜R]又不是不能用，有动手能力把系统重装下，超过三年再换旧款机，另外iPhone 可以持续用五年的，只是记得把相册与微信清理下就行
+    ↳ 笔记: 手机全面涨价 一切都回不去了 (笔记点赞 1.5万)
+    ↳ 回复数: 53
+    ↳ 链接: https://www.xiaohongshu.com/explore/6ac85d7200000000180284cc?xsec_token=ABFeAyBEhDhCF3BpwK5LL4PaH7ciREJ5jl_LD1lhw7mrg=&xsec_source=pc_search
+
+#34  [203 赞]  m***o  2026-10-14 09:51
+    [doge]涨的时候猛涨一下，降的时候一点点降，跟油价一样
+    ↳ 笔记: 手机全面涨价 一切都回不去了 (笔记点赞 1.5万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6ac85d7200000000180284cc?xsec_token=ABFeAyBEhDhCF3BpwK5LL4PaH7ciREJ5jl_LD1lhw7mrg=&xsec_source=pc_search
+
+#35  [179 赞]  最***儿  2026-09-11 17:41
+    落地估计就要换屏，不知道有没有碎屏险
+    ↳ 笔记: 带上壳的 iPhone Duo，美貌全肯定👍 (笔记点赞 4万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6aa313dc000000002b003caa?xsec_token=ABhkdwyqAEzNZFGz82SqksE1UMR3Eqww5nXJYcwrD2taE=&xsec_source=pc_search
+
+#36  [169 赞]  D***t  2025-09-09 07:15
+    下班了就静音，哥哥，估计你是世界有名的私企，否则下班就失联只会发生在电视剧里
+    ↳ 笔记: 终于理解为啥越来越多人使用两台手机了 (笔记点赞 8137)
+    ↳ 回复数: 5
+    ↳ 链接: https://www.xiaohongshu.com/explore/68bc4d3b000000001d002244?xsec_token=ABn_i7G-eMUa4DSWmT7-_MrUthLxtsO9gJoiEekw1RbQY=&xsec_source=pc_search
+
+#37  [144 赞]  忘***草  2026-10-13 22:40
+    不是因为手机里有AI才导致手机涨价，是AI厂商建机房需要存储导致这边存储涨价
+    ↳ 笔记: 手机全面涨价 一切都回不去了 (笔记点赞 1.5万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6ac85d7200000000180284cc?xsec_token=ABFeAyBEhDhCF3BpwK5LL4PaH7ciREJ5jl_LD1lhw7mrg=&xsec_source=pc_search
+
+#38  [139 赞]  卓***a  2026-09-11 13:30
+    什么价格 说一句让我死心
+    ↳ 笔记: 带上壳的 iPhone Duo，美貌全肯定👍 (笔记点赞 4万)
+    ↳ 回复数: 81
+    ↳ 链接: https://www.xiaohongshu.com/explore/6aa313dc000000002b003caa?xsec_token=ABhkdwyqAEzNZFGz82SqksE1UMR3Eqww5nXJYcwrD2taE=&xsec_source=pc_search
+
+#39  [128 赞]  雾*  2026-10-14 13:33
+    一天两充，那你是很轻度了[笑哭R]
+    ↳ 笔记: 手机全面涨价 一切都回不去了 (笔记点赞 1.5万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6ac85d7200000000180284cc?xsec_token=ABFeAyBEhDhCF3BpwK5LL4PaH7ciREJ5jl_LD1lhw7mrg=&xsec_source=pc_search
+
+#40  [127 赞]  难*  2026-10-15 19:16
+    加价不加量 好一个涨的有道理
+    ↳ 笔记: 手机全面涨价 一切都回不去了 (笔记点赞 1.5万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6ac85d7200000000180284cc?xsec_token=ABFeAyBEhDhCF3BpwK5LL4PaH7ciREJ5jl_LD1lhw7mrg=&xsec_source=pc_search
+
+#41  [127 赞]  s***6  2026-10-10 17:39
+    把手机当电脑用，电脑能用六年手机也能用六年[doge]
+    ↳ 笔记: 手机全面涨价 一切都回不去了 (笔记点赞 1.5万)
+    ↳ 回复数: 30
+    ↳ 链接: https://www.xiaohongshu.com/explore/6ac85d7200000000180284cc?xsec_token=ABFeAyBEhDhCF3BpwK5LL4PaH7ciREJ5jl_LD1lhw7mrg=&xsec_source=pc_search
+
+#42  [125 赞]  我***满  2026-10-15 17:11
+    涨有涨的道理，性能好就行，我x10拿回来就没后悔过
+    ↳ 笔记: 手机全面涨价 一切都回不去了 (笔记点赞 1.5万)
+    ↳ 回复数: 8
+    ↳ 链接: https://www.xiaohongshu.com/explore/6ac85d7200000000180284cc?xsec_token=ABFeAyBEhDhCF3BpwK5LL4PaH7ciREJ5jl_LD1lhw7mrg=&xsec_source=pc_search
+
+#43  [112 赞]  糯***子  2026-10-14 14:45
+    还省流量[笑哭R]
+    ↳ 笔记: 手机全面涨价 一切都回不去了 (笔记点赞 1.5万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6ac85d7200000000180284cc?xsec_token=ABFeAyBEhDhCF3BpwK5LL4PaH7ciREJ5jl_LD1lhw7mrg=&xsec_source=pc_search
+
+#44  [111 赞]  y***r  2026-09-11 13:31
+    15999
+    ↳ 笔记: 带上壳的 iPhone Duo，美貌全肯定👍 (笔记点赞 4万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6aa313dc000000002b003caa?xsec_token=ABhkdwyqAEzNZFGz82SqksE1UMR3Eqww5nXJYcwrD2taE=&xsec_source=pc_search
+
+#45  [111 赞]  Q***^  2026-09-11 22:57
+    Duo的第一代个人觉得还不急着买 可以等这个系列再看看发展趋势 现在我自己是用16promax沙漠金还觉得挺好的
+    ↳ 笔记: 带上壳的 iPhone Duo，美貌全肯定👍 (笔记点赞 4万)
+    ↳ 回复数: 31
+    ↳ 链接: https://www.xiaohongshu.com/explore/6aa313dc000000002b003caa?xsec_token=ABhkdwyqAEzNZFGz82SqksE1UMR3Eqww5nXJYcwrD2taE=&xsec_source=pc_search
+
+#46  [108 赞]  s***h  2026-09-11 17:12
+    可以当iPad mini而且支持Apple pencil
+    ↳ 笔记: 带上壳的 iPhone Duo，美貌全肯定👍 (笔记点赞 4万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6aa313dc000000002b003caa?xsec_token=ABhkdwyqAEzNZFGz82SqksE1UMR3Eqww5nXJYcwrD2taE=&xsec_source=pc_search
+
+#47  [105 赞]  小***0  2026-09-11 11:23
+    看了一下有点变形的小拇指笑了[笑哭R]
+    ↳ 笔记: 带上壳的 iPhone Duo，美貌全肯定👍 (笔记点赞 4万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6aa313dc000000002b003caa?xsec_token=ABhkdwyqAEzNZFGz82SqksE1UMR3Eqww5nXJYcwrD2taE=&xsec_source=pc_search
+
+#48  [93 赞]  小***5  2026-10-14 13:18
+    实在不行买回百元诺基亚，下班谁他么也别想打扰
+    ↳ 笔记: 手机全面涨价 一切都回不去了 (笔记点赞 1.5万)
+    ↳ 回复数: 4
+    ↳ 链接: https://www.xiaohongshu.com/explore/6ac85d7200000000180284cc?xsec_token=ABFeAyBEhDhCF3BpwK5LL4PaH7ciREJ5jl_LD1lhw7mrg=&xsec_source=pc_search
+
+#49  [92 赞]  浪***至  2025-09-07 12:33
+    本末倒置了[坏笑R]生活娱乐才是主力，工作只配备用🐔
+    ↳ 笔记: 终于理解为啥越来越多人使用两台手机了 (笔记点赞 8137)
+    ↳ 回复数: 1
+    ↳ 链接: https://www.xiaohongshu.com/explore/68bc4d3b000000001d002244?xsec_token=ABn_i7G-eMUa4DSWmT7-_MrUthLxtsO9gJoiEekw1RbQY=&xsec_source=pc_search
+
+#50  [88 赞]  你***啦  2026-10-14 09:38
+    我还在用苹果12[捂脸R]
+    ↳ 笔记: 手机全面涨价 一切都回不去了 (笔记点赞 1.5万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6ac85d7200000000180284cc?xsec_token=ABFeAyBEhDhCF3BpwK5LL4PaH7ciREJ5jl_LD1lhw7mrg=&xsec_source=pc_search
+
+#51  [88 赞]  我***的  2026-10-15 17:13
+    内存和芯片都涨价了，这也是没法避免的，建议还是多关注性能啥的，感觉o这次起码价格和配置匹配得上
+    ↳ 笔记: 手机全面涨价 一切都回不去了 (笔记点赞 1.5万)
+    ↳ 回复数: 0
+    ↳ 链接: https://www.xiaohongshu.com/explore/6ac85d7200000000180284cc?xsec_token=ABFeAyBEhDhCF3BpwK5LL4PaH7ciREJ5jl_LD1lhw7mrg=&xsec_source=pc_search
+
+#52  [84 赞]  梦*  2026-09-12 21:11
+    21年在地铁上已经见识过电视大的平板了，两个小孩在玩地铁跑酷[哇R]
+    ↳ 笔记: 2035年的iphone折叠屏手机 (笔记点赞 4.1万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search
+
+#53  [83 赞]  Y***O  2026-09-13 13:00
+    能不能卷卷续航啊[笑哭R]比如充一次电可以用一个星期的[捂脸R]我必买
+    ↳ 笔记: 2035年的iphone折叠屏手机 (笔记点赞 4.1万)
+    ↳ 回复数: 6
+    ↳ 链接: https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search
+
+#54  [81 赞]  名***了  2026-09-12 21:08
+    不展开也能接吧！
+    ↳ 笔记: 2035年的iphone折叠屏手机 (笔记点赞 4.1万)
+    ↳ 回复数: 11
+    ↳ 链接: https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search
+
+#55  [79 赞]  阿***1  2026-10-14 08:29
+    高中毕业一千多买的oppo二手机，大学毕业了还在用[笑哭R]
+    ↳ 笔记: 手机全面涨价 一切都回不去了 (笔记点赞 1.5万)
+    ↳ 回复数: 37
+    ↳ 链接: https://www.xiaohongshu.com/explore/6ac85d7200000000180284cc?xsec_token=ABFeAyBEhDhCF3BpwK5LL4PaH7ciREJ5jl_LD1lhw7mrg=&xsec_source=pc_search
+
+#56  [77 赞]  柒***吗  2026-09-11 12:47
+    不太理解出这种宽胖短的手机，不符合手型啊，仅代表个人观点哈
+    ↳ 笔记: 带上壳的 iPhone Duo，美貌全肯定👍 (笔记点赞 4万)
+    ↳ 回复数: 20
+    ↳ 链接: https://www.xiaohongshu.com/explore/6aa313dc000000002b003caa?xsec_token=ABhkdwyqAEzNZFGz82SqksE1UMR3Eqww5nXJYcwrD2taE=&xsec_source=pc_search
+
+#57  [77 赞]  雪***稚  2026-10-13 20:56
+    中端机跟着高端机涨价不现实 因为它们目标用户收入差距太多了  手机涨价 用户工资不涨 一款新手机生产量都是固定的 没人买单 明年只能清库存 否则新型号更卖不动 [捂脸R]
+    ↳ 笔记: 手机全面涨价 一切都回不去了 (笔记点赞 1.5万)
+    ↳ 回复数: 8
+    ↳ 链接: https://www.xiaohongshu.com/explore/6ac85d7200000000180284cc?xsec_token=ABFeAyBEhDhCF3BpwK5LL4PaH7ciREJ5jl_LD1lhw7mrg=&xsec_source=pc_search
+
+#58  [76 赞]  添***字  2026-09-11 13:11
+    DUO
+    ↳ 笔记: 带上壳的 iPhone Duo，美貌全肯定👍 (笔记点赞 4万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6aa313dc000000002b003caa?xsec_token=ABhkdwyqAEzNZFGz82SqksE1UMR3Eqww5nXJYcwrD2taE=&xsec_source=pc_search
+
+#59  [75 赞]  草***🍓  2026-10-15 17:10
+    现在这行情要买就买最好的，奔着绿厂os17去的，说是可以用六年
+    ↳ 笔记: 手机全面涨价 一切都回不去了 (笔记点赞 1.5万)
+    ↳ 回复数: 1
+    ↳ 链接: https://www.xiaohongshu.com/explore/6ac85d7200000000180284cc?xsec_token=ABFeAyBEhDhCF3BpwK5LL4PaH7ciREJ5jl_LD1lhw7mrg=&xsec_source=pc_search
+
+#60  [71 赞]  m***o  2026-09-11 17:05
+    展开是不是能当ipad 用了[笑哭R]
+    ↳ 笔记: 带上壳的 iPhone Duo，美貌全肯定👍 (笔记点赞 4万)
+    ↳ 回复数: 24
+    ↳ 链接: https://www.xiaohongshu.com/explore/6aa313dc000000002b003caa?xsec_token=ABhkdwyqAEzNZFGz82SqksE1UMR3Eqww5nXJYcwrD2taE=&xsec_source=pc_search
+
+#61  [70 赞]  天***盖  2026-10-15 17:11
+    感觉以后的手机市场只会越来越难，这次我直接换了x10pm，想着它的大内存和大电池再加上os系统，应该能用个五六年
+    ↳ 笔记: 手机全面涨价 一切都回不去了 (笔记点赞 1.5万)
+    ↳ 回复数: 4
+    ↳ 链接: https://www.xiaohongshu.com/explore/6ac85d7200000000180284cc?xsec_token=ABFeAyBEhDhCF3BpwK5LL4PaH7ciREJ5jl_LD1lhw7mrg=&xsec_source=pc_search
+
+#62  [68 赞]  丶*  2026-10-10 12:50
+    还好提前买了512的17可以坚持5年了
+    ↳ 笔记: 手机全面涨价 一切都回不去了 (笔记点赞 1.5万)
+    ↳ 回复数: 22
+    ↳ 链接: https://www.xiaohongshu.com/explore/6ac85d7200000000180284cc?xsec_token=ABFeAyBEhDhCF3BpwK5LL4PaH7ciREJ5jl_LD1lhw7mrg=&xsec_source=pc_search
+
+#63  [67 赞]  m***o  2026-10-14 05:38
+    丧事喜办不就行了，中端机改名高端机，高端改名超高端
+    ↳ 笔记: 手机全面涨价 一切都回不去了 (笔记点赞 1.5万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6ac85d7200000000180284cc?xsec_token=ABFeAyBEhDhCF3BpwK5LL4PaH7ciREJ5jl_LD1lhw7mrg=&xsec_source=pc_search
+
+#64  [64 赞]  晨***夕  2026-09-12 23:50
+    不展开，装不起来啊！哈哈哈哈[doge]
+    ↳ 笔记: 2035年的iphone折叠屏手机 (笔记点赞 4.1万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search
+
+#65  [64 赞]  水*  2026-10-13 21:05
+    那老板应该给员工发台工作手机
+    ↳ 笔记: 手机全面涨价 一切都回不去了 (笔记点赞 1.5万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6ac85d7200000000180284cc?xsec_token=ABFeAyBEhDhCF3BpwK5LL4PaH7ciREJ5jl_LD1lhw7mrg=&xsec_source=pc_search
+
+#66  [62 赞]  无***生  2026-10-14 09:27
+    基础芯片科技含量没那么高，完全可以扩充产能，无非就是厂家要攫取超额利润，不肯扩产而已
+    ↳ 笔记: 手机全面涨价 一切都回不去了 (笔记点赞 1.5万)
+    ↳ 回复数: 2
+    ↳ 链接: https://www.xiaohongshu.com/explore/6ac85d7200000000180284cc?xsec_token=ABFeAyBEhDhCF3BpwK5LL4PaH7ciREJ5jl_LD1lhw7mrg=&xsec_source=pc_search
+
+#67  [59 赞]  有*  2026-10-14 13:15
+    使劲涨，我能承受它一天两充电
+    ↳ 笔记: 手机全面涨价 一切都回不去了 (笔记点赞 1.5万)
+    ↳ 回复数: 10
+    ↳ 链接: https://www.xiaohongshu.com/explore/6ac85d7200000000180284cc?xsec_token=ABFeAyBEhDhCF3BpwK5LL4PaH7ciREJ5jl_LD1lhw7mrg=&xsec_source=pc_search
+
+#68  [57 赞]  问***心  2026-10-15 17:12
+    我看o这次的标准版价格没别家涨那么多啊，而且配置啥的也堆得足，反正整体来说是最值得入手的了
+    ↳ 笔记: 手机全面涨价 一切都回不去了 (笔记点赞 1.5万)
+    ↳ 回复数: 0
+    ↳ 链接: https://www.xiaohongshu.com/explore/6ac85d7200000000180284cc?xsec_token=ABFeAyBEhDhCF3BpwK5LL4PaH7ciREJ5jl_LD1lhw7mrg=&xsec_source=pc_search
+
+#69  [53 赞]  a***t  2026-09-11 10:40
+    0
+    ↳ 笔记: 带上壳的 iPhone Duo，美貌全肯定👍 (笔记点赞 4万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6aa313dc000000002b003caa?xsec_token=ABhkdwyqAEzNZFGz82SqksE1UMR3Eqww5nXJYcwrD2taE=&xsec_source=pc_search
+
+#70  [53 赞]  m***o  2026-10-14 08:32
+    好能熬啊 不会卡顿和内存不足吗 我的内存每次都是很容易就满了 删来删去都不够[笑哭R]
+    ↳ 笔记: 手机全面涨价 一切都回不去了 (笔记点赞 1.5万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6ac85d7200000000180284cc?xsec_token=ABFeAyBEhDhCF3BpwK5LL4PaH7ciREJ5jl_LD1lhw7mrg=&xsec_source=pc_search
+
+#71  [50 赞]  桃***余  2026-10-13 20:17
+    对，看谁能熬，大不了最后大家都用功能机，刚好微信也不用用了，社交后退十年，大家也都轻松一点
+    ↳ 笔记: 手机全面涨价 一切都回不去了 (笔记点赞 1.5万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6ac85d7200000000180284cc?xsec_token=ABFeAyBEhDhCF3BpwK5LL4PaH7ciREJ5jl_LD1lhw7mrg=&xsec_source=pc_search
