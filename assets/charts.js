@@ -1,46 +1,46 @@
 (function () {
   // --- Chart 1: 今日全站最高赞评论 TOP 10 ---
   var topComments = [
-    {"name": "致敬，这是真的对得起自己的签名[保佑]", "value": 26839, "platform": "B站", "url": "https://www.bilibili.com/video/BV1mdxN68E7F"},
-    {"name": "想知道东鹏当时有多急吗？注意看，他第一句甚至没来得及空两格", "value": 26252, "platform": "B站", "url": "https://www.bilibili.com/video/BV1XSxT6GEwQ"},
     {"name": "iPhone paper", "value": 24000, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search"},
-    {"name": "确实厉害，18点30，去零食很忙买东西，东鹏补水啦就已经开始撤柜了。", "value": 18558, "platform": "B站", "url": "https://www.bilibili.com/video/BV1XSxT6GEwQ"},
-    {"name": "不太理解，判决书里面写了好几个从重，也说了社会影响极其恶劣谅解书不能适用。 判的…", "value": 14662, "platform": "B站", "url": "https://www.bilibili.com/video/BV1mdxN68E7F"},
-    {"name": "各位極粉各位观众请注意，IG从涅槃组冲出到世界赛，从瑞士轮再一路杀到淘汰赛，IG…", "value": 13409, "platform": "B站", "url": "https://www.bilibili.com/video/BV1Eas967EY9"},
-    {"name": "刚从888换了8ee6，还能说啥呢", "value": 12303, "platform": "B站", "url": "https://www.bilibili.com/video/BV1kMxM6FECM"},
+    {"name": "野史都不敢这么野[辣眼睛]", "value": 14509, "platform": "B站", "url": "https://www.bilibili.com/video/BV1Z7xK6LE8i"},
     {"name": "人迟早从兜里掏出一台电视机", "value": 11000, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search"},
-    {"name": "这人最精明了，知道古来圣贤皆寂寞，唯有饮者留其名。死之前给饮料瓶选好了[笑哭]", "value": 10454, "platform": "B站", "url": "https://www.bilibili.com/video/BV1XSxT6GEwQ"},
-    {"name": "iPhone Door", "value": 9802, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search"}
+    {"name": "iPhone Door", "value": 9802, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search"},
+    {"name": "原来一边直角一边圆角就是Duo的D啊！", "value": 7608, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa313dc000000002b003caa?xsec_token=ABhkdwyqAEzNZFGz82SqksE1UMR3Eqww5nXJYcwrD2taE=&xsec_source=pc_search"},
+    {"name": "给拼成了一副画", "value": 4525, "platform": "B站", "url": "https://www.bilibili.com/video/BV1yUso6AEDW"},
+    {"name": "你们这搬空挑战太美创意了，炮你这身材，怕你有三高啊，能不能挑战在一家医院做完全部…", "value": 4420, "platform": "B站", "url": "https://www.bilibili.com/video/BV1sVxv6rEJ7"},
+    {"name": "主力机难道不是用来生活的吗？[汗颜R]我备用机里才有办公app", "value": 3669, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/68bc4d3b000000001d002244?xsec_token=ABn_i7G-eMUa4DSWmT7-_MrUthLxtsO9gJoiEekw1RbQY=&xsec_source=pc_search"},
+    {"name": "", "value": 3202, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search"},
+    {"name": "up跟AI两个人就像是伯牙和绝弦", "value": 3144, "platform": "B站", "url": "https://www.bilibili.com/video/BV1yUso6AEDW"}
   ].reverse();
 
   // --- Chart 2: B站热门弹幕频次 TOP 12 ---
   var danmaku = [
-    {"name": "致敬", "value": 1098},
-    {"name": "屏蔽w", "value": 844},
-    {"name": "新婚快乐", "value": 733},
-    {"name": "惊了", "value": 704},
-    {"name": "许愿塔露拉，出必还愿！！！", "value": 689},
-    {"name": "懂你意思", "value": 504},
-    {"name": "米提亚不歪，玩到关服", "value": 500},
-    {"name": "干就完了", "value": 338},
-    {"name": "ig牛逼", "value": 320},
-    {"name": "可爱捏", "value": 304},
-    {"name": "咕咕嘎嘎", "value": 277},
-    {"name": "般配", "value": 274}
+    {"name": "致敬", "value": 970},
+    {"name": "懂你意思", "value": 866},
+    {"name": "新婚快乐", "value": 778},
+    {"name": "秒吃", "value": 722},
+    {"name": "米提亚不歪，玩到关服", "value": 669},
+    {"name": "恭迎天后", "value": 588},
+    {"name": "古来驰名妖魁", "value": 539},
+    {"name": "原神牛逼", "value": 416},
+    {"name": "咕咕嘎嘎", "value": 329},
+    {"name": "必须死刑！", "value": 299},
+    {"name": "可爱捏", "value": 260},
+    {"name": "她真好看", "value": 228}
   ].reverse();
 
   // --- Chart 3: GitHub Trending 今日新增星数 TOP 10 ---
   var ghTrending = [
-    {"name": "pbakaus/impeccable", "value": 2870, "lang": "Rust", "total": "95,382"},
-    {"name": "HKUDS/DeepTutor", "value": 1930, "lang": "Python", "total": "50,112"},
-    {"name": "togg53192-cmd/jailbreaks", "value": 1594, "lang": "—", "total": "9,075"},
-    {"name": "milind-soni/OpenMausBot", "value": 1199, "lang": "TypeScript", "total": "7,492"},
-    {"name": "elayadesign/ai-design-skills", "value": 1187, "lang": "—", "total": "12,178"},
-    {"name": "JetBrains/thinkrail", "value": 1117, "lang": "TypeScript", "total": "6,025"},
-    {"name": "obra/superpowers", "value": 1034, "lang": "Shell", "total": "308,573"},
-    {"name": "nightly-labs/openbot", "value": 709, "lang": "TypeScript", "total": "3,897"},
-    {"name": "Donchitos/Claude-Code-Game-Studios", "value": 353, "lang": "Shell", "total": "29,227"},
-    {"name": "thedotmack/claude-mem", "value": 336, "lang": "TypeScript", "total": "104,823"}
+    {"name": "pbakaus/impeccable", "value": 2300, "lang": "Rust", "total": "97,091"},
+    {"name": "HKUDS/DeepTutor", "value": 2282, "lang": "Python", "total": "51,794"},
+    {"name": "togg53192-cmd/jailbreaks", "value": 2055, "lang": "—", "total": "11,065"},
+    {"name": "obra/superpowers", "value": 1259, "lang": "Shell", "total": "309,450"},
+    {"name": "thedotmack/claude-mem", "value": 1140, "lang": "TypeScript", "total": "106,285"},
+    {"name": "Renhuai123/ziwei-doushu", "value": 1126, "lang": "TypeScript", "total": "11,225"},
+    {"name": "pingdotgg/t3code", "value": 930, "lang": "TypeScript", "total": "32,755"},
+    {"name": "milind-soni/OpenMausBot", "value": 895, "lang": "TypeScript", "total": "8,671"},
+    {"name": "mattpocock/skills", "value": 876, "lang": "Shell", "total": "307,496"},
+    {"name": "JetBrains/thinkrail", "value": 722, "lang": "TypeScript", "total": "6,592"}
   ].reverse();
 
   var chart1 = null, chart2 = null, chart3 = null;
