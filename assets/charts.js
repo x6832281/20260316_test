@@ -1,46 +1,46 @@
 (function () {
   // --- Chart 1: 今日全站最高赞评论 TOP 10 ---
   var topComments = [
-    {"name": "我从那个世界回来就立刻做了这个视频 接下来一点点的和你们娓娓道来", "value": 32905, "platform": "B站", "url": "https://www.bilibili.com/video/BV1TxxC6vEo4"},
-    {"name": "野史都不敢这么野[辣眼睛]", "value": 29745, "platform": "B站", "url": "https://www.bilibili.com/video/BV1Z7xK6LE8i"},
-    {"name": "这期质量真的高……有内涵有笑点，会一直支持你的老番茄", "value": 12220, "platform": "B站", "url": "https://www.bilibili.com/video/BV1TxxC6vEo4"},
-    {"name": "万圣节大家都 cos 吸血鬼、小恶魔啥的，那为啥中元节没人 cos 纸扎人呢？[…", "value": 4842, "platform": "B站", "url": "https://www.bilibili.com/video/BV1dRx16pE3J"},
-    {"name": "突然意识到神父应该精通正态分布[思考]", "value": 4725, "platform": "B站", "url": "https://www.bilibili.com/video/BV1TxxC6vEo4"},
-    {"name": "因为绝望而“轻生” 因为希望而“重生”", "value": 3398, "platform": "B站", "url": "https://www.bilibili.com/video/BV15UxC6SEiR"},
-    {"name": "（看到小女仆后）：", "value": 2667, "platform": "B站", "url": "https://www.bilibili.com/video/BV1dRx16pEPw"},
-    {"name": "小紫薯精也不简单，没有用宝石的情况下一个人锤着四个打，面板后生可畏啊[Ave M…", "value": 2212, "platform": "B站", "url": "https://www.bilibili.com/video/BV1ugxq6HEfH"},
-    {"name": "很抱歉，但是我感觉这个呆毛像昆虫的触须[笑哭]（没有说不好看的意思！）", "value": 1673, "platform": "B站", "url": "https://www.bilibili.com/video/BV1dRx16pEPw"},
-    {"name": "如果你累了休息，不累跑步，那叫健康。如果你不管多累都要抽空跑步，那叫雪峰[笑哭]…", "value": 1457, "platform": "B站", "url": "https://www.bilibili.com/video/BV1j3x16XEuR"}
+    {"name": "我从那个世界回来就立刻做了这个视频 接下来一点点的和你们娓娓道来", "value": 38587, "platform": "B站", "url": "https://www.bilibili.com/video/BV1TxxC6vEo4"},
+    {"name": "iPhone paper", "value": 24000, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search"},
+    {"name": "这期质量真的高……有内涵有笑点，会一直支持你的老番茄", "value": 14586, "platform": "B站", "url": "https://www.bilibili.com/video/BV1TxxC6vEo4"},
+    {"name": "人迟早从兜里掏出一台电视机", "value": 11000, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search"},
+    {"name": "iPhone Door", "value": 9802, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search"},
+    {"name": "原来一边直角一边圆角就是Duo的D啊！", "value": 7608, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa313dc000000002b003caa?xsec_token=ABhkdwyqAEzNZFGz82SqksE1UMR3Eqww5nXJYcwrD2taE=&xsec_source=pc_search"},
+    {"name": "万圣节大家都 cos 吸血鬼、小恶魔啥的，那为啥中元节没人 cos 纸扎人呢？[…", "value": 7264, "platform": "B站", "url": "https://www.bilibili.com/video/BV1dRx16pE3J"},
+    {"name": "突然意识到神父应该精通正态分布[思考]", "value": 7209, "platform": "B站", "url": "https://www.bilibili.com/video/BV1TxxC6vEo4"},
+    {"name": "小灭霸还挺强，把复仇者联盟每个人都揍的鼻青脸肿 [绘之音表情包_瞅瞅]", "value": 6000, "platform": "B站", "url": "https://www.bilibili.com/video/BV1ugxq6HEfH"},
+    {"name": "开局以为是生死局，看到最后", "value": 5207, "platform": "B站", "url": "https://www.bilibili.com/video/BV1Nax16uEHm"}
   ].reverse();
 
   // --- Chart 2: B站热门弹幕频次 TOP 12 ---
   var danmaku = [
-    {"name": "万圣节快乐", "value": 1465},
-    {"name": "古来驰名妖魁", "value": 588},
-    {"name": "直播间在逃人员", "value": 484},
-    {"name": "原神牛逼", "value": 344},
-    {"name": "纯纯稚稚请和好", "value": 336},
-    {"name": "今天有空", "value": 328},
-    {"name": "倾斜的铡刀", "value": 313},
-    {"name": "伟大", "value": 284},
-    {"name": "懂你意思", "value": 272},
-    {"name": "失踪人口回归", "value": 249},
-    {"name": "早日康复", "value": 212},
-    {"name": "弹幕可以增加推流，请复制该弹幕帮助UP主", "value": 192}
+    {"name": "哔哩哔哩 - ( ゜- ゜)つロ 乾杯~", "value": 772},
+    {"name": "什么意思", "value": 763},
+    {"name": "纯纯稚稚请和好", "value": 562},
+    {"name": "今天有空", "value": 482},
+    {"name": "秒吃", "value": 401},
+    {"name": "褒贬不一", "value": 186},
+    {"name": "懂你意思", "value": 152},
+    {"name": "文明", "value": 148},
+    {"name": "又看一集", "value": 131},
+    {"name": "合影", "value": 121},
+    {"name": "谢谢", "value": 93},
+    {"name": "啊？", "value": 81}
   ].reverse();
 
   // --- Chart 3: GitHub Trending 今日新增星数 TOP 10 ---
   var ghTrending = [
-    {"name": "pingdotgg/t3code", "value": 3094, "lang": "TypeScript", "total": "38,053"},
-    {"name": "thedotmack/claude-mem", "value": 1526, "lang": "TypeScript", "total": "109,320"},
-    {"name": "anomalyco/hex", "value": 1179, "lang": "Rust", "total": "3,295"},
-    {"name": "Donchitos/Claude-Code-Game-Studios", "value": 967, "lang": "Shell", "total": "32,309"},
-    {"name": "Renhuai123/ziwei-doushu", "value": 941, "lang": "TypeScript", "total": "13,147"},
-    {"name": "milind-soni/OpenMausBot", "value": 922, "lang": "TypeScript", "total": "10,550"},
-    {"name": "lightpanda-io/browser", "value": 825, "lang": "Zig", "total": "40,156"},
-    {"name": "togg53192-cmd/jailbreaks", "value": 726, "lang": "—", "total": "12,969"},
-    {"name": "shiyu-coder/Kronos", "value": 630, "lang": "Python", "total": "45,404"},
-    {"name": "beenuar/AiSOC", "value": 446, "lang": "Python", "total": "6,232"}
+    {"name": "pingdotgg/t3code", "value": 3229, "lang": "TypeScript", "total": "41,995"},
+    {"name": "vercel-labs/agent-desktop", "value": 2275, "lang": "Rust", "total": "9,768"},
+    {"name": "thedotmack/claude-mem", "value": 1803, "lang": "TypeScript", "total": "110,763"},
+    {"name": "Donchitos/Claude-Code-Game-Studios", "value": 1379, "lang": "Shell", "total": "33,573"},
+    {"name": "mattpocock/skills", "value": 858, "lang": "Shell", "total": "310,248"},
+    {"name": "shiyu-coder/Kronos", "value": 857, "lang": "Python", "total": "46,020"},
+    {"name": "D4Vinci/Scrapling", "value": 706, "lang": "Python", "total": "92,913"},
+    {"name": "JustVugg/colibri", "value": 675, "lang": "C", "total": "46,569"},
+    {"name": "FlashML-org/FreeToken", "value": 653, "lang": "Python", "total": "16,078"},
+    {"name": "hyprwm/Hyprland", "value": 509, "lang": "C++", "total": "39,939"}
   ].reverse();
 
   var chart1 = null, chart2 = null, chart3 = null;
