@@ -2,45 +2,45 @@
   // --- Chart 1: 今日全站最高赞评论 TOP 10 ---
   var topComments = [
     {"name": "iPhone paper", "value": 24000, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search"},
-    {"name": "注意到理性泰坦和诡计泰坦是唯二在故事中与黄金裔半神同行的泰坦神族", "value": 13370, "platform": "B站", "url": "https://www.bilibili.com/video/BV1XJ4g6WEyL"},
+    {"name": "补足缘汽，舒展筋骨。下一程，与同伴并肩！", "value": 23086, "platform": "B站", "url": "https://www.bilibili.com/video/BV1nm4g6NE71"},
+    {"name": "嗯呢嗯呢，期待与幸福相遇，春天见！", "value": 22811, "platform": "B站", "url": "https://www.bilibili.com/video/BV1nm4g6NE71"},
+    {"name": "饮料好喝！爱酱也跟着一起做运动！", "value": 15401, "platform": "B站", "url": "https://www.bilibili.com/video/BV1nm4g6NE71"},
     {"name": "人迟早从兜里掏出一台电视机", "value": 11000, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search"},
     {"name": "iPhone Door", "value": 9802, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search"},
-    {"name": "机器头居然是这个风格[笑哭]", "value": 8615, "platform": "B站", "url": "https://www.bilibili.com/video/BV1XJ4g6WEyL"},
-    {"name": "加上两杠，IX是不是就变成区了🤔", "value": 7631, "platform": "B站", "url": "https://www.bilibili.com/video/BV1XJ4g6WEyL"},
+    {"name": "[滑稽]", "value": 8074, "platform": "B站", "url": "https://www.bilibili.com/video/BV1EWxd6sExz"},
     {"name": "原来一边直角一边圆角就是Duo的D啊！", "value": 7608, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa313dc000000002b003caa?xsec_token=ABhkdwyqAEzNZFGz82SqksE1UMR3Eqww5nXJYcwrD2taE=&xsec_source=pc_search"},
-    {"name": "一眼ai，这么多人肯定是有一段时间屏幕全是白光[doge]", "value": 5582, "platform": "B站", "url": "https://www.bilibili.com/video/BV1aR4P6KERQ"},
-    {"name": "[25年度表情包_不太冷][25年度表情包_强]", "value": 5363, "platform": "B站", "url": "https://www.bilibili.com/video/BV1Xx4c6tEKM"},
-    {"name": "让我觉得最牛逼的还是她只有一个人。", "value": 5109, "platform": "B站", "url": "https://www.bilibili.com/video/BV12R4u66Edd"}
+    {"name": "堪萨斯上次翻蓝的时候红军还没开始长征呢", "value": 7005, "platform": "B站", "url": "https://www.bilibili.com/video/BV1ybxX6WEJK"},
+    {"name": "1赞=1日元，下期我能否反转就靠各位了", "value": 6201, "platform": "B站", "url": "https://www.bilibili.com/video/BV1FXxS63Eie"}
   ].reverse();
 
   // --- Chart 2: B站热门弹幕频次 TOP 12 ---
   var danmaku = [
-    {"name": "屏蔽数字", "value": 2070},
-    {"name": "哔哩哔哩 - ( ゜- ゜)つロ 乾杯~", "value": 807},
-    {"name": "哦鲸鲸", "value": 535},
-    {"name": "赛程", "value": 510},
-    {"name": "米提亚不歪，玩到关服", "value": 488},
-    {"name": "吓哭了", "value": 469},
-    {"name": "支持", "value": 455},
-    {"name": "加油", "value": 314},
-    {"name": "你是？", "value": 314},
-    {"name": "懂你意思", "value": 249},
-    {"name": "古人", "value": 224},
-    {"name": "咕咕嘎嘎！", "value": 201}
+    {"name": "屏蔽数字", "value": 2336},
+    {"name": "哦鲸鲸", "value": 536},
+    {"name": "赛程", "value": 526},
+    {"name": "吓哭了", "value": 522},
+    {"name": "米提亚不歪，玩到关服", "value": 508},
+    {"name": "古人", "value": 500},
+    {"name": "加油", "value": 327},
+    {"name": "懂你意思", "value": 259},
+    {"name": "咕咕嘎嘎！", "value": 211},
+    {"name": "恭喜", "value": 189},
+    {"name": "变得更强", "value": 184},
+    {"name": "冲一把", "value": 122}
   ].reverse();
 
   // --- Chart 3: GitHub Trending 今日新增星数 TOP 10 ---
   var ghTrending = [
-    {"name": "vercel-labs/agent-desktop", "value": 2470, "lang": "Rust", "total": "15,152"},
-    {"name": "NVIDIA/auto-ontology", "value": 2050, "lang": "Python", "total": "5,069"},
-    {"name": "D4Vinci/Scrapling", "value": 2005, "lang": "Python", "total": "96,578"},
-    {"name": "JiaFeiMiao-K-Cat/DiscImageStudio", "value": 1778, "lang": "C#", "total": "6,625"},
-    {"name": "mattpocock/skills", "value": 1379, "lang": "Shell", "total": "313,346"},
-    {"name": "thedotmack/claude-mem", "value": 1172, "lang": "TypeScript", "total": "112,876"},
-    {"name": "floci-io/floci", "value": 1090, "lang": "Java", "total": "29,639"},
-    {"name": "github/spec-kit", "value": 808, "lang": "Python", "total": "147,317"},
-    {"name": "harry0703/MoneyPrinterTurbo", "value": 617, "lang": "Python", "total": "138,985"},
-    {"name": "max-sixty/worktrunk", "value": 531, "lang": "Rust", "total": "11,048"}
+    {"name": "NVIDIA/auto-ontology", "value": 2679, "lang": "Python", "total": "7,378"},
+    {"name": "vercel-labs/agent-desktop", "value": 2173, "lang": "Rust", "total": "16,879"},
+    {"name": "mattpocock/skills", "value": 2071, "lang": "Shell", "total": "315,266"},
+    {"name": "D4Vinci/Scrapling", "value": 1655, "lang": "Python", "total": "98,001"},
+    {"name": "JiaFeiMiao-K-Cat/DiscImageStudio", "value": 984, "lang": "C#", "total": "7,284"},
+    {"name": "floci-io/floci", "value": 779, "lang": "Java", "total": "30,428"},
+    {"name": "scenario-labs/skills", "value": 667, "lang": "Python", "total": "3,072"},
+    {"name": "garrytan/gstack", "value": 612, "lang": "TypeScript", "total": "139,955"},
+    {"name": "max-sixty/worktrunk", "value": 546, "lang": "Rust", "total": "11,522"},
+    {"name": "Usagi-org/ai-goofish-monitor", "value": 240, "lang": "Python", "total": "17,562"}
   ].reverse();
 
   var chart1 = null, chart2 = null, chart3 = null;

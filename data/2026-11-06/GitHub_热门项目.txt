@@ -1,0 +1,78 @@
+﻿============================================================
+GitHub Trending 今日热门项目
+项目数: 15 | 生成时间: 2026-11-06 09:24:02
+============================================================
+
+#1  NVIDIA/auto-ontology
+    今日 +2679 星 | 总星 7,378 | Fork 586 | Python
+    简介: Auto Ontology is a Python framework for building semantic, graph-based reasoning layers over data. It enables deterministic query generation, better context retrieval, and more explainable AI for LLM and agent workflows.
+    链接: https://github.com/NVIDIA/auto-ontology
+
+#2  mattpocock/skills
+    今日 +2071 星 | 总星 315,266 | Fork 26,402 | Shell
+    简介: Skills for Real Engineers. Straight from my .agents directory.
+    链接: https://github.com/mattpocock/skills
+
+#3  garrytan/gstack
+    今日 +612 星 | 总星 139,955 | Fork 20,699 | TypeScript
+    简介: Use Garry Tan's exact Claude Code setup: 23 opinionated tools that serve as CEO, Designer, Eng Manager, Release Manager, Doc Engineer, and QA
+    链接: https://github.com/garrytan/gstack
+
+#4  Usagi-org/ai-goofish-monitor
+    今日 +240 星 | 总星 17,562 | Fork 2,946 | Python
+    简介: 基于 Playwright 和AI实现的闲鱼多任务实时/定时监控与智能分析系统，配备了功能完善的后台管理UI。帮助用户从闲鱼海量商品中，找到心仪产品。
+    链接: https://github.com/Usagi-org/ai-goofish-monitor
+
+#5  D4Vinci/Scrapling
+    今日 +1655 星 | 总星 98,001 | Fork 10,264 | Python
+    简介: 🕷️ The BEST Web Scraping framework that handles everything from a single request to a full-scale crawl! Don't be shy, join here: https://discord.gg/EMgGbDceNQ and follow here for daily tips and tricks: https://x.com/Scrapling_dev
+    链接: https://github.com/D4Vinci/Scrapling
+
+#6  vercel-labs/agent-desktop
+    今日 +2173 星 | 总星 16,879 | Fork 1,190 | Rust
+    简介: Computer use CLI for AI agents
+    链接: https://github.com/vercel-labs/agent-desktop
+
+#7  max-sixty/worktrunk
+    今日 +546 星 | 总星 11,522 | Fork 439 | Rust
+    简介: Worktrunk is a CLI for Git worktree management, designed for parallel AI agent workflows
+    链接: https://github.com/max-sixty/worktrunk
+
+#8  lz4/lz4
+    今日 +23 星 | 总星 12,392 | Fork 1,635 | C
+    简介: Extremely Fast Compression algorithm
+    链接: https://github.com/lz4/lz4
+
+#9  google/skills
+    今日 +211 星 | 总星 22,388 | Fork 1,893 | Python
+    简介: Agent Skills for Google products and technologies
+    链接: https://github.com/google/skills
+
+#10  vercel-labs/agent-browser
+    今日 +150 星 | 总星 45,910 | Fork 3,148 | Rust
+    简介: Browser automation CLI for AI agents
+    链接: https://github.com/vercel-labs/agent-browser
+
+#11  scenario-labs/skills
+    今日 +667 星 | 总星 3,072 | Fork 272 | Python
+    简介: Get production-ready images, video, audio, and 3D from any AI agent: skills that pick the right model, price before spending, and keep characters and brands consistent through the Scenario MCP, plus expert teams that drive Blender, Maya, ZBrush, Unreal, and Unity.
+    链接: https://github.com/scenario-labs/skills
+
+#12  ConardLi/garden-skills
+    今日 +175 星 | 总星 14,142 | Fork 1,648 | JavaScript
+    简介: ConardLi's open-source Skills collection, featuring web design, knowledge retrieval, image generation, and more.
+    链接: https://github.com/ConardLi/garden-skills
+
+#13  microsoft/VibeVoice
+    今日 +223 星 | 总星 55,956 | Fork 6,297 | Python
+    简介: Open-Source Frontier Voice AI
+    链接: https://github.com/microsoft/VibeVoice
+
+#14  floci-io/floci
+    今日 +779 星 | 总星 30,428 | Fork 3,333 | Java
+    简介: Light, fluffy, and always free - The AWS Local Emulator alternative
+    链接: https://github.com/floci-io/floci
+
+#15  JiaFeiMiao-K-Cat/DiscImageStudio
+    今日 +984 星 | 总星 7,284 | Fork 261 | C#
+    链接: https://github.com/JiaFeiMiao-K-Cat/DiscImageStudio
