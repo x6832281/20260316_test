@@ -1,46 +1,46 @@
 (function () {
   // --- Chart 1: 今日全站最高赞评论 TOP 10 ---
   var topComments = [
+    {"name": "队友：", "value": 37365, "platform": "B站", "url": "https://www.bilibili.com/video/BV1zy4h6oEYg"},
+    {"name": "诡秘，你要的年上 病娇 无限流 副本[OK]", "value": 36812, "platform": "B站", "url": "https://www.bilibili.com/video/BV1LX4b6yEax"},
     {"name": "iPhone paper", "value": 24000, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search"},
-    {"name": "补足缘汽，舒展筋骨。下一程，与同伴并肩！", "value": 23086, "platform": "B站", "url": "https://www.bilibili.com/video/BV1nm4g6NE71"},
-    {"name": "嗯呢嗯呢，期待与幸福相遇，春天见！", "value": 22811, "platform": "B站", "url": "https://www.bilibili.com/video/BV1nm4g6NE71"},
-    {"name": "饮料好喝！爱酱也跟着一起做运动！", "value": 15401, "platform": "B站", "url": "https://www.bilibili.com/video/BV1nm4g6NE71"},
     {"name": "人迟早从兜里掏出一台电视机", "value": 11000, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search"},
     {"name": "iPhone Door", "value": 9802, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search"},
-    {"name": "[滑稽]", "value": 8074, "platform": "B站", "url": "https://www.bilibili.com/video/BV1EWxd6sExz"},
+    {"name": "堪萨斯上次翻蓝的时候红军还没开始长征呢", "value": 8256, "platform": "B站", "url": "https://www.bilibili.com/video/BV1ybxX6WEJK"},
     {"name": "原来一边直角一边圆角就是Duo的D啊！", "value": 7608, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa313dc000000002b003caa?xsec_token=ABhkdwyqAEzNZFGz82SqksE1UMR3Eqww5nXJYcwrD2taE=&xsec_source=pc_search"},
-    {"name": "堪萨斯上次翻蓝的时候红军还没开始长征呢", "value": 7005, "platform": "B站", "url": "https://www.bilibili.com/video/BV1ybxX6WEJK"},
-    {"name": "1赞=1日元，下期我能否反转就靠各位了", "value": 6201, "platform": "B站", "url": "https://www.bilibili.com/video/BV1FXxS63Eie"}
+    {"name": "左下角这哥们都快绷成绷带了", "value": 6416, "platform": "B站", "url": "https://www.bilibili.com/video/BV1EWxd6sExz"},
+    {"name": "图纸在这里！可以自己印了玩～", "value": 5004, "platform": "B站", "url": "https://www.bilibili.com/video/BV1wN4Y6AEFH"},
+    {"name": "根本就没有这样的病娇。😭😭😭", "value": 4992, "platform": "B站", "url": "https://www.bilibili.com/video/BV1LX4b6yEax"}
   ].reverse();
 
   // --- Chart 2: B站热门弹幕频次 TOP 12 ---
   var danmaku = [
-    {"name": "屏蔽数字", "value": 2336},
-    {"name": "哦鲸鲸", "value": 536},
-    {"name": "赛程", "value": 526},
-    {"name": "吓哭了", "value": 522},
-    {"name": "米提亚不歪，玩到关服", "value": 508},
-    {"name": "古人", "value": 500},
-    {"name": "加油", "value": 327},
-    {"name": "懂你意思", "value": 259},
-    {"name": "咕咕嘎嘎！", "value": 211},
-    {"name": "恭喜", "value": 189},
-    {"name": "变得更强", "value": 184},
-    {"name": "冲一把", "value": 122}
+    {"name": "古人", "value": 1353},
+    {"name": "见证历史", "value": 712},
+    {"name": "恭喜", "value": 611},
+    {"name": "哦鲸鲸", "value": 541},
+    {"name": "吓哭了", "value": 460},
+    {"name": "哔哩哔哩(゜-゜)つロ乾杯~-bilibili", "value": 250},
+    {"name": "懂你意思", "value": 239},
+    {"name": "变得更强", "value": 194},
+    {"name": "冲一把", "value": 136},
+    {"name": "恭喜恭喜", "value": 117},
+    {"name": "哔哩哔哩(゜-゜)つロ干杯~-bilibili", "value": 115},
+    {"name": "战术性回头◣◥◣◥DRANGR◣◥◣◥高能预警◣…", "value": 99}
   ].reverse();
 
   // --- Chart 3: GitHub Trending 今日新增星数 TOP 10 ---
   var ghTrending = [
-    {"name": "NVIDIA/auto-ontology", "value": 2679, "lang": "Python", "total": "7,378"},
-    {"name": "vercel-labs/agent-desktop", "value": 2173, "lang": "Rust", "total": "16,879"},
-    {"name": "mattpocock/skills", "value": 2071, "lang": "Shell", "total": "315,266"},
-    {"name": "D4Vinci/Scrapling", "value": 1655, "lang": "Python", "total": "98,001"},
-    {"name": "JiaFeiMiao-K-Cat/DiscImageStudio", "value": 984, "lang": "C#", "total": "7,284"},
-    {"name": "floci-io/floci", "value": 779, "lang": "Java", "total": "30,428"},
-    {"name": "scenario-labs/skills", "value": 667, "lang": "Python", "total": "3,072"},
-    {"name": "garrytan/gstack", "value": 612, "lang": "TypeScript", "total": "139,955"},
-    {"name": "max-sixty/worktrunk", "value": 546, "lang": "Rust", "total": "11,522"},
-    {"name": "Usagi-org/ai-goofish-monitor", "value": 240, "lang": "Python", "total": "17,562"}
+    {"name": "cloudflare/security-audit-skill", "value": 2548, "lang": "JavaScript", "total": "64,054"},
+    {"name": "mattpocock/skills", "value": 2070, "lang": "Shell", "total": "316,737"},
+    {"name": "NVIDIA/auto-ontology", "value": 2015, "lang": "Python", "total": "9,060"},
+    {"name": "google/skills", "value": 534, "lang": "Python", "total": "22,844"},
+    {"name": "zed-industries/zed", "value": 306, "lang": "Rust", "total": "93,644"},
+    {"name": "microsoft/vscode", "value": 301, "lang": "TypeScript", "total": "195,028"},
+    {"name": "react/react", "value": 248, "lang": "JavaScript", "total": "252,260"},
+    {"name": "rust-lang/rust", "value": 192, "lang": "Rust", "total": "121,457"},
+    {"name": "astral-sh/ruff", "value": 169, "lang": "Rust", "total": "50,697"},
+    {"name": "prometheus/prometheus", "value": 148, "lang": "Go", "total": "67,187"}
   ].reverse();
 
   var chart1 = null, chart2 = null, chart3 = null;

@@ -1,0 +1,89 @@
+﻿============================================================
+GitHub Trending 今日热门项目
+项目数: 17 | 生成时间: 2026-11-07 09:24:03
+============================================================
+
+#1  zed-industries/zed
+    今日 +306 星 | 总星 93,644 | Fork 11,499 | Rust
+    简介: Code at the speed of thought – Zed is a high-performance, multiplayer code editor from the creators of Atom and Tree-sitter.
+    链接: https://github.com/zed-industries/zed
+
+#2  NVIDIA/auto-ontology
+    今日 +2015 星 | 总星 9,060 | Fork 730 | Python
+    简介: Auto Ontology is a Python framework for building semantic, graph-based reasoning layers over data. It enables deterministic query generation, better context retrieval, and more explainable AI for LLM and agent workflows.
+    链接: https://github.com/NVIDIA/auto-ontology
+
+#3  rails/rails
+    今日 +142 星 | 总星 59,029 | Fork 23,832 | Ruby
+    简介: Ruby on Rails
+    链接: https://github.com/rails/rails
+
+#4  mpv-player/mpv
+    今日 +37 星 | 总星 37,878 | Fork 3,632 | C
+    简介: 🎥 Command line media player
+    链接: https://github.com/mpv-player/mpv
+
+#5  rust-lang/rust
+    今日 +192 星 | 总星 121,457 | Fork 17,364 | Rust
+    简介: Empowering everyone to build reliable and efficient software.
+    链接: https://github.com/rust-lang/rust
+
+#6  react/react
+    今日 +248 星 | 总星 252,260 | Fork 51,811 | JavaScript
+    简介: The library for web and native user interfaces.
+    链接: https://github.com/react/react
+
+#7  angular/angular
+    今日 +135 星 | 总星 101,363 | Fork 28,911 | TypeScript
+    简介: Deliver web apps with confidence 🚀
+    链接: https://github.com/angular/angular
+
+#8  symfony/symfony
+    今日 +128 星 | 总星 31,433 | Fork 9,948 | PHP
+    简介: The Symfony PHP framework
+    链接: https://github.com/symfony/symfony
+
+#9  prometheus/prometheus
+    今日 +148 星 | 总星 67,187 | Fork 10,988 | Go
+    简介: The Prometheus monitoring system and time series database.
+    链接: https://github.com/prometheus/prometheus
+
+#10  google/skills
+    今日 +534 星 | 总星 22,844 | Fork 1,921 | Python
+    简介: Agent Skills for Google products and technologies
+    链接: https://github.com/google/skills
+
+#11  microsoft/vscode
+    今日 +301 星 | 总星 195,028 | Fork 44,425 | TypeScript
+    简介: Visual Studio Code
+    链接: https://github.com/microsoft/vscode
+
+#12  nushell/nushell
+    今日 +131 星 | 总星 40,988 | Fork 2,343 | Rust
+    简介: A new type of shell
+    链接: https://github.com/nushell/nushell
+
+#13  etcd-io/etcd
+    今日 +128 星 | 总星 52,616 | Fork 10,590 | Go
+    简介: Distributed reliable key-value store for the most critical data of a distributed system
+    链接: https://github.com/etcd-io/etcd
+
+#14  openssl/openssl
+    今日 +26 星 | 总星 31,295 | Fork 11,580 | C
+    简介: General purpose TLS and crypto library
+    链接: https://github.com/openssl/openssl
+
+#15  mattpocock/skills
+    今日 +2070 星 | 总星 316,737 | Fork 26,497 | Shell
+    简介: Skills for Real Engineers. Straight from my .agents directory.
+    链接: https://github.com/mattpocock/skills
+
+#16  cloudflare/security-audit-skill
+    今日 +2548 星 | 总星 64,054 | Fork 4,151 | JavaScript
+    简介: A coding-agent skill for multi-phase security audits with independently verified, machine-readable findings
+    链接: https://github.com/cloudflare/security-audit-skill
+
+#17  astral-sh/ruff
+    今日 +169 星 | 总星 50,697 | Fork 2,612 | Rust
+    简介: An extremely fast Python linter and code formatter, written in Rust.
+    链接: https://github.com/astral-sh/ruff
