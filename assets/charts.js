@@ -1,46 +1,46 @@
 (function () {
   // --- Chart 1: 今日全站最高赞评论 TOP 10 ---
   var topComments = [
-    {"name": "队友：", "value": 37365, "platform": "B站", "url": "https://www.bilibili.com/video/BV1zy4h6oEYg"},
-    {"name": "诡秘，你要的年上 病娇 无限流 副本[OK]", "value": 36812, "platform": "B站", "url": "https://www.bilibili.com/video/BV1LX4b6yEax"},
-    {"name": "iPhone paper", "value": 24000, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search"},
-    {"name": "人迟早从兜里掏出一台电视机", "value": 11000, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search"},
-    {"name": "iPhone Door", "value": 9802, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search"},
-    {"name": "堪萨斯上次翻蓝的时候红军还没开始长征呢", "value": 8256, "platform": "B站", "url": "https://www.bilibili.com/video/BV1ybxX6WEJK"},
-    {"name": "原来一边直角一边圆角就是Duo的D啊！", "value": 7608, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa313dc000000002b003caa?xsec_token=ABhkdwyqAEzNZFGz82SqksE1UMR3Eqww5nXJYcwrD2taE=&xsec_source=pc_search"},
-    {"name": "左下角这哥们都快绷成绷带了", "value": 6416, "platform": "B站", "url": "https://www.bilibili.com/video/BV1EWxd6sExz"},
-    {"name": "图纸在这里！可以自己印了玩～", "value": 5004, "platform": "B站", "url": "https://www.bilibili.com/video/BV1wN4Y6AEFH"},
-    {"name": "根本就没有这样的病娇。😭😭😭", "value": 4992, "platform": "B站", "url": "https://www.bilibili.com/video/BV1LX4b6yEax"}
+    {"name": "诡秘，你要的年上 病娇 无限流 副本[OK]", "value": 53658, "platform": "B站", "url": "https://www.bilibili.com/video/BV1LX4b6yEax"},
+    {"name": "补足缘汽，舒展筋骨。下一程，与同伴并肩！", "value": 29151, "platform": "B站", "url": "https://www.bilibili.com/video/BV1nm4g6NE71"},
+    {"name": "饮料好喝！爱酱也跟着一起做运动！", "value": 19319, "platform": "B站", "url": "https://www.bilibili.com/video/BV1nm4g6NE71"},
+    {"name": "挺好玩，勉强玩一玩吧[doge_金箍]", "value": 16154, "platform": "B站", "url": "https://www.bilibili.com/video/BV1ZVxf6ZENs"},
+    {"name": "老朋友们都加入了这场恢复色彩的魔术…… 「有些时候，颜色会暂时躲起来。没关系，它…", "value": 14116, "platform": "B站", "url": "https://www.bilibili.com/video/BV1Ly4i6AE5b"},
+    {"name": "＞𐋣＜种地时候来一瓶真是惬意呀~！", "value": 13891, "platform": "B站", "url": "https://www.bilibili.com/video/BV1nm4g6NE71"},
+    {"name": "堪萨斯上次翻蓝的时候红军还没开始长征呢", "value": 9407, "platform": "B站", "url": "https://www.bilibili.com/video/BV1ybxX6WEJK"},
+    {"name": "“我想在附近找一个很会刷鞋的鞋匠” “我想我就是了先生”[doge]", "value": 8525, "platform": "B站", "url": "https://www.bilibili.com/video/BV1NU4t6tERV"},
+    {"name": "爷爷:是让我把玩具剪开吗？是就握手。 狗狗:（🤝）", "value": 5469, "platform": "B站", "url": "https://www.bilibili.com/video/BV1v4456NEUw"},
+    {"name": "这样的我在b站上能随便看，真放到舞会上我瞟都不敢瞟", "value": 5447, "platform": "B站", "url": "https://www.bilibili.com/video/BV1Sp4b6PEyE"}
   ].reverse();
 
   // --- Chart 2: B站热门弹幕频次 TOP 12 ---
   var danmaku = [
-    {"name": "古人", "value": 1353},
-    {"name": "见证历史", "value": 712},
-    {"name": "恭喜", "value": 611},
-    {"name": "哦鲸鲸", "value": 541},
-    {"name": "吓哭了", "value": 460},
-    {"name": "哔哩哔哩(゜-゜)つロ乾杯~-bilibili", "value": 250},
-    {"name": "懂你意思", "value": 239},
-    {"name": "变得更强", "value": 194},
-    {"name": "冲一把", "value": 136},
-    {"name": "恭喜恭喜", "value": 117},
-    {"name": "哔哩哔哩(゜-゜)つロ干杯~-bilibili", "value": 115},
-    {"name": "战术性回头◣◥◣◥DRANGR◣◥◣◥高能预警◣…", "value": 99}
+    {"name": "古人", "value": 866},
+    {"name": "恭喜", "value": 749},
+    {"name": "愿此行，终抵群星", "value": 696},
+    {"name": "明年见", "value": 620},
+    {"name": "垂死病中惊坐起，阎王夸我好身体", "value": 603},
+    {"name": "生日快乐", "value": 565},
+    {"name": "礼鱼", "value": 369},
+    {"name": "哔哩哔哩(゜-゜)つロ乾杯~-bilibili", "value": 317},
+    {"name": "恭喜恭喜", "value": 256},
+    {"name": "kksk", "value": 207},
+    {"name": "变得更强", "value": 195},
+    {"name": "愿此行，终抵群星！", "value": 188}
   ].reverse();
 
   // --- Chart 3: GitHub Trending 今日新增星数 TOP 10 ---
   var ghTrending = [
-    {"name": "cloudflare/security-audit-skill", "value": 2548, "lang": "JavaScript", "total": "64,054"},
-    {"name": "mattpocock/skills", "value": 2070, "lang": "Shell", "total": "316,737"},
-    {"name": "NVIDIA/auto-ontology", "value": 2015, "lang": "Python", "total": "9,060"},
-    {"name": "google/skills", "value": 534, "lang": "Python", "total": "22,844"},
-    {"name": "zed-industries/zed", "value": 306, "lang": "Rust", "total": "93,644"},
-    {"name": "microsoft/vscode", "value": 301, "lang": "TypeScript", "total": "195,028"},
-    {"name": "react/react", "value": 248, "lang": "JavaScript", "total": "252,260"},
-    {"name": "rust-lang/rust", "value": 192, "lang": "Rust", "total": "121,457"},
-    {"name": "astral-sh/ruff", "value": 169, "lang": "Rust", "total": "50,697"},
-    {"name": "prometheus/prometheus", "value": 148, "lang": "Go", "total": "67,187"}
+    {"name": "cloudflare/security-audit-skill", "value": 2085, "lang": "JavaScript", "total": "65,948"},
+    {"name": "milind-soni/OpenMausBot", "value": 1955, "lang": "TypeScript", "total": "17,199"},
+    {"name": "sherlock-project/sherlock", "value": 1766, "lang": "Python", "total": "100,887"},
+    {"name": "zed-industries/zed", "value": 1114, "lang": "Rust", "total": "94,333"},
+    {"name": "mattpocock/skills", "value": 1100, "lang": "Shell", "total": "317,855"},
+    {"name": "google/skills", "value": 443, "lang": "Python", "total": "23,486"},
+    {"name": "anthropics/skills", "value": 390, "lang": "Python", "total": "188,896"},
+    {"name": "astral-sh/ruff", "value": 350, "lang": "Rust", "total": "51,013"},
+    {"name": "prometheus/prometheus", "value": 322, "lang": "Go", "total": "67,474"},
+    {"name": "ranxianglei/billion-context", "value": 191, "lang": "TypeScript", "total": "4,686"}
   ].reverse();
 
   var chart1 = null, chart2 = null, chart3 = null;
