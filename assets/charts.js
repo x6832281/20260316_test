@@ -1,45 +1,46 @@
 (function () {
   // --- Chart 1: 今日全站最高赞评论 TOP 10 ---
   var topComments = [
+    {"name": "力克强敌，突破自我！我们纽约决赛见！[BLG·2026锐意当鸣_对]", "value": 31363, "platform": "B站", "url": "https://www.bilibili.com/video/BV1kkWW6NEDW"},
     {"name": "iPhone paper", "value": 24000, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search"},
     {"name": "人迟早从兜里掏出一台电视机", "value": 11000, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search"},
+    {"name": "堪萨斯上次翻蓝的时候红军还没开始长征呢", "value": 10136, "platform": "B站", "url": "https://www.bilibili.com/video/BV1ybxX6WEJK"},
     {"name": "iPhone Door", "value": 9802, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search"},
-    {"name": "堪萨斯上次翻蓝的时候红军还没开始长征呢", "value": 9773, "platform": "B站", "url": "https://www.bilibili.com/video/BV1ybxX6WEJK"},
     {"name": "原来一边直角一边圆角就是Duo的D啊！", "value": 7608, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa313dc000000002b003caa?xsec_token=ABhkdwyqAEzNZFGz82SqksE1UMR3Eqww5nXJYcwrD2taE=&xsec_source=pc_search"},
-    {"name": "什么时候出这个开拓装扮，我是真想要", "value": 7515, "platform": "B站", "url": "https://www.bilibili.com/video/BV1tS4n6CEoJ"},
-    {"name": "这样的我在b站上能随便看，真放到舞会上我瞟都不敢瞟", "value": 5979, "platform": "B站", "url": "https://www.bilibili.com/video/BV1Sp4b6PEyE"},
-    {"name": "红绿灯：这把高端局", "value": 5214, "platform": "B站", "url": "https://www.bilibili.com/video/BV1tS4n6CEoJ"},
-    {"name": "把这个放到那个放到放到新疆吧，风干个两三天就变文物了", "value": 5115, "platform": "B站", "url": "https://www.bilibili.com/video/BV1so4E6cEGi"},
-    {"name": "其实这也证明了川普影响力还是很大的，因为投共和党的是因为他才投共和党，投民主党的…", "value": 4658, "platform": "B站", "url": "https://www.bilibili.com/video/BV1ybxX6WEJK"}
+    {"name": "灭烛见真火，忘剑得神兵", "value": 5752, "platform": "B站", "url": "https://www.bilibili.com/video/BV1TgWp6MEHJ"},
+    {"name": "其实这也证明了川普影响力还是很大的，因为投共和党的是因为他才投共和党，投民主党的…", "value": 4835, "platform": "B站", "url": "https://www.bilibili.com/video/BV1ybxX6WEJK"},
+    {"name": "我记得这个，这个是安徒生画的梵高星空[doge]", "value": 4754, "platform": "B站", "url": "https://www.bilibili.com/video/BV1LM4L6TE3V"},
+    {"name": "文俊 你的大招像是失去过什么", "value": 4179, "platform": "B站", "url": "https://www.bilibili.com/video/BV1TgWp6MEHJ"}
   ].reverse();
 
   // --- Chart 2: B站热门弹幕频次 TOP 12 ---
   var danmaku = [
-    {"name": "爷青回", "value": 769},
-    {"name": "明年见", "value": 617},
-    {"name": "生日快乐", "value": 546},
-    {"name": "恭喜", "value": 479},
-    {"name": "垂死病中惊坐起，阎王夸我好身体", "value": 463},
-    {"name": "哔哩哔哩(゜-゜)つロ乾杯~-bilibili", "value": 302},
-    {"name": "整段垮掉", "value": 283},
-    {"name": "懂你意思", "value": 224},
-    {"name": "吓哭了", "value": 213},
-    {"name": "变得更强", "value": 201},
-    {"name": "哔哩哔哩(゜-゜)つロ干杯~-bilibili", "value": 190},
-    {"name": "古人", "value": 181}
+    {"name": "屏蔽数字", "value": 2452},
+    {"name": "就在今天", "value": 712},
+    {"name": "爷青回", "value": 653},
+    {"name": "排面", "value": 566},
+    {"name": "恭迎天选之子回归！", "value": 543},
+    {"name": "就在今天！", "value": 540},
+    {"name": "生日快乐", "value": 540},
+    {"name": "阿一古", "value": 498},
+    {"name": "明年见", "value": 467},
+    {"name": "整段垮掉", "value": 456},
+    {"name": "垂死病中惊坐起，阎王夸我好身体", "value": 389},
+    {"name": "正义必胜", "value": 378}
   ].reverse();
 
   // --- Chart 3: GitHub Trending 今日新增星数 TOP 10 ---
   var ghTrending = [
-    {"name": "sherlock-project/sherlock", "value": 2373, "lang": "Python", "total": "103,614"},
-    {"name": "milind-soni/OpenMausBot", "value": 1439, "lang": "TypeScript", "total": "18,290"},
-    {"name": "meta/astryx", "value": 875, "lang": "TypeScript", "total": "16,864"},
-    {"name": "vercel-labs/agent-browser", "value": 815, "lang": "Rust", "total": "47,626"},
-    {"name": "anthropics/skills", "value": 792, "lang": "Python", "total": "189,673"},
-    {"name": "ranxianglei/billion-context", "value": 460, "lang": "TypeScript", "total": "5,179"},
-    {"name": "dsx-ai-factory/nvke", "value": 345, "lang": "Go", "total": "861"},
-    {"name": "google-deepmind/mujoco", "value": 41, "lang": "C++", "total": "16,433"},
-    {"name": "anthropics/claude-quickstarts", "value": 32, "lang": "Python", "total": "19,438"}
+    {"name": "sherlock-project/sherlock", "value": 4267, "lang": "Python", "total": "107,087"},
+    {"name": "meta/astryx", "value": 3278, "lang": "TypeScript", "total": "20,125"},
+    {"name": "milind-soni/OpenMausBot", "value": 1587, "lang": "TypeScript", "total": "19,702"},
+    {"name": "anthropics/skills", "value": 1038, "lang": "Python", "total": "191,007"},
+    {"name": "vercel-labs/agent-browser", "value": 916, "lang": "Rust", "total": "48,492"},
+    {"name": "google-deepmind/mujoco", "value": 574, "lang": "C++", "total": "16,921"},
+    {"name": "anthropics/claude-quickstarts", "value": 551, "lang": "Python", "total": "20,030"},
+    {"name": "ZhuLinsen/daily_stock_analysis", "value": 506, "lang": "Python", "total": "68,874"},
+    {"name": "garrytan/gbrain", "value": 216, "lang": "TypeScript", "total": "32,166"},
+    {"name": "ruvnet/RuView", "value": 172, "lang": "Rust", "total": "103,479"}
   ].reverse();
 
   var chart1 = null, chart2 = null, chart3 = null;
