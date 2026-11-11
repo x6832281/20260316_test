@@ -1,46 +1,46 @@
 (function () {
   // --- Chart 1: 今日全站最高赞评论 TOP 10 ---
   var topComments = [
-    {"name": "力克强敌，突破自我！我们纽约决赛见！[BLG·2026锐意当鸣_对]", "value": 31363, "platform": "B站", "url": "https://www.bilibili.com/video/BV1kkWW6NEDW"},
     {"name": "iPhone paper", "value": 24000, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search"},
     {"name": "人迟早从兜里掏出一台电视机", "value": 11000, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search"},
-    {"name": "堪萨斯上次翻蓝的时候红军还没开始长征呢", "value": 10136, "platform": "B站", "url": "https://www.bilibili.com/video/BV1ybxX6WEJK"},
     {"name": "iPhone Door", "value": 9802, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search"},
+    {"name": "二哥，好不容易抢到你的票，可是我的妈妈却在前几天不幸遭遇车祸去世。希望以后有机会…", "value": 9077, "platform": "B站", "url": "https://www.bilibili.com/video/BV1tBWt6WEVw"},
     {"name": "原来一边直角一边圆角就是Duo的D啊！", "value": 7608, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa313dc000000002b003caa?xsec_token=ABhkdwyqAEzNZFGz82SqksE1UMR3Eqww5nXJYcwrD2taE=&xsec_source=pc_search"},
-    {"name": "灭烛见真火，忘剑得神兵", "value": 5752, "platform": "B站", "url": "https://www.bilibili.com/video/BV1TgWp6MEHJ"},
-    {"name": "其实这也证明了川普影响力还是很大的，因为投共和党的是因为他才投共和党，投民主党的…", "value": 4835, "platform": "B站", "url": "https://www.bilibili.com/video/BV1ybxX6WEJK"},
-    {"name": "我记得这个，这个是安徒生画的梵高星空[doge]", "value": 4754, "platform": "B站", "url": "https://www.bilibili.com/video/BV1LM4L6TE3V"},
-    {"name": "文俊 你的大招像是失去过什么", "value": 4179, "platform": "B站", "url": "https://www.bilibili.com/video/BV1TgWp6MEHJ"}
+    {"name": "往年今日", "value": 3869, "platform": "B站", "url": "https://www.bilibili.com/video/BV1aYW86vEte"},
+    {"name": "主力机难道不是用来生活的吗？[汗颜R]我备用机里才有办公app", "value": 3669, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/68bc4d3b000000001d002244?xsec_token=ABn_i7G-eMUa4DSWmT7-_MrUthLxtsO9gJoiEekw1RbQY=&xsec_source=pc_search"},
+    {"name": "以身入局，胜天半子", "value": 3655, "platform": "B站", "url": "https://www.bilibili.com/video/BV1WEWs66EBP"},
+    {"name": "EDG建队至今所有夺冠成员全部离队，11年时间好快，特别充实。每个人都有他自己的…", "value": 3421, "platform": "B站", "url": "https://www.bilibili.com/video/BV1v8WT6uEJH"},
+    {"name": "", "value": 3202, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search"}
   ].reverse();
 
   // --- Chart 2: B站热门弹幕频次 TOP 12 ---
   var danmaku = [
-    {"name": "屏蔽数字", "value": 2452},
-    {"name": "就在今天", "value": 712},
-    {"name": "爷青回", "value": 653},
-    {"name": "排面", "value": 566},
-    {"name": "恭迎天选之子回归！", "value": 543},
-    {"name": "就在今天！", "value": 540},
-    {"name": "生日快乐", "value": 540},
-    {"name": "阿一古", "value": 498},
-    {"name": "明年见", "value": 467},
-    {"name": "整段垮掉", "value": 456},
-    {"name": "垂死病中惊坐起，阎王夸我好身体", "value": 389},
-    {"name": "正义必胜", "value": 378}
+    {"name": "一切顺利", "value": 829},
+    {"name": "莉莉不歪，玩到关服", "value": 332},
+    {"name": "懂你意思", "value": 229},
+    {"name": "还真是", "value": 211},
+    {"name": "s8shy", "value": 179},
+    {"name": "爱莉希雅，生日快乐！", "value": 64},
+    {"name": "我坐好了", "value": 61},
+    {"name": "吓哭了", "value": 56},
+    {"name": "谢谢", "value": 52},
+    {"name": "完结撒花", "value": 50},
+    {"name": "多少？", "value": 48},
+    {"name": "啊？", "value": 43}
   ].reverse();
 
   // --- Chart 3: GitHub Trending 今日新增星数 TOP 10 ---
   var ghTrending = [
-    {"name": "sherlock-project/sherlock", "value": 4267, "lang": "Python", "total": "107,087"},
-    {"name": "meta/astryx", "value": 3278, "lang": "TypeScript", "total": "20,125"},
-    {"name": "milind-soni/OpenMausBot", "value": 1587, "lang": "TypeScript", "total": "19,702"},
-    {"name": "anthropics/skills", "value": 1038, "lang": "Python", "total": "191,007"},
-    {"name": "vercel-labs/agent-browser", "value": 916, "lang": "Rust", "total": "48,492"},
-    {"name": "google-deepmind/mujoco", "value": 574, "lang": "C++", "total": "16,921"},
-    {"name": "anthropics/claude-quickstarts", "value": 551, "lang": "Python", "total": "20,030"},
-    {"name": "ZhuLinsen/daily_stock_analysis", "value": 506, "lang": "Python", "total": "68,874"},
-    {"name": "garrytan/gbrain", "value": 216, "lang": "TypeScript", "total": "32,166"},
-    {"name": "ruvnet/RuView", "value": 172, "lang": "Rust", "total": "103,479"}
+    {"name": "meta/astryx", "value": 3108, "lang": "TypeScript", "total": "22,898"},
+    {"name": "sherlock-project/sherlock", "value": 2393, "lang": "Python", "total": "109,008"},
+    {"name": "anthropics/skills", "value": 1679, "lang": "Python", "total": "192,354"},
+    {"name": "mattpocock/skills", "value": 1225, "lang": "Shell", "total": "320,952"},
+    {"name": "homeassistant-ai/ha-mcp", "value": 790, "lang": "Python", "total": "6,681"},
+    {"name": "vercel-labs/agent-browser", "value": 780, "lang": "Rust", "total": "49,231"},
+    {"name": "anthropics/claude-quickstarts", "value": 531, "lang": "Python", "total": "20,510"},
+    {"name": "addyosmani/agent-skills", "value": 465, "lang": "JavaScript", "total": "115,185"},
+    {"name": "google-deepmind/mujoco", "value": 456, "lang": "C++", "total": "17,371"},
+    {"name": "ranxianglei/billion-context", "value": 375, "lang": "TypeScript", "total": "6,325"}
   ].reverse();
 
   var chart1 = null, chart2 = null, chart3 = null;

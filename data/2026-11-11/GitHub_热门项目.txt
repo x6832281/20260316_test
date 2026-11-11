@@ -1,0 +1,64 @@
+﻿============================================================
+GitHub Trending 今日热门项目
+项目数: 12 | 生成时间: 2026-11-11 09:23:41
+============================================================
+
+#1  meta/astryx
+    今日 +3108 星 | 总星 22,898 | Fork 1,824 | TypeScript
+    简介: An open source design system that's fully customizable and agent ready
+    链接: https://github.com/meta/astryx
+
+#2  anthropics/skills
+    今日 +1679 星 | 总星 192,354 | Fork 22,649 | Python
+    简介: Public repository for Agent Skills
+    链接: https://github.com/anthropics/skills
+
+#3  addyosmani/agent-skills
+    今日 +465 星 | 总星 115,185 | Fork 12,096 | JavaScript
+    简介: Production-grade engineering skills for AI coding agents.
+    链接: https://github.com/addyosmani/agent-skills
+
+#4  anthropics/claude-quickstarts
+    今日 +531 星 | 总星 20,510 | Fork 3,470 | Python
+    简介: A collection of projects designed to help developers quickly get started with building deployable applications using the Claude API
+    链接: https://github.com/anthropics/claude-quickstarts
+
+#5  google-deepmind/mujoco
+    今日 +456 星 | 总星 17,371 | Fork 2,148 | C++
+    简介: Multi-Joint dynamics with Contact. A general purpose physics simulator.
+    链接: https://github.com/google-deepmind/mujoco
+
+#6  we-promise/sure
+    今日 +159 星 | 总星 11,978 | Fork 891 | Ruby
+    简介: The personal finance app for everyone (by everyone)
+    链接: https://github.com/we-promise/sure
+
+#7  homeassistant-ai/ha-mcp
+    今日 +790 星 | 总星 6,681 | Fork 432 | Python
+    简介: Configure and automate Home Assistant with Claude, ChatGPT, and other AI assistants.
+    链接: https://github.com/homeassistant-ai/ha-mcp
+
+#8  vercel-labs/agent-browser
+    今日 +780 星 | 总星 49,231 | Fork 3,451 | Rust
+    简介: Browser automation CLI for AI agents
+    链接: https://github.com/vercel-labs/agent-browser
+
+#9  sherlock-project/sherlock
+    今日 +2393 星 | 总星 109,008 | Fork 12,663 | Python
+    简介: Hunt down social media accounts by username across social networks
+    链接: https://github.com/sherlock-project/sherlock
+
+#10  tokio-rs/topcoat
+    今日 +192 星 | 总星 6,830 | Fork 301 | Rust
+    简介: A batteries-included framework for building web apps
+    链接: https://github.com/tokio-rs/topcoat
+
+#11  ranxianglei/billion-context
+    今日 +375 星 | 总星 6,325 | Fork 529 | TypeScript
+    简介: A context-compression plugin for month-long single sessions (billions of tokens) ,small context windows (a 100K context is enough) and token savings (5x fewer tokens) .上下文压缩插件，月级长会话会话， 兼顾小窗口(100k上下文足矣)省token(省5倍token) . billion-context is all you need
+    链接: https://github.com/ranxianglei/billion-context
+
+#12  mattpocock/skills
+    今日 +1225 星 | 总星 320,952 | Fork 26,908 | Shell
+    简介: Skills for Real Engineers. Straight from my .agents directory.
+    链接: https://github.com/mattpocock/skills
