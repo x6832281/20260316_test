@@ -1,46 +1,46 @@
 (function () {
   // --- Chart 1: 今日全站最高赞评论 TOP 10 ---
   var topComments = [
-    {"name": "iPhone paper", "value": 24000, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search"},
-    {"name": "人迟早从兜里掏出一台电视机", "value": 11000, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search"},
-    {"name": "iPhone Door", "value": 9802, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search"},
-    {"name": "二哥，好不容易抢到你的票，可是我的妈妈却在前几天不幸遭遇车祸去世。希望以后有机会…", "value": 9077, "platform": "B站", "url": "https://www.bilibili.com/video/BV1tBWt6WEVw"},
-    {"name": "原来一边直角一边圆角就是Duo的D啊！", "value": 7608, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa313dc000000002b003caa?xsec_token=ABhkdwyqAEzNZFGz82SqksE1UMR3Eqww5nXJYcwrD2taE=&xsec_source=pc_search"},
-    {"name": "往年今日", "value": 3869, "platform": "B站", "url": "https://www.bilibili.com/video/BV1aYW86vEte"},
-    {"name": "主力机难道不是用来生活的吗？[汗颜R]我备用机里才有办公app", "value": 3669, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/68bc4d3b000000001d002244?xsec_token=ABn_i7G-eMUa4DSWmT7-_MrUthLxtsO9gJoiEekw1RbQY=&xsec_source=pc_search"},
-    {"name": "以身入局，胜天半子", "value": 3655, "platform": "B站", "url": "https://www.bilibili.com/video/BV1WEWs66EBP"},
-    {"name": "EDG建队至今所有夺冠成员全部离队，11年时间好快，特别充实。每个人都有他自己的…", "value": 3421, "platform": "B站", "url": "https://www.bilibili.com/video/BV1v8WT6uEJH"},
-    {"name": "", "value": 3202, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/6aa4e98e000000000d0202b5?xsec_token=ABTjSL3REDb9gLErdcaNhNlQQ_Q5rog6QJBX6xkfMpojk=&xsec_source=pc_search"}
+    {"name": "就当我点进他主页准备大看特看时:", "value": 7069, "platform": "B站", "url": "https://www.bilibili.com/video/BV1wrWg6bE5E"},
+    {"name": "以身入局，胜天半子", "value": 4037, "platform": "B站", "url": "https://www.bilibili.com/video/BV1WEWs66EBP"},
+    {"name": "算力中心能建在居民区也是牛逼哄哄的", "value": 3936, "platform": "B站", "url": "https://www.bilibili.com/video/BV1WEWs66EBP"},
+    {"name": "可惜张师丢包了，要不然就让张师来出哮喘部长[笑哭]", "value": 3764, "platform": "B站", "url": "https://www.bilibili.com/video/BV1PKWj62ERK"},
+    {"name": "互封令使的来了，这和婚礼上互换戒指有什么区别，萤小妹蝶小妹昔小妹搁哪发财呢[笑哭…", "value": 3598, "platform": "B站", "url": "https://www.bilibili.com/video/BV1rnW16fE6v"},
+    {"name": "他们不会已经牵手了吧？[捂眼]", "value": 3348, "platform": "B站", "url": "https://www.bilibili.com/video/BV1rnW16fE6v"},
+    {"name": "太难绷了", "value": 2184, "platform": "B站", "url": "https://www.bilibili.com/video/BV1WEWs66EBP"},
+    {"name": "这个综艺尤其许飞相关的内容，给我搞的文学焦虑了[笑哭][笑哭][笑哭]我虽然不至…", "value": 1886, "platform": "B站", "url": "https://www.bilibili.com/video/BV1qAWb6TEXY"},
+    {"name": "盲猜一星期后。。。。[doge]", "value": 1789, "platform": "B站", "url": "https://www.bilibili.com/video/BV1QaWj6ZEyg"},
+    {"name": "我觉得良子没这么严重是因为良子不是一个瘦子迅速吃胖的，他是很多年时间里慢慢吃胖的…", "value": 1720, "platform": "B站", "url": "https://www.bilibili.com/video/BV1PDWT6REGU"}
   ].reverse();
 
   // --- Chart 2: B站热门弹幕频次 TOP 12 ---
   var danmaku = [
-    {"name": "一切顺利", "value": 829},
-    {"name": "莉莉不歪，玩到关服", "value": 332},
-    {"name": "懂你意思", "value": 229},
-    {"name": "还真是", "value": 211},
-    {"name": "s8shy", "value": 179},
-    {"name": "爱莉希雅，生日快乐！", "value": 64},
-    {"name": "我坐好了", "value": 61},
-    {"name": "吓哭了", "value": 56},
-    {"name": "谢谢", "value": 52},
-    {"name": "完结撒花", "value": 50},
-    {"name": "多少？", "value": 48},
-    {"name": "啊？", "value": 43}
+    {"name": "屏蔽数字", "value": 2158},
+    {"name": "就在今天", "value": 934},
+    {"name": "出必还愿", "value": 757},
+    {"name": "就在今天！", "value": 608},
+    {"name": "可爱捏", "value": 541},
+    {"name": "正义必胜", "value": 442},
+    {"name": "还真是", "value": 425},
+    {"name": "文明", "value": 139},
+    {"name": "吓哭了", "value": 93},
+    {"name": "接接接", "value": 93},
+    {"name": "阿一古", "value": 58},
+    {"name": "举手", "value": 55}
   ].reverse();
 
   // --- Chart 3: GitHub Trending 今日新增星数 TOP 10 ---
   var ghTrending = [
-    {"name": "meta/astryx", "value": 3108, "lang": "TypeScript", "total": "22,898"},
-    {"name": "sherlock-project/sherlock", "value": 2393, "lang": "Python", "total": "109,008"},
-    {"name": "anthropics/skills", "value": 1679, "lang": "Python", "total": "192,354"},
-    {"name": "mattpocock/skills", "value": 1225, "lang": "Shell", "total": "320,952"},
-    {"name": "homeassistant-ai/ha-mcp", "value": 790, "lang": "Python", "total": "6,681"},
-    {"name": "vercel-labs/agent-browser", "value": 780, "lang": "Rust", "total": "49,231"},
-    {"name": "anthropics/claude-quickstarts", "value": 531, "lang": "Python", "total": "20,510"},
-    {"name": "addyosmani/agent-skills", "value": 465, "lang": "JavaScript", "total": "115,185"},
-    {"name": "google-deepmind/mujoco", "value": 456, "lang": "C++", "total": "17,371"},
-    {"name": "ranxianglei/billion-context", "value": 375, "lang": "TypeScript", "total": "6,325"}
+    {"name": "meta/astryx", "value": 2776, "lang": "TypeScript", "total": "25,372"},
+    {"name": "we-promise/sure", "value": 1078, "lang": "Ruby", "total": "13,122"},
+    {"name": "addyosmani/agent-skills", "value": 787, "lang": "JavaScript", "total": "116,087"},
+    {"name": "vercel-labs/agent-browser", "value": 708, "lang": "Rust", "total": "50,003"},
+    {"name": "homeassistant-ai/ha-mcp", "value": 645, "lang": "Python", "total": "7,481"},
+    {"name": "shadcn/improve", "value": 361, "lang": "—", "total": "11,086"},
+    {"name": "ZhuLinsen/daily_stock_analysis", "value": 278, "lang": "Python", "total": "70,535"},
+    {"name": "GoogleChrome/modern-web-guidance-src", "value": 159, "lang": "TypeScript", "total": "1,939"},
+    {"name": "openai/codex-security", "value": 52, "lang": "TypeScript", "total": "11,882"},
+    {"name": "TheAlgorithms/Java", "value": 51, "lang": "Java", "total": "67,106"}
   ].reverse();
 
   var chart1 = null, chart2 = null, chart3 = null;

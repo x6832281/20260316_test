@@ -1,0 +1,53 @@
+﻿============================================================
+GitHub Trending 今日热门项目
+项目数: 10 | 生成时间: 2026-11-12 13:19:31
+============================================================
+
+#1  meta/astryx
+    今日 +2776 星 | 总星 25,372 | Fork 1,977 | TypeScript
+    简介: An open source design system that's fully customizable and agent ready
+    链接: https://github.com/meta/astryx
+
+#2  ZhuLinsen/daily_stock_analysis
+    今日 +278 星 | 总星 70,535 | Fork 56,948 | Python
+    简介: LLM 驱动的多市场股票智能分析系统：多源行情、实时新闻、决策看板与自动推送，支持零成本定时运行。 LLM-powered multi-market stock analysis system with multi-source market data, real-time news, decision dashboard, automated notifications, and cost-free scheduled runs.
+    链接: https://github.com/ZhuLinsen/daily_stock_analysis
+
+#3  GoogleChrome/modern-web-guidance-src
+    今日 +159 星 | 总星 1,939 | Fork 148 | TypeScript
+    链接: https://github.com/GoogleChrome/modern-web-guidance-src
+
+#4  shadcn/improve
+    今日 +361 星 | 总星 11,086 | Fork 451
+    简介: Use your most capable model to audit your codebase and write plans for cheaper models to execute.
+    链接: https://github.com/shadcn/improve
+
+#5  addyosmani/agent-skills
+    今日 +787 星 | 总星 116,087 | Fork 12,170 | JavaScript
+    简介: Production-grade engineering skills for AI coding agents.
+    链接: https://github.com/addyosmani/agent-skills
+
+#6  vercel-labs/agent-browser
+    今日 +708 星 | 总星 50,003 | Fork 3,493 | Rust
+    简介: Browser automation CLI for AI agents
+    链接: https://github.com/vercel-labs/agent-browser
+
+#7  we-promise/sure
+    今日 +1078 星 | 总星 13,122 | Fork 965 | Ruby
+    简介: The personal finance app for everyone (by everyone)
+    链接: https://github.com/we-promise/sure
+
+#8  homeassistant-ai/ha-mcp
+    今日 +645 星 | 总星 7,481 | Fork 456 | Python
+    简介: Configure and automate Home Assistant with Claude, ChatGPT, and other AI assistants.
+    链接: https://github.com/homeassistant-ai/ha-mcp
+
+#9  openai/codex-security
+    今日 +52 星 | 总星 11,882 | Fork 946 | TypeScript
+    简介: OpenAI's Codex Security CLI and TypeScript SDK for finding, validating, and fixing security vulnerabilities. npm: https://www.npmjs.com/package/@openai/codex-security
+    链接: https://github.com/openai/codex-security
+
+#10  TheAlgorithms/Java
+    今日 +51 星 | 总星 67,106 | Fork 21,516 | Java
+    简介: All Algorithms implemented in Java
+    链接: https://github.com/TheAlgorithms/Java
