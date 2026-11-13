@@ -1,0 +1,302 @@
+﻿============================================================
+小红书高赞评论日报
+数据文件: search_comments_2026-11-12.jsonl
+笔记文件: search_contents_2026-11-12.jsonl
+评论总数: 1841 (去重后入选 53 条, 最低 50 赞)
+生成时间: 2026-11-13 09:11:05
+============================================================
+
+关键词分布: 手机(53条)
+
+#1  [3698 赞]  卡***拉  2025-09-07 09:17
+    主力机难道不是用来生活的吗？[汗颜R]我备用机里才有办公app
+    ↳ 笔记: 终于理解为啥越来越多人使用两台手机了 (笔记点赞 8253)
+    ↳ 回复数: 26
+    ↳ 链接: https://www.xiaohongshu.com/explore/68bc4d3b000000001d002244?xsec_token=ABn_i7G-eMUa4DSWmT7-_MrVERnJshL7V2YJQeMqATVPE=&xsec_source=pc_search
+
+#2  [1871 赞]  m***o  2026-10-10 13:35
+    旧款同时涨价[doge]
+    ↳ 笔记: 手机全面涨价 一切都回不去了 (笔记点赞 1.5万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6ac85d7200000000180284cc?xsec_token=ABFeAyBEhDhCF3BpwK5LL4PTML4g3XqGdZ_AQew1WUyYU=&xsec_source=pc_search
+
+#3  [1717 赞]  巨***霸  2026-01-28 21:20
+    明明是所有最好用的手机！
+    ↳ 笔记: 我集齐了苹果所有难用的手机 (笔记点赞 9186)
+    ↳ 回复数: 27
+    ↳ 链接: https://www.xiaohongshu.com/explore/6979ef2d000000000d009e62?xsec_token=ABmLpBTsPA0X1U-Tk37owxo4RDx_wuzsm5WLcJOs0D2TQ=&xsec_source=pc_search
+
+#4  [1556 赞]  阿***拉  2026-01-28 21:06
+    我的5C在这里，不要说我没有了[doge]
+    ↳ 笔记: 我集齐了苹果所有难用的手机 (笔记点赞 9186)
+    ↳ 回复数: 42
+    ↳ 链接: https://www.xiaohongshu.com/explore/6979ef2d000000000d009e62?xsec_token=ABmLpBTsPA0X1U-Tk37owxo4RDx_wuzsm5WLcJOs0D2TQ=&xsec_source=pc_search
+
+#5  [958 赞]  林*  2026-09-16 23:32
+    好久没有这么从头到尾看一个完整的视频了，真的能感受到处处都有用心在做
+    ↳ 笔记: 一镜到底。iPhone 18 Pro首发体验 (笔记点赞 3.8万)
+    ↳ 回复数: 5
+    ↳ 链接: https://www.xiaohongshu.com/explore/6aaa8bd8000000002b011713?xsec_token=ABs8hP3a6CwLG6aBqn3k9kW_B7CtvrN6EZ2v7zZ83qJSw=&xsec_source=pc_search
+
+#6  [879 赞]  夏***空  2026-10-10 07:19
+    说实话还不如买前一两代的二手旗舰。
+    ↳ 笔记: 手机全面涨价 一切都回不去了 (笔记点赞 1.5万)
+    ↳ 回复数: 37
+    ↳ 链接: https://www.xiaohongshu.com/explore/6ac85d7200000000180284cc?xsec_token=ABFeAyBEhDhCF3BpwK5LL4PTML4g3XqGdZ_AQew1WUyYU=&xsec_source=pc_search
+
+#7  [685 赞]  A***7  2026-01-28 21:33
+    明明是所有最好用的手机！
+    ↳ 笔记: 我集齐了苹果所有难用的手机 (笔记点赞 9186)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6979ef2d000000000d009e62?xsec_token=ABmLpBTsPA0X1U-Tk37owxo4RDx_wuzsm5WLcJOs0D2TQ=&xsec_source=pc_search
+
+#8  [673 赞]  D***s  2026-10-23 04:22
+    双持永远是安卓折叠+苹果才是最完美，微信平板模式太重要。
+    ↳ 笔记: 2026年最爽双持手机 (笔记点赞 7943)
+    ↳ 回复数: 50
+    ↳ 链接: https://www.xiaohongshu.com/explore/6ad9a2ad000000002c0222ac?xsec_token=ABOUlenQtzRyC-rLSM6Mpzd_T7AvM-7N7gNKkWbvfCTAE=&xsec_source=pc_search
+
+#9  [632 赞]  唔***我  2025-09-07 14:16
+    这是主备用颠倒的用法...
+    ↳ 笔记: 终于理解为啥越来越多人使用两台手机了 (笔记点赞 8253)
+    ↳ 回复数: 0
+    ↳ 链接: https://www.xiaohongshu.com/explore/68bc4d3b000000001d002244?xsec_token=ABn_i7G-eMUa4DSWmT7-_MrVERnJshL7V2YJQeMqATVPE=&xsec_source=pc_search
+
+#10  [490 赞]  j***e  2025-09-06 11:16
+    带出去会觉得尴尬吗，有点社恐[哭惹R]
+    ↳ 笔记: 250r入手的超Q小手机后续 (笔记点赞 3.5万)
+    ↳ 回复数: 21
+    ↳ 链接: https://www.xiaohongshu.com/explore/68ba75d8000000001d024347?xsec_token=AB1rJie-T1KQS_-gesMM2hCZJOg2famrgLzoR6F4wVkqk=&xsec_source=pc_search
+
+#11  [478 赞]  寄***喔  2025-09-05 13:38
+    
+    ↳ 笔记: 250r入手的超Q小手机后续 (笔记点赞 3.5万)
+    ↳ 回复数: 12
+    ↳ 链接: https://www.xiaohongshu.com/explore/68ba75d8000000001d024347?xsec_token=AB1rJie-T1KQS_-gesMM2hCZJOg2famrgLzoR6F4wVkqk=&xsec_source=pc_search
+
+#12  [449 赞]  M***e  2025-09-06 12:54
+    备用机无所谓吧[吧唧R]
+    ↳ 笔记: 250r入手的超Q小手机后续 (笔记点赞 3.5万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/68ba75d8000000001d024347?xsec_token=AB1rJie-T1KQS_-gesMM2hCZJOg2famrgLzoR6F4wVkqk=&xsec_source=pc_search
+
+#13  [408 赞]  面***人  2026-10-10 10:02
+    旧款已经跟涨了
+    ↳ 笔记: 手机全面涨价 一切都回不去了 (笔记点赞 1.5万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6ac85d7200000000180284cc?xsec_token=ABFeAyBEhDhCF3BpwK5LL4PTML4g3XqGdZ_AQew1WUyYU=&xsec_source=pc_search
+
+#14  [382 赞]  尘*  2026-10-14 10:45
+    这是手机价格正常时候的样子，不管是因为ai公司抢产能也罢，手机厂商趁机乱涨价也罢，大家不要被当韭菜割了，ai公司的产品大多数也是要大家在智能终端上去消费的，智能终端不好卖了它们又能好到哪去，市场总是能自我调节的，在此之前守好自己的钱包。
+    ↳ 笔记: 手机全面涨价 一切都回不去了 (笔记点赞 1.5万)
+    ↳ 回复数: 19
+    ↳ 链接: https://www.xiaohongshu.com/explore/6ac85d7200000000180284cc?xsec_token=ABFeAyBEhDhCF3BpwK5LL4PTML4g3XqGdZ_AQew1WUyYU=&xsec_source=pc_search
+
+#15  [324 赞]  蛋***士  2026-10-14 14:42
+    要不诺基亚 黑莓时代的手机卷土重来吧，现在人冲浪如此上瘾，怀念手机功能简约的时代[捂脸R]
+    ↳ 笔记: 手机全面涨价 一切都回不去了 (笔记点赞 1.5万)
+    ↳ 回复数: 14
+    ↳ 链接: https://www.xiaohongshu.com/explore/6ac85d7200000000180284cc?xsec_token=ABFeAyBEhDhCF3BpwK5LL4PTML4g3XqGdZ_AQew1WUyYU=&xsec_source=pc_search
+
+#16  [318 赞]  珊***逸  2026-09-25 07:01
+    可以说是目前看过的最好的iPhone18Pro的评测视频了，看得出来博主及其团队制作的用心程度，比那种千篇一律干讲参数、干聊对比的评测有趣多了
+    ↳ 笔记: 一镜到底。iPhone 18 Pro首发体验 (笔记点赞 3.8万)
+    ↳ 回复数: 2
+    ↳ 链接: https://www.xiaohongshu.com/explore/6aaa8bd8000000002b011713?xsec_token=ABs8hP3a6CwLG6aBqn3k9kW_B7CtvrN6EZ2v7zZ83qJSw=&xsec_source=pc_search
+
+#17  [301 赞]  小*  2026-01-28 21:25
+    
+    ↳ 笔记: 我集齐了苹果所有难用的手机 (笔记点赞 9186)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6979ef2d000000000d009e62?xsec_token=ABmLpBTsPA0X1U-Tk37owxo4RDx_wuzsm5WLcJOs0D2TQ=&xsec_source=pc_search
+
+#18  [292 赞]  百***虫  2025-09-06 18:06
+    这么可爱，我会瞄几眼
+    ↳ 笔记: 250r入手的超Q小手机后续 (笔记点赞 3.5万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/68ba75d8000000001d024347?xsec_token=AB1rJie-T1KQS_-gesMM2hCZJOg2famrgLzoR6F4wVkqk=&xsec_source=pc_search
+
+#19  [280 赞]  饿***儿  2025-09-07 02:05
+    现在的孩子很难避开电子设备，应该从小就培养和电子设备共处、控制自己的能力。只是一味的断绝手机有点因噎废食的感觉（仅是我的观点，其实我也不知道哪个才是对的。
+    ↳ 笔记: 14岁初三女儿 关于手机的内心独白 (笔记点赞 1.7万)
+    ↳ 回复数: 21
+    ↳ 链接: https://www.xiaohongshu.com/explore/68b17c7e000000001c03679a?xsec_token=ABL2eA2RNwXkvFcOynx6Hg2oYofSdlbz2FsYcpzK0qXYo=&xsec_source=pc_search
+
+#20  [268 赞]  头***仓  2025-09-07 16:27
+    根本不会上瘾[笑哭R]就是无聊会玩，亲身经历，打游戏也不会
+    ↳ 笔记: 14岁初三女儿 关于手机的内心独白 (笔记点赞 1.7万)
+    ↳ 回复数: 19
+    ↳ 链接: https://www.xiaohongshu.com/explore/68b17c7e000000001c03679a?xsec_token=ABL2eA2RNwXkvFcOynx6Hg2oYofSdlbz2FsYcpzK0qXYo=&xsec_source=pc_search
+
+#21  [229 赞]  百***乐  2026-09-16 22:19
+    听到信号这个点，在犹豫要不要退货了
+    ↳ 笔记: 一镜到底。iPhone 18 Pro首发体验 (笔记点赞 3.8万)
+    ↳ 回复数: 12
+    ↳ 链接: https://www.xiaohongshu.com/explore/6aaa8bd8000000002b011713?xsec_token=ABs8hP3a6CwLG6aBqn3k9kW_B7CtvrN6EZ2v7zZ83qJSw=&xsec_source=pc_search
+
+#22  [214 赞]  m***o  2026-10-14 09:51
+    [doge]涨的时候猛涨一下，降的时候一点点降，跟油价一样
+    ↳ 笔记: 手机全面涨价 一切都回不去了 (笔记点赞 1.5万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6ac85d7200000000180284cc?xsec_token=ABFeAyBEhDhCF3BpwK5LL4PTML4g3XqGdZ_AQew1WUyYU=&xsec_source=pc_search
+
+#23  [169 赞]  E***🏰  2025-09-09 07:15
+    下班了就静音，哥哥，估计你是世界有名的私企，否则下班就失联只会发生在电视剧里
+    ↳ 笔记: 终于理解为啥越来越多人使用两台手机了 (笔记点赞 8253)
+    ↳ 回复数: 5
+    ↳ 链接: https://www.xiaohongshu.com/explore/68bc4d3b000000001d002244?xsec_token=ABn_i7G-eMUa4DSWmT7-_MrVERnJshL7V2YJQeMqATVPE=&xsec_source=pc_search
+
+#24  [149 赞]  划***划  2025-09-03 20:01
+    大人都控制不住自己何况学生
+    ↳ 笔记: 14岁初三女儿 关于手机的内心独白 (笔记点赞 1.7万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/68b17c7e000000001c03679a?xsec_token=ABL2eA2RNwXkvFcOynx6Hg2oYofSdlbz2FsYcpzK0qXYo=&xsec_source=pc_search
+
+#25  [146 赞]  忘***草  2026-10-13 22:40
+    不是因为手机里有AI才导致手机涨价，是AI厂商建机房需要存储导致这边存储涨价
+    ↳ 笔记: 手机全面涨价 一切都回不去了 (笔记点赞 1.5万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6ac85d7200000000180284cc?xsec_token=ABFeAyBEhDhCF3BpwK5LL4PTML4g3XqGdZ_AQew1WUyYU=&xsec_source=pc_search
+
+#26  [139 赞]  白***白  2026-01-30 21:42
+    ？！0%
+    ↳ 笔记: 我集齐了苹果所有难用的手机 (笔记点赞 9186)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6979ef2d000000000d009e62?xsec_token=ABmLpBTsPA0X1U-Tk37owxo4RDx_wuzsm5WLcJOs0D2TQ=&xsec_source=pc_search
+
+#27  [138 赞]  雾*  2026-10-14 13:33
+    一天两充，那你是很轻度了[笑哭R]
+    ↳ 笔记: 手机全面涨价 一切都回不去了 (笔记点赞 1.5万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6ac85d7200000000180284cc?xsec_token=ABFeAyBEhDhCF3BpwK5LL4PTML4g3XqGdZ_AQew1WUyYU=&xsec_source=pc_search
+
+#28  [121 赞]  糯***子  2026-10-14 14:45
+    还省流量[笑哭R]
+    ↳ 笔记: 手机全面涨价 一切都回不去了 (笔记点赞 1.5万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6ac85d7200000000180284cc?xsec_token=ABFeAyBEhDhCF3BpwK5LL4PTML4g3XqGdZ_AQew1WUyYU=&xsec_source=pc_search
+
+#29  [101 赞]  阿***拉  2026-01-28 20:57
+    我喜欢它很轻很薄，很独特，但讨厌它屏幕太大
+    ↳ 笔记: 我集齐了苹果所有难用的手机 (笔记点赞 9186)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6979ef2d000000000d009e62?xsec_token=ABmLpBTsPA0X1U-Tk37owxo4RDx_wuzsm5WLcJOs0D2TQ=&xsec_source=pc_search
+
+#30  [97 赞]  小***5  2026-10-14 13:18
+    实在不行买回百元诺基亚，下班谁他么也别想打扰
+    ↳ 笔记: 手机全面涨价 一切都回不去了 (笔记点赞 1.5万)
+    ↳ 回复数: 4
+    ↳ 链接: https://www.xiaohongshu.com/explore/6ac85d7200000000180284cc?xsec_token=ABFeAyBEhDhCF3BpwK5LL4PTML4g3XqGdZ_AQew1WUyYU=&xsec_source=pc_search
+
+#31  [97 赞]  浪***至  2025-09-07 12:33
+    本末倒置了[坏笑R]生活娱乐才是主力，工作只配备用🐔
+    ↳ 笔记: 终于理解为啥越来越多人使用两台手机了 (笔记点赞 8253)
+    ↳ 回复数: 1
+    ↳ 链接: https://www.xiaohongshu.com/explore/68bc4d3b000000001d002244?xsec_token=ABn_i7G-eMUa4DSWmT7-_MrVERnJshL7V2YJQeMqATVPE=&xsec_source=pc_search
+
+#32  [97 赞]  用***销  2026-06-21 17:42
+    这些手机加起来可以买一套房子，[doge]
+    ↳ 笔记: iPhone·收藏每一代 (笔记点赞 7808)
+    ↳ 回复数: 17
+    ↳ 链接: https://www.xiaohongshu.com/explore/6a379ac9000000001102c036?xsec_token=ABBcpI0sM7M0Pz3Rx8PQv3N7T6YUTs7HRPEv559--gbmk=&xsec_source=pc_search
+
+#33  [86 赞]  b***r  2026-10-14 15:39
+    第一是不到1600，第二，他说的是正常时候的样子，不是现在[微笑R]
+    ↳ 笔记: 手机全面涨价 一切都回不去了 (笔记点赞 1.5万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6ac85d7200000000180284cc?xsec_token=ABFeAyBEhDhCF3BpwK5LL4PTML4g3XqGdZ_AQew1WUyYU=&xsec_source=pc_search
+
+#34  [86 赞]  雪***稚  2026-10-13 20:56
+    中端机跟着高端机涨价不现实 因为它们目标用户收入差距太多了  手机涨价 用户工资不涨 一款新手机生产量都是固定的 没人买单 明年只能清库存 否则新型号更卖不动 [捂脸R]
+    ↳ 笔记: 手机全面涨价 一切都回不去了 (笔记点赞 1.5万)
+    ↳ 回复数: 8
+    ↳ 链接: https://www.xiaohongshu.com/explore/6ac85d7200000000180284cc?xsec_token=ABFeAyBEhDhCF3BpwK5LL4PTML4g3XqGdZ_AQew1WUyYU=&xsec_source=pc_search
+
+#35  [85 赞]  无***生  2026-10-14 09:27
+    基础芯片科技含量没那么高，完全可以扩充产能，无非就是厂家要攫取超额利润，不肯扩产而已
+    ↳ 笔记: 手机全面涨价 一切都回不去了 (笔记点赞 1.5万)
+    ↳ 回复数: 1
+    ↳ 链接: https://www.xiaohongshu.com/explore/6ac85d7200000000180284cc?xsec_token=ABFeAyBEhDhCF3BpwK5LL4PTML4g3XqGdZ_AQew1WUyYU=&xsec_source=pc_search
+
+#36  [81 赞]  阿***1  2026-10-14 08:29
+    高中毕业一千多买的oppo二手机，大学毕业了还在用[笑哭R]
+    ↳ 笔记: 手机全面涨价 一切都回不去了 (笔记点赞 1.5万)
+    ↳ 回复数: 37
+    ↳ 链接: https://www.xiaohongshu.com/explore/6ac85d7200000000180284cc?xsec_token=ABFeAyBEhDhCF3BpwK5LL4PTML4g3XqGdZ_AQew1WUyYU=&xsec_source=pc_search
+
+#37  [79 赞]  岁***觉  2026-09-16 23:03
+    但是看到散热跟电池又犹豫了
+    ↳ 笔记: 一镜到底。iPhone 18 Pro首发体验 (笔记点赞 3.8万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6aaa8bd8000000002b011713?xsec_token=ABs8hP3a6CwLG6aBqn3k9kW_B7CtvrN6EZ2v7zZ83qJSw=&xsec_source=pc_search
+
+#38  [78 赞]  m***o  2026-10-14 05:38
+    丧事喜办不就行了，中端机改名高端机，高端改名超高端
+    ↳ 笔记: 手机全面涨价 一切都回不去了 (笔记点赞 1.5万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6ac85d7200000000180284cc?xsec_token=ABFeAyBEhDhCF3BpwK5LL4PTML4g3XqGdZ_AQew1WUyYU=&xsec_source=pc_search
+
+#39  [77 赞]  柚***糕  2025-10-31 22:57
+    我初中，已经习惯手机了不会影响学习啊，我很早就有手机了[汗颜R]
+    ↳ 笔记: 14岁初三女儿 关于手机的内心独白 (笔记点赞 1.7万)
+    ↳ 回复数: 8
+    ↳ 链接: https://www.xiaohongshu.com/explore/68b17c7e000000001c03679a?xsec_token=ABL2eA2RNwXkvFcOynx6Hg2oYofSdlbz2FsYcpzK0qXYo=&xsec_source=pc_search
+
+#40  [76 赞]  阳***春  2026-10-23 06:25
+    点了，我就是三星大折叠加苹果16P[派对R]
+    ↳ 笔记: 2026年最爽双持手机 (笔记点赞 7943)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6ad9a2ad000000002c0222ac?xsec_token=ABOUlenQtzRyC-rLSM6Mpzd_T7AvM-7N7gNKkWbvfCTAE=&xsec_source=pc_search
+
+#41  [73 赞]  千***音  2026-10-13 20:35
+    二手也在张，唯一没涨的是回收价，可想而知二手市场的暴利
+    ↳ 笔记: 手机全面涨价 一切都回不去了 (笔记点赞 1.5万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6ac85d7200000000180284cc?xsec_token=ABFeAyBEhDhCF3BpwK5LL4PTML4g3XqGdZ_AQew1WUyYU=&xsec_source=pc_search
+
+#42  [68 赞]  n***o  2025-09-05 17:21
+    会不会融不进同龄人话题
+    ↳ 笔记: 14岁初三女儿 关于手机的内心独白 (笔记点赞 1.7万)
+    ↳ 回复数: 29
+    ↳ 链接: https://www.xiaohongshu.com/explore/68b17c7e000000001c03679a?xsec_token=ABL2eA2RNwXkvFcOynx6Hg2oYofSdlbz2FsYcpzK0qXYo=&xsec_source=pc_search
+
+#43  [63 赞]  有*  2026-10-14 13:15
+    使劲涨，我能承受它一天两充电
+    ↳ 笔记: 手机全面涨价 一切都回不去了 (笔记点赞 1.5万)
+    ↳ 回复数: 10
+    ↳ 链接: https://www.xiaohongshu.com/explore/6ac85d7200000000180284cc?xsec_token=ABFeAyBEhDhCF3BpwK5LL4PTML4g3XqGdZ_AQew1WUyYU=&xsec_source=pc_search
+
+#44  [60 赞]  快***完  2025-09-05 20:29
+    应该会吧 就像大人也会
+    ↳ 笔记: 14岁初三女儿 关于手机的内心独白 (笔记点赞 1.7万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/68b17c7e000000001c03679a?xsec_token=ABL2eA2RNwXkvFcOynx6Hg2oYofSdlbz2FsYcpzK0qXYo=&xsec_source=pc_search
+
+#45  [57 赞]  9***i  2026-09-16 21:27
+    你要看更小灵动岛的原因，是因为他的点光摄像头做成了屏下且不影响你实际体验。说明再过一段时间的迭代或者就是20周年的iphone就可以做到几乎不影响使用的屏下前置摄像头了。
+    ↳ 笔记: 一镜到底。iPhone 18 Pro首发体验 (笔记点赞 3.8万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6aaa8bd8000000002b011713?xsec_token=ABs8hP3a6CwLG6aBqn3k9kW_B7CtvrN6EZ2v7zZ83qJSw=&xsec_source=pc_search
+
+#46  [56 赞]  M***🙊  2026-09-16 23:25
+    我怎么感觉这次iPhone18Pro好无聊，并没有什么突破升级
+    ↳ 笔记: 一镜到底。iPhone 18 Pro首发体验 (笔记点赞 3.8万)
+    ↳ 回复数: 6
+    ↳ 链接: https://www.xiaohongshu.com/explore/6aaa8bd8000000002b011713?xsec_token=ABs8hP3a6CwLG6aBqn3k9kW_B7CtvrN6EZ2v7zZ83qJSw=&xsec_source=pc_search
+
+#47  [54 赞]  m***o  2026-10-14 08:32
+    好能熬啊 不会卡顿和内存不足吗 我的内存每次都是很容易就满了 删来删去都不够[笑哭R]
+    ↳ 笔记: 手机全面涨价 一切都回不去了 (笔记点赞 1.5万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6ac85d7200000000180284cc?xsec_token=ABFeAyBEhDhCF3BpwK5LL4PTML4g3XqGdZ_AQew1WUyYU=&xsec_source=pc_search
+
+#48  [54 赞]  蒙***脚  2026-01-29 00:08
+    圆润，温润，特别润。厚实，贴手，拍照片色彩还原好。
+    ↳ 笔记: 我集齐了苹果所有难用的手机 (笔记点赞 9186)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6979ef2d000000000d009e62?xsec_token=ABmLpBTsPA0X1U-Tk37owxo4RDx_wuzsm5WLcJOs0D2TQ=&xsec_source=pc_search
+
+#49  [53 赞]  Q***&  2025-09-07 11:41
+    我也觉得有点，这个手机适合当备用机，出门还是主机好
+    ↳ 笔记: 250r入手的超Q小手机后续 (笔记点赞 3.5万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/68ba75d8000000001d024347?xsec_token=AB1rJie-T1KQS_-gesMM2hCZJOg2famrgLzoR6F4wVkqk=&xsec_source=pc_search
+
+#50  [52 赞]  小*  2026-01-30 23:29
+    13mini 超級好用！！！！我支持mini 統治世界
+    ↳ 笔记: 我集齐了苹果所有难用的手机 (笔记点赞 9186)
+    ↳ 回复数: 10
+    ↳ 链接: https://www.xiaohongshu.com/explore/6979ef2d000000000d009e62?xsec_token=ABmLpBTsPA0X1U-Tk37owxo4RDx_wuzsm5WLcJOs0D2TQ=&xsec_source=pc_search
+
+#51  [52 赞]  很***痕  2026-10-23 07:49
+    平板模式就像用平板登录微信，登同一个号且不会掉线。
+    ↳ 笔记: 2026年最爽双持手机 (笔记点赞 7943)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6ad9a2ad000000002c0222ac?xsec_token=ABOUlenQtzRyC-rLSM6Mpzd_T7AvM-7N7gNKkWbvfCTAE=&xsec_source=pc_search
+
+#52  [51 赞]  剑***云  2026-09-16 21:24
+    最大亮点:支持Apple AI[派对R]
+    ↳ 笔记: 一镜到底。iPhone 18 Pro首发体验 (笔记点赞 3.8万)
+    ↳ 回复数: 12
+    ↳ 链接: https://www.xiaohongshu.com/explore/6aaa8bd8000000002b011713?xsec_token=ABs8hP3a6CwLG6aBqn3k9kW_B7CtvrN6EZ2v7zZ83qJSw=&xsec_source=pc_search
+
+#53  [50 赞]  *  2026-10-14 01:38
+    删一删又有了，[笑哭R]我都满两年了，实在没有了就删一删，循环♻️
+    ↳ 笔记: 手机全面涨价 一切都回不去了 (笔记点赞 1.5万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6ac85d7200000000180284cc?xsec_token=ABFeAyBEhDhCF3BpwK5LL4PTML4g3XqGdZ_AQew1WUyYU=&xsec_source=pc_search

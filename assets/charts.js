@@ -1,46 +1,46 @@
 (function () {
   // --- Chart 1: 今日全站最高赞评论 TOP 10 ---
   var topComments = [
-    {"name": "就当我点进他主页准备大看特看时:", "value": 7069, "platform": "B站", "url": "https://www.bilibili.com/video/BV1wrWg6bE5E"},
-    {"name": "以身入局，胜天半子", "value": 4037, "platform": "B站", "url": "https://www.bilibili.com/video/BV1WEWs66EBP"},
-    {"name": "算力中心能建在居民区也是牛逼哄哄的", "value": 3936, "platform": "B站", "url": "https://www.bilibili.com/video/BV1WEWs66EBP"},
-    {"name": "可惜张师丢包了，要不然就让张师来出哮喘部长[笑哭]", "value": 3764, "platform": "B站", "url": "https://www.bilibili.com/video/BV1PKWj62ERK"},
-    {"name": "互封令使的来了，这和婚礼上互换戒指有什么区别，萤小妹蝶小妹昔小妹搁哪发财呢[笑哭…", "value": 3598, "platform": "B站", "url": "https://www.bilibili.com/video/BV1rnW16fE6v"},
-    {"name": "他们不会已经牵手了吧？[捂眼]", "value": 3348, "platform": "B站", "url": "https://www.bilibili.com/video/BV1rnW16fE6v"},
-    {"name": "太难绷了", "value": 2184, "platform": "B站", "url": "https://www.bilibili.com/video/BV1WEWs66EBP"},
-    {"name": "这个综艺尤其许飞相关的内容，给我搞的文学焦虑了[笑哭][笑哭][笑哭]我虽然不至…", "value": 1886, "platform": "B站", "url": "https://www.bilibili.com/video/BV1qAWb6TEXY"},
-    {"name": "盲猜一星期后。。。。[doge]", "value": 1789, "platform": "B站", "url": "https://www.bilibili.com/video/BV1QaWj6ZEyg"},
-    {"name": "我觉得良子没这么严重是因为良子不是一个瘦子迅速吃胖的，他是很多年时间里慢慢吃胖的…", "value": 1720, "platform": "B站", "url": "https://www.bilibili.com/video/BV1PDWT6REGU"}
+    {"name": "在前两年谁能想到，以后举显卡的不是老黄了", "value": 10231, "platform": "B站", "url": "https://www.bilibili.com/video/BV1FuWZ6dEjb"},
+    {"name": "胡桃：什么叫客卿可以自己搓摩拉", "value": 8207, "platform": "B站", "url": "https://www.bilibili.com/video/BV1aTWm6jEL8"},
+    {"name": "钟离出来这么久了，钟离厨应该了解的很多吧？ 钟离本命叫啥啊？[doge_金箍]有…", "value": 6805, "platform": "B站", "url": "https://www.bilibili.com/video/BV1aTWm6jEL8"},
+    {"name": "Tim本平台个人账号有且仅有@Tim潘子，仿冒的账号很多，请各位注意甄别！", "value": 6320, "platform": "B站", "url": "https://www.bilibili.com/video/BV1kZWX62ENY"},
+    {"name": "我迷路了，请问狼堡怎么走？", "value": 6067, "platform": "B站", "url": "https://www.bilibili.com/video/BV1aNWm6UEeC"},
+    {"name": "所有gpu 温度降半度[拥抱]", "value": 5931, "platform": "B站", "url": "https://www.bilibili.com/video/BV1FuWZ6dEjb"},
+    {"name": "服了，刷了几百个这种mj宇宙的视频，搞不懂这种视频的受众是谁", "value": 4780, "platform": "B站", "url": "https://www.bilibili.com/video/BV1VmWL6fE7z"},
+    {"name": "算力中心能建在居民区也是牛逼哄哄的", "value": 4627, "platform": "B站", "url": "https://www.bilibili.com/video/BV1WEWs66EBP"},
+    {"name": "以身入局，胜天半子", "value": 4300, "platform": "B站", "url": "https://www.bilibili.com/video/BV1WEWs66EBP"},
+    {"name": "rxt50系显卡将成为绝唱，股东只看价值", "value": 4128, "platform": "B站", "url": "https://www.bilibili.com/video/BV1FuWZ6dEjb"}
   ].reverse();
 
   // --- Chart 2: B站热门弹幕频次 TOP 12 ---
   var danmaku = [
-    {"name": "屏蔽数字", "value": 2158},
-    {"name": "就在今天", "value": 934},
-    {"name": "出必还愿", "value": 757},
-    {"name": "就在今天！", "value": 608},
-    {"name": "可爱捏", "value": 541},
-    {"name": "正义必胜", "value": 442},
-    {"name": "还真是", "value": 425},
-    {"name": "文明", "value": 139},
-    {"name": "吓哭了", "value": 93},
-    {"name": "接接接", "value": 93},
-    {"name": "阿一古", "value": 58},
-    {"name": "举手", "value": 55}
+    {"name": "无限进步", "value": 948},
+    {"name": "出必还愿", "value": 760},
+    {"name": "可爱捏", "value": 632},
+    {"name": "还真是", "value": 518},
+    {"name": "意气风发啊，岩主天星大人", "value": 499},
+    {"name": "阿哈时刻！", "value": 475},
+    {"name": "文明", "value": 306},
+    {"name": "kksk", "value": 296},
+    {"name": "她真好看", "value": 148},
+    {"name": "见证历史", "value": 138},
+    {"name": "吓哭了", "value": 111},
+    {"name": "接接接", "value": 91}
   ].reverse();
 
   // --- Chart 3: GitHub Trending 今日新增星数 TOP 10 ---
   var ghTrending = [
-    {"name": "meta/astryx", "value": 2776, "lang": "TypeScript", "total": "25,372"},
-    {"name": "we-promise/sure", "value": 1078, "lang": "Ruby", "total": "13,122"},
-    {"name": "addyosmani/agent-skills", "value": 787, "lang": "JavaScript", "total": "116,087"},
-    {"name": "vercel-labs/agent-browser", "value": 708, "lang": "Rust", "total": "50,003"},
-    {"name": "homeassistant-ai/ha-mcp", "value": 645, "lang": "Python", "total": "7,481"},
-    {"name": "shadcn/improve", "value": 361, "lang": "—", "total": "11,086"},
-    {"name": "ZhuLinsen/daily_stock_analysis", "value": 278, "lang": "Python", "total": "70,535"},
-    {"name": "GoogleChrome/modern-web-guidance-src", "value": 159, "lang": "TypeScript", "total": "1,939"},
-    {"name": "openai/codex-security", "value": 52, "lang": "TypeScript", "total": "11,882"},
-    {"name": "TheAlgorithms/Java", "value": 51, "lang": "Java", "total": "67,106"}
+    {"name": "meta/astryx", "value": 1830, "lang": "TypeScript", "total": "26,560"},
+    {"name": "we-promise/sure", "value": 967, "lang": "Ruby", "total": "13,931"},
+    {"name": "addyosmani/agent-skills", "value": 816, "lang": "JavaScript", "total": "116,682"},
+    {"name": "GoogleChrome/modern-web-guidance-src", "value": 739, "lang": "TypeScript", "total": "2,996"},
+    {"name": "openai/codex-security", "value": 643, "lang": "TypeScript", "total": "12,437"},
+    {"name": "Alishahryar1/free-claude-code", "value": 415, "lang": "Python", "total": "69,307"},
+    {"name": "CopilotKit/OpenBot", "value": 298, "lang": "TypeScript", "total": "11,628"},
+    {"name": "pookjw/HermesEnabler", "value": 218, "lang": "Objective-C", "total": "1,541"},
+    {"name": "ggml-org/llama.cpp", "value": 176, "lang": "C++", "total": "134,567"},
+    {"name": "QwenLM/qwen-code", "value": 151, "lang": "TypeScript", "total": "29,822"}
   ].reverse();
 
   var chart1 = null, chart2 = null, chart3 = null;

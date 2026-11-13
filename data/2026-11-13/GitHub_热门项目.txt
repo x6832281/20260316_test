@@ -1,0 +1,69 @@
+﻿============================================================
+GitHub Trending 今日热门项目
+项目数: 13 | 生成时间: 2026-11-13 09:24:09
+============================================================
+
+#1  GoogleChrome/modern-web-guidance-src
+    今日 +739 星 | 总星 2,996 | Fork 200 | TypeScript
+    简介: Keep your coding agent up to date with the latest web best practices
+    链接: https://github.com/GoogleChrome/modern-web-guidance-src
+
+#2  openai/codex-security
+    今日 +643 星 | 总星 12,437 | Fork 978 | TypeScript
+    简介: OpenAI's Codex Security CLI and TypeScript SDK for finding, validating, and fixing security vulnerabilities. npm: https://www.npmjs.com/package/@openai/codex-security
+    链接: https://github.com/openai/codex-security
+
+#3  nvm-sh/nvm
+    今日 +63 星 | 总星 96,015 | Fork 10,761 | Shell
+    简介: Node Version Manager - POSIX-compliant bash script to manage multiple active node.js versions.
+    链接: https://github.com/nvm-sh/nvm
+
+#4  pookjw/HermesEnabler
+    今日 +218 星 | 总星 1,541 | Fork 140 | Objective-C
+    简介: Enable Hermès Watch Faces on any Apple Watch devices
+    链接: https://github.com/pookjw/HermesEnabler
+
+#5  we-promise/sure
+    今日 +967 星 | 总星 13,931 | Fork 1,043 | Ruby
+    简介: The personal finance app for everyone (by everyone)
+    链接: https://github.com/we-promise/sure
+
+#6  QwenLM/qwen-code
+    今日 +151 星 | 总星 29,822 | Fork 3,396 | TypeScript
+    简介: An open-source AI coding agent that lives in your terminal.
+    链接: https://github.com/QwenLM/qwen-code
+
+#7  ashhart/TensorFold
+    今日 +54 星 | 总星 1,943 | Fork 392 | Zig
+    简介: LLM Inference Engine for Metal, CUDA and Vulkan.
+    链接: https://github.com/ashhart/TensorFold
+
+#8  nodejs/node
+    今日 +62 星 | 总星 123,601 | Fork 38,058 | JavaScript
+    简介: Node.js JavaScript runtime ✨🐢🚀✨
+    链接: https://github.com/nodejs/node
+
+#9  addyosmani/agent-skills
+    今日 +816 星 | 总星 116,682 | Fork 12,210 | JavaScript
+    简介: Production-grade engineering skills for AI coding agents.
+    链接: https://github.com/addyosmani/agent-skills
+
+#10  meta/astryx
+    今日 +1830 星 | 总星 26,560 | Fork 2,062 | TypeScript
+    简介: An open source design system that's fully customizable and agent ready
+    链接: https://github.com/meta/astryx
+
+#11  CopilotKit/OpenBot
+    今日 +298 星 | 总星 11,628 | Fork 1,439 | TypeScript
+    简介: Open-source AI coworkers that each get a computer of their own: a browser, files and tools, with every action decided before it happens and recorded after. Bring any AG-UI agent.
+    链接: https://github.com/CopilotKit/OpenBot
+
+#12  Alishahryar1/free-claude-code
+    今日 +415 星 | 总星 69,307 | Fork 10,761 | Python
+    简介: Use Claude Code, Codex, Antigravity, VSCode, Pi, and OpenCode (and 6 other harnesses) for free (1.3B+ free tokens) from your terminal, app, IDE, or phone, and now from the browser with native browser sessions (multi-harness + multi-model) like OpenClaw (voice supported + ToS friendly)
+    链接: https://github.com/Alishahryar1/free-claude-code
+
+#13  ggml-org/llama.cpp
+    今日 +176 星 | 总星 134,567 | Fork 25,509 | C++
+    简介: LLM inference in C/C++
+    链接: https://github.com/ggml-org/llama.cpp
