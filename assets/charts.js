@@ -1,46 +1,46 @@
 (function () {
   // --- Chart 1: 今日全站最高赞评论 TOP 10 ---
   var topComments = [
-    {"name": "在前两年谁能想到，以后举显卡的不是老黄了", "value": 10231, "platform": "B站", "url": "https://www.bilibili.com/video/BV1FuWZ6dEjb"},
-    {"name": "胡桃：什么叫客卿可以自己搓摩拉", "value": 8207, "platform": "B站", "url": "https://www.bilibili.com/video/BV1aTWm6jEL8"},
-    {"name": "钟离出来这么久了，钟离厨应该了解的很多吧？ 钟离本命叫啥啊？[doge_金箍]有…", "value": 6805, "platform": "B站", "url": "https://www.bilibili.com/video/BV1aTWm6jEL8"},
-    {"name": "Tim本平台个人账号有且仅有@Tim潘子，仿冒的账号很多，请各位注意甄别！", "value": 6320, "platform": "B站", "url": "https://www.bilibili.com/video/BV1kZWX62ENY"},
-    {"name": "我迷路了，请问狼堡怎么走？", "value": 6067, "platform": "B站", "url": "https://www.bilibili.com/video/BV1aNWm6UEeC"},
-    {"name": "所有gpu 温度降半度[拥抱]", "value": 5931, "platform": "B站", "url": "https://www.bilibili.com/video/BV1FuWZ6dEjb"},
-    {"name": "服了，刷了几百个这种mj宇宙的视频，搞不懂这种视频的受众是谁", "value": 4780, "platform": "B站", "url": "https://www.bilibili.com/video/BV1VmWL6fE7z"},
-    {"name": "算力中心能建在居民区也是牛逼哄哄的", "value": 4627, "platform": "B站", "url": "https://www.bilibili.com/video/BV1WEWs66EBP"},
-    {"name": "以身入局，胜天半子", "value": 4300, "platform": "B站", "url": "https://www.bilibili.com/video/BV1WEWs66EBP"},
-    {"name": "rxt50系显卡将成为绝唱，股东只看价值", "value": 4128, "platform": "B站", "url": "https://www.bilibili.com/video/BV1FuWZ6dEjb"}
+    {"name": "我之前都说了，ai是个工具。。顶级的是up的思路。。。搞笑的也是这个思路。相当有…", "value": 4462, "platform": "B站", "url": "https://www.bilibili.com/video/BV1PZWR6xEqv"},
+    {"name": "李哥在所有互联网神兽里也属于格外猎奇那档", "value": 3643, "platform": "B站", "url": "https://www.bilibili.com/video/BV1PcW56GEpq"},
+    {"name": "up主水印一定一定要到处打！你也不想视频被盗走配上各种啥子小说吧[笑哭]", "value": 3550, "platform": "B站", "url": "https://www.bilibili.com/video/BV1rZW86EE94"},
+    {"name": "自从有了飞飞鼠，Faker比赛就没怎么顺过[笑哭]", "value": 3445, "platform": "B站", "url": "https://www.bilibili.com/video/BV1PcW56GEpq"},
+    {"name": "黄 梁 一 梦", "value": 2103, "platform": "B站", "url": "https://www.bilibili.com/video/BV1kMWz6CESY"},
+    {"name": "试图和小日子解释的我们：", "value": 1768, "platform": "B站", "url": "https://www.bilibili.com/video/BV1GsWv6jErZ"},
+    {"name": "三毛从军记→三毛流浪记→三毛解放记→三毛新生记[保卫萝卜_哭哭]", "value": 1746, "platform": "B站", "url": "https://www.bilibili.com/video/BV14gW16iEq8"},
+    {"name": "你敢写我都不敢想[笑哭]", "value": 1665, "platform": "B站", "url": "https://www.bilibili.com/video/BV1GbWq6HEct"},
+    {"name": "小时候想当图书管理员这种不争不抢的闲职，大了知道是我想多了[妙啊]", "value": 1529, "platform": "B站", "url": "https://www.bilibili.com/video/BV1JVWq6aECe"},
+    {"name": "目前在我心里，这个赛道没有人能超越他了，相比他绝大多数审美性虐角色跟到了天堂似的…", "value": 1464, "platform": "B站", "url": "https://www.bilibili.com/video/BV14gW16iEq8"}
   ].reverse();
 
   // --- Chart 2: B站热门弹幕频次 TOP 12 ---
   var danmaku = [
-    {"name": "无限进步", "value": 948},
-    {"name": "出必还愿", "value": 760},
-    {"name": "可爱捏", "value": 632},
-    {"name": "还真是", "value": 518},
-    {"name": "意气风发啊，岩主天星大人", "value": 499},
-    {"name": "阿哈时刻！", "value": 475},
-    {"name": "文明", "value": 306},
-    {"name": "kksk", "value": 296},
-    {"name": "她真好看", "value": 148},
-    {"name": "见证历史", "value": 138},
-    {"name": "吓哭了", "value": 111},
-    {"name": "接接接", "value": 91}
+    {"name": "致敬", "value": 984},
+    {"name": "无限进步", "value": 862},
+    {"name": "一切顺利", "value": 831},
+    {"name": "可爱捏", "value": 649},
+    {"name": "意气风发啊，岩主天星大人", "value": 459},
+    {"name": "无限进步！", "value": 333},
+    {"name": "保护", "value": 237},
+    {"name": "dudududu", "value": 124},
+    {"name": "意气风发啊，岩主天星大人！", "value": 109},
+    {"name": "还真是", "value": 78},
+    {"name": "帮助作者拖几遍进度条或者像我一样发一条20字左右…", "value": 70},
+    {"name": "——————————꧁꫞人民英雄☆永垂不朽꫞꧂—…", "value": 55}
   ].reverse();
 
   // --- Chart 3: GitHub Trending 今日新增星数 TOP 10 ---
   var ghTrending = [
-    {"name": "meta/astryx", "value": 1830, "lang": "TypeScript", "total": "26,560"},
-    {"name": "we-promise/sure", "value": 967, "lang": "Ruby", "total": "13,931"},
-    {"name": "addyosmani/agent-skills", "value": 816, "lang": "JavaScript", "total": "116,682"},
-    {"name": "GoogleChrome/modern-web-guidance-src", "value": 739, "lang": "TypeScript", "total": "2,996"},
-    {"name": "openai/codex-security", "value": 643, "lang": "TypeScript", "total": "12,437"},
-    {"name": "Alishahryar1/free-claude-code", "value": 415, "lang": "Python", "total": "69,307"},
-    {"name": "CopilotKit/OpenBot", "value": 298, "lang": "TypeScript", "total": "11,628"},
-    {"name": "pookjw/HermesEnabler", "value": 218, "lang": "Objective-C", "total": "1,541"},
-    {"name": "ggml-org/llama.cpp", "value": 176, "lang": "C++", "total": "134,567"},
-    {"name": "QwenLM/qwen-code", "value": 151, "lang": "TypeScript", "total": "29,822"}
+    {"name": "GoogleChrome/modern-web-guidance-src", "value": 1925, "lang": "TypeScript", "total": "4,892"},
+    {"name": "we-promise/sure", "value": 925, "lang": "Ruby", "total": "14,770"},
+    {"name": "openai/codex-security", "value": 751, "lang": "TypeScript", "total": "13,150"},
+    {"name": "ZhuLinsen/daily_stock_analysis", "value": 256, "lang": "Python", "total": "71,637"},
+    {"name": "tailscale/tailcat", "value": 256, "lang": "Go", "total": "9,473"},
+    {"name": "Likely7/Veyra-NRVideo", "value": 256, "lang": "C++", "total": "1,629"},
+    {"name": "alibaba/open-code-review", "value": 215, "lang": "Go", "total": "50,651"},
+    {"name": "backnotprop/plannotator", "value": 108, "lang": "TypeScript", "total": "10,472"},
+    {"name": "block/buzz", "value": 97, "lang": "Rust", "total": "37,304"},
+    {"name": "louislam/uptime-kuma", "value": 71, "lang": "JavaScript", "total": "93,873"}
   ].reverse();
 
   var chart1 = null, chart2 = null, chart3 = null;
