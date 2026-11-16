@@ -1,0 +1,64 @@
+﻿============================================================
+GitHub Trending 今日热门项目
+项目数: 12 | 生成时间: 2026-11-16 09:24:10
+============================================================
+
+#1  dream-num/univer
+    今日 +988 星 | 总星 25,841 | Fork 2,351 | TypeScript
+    简介: Build your own AI office with Univer Office SDK. Bring editing, calculation, collaboration, and file processing into your product for people and AI agents. Built on an extensible open-source core.
+    链接: https://github.com/dream-num/univer
+
+#2  ag-ui-protocol/ag-ui
+    今日 +355 星 | 总星 17,889 | Fork 1,820 | TypeScript
+    简介: AG-UI: the Agent-User Interaction Protocol. Bring Agents into Frontend Applications.
+    链接: https://github.com/ag-ui-protocol/ag-ui
+
+#3  google-labs-code/stitch-skills
+    今日 +247 星 | 总星 9,311 | Fork 1,128 | TypeScript
+    简介: A library of Agent Skills designed to work with the Stitch MCP server. Each skill follows the Agent Skills open standard, for compatibility with coding agents such as Antigravity, Gemini CLI, Claude Code, Cursor.
+    链接: https://github.com/google-labs-code/stitch-skills
+
+#4  backnotprop/plannotator
+    今日 +866 星 | 总星 11,859 | Fork 1,083 | TypeScript
+    简介: The workspace to stay in the loop and on top of agents - shape, decide, plan, annotate, review code, share with team, and send all feedback to agents with one click.
+    链接: https://github.com/backnotprop/plannotator
+
+#5  ChromeDevTools/chrome-devtools-mcp
+    今日 +717 星 | 总星 56,960 | Fork 4,811 | TypeScript
+    简介: Chrome DevTools for coding agents
+    链接: https://github.com/ChromeDevTools/chrome-devtools-mcp
+
+#6  alibaba/open-code-review
+    今日 +691 星 | 总星 52,118 | Fork 4,112 | Go
+    简介: Secure, fast, efficient, battle-tested at Alibaba's scale. Hybrid architecture code review tool: deterministic pipelines + LLM Agent, precise line-level comments, built-in multi-language ruleset (NPE, thread-safety, XSS, SQL injection), OpenAI &amp; Anthropic compatible.
+    链接: https://github.com/alibaba/open-code-review
+
+#7  Tencent/LoopForge
+    今日 +423 星 | 总星 1,515 | Fork 271 | Go
+    简介: Self-hosted workflows for coding-agent delivery. Orchestrate CodeBuddy, Codex and Claude Code with scripts and human approval gates. Includes Local workflows for coding assistants.
+    链接: https://github.com/Tencent/LoopForge
+
+#8  ggml-org/ggml
+    今日 +43 星 | 总星 15,917 | Fork 2,019 | C++
+    简介: Tensor library for machine learning
+    链接: https://github.com/ggml-org/ggml
+
+#9  elementalsouls/Claude-BugHunter
+    今日 +98 星 | 总星 6,473 | Fork 972 | Python
+    简介: A Claude Code skill bundle for bug hunting and external red-team work - 82 skills, 15 slash commands, 681 disclosed-report patterns curated across 24 core vulnerability classes, plus enterprise identity + infrastructure attack matrices.
+    链接: https://github.com/elementalsouls/Claude-BugHunter
+
+#10  GoogleChrome/modern-web-guidance-src
+    今日 +1219 星 | 总星 7,197 | Fork 604 | TypeScript
+    简介: Keep your coding agent up to date with the latest web best practices
+    链接: https://github.com/GoogleChrome/modern-web-guidance-src
+
+#11  tradermonty/claude-trading-skills
+    今日 +706 星 | 总星 5,578 | Fork 1,176 | Python
+    简介: Claude Code skills for equity investors and traders — market analysis, technical charting, economic calendars, screeners, and trading strategy development.
+    链接: https://github.com/tradermonty/claude-trading-skills
+
+#12  NVIDIA/SkillEvaluator
+    今日 +122 星 | 总星 1,705 | Fork 231 | Python
+    简介: Multi-tier framework for evaluating AI agent skills with quality gates, semantic overlap detection, synthetic evaluation dataset generation, and live agent evaluation that measures how skills affect agent behavior.
+    链接: https://github.com/NVIDIA/SkillEvaluator
