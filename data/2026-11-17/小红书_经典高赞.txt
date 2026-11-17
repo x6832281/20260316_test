@@ -1,0 +1,135 @@
+﻿============================================================
+小红书高赞评论日报
+数据文件: search_comments_2026-11-14.jsonl
+笔记文件: search_contents_2026-11-14.jsonl
+评论总数: 2156 (去重后入选 22 条, 最低 50 赞)
+生成时间: 2026-11-17 09:11:07
+============================================================
+
+关键词分布: 手机(22条)
+
+#1  [3703 赞]  卡***拉  2025-09-07 09:17
+    主力机难道不是用来生活的吗？[汗颜R]我备用机里才有办公app
+    ↳ 笔记: 终于理解为啥越来越多人使用两台手机了 (笔记点赞 8259)
+    ↳ 回复数: 26
+    ↳ 链接: https://www.xiaohongshu.com/explore/68bc4d3b000000001d002244?xsec_token=ABn_i7G-eMUa4DSWmT7-_MramzptTL5I1a4U1jJqV9tlI=&xsec_source=pc_search
+
+#2  [959 赞]  林*  2026-09-16 23:32
+    好久没有这么从头到尾看一个完整的视频了，真的能感受到处处都有用心在做
+    ↳ 笔记: 一镜到底。iPhone 18 Pro首发体验 (笔记点赞 3.8万)
+    ↳ 回复数: 5
+    ↳ 链接: https://www.xiaohongshu.com/explore/6aaa8bd8000000002b011713?xsec_token=ABs8hP3a6CwLG6aBqn3k9kWwzcc13-_mj5cyuDXBgUUYk=&xsec_source=pc_search
+
+#3  [683 赞]  D***s  2026-10-23 04:22
+    双持永远是安卓折叠+苹果才是最完美，微信平板模式太重要。
+    ↳ 笔记: 2026年最爽双持手机 (笔记点赞 8018)
+    ↳ 回复数: 50
+    ↳ 链接: https://www.xiaohongshu.com/explore/6ad9a2ad000000002c0222ac?xsec_token=ABOUlenQtzRyC-rLSM6Mpzd5oC3nDspYNbVDqmJEtTvL4=&xsec_source=pc_search
+
+#4  [672 赞]  L***c  2026-06-21 23:43
+    个人觉得X这代 不是最清晰的 但氛围感好
+    ↳ 笔记: iPhone·收藏每一代 (笔记点赞 7818)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6a379ac9000000001102c036?xsec_token=ABBcpI0sM7M0Pz3Rx8PQv3N32PwaXXETvk4FyBckRNNyk=&xsec_source=pc_search
+
+#5  [632 赞]  唔***我  2025-09-07 14:16
+    这是主备用颠倒的用法...
+    ↳ 笔记: 终于理解为啥越来越多人使用两台手机了 (笔记点赞 8259)
+    ↳ 回复数: 0
+    ↳ 链接: https://www.xiaohongshu.com/explore/68bc4d3b000000001d002244?xsec_token=ABn_i7G-eMUa4DSWmT7-_MramzptTL5I1a4U1jJqV9tlI=&xsec_source=pc_search
+
+#6  [350 赞]  Y***r  2025-10-28 02:38
+    有一个问题，5月卖了，9月才发布新手机，在这期间没手机用什么呀？
+    ↳ 笔记: 手机一年一换竟然更省钱 (笔记点赞 7760)
+    ↳ 回复数: 23
+    ↳ 链接: https://www.xiaohongshu.com/explore/68ff43bf0000000004003b37?xsec_token=ABx5wWxupsbhNDPETZNuMPuiLnpwMYFgaHohBGivIJmss=&xsec_source=pc_search
+
+#7  [319 赞]  珊***逸  2026-09-25 07:01
+    可以说是目前看过的最好的iPhone18Pro的评测视频了，看得出来博主及其团队制作的用心程度，比那种千篇一律干讲参数、干聊对比的评测有趣多了
+    ↳ 笔记: 一镜到底。iPhone 18 Pro首发体验 (笔记点赞 3.8万)
+    ↳ 回复数: 2
+    ↳ 链接: https://www.xiaohongshu.com/explore/6aaa8bd8000000002b011713?xsec_token=ABs8hP3a6CwLG6aBqn3k9kWwzcc13-_mj5cyuDXBgUUYk=&xsec_source=pc_search
+
+#8  [311 赞]  V***6  2025-10-28 02:58
+    有沒有一種可能是 9 月發佈新手機 但是不換  等到明年的 5 五月份手上的賣了買新的  應該剛發布肯定貴  但是明年 5 月份最便宜  [doge]
+    ↳ 笔记: 手机一年一换竟然更省钱 (笔记点赞 7760)
+    ↳ 链接: https://www.xiaohongshu.com/explore/68ff43bf0000000004003b37?xsec_token=ABx5wWxupsbhNDPETZNuMPuiLnpwMYFgaHohBGivIJmss=&xsec_source=pc_search
+
+#9  [262 赞]  m***o  2025-10-28 21:14
+    永远用旧一代
+    ↳ 笔记: 手机一年一换竟然更省钱 (笔记点赞 7760)
+    ↳ 回复数: 17
+    ↳ 链接: https://www.xiaohongshu.com/explore/68ff43bf0000000004003b37?xsec_token=ABx5wWxupsbhNDPETZNuMPuiLnpwMYFgaHohBGivIJmss=&xsec_source=pc_search
+
+#10  [229 赞]  百***乐  2026-09-16 22:19
+    听到信号这个点，在犹豫要不要退货了
+    ↳ 笔记: 一镜到底。iPhone 18 Pro首发体验 (笔记点赞 3.8万)
+    ↳ 回复数: 12
+    ↳ 链接: https://www.xiaohongshu.com/explore/6aaa8bd8000000002b011713?xsec_token=ABs8hP3a6CwLG6aBqn3k9kWwzcc13-_mj5cyuDXBgUUYk=&xsec_source=pc_search
+
+#11  [169 赞]  E***🏰  2025-09-09 07:15
+    下班了就静音，哥哥，估计你是世界有名的私企，否则下班就失联只会发生在电视剧里
+    ↳ 笔记: 终于理解为啥越来越多人使用两台手机了 (笔记点赞 8259)
+    ↳ 回复数: 5
+    ↳ 链接: https://www.xiaohongshu.com/explore/68bc4d3b000000001d002244?xsec_token=ABn_i7G-eMUa4DSWmT7-_MramzptTL5I1a4U1jJqV9tlI=&xsec_source=pc_search
+
+#12  [99 赞]  浪***至  2025-09-07 12:33
+    本末倒置了[坏笑R]生活娱乐才是主力，工作只配备用🐔
+    ↳ 笔记: 终于理解为啥越来越多人使用两台手机了 (笔记点赞 8259)
+    ↳ 回复数: 1
+    ↳ 链接: https://www.xiaohongshu.com/explore/68bc4d3b000000001d002244?xsec_token=ABn_i7G-eMUa4DSWmT7-_MramzptTL5I1a4U1jJqV9tlI=&xsec_source=pc_search
+
+#13  [97 赞]  用***销  2026-06-21 17:42
+    这些手机加起来可以买一套房子，[doge]
+    ↳ 笔记: iPhone·收藏每一代 (笔记点赞 7818)
+    ↳ 回复数: 17
+    ↳ 链接: https://www.xiaohongshu.com/explore/6a379ac9000000001102c036?xsec_token=ABBcpI0sM7M0Pz3Rx8PQv3N32PwaXXETvk4FyBckRNNyk=&xsec_source=pc_search
+
+#14  [88 赞]  沈***城  2026-10-23 19:58
+    [派对R][派对R][派对R][派对R][派对R][派对R][派对R]不要在这层盖楼
+    ↳ 笔记: 15周年宠粉🎁 iPhone Duo‼️ (笔记点赞 9099)
+    ↳ 回复数: 105
+    ↳ 链接: https://www.xiaohongshu.com/explore/6adb41f6000000002a03a4f6?xsec_token=ABd8qcaqp_eHlZGpvNcrTNFuvxazyOyYmbMmmYN8ehquo=&xsec_source=pc_search
+
+#15  [79 赞]  岁***觉  2026-09-16 23:03
+    但是看到散热跟电池又犹豫了
+    ↳ 笔记: 一镜到底。iPhone 18 Pro首发体验 (笔记点赞 3.8万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6aaa8bd8000000002b011713?xsec_token=ABs8hP3a6CwLG6aBqn3k9kWwzcc13-_mj5cyuDXBgUUYk=&xsec_source=pc_search
+
+#16  [76 赞]  阳***春  2026-10-23 06:25
+    点了，我就是三星大折叠加苹果16P[派对R]
+    ↳ 笔记: 2026年最爽双持手机 (笔记点赞 8018)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6ad9a2ad000000002c0222ac?xsec_token=ABOUlenQtzRyC-rLSM6Mpzd5oC3nDspYNbVDqmJEtTvL4=&xsec_source=pc_search
+
+#17  [71 赞]  西***o  2026-06-21 23:40
+    拍照最好看的是哪个型号呀
+    ↳ 笔记: iPhone·收藏每一代 (笔记点赞 7818)
+    ↳ 回复数: 34
+    ↳ 链接: https://www.xiaohongshu.com/explore/6a379ac9000000001102c036?xsec_token=ABBcpI0sM7M0Pz3Rx8PQv3N32PwaXXETvk4FyBckRNNyk=&xsec_source=pc_search
+
+#18  [57 赞]  9***i  2026-09-16 21:27
+    你要看更小灵动岛的原因，是因为他的点光摄像头做成了屏下且不影响你实际体验。说明再过一段时间的迭代或者就是20周年的iphone就可以做到几乎不影响使用的屏下前置摄像头了。
+    ↳ 笔记: 一镜到底。iPhone 18 Pro首发体验 (笔记点赞 3.8万)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6aaa8bd8000000002b011713?xsec_token=ABs8hP3a6CwLG6aBqn3k9kWwzcc13-_mj5cyuDXBgUUYk=&xsec_source=pc_search
+
+#19  [56 赞]  M***🙊  2026-09-16 23:25
+    我怎么感觉这次iPhone18Pro好无聊，并没有什么突破升级
+    ↳ 笔记: 一镜到底。iPhone 18 Pro首发体验 (笔记点赞 3.8万)
+    ↳ 回复数: 6
+    ↳ 链接: https://www.xiaohongshu.com/explore/6aaa8bd8000000002b011713?xsec_token=ABs8hP3a6CwLG6aBqn3k9kWwzcc13-_mj5cyuDXBgUUYk=&xsec_source=pc_search
+
+#20  [53 赞]  很***痕  2026-10-23 07:49
+    平板模式就像用平板登录微信，登同一个号且不会掉线。
+    ↳ 笔记: 2026年最爽双持手机 (笔记点赞 8018)
+    ↳ 链接: https://www.xiaohongshu.com/explore/6ad9a2ad000000002c0222ac?xsec_token=ABOUlenQtzRyC-rLSM6Mpzd5oC3nDspYNbVDqmJEtTvL4=&xsec_source=pc_search
+
+#21  [51 赞]  剑***云  2026-09-16 21:24
+    最大亮点:支持Apple AI[派对R]
+    ↳ 笔记: 一镜到底。iPhone 18 Pro首发体验 (笔记点赞 3.8万)
+    ↳ 回复数: 12
+    ↳ 链接: https://www.xiaohongshu.com/explore/6aaa8bd8000000002b011713?xsec_token=ABs8hP3a6CwLG6aBqn3k9kWwzcc13-_mj5cyuDXBgUUYk=&xsec_source=pc_search
+
+#22  [50 赞]  隔***钏  2025-11-05 17:52
+    每年都用旧机，当然便宜
+    ↳ 笔记: 手机一年一换竟然更省钱 (笔记点赞 7760)
+    ↳ 回复数: 5
+    ↳ 链接: https://www.xiaohongshu.com/explore/68ff43bf0000000004003b37?xsec_token=ABx5wWxupsbhNDPETZNuMPuiLnpwMYFgaHohBGivIJmss=&xsec_source=pc_search
