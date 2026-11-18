@@ -1,46 +1,46 @@
 (function () {
   // --- Chart 1: 今日全站最高赞评论 TOP 10 ---
   var topComments = [
-    {"name": "我们是冠军！BLG是世界冠军！", "value": 107021, "platform": "B站", "url": "https://www.bilibili.com/video/BV1yvsj6SE6m"},
-    {"name": "感觉blg这边中路还是玩法核稳，法刺真的陷阱，除非前面波波抓到人", "value": 42413, "platform": "B站", "url": "https://www.bilibili.com/video/BV15es76gEgL"},
-    {"name": "难听的话有点难受，为了证明自己的用心，我足足花了0.0000019年，画出了最帅…", "value": 28785, "platform": "B站", "url": "https://www.bilibili.com/video/BV1BJsV6PEek"},
-    {"name": "小猴子：大圣爷您回来了吗？", "value": 21669, "platform": "B站", "url": "https://www.bilibili.com/video/BV1Zdsn6QEzd"},
-    {"name": "尺帝真稳呀，这么大年龄了，操作还这么快", "value": 19841, "platform": "B站", "url": "https://www.bilibili.com/video/BV15es76gEgL"},
-    {"name": "Gen的短板就在中单，blg想赢就想办法突破Chovy", "value": 14536, "platform": "B站", "url": "https://www.bilibili.com/video/BV15es76gEgL"},
-    {"name": "李哥在所有互联网神兽里也属于格外猎奇那档", "value": 11581, "platform": "B站", "url": "https://www.bilibili.com/video/BV1PcW56GEpq"},
-    {"name": "换个角度考虑，你是一个法学生，现在有个机会花50块就可以和全球顶级法律团队切磋一…", "value": 9150, "platform": "B站", "url": "https://www.bilibili.com/video/BV1VBs76qE16"},
-    {"name": "弹完以后be like", "value": 7888, "platform": "B站", "url": "https://www.bilibili.com/video/BV1DrWX6tEVJ"},
-    {"name": "自从有了飞飞鼠，Faker比赛就没怎么顺过[笑哭]", "value": 6500, "platform": "B站", "url": "https://www.bilibili.com/video/BV1PcW56GEpq"}
+    {"name": "我们是冠军！BLG是世界冠军！", "value": 107827, "platform": "B站", "url": "https://www.bilibili.com/video/BV1yvsj6SE6m"},
+    {"name": "难听的话有点难受，为了证明自己的用心，我足足花了0.0000019年，画出了最帅…", "value": 33047, "platform": "B站", "url": "https://www.bilibili.com/video/BV1BJsV6PEek"},
+    {"name": "尺帝真稳呀，这么大年龄了，操作还这么快", "value": 20551, "platform": "B站", "url": "https://www.bilibili.com/video/BV15es76gEgL"},
+    {"name": "稳住啊，真的有的时候可以给资源但是要杀人的，这把太想拿资源了", "value": 18863, "platform": "B站", "url": "https://www.bilibili.com/video/BV15es76gEgL"},
+    {"name": "Gen的短板就在中单，blg想赢就想办法突破Chovy", "value": 15296, "platform": "B站", "url": "https://www.bilibili.com/video/BV15es76gEgL"},
+    {"name": "其实做得到清晰的分割别人眼里的自己，社会意义上的自己和内心的自己就好，每种都不一…", "value": 7317, "platform": "B站", "url": "https://www.bilibili.com/video/BV1BJsV6PEek"},
+    {"name": "我其实很想知道，你这种经济条件不错又很忙的事业型选手，为了防止猝死做了哪些努力？", "value": 5365, "platform": "B站", "url": "https://www.bilibili.com/video/BV1BJsV6PEek"},
+    {"name": "多新鲜呐[doge]你要不说我还以为他自杀呢", "value": 5133, "platform": "B站", "url": "https://www.bilibili.com/video/BV1EMsr6LEUJ"},
+    {"name": "小雨桑怎么有大会员了 发生什么事了[脸红]", "value": 4459, "platform": "B站", "url": "https://www.bilibili.com/video/BV1EYsJ6UEj8"},
+    {"name": "这个真吊吧，后续找工作简历直接说打赢过迪士尼法务[惊讶]", "value": 4222, "platform": "B站", "url": "https://www.bilibili.com/video/BV1VBs76qE16"}
   ].reverse();
 
   // --- Chart 2: B站热门弹幕频次 TOP 12 ---
   var danmaku = [
-    {"name": "我们是冠军", "value": 3648},
-    {"name": "我们是冠军！", "value": 1126},
-    {"name": "世一上", "value": 392},
-    {"name": "好女孩", "value": 369},
-    {"name": "给我一个", "value": 361},
-    {"name": "来了来了", "value": 331},
-    {"name": "哔哩哔哩(゜-゜)つロ干杯~-bilibili", "value": 247},
-    {"name": "阿姨早日康复", "value": 228},
-    {"name": "火钳刘明", "value": 221},
-    {"name": "哔哩哔哩 (゜-゜)つロ 干杯~-bilibil…", "value": 209},
-    {"name": "完结撒花", "value": 195},
-    {"name": "goat", "value": 175}
+    {"name": "我们是冠军", "value": 4254},
+    {"name": "我们是冠军！", "value": 1242},
+    {"name": "恭送渡鸦王子", "value": 1091},
+    {"name": "说点大家不知道的", "value": 633},
+    {"name": "世一上", "value": 609},
+    {"name": "文明", "value": 498},
+    {"name": "哔哩哔哩 (゜-゜)つロ 干杯~-bilibil…", "value": 459},
+    {"name": "给我一个", "value": 397},
+    {"name": "好女孩", "value": 368},
+    {"name": "来了来了", "value": 359},
+    {"name": "文科万岁！", "value": 328},
+    {"name": "阿姨早日康复", "value": 288}
   ].reverse();
 
   // --- Chart 3: GitHub Trending 今日新增星数 TOP 10 ---
   var ghTrending = [
-    {"name": "dream-num/univer", "value": 1828, "lang": "TypeScript", "total": "27,799"},
-    {"name": "alibaba/open-code-review", "value": 951, "lang": "Go", "total": "52,947"},
-    {"name": "NVIDIA/SkillEvaluator", "value": 873, "lang": "Python", "total": "2,716"},
-    {"name": "ChromeDevTools/chrome-devtools-mcp", "value": 841, "lang": "TypeScript", "total": "57,692"},
-    {"name": "tradermonty/claude-trading-skills", "value": 837, "lang": "Python", "total": "6,324"},
-    {"name": "ag-ui-protocol/ag-ui", "value": 791, "lang": "TypeScript", "total": "19,020"},
-    {"name": "backnotprop/plannotator", "value": 696, "lang": "TypeScript", "total": "12,581"},
-    {"name": "google-labs-code/stitch-skills", "value": 529, "lang": "TypeScript", "total": "9,739"},
-    {"name": "kajisho5/ffmpeg-skill", "value": 367, "lang": "Python", "total": "6,766"},
-    {"name": "google-research/paper-orchestra", "value": 313, "lang": "Python", "total": "1,543"}
+    {"name": "obra/superpowers", "value": 1917, "lang": "Shell", "total": "319,348"},
+    {"name": "dream-num/univer", "value": 1774, "lang": "TypeScript", "total": "28,912"},
+    {"name": "ag-ui-protocol/ag-ui", "value": 1445, "lang": "TypeScript", "total": "20,008"},
+    {"name": "google-research/paper-orchestra", "value": 1072, "lang": "Python", "total": "3,029"},
+    {"name": "elementalsouls/Claude-BugHunter", "value": 1005, "lang": "Python", "total": "9,336"},
+    {"name": "affaan-m/ECC", "value": 883, "lang": "JavaScript", "total": "305,525"},
+    {"name": "alibaba/open-code-review", "value": 763, "lang": "Go", "total": "53,743"},
+    {"name": "mvanhorn/last30days-skill", "value": 696, "lang": "Python", "total": "69,088"},
+    {"name": "backnotprop/plannotator", "value": 691, "lang": "TypeScript", "total": "13,074"},
+    {"name": "getarcaneapp/arcane", "value": 618, "lang": "Go", "total": "9,343"}
   ].reverse();
 
   var chart1 = null, chart2 = null, chart3 = null;
