@@ -1,46 +1,46 @@
 (function () {
   // --- Chart 1: 今日全站最高赞评论 TOP 10 ---
   var topComments = [
-    {"name": "我们是冠军！BLG是世界冠军！", "value": 107827, "platform": "B站", "url": "https://www.bilibili.com/video/BV1yvsj6SE6m"},
-    {"name": "难听的话有点难受，为了证明自己的用心，我足足花了0.0000019年，画出了最帅…", "value": 33047, "platform": "B站", "url": "https://www.bilibili.com/video/BV1BJsV6PEek"},
-    {"name": "尺帝真稳呀，这么大年龄了，操作还这么快", "value": 20551, "platform": "B站", "url": "https://www.bilibili.com/video/BV15es76gEgL"},
-    {"name": "稳住啊，真的有的时候可以给资源但是要杀人的，这把太想拿资源了", "value": 18863, "platform": "B站", "url": "https://www.bilibili.com/video/BV15es76gEgL"},
-    {"name": "Gen的短板就在中单，blg想赢就想办法突破Chovy", "value": 15296, "platform": "B站", "url": "https://www.bilibili.com/video/BV15es76gEgL"},
-    {"name": "其实做得到清晰的分割别人眼里的自己，社会意义上的自己和内心的自己就好，每种都不一…", "value": 7317, "platform": "B站", "url": "https://www.bilibili.com/video/BV1BJsV6PEek"},
-    {"name": "我其实很想知道，你这种经济条件不错又很忙的事业型选手，为了防止猝死做了哪些努力？", "value": 5365, "platform": "B站", "url": "https://www.bilibili.com/video/BV1BJsV6PEek"},
-    {"name": "多新鲜呐[doge]你要不说我还以为他自杀呢", "value": 5133, "platform": "B站", "url": "https://www.bilibili.com/video/BV1EMsr6LEUJ"},
-    {"name": "小雨桑怎么有大会员了 发生什么事了[脸红]", "value": 4459, "platform": "B站", "url": "https://www.bilibili.com/video/BV1EYsJ6UEj8"},
-    {"name": "这个真吊吧，后续找工作简历直接说打赢过迪士尼法务[惊讶]", "value": 4222, "platform": "B站", "url": "https://www.bilibili.com/video/BV1VBs76qE16"}
+    {"name": "须知少年凌云志，曾许人间第一流", "value": 7848, "platform": "B站", "url": "https://www.bilibili.com/video/BV1YWsr6NEs7"},
+    {"name": "小雨桑怎么有大会员了 发生什么事了[脸红]", "value": 5836, "platform": "B站", "url": "https://www.bilibili.com/video/BV1EYsJ6UEj8"},
+    {"name": "没有人会怀疑GTA6是否能取得成功，大家都在好奇它能获得多大的成功。", "value": 4707, "platform": "B站", "url": "https://www.bilibili.com/video/BV1WMsm6zEfn"},
+    {"name": "他一直都是vctcn第一人", "value": 4671, "platform": "B站", "url": "https://www.bilibili.com/video/BV1YWsr6NEs7"},
+    {"name": "只能说把堆料堆到极致也是一种创新", "value": 4304, "platform": "B站", "url": "https://www.bilibili.com/video/BV1WMsm6zEfn"},
+    {"name": "viper明年回韩国，blg正好差个ad，康哥你来不来", "value": 4174, "platform": "B站", "url": "https://www.bilibili.com/video/BV1YWsr6NEs7"},
+    {"name": "主力机难道不是用来生活的吗？[汗颜R]我备用机里才有办公app", "value": 3703, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/68bc4d3b000000001d002244?xsec_token=ABn_i7G-eMUa4DSWmT7-_MramzptTL5I1a4U1jJqV9tlI=&xsec_source=pc_search"},
+    {"name": "这人一看就是云的，都生火了肯定都是回洞了，哪里还要侦查，肯定比较放松了，人巴佬", "value": 3303, "platform": "B站", "url": "https://www.bilibili.com/video/BV1rfsB6CERa"},
+    {"name": "冷知识，迪士尼的确不限制自带食物。但国内的迪士尼不行！至少这位勇士起诉之前不行！…", "value": 3136, "platform": "B站", "url": "https://www.bilibili.com/video/BV1VBs76qE16"},
+    {"name": "最新情况，145家媒体，99分，基本可以说，真的稳住99了[doge]", "value": 2502, "platform": "B站", "url": "https://www.bilibili.com/video/BV1WMsm6zEfn"}
   ].reverse();
 
   // --- Chart 2: B站热门弹幕频次 TOP 12 ---
   var danmaku = [
-    {"name": "我们是冠军", "value": 4254},
-    {"name": "我们是冠军！", "value": 1242},
-    {"name": "恭送渡鸦王子", "value": 1091},
-    {"name": "说点大家不知道的", "value": 633},
-    {"name": "世一上", "value": 609},
-    {"name": "文明", "value": 498},
-    {"name": "哔哩哔哩 (゜-゜)つロ 干杯~-bilibil…", "value": 459},
-    {"name": "给我一个", "value": 397},
-    {"name": "好女孩", "value": 368},
-    {"name": "来了来了", "value": 359},
-    {"name": "文科万岁！", "value": 328},
-    {"name": "阿姨早日康复", "value": 288}
+    {"name": "上岸", "value": 1491},
+    {"name": "见证历史", "value": 1147},
+    {"name": "一切顺利", "value": 914},
+    {"name": "我们是冠军", "value": 805},
+    {"name": "致敬", "value": 657},
+    {"name": "哔哩哔哩 (゜-゜)つロ 干杯~-bilibil…", "value": 420},
+    {"name": "理解", "value": 413},
+    {"name": "我们是冠军！", "value": 378},
+    {"name": "mj", "value": 370},
+    {"name": "神了", "value": 364},
+    {"name": "来了来了", "value": 333},
+    {"name": "致敬！", "value": 269}
   ].reverse();
 
   // --- Chart 3: GitHub Trending 今日新增星数 TOP 10 ---
   var ghTrending = [
-    {"name": "obra/superpowers", "value": 1917, "lang": "Shell", "total": "319,348"},
-    {"name": "dream-num/univer", "value": 1774, "lang": "TypeScript", "total": "28,912"},
-    {"name": "ag-ui-protocol/ag-ui", "value": 1445, "lang": "TypeScript", "total": "20,008"},
-    {"name": "google-research/paper-orchestra", "value": 1072, "lang": "Python", "total": "3,029"},
-    {"name": "elementalsouls/Claude-BugHunter", "value": 1005, "lang": "Python", "total": "9,336"},
-    {"name": "affaan-m/ECC", "value": 883, "lang": "JavaScript", "total": "305,525"},
-    {"name": "alibaba/open-code-review", "value": 763, "lang": "Go", "total": "53,743"},
-    {"name": "mvanhorn/last30days-skill", "value": 696, "lang": "Python", "total": "69,088"},
-    {"name": "backnotprop/plannotator", "value": 691, "lang": "TypeScript", "total": "13,074"},
-    {"name": "getarcaneapp/arcane", "value": 618, "lang": "Go", "total": "9,343"}
+    {"name": "google-research/paper-orchestra", "value": 1524, "lang": "Python", "total": "4,304"},
+    {"name": "affaan-m/ECC", "value": 1108, "lang": "JavaScript", "total": "306,528"},
+    {"name": "mvanhorn/last30days-skill", "value": 1059, "lang": "Python", "total": "70,032"},
+    {"name": "obra/superpowers", "value": 822, "lang": "Shell", "total": "321,334"},
+    {"name": "sveltejs/svelte", "value": 692, "lang": "JavaScript", "total": "89,622"},
+    {"name": "getarcaneapp/arcane", "value": 547, "lang": "Go", "total": "9,813"},
+    {"name": "HKUDS/CLI-Anything", "value": 389, "lang": "Python", "total": "59,762"},
+    {"name": "google-labs-code/stitch-skills", "value": 365, "lang": "TypeScript", "total": "10,410"},
+    {"name": "n8n-io/n8n", "value": 325, "lang": "TypeScript", "total": "211,083"},
+    {"name": "cursor/plugins", "value": 314, "lang": "TypeScript", "total": "17,212"}
   ].reverse();
 
   var chart1 = null, chart2 = null, chart3 = null;
