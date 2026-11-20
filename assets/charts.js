@@ -1,46 +1,46 @@
 (function () {
   // --- Chart 1: 今日全站最高赞评论 TOP 10 ---
   var topComments = [
-    {"name": "须知少年凌云志，曾许人间第一流", "value": 7848, "platform": "B站", "url": "https://www.bilibili.com/video/BV1YWsr6NEs7"},
-    {"name": "小雨桑怎么有大会员了 发生什么事了[脸红]", "value": 5836, "platform": "B站", "url": "https://www.bilibili.com/video/BV1EYsJ6UEj8"},
-    {"name": "没有人会怀疑GTA6是否能取得成功，大家都在好奇它能获得多大的成功。", "value": 4707, "platform": "B站", "url": "https://www.bilibili.com/video/BV1WMsm6zEfn"},
-    {"name": "他一直都是vctcn第一人", "value": 4671, "platform": "B站", "url": "https://www.bilibili.com/video/BV1YWsr6NEs7"},
-    {"name": "只能说把堆料堆到极致也是一种创新", "value": 4304, "platform": "B站", "url": "https://www.bilibili.com/video/BV1WMsm6zEfn"},
-    {"name": "viper明年回韩国，blg正好差个ad，康哥你来不来", "value": 4174, "platform": "B站", "url": "https://www.bilibili.com/video/BV1YWsr6NEs7"},
-    {"name": "主力机难道不是用来生活的吗？[汗颜R]我备用机里才有办公app", "value": 3703, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/68bc4d3b000000001d002244?xsec_token=ABn_i7G-eMUa4DSWmT7-_MramzptTL5I1a4U1jJqV9tlI=&xsec_source=pc_search"},
-    {"name": "这人一看就是云的，都生火了肯定都是回洞了，哪里还要侦查，肯定比较放松了，人巴佬", "value": 3303, "platform": "B站", "url": "https://www.bilibili.com/video/BV1rfsB6CERa"},
-    {"name": "冷知识，迪士尼的确不限制自带食物。但国内的迪士尼不行！至少这位勇士起诉之前不行！…", "value": 3136, "platform": "B站", "url": "https://www.bilibili.com/video/BV1VBs76qE16"},
-    {"name": "最新情况，145家媒体，99分，基本可以说，真的稳住99了[doge]", "value": 2502, "platform": "B站", "url": "https://www.bilibili.com/video/BV1WMsm6zEfn"}
+    {"name": "背景是喜上眉梢图吗", "value": 10078, "platform": "B站", "url": "https://www.bilibili.com/video/BV1rnsb6UEZp"},
+    {"name": "须知少年凌云志，曾许人间第一流", "value": 8534, "platform": "B站", "url": "https://www.bilibili.com/video/BV1YWsr6NEs7"},
+    {"name": "小雨桑怎么有大会员了 发生什么事了[脸红]", "value": 7035, "platform": "B站", "url": "https://www.bilibili.com/video/BV1EYsJ6UEj8"},
+    {"name": "我说句可能会有人喷的话。 没有kk，cn瓦的流量至少要少一半吧。所以拜托你多打几…", "value": 5875, "platform": "B站", "url": "https://www.bilibili.com/video/BV1YWsr6NEs7"},
+    {"name": "谁能想到，美国开始买俄油了", "value": 5337, "platform": "B站", "url": "https://www.bilibili.com/video/BV1rnsb6UEZp"},
+    {"name": "康神 来BLG吧。BLG下赛季刚好缺一个射手", "value": 4979, "platform": "B站", "url": "https://www.bilibili.com/video/BV1YWsr6NEs7"},
+    {"name": "其他人把工资转给伊能静", "value": 4808, "platform": "B站", "url": "https://www.bilibili.com/video/BV1W5sb6XEov"},
+    {"name": "终于有人看到许飞的需求和委屈了，不知道为啥观察室前几期都在说许飞不真诚", "value": 3978, "platform": "B站", "url": "https://www.bilibili.com/video/BV1W5sb6XEov"},
+    {"name": "终于刷到正常的舞蹈了，无擦边，无美颜，你这家伙100分啊", "value": 3736, "platform": "B站", "url": "https://www.bilibili.com/video/BV1EYsJ6UEj8"},
+    {"name": "主力机难道不是用来生活的吗？[汗颜R]我备用机里才有办公app", "value": 3703, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/68bc4d3b000000001d002244?xsec_token=ABn_i7G-eMUa4DSWmT7-_MramzptTL5I1a4U1jJqV9tlI=&xsec_source=pc_search"}
   ].reverse();
 
   // --- Chart 2: B站热门弹幕频次 TOP 12 ---
   var danmaku = [
-    {"name": "上岸", "value": 1491},
-    {"name": "见证历史", "value": 1147},
-    {"name": "一切顺利", "value": 914},
-    {"name": "我们是冠军", "value": 805},
-    {"name": "致敬", "value": 657},
-    {"name": "哔哩哔哩 (゜-゜)つロ 干杯~-bilibil…", "value": 420},
-    {"name": "理解", "value": 413},
-    {"name": "我们是冠军！", "value": 378},
-    {"name": "mj", "value": 370},
-    {"name": "神了", "value": 364},
-    {"name": "来了来了", "value": 333},
-    {"name": "致敬！", "value": 269}
+    {"name": "一切顺利", "value": 963},
+    {"name": "我们是冠军", "value": 849},
+    {"name": "合影", "value": 819},
+    {"name": "见证历史", "value": 810},
+    {"name": "忍耐已经结束！", "value": 685},
+    {"name": "变得更强", "value": 492},
+    {"name": "我们是冠军！", "value": 400},
+    {"name": "哔哩哔哩 (゜-゜)つロ 干杯~-bilibil…", "value": 380},
+    {"name": "还真是", "value": 325},
+    {"name": "with→ you↓,I'm↑ ready↓to…", "value": 250},
+    {"name": "秒吃", "value": 149},
+    {"name": "哔哩哔哩(゜-゜)つロ干杯~-bilibili", "value": 107}
   ].reverse();
 
   // --- Chart 3: GitHub Trending 今日新增星数 TOP 10 ---
   var ghTrending = [
-    {"name": "google-research/paper-orchestra", "value": 1524, "lang": "Python", "total": "4,304"},
-    {"name": "affaan-m/ECC", "value": 1108, "lang": "JavaScript", "total": "306,528"},
-    {"name": "mvanhorn/last30days-skill", "value": 1059, "lang": "Python", "total": "70,032"},
-    {"name": "obra/superpowers", "value": 822, "lang": "Shell", "total": "321,334"},
-    {"name": "sveltejs/svelte", "value": 692, "lang": "JavaScript", "total": "89,622"},
-    {"name": "getarcaneapp/arcane", "value": 547, "lang": "Go", "total": "9,813"},
-    {"name": "HKUDS/CLI-Anything", "value": 389, "lang": "Python", "total": "59,762"},
-    {"name": "google-labs-code/stitch-skills", "value": 365, "lang": "TypeScript", "total": "10,410"},
-    {"name": "n8n-io/n8n", "value": 325, "lang": "TypeScript", "total": "211,083"},
-    {"name": "cursor/plugins", "value": 314, "lang": "TypeScript", "total": "17,212"}
+    {"name": "obra/superpowers", "value": 2028, "lang": "Shell", "total": "322,096"},
+    {"name": "elementalsouls/Claude-BugHunter", "value": 1349, "lang": "Python", "total": "12,562"},
+    {"name": "mvanhorn/last30days-skill", "value": 954, "lang": "Python", "total": "70,810"},
+    {"name": "HKUDS/CLI-Anything", "value": 898, "lang": "Python", "total": "60,577"},
+    {"name": "firecrawl/firecrawl", "value": 825, "lang": "TypeScript", "total": "204,249"},
+    {"name": "cursor/plugins", "value": 384, "lang": "TypeScript", "total": "17,567"},
+    {"name": "mjmirza/app-store-compliance", "value": 377, "lang": "Shell", "total": "1,860"},
+    {"name": "XiaoYouChR/Ghost-Downloader-3", "value": 341, "lang": "Python", "total": "12,745"},
+    {"name": "google-labs-code/stitch-skills", "value": 302, "lang": "TypeScript", "total": "10,722"},
+    {"name": "cathrynlavery/diagram-design", "value": 271, "lang": "HTML", "total": "68,643"}
   ].reverse();
 
   var chart1 = null, chart2 = null, chart3 = null;
