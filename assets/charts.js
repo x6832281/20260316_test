@@ -1,46 +1,46 @@
 (function () {
   // --- Chart 1: 今日全站最高赞评论 TOP 10 ---
   var topComments = [
-    {"name": "一个像老实人豁出去了，另一个已经沉浸其中了", "value": 9893, "platform": "B站", "url": "https://www.bilibili.com/video/BV1TCsm61EM8"},
-    {"name": "须知少年凌云志，曾许人间第一流", "value": 9026, "platform": "B站", "url": "https://www.bilibili.com/video/BV1YWsr6NEs7"},
-    {"name": "小雨桑怎么有大会员了 发生什么事了[脸红]", "value": 8392, "platform": "B站", "url": "https://www.bilibili.com/video/BV1EYsJ6UEj8"},
-    {"name": "康神 来BLG吧。BLG下赛季刚好缺一个射手", "value": 6605, "platform": "B站", "url": "https://www.bilibili.com/video/BV1YWsr6NEs7"},
-    {"name": "我说句可能会有人喷的话。 没有kk，cn瓦的流量至少要少一半吧。所以拜托你多打几…", "value": 6505, "platform": "B站", "url": "https://www.bilibili.com/video/BV1YWsr6NEs7"},
-    {"name": "终于刷到正常的舞蹈了，无擦边，无美颜，你这家伙100分啊", "value": 5979, "platform": "B站", "url": "https://www.bilibili.com/video/BV1EYsJ6UEj8"},
-    {"name": "省流：主让德国人四年成熟就为了闪击波兰", "value": 4445, "platform": "B站", "url": "https://www.bilibili.com/video/BV1PXsS67EC3"},
+    {"name": "事后记得跟朋友态度好一点，朋友也不是情绪的牺牲品[微笑]", "value": 6193, "platform": "B站", "url": "https://www.bilibili.com/video/BV1x9s66RE3D"},
+    {"name": "一个赞一天头像", "value": 4015, "platform": "B站", "url": "https://www.bilibili.com/video/BV1qLsC6EEYB"},
     {"name": "主力机难道不是用来生活的吗？[汗颜R]我备用机里才有办公app", "value": 3703, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/68bc4d3b000000001d002244?xsec_token=ABn_i7G-eMUa4DSWmT7-_MramzptTL5I1a4U1jJqV9tlI=&xsec_source=pc_search"},
-    {"name": "他这样子没有申请渠道，还说申请过，没管呢", "value": 3462, "platform": "B站", "url": "https://www.bilibili.com/video/BV12MsK6tEV1"},
-    {"name": "四肢不协调成啥了，别让tim演啥子[笑哭]", "value": 3078, "platform": "B站", "url": "https://www.bilibili.com/video/BV1TCsm61EM8"}
+    {"name": "真香毫无争议的第一，已经不是梗了，而是载入史册的哲学定理", "value": 3449, "platform": "B站", "url": "https://www.bilibili.com/video/BV1jvypz9EPr"},
+    {"name": "这玩意是二创？", "value": 2460, "platform": "B站", "url": "https://www.bilibili.com/video/BV1MvyWzkEVx"},
+    {"name": "王境泽注册版权的问题，low君一带而过，大家觉得不合理，他不是不让你用“真香”这…", "value": 1932, "platform": "B站", "url": "https://www.bilibili.com/video/BV1jvypz9EPr"},
+    {"name": "[星星眼]", "value": 1569, "platform": "B站", "url": "https://www.bilibili.com/video/BV1qLsC6EEYB"},
+    {"name": "那说明靠的太近", "value": 1421, "platform": "B站", "url": "https://www.bilibili.com/video/BV1x9s66RE3D"},
+    {"name": "没人能拍出像这样发掘程度不足1%的国产猫鼠队，除非他们是[妙啊]", "value": 1118, "platform": "B站", "url": "https://www.bilibili.com/video/BV1gMy3zkEgg"},
+    {"name": "累的时候真会这样，不是朋友变了，是自己那天装不下了。回头想想人家也没做错啥，就是…", "value": 1011, "platform": "B站", "url": "https://www.bilibili.com/video/BV1x9s66RE3D"}
   ].reverse();
 
   // --- Chart 2: B站热门弹幕频次 TOP 12 ---
   var danmaku = [
-    {"name": "一切顺利", "value": 1042},
-    {"name": "见证历史", "value": 933},
-    {"name": "忍耐已经结束！", "value": 812},
-    {"name": "火钳刘明", "value": 709},
-    {"name": "致敬", "value": 318},
-    {"name": "变得更强", "value": 289},
-    {"name": "nice", "value": 268},
-    {"name": "哔哩哔哩 (゜-゜)つロ 干杯~-bilibil…", "value": 172},
-    {"name": "还真是", "value": 169},
-    {"name": "with→ you↓,I'm↑ ready↓to…", "value": 163},
-    {"name": "哔哩哔哩(゜-゜)つロ干杯~-bilibili", "value": 142},
-    {"name": "kksk", "value": 93}
+    {"name": "火钳刘明", "value": 934},
+    {"name": "变得更强", "value": 576},
+    {"name": "什么意思", "value": 391},
+    {"name": "合影", "value": 312},
+    {"name": "褒贬不一", "value": 259},
+    {"name": "妈妈", "value": 225},
+    {"name": "在！", "value": 209},
+    {"name": "kksk", "value": 178},
+    {"name": "见证历史", "value": 94},
+    {"name": "朱志鑫朱志鑫朱志鑫朱志鑫朱志鑫朱志鑫朱志鑫朱志鑫…", "value": 88},
+    {"name": "甜甜甜", "value": 78},
+    {"name": "新婚快乐", "value": 76}
   ].reverse();
 
   // --- Chart 3: GitHub Trending 今日新增星数 TOP 10 ---
   var ghTrending = [
-    {"name": "elementalsouls/Claude-BugHunter", "value": 1622, "lang": "Python", "total": "14,311"},
-    {"name": "firecrawl/firecrawl", "value": 1241, "lang": "TypeScript", "total": "205,294"},
-    {"name": "XiaoYouChR/Ghost-Downloader-3", "value": 1082, "lang": "Python", "total": "13,722"},
-    {"name": "zhouxiaoka/autoclip", "value": 979, "lang": "Python", "total": "12,195"},
-    {"name": "obra/superpowers", "value": 890, "lang": "Shell", "total": "322,855"},
-    {"name": "mjmirza/app-store-compliance", "value": 869, "lang": "Shell", "total": "2,763"},
-    {"name": "jingyaogong/minimind", "value": 847, "lang": "Python", "total": "67,698"},
-    {"name": "HKUDS/CLI-Anything", "value": 773, "lang": "Python", "total": "61,400"},
-    {"name": "mvanhorn/last30days-skill", "value": 681, "lang": "Python", "total": "71,459"},
-    {"name": "toeverything/AFFiNE", "value": 676, "lang": "TypeScript", "total": "75,808"}
+    {"name": "elementalsouls/Claude-BugHunter", "value": 1716, "lang": "Python", "total": "17,861"},
+    {"name": "firecrawl/firecrawl", "value": 915, "lang": "TypeScript", "total": "207,054"},
+    {"name": "obra/superpowers", "value": 788, "lang": "Shell", "total": "324,179"},
+    {"name": "XiaoYouChR/Ghost-Downloader-3", "value": 701, "lang": "Python", "total": "15,170"},
+    {"name": "HKUDS/CLI-Anything", "value": 699, "lang": "Python", "total": "62,792"},
+    {"name": "mvanhorn/last30days-skill", "value": 668, "lang": "Python", "total": "72,730"},
+    {"name": "zhouxiaoka/autoclip", "value": 641, "lang": "Python", "total": "13,460"},
+    {"name": "mjmirza/app-store-compliance", "value": 621, "lang": "Shell", "total": "3,996"},
+    {"name": "toeverything/AFFiNE", "value": 542, "lang": "TypeScript", "total": "76,836"},
+    {"name": "cathrynlavery/diagram-design", "value": 518, "lang": "HTML", "total": "70,314"}
   ].reverse();
 
   var chart1 = null, chart2 = null, chart3 = null;
