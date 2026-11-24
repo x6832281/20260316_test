@@ -1,46 +1,46 @@
 (function () {
   // --- Chart 1: 今日全站最高赞评论 TOP 10 ---
   var topComments = [
-    {"name": "事后记得跟朋友态度好一点，朋友也不是情绪的牺牲品[微笑]", "value": 6193, "platform": "B站", "url": "https://www.bilibili.com/video/BV1x9s66RE3D"},
-    {"name": "一个赞一天头像", "value": 4015, "platform": "B站", "url": "https://www.bilibili.com/video/BV1qLsC6EEYB"},
+    {"name": "14亿中国人民殷切期盼祖国统一[打call]", "value": 7534, "platform": "B站", "url": "https://www.bilibili.com/video/BV1bMyazAEap"},
+    {"name": "剑外忽传收蓟北，初闻涕泪满衣裳", "value": 6082, "platform": "B站", "url": "https://www.bilibili.com/video/BV1bMyazAEap"},
+    {"name": "台湾问题，是内战遗留问题，中国不容分裂是内战双方的共识。", "value": 5805, "platform": "B站", "url": "https://www.bilibili.com/video/BV1bMyazAEap"},
+    {"name": "重振60系荣光", "value": 5410, "platform": "B站", "url": "https://www.bilibili.com/video/BV1mTyXzWEdv"},
+    {"name": "我都定稿开始剪视频了，手机推送说牢黄复活了……连续14天不迟到，能不能奖励我一个…", "value": 5190, "platform": "B站", "url": "https://www.bilibili.com/video/BV1mTyXzWEdv"},
     {"name": "主力机难道不是用来生活的吗？[汗颜R]我备用机里才有办公app", "value": 3703, "platform": "小红书", "url": "https://www.xiaohongshu.com/explore/68bc4d3b000000001d002244?xsec_token=ABn_i7G-eMUa4DSWmT7-_MramzptTL5I1a4U1jJqV9tlI=&xsec_source=pc_search"},
-    {"name": "真香毫无争议的第一，已经不是梗了，而是载入史册的哲学定理", "value": 3449, "platform": "B站", "url": "https://www.bilibili.com/video/BV1jvypz9EPr"},
-    {"name": "这玩意是二创？", "value": 2460, "platform": "B站", "url": "https://www.bilibili.com/video/BV1MvyWzkEVx"},
-    {"name": "王境泽注册版权的问题，low君一带而过，大家觉得不合理，他不是不让你用“真香”这…", "value": 1932, "platform": "B站", "url": "https://www.bilibili.com/video/BV1jvypz9EPr"},
-    {"name": "[星星眼]", "value": 1569, "platform": "B站", "url": "https://www.bilibili.com/video/BV1qLsC6EEYB"},
-    {"name": "那说明靠的太近", "value": 1421, "platform": "B站", "url": "https://www.bilibili.com/video/BV1x9s66RE3D"},
-    {"name": "没人能拍出像这样发掘程度不足1%的国产猫鼠队，除非他们是[妙啊]", "value": 1118, "platform": "B站", "url": "https://www.bilibili.com/video/BV1gMy3zkEgg"},
-    {"name": "累的时候真会这样，不是朋友变了，是自己那天装不下了。回头想想人家也没做错啥，就是…", "value": 1011, "platform": "B站", "url": "https://www.bilibili.com/video/BV1x9s66RE3D"}
+    {"name": "英伟达董事会调查发现，CEO黄仁勋没干过那些坏事 “我从未诋毁过黄老板！”一位明…", "value": 3640, "platform": "B站", "url": "https://www.bilibili.com/video/BV1mTyXzWEdv"},
+    {"name": "这可能是今年含金量最高的游戏[思考][思考][思考]", "value": 3350, "platform": "B站", "url": "https://www.bilibili.com/video/BV1zXyvzfEB7"},
+    {"name": "这种昆虫的进化树有点过于离谱了，虽然说能从恐龙时代延误下来的虫类都有自己本事，但…", "value": 3259, "platform": "B站", "url": "https://www.bilibili.com/video/BV121yjzQEWf"},
+    {"name": "没人能拍出像这样发掘程度不足1%的国产猫鼠队，除非他们是[妙啊]", "value": 2896, "platform": "B站", "url": "https://www.bilibili.com/video/BV1gMy3zkEgg"}
   ].reverse();
 
   // --- Chart 2: B站热门弹幕频次 TOP 12 ---
   var danmaku = [
-    {"name": "火钳刘明", "value": 934},
-    {"name": "变得更强", "value": 576},
-    {"name": "什么意思", "value": 391},
-    {"name": "合影", "value": 312},
-    {"name": "褒贬不一", "value": 259},
-    {"name": "妈妈", "value": 225},
-    {"name": "在！", "value": 209},
-    {"name": "kksk", "value": 178},
-    {"name": "见证历史", "value": 94},
-    {"name": "朱志鑫朱志鑫朱志鑫朱志鑫朱志鑫朱志鑫朱志鑫朱志鑫…", "value": 88},
-    {"name": "甜甜甜", "value": 78},
-    {"name": "新婚快乐", "value": 76}
+    {"name": "新婚快乐", "value": 1482},
+    {"name": "合影", "value": 1079},
+    {"name": "见证历史", "value": 559},
+    {"name": "在！", "value": 369},
+    {"name": "妈妈", "value": 268},
+    {"name": "谢谢", "value": 69},
+    {"name": "还真是", "value": 63},
+    {"name": "吓哭了", "value": 62},
+    {"name": "啊？", "value": 57},
+    {"name": "这下看懂了", "value": 53},
+    {"name": "没绷住", "value": 45},
+    {"name": "实至名归", "value": 44}
   ].reverse();
 
   // --- Chart 3: GitHub Trending 今日新增星数 TOP 10 ---
   var ghTrending = [
-    {"name": "elementalsouls/Claude-BugHunter", "value": 1716, "lang": "Python", "total": "17,861"},
-    {"name": "firecrawl/firecrawl", "value": 915, "lang": "TypeScript", "total": "207,054"},
-    {"name": "obra/superpowers", "value": 788, "lang": "Shell", "total": "324,179"},
-    {"name": "XiaoYouChR/Ghost-Downloader-3", "value": 701, "lang": "Python", "total": "15,170"},
-    {"name": "HKUDS/CLI-Anything", "value": 699, "lang": "Python", "total": "62,792"},
-    {"name": "mvanhorn/last30days-skill", "value": 668, "lang": "Python", "total": "72,730"},
-    {"name": "zhouxiaoka/autoclip", "value": 641, "lang": "Python", "total": "13,460"},
-    {"name": "mjmirza/app-store-compliance", "value": 621, "lang": "Shell", "total": "3,996"},
-    {"name": "toeverything/AFFiNE", "value": 542, "lang": "TypeScript", "total": "76,836"},
-    {"name": "cathrynlavery/diagram-design", "value": 518, "lang": "HTML", "total": "70,314"}
+    {"name": "elementalsouls/Claude-BugHunter", "value": 2029, "lang": "Python", "total": "19,808"},
+    {"name": "XiaoYouChR/Ghost-Downloader-3", "value": 1087, "lang": "Python", "total": "16,341"},
+    {"name": "firecrawl/firecrawl", "value": 924, "lang": "TypeScript", "total": "207,943"},
+    {"name": "zhouxiaoka/autoclip", "value": 907, "lang": "Python", "total": "14,421"},
+    {"name": "obra/superpowers", "value": 840, "lang": "Shell", "total": "325,087"},
+    {"name": "jingyaogong/minimind", "value": 828, "lang": "Python", "total": "69,473"},
+    {"name": "mvanhorn/last30days-skill", "value": 797, "lang": "Python", "total": "73,449"},
+    {"name": "HKUDS/CLI-Anything", "value": 790, "lang": "Python", "total": "63,670"},
+    {"name": "mjmirza/app-store-compliance", "value": 761, "lang": "Shell", "total": "4,991"},
+    {"name": "cathrynlavery/diagram-design", "value": 620, "lang": "HTML", "total": "70,987"}
   ].reverse();
 
   var chart1 = null, chart2 = null, chart3 = null;
